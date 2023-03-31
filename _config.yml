@@ -350,7 +350,7 @@ waline:
   bg: /img/comment_bg.png # waline background
   visitor: false
   option:
-    - placeholder: 今天应该会收到少佐的信叭~<br>生活明朗，万物可爱
+    - placeholder: 今天应该会收到少佐的信叭<br>生活明朗，万物可爱
 
 # Twikoo
 # https://github.com/imaegoo/twikoo
