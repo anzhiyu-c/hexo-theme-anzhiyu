@@ -1,0 +1,9 @@
+/* 留言板样式补丁 */
+#maincontent #form-wrap .formmain .comments-main h3.title3 {
+  justify-content: center;
+}
+
+body[data-type="envelope"] #page #post-comment .tk-comments-container > .tk-comment {
+  border: none;
+  box-shadow: none;
+}

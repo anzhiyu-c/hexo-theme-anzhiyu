@@ -1,0 +1,46 @@
+/* bilibli番剧插件 */
+#page #article-container .bangumi-tab.bangumi-active {
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-ahoverbg);
+  border-radius: 10px;
+}
+#page #article-container .bangumi-tabs .bangumi-tab {
+  border-bottom: none;
+  border-radius: 10px;
+}
+#page #article-container .bangumi-tabs a.bangumi-tab:hover {
+  text-decoration: none !important;
+  border-radius: 10px;
+  column-gap: var(--anzhiyu-ahoverbg);
+}
+#page #article-container .bangumi-pagination a.bangumi-button {
+  border-bottom: none;
+  border-radius: 10px;
+}
+.bangumi-button:hover {
+  background: var(--anzhiyu-theme) !important;
+  border-radius: 10px !important;
+  color: var(--anzhiyu-ahoverbg) !important;
+}
+a.bangumi-button.bangumi-nextpage:hover {
+  text-decoration: none !important;
+}
+.bangumi-button {
+  padding: 5px 10px !important;
+}
+
+a.bangumi-tab {
+  padding: 5px 10px !important;
+}
+svg.icon.faa-tada {
+  font-size: 1.1em;
+}
+.bangumi-info-item {
+  border-right: 1px solid #f2b94b;
+}
+.bangumi-info-item span {
+  color: #f2b94b;
+}
+.bangumi-info-item em {
+  color: #f2b94b;
+}

@@ -1,0 +1,117 @@
+#article-container ol,
+#article-container ul {
+  margin-top: 0.4rem;
+  padding: 0px 0px 0px 0.8rem;
+  list-style: none;
+  counter-reset: li 0;
+}
+#article-container code {
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  margin: 0 4px;
+  line-height: 2;
+  box-shadow: var(--anzhiyu-shadow-border);
+}
+#article-container.post-content li::marker {
+  content: none;
+}
+#article-container ol li:not(.tab),
+#article-container ul li:not(.tab) {
+  position: relative;
+  margin: 0.2rem 0px;
+}
+#article-container ul > li:not(.tab) {
+  padding: 0.2em 0.2em 0.2em 1.4em;
+}
+#article-container ul > li:not(.tab):before {
+  border: 0.21em solid var(--anzhiyu-lighttext);
+  background: var(--anzhiyu-lighttext);
+}
+#article-container ul > li:not(.tab)::before {
+  top: 0.78em;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 0.42em;
+  content: "";
+  line-height: 0.42em;
+}
+
+#article-container ol li::before,
+#article-container ul li::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: var(--anzhiyu-theme);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-out 0s;
+}
+#article-container ol > li::before {
+  margin-top: 0.65em;
+  width: 1.45em;
+  height: 1.45em;
+  border-radius: 0.725em;
+  content: counter(li);
+  counter-increment: li 1;
+  text-align: center;
+  font-size: 0.85em;
+  line-height: 1.45em;
+}
+#article-container ol li:not(.tab),
+#article-container ul li:not(.tab) {
+  position: relative;
+  margin: 0.2rem 0px;
+}
+#article-container ol > li:not(.tab) {
+  padding: 0.2em 0.2em 0.2em 1.8em;
+}
+
+/* tab框 */
+#article-container .tabs {
+  border: 3px solid var(--anzhiyu-secondbg) !important;
+}
+#article-container .tabs {
+  margin: 1rem 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--anzhiyu-shadow-border);
+}
+#article-container .tabs > .nav-tabs > .tab button {
+  border-bottom: 2px solid var(--tab-border-color);
+  border-top: none !important;
+}
+#article-container .tabs > .nav-tabs > .tab.active button {
+  border-bottom: 2px solid #3b70fc;
+  border-top: none !important;
+}
+.tab-item-content {
+  background: var(--anzhiyu-card-bg);
+}
+/* 代码框主题 */
+#article-container figure.highlight {
+  border-radius: 10px;
+}
+#post-comment blockquote {
+  background: var(--anzhiyu-secondbg);
+  border: var(--style-border);
+  box-shadow: none;
+  margin: 0px 0px 0.5rem;
+  font-size: 0.6rem;
+  color: var(--anzhiyu-secondtext);
+  border-radius: 8px;
+}
+
+/* table */
+table thead {
+  background: var(--anzhiyu-secondbg);
+}
+
+table td,
+table th {
+  padding: 0.3rem 0.6rem;
+  border: var(--style-border-always);
+}
+.table-wrap {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow-x: scroll;
+}

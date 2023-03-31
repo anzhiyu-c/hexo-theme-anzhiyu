@@ -1,0 +1,13 @@
+.about-reward {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .reward .about-reward #con {
+    width: 170px;
+  }
+  .reward #tube-con {
+    display: none;
+  }
+}

@@ -1,0 +1,58 @@
+- var htmlClassHideAside = theme.aside.enable && theme.aside.hide ? 'hide-aside' : ''
+- page.aside = is_archive() ? theme.aside.display.archive: is_category() ? theme.aside.display.category : is_tag() ? theme.aside.display.tag : page.aside
+- var hideAside = !theme.aside.enable || page.aside === false ? 'hide-aside' : ''
+- var pageType = is_post() ? 'post' : 'page'
+
+doctype html
+html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside)
+  head
+    include ./head.pug
+  body(data-type="anzhiyu")
+    if theme.background
+      #web_bg
+      #an_music_bg
+
+    if page.type !== '404'
+      #body-wrap(class=pageType)
+        include ./header/index.pug
+        if (is_home())
+          include ./bbTimeList.pug
+        if is_current("/")
+          include ./top/top.pug
+
+        main#content-inner.layout(class=hideAside)
+          if body
+            div!= body
+          else
+            block content
+            if theme.aside.enable && page.aside !== false
+              include widget/index.pug
+
+        - var footerBg = theme.footer_bg
+        if (footerBg)
+          if (footerBg === true)
+            - var footer_bg = bg_img
+          else
+            - var footer_bg = theme.footer_bg.indexOf('/') !== -1 ? `background-image: url('${url_for(footerBg)}')` : `background: ${footerBg}`
+        else
+          - var footer_bg = ''
+
+        footer#footer(style=footer_bg)
+          !=partial('includes/footer', {}, {cache: true})
+
+    else
+      include ./404.pug
+
+    if theme.preloader.enable
+      !=partial('includes/loading/index', {}, {cache: true})
+
+    !=partial('includes/sidebar', {}, {cache: true})
+    include ./rightside.pug
+
+    if (theme.nav_music.enable || theme.nav_music.console_widescreen_music)
+      include ./music.pug
+    !=partial('includes/anzhiyu/console', {}, {cache:true})
+    !=partial('includes/third-party/search/index', {}, {cache: true})
+    !=partial('includes/anzhiyu/rightmenu', {}, {cache:true})
+    !=partial('includes/anzhiyu/clock', {}, {cache:true})
+    include ./additional-js.pug

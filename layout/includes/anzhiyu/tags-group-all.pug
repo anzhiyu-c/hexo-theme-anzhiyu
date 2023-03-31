@@ -1,0 +1,20 @@
+if site.data.creativity
+  #skills-tags-group-all
+    .tags-group-wrapper
+      each i in site.data.creativity
+        - const evenNum = i.creativity_list.filter((x, index) => index % 2 === 0);
+        - const oddNum = i.creativity_list.filter((x, index) => index % 2 === 1);
+        each item, index in i.creativity_list
+          if ((index+1 <= evenNum.length) && (index+1 <= oddNum.length))
+            .tags-group-icon-pair
+              .tags-group-icon(style=`background: ${evenNum[index].color}`)
+                img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon)
+              .tags-group-icon(style=`background: ${oddNum[index].color}`)
+                img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon)
+        each item, index in i.creativity_list
+          if ((index+1 <= evenNum.length) && (index+1 <= oddNum.length))
+            .tags-group-icon-pair
+              .tags-group-icon(style=`background: ${evenNum[index].color}`)
+                img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon)
+              .tags-group-icon(style=`background: ${oddNum[index].color}`)
+                img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon)

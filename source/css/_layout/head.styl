@@ -1,0 +1,397 @@
+#page-header
+  position: relative
+  width: 100%
+
+  // index
+  &.full_page
+    height: $index_top_img_height
+    background-attachment: fixed
+
+    #site-info
+      position: absolute
+      top: $index_site_info_top
+      padding: 0 10px
+      width: 100%
+
+  #site-title,
+  #site-subtitle,
+  #scroll-down .scroll-down-effects
+    text-align: center
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .15)
+    line-height: 1.5
+
+  #site-title
+    margin: 0
+    color: var(--white)
+    font-size: 1.85em
+
+    +minWidth768()
+      font-size: 2.85em
+
+  #site-subtitle
+    color: var(--light-grey)
+    font-size: 1.15em
+
+    +minWidth768()
+      font-size: 1.72em
+
+  #site_social_icons
+    display: none
+    margin: 0 auto
+    width: 300px
+    text-align: center
+
+    +maxWidth768()
+      display: block
+
+    .social-icon
+      margin: 0 10px
+      color: var(--light-grey)
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, .15)
+      font-size: 1.43em
+
+  #scroll-down
+    position: absolute
+    bottom: 0
+    width: 100%
+    cursor: pointer
+
+    .scroll-down-effects
+      position: relative
+      width: 100%
+      color: var(--light-grey)
+      font-size: 30px
+
+  // page
+  &.not-home-page
+    height: 400px
+
+    +maxWidth768()
+      height: 280px
+
+  #page-site-info
+    position: absolute
+    top: 200px
+    padding: 0 10px
+    width: 100%
+
+    +maxWidth768()
+      top: 140px
+
+  // post
+  &.post-bg
+    height: 400px
+    #nav
+      backdrop-filter: none;
+      background: transparent;
+      border-bottom: none;
+    &.nav-fixed
+      #nav
+        backdrop-filter: saturate(180%) blur(20px);
+        background: var(--anzhiyu-maskbgdeep);
+        border-bottom: var(--style-border);
+        transform: translateZ(0);
+      +maxWidth768()
+        #nav
+          border-bottom: none
+    +maxWidth768()
+      height: 360px
+      &.nav-fixed
+        #nav
+          background: var(--anzhiyu-background);
+
+    &:before    
+      position: absolute
+      width: 100%
+      height: 100%
+      content: ''
+      transition: 0s;
+      background-color: var(--anzhiyu-bar-background);
+      animation: slide-in-op 0.6s 0s forwards;
+
+  #post-info
+    position: absolute
+    top: 0
+    padding: 0 12%
+    width: 100%
+    height 100%
+    display: flex
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3
+    animation: slide-in 0.6s 0.3s backwards;
+
+    +maxWidth768()
+      padding: 0 6%;
+
+  &.not-top-img
+    margin-bottom: 10px
+    height: 60px
+    background: 0
+
+    #nav
+      a
+        color: var(--font-color)
+        text-shadow: none
+
+  &.nav-fixed
+    #nav
+      position: fixed
+      z-index: 91
+      
+      a,
+      #site-name,
+      #toggle-menu
+        color: var(--font-color)
+        text-shadow: none
+        transition: background .35s ease-in-out,color .2s ease-in-out;
+
+        &:hover
+          color: var(--white)
+    
+    #menus
+      transform: translateY(-60px);
+      transition: 0.3s;
+
+  &.nav-visible
+    #name-container
+      transform: translateY(60px);
+    #menus
+      transition: 0.3s;
+      line-height: 60px;
+      transform: translateY(0px);
+
+#page
+  h1.page-title
+    margin: 8px 0 20px
+
+// for not top_img
+#post
+  & > #post-info
+    margin-bottom: 30px
+
+    .post-title
+      padding-bottom: 4px
+      border-bottom: 1px solid var(--light-grey)
+      color: var(--text-highlight-color)
+
+      .post-edit-link
+        float: right
+
+    #post-meta,
+    #post-meta a
+      color: #78818a
+
+#post-info
+  .post-title
+    @extend .limit-more-line
+    margin-bottom: 8px
+    color: var(--white)
+    font-weight: normal
+    font-size: 2.5em
+    line-height: 1.5
+    -webkit-line-clamp: 3
+
+    +maxWidth768()
+      font-size: 2.1em
+      z-index: 4
+
+    .post-edit-link
+      padding-left: 10px
+
+  #post-meta
+    color: var(--light-grey)
+    font-size: 95%
+    display: flex;
+    width: 50rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    +minWidth768()
+      > .meta-secondline
+        > span:first-child
+          display: none
+
+    +maxWidth768()
+      font-size: 90%
+      z-index: 4
+
+      > .meta-firstline,
+      > .meta-secondline
+        display: inline
+
+    .post-meta
+      &-separator
+        margin: 0 5px
+
+      &-icon
+        margin-right: 4px
+
+      &-label
+        if hexo-config('post_meta.post.label')
+          margin-right: 4px
+        else
+          display: none
+      &-categories
+        a:not([data-fancybox="gallery"])
+          font-weight: 500;
+          text-decoration: none;
+          padding: 0 0.2em;
+          &:hover 
+            color: var(--anzhiyu-white);
+            background-color: var(--anzhiyu-main);
+            border-radius: 4px;
+
+    a
+      color: var(--light-grey)
+      transition: all .3s ease-out
+
+      &:hover
+        color: $text-hover
+        text-decoration: underline
+
+    if hexo-config('post_meta.post.date_format') == 'relative'
+      time
+        display: none
+
+#nav
+  position: fixed
+  transition: border 0s, all 0s
+  top: 0
+  z-index: 90
+  display: flex
+  align-items: center
+  padding: 0 calc((100% - 1370px) / 2);
+  width: 100%
+  height: 60px
+  font-size: 1.3em
+  opacity: 1
+  justify-content: space-between;
+  border-bottom: var(--style-border);
+  background: var(--anzhiyu-maskbgdeep);
+  backdrop-filter: saturate(180%) blur(20px);
+  transform: translateZ(0);
+
+  +maxWidth768()
+    padding: 0 16px
+
+  #toggle-menu
+    display: none
+    padding: 2px 0 0 6px
+    vertical-align: top
+
+    &:hover
+      color: var(--white)
+
+  a
+    color: var(--light-grey)
+
+    &:hover
+      color: var(--white)
+
+  #site-name
+    // text-shadow: 2px 2px 4px rgba($dark-black, .15)
+    font-weight: bold
+    cursor: pointer
+
+  .menus_items
+    display: inline
+
+    .menus_item
+      position: relative
+      display: inline-block
+      padding: 0 0 0 14px
+
+      &:hover
+        .menus_item_child
+          display: block
+
+        & > a > i:last-child
+          transform: rotate(180deg)
+
+      & > a > i:last-child
+        padding: 4px
+        transition: transform .3s
+
+      .menus_item_child
+        position: absolute
+        right: 0
+        display: none
+        margin-top: 8px
+        padding: 0
+        width: max-content
+        border-radius: 5px
+        background-color: var(--sidebar-bg)
+        box-shadow: 0 5px 20px -4px rgba($dark-black, .5)
+        animation: sub_menus .3s .1s ease both
+
+        &:before
+          position: absolute
+          top: -8px
+          left: 0
+          width: 100%
+          height: 20px
+          content: ''
+
+        li
+          list-style: none
+
+          &:hover
+            background: var(--text-bg-hover)
+
+          &:first-child
+            border-top-left-radius: 50px
+            border-top-right-radius: 50px
+
+          &:last-child
+            border-bottom-right-radius: 50px
+            border-bottom-left-radius: 50px
+
+          a
+            display: inline-block
+            padding: 8px 16px
+            width: 100%
+            color: var(--font-color) !important
+            text-shadow: none !important
+
+  &.hide-menu
+    #toggle-menu
+      display: inline-block !important
+
+      .site-page
+        font-size: inherit
+
+    .menus_items
+      display: none
+
+    #search-button span
+      display: none
+
+  #search-button
+    display: inline
+    padding: 0 0 0 14px
+
+  .site-page
+    position: relative
+    padding-bottom: 6px
+    font-size: .78em
+    cursor: pointer
+
+    &:not(.child)
+      &:after
+        position: absolute
+        bottom: 0
+        left: 0
+        z-index: -1
+        width: 0
+        height: 3px
+        background-color: lighten($theme-color, 30%)
+        content: ''
+        transition: all .3s ease-in-out
+
+      &:hover
+        &:after
+          width: 100%

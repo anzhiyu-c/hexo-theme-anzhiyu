@@ -1,0 +1,322 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-padding-top: 60px;
+}
+
+#web_bg {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  transform: rotate(-1deg);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 天气组件颜色变白 */
+#he-plugin-simple .sticker-important {
+  color: var(--anzhiyu-white) !important;
+}
+
+h1#site-title {
+  font-size: 3em !important;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 3em;
+  /* 可以定义图标大小 */
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 时间轴生肖icon */
+svg.icon {
+  /* 这里定义svg.icon，避免和Butterfly自带的note标签冲突 */
+  width: 1em;
+  height: 1em;
+  /* width和height定义图标的默认宽度和高度*/
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.icon-zhongbiao::before {
+  color: #f7c768;
+}
+
+/* 解决artitalk的图标问题 */
+#uploadSource > svg {
+  width: 1.19em;
+  height: 1.5em;
+}
+
+/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
+/* #page-header:not(.not-top-img):before {
+  background-color: transparent !important;
+} */
+
+/* 首页文章卡片 */
+#recent-posts > .recent-post-item {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 首页侧栏卡片 */
+/* #aside-content .card-widget {
+  background: rgba(255, 255, 255, 0.9);
+} */
+
+/* 文章页面正文背景 */
+div#post {
+  background: rgba(255, 255, 255, 0.9);
+}
+#recent-posts > .recent-post-item:not(:first-child):active {
+  transform: scale(0.97);
+}
+/* 分页页面 */
+div#page {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 归档页面 */
+div#archive {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 标签页面 */
+div#tag {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 分类页面 */
+div#category {
+  background: rgba(255, 255, 255, 0.9);
+}
+/* 分类条 */
+#category-bar.category-bar {
+  background: rgba(255, 255, 255, 0.9);
+}
+/*夜间模式伪类遮罩层透明*/
+[data-theme="dark"] #recent-posts > .recent-post-item {
+  background: #121212;
+}
+
+[data-theme="dark"] .card-widget {
+  background: var(--anzhiyu-card-bg);
+}
+
+[data-theme="dark"] div#post {
+  background: var(--anzhiyu-card-bg);
+}
+
+[data-theme="dark"] div#tag {
+  background: var(--anzhiyu-card-bg);
+}
+
+[data-theme="dark"] div#archive {
+  background: var(--anzhiyu-card-bg);
+}
+
+[data-theme="dark"] div#page {
+  background: var(--anzhiyu-card-bg);
+}
+
+[data-theme="dark"] div#category {
+  background: var(--anzhiyu-card-bg);
+}
+
+[data-theme="dark"] div#category {
+  background: transparent !important;
+}
+
+/* 头图透明 */
+/* #page-header {
+  background: transparent !important;
+} */
+
+/* 滚动条 */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3b70fc;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: #3b70fc;
+}
+
+/* md网站下划线 */
+#article-container a:hover {
+  text-decoration: none !important;
+}
+
+#article-container #hpp_talk p img {
+  display: inline;
+}
+
+/* 宽屏适配 */
+.aside-content {
+  max-width: 312px;
+  min-width: 250px;
+}
+.layout > div:first-child {
+  width: calc(100% - 300px);
+}
+@media screen and (max-width: 900px) {
+  .aside-content {
+    max-width: none !important;
+  }
+}
+.page .layout,
+.post .layout {
+  max-width: 1400px;
+}
+
+.card-widget.card-clock {
+  font-size: 14px;
+}
+
+#article-container
+  a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.tag-Link):not(.btn-beautify) {
+  font-weight: 500;
+  border-bottom: solid 2px var(--anzhiyu-lighttext);
+  color: var(--anzhiyu-fontcolor);
+  padding: 0 0.2em;
+  text-decoration: none;
+}
+#article-container a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-beautify):hover {
+  color: var(--anzhiyu-white);
+  background: var(--anzhiyu-theme);
+  box-shadow: var(--anzhiyu-shadow-lightblack);
+  border-radius: 0.25em;
+  text-decoration: none;
+}
+
+html.hide-aside .layout > div:first-child {
+  width: 100%;
+}
+
+/* 动画wowjs兼容调整 */
+.animate__animated {
+  -webkit-animation-fill-mode: backwards !important;
+  animation-fill-mode: backwards !important;
+}
+
+[data-theme="dark"] img {
+  filter: brightness(1);
+}
+
+/* 文章hover边框 */
+#recent-posts .recent-post-item:hover {
+  border: var(--style-border-hover);
+  box-shadow: var(--anzhiyu-shadow-main);
+}
+#recent-posts .recent-post-item:hover .recent-post-info .article-title {
+  color: var(--anzhiyu-theme);
+}
+#recent-posts .recent-post-item {
+  height: fit-content;
+  background: var(--anzhiyu-card-bg);
+  border-radius: 12px;
+  cursor: pointer;
+  border: var(--style-border);
+}
+/* 移动端容器padding */
+@media screen and (max-width: 768px) {
+  #body-wrap .layout #page {
+    padding: 20px 15px !important;
+  }
+}
+/* 首页文章宽度 */
+@media screen and (max-width: 1200px) {
+  .layout > div:first-child {
+    width: calc(100% - 245px);
+  }
+}
+.layout #recent-posts > .recent-post-item .post_cover {
+  width: 100%;
+  height: 225px;
+}
+#recent-posts > .recent-post-item {
+  box-shadow: none;
+}
+[data-theme="dark"] #footer:before {
+  content: none;
+}
+.layout > div:first-child:not(.recent-posts) {
+  border-radius: 12px;
+  animation: slide-in 0.6s 0.1s backwards;
+}
+@media screen and (max-width: 768px) {
+  .layout > div:first-child:not(.recent-posts) {
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+/* 控制动画 */
+#aside-content {
+  animation: slide-in 0.6s 0.3s backwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.banners-title {
+  animation: slide-in 0.6s 0.3s backwards;
+}
+#algolia-search .search-dialog {
+  animation: slide-in 0.6s ease 0s 1 normal none running;
+}
+
+#aside-content {
+  padding-left: 1rem;
+  animation: slide-in 0.6s 0.3s backwards;
+}
+
+@media screen and (min-width: 1300px) {
+  #page > div:not(.author-content-item) {
+    animation: slide-in 0.6s 0.2s backwards;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .author-content-item {
+    animation: slide-in 0.6s 0s backwards;
+  }
+}
+
+/* 元素透明度改变 */
+@keyframes slide-in-op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

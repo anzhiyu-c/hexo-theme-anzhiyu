@@ -1,0 +1,14 @@
+body[data-type="link"] main #page {
+  border: 0;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+[data-theme="dark"] body[data-type="link"] #page {
+  background: transparent;
+}
+
+.flink .butterfly-flink-list {
+  padding: 0;
+}

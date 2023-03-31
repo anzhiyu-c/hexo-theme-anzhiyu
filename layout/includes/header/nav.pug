@@ -1,0 +1,54 @@
+- const { darkmode } = theme
+nav#nav
+  span#blog_name
+    .back-home-button(tabindex='-1')
+      i.back-home-button-icon.fas.fa-grip-vertical
+      .back-menu-list-groups
+        each group in theme.nav.menu
+          .back-menu-list-group
+            .back-menu-list-title= group.title
+            .back-menu-list
+              each item in group.item
+                a.back-menu-item(href=item.link, title=item.name, target='_blank')
+                  img.back-menu-item-icon(src=item.icon)
+                  span.back-menu-item-text= item.name
+    a#site-name(href=url_for('/'))
+      .title #[=config.title]
+      i.fa-solid.fa-house
+
+  div.mask-name-container
+    center(id="name-container")
+      a(id="page-name" href="javascript:btf.scrollToDest(0, 500)") PAGE_NAME
+    
+  #menus
+    !=partial('includes/header/menu_item', {}, {cache: true})
+  #nav-right
+    .nav-button.only-home#travellings_button(style='display: flex')
+      a.site-page(onclick='totraveling()', title='随机前往一个开往项目网站', href='javascript:void(0);', rel='external nofollow', data-pjax-state='external')
+        i.fa-solid.fa-train-subway(style='font-size:1.2rem')
+
+    .nav-button#randomPost_button
+      a.site-page(onclick='toRandomPost()', title='随机前往一个文章', href='javascript:void(0);')
+        i.fa-solid.fa-dice(style='font-size:1.2rem')
+    
+    if (theme.algolia_search.enable || theme.local_search.enable)
+      div.nav-button#search-button
+        a.site-page.social-icon.search(href='javascript:void(0);', title='搜索🔍')
+          i.fas.fa-search.fa-fw
+          span=' '+_p('search.title')
+    
+    if darkmode.enable && darkmode.button
+      div.nav-button#darkmode_navswitch
+        a.darkmode_switchbutton(type="button" href='javascript:void(0);' title=_p('rightside.night_mode_title') onclick="rm.switchDarkMode()")
+          i.fas.fa-adjust
+
+    div.nav-button#nav-totop
+      a.totopbtn(href='javascript:void(0);')
+        i.fas.fa-arrow-up
+        span#percent(onclick="btf.scrollToDest(0,500)") 0
+    
+    #toggle-menu
+      a.site-page(href='javascript:void(0);')
+        i.fas.fa-bars.fa-fw
+
+

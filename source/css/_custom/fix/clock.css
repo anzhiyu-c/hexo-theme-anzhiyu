@@ -1,0 +1,7 @@
+.card-glass .card-background {
+  box-shadow: none;
+  margin: 0 15px;
+}
+[data-theme="dark"] .card-glass .card-background {
+  background-color: transparent;
+}

@@ -1,0 +1,26 @@
+if theme.aside.card_author.enable
+  .card-widget.card-info
+    .author-info-top 
+      .card-info-avatar
+        if theme.aside.card_author.type === 1
+          a.avatar-img(href='/about')
+            img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
+        if theme.author_status.enable
+          .author-status-box
+            .author-status
+              g-emoji(class='g-emoji', alias=theme.author_status.alias, fallback-src=theme.author_status.fallback_src)=theme.author_status.status
+              span=theme.author_status.text
+
+    .author-info__sayhi#author-info__sayhi
+    h1.author-info__name= config.author
+    .author-info__description!= theme.aside.card_author.description || config.description
+
+    if theme.aside.card_author.button.enable
+      .banner-button-group
+        a.banner-button(onclick='pjax.loadUrl("' + theme.aside.card_author.button.link +'")')
+          i(class=theme.aside.card_author.button.icon)
+          span.banner-button-text=theme.aside.card_author.button.text
+  
+    if(theme.social)
+        .card-info-social-icons.is-center
+          !=fragment_cache('social', function(){return partial('includes/header/social')}) 

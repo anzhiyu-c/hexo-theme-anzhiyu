@@ -1,0 +1,1146 @@
+menu:
+  # 文章:
+  #   隧道: /archives/ || fas fa-archive
+  #   分类: /categories/ || fas fa-shapes
+  #   标签: /tags/ || fas fa-tags
+
+  # 友链:
+  #   友人帐: /link/ || fas fa-link
+  #   朋友圈: /fcircle/ || fab fa-artstation
+  #   留言板: /comments/ || fas fa-envelope
+
+  # 我的:
+  #   音乐馆: /music/ || fas fa-music
+  #   追番页: /bangumis/ || icon-bilibili1
+  #   相册集: /album/ || fas fa-images
+  #   小空调: /air-conditioner/ || fa-regular fa-fan
+
+  # 关于:
+  #   关于本人: /about/ || icon-zhifeiji
+  #   闲言碎语: /essay/ || fas fa-lightbulb-on
+  #   随便逛逛: javascript:toRandomPost() || fas fa-shoe-prints
+
+# nav左侧菜单
+nav:
+  enable: true
+  menu:
+    - title: 网页
+      item:
+        - name: 个人主页
+          link: https://index.anzhiy.cn/
+          icon: https://index.anzhiy.cn/assets/home.svg
+        - name: 博客
+          link: https://anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png
+        - name: 云盘主页
+          link: https://www.cloud.anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+        - name: 安知鱼图床
+          link: https://image.anzhiy.cn/
+          icon: https://image.anzhiy.cn/favicon.ico
+        - name: alist文件管理
+          link: https://pan.anzhiy.cn/
+          icon: https://cloud.anzhiy.cn/static/img/c192.png
+    - title: 项目
+      item:
+        - name: 安知鱼云盘
+          link: https://cloud.anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png
+        - name: 德信官网
+          link: http://blgou.net/#/main/home
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png
+
+# Code Blocks (代码相关)
+# --------------------------------------
+
+highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
+highlight_copy: true # copy button
+highlight_lang: true # show the code language
+highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
+highlight_height_limit: 330 # unit: px
+code_word_wrap: false
+
+# copy settings
+# copyright: Add the copyright information after copied content (複制的内容后面加上版权信息)
+copy:
+  enable: true
+  copyright:
+    enable: false
+    limit_count: 50
+
+# social settings (社交图标设置)
+# formal:
+#   icon: link || the description
+social:
+  Github: https://github.com/anzhiyu-c || icon-gitHub || faa-tada
+  Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || icon-youxiang || faa-tada
+  RSS: atom.xml || icon-rss || faa-tada
+  BiliBili: https://space.bilibili.com/372204786 || icon-bilibili || faa-tada
+  QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || icon-QQ1 || faa-tada
+
+author_status:
+  enable: true
+  status: ✍️
+  alias: writing_hand
+  fallback_src: https://github.githubassets.com/images/icons/emoji/unicode/270d.png
+  text: on Studying
+
+# search (搜索)
+# see https://butterfly.js.org/posts/ceeb73f/#搜索系统
+# --------------------------------------
+
+# Algolia search
+algolia_search:
+  enable: false
+  hits:
+    per_page: 6
+
+# Local search
+local_search:
+  enable: false
+  preload: true
+  CDN:
+
+# Math (数学)
+# --------------------------------------
+# About the per_page
+# if you set it to true, it will load mathjax/katex script in each page (true 表示每一页都加载js)
+# if you set it to false, it will load mathjax/katex script according to your setting (add the 'mathjax: true' in page's front-matter)
+# (false 需要时加载，须在使用的 Markdown Front-matter 加上 mathjax: true)
+
+# MathJax
+mathjax:
+  enable: false
+  per_page: false
+
+# KaTeX
+katex:
+  enable: false
+  per_page: false
+  hide_scrollbar: true
+
+# Image (图片设置)
+# --------------------------------------
+
+# Favicon（网站图标）
+favicon: /img/favicon.png
+
+# Avatar (头像)
+avatar:
+  img: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+  effect: false
+
+# Disable all banner image
+disable_top_img: false
+
+# The banner image of home page
+index_img: false
+
+# If the banner of page not setting, it will show the top_img
+default_top_img: false
+
+# The banner image of archive page
+archive_img: false
+
+# If the banner of tag page not setting, it will show the top_img
+# note: tag page, not tags page (子标籤页面的 top_img)
+tag_img:
+
+# The banner image of tag page
+# format:
+#  - tag name: xxxxx
+tag_per_img:
+
+# If the banner of category page not setting, it will show the top_img
+# note: category page, not categories page (子分类页面的 top_img)
+category_img:
+
+# The banner image of category page
+# format:
+#  - category name: xxxxx
+category_per_img:
+
+cover:
+  # display the cover or not (是否显示文章封面)
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  # the position of cover in home page (封面显示的位置)
+  # left/right/both
+  position: both
+  # When cover is not set, the default cover is displayed (当没有设置cover时，默认的封面显示)
+  default_cover:
+    - /img/default_cover.jpg
+
+# Replace Broken Images (替换无法显示的图片)
+error_img:
+  flink: /img/friend_404.gif
+  post_page: /img/404.jpg
+
+# A simple 404 page
+error_404:
+  enable: true
+  subtitle: "Page Not Found"
+  background: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/page-404.png
+
+post_meta:
+  page: # Home Page
+    date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
+    date_format: date # date/relative 显示日期还是相对日期
+    categories: true # true or false 主页是否显示分类
+    tags: true # true or false 主页是否显示标籤
+    label: true # true or false 显示描述性文字
+  post:
+    date_type: both # created or updated or both 文章页日期是创建日或者更新日或都显示
+    date_format: date # date/relative 显示日期还是相对日期
+    categories: true # true or false 文章页是否显示分类
+    tags: true # true or false 文章页是否显示标籤
+    label: true # true or false 显示描述性文字
+
+# wordcount (字数统计)
+# see https://butterfly.js.org/posts/ceeb73f/#字数统计
+wordcount:
+  enable: false
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+# Display the article introduction on homepage
+# 1: description
+# 2: both (if the description exists, it will show description, or show the auto_excerpt)
+# 3: auto_excerpt (default)
+# false: do not show the article introduction
+index_post_content:
+  method: 3
+  length: 500 # if you set method to 2 or 3, the length need to config
+
+# anchor
+# when you scroll in post, the URL will update according to header id.
+anchor: false
+
+# Post
+# --------------------------------------
+
+# toc (目录)
+toc:
+  post: true
+  page: false
+  number: true
+  expand: false
+  style_simple: false # for post
+
+post_copyright:
+  enable: true
+  decode: false
+  author_href:
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# Sponsor/reward
+reward:
+  enable: true
+  coinAudio: https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a
+  QR_code:
+    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png
+      link:
+      text: wechat
+    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
+      link:
+      text: alipay
+
+# Post edit
+# Easily browse and edit blog source code online.
+post_edit:
+  enable: false
+  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
+  # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
+  url:
+
+# Related Articles
+related_post:
+  enable: true
+  limit: 6 # Number of posts displayed
+  date_type: created # or created or updated 文章日期显示创建日或者更新日
+
+# figcaption (图片描述文字)
+photofigcaption: false
+
+# post_pagination (分页)
+# value: 1 || 2 || false
+# 1: The 'next post' will link to old post
+# 2: The 'next post' will link to new post
+# false: disable pagination
+post_pagination: 2
+
+# Displays outdated notice for a post (文章过期提醒)
+noticeOutdate:
+  enable: true
+  style: flat # style: simple/flat
+  limit_day: 365 # When will it be shown
+  position: top # position: top/bottom
+  message_prev: It has been
+  message_next: days since the last update, the content of the article may be outdated.
+
+# Share System (分享功能)
+# --------------------------------------
+
+# AddThis
+# https://www.addthis.com/
+addThis:
+  enable: false
+  pubid:
+
+# Share.js
+# https://github.com/overtrue/share.js
+sharejs:
+  enable: true
+  sites: facebook,twitter,wechat,weibo,qq
+
+# AddToAny
+# https://www.addtoany.com/
+addtoany:
+  enable: false
+  item: facebook,twitter,wechat,sina_weibo,email,copy_link
+
+# Comments System
+# --------------------------------------
+
+comments:
+  # Up to two comments system, the first will be shown as default
+  # Choose: Valine/Waline/Twikoo/Artalk
+  use: Twikoo # Valine
+  text: true # Display the comment name next to the button
+  # lazyload: The comment system will be load when comment element enters the browser's viewport.
+  # If you set it to true, the comment count will be invalid
+  lazyload: false
+  count: false # Display comment count in post's top_img
+  card_post_count: false # Display comment count in Home Page
+
+# valine
+# https://valine.js.org
+valine:
+  appId: xxxxx # leancloud application app id
+  appKey: xxxxx # leancloud application app key
+  pageSize: 10 # comment list page size
+  avatar: mp # gravatar style https://valine.js.org/#/avatar
+  lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
+  placeholder: 填写QQ邮箱就会使用QQ头像喔~. # valine comment input placeholder (like: Please leave your footprints)
+  guest_info: nick,mail,link # valine comment header info (nick/mail/link)
+  recordIP: false # Record reviewer IP
+  serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
+  bg: /img/comment_bg.png # valine background
+  emojiCDN: //i0.hdslb.com/bfs/emote/ # emoji CDN
+  enableQQ: true # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  requiredFields: nick,mail # required fields (nick/mail)
+  visitor: false
+  master:
+    - xxxxx
+  friends:
+    - xxxxxx
+  tagMeta: "博主,小伙伴,访客"
+  option:
+
+# waline - A simple comment system with backend support fork from Valine
+# https://waline.js.org/
+waline:
+  serverURL: https://waline-api-xxxx.vercel.app/ # Waline server address url
+  pageview: false
+  avatar: mp # gravatar style https://zh-tw.gravatar.com/site/implement/images/#default-image
+  emojiCDN: //i0.hdslb.com/bfs/emote/ # emoji CDN
+  bg: /img/comment_bg.png # waline background
+  visitor: false
+  option:
+    - placeholder: 今天应该会收到少佐的信叭~<br>生活明朗，万物可爱
+
+# Twikoo
+# https://github.com/imaegoo/twikoo
+twikoo:
+  envId:
+  region:
+  visitor: false
+  option:
+
+# Artalk
+# https://artalk.js.org/guide/frontend/config.html
+artalk:
+  server:
+  site:
+  visitor: false
+  option:
+
+# Chat Services
+# --------------------------------------
+
+# Chat Button [recommend]
+# It will create a button in the bottom right corner of website, and hide the origin button
+chat_btn: false
+
+# The origin chat button is displayed when scrolling up, and the button is hidden when scrolling down
+chat_hide_show: false
+
+# chatra
+# https://chatra.io/
+chatra:
+  enable: false
+  id:
+
+# tidio
+# https://www.tidio.com/
+tidio:
+  enable: false
+  public_key:
+
+# daovoice
+# http://daovoice.io/
+daovoice:
+  enable: false
+  app_id:
+
+# gitter
+# https://gitter.im/
+gitter:
+  enable: false
+  room:
+
+# crisp
+# https://crisp.chat/en/
+crisp:
+  enable: false
+  website_id:
+
+# Footer Settings
+# --------------------------------------
+footer:
+  owner:
+    enable: true
+    since: 2020
+  custom_text:
+  copyright: false # Copyright of theme and framework
+  runtime:
+    enable: true
+    launch_time: 04/01/2021 00:00:00 # 网站上线时间
+    work_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg
+    work_description: 距离月入25k也就还差一个大佬带我~
+    offduty_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-下班啦.svg
+    offduty_description: 下班了就该开开心心的玩耍，嘿嘿~
+  # 徽标部分配置项 https://shields.io/
+  # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
+  bdageitem:
+    - link: https://hexo.io/ #徽标指向网站链接
+      shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
+      message: 博客框架为Hexo_v5.4.0 #徽标提示语
+    - link: https://www.dogecloud.com/
+      shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
+      message: 本站使用多吉云为静态资源提供CDN加速
+    - link: https://github.com/
+      shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
+      message: 本站项目由Github托管
+    - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
+      shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
+      message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+
+# Analysis
+# --------------------------------------
+
+# Baidu Analytics
+# https://tongji.baidu.com/web/welcome/login
+baidu_analytics:
+
+# Google Analytics
+# https://analytics.google.com/analytics/web/
+google_analytics:
+
+# CNZZ Analytics
+# https://www.umeng.com/
+cnzz_analytics:
+
+# Cloudflare Analytics
+# https://www.cloudflare.com/zh-tw/web-analytics/
+cloudflare_analytics:
+
+# Microsoft Clarity
+# https://clarity.microsoft.com/
+microsoft_clarity:
+
+# Advertisement
+# --------------------------------------
+
+# Google Adsense (谷歌广告)
+google_adsense:
+  enable: false
+  auto_ads: true
+  js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+  client:
+  enable_page_level_ads: true
+
+# Insert ads manually (手动插入广告)
+# ad:
+#   index:
+#   aside:
+#   post:
+
+# Verification (站长验证)
+# --------------------------------------
+
+site_verification:
+  - name: google-site-verification
+    content: xxx
+  - name: baidu-site-verification
+    content: code-xxx
+  - name: msvalidate.01
+    content: xxx
+
+# Beautify/Effect (美化/效果)
+# --------------------------------------
+
+# Theme color for customize
+# Notice: color value must in double quotes like "#000" or may cause error!
+
+theme_color:
+  enable: true
+  #   main: "#3b70fc"
+  paginator: "#3b70fc"
+  #   button_hover: "#FF7242"
+  text_selection: "#3b70fc"
+  link_color: "var(--anzhiyu-fontcolor)"
+  meta_color: "var(--anzhiyu-fontcolor)"
+  #   hr_color: "#A4D8FA"
+  code_foreground: "#fff"
+  code_background: "var(--anzhiyu-code-stress)"
+  toc_color: "#3b70fc"
+  #   blockquote_padding_color: "#3b70fc"
+  #   blockquote_background_color: "#3b70fc"
+  scrollbar_color: "#3b70fc"
+  meta_theme_color_light: "#f7f9fe"
+  meta_theme_color_dark: "#18171d"
+
+# The top_img settings of home page
+# default: top img - full screen, site info - middle (默认top_img全屏，site_info在中间)
+# The position of site info, eg: 300px/300em/300rem/10% (主页标题距离顶部距离)
+index_site_info_top:
+# The height of top_img, eg: 300px/300em/300rem (主页top_img高度)
+index_top_img_height:
+
+# The user interface setting of category and tag page (category和tag页的UI设置)
+# index - same as Homepage UI (index 值代表 UI将与首页的UI一样)
+# default - same as archives UI 默认跟archives页面UI一样
+category_ui: # 留空或 index
+tag_ui: # 留空或 index
+
+# Website Background (设置网站背景)
+# can set it to color or image (可设置图片 或者 顔色)
+# The formal of image: url(http://xxxxxx.com/xxx.jpg)
+background: var(--anzhiyu-background)
+
+# Footer Background
+footer_bg: false
+
+# the position of bottom right button/default unit: px (右下角按钮距离底部的距离/默认单位为px)
+rightside-bottom: 100px
+
+# Enter transitions (开啓网页进入效果)
+enter_transitions: false
+
+# Background effects (背景特效)
+# --------------------------------------
+
+# canvas_ribbon (静止彩带背景)
+# See: https://github.com/hustcc/ribbon.js
+canvas_ribbon:
+  enable: false
+  size: 150
+  alpha: 0.6
+  zIndex: -1
+  click_to_change: false
+  mobile: false
+
+# Fluttering Ribbon (动态彩带)
+canvas_fluttering_ribbon:
+  enable: false
+  mobile: false
+
+# canvas_nest
+# https://github.com/hustcc/canvas-nest.js
+canvas_nest:
+  enable: false
+  color: "0,0,255" #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  opacity: 0.7 # the opacity of line (0~1), default: 0.5.
+  zIndex: -1 # z-index property of the background, default: -1.
+  count: 99 # the number of lines, default: 99.
+  mobile: false
+
+# Typewriter Effect (打字效果)
+# https://github.com/disjukr/activate-power-mode
+activate_power_mode:
+  enable: false
+  colorful: true # open particle animation (冒光特效)
+  shake: false #  open shake (抖动特效)
+  mobile: false
+
+# Mouse click effects: fireworks (鼠标点击效果: 烟火特效)
+fireworks:
+  enable: false
+  zIndex: 9999 # -1 or 9999
+  mobile: false
+
+# Mouse click effects: Heart symbol (鼠标点击效果: 爱心)
+click_heart:
+  enable: false
+  mobile: false
+
+# Mouse click effects: words (鼠标点击效果: 文字)
+ClickShowText:
+  enable: false
+  text:
+    # - I
+    # - LOVE
+    # - YOU
+  fontSize: 15px
+  random: false
+  mobile: false
+
+# Default display mode (网站默认的显示模式)
+# light (default) / dark
+display_mode: light
+
+# Beautify (美化页面显示)
+beautify:
+  enable: true
+  field: post # site/post
+  title-prefix-icon: '\f0c1'
+  title-prefix-icon-color: "#F47466"
+
+# Global font settings
+# Don't modify the following settings unless you know how they work (非必要不要修改)
+font:
+  global-font-size: 17px
+  code-font-size:
+  font-family:
+  code-font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
+
+# Font settings for the site title and site subtitle
+# 左上角网站名字 主页居中网站名字
+blog_title_font:
+  font_link:
+  font-family: PingFang SC, 'Hiragino Sans GB', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif
+
+# The setting of divider icon (水平分隔线图标设置)
+hr_icon:
+  enable: true
+  icon: \f0f3 # the unicode value of Font Awesome icon, such as '\3423'
+  icon-top:
+
+# the subtitle on homepage (主页subtitle)
+subtitle:
+  enable: false
+  # Typewriter Effect (打字效果)
+  effect: true
+  # Effect Speed Options (打字效果速度参数)
+  startDelay: 300 # time before typing starts in milliseconds
+  typeSpeed: 150 # type speed in milliseconds
+  backSpeed: 50 # backspacing speed in milliseconds
+  # loop (循环打字)
+  loop: true
+  # source 调用第三方服务
+  # source: false 关闭调用
+  # source: 1  调用一言网的一句话（简体） https://hitokoto.cn/
+  # source: 2  调用一句网（简体） http://yijuzhan.com/
+  # source: 3  调用今日诗词（简体） https://www.jinrishici.com/
+  # subtitle 会先显示 source , 再显示 sub 的内容
+  source: 1
+  # 如果关闭打字效果，subtitle 只会显示 sub 的第一行文字
+  sub:
+    - 生活明朗&#44;万物可爱&#44;人间值得&#44;未来可期.
+
+# Loading Animation (加载动画)
+preloader:
+  enable: true
+  # source
+  # 1. fullpage-loading
+  # 2. pace (progress bar)
+  # else all
+  source: 3
+  # pace theme (see https://codebyzach.github.io/pace/)
+  pace_css_url:
+
+# aside (侧边栏)
+# --------------------------------------
+
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true # display on mobile
+  position: right # left or right
+  display:
+    archive: true
+    tag: true
+    category: false
+  card_author:
+    enable: true
+    type: 2 # 1为使用头像card 2为不适用头像card
+    description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>
+    button:
+      enable: true
+      icon: fas fa-circle-arrow-up-right
+      text: 了解更多
+      link: /about/
+  card_announcement:
+    enable: false
+    content: 欢迎来看我的博客鸭~
+  card_weixin:
+    enable: true
+    face: https://img02.anzhiy.cn/adminuploads/1/2022/09/11/631ddb7c9b250.png
+    backFace: https://img02.anzhiy.cn/adminuploads/1/2022/09/11/631ddeb0900b7.png
+  card_recent_post:
+    enable: true
+    limit: 5 # if set 0 will show all
+    sort: date # date or updated
+    sort_order: # Don't modify the setting unless you know how it works
+  card_categories:
+    enable: false
+    limit: 8 # if set 0 will show all
+    expand: none # none/true/false
+    sort_order: # Don't modify the setting unless you know how it works
+  card_tags:
+    enable: true
+    limit: 40 # if set 0 will show all
+    color: true
+    sort_order: # Don't modify the setting unless you know how it works
+  card_archives:
+    enable: true
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+    sort_order: # Don't modify the setting unless you know how it works
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+    sort_order: # Don't modify the setting unless you know how it works
+
+# busuanzi count for PV / UV in site
+# 访问人数
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+
+# Time difference between publish date and now (网页运行时间)
+# Formal: Month/Day/Year Time or Year/Month/Day Time
+runtimeshow:
+  enable: true
+  publish_date: 4/1/2021 00:00:00
+
+# Aside widget - Newest Comments
+newest_comments:
+  enable: true
+  sort_order: # Don't modify the setting unless you know how it works
+  limit: 6
+  storage: 10 # unit: mins, save data to localStorage
+  avatar: true
+
+# Bottom right button (右下角按钮)
+# --------------------------------------
+
+# Conversion between Traditional and Simplified Chinese (简繁转换)
+translate:
+  enable: true
+  # The text of a button
+  default: 繁
+  # the language of website (1 - Traditional Chinese/ 2 - Simplified Chinese）
+  defaultEncoding: 2
+  # Time delay
+  translateDelay: 0
+  # The text of the button when the language is Simplified Chinese
+  msgToTraditionalChinese: "繁"
+  # The text of the button when the language is Traditional Chinese
+  msgToSimplifiedChinese: "简"
+
+# Read Mode (閲读模式)
+readmode: true
+
+# dark mode
+darkmode:
+  enable: true
+  # Toggle Button to switch dark/light mode
+  button: true
+  # Switch dark/light mode automatically (自动切换 dark mode和 light mode)
+  # autoChangeMode: 1  Following System Settings, if the system doesn't support dark mode, it will switch dark mode between 6 pm to 6 am
+  # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am
+  # autoChangeMode: false
+  autoChangeMode: 1
+
+# Don't modify the following settings unless you know how they work (非必要请不要修改 )
+# Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
+# Don't repeat 不要重複
+rightside_item_order:
+  enable: false
+  hide: # readmode,translate,darkmode,hideAside
+  show: # toc,chat,comment
+
+# Lightbox (图片大图查看模式)
+# --------------------------------------
+# You can only choose one, or neither (只能选择一个 或者 两个都不选)
+
+# medium-zoom
+# https://github.com/francoischalifour/medium-zoom
+medium_zoom: false
+
+# fancybox
+# http://fancyapps.com/fancybox/3/
+fancybox: true
+
+# Tag Plugins settings (标籤外挂)
+# --------------------------------------
+
+# mermaid
+# see https://github.com/mermaid-js/mermaid
+mermaid:
+  enable: false
+  # built-in themes: default/forest/dark/neutral
+  theme:
+    light: default
+    dark: dark
+
+# Note (Bootstrap Callout)
+note:
+  # Note tag style values:
+  #  - simple    bs-callout old alert style. Default.
+  #  - modern    bs-callout new (v2-v3) alert style.
+  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
+  #  - disabled  disable all CSS styles import of note tag.
+  style: flat
+  icons: true
+  border_radius: 3
+  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
+  # Offset also applied to label tag variables. This option can work with disabled note tag.
+  light_bg_offset: 0
+
+# other
+# --------------------------------------
+
+# Pjax
+# It may contain bugs and unstable, give feedback when you find the bugs.
+# https://github.com/MoOx/pjax
+pjax:
+  enable: true
+  exclude:
+    # - xxxx
+    # - xxxx
+
+# Inject the css and script (aplayer/meting)
+aplayerInject:
+  enable: true
+  per_page: true
+
+# Snackbar (Toast Notification 弹窗)
+# https://github.com/polonel/SnackBar
+# position 弹窗位置
+# 可选 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
+snackbar:
+  enable: true
+  position: top-center
+  bg_light: "#3b70fc" # The background color of Toast Notification in light mode
+  bg_dark: "#1f1f1f" # The background color of Toast Notification in dark mode
+
+# https://instant.page/
+# prefetch (预加载)
+instantpage: true
+
+# https://github.com/vinta/pangu.js
+# Insert a space between Chinese character and English character (中英文之间添加空格)
+pangu:
+  enable: false
+  field: site # site/post
+
+# Lazyload (图片懒加载)
+# https://github.com/verlok/vanilla-lazyload
+lazyload:
+  enable: true
+  field: site # site/post
+  placeholder:
+  blur: true
+
+# PWA
+# See https://github.com/JLHwung/hexo-offline
+# ---------------
+pwa:
+  enable: false
+  manifest: /manifest.json
+  theme_color: var(--anzhiyu-main)
+  apple_touch_icon: /img/siteicon/128.png
+  favicon_32_32: /img/siteicon/32.png
+  favicon_16_16: /img/siteicon/16.png
+  mask_icon: /img/siteicon/128.png
+
+# Open graph meta tags
+# https://developers.facebook.com/docs/sharing/webmasters/
+Open_Graph_meta: true
+
+# Add the vendor prefixes to ensure compatibility
+css_prefix: true
+
+# envelope_comment
+# see https://akilar.top/posts/e2d3c450/
+# envelope_comment
+# see https://akilar.top/posts/e2d3c450/
+envelope_comment:
+  enable: true #控制开关
+  custom_pic:
+    cover: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/violet.jpg #信笺头部图片
+    line: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png #信笺底部图片
+    beforeimg: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/before.png # 信封前半部分
+    afterimg: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/after.png # 信封后半部分
+  message: #信笺正文，多行文本，写法如下
+    - 有什么想问的？
+    - 有什么想说的？
+    - 有什么想吐槽的？
+    - 哪怕是有什么想吃的，都可以告诉我哦~
+  bottom: 自动书记人偶竭诚为您服务！ #仅支持单行文本
+  height: #1050px，信封划出的高度
+  path: #【可选】comments 的路径名称。默认为 comments，生成的页面为 comments/index.html
+  front_matter: #【可选】comments页面的 front_matter 配置
+    title: 留言板
+    comments: true
+    top_img: false
+    type: envelope
+
+# tag-plugins-plus
+# see https://akilar.top/posts/615e2dec/
+tag_plugins:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  issues: false #issues标签开关
+  link:
+    placeholder: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/siteicon/64.png #link_card标签默认的图标图片
+  CDN:
+    anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
+    jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
+    issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
+    iconfont: https://npm.elemecdn.com/acrylic-static@1.0.0/ali_font.js #参看https://akilar.top/posts/d2ebecef/
+    carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
+    tag_plugins_css: https://npm.elemecdn.com/acrylic-static@1.0.0/tag_plugins/tag_plugins.css
+
+# wowjs
+# see https://www.npmjs.com/package/hexo-butterfly-wowjs
+wowjs:
+  enable: false #控制动画开关。true是打开，false是关闭
+  priority: 10 #过滤器优先级
+  mobile: false #移动端是否启用，默认移动端禁用
+  animateitem:
+    - class: recent-post-item #必填项，需要添加动画的元素的class
+      style: animate__fadeIn #必填项，需要添加的动画
+      duration: 1.2s #选填项，动画持续时间，单位可以是ms也可以是s。例如3s，700ms。
+      delay: 200ms #选填项，动画开始的延迟时间，单位可以是ms也可以是s。例如3s，700ms。
+      offset: 20 #选填项，开始动画的距离（相对浏览器底部）
+      iteration: 1 #选填项，动画重复的次数
+    - class: card-widget
+      style: animate__fadeIn
+      delay: 0
+    - class: category-bar
+      style: animate__fadeIn
+      duration: .5s
+      delay: 0
+    - class: cf-article
+      style: animate__fadeIn
+      duration: 1.5s
+    # - class: flink-list-card
+    #   style: wowpanels
+    # - class: flink-list-card
+    #   style: animate__flipInY
+    #   duration: 1.5s
+    - class: article-sort-item
+      style: animate__fadeIn
+      duration: 1.5s
+    - class: site-card
+      style: animate__flipInY
+      duration: 1.5s
+  animate_css: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css
+  wow_js: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js
+  wow_init_js: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js
+
+home_top:
+  enable: true # 开关
+  timemode: date #date/updated
+  category:
+    - name: 前端
+      path: /categories/前端开发/
+      shadow: var(--anzhiyu-shadow-blue)
+      class: blue
+      icon: fas fa-dove
+    - name: 大学
+      path: /categories/大学生涯/
+      shadow: var(--anzhiyu-shadow-red)
+      class: red
+      icon: fas fa-burn
+    - name: 生活
+      path: /categories/生活日常/
+      shadow: var(--anzhiyu-shadow-green)
+      class: green
+      icon: fas fa-book
+  default_descr: 再怎么看我也不知道怎么描述它的啦！
+  swiper:
+    enable: false
+    swiper_css: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper.min.css #swiper css依赖
+    swiper_js: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper.min.js #swiper js依赖
+    swiper_init: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
+  banner:
+    tips: 新品主题
+    title: Acrylic-AnZHiYu
+    image: https://img02.anzhiy.cn/adminuploads/1/2023/03/27/64215d46a1ca6.webp
+    link: https://anzhiy.cn/posts/220c.html
+    top_group_banner_css: https://npm.elemecdn.com/acrylic-static@1.0.0/top_group_banner_css/top_group_banner_css.css
+
+# 朋友圈配置
+friends_vue:
+  enable: false
+  vue_js: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.0/js/friends_vue/index.js
+  apiurl: # twikoo地址
+  top_background:
+
+# 黑色模式粒子效果canvas
+universe:
+  enable: true
+
+# 页面卡片顶部气泡升起效果
+bubble:
+  enable: true
+
+#  控制台打印信息
+console:
+  enable: true
+
+# 51a统计配置
+LA:
+  enable: false
+  ck:
+  LingQueMonitorID:
+
+# 标签卖萌
+diytitle:
+  enable: true
+  leaveTitle: w(ﾟДﾟ)w 不要走！再看看嘛！
+  backTitle: ♪(^∇^*)欢迎肥来！
+
+# 留言弹幕配置
+comment_barrage_config:
+  enable: false
+  # 同时最多显示弹幕数
+  maxBarrage: 1
+  # 弹幕显示间隔时间ms
+  barrageTime: 4000
+  # token，在控制台中获取
+  accessToken: ""
+
+# 左下角音乐配置项
+nav_music:
+  enable: true
+  console_widescreen_music: false # 宽屏状态控制台显示音乐而不是标签 enable为true 控制台依然会显示
+  id: 8152976493
+  server: netease
+
+# 评论匿名邮箱
+visitorMail:
+  enable: true
+  mail: visitor@anzhiy.cn
+
+# 即刻页面配置
+essay:
+  enable: false
+  top_background:
+
+# Inject
+# Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
+# 插入代码到头部 </head> 之前 和 底部 </body> 之前
+inject:
+  head:
+    # 自定义css
+    # - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
+
+  bottom:
+    # 自定义js
+    # - <script src="/js/xxx"></script>
+
+# CDN
+# Don't modify the following settings unless you know how they work
+# 非必要请不要修改
+CDN:
+  # The CDN provider of internal scripts (主题内部 js 的 cdn 配置)
+  # option: local/jsdelivr/unpkg/cdnjs/custom
+  # Dev version can only choose. ( dev版的主题只能设置为 local )
+  internal_provider: elemecdn
+
+  # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
+  # option: local/jsdelivr/unpkg/cdnjs/custom
+  # when set it to local, you need to install hexo-butterfly-extjs
+  third_party_provider: elemecdn
+
+  # Add version number to CDN, true or false
+  version: true
+
+  # Custom format
+  # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
+  custom_format: https://npm.elemecdn.com/${name}@latest/${file}
+
+  option:
+    # main_css:
+    # main:
+    # utils:
+    # translate:
+    # local_search:
+    # algolia_js:
+    # algolia_search_v4:
+    # instantsearch_v4:
+    # pjax:
+    # blueimp_md5:
+    # valine:
+    # twikoo:
+    # waline_js:
+    # waline_css:
+    # sharejs:
+    # sharejs_css:
+    # mathjax:
+    # katex:
+    # katex_copytex:
+    # mermaid:
+    # canvas_ribbon:
+    # canvas_fluttering_ribbon:
+    # canvas_nest:
+    # lazyload:
+    # instantpage:
+    # typed:
+    # pangu:
+    # fancybox_css_v4:
+    # fancybox_v4:
+    # medium_zoom:
+    # snackbar_css:
+    # snackbar:
+    # activate_power_mode:
+    # fireworks:
+    # click_heart:
+    # ClickShowText:
+    # fontawesomeV6:
+    # flickr_justified_gallery_js:
+    # flickr_justified_gallery_css:
+    # aplayer_css:
+    # aplayer_js:
+    # meting_js:
+    # prismjs_js:
+    # prismjs_lineNumber_js:
+    # prismjs_autoloader:
+    # artalk_js:
+    # artalk_css:
+    # pace_js:
+    # pace_default_css:
+    # coin_js:
+    # coin_css:
+    # countup_js:
+    # gsap_js:
+    # about_js:
+    # busuanzi:
+    # rightmenu:
+    # waterfall:
+    # categoryBar:
+    # catalog_bar:

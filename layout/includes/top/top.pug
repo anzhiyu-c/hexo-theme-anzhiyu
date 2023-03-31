@@ -1,0 +1,95 @@
+- let home_top_config = theme.home_top
+if home_top_config.enable
+  #home_top
+    .swiper_container_card(style='height: auto;width: 100%')
+      #bannerGroup
+        #random-banner
+          .banners-title
+            .banners-title-big 生活明朗
+            .banners-title-big 万物可爱。
+            .banners-title-small ANZHIY.CN
+          include ../anzhiyu/tags-group-all.pug
+
+          a#random-hover(href='javascript:toRandomPost()')
+            i.fa.fa-paper-plane(style='margin-left:10px')
+            div(style='margin-left:10px') 随便逛逛
+              i.fa-solid.fa-arrow-right(style='margin-left:10px')
+        .categoryGroup
+          each item in home_top_config.category
+            .categoryItem(style=`box-shadow:${item.shadow}`)
+              a.categoryButton(onclick=`pjax.loadUrl("${item.path}");` href='javascript:void(0);' class=`${item.class}`)
+                span.categoryButtonText=item.name
+                i(class=`${item.icon}`)
+          else 
+            each item in category
+              .categoryItem(style=`box-shadow: ${item.shadow}`)
+                a.categoryButton(href=item.path class=`${item.class}`)
+                  span.categoryButtonText=item.name
+                  i(class=`${item.icon}`)
+      if theme.home_top.swiper.enable
+        #swiper_container_blog
+          #swiper_container.blog-slider.swiper-container-fade.swiper-container-horizontal
+            .blog-slider__wrp.swiper-wrapper(style='transition-duration: 0ms;')
+              //- 文章卡片
+              - let swiper_list = sort_attr_post("swiper_list")
+              each item in swiper_list
+                .blog-slider__item.swiper-slide(style='width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;')
+                  a.blog-slider__img(href=item.path, title=item.title)
+                    img(width='48' height='48'  src=item.cover alt='图片' onerror=`this.src=` + error_img + `; this.onerror = null;`)
+                  .blog-slider__content
+                    if (timemode === 'updated' )
+                      span.blog-slider__code= item.updated.format('YYYY-MM-DD')
+                    else
+                      span.blog-slider__code= item.date.format('YYYY-MM-DD')
+                    a.blog-slider__title(href=item.path, alt=item.title)= item.title
+                    .blog-slider__text= item.description ? item.description : default_descr
+                    a.blog-slider__button(href=item.path, alt=item.title) 详情   
+            //- 轮播图组件
+            .blog-slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets
+
+          #topPostGroup
+            - let top_group_list = sort_attr_post("top_group_list").splice(0, 4)
+            each item in top_group_list
+              .top-group-list-item
+                .post_cover.left_radius
+                  a(href=item.path title=item.title)
+                    span.top-group-text 荐
+                    img.post_bg(alt=item.title, src=item.cover, onerror=`this.src=` + error_img + `; this.onerror = null;`)
+                .top-group-info
+                  a.article-title(href=item.path title=item.title)=item.title
+            .top-group-list-none
+            .top-group-list-none
+            .top-group-list-none
+      else 
+        .topGroup
+          - let top_group_list = sort_attr_post("top_group_list").splice(0, 6)
+          - let top_group_banner_tips = theme.home_top.banner.tips
+          - let top_group_banner_title = theme.home_top.banner.title
+          - let top_group_banner_image = theme.home_top.banner.image
+          - let top_group_banner_link = url_for(theme.home_top.banner.link)
+
+          each item, index in top_group_list.slice(0, 6)
+            .recent-post-item
+              .post_cover.left_radius
+                a(href=item.path, title=item.title)
+                  span.recent-post-top-text(onclick=`pjax.loadUrl(${item.path})`) 荐
+                  img.post_bg(onerror=item.cover, alt='',  src=item.cover)
+              .recent-post-info(onclick=`pjax.loadUrl(${item.path})`)
+                a.article-title(href=item.path, title=item.title)=item.title
+          a#todayCard.todayCard(href=top_group_banner_link, style='z-index: 1;')
+            .todayCard-info
+              .todayCard-tips=top_group_banner_tips
+              .todayCard-title=top_group_banner_title
+            .todayCard-cover(style=`background: url(${top_group_banner_image}) no-repeat center /cover`)
+            .banner-button-group
+              .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
+                i.fa-solid.fa-circle-plus
+                span.banner-button-text 更多推荐
+        
+        link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)
+      
+  script(src=url_for(theme.home_top.swiper.swiper_js))
+  script(src=url_for(theme.home_top.swiper.swiper_init))
+
+  link(rel="stylesheet" href=theme.home_top.swiper.swiper_css onload="this.media='all'")
+  link(rel="stylesheet" href=theme.home_top.swiper.categorygroup_css onload="this.media='all'")

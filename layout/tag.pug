@@ -1,0 +1,16 @@
+extends includes/layout.pug
+
+block content
+  if theme.tag_ui == 'index'
+    include ./includes/mixins/post-ui.pug
+    #recent-posts.recent-posts
+      +postUI
+      include includes/pagination.pug
+  else
+    include ./includes/mixins/article-sort.pug
+    #tag
+      #tag-page-tags
+        !=tags_page_list("tags")
+      .article-sort-title= _p('page.tag') + ' - ' + page.tag
+      +articleSort(page.posts, page.current)
+      include includes/pagination.pug

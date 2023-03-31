@@ -1,0 +1,44 @@
+#sidebar #sidebar-menus .menus_items .menus_item_child {
+  margin: 0px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#sidebar #sidebar-menus .menus_item_child li {
+  width: calc(50% - 8px);
+  margin: 4px;
+}
+#sidebar #sidebar-menus .menus_item_child .site-page.child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  border-radius: 12px;
+  border: var(--style-border-always);
+  background: var(--anzhiyu-card-bg);
+  font-size: 14px;
+}
+#sidebar #sidebar-menus .menus_items a.site-page,
+#sidebar .menus_item ul {
+  padding-left: 0;
+}
+@media screen and (max-width: 768px) {
+  #page-header #nav {
+    padding: 20px;
+  }
+  .cardHover,
+  .error404 #error-wrap .error-content,
+  .layout > div:first-child:not(.recent-posts),
+  #recent-posts > .recent-post-item,
+  #aside-content .card-widget,
+  .layout > .recent-posts .pagination > *:not(.space) {
+    box-shadow: none !important;
+  }
+  #sidebar #sidebar-menus .menus_items .site-page:hover {
+    background: none;
+  }
+  div#travellings_button {
+    display: none !important;
+  }
+}

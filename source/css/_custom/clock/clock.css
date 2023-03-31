@@ -1,0 +1,148 @@
+/*和风天气 */
+#he-plugin-simple {
+  z-index: 92;
+  transition: 0.3s;
+  position: fixed !important;
+}
+
+#he-plugin-simple.shown {
+  opacity: 0.5;
+  pointer-events: unset;
+}
+.s-sticker div[data-v-41ba7e2c]:not(:first-child):not(:last-child) {
+  padding: 0 0.07em !important;
+}
+
+body:has(#sidebar-menus.open) #he-plugin-simple {
+  z-index: 104;
+  left: 95px !important;
+  opacity: 1;
+  display: block;
+  transition: 0.3s;
+}
+
+div.s-sticker {
+  background-color: transparent !important;
+}
+.s-sticker div {
+  color: var(--font-color) !important;
+  font-weight: bold;
+}
+body:has(.post-bg.nav-fixed) #he-plugin-simple .s-sticker div {
+  color: var(--font-color) !important;
+}
+body:has(.post-bg) #he-plugin-simple .s-sticker div {
+  color: var(--anzhiyu-white) !important;
+}
+[data-theme="dark"] body:has(.post-bg) #he-plugin-simple .s-sticker div {
+  color: var(--font-color) !important;
+}
+
+#weather-view-he {
+  height: 285px !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  background-color: var(--anzhiyu-card-bg) !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px;
+  margin-top: 20px !important;
+  transform: 0.3s;
+  opacity: 1;
+}
+.s-sticker ~ [data-v-41ba7e2c] {
+  opacity: 0;
+}
+[data-v-41ba7e2c]:has([data-v-db6ccf64][data-v-41ba7e2c]) {
+  opacity: 1;
+}
+[data-v-db6ccf64][data-v-41ba7e2c] {
+  top: 38px !important;
+}
+.wv-lt-location,
+.wv-lt-refresh {
+  display: inline-block;
+}
+.wv-lt-location a {
+  padding: 0 5px;
+  border-radius: 3px;
+  color: var(--anzhiyu-blue) !important;
+  background-color: var(--anzhiyu-blue-tint);
+  text-decoration: none !important;
+}
+.wv-lt-col-5 {
+  text-align: right;
+}
+.wv-lt-refresh a {
+  font-size: 0 !important;
+}
+.wv-lt-refresh a::after {
+  content: "安知鱼和风";
+  font-size: small !important;
+}
+.vw-f-cell a,
+.wv-n-h-now-rain-text,
+.wv-n-h-now-tmp span,
+.wv-n-h-now-txt span,
+.wv-n-h-now-txt-t {
+  color: var(--anzhiyu-fontcolor) !important;
+}
+.wv-f-table div .vw-f-cell:nth-child(1) a {
+  color: #9b9b9b !important;
+}
+.wv-top-backdrop {
+  height: 285px !important;
+  padding-top: 50px !important;
+}
+.wv-top-backdrop::after {
+  content: "\8BF7\4F7F\7528\952E\76D8\2191\2193\9009\62E9\FF0C\56DE\8F66\9009\5B9A" !important;
+  padding-left: 5%;
+}
+.wv-top-button,
+.wv-top-select {
+  height: 36px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.wv-top-select {
+  padding-left: 10px !important;
+}
+.wv-top-button {
+  background-color: var(--anzhiyu-blue) !important;
+  color: #fff !important;
+}
+
+.wv-top-button:hover {
+  background-color: var(--anzhiyu-blue-hover) !important;
+}
+.wv-top-button:active {
+  background-color: var(--anzhiyu-blue-hover) !important;
+}
+
+@media screen and (max-width: 1400px) {
+  #he-plugin-simple {
+    left: 120px !important;
+    opacity: 1;
+    display: block;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 1690px) {
+  #he-plugin-simple {
+    left: 262px !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  #he-plugin-simple {
+    transition: 0.5s all !important;
+    left: auto !important;
+    right: -300px;
+    z-index: 103;
+  }
+
+  body:has(#sidebar-menus.open) #he-plugin-simple {
+    transform: translate3d(-100%, 0, 0);
+    left: auto !important;
+    right: -25px;
+  }
+}

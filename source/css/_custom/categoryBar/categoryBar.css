@@ -1,0 +1,92 @@
+#categoryBar {
+  width: 100%;
+  display: flex;
+  margin: 1rem auto 0;
+}
+
+#category-bar {
+  padding: 0.5rem 1.5rem;
+  background: var(--anzhiyu-card-bg);
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  border: var(--style-border);
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  transition: all 0.3s ease 0s;
+  animation: slide-in 0.6s 0.3s backwards;
+}
+#category-bar #catalog-bar {
+  margin-bottom: 0;
+  overflow-y: hidden;
+  margin: -0.2rem 0;
+}
+
+#category-bar.category-bar:hover {
+  border: var(--style-border-hover);
+  box-shadow: var(--anzhiyu-shadow-main);
+}
+
+#category #category-bar {
+  padding: 0;
+  border: none;
+}
+
+#category a.catalog-list-item.select a {
+  display: none;
+}
+
+.catalog-list-item:hover a {
+  background: var(--anzhiyu-main);
+  color: var(--anzhiyu-white);
+}
+
+.catalog-list-item.select a {
+  background: var(--anzhiyu-main);
+  color: var(--anzhiyu-white);
+  border-radius: 30px;
+}
+
+.catalog-list-item.selected .notification-tip {
+  color: var(--font-color);
+}
+.category-bar-more {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+[data-theme="dark"] #category-bar.category-bar {
+  background: var(--anzhiyu-background);
+}
+
+@media (prefers-color-scheme: light) {
+  /* 浅色模式样式 */
+}
+@media screen and (max-width: 768px) {
+  #categoryBar {
+    margin-bottom: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 58px;
+    z-index: 2;
+    align-items: center;
+  }
+  #category-bar.category-bar {
+    width: 100%;
+  }
+  #category-bar.category-bar {
+    background: var(--anzhiyu-background);
+  }
+  [data-theme="dark"] #category-bar.category-bar {
+    background: var(--anzhiyu-black);
+  }
+  #category-bar.category-bar:hover {
+    border: none;
+    box-shadow: none;
+  }
+  #category-bar {
+    border: none;
+    border-radius: 0px;
+  }
+}

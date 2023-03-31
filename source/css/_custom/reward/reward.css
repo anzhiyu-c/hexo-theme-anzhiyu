@@ -1,0 +1,149 @@
+/* 设置白色容器 */
+.reward #con {
+  width: 350px;
+  height: 85px;
+  position: relative;
+  border-radius: 4px;
+}
+/* 设置文本内容容器 */
+.reward #TA-con {
+  width: 157px;
+  height: 50px;
+  background-color: #f25d8e;
+  box-shadow: 0 4px 4px rgba(255, 112, 159, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* 设置文本居中容器 */
+.reward #text-con {
+  width: 100px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+/* 做一个小闪电 */
+.reward #linght {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 36%;
+  left: 4px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 10px;
+  border-top: 10px solid #fff;
+  border-radius: 4px;
+  transform: rotate(-55deg);
+}
+.reward #linght::after {
+  position: absolute;
+  top: -13px;
+  left: -11px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 10px;
+  border-top: 10px solid #fff;
+  transform: rotate(180deg);
+  border-radius: 4px;
+}
+/* 文字 */
+.reward #TA {
+  float: right;
+  line-height: 50px;
+  font-size: 15px;
+  color: #fff;
+}
+.reward #TA-con:hover {
+  background-color: #ff6b9a;
+}
+
+/* 创建图形容器 */
+.reward #tube-con {
+  width: 157px;
+  height: 55px;
+  position: absolute;
+  right: -5px;
+  top: 15px;
+}
+/* 对svg图形设置宽高 */
+.reward svg {
+  width: 100%;
+  height: 100%;
+}
+/* 创建一个蒙版 宽度为0，当我hover充电框的时候，宽度展开 */
+.reward #mask {
+  width: 0px;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+}
+/* 对蒙版的sbg单独设置宽高，保证宽度高低有一个固定值而不是百分比 */
+.reward #mask svg {
+  width: 157px;
+  height: 55px;
+}
+/* 对充电框hover的时候开始动画，将粉色线条铺开 */
+.reward #TA-con:hover + #tube-con > #mask {
+  width: 157px;
+}
+/* 对充电框hover的时候开始动画，添加黄色快速移动的动画 */
+.reward #TA-con:hover + #tube-con > #orange-mask {
+  animation: move1 0.5s linear 0.2s infinite;
+}
+.reward #TA-con:hover + #tube-con > #orange-mask svg {
+  animation: movetwo 0.5s linear 0.2s infinite;
+}
+/* 创建黄色移动的蒙版 */
+.reward #orange-mask {
+  width: 18px;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: -15px;
+  top: 0px;
+}
+/* 创建黄色移动的内容 */
+.reward #orange-mask svg {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 157px;
+  height: 55px;
+}
+@keyframes move1 {
+  0% {
+    left: -15px;
+  }
+  100% {
+    left: 140px;
+  }
+}
+@keyframes movetwo {
+  0% {
+    left: 15px;
+  }
+  100% {
+    left: -140px;
+  }
+}
+.reward #people {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  font-size: 12px;
+  font-family: "雅黑";
+  color: #aaa;
+}
+.reward #people > b {
+  color: #777;
+}

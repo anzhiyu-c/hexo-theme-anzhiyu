@@ -1,0 +1,178 @@
+/* 分页样式 */
+@media screen and (min-width: 1300px) {
+  #pagination a.extend.next:hover,
+  #pagination a.extend.prev:hover {
+    transform: scale(1.03);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #pagination .page-number.current:hover {
+    background: var(--anzhiyu-theme);
+    box-shadow: var(--anzhiyu-shadow-theme);
+    color: var(--anzhiyu-white);
+  }
+  #pagination a.extend.next:hover,
+  #pagination a.extend.prev:hover {
+    color: var(--anzhiyu-theme);
+    border: var(--style-border-hover);
+    transform: scale(1.03);
+  }
+
+  nav#pagination {
+    overflow: visible;
+  }
+
+  #pagination .page-number.current {
+    background: var(--anzhiyu-theme);
+    border: var(--style-border-hover);
+    box-shadow: var(--anzhiyu-shadow-theme);
+  }
+
+  #pagination a.extend.next {
+    overflow: hidden;
+  }
+
+  #pagination a.extend.next,
+  #pagination a.extend.prev {
+    width: 5rem !important;
+    line-height: 1.9rem !important;
+    border-radius: 8px !important;
+    background: var(--anzhiyu-card-bg);
+    box-shadow: var(--anzhiyu-shadow-border);
+    border: var(--style-border);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: 0.3s;
+    position: absolute;
+  }
+
+  #pagination .page-number {
+    background: var(--anzhiyu-card-bg);
+    border-radius: 8px !important;
+    margin: 0 0.3rem;
+    box-shadow: var(--anzhiyu-shadow-border);
+    border: var(--style-border);
+    transition: 0.3s;
+  }
+  #pagination .page-number:hover {
+    color: var(--anzhiyu-theme);
+    border: var(--style-border-hover);
+    box-shadow: var(--anzhiyu-shadow-main);
+  }
+}
+
+#pagination .pagination {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#pagination a.extend.next .pagination_tips_next {
+  margin-left: -32px;
+  transition: 0.3s;
+  opacity: 0;
+}
+#pagination a.extend.next:hover .pagination_tips_next {
+  margin-left: 2px;
+  opacity: 1;
+  white-space: nowrap;
+}
+#pagination a.extend.prev .pagination_tips_prev {
+  margin-right: -32px;
+  transition: 0.3s;
+  opacity: 0;
+}
+#pagination a.extend.prev:hover .pagination_tips_prev {
+  margin-right: 2px;
+  opacity: 1;
+  white-space: nowrap;
+}
+a.extend.prev {
+  left: 0;
+}
+a.extend.next {
+  right: 0;
+}
+#pagination {
+  overflow: hidden;
+  margin-top: 1rem;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  #pagination a.extend.next .pagination_tips_next,
+  #pagination a.extend.prev .pagination_tips_prev {
+    display: none;
+  }
+  #site-name {
+    padding: 0 !important;
+  }
+}
+#post .post-copyright:before {
+  z-index: -1;
+}
+@media screen and (min-width: 1365px) {
+  #post .post-copyright:before {
+    z-index: 0;
+  }
+}
+.layout > div:not(.recent-posts) #pagination .pagination > span,
+.layout > div:not(.recent-posts) #pagination .pagination > a {
+  display: inline-block;
+  margin: 0 6px;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 15px;
+}
+#pagination .toPageGroup {
+  display: flex;
+  position: relative;
+  margin: 0;
+  box-shadow: none;
+  width: auto;
+}
+#pagination .toPageGroup:hover {
+  background: none;
+}
+#pagination .pagination input {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 8px;
+  border: var(--style-border-always);
+  transition: 0.3s;
+  outline-style: none;
+  font-size: 16px;
+  padding-left: 12px;
+}
+a#toPageButton {
+  display: flex;
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  right: 0px;
+  top: 0px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  background: var(--anzhiyu-card-bg);
+  border: var(--style-border-always);
+  cursor: pointer;
+}
+#pagination .pagination .toPageGroup:hover input, #pagination .pagination .toPageGroup input:focus {
+  border: var(--style-border-hover-always);
+  outline-style: none;
+  width: 100px;
+}
+#pagination .toPageGroup:hover a#toPageButton, #pagination .toPageGroup:focus-within a#toPageButton {
+  width: 30px;
+  height: 30px;
+  right: 4px;
+  top: 5px;
+  background: var(--anzhiyu-secondbg);
+  border: 1px solid var(--anzhiyu-none);
+  border-radius: 4px;
+}

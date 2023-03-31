@@ -1,0 +1,75 @@
+/* 随机文章css */
+#random-banner {
+  font-size: 60px;
+  line-height: 1.8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 76%;
+  background: var(--anzhiyu-card-bg);
+  background-size: cover;
+  margin-bottom: 0.5rem;
+  border: var(--style-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--anzhiyu-shadow-border);
+  transition: 0.3s;
+  clip-path: inset(0 0 0 0 round 12px);
+}
+
+#random-hover {
+  position: absolute;
+  opacity: 0;
+  padding-left: 0rem;
+  height: 100%;
+  width: 100%;
+  color: #0000;
+  border-radius: 8px;
+  transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
+}
+#random-hover:hover {
+  padding-left: 1rem;
+  opacity: 1;
+  color: #ffffff;
+  background-color: #425aefdd;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  transition: 0.3s;
+  background-size: 200%;
+  cursor: pointer;
+}
+.banners-title {
+  top: 2.9rem;
+  left: 3rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.banners-title-big {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.banners-title-small {
+  font-size: 12px;
+  line-height: 1;
+  color: var(--anzhiyu-secondtext);
+  margin-top: 8px;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 1050px) {
+  #random-banner {
+    display: none;
+  }
+}
+
+#random-banner #skills-tags-group-all .tags-group-wrapper {
+  margin-top: 7rem;
+}
+#random-banner #skills-tags-group-all {
+  transform: rotate(-30deg);
+}

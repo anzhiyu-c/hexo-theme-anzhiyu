@@ -1,0 +1,23 @@
+/* 版权css修改 */
+.layout #post .post-copyright {
+  border: 1px solid var(--anzhiyu-blue-main);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.layout #post .post-copyright:before {
+  top: -71px;
+  right: -20px;
+  font-size: 8.3em;
+}
+#post .post-copyright a:not([data-fancybox="gallery"]) {
+  font-weight: 500;
+  border-bottom: solid 2px var(--anzhiyu-lighttext);
+  color: var(--anzhiyu-fontcolor);
+  padding: 0 0.2em;
+  text-decoration: none;
+}
+#post .post-copyright a:not([data-fancybox="gallery"]):hover {
+  color: var(--anzhiyu-white);
+  background-color: var(--anzhiyu-main);
+  border-radius: 4px;
+}

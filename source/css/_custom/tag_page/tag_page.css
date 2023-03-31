@@ -1,0 +1,161 @@
+#tag #tag-page-tags {
+  display: flex;
+  flex-flow: row wrap;
+}
+#tag #tag-page-tags a {
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  color: var(--anzhiyu-fontcolor) !important;
+  padding: 0.1rem 0.5rem;
+  margin: 0.25rem;
+  border-radius: 8px;
+  border: var(--style-border-always);
+}
+#tag #tag-page-tags a.selected {
+  box-shadow: var(--anzhiyu-shadow-theme);
+  color: var(--anzhiyu-white) !important;
+  background: var(--anzhiyu-theme);
+  border: var(--style-border-none);
+}
+#tag #tag-page-tags a.select .tagsPageCount {
+  background: var(--anzhiyu-card-bg);
+  color: var(--anzhiyu-lighttext);
+}
+#post .tag_share .post-meta__box__tags span.tagsPageCount,
+#tag-page-tags .tagsPageCount {
+  padding: 4px 6px;
+  background: var(--anzhiyu-secondbg);
+  border: var(--style-border-always);
+  min-width: 22.5px;
+  display: inline-block;
+  border-radius: 4px;
+  line-height: 0.6rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--anzhiyu-fontcolor);
+  margin-left: 4px;
+}
+#tag #tag-page-tags a:hover .tagsPageCount,
+#post .tag_share .post-meta__box__tags:hover span.tagsPageCount {
+  background: var(--anzhiyu-card-bg);
+  color: var(--anzhiyu-lighttext);
+}
+
+#tag #tag-page-tags a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  font-size: 0.9em;
+}
+#tag #tag-page-tags a:hover {
+  box-shadow: var(--anzhiyu-shadow-theme);
+  color: var(--anzhiyu-white) !important;
+  background: var(--anzhiyu-theme);
+  border: var(--style-border-none);
+}
+#tag #tag-page-tags a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+
+span.tags-punctuation,
+span.categoryes-punctuation {
+  margin-right: 4px;
+}
+span.tags-punctuation .icon-biaoqian,
+span.categoryes-punctuation .icon-biaoqian {
+  font-size: 13px;
+}
+.tagsPageCount {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+[data-theme="light"] #post .tag_share .post-meta__box__tags span.tagsPageCount {
+  background-color: transparent;
+  color: white;
+}
+[data-theme="light"] #post .tag_share .post-meta__box__categoryes span.categoryesPageCount {
+  background-color: transparent;
+  color: white;
+}
+#post .tag_share .post-meta__box__categoryes span.categoryesPageCount {
+  padding: 4px 6px;
+  background: var(--anzhiyu-secondbg);
+  border: var(--style-border-always);
+  min-width: 22.5px;
+  display: inline-block;
+  border-radius: 4px;
+  line-height: 0.6rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--anzhiyu-fontcolor);
+  margin-left: 4px;
+}
+.post-meta__box__categories {
+  border-radius: 12px;
+}
+/* 文章彩色标签 */
+/*文章随机彩色标签*/
+.post-meta__box a {
+  color: var(--anzhiyu-white);
+  border: none;
+}
+[data-theme="dark"] .post-meta__box a {
+  opacity: 0.5;
+}
+.post-meta__box__tag-list a:nth-child(5n) {
+  background-color: #4a4a4a;
+  color: #fff;
+}
+
+.post-meta__box__tag-list a:nth-child(5n + 1) {
+  background-color: #ff5e5c;
+  color: #fff;
+}
+
+.post-meta__box__tag-list a:nth-child(5n + 2) {
+  background-color: #ffbb50;
+  color: #fff;
+}
+
+.post-meta__box__tag-list a:nth-child(5n + 3) {
+  background-color: #1ac756;
+  color: #fff;
+}
+
+.post-meta__box__tag-list a:nth-child(5n + 4) {
+  background-color: #19b5fe;
+  color: #fff;
+}
+
+.post-meta__box__tag-list a:hover {
+  background-color: #1b1b1b;
+  color: #fff;
+}
+
+/* 文章分类颜色背景 */
+.post-meta__box__category-list a:nth-child(5n) {
+  background-color: #4a4a4a;
+  color: #fff;
+}
+
+.post-meta__box__category-list a:nth-child(5n + 1) {
+  background-color: #1ac756;
+
+  color: #fff;
+}
+
+.post-meta__box__category-list a:nth-child(5n + 2) {
+  background-color: #ffbb50;
+  color: #fff;
+}
+
+.post-meta__box__category-list a:nth-child(5n + 3) {
+  background-color: #19b5fe;
+  color: #fff;
+}
+
+.post-meta__box__category-list a:nth-child(5n + 4) {
+  background-color: #ff5e5c;
+  color: #fff;
+}

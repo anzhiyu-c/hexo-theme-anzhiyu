@@ -1,0 +1,82 @@
+/* 分类目录条、标签目录条 */
+#catalog-bar {
+  border-radius: var(--anzhiyu-border-radius);
+  display: flex;
+  border: var(--anzhiyu-border-radius);
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#catalog-bar:hover {
+  border-color: var(--anzhiyu-theme);
+}
+
+#catalog-bar i {
+  line-height: inherit;
+}
+
+#catalog-list {
+  /* 分类/标签较少时，可以选择不设置 width，居中显示 catalog-list-item */
+  /* width: 100%; */
+  margin: 0 0.5rem;
+  display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+#catalog-list::-webkit-scrollbar {
+  display: none;
+}
+
+.catalog-list-item a {
+  margin: 0rem 0.2rem;
+  font-weight: bold;
+  color: var(--font-color);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 0.1rem 0.7rem;
+  border-radius: 24px;
+  height: 36px;
+  line-height: 36px;
+}
+.catalog-list-item {
+  display: flex;
+  align-items: center;
+}
+.catalog-list-item:hover .notification-tip {
+  color: var(--anzhiyu-main);
+}
+.catalog-list-item .notification-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+  border-radius: 50%;
+  background-color: var(--anzhiyu-secondbg);
+  padding: 10px;
+  font-size: 0.8rem;
+  transition: 0s;
+}
+
+.catalog-list-item.selected a {
+  background: var(--anzhiyu-lighttext);
+  color: var(--anzhiyu-white);
+}
+
+a.catalog-more {
+  min-width: fit-content;
+  font-weight: bold;
+  color: var(--anzhiyu-fontcolor);
+}
+
+a.catalog-more:hover {
+  color: var(--anzhiyu-theme);
+}

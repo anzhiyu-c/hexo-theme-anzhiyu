@@ -1,0 +1,70 @@
+details.folding-tag[open] {
+  border-radius: 15px !important;
+  border-color: var(--anzhiyu-main) !important;
+  border: 1px solid var(--anzhiyu-main) !important;
+}
+
+li details.folding-tag {
+  border-radius: 8px;
+}
+
+li details.folding-tag summary {
+  border-radius: 8px;
+}
+
+details.folding-tag {
+  background: transparent !important;
+  transition: border 0s ease !important;
+  border: none !important;
+}
+
+details.folding-tag[open] > summary {
+  color: var(--anzhiyu-white) !important;
+  background: var(--anzhiyu-main) !important;
+  border: 1px solid var(--anzhiyu-main) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+details.folding-tag > summary {
+  border: var(--style-border) !important;
+  background: var(--anzhiyu-card-bg) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--anzhiyu-shadow-border);
+  color: var(--font-color) !important;
+}
+details.folding-tag > summary::marker {
+  color: var(--anzhiyu-main);
+  font-size: 16px;
+}
+details.folding-tag > summary::before {
+  content: " ";
+  margin-right: 2px;
+}
+details.folding-tag[open] > div.content {
+  border-radius: 0 0 16px 16px;
+}
+details.folding-tag summary:hover::marker {
+  color: var(--anzhiyu-white);
+}
+details.folding-tag[open] > summary::marker {
+  color: var(--anzhiyu-white);
+}
+details.folding-tag summary:hover {
+  cursor: pointer;
+  background: var(--anzhiyu-main) !important;
+  color: var(--anzhiyu-white) !important;
+  transition: 0.3s;
+  box-shadow: var(--anzhiyu-shadow-main);
+}
+details .content > *:nth-child(1) {
+  margin-top: 0 !important;
+}
+
+.flink details.folding-tag[open] > div.content {
+  padding: 20px;
+  margin: 0px;
+  margin-top: 0;
+}

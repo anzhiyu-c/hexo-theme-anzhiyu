@@ -1,0 +1,53 @@
+/* 最新文章图标 */
+.recent-post-info .newPost {
+  display: flex;
+  color: var(--anzhiyu-lighttext);
+  font-size: 0.5rem;
+  position: absolute;
+  top: 3px;
+}
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-title {
+  margin: 0 !important;
+}
+
+.recent-post-item .recent-post-info {
+  margin-top: 0px;
+  position: relative;
+}
+
+.recent-post-item .recent-post-info .article-title {
+  font-weight: bold;
+}
+#content-inner #recent-posts > .recent-post-item > .recent-post-info > .content {
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+  display: -webkit-box;
+  height: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.4;
+  color: var(--anzhiyu-secondtext);
+  margin-top: 0.5rem;
+}
+
+a.article-meta__categories {
+  position: absolute;
+  padding: 1px 6px;
+  background: var(--anzhiyu-black-op);
+  border-radius: 8px;
+  margin-left: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--anzhiyu-white);
+  top: 15px;
+  left: 15px;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+a.article-meta__categories:hover {
+  background: var(--anzhiyu-main);
+}

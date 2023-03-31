@@ -1,0 +1,87 @@
+#post #content-inner.layout #article-container h1,
+#post #content-inner.layout #article-container h6,
+#post #content-inner.layout #article-container h2,
+#post #content-inner.layout #article-container h3,
+#post #content-inner.layout #article-container h4,
+#post #content-inner.layout #article-container h5 {
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+#article-container.post-content h1:hover,
+#article-container.post-content h2:hover,
+#article-container.post-content h3:hover,
+#article-container.post-content h4:hover,
+#article-container.post-content h5:hover,
+#article-container.post-content h6:hover {
+  padding-left: 0px;
+}
+#article-container.post-content h1:before,
+#article-container.post-content h2:before,
+#article-container.post-content h3:before,
+#article-container.post-content h4:before,
+#article-container.post-content h5:before,
+#article-container.post-content h6:before {
+  display: none;
+}
+#article-container .headerlink::before {
+  content: "\f0c1";
+  font-family: "Font Awesome 6 Pro";
+}
+
+#article-container h1 .headerlink {
+  float: right;
+  opacity: 0.08;
+  position: relative;
+  padding: 0px;
+  border: none;
+  line-height: 1;
+  font-size: 2rem;
+  border-radius: 8px !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#article-container h2 .headerlink {
+  float: right;
+  opacity: 0.08;
+  position: relative;
+  padding: 0px;
+  border: none;
+  line-height: 1;
+  font-size: 1.8rem;
+  border-radius: 8px !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#article-container h3 .headerlink,
+#article-container h4 .headerlink,
+#article-container h5 .headerlink,
+#article-container h6 .headerlink {
+  float: right;
+  opacity: 0.08;
+  position: relative;
+  padding: 0px;
+  border: none;
+  line-height: 1;
+  font-size: 1.3rem;
+  border-radius: 8px !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#article-container.post-content h1,
+#article-container.post-content h2,
+#article-container.post-content h3,
+#article-container.post-content h4,
+#article-container.post-content h5,
+#article-container.post-content h6 {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  border-top: 1px dashed var(--anzhiyu-theme-op);
+  padding-top: 1.5rem;
+  padding-left: 0;
+}

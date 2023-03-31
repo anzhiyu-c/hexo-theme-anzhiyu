@@ -1,0 +1,968 @@
+/* 中控台 */
+#console {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+#console-music-bg {
+  display: none;
+}
+
+#console.show,
+#console.reward-show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#console .console-card-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  transform: translateY(20px);
+  transition: 0.3s;
+  opacity: 0;
+  max-width: 80%;
+  max-height: 70%;
+}
+
+#console.show .console-card-group {
+  transform: translateY(0px);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+#console .console-card-group-left {
+  margin-right: 0.5rem;
+  width: 40%;
+  height: 100%;
+}
+
+#console .console-card-group-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  overflow: hidden;
+}
+
+#console .console-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: var(--style-border);
+  box-shadow: var(--anzhiyu-shadow-border);
+  padding: 40px;
+}
+
+#console .console-card.tags {
+  height: calc(100% - 172px);
+}
+
+#console .console-mask {
+  background: var(--anzhiyu-maskbgdeep);
+  backdrop-filter: saturate(100%) blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+#console.show .console-mask,
+#console.reward-show .console-mask {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+#card-newest-comments .aside-list-item .thumbnail img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 20px;
+}
+
+#card-newest-comments .aside-list-item {
+  background: var(--anzhiyu-card-bg);
+  border-radius: 12px;
+  border: var(--style-border);
+  padding: 12px 16px;
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  transition: 0.3s;
+}
+
+#card-newest-comments .aside-list-item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+#card-newest-comments .aside-list-item .name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 130px;
+  font-weight: bold;
+}
+
+#console .author-content-item-tips {
+  opacity: 0.8;
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+#console .author-content-item-title {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#console .aside-list-item .thumbnail {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+#console .aside-list-item .content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 0.5rem;
+}
+
+#card-newest-comments .aside-list-item:hover {
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
+}
+
+#console .aside-list-item .content .comment {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+#console .aside-list-item:hover .thumbnail,
+#console .aside-list-item:hover .content .comment {
+  color: var(--anzhiyu-white);
+}
+
+#console .aside-list-item .content time {
+  font-size: 12px;
+  margin-top: auto;
+  color: var(--anzhiyu-white);
+}
+
+#console .aside-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+#console .button-group {
+  display: flex;
+  margin: 1rem auto 0 auto;
+  justify-content: center;
+  width: fit-content;
+}
+
+#console .button-group .console-btn-item {
+  width: 60px;
+  height: 60px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#console .button-group .console-btn-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+#console .button-group .console-btn-item:hover a {
+  background: var(--anzhiyu-main);
+}
+
+#console .button-group .console-btn-item a {
+  width: 100%;
+  height: 100%;
+  background: var(--card-bg);
+  border: var(--style-border);
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--anzhiyu-fontcolor);
+}
+
+#console .button-group .console-btn-item.on a {
+  background: var(--anzhiyu-orange);
+  color: var(--anzhiyu-white);
+  transition: 0.3s;
+}
+
+#console .button-group .console-btn-item a:hover {
+  background: var(--anzhiyu-main) !important;
+}
+
+#console .button-group .console-btn-item:hover a {
+  color: var(--anzhiyu-white);
+}
+
+.console-card.tags .card-tag-cloud {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.console-card.tags .card-tag-cloud a {
+  color: var(--anzhiyu-fontcolor) !important;
+  margin: 6px 4px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--anzhiyu-secondbg);
+  border: var(--style-border);
+  font-size: 14px !important;
+  font-weight: bold;
+}
+
+.console-card.tags .card-tag-cloud a:hover {
+  background: var(--anzhiyu-main);
+  color: var(--anzhiyu-white) !important;
+}
+
+.console-card.tags .card-tag-cloud a sup {
+  opacity: 0.6;
+}
+
+#console .close-btn {
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  right: 35px;
+  top: 35px;
+  font-size: 35px;
+  color: var(--anzhiyu-fontcolor);
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+}
+
+#console .close-btn:hover {
+  color: var(--anzhiyu-hovertext);
+}
+
+#console .console-card.history {
+  margin-top: 8px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+  overflow: hidden;
+}
+
+#console .console-card.history .item-headline {
+  display: none;
+}
+
+#console .console-card.history .card-archive-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#console .console-card.history .card-archive-list li.card-archive-list-item {
+  flex: 0 0 24%;
+}
+
+#console .console-card.history .card-archive-list .card-archive-list-link {
+  border-radius: 8px;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  border: var(--style-border);
+  background: var(--card-bg);
+  padding: 8px 16px;
+}
+
+#console .console-card.history .card-archive-list .card-archive-list-link:hover {
+  background: var(--anzhiyu-main);
+  color: var(--anzhiyu-white);
+}
+
+#console #card-newest-comments {
+  height: 100%;
+}
+
+#console .button-group i {
+  font-size: 1rem;
+}
+
+#console hr {
+  display: none;
+}
+
+#console ul {
+  padding-left: 0;
+}
+#console ul li {
+  list-style: none;
+}
+#console .console-card.history ul.card-archive-list {
+  margin: 2px;
+}
+
+[data-theme="dark"] #console .button-group .console-btn-item a.darkmode_switchbutton {
+  background: var(--anzhiyu-orange);
+  color: var(--anzhiyu-white);
+}
+
+/* 控制台音乐css */
+body:has(#console.show)
+  #nav-music
+  .aplayer
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-bar-wrap:hover
+  .aplayer-bar
+  .aplayer-played
+  .aplayer-thumb {
+  display: inline;
+}
+
+body:has(#console.show) .aplayer.aplayer-arrow .aplayer-icon-loop,
+.aplayer.aplayer-arrow .aplayer-icon-order {
+  display: inline;
+}
+body:has(#console.show) .aplayer-volume-wrap {
+  display: none;
+}
+body:has(#console.show) #nav-music {
+  z-index: 10000;
+  left: 45%;
+  top: 23%;
+  box-shadow: none;
+  align-items: flex-start;
+  transition: 0s;
+  height: 35%;
+  width: 42%;
+  opacity: 1 !important;
+  justify-content: center;
+}
+
+body:has(#console.show) #nav-music:active {
+  transform: scale(1);
+}
+body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-lrc {
+  opacity: 1;
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-lrc p.aplayer-lrc-current,
+body:has(#console.show) #nav-music .aplayer .aplayer-lrc p {
+  color: var(--anzhiyu-fontcolor);
+}
+body:has(#console.show) #nav-music #nav-music-hoverTips {
+  opacity: 0;
+  height: 70px;
+  width: 70px;
+  margin-left: 0px;
+  border-radius: 50%;
+  box-shadow: 0 0 14px #ffffffa6;
+  transform: rotate(0deg) scale(1.1);
+  border: var(--style-border-always);
+  animation: changeright 24s linear infinite;
+  margin-top: 10px;
+  left: auto;
+}
+body:has(#console.show)
+  #nav-music
+  .aplayer
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-bar-wrap
+  .aplayer-bar
+  .aplayer-loaded {
+  display: block;
+  border-radius: 10px;
+  height: 10px;
+}
+body:has(#console.show) meting-js {
+  height: 100%;
+  width: 100%;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-body {
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  cursor: auto;
+}
+body:has(#console.show) #nav-music .aplayer {
+  height: 100%;
+  width: 100%;
+  padding: 10px 10px 0;
+}
+body:has(#console.show) #nav-music .aplayer {
+  background: none;
+  border: none;
+}
+body:has(#console.show) #nav-music.playing {
+  animation: none;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-music {
+  height: auto;
+  margin-bottom: 10px;
+}
+body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-info {
+  flex-direction: column;
+  height: auto;
+  position: relative;
+}
+
+body:has(#console.show) .aplayer .aplayer-pic .aplayer-play {
+  width: 30px;
+  height: 30px;
+}
+body:has(#console.show) .aplayer .aplayer-pic .aplayer-play svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-44%, -50%);
+}
+body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-pic {
+  height: 70px;
+  width: 70px;
+  margin-left: 0px;
+  border-radius: 50%;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-music .aplayer-author {
+  display: inline;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-music .aplayer-title {
+  color: var(--anzhiyu-fontcolor);
+  cursor: auto;
+  line-height: 2;
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.3s;
+  user-select: none;
+  margin-right: 3px;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller {
+  width: 100%;
+  height: auto;
+  top: 26px;
+  align-items: center;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+  height: 10px;
+  border-radius: 10px;
+  background: #cdcdcd;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-time {
+  display: block;
+  bottom: 0;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+  margin: 0;
+  padding: 0;
+}
+body:has(#console.show)
+  #nav-music
+  .aplayer.aplayer-withlist
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-time
+  .aplayer-icon.aplayer-icon-menu {
+  display: none;
+}
+body:has(#console.show)
+  #nav-music
+  .aplayer
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-bar-wrap
+  .aplayer-bar
+  .aplayer-played {
+  background: var(--anzhiyu-main) !important;
+  opacity: 0.8;
+  animation: none;
+  border-radius: 10px;
+}
+body:has(#console.show)
+  #nav-music
+  .aplayer
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-bar-wrap
+  .aplayer-bar
+  .aplayer-played
+  .aplayer-thumb {
+  margin-top: -2px;
+  width: 15px;
+  height: 15px;
+}
+body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
+  margin-top: 80px;
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1450px) {
+  body:has(#console.show) #nav-music {
+    left: 45%;
+  }
+}
+
+/* 赞赏部分控制台css */
+.console-card-group-reward {
+  opacity: 0;
+  display: none;
+}
+.reward-show .console-card-group-reward {
+  opacity: 1;
+  display: block;
+  position: absolute;
+}
+.console-card-group-reward .reward-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.console-card-group-reward .reward-all .reward-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.console-card-group-reward .reward-all .reward-item img {
+  width: 230px;
+  height: 230px;
+}
+
+@media screen and (max-width: 1300px) {
+  /* 移动端音乐列表 */
+  body:has(#console.show) #nav-music .aplayer-list {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background: white;
+    left: 0;
+  }
+  body:has(#console.show) .aplayer-list {
+    max-height: none !important;
+  }
+  body:has(#console.show) .aplayer-list {
+    position: fixed;
+    z-index: 1002;
+    width: 100%;
+    bottom: -76%;
+    left: 0;
+    background: var(--sidebar-bg);
+    height: auto;
+    border-radius: 15px 15px 0px 0px;
+    padding: 15px 0px;
+  }
+  body:has(#console.show) .aplayer-list.aplayer-list-hide {
+    bottom: 0% !important;
+  }
+  body:has(#console.show) ol > li {
+    display: flex;
+    margin: 0 10px;
+  }
+  body:has(#console.show) ol > li span.aplayer-list-title {
+    width: 30%;
+  }
+  body:has(#console.show) ol > li.aplayer-list-light {
+    background: #33a673;
+    padding: 5px 20px;
+    border-radius: 10px;
+  }
+
+  body:has(#console.show) ol > li.aplayer-list-light span {
+    color: #fff;
+  }
+  body:has(#console.show) ol > li span.aplayer-list-title {
+    max-width: 55%;
+    width: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+  }
+  body:has(#console.show) ol > li span.aplayer-list-author {
+    position: absolute;
+    right: 10px;
+    width: auto;
+    max-width: 35%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+  }
+  body:has(#console.show) ol > li.aplayer-list-light span.aplayer-list-author {
+    right: 15px;
+  }
+  /* 移动端音乐 */
+  body:has(#console.show) meting-js {
+    position: relative;
+  }
+  #console .console-card-group {
+    justify-content: center;
+  }
+
+  #console .console-card-group {
+    display: none;
+  }
+
+  #console .console-card-group-right {
+    width: 100%;
+    margin: 0;
+  }
+
+  #consoleCommentBarrage {
+    display: none;
+  }
+
+  #console .button-group {
+    position: absolute;
+    bottom: 50px;
+  }
+  body:has(#console.show) #nav-music #nav-music-hoverTips {
+    display: none;
+  }
+  body:has(#console.show) #nav-music {
+    position: sticky;
+    display: block !important;
+    left: 5.2%;
+    top: 0 !important;
+    bottom: 156px !important;
+    height: 70%;
+    width: 90%;
+  }
+  body:has(#console.show) #console-music-bg {
+    display: block;
+    filter: blur(33px);
+    display: block;
+    background: #000000;
+    opacity: 0.58;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transform: scale(1.2);
+  }
+  [data-theme="dark"] body:has(#console.show) #console-music-bg {
+    background: var(--anzhiyu-white);
+  }
+  body:has(#console.show) #console-music-bg::after {
+    box-shadow: inset 0 0px 10px 116px #000000;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  [data-theme="dark"] body:has(#console.show) #console-music-bg::after {
+    box-shadow: inset 0 0px 10px 116px var(--anzhiyu-white);
+  }
+  body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-pic {
+    height: 50%;
+    width: 100%;
+    border-radius: 15px;
+    animation: none;
+    border: none;
+    transform: none !important;
+    box-shadow: none;
+  }
+
+  body:has(#console.show) #nav-music .aplayer {
+    padding: 30px;
+    border-radius: 0;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-music .aplayer-title,
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-music .aplayer-author {
+    color: var(--anzhiyu-white);
+  }
+  body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-info {
+    width: 100%;
+    height: 45%;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-body {
+    justify-content: space-between;
+  }
+  body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-info::after {
+    position: absolute;
+    content: "iPhone";
+    top: -20px;
+    left: 0;
+    color: #b5b8bc;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-music {
+    padding: 25px 0 0;
+    position: absolute;
+    left: 0;
+  }
+  body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-lrc {
+    height: 25px;
+    text-align: left;
+  }
+
+  body:has(#console.show) #nav-music .aplayer .aplayer-lrc p.aplayer-lrc-current {
+    color: var(--anzhiyu-white);
+    font-size: 20px;
+    line-height: 25px !important;
+    float: left;
+    white-space: nowrap;
+    animation: an-text-roll 4s cubic-bezier(0.6, 0, 0.5, 1) alternate infinite;
+    min-width: 100%;
+    margin: 0;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-lrc p {
+    color: var(--anzhiyu-white);
+    font-size: 16px;
+    margin: 0;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
+    margin: 0;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-time {
+    color: var(--anzhiyu-white);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+    position: absolute;
+    width: 100%;
+    padding: 0;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller {
+    top: 58px;
+  }
+  body:has(#console.show) .aplayer .aplayer-icon-back,
+  body:has(#console.show) .aplayer .aplayer-icon-forward,
+  body:has(#console.show) .aplayer .aplayer-icon-order,
+  body:has(#console.show) .aplayer .aplayer-icon-play,
+  body:has(#console.show)
+    #nav-music
+    .aplayer.aplayer-withlist
+    .aplayer-info
+    .aplayer-controller
+    .aplayer-time
+    .aplayer-icon.aplayer-icon-menu,
+  body:has(#console.show) .aplayer-volume-wrap,
+  body:has(#console.show) .aplayer.aplayer-mobile .aplayer-icon-volume-down {
+    display: inline-block;
+    opacity: 1;
+  }
+  body:has(#console.show) .aplayer .aplayer-icon-volume-down {
+    width: 36px;
+    height: 30px;
+  }
+  body:has(#console.show) .aplayer-volume-wrap {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+  }
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+    height: 10px;
+    border-radius: 10px;
+  }
+  body:has(#console.show)
+    #nav-music
+    .aplayer
+    .aplayer-info
+    .aplayer-controller
+    .aplayer-bar-wrap
+    .aplayer-bar
+    .aplayer-loaded {
+    display: block;
+    height: 10px;
+    border-radius: 10px;
+  }
+
+  body:has(#console.show) .aplayer .aplayer-icon-back {
+    left: 0;
+  }
+  body:has(#console.show) .aplayer .aplayer-icon-forward {
+    right: 0;
+  }
+  body:has(#console.show) .aplayer .aplayer-icon-forward,
+  body:has(#console.show) .aplayer .aplayer-icon-back {
+    height: 40px;
+    width: 33%;
+    margin: 15px 0;
+    position: absolute;
+  }
+
+  body:has(#console.show) .aplayer .aplayer-pic .aplayer-play {
+    width: 120px;
+    height: 120px;
+  }
+  body:has(#console.show) .aplayer .aplayer-pic .aplayer-pause {
+    width: 100px;
+    height: 100px;
+  }
+  body:has(#console.show) .aplayer .aplayer-pic .aplayer-play svg {
+    width: 60px;
+    height: 60px;
+  }
+  body:has(#console.show) .aplayer .aplayer-pic .aplayer-pause svg {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  body:has(#console.show) .aplayer .aplayer-icon-play {
+    height: 50px;
+    width: 33%;
+    margin: 10px 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  body:has(#console.show)
+    .aplayer.aplayer-withlist
+    .aplayer-info
+    .aplayer-controller
+    .aplayer-time
+    .aplayer-icon.aplayer-icon-menu {
+    right: 0;
+  }
+  body:has(#console.show) .aplayer.aplayer-arrow .aplayer-icon-order {
+    left: 0;
+  }
+  body:has(#console.show)
+    .aplayer.aplayer-withlist
+    .aplayer-info
+    .aplayer-controller
+    .aplayer-time
+    .aplayer-icon.aplayer-icon-menu,
+  body:has(#console.show) .aplayer.aplayer-arrow .aplayer-icon-order {
+    height: 40px;
+    width: 33%;
+    top: 80px;
+    position: absolute;
+  }
+
+  body:has(#console.show) .aplayer.aplayer-arrow .aplayer-icon-loop {
+    height: 40px;
+    width: 33%;
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+  }
+
+  body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+    margin: 0;
+    padding: 0;
+  }
+  body:has(#console.show) .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body:has(#console.show) .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
+    fill: var(--anzhiyu-white);
+  }
+  body:has(#console.show) .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
+    overflow: visible;
+    bottom: 0px;
+    left: 45px;
+    right: auto;
+  }
+  body:has(#console.show)
+    .aplayer
+    .aplayer-info
+    .aplayer-controller
+    .aplayer-volume-wrap
+    .aplayer-volume-bar-wrap
+    .aplayer-volume-bar,
+  body:has(#console.show)
+    .aplayer
+    .aplayer-info
+    .aplayer-controller
+    .aplayer-volume-wrap
+    .aplayer-volume-bar-wrap
+    .aplayer-volume-bar
+    .aplayer-volume {
+    width: 20px;
+    border-radius: 4px;
+  }
+}
+
+@media screen and (max-width: 867px) {
+  #console .close-btn {
+    display: none;
+  }
+  #console .console-card-group {
+    display: none;
+  }
+
+  #consoleHideAside {
+    display: none;
+  }
+  .console-card-group-reward .reward-all .reward-item img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  #console .console-card-group {
+    display: none;
+  }
+
+  #consoleMusic {
+    display: none;
+  }
+
+  #consoleCommentBarrage {
+    display: none;
+  }
+
+  body:has(#console.show) #nav-music {
+    display: none;
+  }
+}
+
+/* 歌词超出文本滚动动画 */
+@keyframes an-text-roll {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 100%;
+    transform: translateX(-100%);
+  }
+}

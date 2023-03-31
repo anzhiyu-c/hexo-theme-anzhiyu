@@ -1,0 +1,95 @@
+/* 顶部样式 */
+.fcircle_page .author-content.fcirclePage {
+  height: 19rem;
+  color: var(--anzhiyu-white);
+  overflow: hidden;
+  margin-top: 0px;
+}
+body[data-type="fcircle"] #web_bg {
+  background-color: #f7f9fe;
+}
+
+[data-theme="dark"] body[data-type="fcircle"] #web_bg {
+  background-color: #000;
+}
+
+body[data-type="fcircle"] #page .page-title {
+  display: none;
+}
+
+body[data-type="fcircle"] #page {
+  border: 0;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+.fcircle_page a {
+  border-bottom: none !important;
+}
+.fcircle_page .cf-article-avatar a:hover {
+  background: none !important;
+  color: var(--anzhiyu-fontcolor) !important;
+}
+/* 随机文章样式 */
+
+.title-h2-a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.title-h2-a-left {
+  display: flex;
+  align-items: center;
+}
+.title-h2-a-left h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.title-h2-a a {
+  margin-left: 0.5rem;
+  color: var(--anzhiyu-fontcolor);
+  font-weight: 700;
+}
+#random-post {
+  min-height: 32px;
+  background: var(--card-bg);
+  border: var(--style-border-always);
+  box-shadow: var(--anzhiyu-shadow-border);
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+#random-post .random-friends-post {
+  text-decoration: none;
+  border-bottom: 2px solid var(--anzhiyu-lighttext) !important;
+  color: var(--anzhiyu-fontcolor);
+  font-weight: 700;
+  padding: 0 4px;
+}
+
+#random-post .random-friends-post:hover {
+  text-decoration: none;
+  border-bottom: 2px solid var(--anzhiyu-none) !important;
+  color: var(--anzhiyu-white) !important;
+  background: var(--anzhiyu-main) !important;
+  border-radius: 4px;
+  box-shadow: var(--anzhiyu-shadow-main);
+}
+#article-container .title-h2-a a:hover {
+  color: var(--anzhiyu-hovertext) !important;
+}
+.fcircle_page .title-h2-a-right a.random-post-all {
+  color: var(--anzhiyu-fontcolor);
+}
+#cf-overshow.cf-show-now p a.cf-article-title:hover,
+.fcircle_page #fcircleContainer .cf-article a.cf-article-title:hover,
+.fcircle_page .title-h2-a-right a.random-post-all:hover,
+.fcircle_page .title-h2-a-left a.random-post-start:hover {
+  background: none;
+  box-shadow: none;
+  color: var(--anzhiyu-theme);
+}
+.fcircle_page .fish-pond-item .cf-article .cf-article-title {
+  line-height: 2;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "hexo-theme-anzhiyu",
+  "version": "1.0.1",
+  "description": "A Simple and Card UI Design theme for Hexo",
+  "main": "package.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "anzhiyu",
+    "Card UI Design",
+    "AnZhiYu",
+    "hexo-theme-anzhiyu"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anzhiyu-c/hexo-theme-anzhiyu/issues",
+    "email": "chen@anzhiy.cn"
+  },
+  "dependencies": {
+    "hexo-renderer-stylus": "^2.1.0",
+    "hexo-renderer-pug": "^3.0.0"
+  },
+  "homepage": "https://anzhiy.cn/",
+  "author": "anzhiyu <chen@anzhiy.cn>",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,43 @@
+#console
+  .close-btn(onclick='anzhiyu.hideConsole()', href='javascript:void(0);')
+    i.fas.fa-circle-xmark
+  .console-card-group-reward
+    ul.reward-all.console-card
+      each item in theme.reward.QR_code
+        li.reward-item
+          a(href=url_for(item.link || item.img), target='_blank')
+            img.post-qr-code-img(alt=item.text, src=url_for(item.img))
+          .post-qr-code-desc=item.text
+  .console-card-group
+    .console-card-group-left
+      !=partial('includes/widget/card_newest_comment', {}, {cache: true})
+    - const nav_console_music_enable = theme.nav_music.console_widescreen_music
+    .console-card-group-right
+      .console-card.tags(onclick='anzhiyu.hideConsole()')
+        .card-content
+          if nav_console_music_enable
+            .author-content-item-tips 音乐
+            span.author-content-item-title 灵魂的碰撞💥
+          else 
+            .author-content-item-tips 兴趣点
+            span.author-content-item-title 寻找你感兴趣的领域
+            !=partial('includes/widget/card_tags', {}, {cache: true})
+      .console-card.history(onclick='anzhiyu.hideConsole()')
+        .item-headline
+          i.fas.fa-archive
+          span 文章
+        !=partial('includes/widget/card_archives', {}, {cache: true})
+  .button-group
+    .console-btn-item
+      a.darkmode_switchbutton(onclick='rm.switchDarkMode()', title='显示模式切换', href='javascript:void(0);')
+        i.fas.fa-moon(style='font-size: 1rem;')
+    .console-btn-item#consoleHideAside(onclick='anzhiyu.hideAsideBtn()', title='边栏显示控制')
+      a.asideSwitch
+        i.fas.fa-arrows-alt-h
+    .console-btn-item.on#consoleCommentBarrage(onclick='anzhiyu.switchCommentBarrage()', title='热评开关')
+      a.commentBarrage
+        i.fa-solid.fa-message
+    .console-btn-item#consoleMusic(onclick='anzhiyu.musicToggle()', title='音乐开关')
+      a.music-switch
+        i.fas.fa-music
+  .console-mask(onclick='anzhiyu.hideConsole()', href='javascript:void(0);')

@@ -1,0 +1,170 @@
+div
+  script(src=url_for(theme.asset.utils))
+  script(src=url_for(theme.asset.main))
+
+  if theme.translate.enable
+    script(src=url_for(theme.asset.translate))
+
+  if theme.medium_zoom
+    script(src=url_for(theme.asset.medium_zoom))
+  else if theme.fancybox
+    script(src=url_for(theme.asset.fancybox_v4))
+
+  if theme.instantpage
+    script(src=url_for(theme.asset.instantpage), type='module')
+
+  if theme.lazyload.enable
+    script(src=url_for(theme.asset.lazyload))
+
+  if theme.snackbar.enable
+    script(src=url_for(theme.asset.snackbar))
+
+  if theme.pangu.enable
+    != partial("includes/third-party/pangu.pug", {}, { cache: true })
+
+  //- 黑色模式粒子效果canvas
+  if theme.universe.enable
+    canvas(id="universe")
+    script(async src="https://npm.elemecdn.com/acrylic-static@1.0.0/dark/dark.js")
+
+  //- 控制台打印信息
+  if theme.console.enable
+    != partial("includes/anzhiyu/log-js.pug", {}, { cache: true })
+  
+  //- 随机文章
+  script(async src="/anzhiyu/random.js")
+
+  //- 页脚计时器
+  if theme.footer.runtime.enable
+    != partial("includes/third-party/runtime/runtime-js.pug", {}, { cache: true })
+
+  //- search
+  if theme.algolia_search.enable
+    script(src=url_for(theme.asset.algolia_search_v4))
+    script(src=url_for(theme.asset.instantsearch_v4))
+    script(src=url_for(theme.asset.algolia_js))
+  else if theme.local_search.enable
+    script(src=url_for(theme.asset.local_search))
+
+  .js-pjax
+    if needLoadCountJs
+      != partial("includes/third-party/card-post-count/index", {}, { cache: true })
+
+    if loadSubJs
+      include ./third-party/subtitle.pug
+
+    include ./third-party/math/index.pug
+
+    if commentsJsLoad
+      include ./third-party/comments/js.pug
+    
+    input(type="hidden" name="page-type" id="page-type" value=(page.type ? page.type : (is_post() ? "post" : (is_category() ? "categories" : "anzhiyu"))))
+
+  != partial("includes/third-party/prismjs", {}, { cache: true })
+
+  if theme.aside.enable && theme.newest_comments.enable
+    if theme.pjax.enable
+      != partial("includes/third-party/newest-comments/index", {}, { cache: true })
+    else if (!is_post() && page.aside !== false)
+      != partial("includes/third-party/newest-comments/index", {}, { cache: true })
+  //- jquery
+  script(src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js")
+  //- 气泡效果
+  if theme.bubble.enable
+    script(async data-pjax src="https://npm.elemecdn.com/acrylic-static@1.0.0/bubble/bubble.js")
+  //- 自定义js
+  script(data-pjax src="/js/anzhiyufunction.js")
+  script(async src="/js/anzhiyuOnlyOne.js")
+  script(data-pjax src="/js/anzhiyu.js")
+  if theme.visitorMail.enable
+    - const mail = theme.visitorMail.mail
+    script.
+      var visitorMail = "#{mail}";
+  //- 标题卖萌
+  if theme.diytitle.enable
+    != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })
+  //- 评论弹幕
+  if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
+    .js-pjax
+      != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
+  //- 分类和标签界面导航栏
+  script(data-pjax src=url_for(theme.asset.catalog_bar))
+  //- 首页分类bar
+  script(async data-pjax src=url_for(theme.asset.categoryBar))
+  //- 即刻依赖waterfall
+  script(async data-pjax src=url_for(theme.asset.waterfall))
+  //- 右键菜单
+  script(async src=url_for(theme.asset.rightmenu))
+  //- 51la统计&灵雀统计
+  if (theme.LA.enable)
+    script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")
+    script(src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous")
+    - const ck = theme.LA.ck
+    script.
+      LA.init({id: "#{ck}", ck: "#{ck}"});
+      new LingQue.Monitor().init({id: "#{theme.LA.LingQueMonitorID}", sendSuspicious:true});
+
+  != fragment_cache('injectBottom', function(){return injectHtml(theme.inject.bottom)})
+
+  != partial("includes/third-party/effect", {}, { cache: true })
+
+  != partial("includes/third-party/chat/index", {}, { cache: true })
+
+  if theme.aplayerInject && theme.aplayerInject.enable
+    if theme.pjax.enable || theme.aplayerInject.per_page
+      include ./third-party/aplayer.pug
+    else if page.aplayer
+      include ./third-party/aplayer.pug
+
+  if theme.pjax.enable
+    != partial("includes/third-party/pjax", {}, { cache: true })
+
+  if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
+    script(async data-pjax src= theme.asset.busuanzi || '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
+
+  if is_current("/")
+    #greetingBox 
+    script.
+      (()=>{
+        //- 创建盒子
+        let div = document.createElement("div");
+        //- 设置ID
+        div.id = "greeting";
+        //- 设置class
+        setTimeout(()=>{
+          div.classList.add("shown");
+        }, 1000)
+        //- 插入盒子
+        let greetingBox = document.querySelector("#greetingBox");
+        greetingBox.appendChild(div);
+        const nowTime = new Date().getHours();
+        let greetings = "";
+        if (0 <= nowTime && nowTime <= 5) {
+          greetings = "晚安😴"
+        } else if (6 <= nowTime && nowTime < 10) {
+          greetings = "早上好鸭👋, 祝你一天好心情！"
+        } else if (10 === nowTime) {
+          greetings = "上午好👋, 状态很好，鼓励一下～"
+        } else if (11 === nowTime) {
+          greetings = "11点多啦, 在坚持一下就吃饭啦～"
+        } else if (12 <= nowTime && nowTime < 14) {
+          greetings = "午安👋, 宝贝"
+        } else if (14 <= nowTime && nowTime < 18) {
+          greetings = "下午好👋, 继续加油喔。"
+        } else if (18 <= nowTime && nowTime < 19) {
+          greetings = "🌈充实的一天辛苦啦！"
+        } else if (19 === nowTime) {
+          greetings = "19点喽, 奖励一顿丰盛的大餐吧。"
+        } else if (20 <= nowTime && nowTime <= 24) {
+          greetings = "晚上好👋, 在属于自己的时间好好放松😌~"
+        } else {
+          greetings = "晚上好👋"
+        }
+        div.innerHTML = greetings
+        setTimeout(()=>{
+          div.classList.remove("shown");
+          setTimeout(()=>{
+            greetingBox.remove()
+          }, 500)
+        }, 3000)
+      })()

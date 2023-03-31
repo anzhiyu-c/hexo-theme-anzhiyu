@@ -1,0 +1,28 @@
+[data-theme="light"] #footer-wrap {
+  color: var(--font-color);
+}
+#footer-wrap .fas.fa-heartbeat {
+  transition: 0.3s;
+  animation: heartbeat-bounce 2s ease-in-out infinite;
+}
+@keyframes heartbeat-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10%,
+  30% {
+    transform: scale(0.9);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: scale(1.1);
+  }
+  50%,
+  70% {
+    transform: scale(1.1);
+  }
+}

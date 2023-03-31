@@ -1,0 +1,118 @@
+/* 首页分类框展示 */
+.categoryGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+  height: 24%;
+  width: 100%;
+
+  animation: slide-in 0.6s 0.2s backwards;
+}
+.categoryItem:last-child {
+  margin-right: 0;
+}
+.categoryItem {
+  width: calc(100% / 3 - 0.33rem);
+  height: 100%;
+  margin-right: 0.5rem;
+}
+
+.categoryItem {
+  overflow: hidden;
+  transform: scale(1);
+  transition: all 0.8s cubic-bezier(0.65, 0.15, 0.37, 1.19);
+  height: 100%;
+  border-radius: 12px;
+}
+
+a.categoryButton {
+  height: 100%;
+  width: 100%;
+  background: var(--anzhiyu-card-bg);
+  border-radius: 12px;
+  display: inline-block;
+  text-align: left;
+  line-height: 4em;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--anzhiyu-white);
+  transition: all 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transform: scale(1);
+  overflow: hidden;
+  font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei;
+}
+.categoryButtonText {
+  padding-left: 21px;
+}
+a.categoryButton i {
+  font-size: 5rem;
+  opacity: 0.2;
+  position: absolute;
+  right: 0;
+  top: 20%;
+  transition: 0.3s;
+  width: 100px;
+  text-align: center;
+  filter: blur(2px);
+}
+
+a.categoryButton.blue {
+  background: linear-gradient(to right, #358bff, #15c6ff);
+  background-size: 200%;
+}
+a.categoryButton.red {
+  background: linear-gradient(to right, #f65, #ffbf37);
+  background-size: 200%;
+}
+a.categoryButton.green {
+  background: linear-gradient(to right, #18e7ae, #1eebeb);
+  background-size: 200%;
+}
+
+.categoryItem:hover {
+  width: 50%;
+}
+
+.categoryItem:hover i {
+  transform: scale(1.03);
+}
+
+.categoryItem:hover i {
+  opacity: 0.8;
+  transition: 0.8s;
+  transition-delay: 0.15s;
+  transform: scale(1.03);
+  font-size: 2.5rem;
+  filter: blur(0);
+}
+a.categoryButton:after {
+  top: 40px;
+  width: 1rem;
+  left: 21px;
+  height: 2px;
+  background: var(--anzhiyu-white);
+  content: "";
+  border-radius: 1px;
+  position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+  .categoryGroup {
+    display: none;
+  }
+}
+
+[data-theme="dark"] a.categoryButton.blue {
+  background: linear-gradient(to right, #0653b8, #2fcbff);
+  background-size: 200%;
+}
+[data-theme="dark"] a.categoryButton.red {
+  background: linear-gradient(to right, #e22a16, #da980c);
+  background-size: 200%;
+}
+[data-theme="dark"] a.categoryButton.green {
+  background: linear-gradient(to right, #099e74, #0ea4a4);
+  background-size: 200%;
+}

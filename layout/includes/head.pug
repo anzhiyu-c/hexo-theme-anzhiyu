@@ -1,0 +1,98 @@
+- var pageTitle
+- is_archive() ? page.title = findArchivesTitle(page, theme.menu, date) : ''
+- if (is_tag()) pageTitle = _p('page.tag') + ': ' + page.tag
+- else if (is_category()) pageTitle = _p('page.category') + ': ' + page.category
+- else if (is_current('/404.html', [strict])) pageTitle = _p('error404')
+- else pageTitle = page.title || config.title || ''
+
+- var isSubtitle = config.subtitle ? ' - ' + config.subtitle : ''
+- var tabTitle = is_home() || !pageTitle ? config.title + isSubtitle : pageTitle + ' | ' + config.title
+
+- var pageKeywords
+- if (page.keywords) pageKeywords = Array.isArray(page.keywords) ? (page.keywords).join(',') :  ([]).join(',') || page.keywords
+- else if (page.tags && page.tags.length) pageKeywords = page.tags.data.map(function(tag) {return tag.name;}).join(',')
+- else pageKeywords = Array.isArray(config.keywords) ? (config.keywords).join(','):  ([]).join(',') || config.keywords
+- var pageAuthor = config.email ? config.author + ',' + config.email : config.author
+- var pageCopyright = config.copyright || config.author
+- var themeColorLight = theme.theme_color && theme.theme_color.enable && theme.theme_color.meta_theme_color_light || '#ffffff'
+- var themeColorDark = theme.theme_color && theme.theme_color.enable && theme.theme_color.meta_theme_color_dark || '#0d0d0d'
+- var themeColor = theme.display_mode === 'dark' ? themeColorDark : themeColorLight
+
+meta(charset='UTF-8')
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+title= tabTitle
+if pageKeywords
+  meta(name="keywords" content=pageKeywords)
+meta(name="author" content=pageAuthor)
+meta(name="copyright" content=pageCopyright)
+meta(name ="format-detection" content="telephone=no")
+meta(name="theme-color" content=themeColor)
+meta(name="mobile-web-app-capable", content="yes")
+meta(name="apple-touch-fullscreen", content="yes")
+meta(name="apple-mobile-web-app-title", content=pageTitle)
+meta(name="application-name", content=pageTitle)
+meta(name="apple-mobile-web-app-capable", content="yes")
+meta(name="apple-mobile-web-app-status-bar-style", content="default")
+link(rel="bookmark", href="/img/siteicon/apple-touch-icon.png")
+link(rel="apple-touch-icon-precomposed", sizes="180x180", href="/img/siteicon/apple-touch-icon.png")
+link(rel="apple-touch-icon", sizes="192x192", href="/img/siteicon/apple-touch-icon.png")
+link(rel="apple-touch-icon", sizes="512x512", href="/img/siteicon/apple-touch-icon.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:320px) and (device-height:568px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_1136x640.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:320px) and (device-height:568px) and (-webkit-device-pixel-ratio:2) and (orientation:portrait)", href="/img/siteicon/splashIcons/icon_640x1136.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_2688x1242.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_1792x828.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) and (orientation:portrait)", href="/img/siteicon/splashIcons/icon_1125x2436.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) and (orientation:portrait)", href="/img/siteicon/splashIcons/icon_828x1792.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_2436x1125.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:414px) and (device-height:736px) and (-webkit-device-pixel-ratio:3) and (orientation:portrait)", href="/img/siteicon/splashIcons/icon_1242x2208.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:414px) and (device-height:736px) and (-webkit-device-pixel-ratio:3) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_2208x1242.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:375px) and (device-height:667px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_1334x750.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:375px) and (device-height:667px) and (-webkit-device-pixel-ratio:2) and (orientation:portrait)", href="/img/siteicon/splashIcons/icon_750x1334.png")
+link(rel="apple-touch-startup-image", media="screen and (device-width:1024px) and (device-height:1366px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)", href="/img/siteicon/splashIcons/icon_2732x2048.png")
+
+//- Open_Graph
+include ./head/Open_Graph.pug
+
+!=favicon_tag(theme.favicon || config.favicon)
+link(rel="canonical" href=urlNoIndex())
+
+//- 預解析
+!=partial('includes/head/preconnect', {}, {cache: true})
+
+//- 網站驗證
+!=partial('includes/head/site_verification', {}, {cache: true})
+
+//- PWA
+if (theme.pwa && theme.pwa.enable)
+  !=partial('includes/head/pwa', {}, {cache: true})
+
+//- main css
+link(rel='stylesheet', href=url_for(theme.asset.main_css))
+link(rel='stylesheet', href=url_for(theme.asset.fontawesomeV6) media="print" onload="this.media='all'")
+
+if (theme.snackbar && theme.snackbar.enable)
+  link(rel='stylesheet', href=url_for(theme.asset.snackbar_css) media="print" onload="this.media='all'")
+
+if theme.fancybox
+  link(rel='stylesheet' href=url_for(theme.asset.fancybox_css_v4) media="print" onload="this.media='all'")
+
+//- google_adsense
+!=partial('includes/head/google_adsense', {}, {cache: true})
+
+//- analytics
+!=partial('includes/head/analytics', {}, {cache: true})
+
+//- font
+if theme.blog_title_font &&　theme.blog_title_font.font_link
+  link(rel='stylesheet' href=url_for(theme.blog_title_font.font_link) media="print" onload="this.media='all'")
+
+//- global config
+!=partial('includes/head/config', {}, {cache: true})
+
+include ./head/config_site.pug
+include ./head/noscript.pug
+
+!=fragment_cache('injectHeadJs', function(){return inject_head_js()})
+
+!=fragment_cache('injectHead', function(){return injectHtml(theme.inject.head)})

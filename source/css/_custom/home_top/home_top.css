@@ -1,0 +1,27 @@
+#home_top {
+  margin: 0 auto 0;
+  padding: 0px 15px 20px;
+  max-width: 1400px;
+  width: 100%;
+  overflow: hidden;
+}
+#home_top ~ main {
+  padding: 0 15px 20px;
+}
+
+a span.top-group-text {
+  border-radius: 0px 0 12px 0;
+}
+
+div#bannerGroup {
+  width: calc(100% - 600px - 2rem);
+  height: 338px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1300px) {
+  div#bannerGroup {
+    width: auto;
+  }
+}

@@ -1,0 +1,34 @@
+- let defaultComment = theme.comments.use[0]
+hr
+#post-comment
+  .comment-head
+    .comment-headline
+      i.fas.fa-comments.fa-fw
+      span= ' ' + _p('comment')
+    .comment-randomInfo(style= theme.visitorMail.enable ? "" : "display: none")
+      a(onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)") 匿名评论
+    
+    if theme.comments.use.length > 1
+      #comment-switch
+        span.first-comment=defaultComment
+        span.switch-btn
+        span.second-comment=theme.comments.use[1]
+    
+    .comment-tips#comment-tips
+      span 你无需删除空行，直接评论以获取最佳展示效果
+
+
+  .comment-wrap
+    each name in theme.comments.use
+      div
+        case name
+          when 'Valine'
+            #vcomment.vcomment
+          when 'Twikoo'
+            #twikoo-wrap
+          when 'Waline'
+            #waline-wrap
+          when 'Artalk'
+            #artalk-wrap
+
+  .comment-barrage

@@ -1,0 +1,54 @@
+:root {
+  --anzhiyu-snackbar-time: 2000ms;
+}
+.snackbar-container {
+  background: var(--anzhiyu-main) !important;
+  color: var(--anzhiyu-white) !important;
+  border-radius: 0 !important;
+  display: flex;
+  justify-content: center !important;
+  max-width: none !important;
+  min-width: 100% !important;
+  margin: 0;
+  left: 0 !important;
+  height: 60px !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+.snackbar-container p {
+  font-weight: 700 !important;
+  text-align: center !important;
+  font-size: 1.1rem !important;
+}
+.snackbar-container .action {
+  color: var(--anzhiyu-white) !important;
+  padding: 4px 6px !important;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: var(--style-border) !important;
+}
+.snackbar-container .action:hover {
+  color: var(--anzhiyu-main) !important;
+  background: var(--anzhiyu-white);
+}
+.snackbar-container::after {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: var(--anzhiyu-white);
+  opacity: 0.1;
+  content: '';
+  animation: snackbar-progress var(--anzhiyu-snackbar-time) linear forwards;
+  pointer-events: none;
+}
+@keyframes snackbar-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

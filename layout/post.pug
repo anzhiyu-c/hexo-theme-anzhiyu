@@ -1,0 +1,47 @@
+extends includes/layout.pug
+
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
+
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      .post-meta__box
+        if (theme.post_meta.post.categories && page.categories.data.length > 0)
+          .post-meta__box__category-list
+            each item, index in page.categories.data
+              a(href=url_for(item.path)).post-meta__box__categoryes
+                span.categoryes-punctuation 
+                  svg.icon.iconfont.icon-biaoqian(title=item.name,aria-hidden="true")
+                    use(xlink:href="#icon-fenlei")
+                =item.name
+                span.categoryesPageCount=item.length
+        if (theme.post_meta.post.tags)
+          .post-meta__box__tag-list
+            each item, index in page.tags.data
+              a(href=url_for(item.path)).post-meta__box__tags
+                span.tags-punctuation 
+                  svg.icon.iconfont.icon-biaoqian(title=item.name,aria-hidden="true")
+                    use(xlink:href="#icon-biaoqian1")
+                =item.name
+                span.tagsPageCount=item.length
+      include includes/third-party/share/index.pug
+        
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
+
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
+      

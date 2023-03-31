@@ -1,0 +1,21 @@
+#album
+  .author-content.author-content-item.album.single
+    .card-content
+      .author-content-item-tips 相册集
+      span.author-content-item-title 这里是我的相册集哦😯
+      .content-bottom
+        .tips 每一张照片都是一次美好的记忆。
+      .banner-button-group
+        a.banner-button(onclick='pjax.loadUrl("/about/")')
+          i.fas.fa-circle-arrow-up-right(style='font-size: 1.5rem')
+          span.banner-button-text 关于我
+  .card-album
+    each i in site.data.album
+      .card(onclick=`pjax.loadUrl("${i.path_name}")`)
+        img.card_cover(src=i.cover)
+        .card__content
+          p.card__category=i.class_name
+          h3.card__heading=i.description
+    .album-content-nocover
+    .album-content-nocover
+    .album-content-nocover

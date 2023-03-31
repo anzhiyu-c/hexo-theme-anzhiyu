@@ -1,0 +1,15 @@
+/* site-card样式修复 */
+#article-container .site-card-group a {
+  padding: 0;
+  border-bottom: 0;
+  font-weight: 400;
+}
+#article-container .site-card-group .site-card {
+  background: #fff !important;
+  border-radius: 8px;
+}
+#article-container .site-card-group a:hover {
+  padding: 0;
+  border-bottom: 0;
+  font-weight: 400;
+}

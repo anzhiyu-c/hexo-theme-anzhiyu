@@ -1,0 +1,112 @@
+/* 处理单页背景 */
+body[data-type="album"] #web_bg {
+  background: var(--anzhiyu-background);
+}
+body[data-type="album"] #page {
+  border: 0;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: 0 0 !important;
+}
+body[data-type="album"] #page .page-title {
+  display: none;
+}
+
+/* 变量定义 */
+:root {
+  --album-background-dark: #2d3548;
+  --album-text-light: rgba(255, 255, 255, 0.6);
+  --album-text-lighter: rgba(255, 255, 255, 0.9);
+  --album-spacing-s: 8px;
+  --album-spacing-m: 16px;
+  --album-spacing-l: 24px;
+  --album-spacing-xl: 32px;
+  --album-spacing-xxl: 64px;
+}
+
+/* 卡片样式 */
+#album .card-album {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: var(--album-spacing-xxl) 0 0;
+}
+#album .card-album .album-content-nocover {
+  width: calc(100% / 4 - 40px);
+}
+
+#album .card-album .card {
+  list-style: none;
+  position: relative;
+  display: flex;
+  width: calc(100% / 4 - 10px);
+  padding: 10px;
+}
+#album .card-album .card:hover {
+  cursor: pointer;
+}
+
+#album .card_cover {
+  border-radius: var(--album-spacing-l);
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  transform-origin: center;
+  transform: scale(1) translateZ(0);
+  transition: filter 200ms linear, transform 200ms linear;
+  max-width: 100%;
+  overflow: hidden;
+  height: 550px;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: var(--album-spacing-l);
+}
+
+#album .card:hover .card_cover {
+  transform: scale(1.05) translateZ(0);
+  filter: brightness(0.9) saturate(1.2) contrast(1);
+}
+
+#album .card-album:hover > .card:not(:hover) .card_cover {
+  filter: brightness(0.5) saturate(0.9) contrast(1.2) blur(20px);
+}
+
+#album .card__content {
+  left: 0;
+  padding: var(--album-spacing-l);
+  position: absolute;
+  top: 0;
+}
+
+#album .card__category {
+  color: var(--album-text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--album-spacing-s);
+  text-transform: uppercase;
+}
+
+#album .card__heading {
+  color: var(--album-text-lighter);
+  font-size: 1.9rem;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
+  word-spacing: 100vw;
+}
+
+@media (min-width: 1300px) {
+  #album img.card_cover {
+    height: 600px;
+  }
+}
+
+@media (max-width: 960px) {
+  #album .card-album .card {
+    width: calc(100% / 2 - 40px);
+  }
+}
+
+@media (max-width: 540px) {
+  #album .card-album .card {
+    width: calc(100%);
+  }
+}

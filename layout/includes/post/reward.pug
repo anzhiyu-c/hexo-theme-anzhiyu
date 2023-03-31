@@ -1,0 +1,21 @@
+link(rel='stylesheet' href=url_for(theme.asset.coin_css) media="defer" onload="this.media='all'")
+.post-reward
+  button.tip-button.reward-button
+    span.tip-button__text= _p('donate')
+    .coin-wrapper
+      .coin
+        .coin__middle
+        .coin__back
+        .coin__front
+    .reward-main
+      ul.reward-all
+        each item in theme.reward.QR_code
+          - var clickTo = (item.itemlist||item).link ? (item.itemlist||item).link : (item.itemlist||item).img
+          li.reward-item
+            a(href=clickTo target='_blank')
+              img.post-qr-code-img(src=url_for((item.itemlist||item).img) alt=(item.itemlist||item).text)
+            .post-qr-code-desc=(item.itemlist||item).text
+if theme.reward.coinAudio
+  - var coinAudio = theme.reward.coinAudio ? url_for(theme.reward.coinAudio) : 'https://cdn.cbd.int/akilar-candyassets@1.0.36/audio/coin.mp3'
+  audio#coinAudio(src=coinAudio)
+script(defer src=url_for(theme.asset.coin_js))

@@ -1,0 +1,368 @@
+body[data-type="music"]
+  background rgb(13, 13, 13)
+  .layout
+    flex-direction: row;
+  #page
+    border 0
+    box-shadow none !important
+    padding 0 !important
+    background transparent !important
+    .page-title
+      display: none
+  #page-header
+    #nav
+      backdrop-filter none !important
+      background 0 0 !important
+      border-bottom none !important
+      a, .back-home-button
+        color var(--anzhiyu-white)
+  #footer, #nav-music
+    display none
+  #an_music_bg
+    display block
+  #web_bg
+    display none
+  .s-sticker
+    div
+      color var(--anzhiyu-white) !important
+
+[data-theme="dark"]
+  body[data-type="music"]
+    .page
+      #page-header
+        &:before
+          background-color transparent
+
+
+#an_music_bg
+  display none
+  filter blur(63px)
+  opacity 0.6
+  position fixed
+  z-index -999
+  background-attachment local
+  background-position center center
+  background-size cover
+  background-repeat no-repeat
+  width 200%
+  height 200%
+  top -50%
+  left -50%
+  transform rotate(0deg)
+  transition .3s
+
+if hexo-config('nav_music.console_widescreen_music') == false
+  body
+    &:has(#console.show)
+      #nav-music
+        display: none !important
+if hexo-config('nav_music.enable') == false
+  #nav-music
+    display: none !important
+  body
+    &:has(#console.show)
+      #nav-music
+        display: flex !important;
+
+@media screen and (max-width: 1400px)
+  body
+    #anMusic-page
+      #anMusicSwitching, #anMusicRefreshBtn, #anMusicBtnGetSong
+        right 7vw
+      #anMusicSwitching
+        bottom: 100px
+      #anMusicRefreshBtn
+        bottom: 160px
+      #anMusicBtnGetSong
+        bottom: 220px
+
+#anMusic-page
+  #anMusicRefreshBtn, #anMusicBtnGetSong, #anMusicSwitching
+    position: fixed;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    bottom: 100px;
+    padding: 5px;
+    background: var(--anzhiyu-white-op);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index 2
+  #anMusicBtnGetSong
+    right: 11vw;
+  #anMusicRefreshBtn
+    right: 7vw;
+  #anMusicSwitching
+    right: 15vw;
+  +maxWidth768()
+    div#anMusicBtnGetSong
+      right: 80px;
+      bottom: 150px;
+    div#anMusicRefreshBtn
+      right: 20px;
+      bottom: 150px;
+    div#anMusicSwitching
+      right: 140px;
+      bottom: 150px;
+  meting-js
+    .aplayer
+      display flex
+      flex-direction row-reverse
+      background rgba(0, 0, 0, 0)
+      border none
+      box-shadow none
+      .aplayer-body
+        width 40%
+        height calc(100vh - 169px)
+        .aplayer-pic
+          float none
+          width 180px
+          height 180px
+          border-radius 12px
+          margin auto
+          left 0
+          right 0
+          transition: background-image 0.5s ease-in-out;
+          background-size: cover;
+          background-color: transparent !important;
+        .aplayer-info
+          margin 0 20px 0 20px
+          border-bottom none
+          .aplayer-music
+            text-align center
+            height auto
+            margin 15px
+            .aplayer-author, .aplayer-title
+              font-size 2rem
+              font-weight 700
+              color #fff
+
+          .aplayer-lrc
+            height 800%
+            margin-top 10px
+            mask-image linear-gradient(to bottom, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #0000, #0000)
+            p
+              font-size 20px
+              line-height: 20px !important;
+              height: 20px !important;
+              margin: 20px 0 !important;
+              color #fff
+              &.aplayer-lrc-current {
+                min-height: 20px;
+              }
+            &::after, &::before
+              display none
+          .aplayer-controller 
+            position fixed
+            max-width 1500px
+            margin auto
+            left 0
+            right 0
+            bottom 50px
+            .aplayer-bar-wrap 
+              margin 0 160px 0 150px
+              .aplayer-bar
+                height: 6px;
+                border-radius: 4px;
+                .aplayer-played
+                  height: 6px;
+                  border-radius: 4px;
+                  background var(--anzhiyu-white) !important
+                  .aplayer-thumb
+                    width 20px
+                    height 20px
+                    margin-top: -7px
+                    transform none
+                    background #fff !important
+                .aplayer-loaded
+                  height: 6px;
+                  border-radius: 4px;
+            .aplayer-time
+              position absolute
+              width 100%
+              bottom 21px
+              height 0
+              display flex
+              justify-content flex-end
+              .aplayer-volume-wrap
+                .aplayer-volume-bar-wrap
+                  bottom: 0;
+                  right: -5px;
+              .aplayer-icon
+                width 2rem
+                height 2rem
+                margin-left 15px
+                path
+                  fill var(--anzhiyu-white)
+                  opacity 0.8
+                &.aplayer-icon-loop
+                  margin-right 15px
+              .aplayer-time-inner
+                margin-right 18px
+                margin-top -8px
+              .aplayer-icon-back
+                position absolute
+                left 0
+                display inline
+              .aplayer-icon-play
+                position absolute
+                left 40px
+                display inline
+              .aplayer-icon-forward
+                position absolute
+                left 80px
+                display inline
+
+              .aplayer-icon-menu
+                display none
+
+      .aplayer-list
+          width 60%
+          height 100%
+        ol
+          padding-right 25px
+          & > li
+            border-top 1px solid transparent
+            font-size 14px
+            &:hover
+              background #ffffff33
+              border-radius 6px
+            &.aplayer-list-light
+              background #ffffff33
+              border-radius 6px
+              padding 20px 15px
+              span.aplayer-list-title
+                font-weight: bolder;
+              .aplayer-list-cur
+                display none
+            span
+              color var(--anzhiyu-white)
+              &.aplayer-list-author
+                opacity 0.6
+
+
+@media screen and (max-width: 768px)
+  body[data-type="music"]
+    #rightside
+      display none
+    #content-inner,#page
+      z-index auto
+  #anMusic-page
+    meting-js 
+      .aplayer
+        .aplayer-list
+          position fixed
+          z-index 1002
+          width 100%
+          bottom -88%
+          left 0
+          background var(--sidebar-bg)
+          height auto
+          border-radius 15px 15px 0px 0px
+          padding 15px 0px
+          &.aplayer-list-hide
+            bottom 0% !important
+          ol
+            max-height 60vh !important
+            padding-right 0px
+            & > li
+              display flex
+              margin 0 10px
+              span
+                color var(--font-color)
+                &.aplayer-list-title
+                  width 30%
+                  max-width 55%
+                  width auto
+                  display -webkit-box
+                  -webkit-line-clamp 1
+                  overflow hidden
+                  -webkit-box-orient vertical
+                &.aplayer-list-author
+                  position absolute
+                  right 10px
+                  width auto
+                  max-width 35%
+                  display -webkit-box
+                  -webkit-line-clamp 1
+                  overflow hidden
+                  -webkit-box-orient vertical
+              &.aplayer-list-light
+                background #33a673
+                padding 5px 20px
+                border-radius 10px
+                span
+                  color #fff
+                  &.aplayer-list-author
+                    right 15px
+        .aplayer-body
+          width 100%
+          position fixed
+          margin auto
+          left 0
+          right 0
+          top 100px
+          .aplayer-info
+            .aplayer-lrc
+              margin-top 40px
+              height auto
+              max-height 200%
+              min-height 100%
+              mask-image linear-gradient(to bottom, #000, #000, #000, #000, #0000, #0000)
+              p
+                &.aplayer-lrc-current
+                  color #33a673
+            .aplayer-controller
+              width 100%
+              bottom 100px
+              .aplayer-volume-wrap
+                left -66px
+                .aplayer-volume-bar-wrap
+                  bottom 0px
+                  right 7px
+              .aplayer-bar-wrap
+                margin 0 30px
+            .aplayer-controller
+              .aplayer-time
+                bottom -40px
+                .aplayer-time-inner
+                  position absolute
+                  width 100%
+                  margin-right 0
+                  margin-top -33px
+                  .aplayer-dtime
+                    position absolute
+                    right 30px
+                  .aplayer-ptime
+                    position absolute
+                    left 35px
+                .aplayer-icon-back
+                  margin auto
+                  right 110px
+                .aplayer-icon-play
+                  margin auto
+                  right 0
+                  left 0
+                .aplayer-icon-forward
+                  margin auto
+                  left 110px
+                  right 0
+                .aplayer-icon-order
+                  position absolute
+                  left 22px
+                .aplayer-icon-loop
+                  position absolute
+                  right 25px
+                .aplayer-icon-menu
+                  display inline
+                  position absolute
+                  right 25px
+                  top -90px
+
+      

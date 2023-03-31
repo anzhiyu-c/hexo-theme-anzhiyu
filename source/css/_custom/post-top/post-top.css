@@ -1,0 +1,169 @@
+#page-header.post-bg {
+  height: 34rem;
+  transition: 0s;
+  background-color: transparent;
+  overflow: hidden;
+  background-color: var(--anzhiyu-bar-background);
+}
+
+#page-header.post-bg #nav {
+  transition: all 0.5s, border 0.3s;
+}
+
+#page-header #post-top-cover {
+  width: 70%;
+  height: 100%;
+  position: relative;
+  margin: 0 -20% 0 auto;
+  overflow: hidden;
+  margin-bottom: 0;
+  transform: rotate(10deg) translateY(-10%) scale(2);
+  filter: blur(10px);
+}
+#page-header #post-top-cover #post-top-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-width: 50vw;
+  min-height: 20rem;
+  animation: slide-in 0.6s 0.3s backwards;
+}
+#page-header #post-top-cover::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 110px -130px 300px 60px var(--anzhiyu-bar-background) inset;
+}
+
+@media screen and (max-width: 768px) {
+  #page-header #post-top-cover {
+    margin: 0 0 0 auto;
+    transform: rotate(0deg) translateY(0) scale(1);
+    filter: blur(0px);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+  }
+  #page-header #post-top-cover #post-top-bg {
+    min-height: 15rem !important;
+    height: 70% !important;
+    opacity: 1 !important;
+  }
+
+  .layout > div:first-child:not(.recent-posts) {
+    z-index: 10;
+    margin-top: -30px;
+  }
+  #page-header.post-bg #nav {
+    background: linear-gradient(to top, var(--anzhiyu-main-none) 0%, var(--anzhiyu-bar-background) 100%);
+  }
+  #post-info:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px -214px 287px 45px var(--anzhiyu-bar-background) inset;
+    z-index: 0;
+  }
+  .post-bg:has(.bldbanner) #post-info:after,
+  .post-bg:has(.bili-banner) #post-info:after,
+  .post-bg:has(.blqbanner) #post-info:after {
+    box-shadow: 0px -214px 287px 45px var(--anzhiyu-black-op) inset;
+  }
+}
+.post-bg:has(.bldbanner) #post-info .post-meta,
+.post-bg:has(.bili-banner) #post-info .post-meta,
+.post-bg:has(.blqbanner) #post-info .post-meta {
+  pointer-events: all;
+}
+.post-bg:has(.bldbanner) #post-info,
+.post-bg:has(.bili-banner) #post-info,
+.post-bg:has(.blqbanner) #post-info {
+  pointer-events: none;
+}
+#page-header.post-bg:has(.bldbanner),
+#page-header.post-bg:has(.bili-banner),
+#page-header.post-bg:has(.blqbanner) {
+  height: 15rem;
+}
+
+/* 波浪css */
+.main-hero-waves-area {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -11px;
+  z-index: 5;
+}
+.waves-area .waves-svg {
+  width: 100%;
+  height: 5rem;
+}
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: #f7f9febd;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: #f7f9fe82;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: #f7f9fe36;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: #f7f9fe;
+}
+/* 黑色模式背景 */
+[data-theme="dark"] .parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: #18171dc8;
+}
+[data-theme="dark"] .parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: #18171d80;
+}
+[data-theme="dark"] .parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: #18171d3e;
+}
+[data-theme="dark"] .parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: #18171d;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves-area .waves-svg {
+    height: 40px;
+    min-height: 40px;
+  }
+}

@@ -1,0 +1,23 @@
+/* 头像圆角 */
+.avatar-img img {
+  border: var(--style-border-avatar);
+  border-radius: 50%;
+}
+
+/* 文章圆角 */
+#recent-posts > .recent-post-item {
+  border-radius: 12px;
+}
+
+/* 相关推荐圆角 */
+#pagination.pagination-post {
+  border-radius: 10px;
+}
+.relatedPosts > .relatedPosts-list > div {
+  border-radius: var(--anzhiyu-border-radius);
+}
+
+/* 侧边栏按钮圆角 */
+#rightside > div > button {
+  border-radius: 5px;
+}

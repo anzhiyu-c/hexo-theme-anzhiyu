@@ -1,0 +1,6 @@
+#gitcalendar #git_container ul li {
+  margin: 0 !important;
+}
+#gitcalendar #git_container ul li::before{
+  content: none !important;
+}

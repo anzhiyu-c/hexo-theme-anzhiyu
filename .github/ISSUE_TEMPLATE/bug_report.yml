@@ -1,0 +1,63 @@
+name: Bug report
+description: Create a report to help us improve
+title: "[Bug]: "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        重要：请依照该模板来提交 
+        Please follow the template to create a new issue
+  - type: input
+    id: anzhiyu-ver
+    attributes:
+      label: 使用的 AnZhiYu 版本？ | What version of AnZhiYu are you use?
+      description: 检视主题的 package.json | Check the theme's package.json
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: 使用的浏览器？ || What browse are you using?
+      options:
+        - Chrome
+        - Edge
+        - Safari
+        - Opera
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 使用的系统？ || What operating system are you using?
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Android
+        - iOS
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述 | Describe the bug
+      description: 请描述你的问题现象 | A clear and concise description of what the bug is.
+      placeholder: 请尽量提供截图来定位你的问题 | If applicable, add screenshots to help explain your problem
+      value:
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: 出现问题的网站 | Website
+      description: 请提供下可复现的网站地址 | Please supply a website url which can reproduce problem.
+      placeholder:
+    validations:
+      required: true

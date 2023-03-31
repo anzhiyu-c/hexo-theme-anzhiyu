@@ -1,0 +1,237 @@
+.flink-desc
+  margin: .2rem 0 .5rem
+
+.butterfly-flink-list
+  overflow: auto
+  padding: 10px 10px 0
+  text-align: center
+
+  & > .flink-list-item
+    position: relative
+    float: left
+    overflow: hidden
+    line-height: 17px
+    -webkit-transform: translateZ(0)
+    height: 100px;
+    padding: 10px;
+    width: calc(100% / 5 - 0.5rem)
+    margin: 0.5rem 0.25rem;
+    border-radius: 12px;
+    border: var(--style-border);
+    background-color: var(--anzhiyu-card-bg);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+    +maxWidth1024()
+      width: calc(50% - 15px) !important
+
+    +maxWidth600()
+      width: calc(100% - 15px) !important
+
+    &:hover
+      border-color: var(--anzhiyu-main)!important;
+      background-color: var(--anzhiyu-main)!important;
+      box-shadow: var(--anzhiyu-shadow-theme)!important;
+
+      .flink-item-icon
+        width: 0;
+        height: 0;
+        margin-left: -10px;
+      .flink-item-name,.flink-item-desc
+        color: var(--anzhiyu-white);
+
+    &:hover:before,
+    &:focus:before,
+    &:active:before
+      transform: scale(1)
+
+    a
+      color: var(--font-color)
+      text-decoration: none
+
+      .flink-item-icon
+        float: left
+        overflow: hidden
+        margin: 15px 10px
+        width: 60px
+        height: 60px
+        border-radius: 35px
+        transition: all .3s ease-out
+        margin: 8px 0 8px 0;
+        background: var(--anzhiyu-background);
+        border-radius: 50%;
+        overflow: hidden;
+
+        img
+          width: 100%
+          height: 100%
+          transition: filter 375ms ease-in .2s, transform .3s
+          object-fit: cover
+
+      .img-alt
+        display: none
+.flink-item-info
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  text-align: left;
+  flex-direction: column;
+
+  .flink-item-name
+    @extend .limit-one-line
+    padding: 12px 0 16px 0;
+    height: auto;
+    font-weight: bold
+    font-size: 1.1em
+    color: var(--anzhiyu-fontcolor);
+
+  .flink-item-desc
+    @extend .limit-one-line
+    padding: 0
+    height: 35px
+    font-size: .93em
+    opacity: .7;
+    color: var(--anzhiyu-fontcolor);
+    word-break: break-all;
+    white-space: break-spaces;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+.flink-name
+  margin-bottom: 5px
+  font-weight: bold
+  font-size: 1.5em
+
+#article-container img
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+  max-height: 900px;
+.flexcard-flink-list
+  overflow hidden
+  .flink-list-card
+    .wrapper img
+      transition: transform .5s ease-out !important;
+    &:hover
+      border-color: var(--anzhiyu-main)!important;
+      background-color: var(--anzhiyu-main)!important;
+      box-shadow: var(--anzhiyu-shadow-theme)!important;
+
+  & > a
+    width: calc(100% / 5 - 0.5rem);
+    height 150px
+    position relative
+    display block
+    margin: 0.5rem 0.25rem;
+    float left
+    overflow hidden
+    padding: 0;
+    border-radius: 8px;
+    transition all .3s ease 0s, transform .6s cubic-bezier(.6, .2, .1, 1) 0s
+    box-shadow none
+    border: var(--style-border)!important;
+    &:hover
+      .info
+        transform translateY(-100%)
+      .wrapper
+        img
+          transform scale(1.2)
+      &::before
+        position: fixed
+        width:inherit
+        margin:auto
+        left:0
+        right:0
+        top:10%
+        border-radius: 10px
+        text-align: center
+        z-index: 100
+        content: attr(data-title)
+        font-size: 20px
+        color: #fff
+        padding: 10px
+        background-color: rgba($theme-color,0.8)
+
+    .cover
+      width 100%
+      transition transform .5s ease-out
+    .wrapper
+      position relative
+      .fadeIn
+        animation coverIn .8s ease-out forwards
+      img
+        height 150px
+        pointer-events none
+    .info
+      display flex
+      flex-direction column
+      justify-content center
+      align-items center
+      width 100%
+      height 100%
+      overflow hidden
+      border-radius 3px
+      background-color hsla(0, 0%, 100%, .7)
+      transition transform .5s cubic-bezier(.6, .2, .1, 1) 0s
+      img
+        position relative
+        top 45px
+        width 80px
+        height 80px
+        border-radius 50% !important
+        box-shadow 0 0 10px rgba(0, 0, 0, .3)
+        z-index 1
+        text-align center
+        pointer-events none
+      span
+        padding 20px 10% 60px 10%
+        font-size 16px
+        width 100%
+        text-align center
+        box-shadow 0 0 10px rgba(0, 0, 0, .3)
+        background-color hsla(0, 0%, 100%, .7)
+        color var(--font-color)
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+.flexcard-flink-list>a .info,
+.flexcard-flink-list>a .wrapper .cover
+  position absolute
+  top 0
+  left 0
+
+@media screen and (max-width:1024px)
+  .flexcard-flink-list
+    & > a
+      width calc(33.33333% - 15px)
+
+@media screen and (max-width:600px)
+  .flexcard-flink-list
+    & > a
+      width calc(50% - 15px)
+
+[data-theme=dark]
+  .flexcard-flink-list a .info,
+  .flexcard-flink-list a .info span
+    background-color rgba(0, 0, 0, .6)
+  .flexcard-flink-list
+    & > a
+      &:hover
+        &:before
+          background-color: rgba(#121212,0.8);
+.justified-gallery > div > img,
+.justified-gallery > figure > img,
+.justified-gallery > a > a > img,
+.justified-gallery > div > a > img,
+.justified-gallery > figure > a > img,
+.justified-gallery > a > svg,
+.justified-gallery > div > svg,
+.justified-gallery > figure > svg,
+.justified-gallery > a > a > svg,
+.justified-gallery > div > a > svg,
+.justified-gallery > figure > a > svg
+  position static!important
