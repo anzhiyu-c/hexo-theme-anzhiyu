@@ -662,6 +662,7 @@ preloader:
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
+  avatar: # 自定义头像
 
 # aside (侧边栏)
 # --------------------------------------
@@ -988,7 +989,7 @@ home_top:
     swiper_init: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
   banner:
     tips: 新品主题
-    title: AnZHiYu
+    title: Theme-AnZhiYu
     image: https://img02.anzhiy.cn/adminuploads/1/2023/03/27/64215d46a1ca6.webp
     link: https://anzhiy.cn/posts/220c.html
     top_group_banner_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/top_group_banner_css/top_group_banner_css.css

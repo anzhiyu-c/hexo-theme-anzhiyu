@@ -447,7 +447,7 @@ var anzhiyu = {
   },
   // 获取自定义播放列表
   getCustomPlayList: function () {
-    if (window.location.pathname != "/music/") {
+    if (!window.location.pathname.startsWith("/music/")) {
       return;
     }
     const urlParams = new URLSearchParams(window.location.search);
