@@ -919,9 +919,9 @@ tag_plugins:
     anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
     jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
     issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
-    iconfont: https://npm.elemecdn.com/acrylic-static@1.0.0/ali_font.js #参看https://akilar.top/posts/d2ebecef/
+    iconfont: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/ali_font.js #参看https://akilar.top/posts/d2ebecef/
     carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
-    tag_plugins_css: https://npm.elemecdn.com/acrylic-static@1.0.0/tag_plugins/tag_plugins.css
+    tag_plugins_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/tag_plugins/tag_plugins.css
 
 # wowjs
 # see https://www.npmjs.com/package/hexo-butterfly-wowjs
@@ -983,15 +983,15 @@ home_top:
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: false
-    swiper_css: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper.min.css #swiper css依赖
-    swiper_js: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper.min.js #swiper js依赖
-    swiper_init: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
+    swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
+    swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
+    swiper_init: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
   banner:
     tips: 新品主题
-    title: Acrylic-AnZHiYu
+    title: AnZHiYu
     image: https://img02.anzhiy.cn/adminuploads/1/2023/03/27/64215d46a1ca6.webp
     link: https://anzhiy.cn/posts/220c.html
-    top_group_banner_css: https://npm.elemecdn.com/acrylic-static@1.0.0/top_group_banner_css/top_group_banner_css.css
+    top_group_banner_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/top_group_banner_css/top_group_banner_css.css
 
 # 朋友圈配置
 friends_vue:

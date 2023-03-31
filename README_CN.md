@@ -3,7 +3,7 @@
   中文
 </div>
 
-本分支为主题 Acrylic 的分支，正在重构, 暂无文档。
+文档：[https://anzhiy.cn/posts/61e4.html](https://anzhiy.cn/posts/61e4.html)
 
 # hexo-theme-anzhiyu
 
@@ -29,15 +29,15 @@
 在博客根目录里安装最新版【推荐】
 
 ```powershell
-git clone -b anzhiyu hexo-theme-Acrylic/Hexo-Theme-Acrylic.git themes/Acrylic
+git clone -b anzhiyu anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu
 ```
 
 ## ⚙ 应用主题
 
-修改 hexo 配置文件`_config.yml`，把主题改为`Acrylic`
+修改 hexo 配置文件`_config.yml`，把主题改为`anzhiyu`
 
 ```
-theme: Acrylic
+theme: anzhiyu
 ```
 
 > 如果你没有 pug 以及 stylus 的渲染器，请下载安装： `npm install hexo-renderer-pug hexo-renderer-stylus --save`
@@ -52,12 +52,12 @@ theme: Acrylic
   在博客根目录运行
 
 ```bash
-cp -rf ./themes/acrylic/_config.yml ./_config.acrylic.yml
+cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 ```
 
 - windows
-  复制`/themes/acrylic/_config.yml`此文件到 hexo 根目录，并重命名为`_config.acrylic.yml`
+  复制`/themes/anzhiyu/_config.yml`此文件到 hexo 根目录，并重命名为`_config.anzhiyu.yml`
 
 ## 仓库统计
 
-![仓库统计](https://repobeats.axiom.co/api/embed/d7b318f1bf6a566495cf126196194f6145ee63a6.svg "Repobeats analytics image")
+![仓库统计](https://repobeats.axiom.co/api/embed/60fcf455cd02123aebe6249deabf8d48e3debcae.svg "Repobeats analytics image")

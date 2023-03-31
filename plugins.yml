@@ -137,7 +137,7 @@ flickr_justified_gallery_css:
   file: dist/fjGallery.css
   version: 2.1.2
 aplayer_css:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: aplayer/APlayer.min.css
   version: 1.0.0
 aplayer_js:
@@ -177,42 +177,42 @@ pace_js:
   file: pace.min.js
   version: 1.2.4
 pace_default_css:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: progress_bar/progress_bar.css
   version: 1.0.0
 coin_js:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: coin/coin.js
   version: 1.0.0
 coin_css:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: coin/coin.min.css
   version: 1.0.0
 countup_js:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: countup/countup.js
   version: 1.0.0
 gsap_js:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: gsap/gsap.min.js
   version: 1.0.0
 about_js:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: about/about.js
   version: 1.0.0
 rightmenu:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: rightmenu/rightmenu.js
-  version: 1.0.1
+  version: 1.0.0
 waterfall:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: waterfall/waterfall.js
   version: 1.0.0
 categoryBar:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: categoryBar/categoryBar.js
   version: 1.0.0
 catalog_bar:
-  name: acrylic-static
+  name: anzhiyu-theme-static
   file: "catalog-bar/catalog-bar.js"
   version: 1.0.0
