@@ -1,7 +1,7 @@
 - let launch_time = theme.footer.runtime.launch_time
-- let work_img = theme.footer.runtime.work_img
-- let work_description = theme.footer.runtime.work_description
-script(async).
+- let offduty_img = theme.footer.runtime.offduty_img
+- let offduty_description = theme.footer.runtime.offduty_description
+script(async=true).
   (function () {
     var grt = new Date("#{launch_time}"); //设置网站上线时间
     var now = new Date();
@@ -41,9 +41,9 @@ script(async).
       } else {
         // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
         let img = document.querySelector("#workboard .workSituationImg");
-        img.src = "#{work_img}";
-        img.title = "#{work_description}";
-        img.alt = "#{work_description}";
+        img.src = "#{offduty_img}";
+        img.title = "#{offduty_description}";
+        img.alt = "#{offduty_description}";
 
         currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='fas fa-heartbeat' style='color:red'></i>`;
       }

@@ -997,7 +997,7 @@ home_top:
 friends_vue:
   enable: false
   vue_js: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.0/js/friends_vue/index.js
-  apiurl: # twikoo地址
+  apiurl: # 朋友圈后端地址
   top_background:
 
 # 黑色模式粒子效果canvas
