@@ -1,0 +1,150 @@
+.tip
+  padding 6px 20px
+  position relative
+  color #fff
+  margin-bottom 20px
+  background linear-gradient(90deg, #41363c, #494648)
+  padding 6px 20px
+  border-radius 10px
+  -webkit-box-shadow 0 3px 5px rgba(50, 50, 50, 0.5)
+  box-shadow 0 3px 5px rgba(50, 50, 50, 0.5)
+  p
+    margin 0!important
+    padding 0.5rem 0
+  &:before
+    background linear-gradient(0deg, #41363c, #494648)
+    text-shadow 0 -1px #41363c
+    border-radius 50%
+    color #fff
+    font-size 12px
+    position absolute
+    width 24px
+    height 24px
+    line-height 24.5px
+    left -12px
+    top -12px
+    box-shadow 0 0 0 2.5px #f7f8f9
+    font-weight 600
+    font-family "Font Awesome 6 Pro"
+    text-align center
+  ol
+    margin 0
+  &.info
+    background #20a0ff
+    background linear-gradient(90deg, #20a0ff, #20b8ff)
+    padding 6px 20px
+    border-radius 10px
+    -webkit-box-shadow 0 3px 5px rgba(32, 160, 255, 0.5)
+    box-shadow 0 3px 5px rgba(32, 160, 255, 0.5)
+    &:before
+      background #20a0ff
+      background -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        from(#0092ff),
+        to(#20b8ff)
+      )
+      background linear-gradient(0deg, #0092ff, #20b8ff)
+      content "\f129"
+      text-shadow 0 -1px #20a0ff
+  &.success
+    background linear-gradient(90deg, #61be33, #8fce44)
+    text-shadow 0 -1px #61be33
+    -webkit-box-shadow 0 3px 5px rgba(104, 195, 59, 0.5)
+    box-shadow 0 3px 5px rgba(104, 195, 59, 0.5)
+    &:before
+      background linear-gradient(0deg, #52bb1d, #95d34b)
+      content "\f00c"
+      text-shadow 0 -1px #61be33
+  &.warning
+    background #ff953f
+    background linear-gradient(90deg, #ff953f, #ffb449)
+    text-shadow 0 -1px #ff953f
+    box-shadow 0 3px 5px rgba(255, 154, 73, 0.5)
+    &::before
+      background linear-gradient(0deg, #ff8f35, #ffc149)
+      content "\f12a"
+      text-shadow 0 -1px #ff953f
+  &.error
+    background #ff4949
+    background linear-gradient(90deg, #ff4949, #ff7849)
+    text-shadow 0 -1px #ff4949
+    box-shadow 0 3px 5px rgba(255, 73, 73, 0.5)
+    &:before
+      background linear-gradient(0deg, #ff3838, #ff7849)
+      content "\f00d"
+      text-shadow 0 -1px #ff4949
+  &.bolt
+    background linear-gradient(530deg, #78ca33, #25822c)
+    content "\f00d"
+    text-shadow 0 -1px #4cf706
+    &:before
+      background linear-gradient(776deg, #78ca33, #25822c)
+      content "\f0e7"
+      text-shadow 0 -1px #4cf706
+  &.ban
+    background linear-gradient(90deg, #ff4949, #f03b49)
+    text-shadow 0 -1px #ff4949
+    box-shadow 0 3px 5px rgba(255, 73, 73, 0.5)
+    &:before
+      background linear-gradient(0deg, #ff3838, #ff1022)
+      content "\f05e"
+      text-shadow 0 -1px #ff4949
+  &.home
+    background #15e5ff
+    background linear-gradient(90deg, #0ec0ef, #80e0f7)
+    text-shadow 0 -1px #0ec0ef
+    -webkit-box-shadow 0 3px 5px #01caff
+    box-shadow 0 3px 5px #01caff
+    &:before
+      background linear-gradient(0deg, #0ec0ee, #0ec0ea)
+      content "\f015"
+      text-shadow 0 -1px #0ec0ea
+
+  &.sync
+    background #00a9ff
+    background linear-gradient(230deg, #47c0e0, #2dc342)
+    text-shadow 0 -1px #1bcdfc
+    -webkit-box-shadow 0 3px 5px #1bcdfc
+    box-shadow 0 3px 5px #20b1ad
+    &:before
+      background linear-gradient(270deg, #40c0e2, #3dc550)
+      content "\f021"
+      text-shadow 0 -1px #17cfff
+  &.cogs
+    background linear-gradient(230deg, #40c0e2, #5247e2)
+    text-shadow 0 -1px #8278fd
+    -webkit-box-shadow 0 3px 5px #4037a7
+    box-shadow 1 3px 5px #5e52ec
+    &:before
+      background linear-gradient(560deg, #40c0e2, #5246e2)
+      content "\f085"
+      text-shadow 0 -1px #098cf5
+  &.key
+    background #25c33b
+    background linear-gradient(230deg, #90a4ae, #b7a7a7)
+    text-shadow 0 -1px #c1c0d4
+    -webkit-box-shadow 0 3px 5px #d3d2de
+    box-shadow 1 3px 5px #d5d4de
+    &:before
+      background linear-gradient(560deg, #bccdd2, #cfced4)
+      content "\f084"
+      text-shadow 0 -1px #a9b2b9
+  &.bell
+    background linear-gradient(230deg, #ffaa0d, #deb455)
+    text-shadow 0 -1px #c1c0d4
+    box-shadow 1 3px 5px #d5d4de
+    &:before
+      background linear-gradient(560deg, #f9ae07, #ffb615)
+      content "\f0f3"
+      text-shadow 0 -1px #ffb81b
+
+[data-theme="dark"]
+  .tip
+    filter brightness(0.7)
+
+#article-container
+  .tip
+    a
+      color #e6eaed

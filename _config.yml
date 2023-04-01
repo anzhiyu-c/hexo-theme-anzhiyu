@@ -819,6 +819,8 @@ note:
   # Offset also applied to label tag variables. This option can work with disabled note tag.
   light_bg_offset: 0
 
+iconfont: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/ali_font.js #参看 https://akilar.top/posts/d2ebecef/
+
 # other
 # --------------------------------------
 
@@ -907,60 +909,6 @@ envelope_comment:
     comments: true
     top_img: false
     type: envelope
-
-# tag-plugins-plus
-# see https://akilar.top/posts/615e2dec/
-tag_plugins:
-  enable: true # 开关
-  priority: 5 #过滤器优先权
-  issues: false #issues标签开关
-  link:
-    placeholder: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/siteicon/64.png #link_card标签默认的图标图片
-  CDN:
-    anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
-    jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
-    issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
-    iconfont: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/ali_font.js #参看https://akilar.top/posts/d2ebecef/
-    carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
-    tag_plugins_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/tag_plugins/tag_plugins.css
-
-# wowjs
-# see https://www.npmjs.com/package/hexo-butterfly-wowjs
-wowjs:
-  enable: false #控制动画开关。true是打开，false是关闭
-  priority: 10 #过滤器优先级
-  mobile: false #移动端是否启用，默认移动端禁用
-  animateitem:
-    - class: recent-post-item #必填项，需要添加动画的元素的class
-      style: animate__fadeIn #必填项，需要添加的动画
-      duration: 1.2s #选填项，动画持续时间，单位可以是ms也可以是s。例如3s，700ms。
-      delay: 200ms #选填项，动画开始的延迟时间，单位可以是ms也可以是s。例如3s，700ms。
-      offset: 20 #选填项，开始动画的距离（相对浏览器底部）
-      iteration: 1 #选填项，动画重复的次数
-    - class: card-widget
-      style: animate__fadeIn
-      delay: 0
-    - class: category-bar
-      style: animate__fadeIn
-      duration: .5s
-      delay: 0
-    - class: cf-article
-      style: animate__fadeIn
-      duration: 1.5s
-    # - class: flink-list-card
-    #   style: wowpanels
-    # - class: flink-list-card
-    #   style: animate__flipInY
-    #   duration: 1.5s
-    - class: article-sort-item
-      style: animate__fadeIn
-      duration: 1.5s
-    - class: site-card
-      style: animate__flipInY
-      duration: 1.5s
-  animate_css: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css
-  wow_js: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js
-  wow_init_js: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js
 
 home_top:
   enable: true # 开关
@@ -1145,3 +1093,4 @@ CDN:
     # waterfall:
     # categoryBar:
     # catalog_bar:
+    # animation_css:

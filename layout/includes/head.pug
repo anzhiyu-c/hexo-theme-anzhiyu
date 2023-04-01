@@ -67,6 +67,10 @@ link(rel="canonical" href=urlNoIndex())
 if (theme.pwa && theme.pwa.enable)
   !=partial('includes/head/pwa', {}, {cache: true})
 
+
+//- animation依赖
+link(rel="stylesheet", href=url_for(theme.asset.animation_css))
+
 //- main css
 link(rel='stylesheet', href=url_for(theme.asset.main_css))
 link(rel='stylesheet', href=url_for(theme.asset.fontawesomeV6) media="print" onload="this.media='all'")

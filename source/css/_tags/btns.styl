@@ -1,0 +1,213 @@
+[data-theme="dark"]
+  div
+    &.btns
+      filter brightness(0.7)
+      a
+        background 0 0
+  .checkbox
+    filter brightness(0.7)
+
+div
+  &.btns
+    margin 0 -8px
+    display flex
+    flex-wrap wrap
+    align-items flex-start
+    overflow visible
+    line-height 1.8
+    b
+      font-size 0.875rem
+    &.wide
+      & > a
+        padding-left 32px
+        padding-right 32px
+    &.fill
+      & > a
+        flex-grow 1
+        width auto
+    &.around
+      justify-content space-around
+    &.center
+      justify-content center
+    &.grid2
+      & > a
+        width calc(100% / 2 - 16px)
+    &.grid3
+      & > a
+        width calc(100% / 3 - 16px)
+    &.grid4
+      & > a
+        width calc(100% / 4 - 16px)
+    &.grid5
+      & > a
+        width calc(100% / 5 - 16px)
+    a
+      transition all 0.28s ease
+      -moz-transition all 0.28s ease
+      -webkit-transition all 0.28s ease
+      -o-transition all 0.28s ease
+      margin 8px
+      margin-top calc(1.25 * 16px + 32px)
+      min-width 120px
+      font-weight bold
+      display flex
+      justify-content flex-start
+      align-content center
+      align-items center
+      flex-direction column
+      padding 8px
+      text-align center
+      background #f6f6f6
+      border-radius 4px
+      & > i
+        background #2196f3!important
+        &:first-child
+          color #fff
+          background #2196f3
+      b
+        font-weight bold
+        line-height 1.3
+      img
+        margin 0.4em auto
+      &:not([href])
+        cursor default
+        color inherit
+    a[href]:hover
+      background rgba(255, 87, 34, 0.15)
+      & > i
+        &:first-child
+          background #ff5722
+
+div.btns,
+div.btns p,
+div.btns a
+  font-size 0.8125rem
+  color #555
+
+@media screen and (max-width: 1024px)
+  div
+    &.btns
+      &.grid2
+        & > a
+          width calc(100% / 2 - 16px)
+
+@media screen and (max-width: 768px)
+  div
+    &.btns
+      &.grid2
+        & > a
+          width calc(100% / 2 - 16px)
+
+@media screen and (max-width: 500px)
+  div
+    &.btns
+      &.grid2
+        & > a
+          width calc(100% / 1 - 16px)
+
+@media screen and (max-width: 1024px)
+  div
+    &.btns
+      &.grid3
+        & > a
+          width calc(100% / 3 - 16px)
+
+@media screen and (max-width: 768px)
+  div
+    &.btns
+      &.grid3
+        & > a
+          width calc(100% / 3 - 16px)
+
+@media screen and (max-width: 500px)
+  div
+    &.btns
+      &.grid3
+        & > a
+          width calc(100% / 1 - 16px)
+
+@media screen and (max-width: 1024px)
+  div
+    &.btns
+      &.grid4
+        & > a
+          width calc(100% / 3 - 16px)
+
+@media screen and (max-width: 768px)
+  div
+    &.btns
+      &.grid4
+        & > a
+          width calc(100% / 3 - 16px)
+
+@media screen and (max-width: 500px)
+  div
+    &.btns
+      &.grid4
+        & > a
+          width calc(100% / 2 - 16px)
+
+@media screen and (max-width: 1024px)
+  div
+    &.btns
+      &.grid5
+        & > a
+          width calc(100% / 4 - 16px)
+
+@media screen and (max-width: 768px)
+  div
+    &.btns
+      &.grid5
+        & > a
+          width calc(100% / 3 - 16px)
+
+@media screen and (max-width: 500px)
+  div
+    &.btns
+      &.grid5
+        & > a
+          width calc(100% / 2 - 16px)
+
+div.btns a > img:first-child,
+div.btns a > i:first-child
+  transition all 0.28s ease
+  -moz-transition all 0.28s ease
+  -webkit-transition all 0.28s ease
+  -o-transition all 0.28s ease
+  height 64px
+  width 64px
+  box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.1)
+  margin 16px 8px 4px 8px
+  margin-top calc(-1.25 * 16px - 32px)
+  border 2px solid #fff
+  background #fff
+  line-height 60px
+  font-size 28px
+
+div.btns a > img:first-child.auto,
+div.btns a > i:first-child.auto
+  width auto
+
+div.btns a p,
+div.btns a b
+  margin 0.25em
+  font-weight normal
+  line-height 1.25
+  word-wrap break-word
+
+div.btns a[href]:hover,
+div.btns a[href]:hover b
+  color #ff5722
+
+div.btns a[href]:hover > img:first-child,
+div.btns a[href]:hover > i:first-child
+  transform scale(1.1) translateY(-8px)
+  box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.1)
+
+div.btns.circle a > img:first-child,
+div.btns.circle a > i:first-child
+  border-radius 32px
+
+div.btns.rounded a > img:first-child,
+div.btns.rounded a > i:first-child
+  border-radius 16px
