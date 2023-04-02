@@ -22,7 +22,7 @@ menu:
 
 # nav左侧菜单
 nav:
-  enable: true
+  enable: false
   menu:
     - title: 网页
       item:
@@ -32,20 +32,8 @@ nav:
         - name: 博客
           link: https://anzhiy.cn/
           icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png
-        - name: 云盘主页
-          link: https://www.cloud.anzhiy.cn/
-          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
-        - name: 安知鱼图床
-          link: https://image.anzhiy.cn/
-          icon: https://image.anzhiy.cn/favicon.ico
-        - name: alist文件管理
-          link: https://pan.anzhiy.cn/
-          icon: https://cloud.anzhiy.cn/static/img/c192.png
     - title: 项目
       item:
-        - name: 安知鱼云盘
-          link: https://cloud.anzhiy.cn/
-          icon: https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png
         - name: 德信官网
           link: http://blgou.net/#/main/home
           icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png
@@ -70,13 +58,13 @@ copy:
 
 # social settings (社交图标设置)
 # formal:
-#   icon: link || the description
+#   icon: link || the description || Animation
 social:
-  Github: https://github.com/anzhiyu-c || icon-gitHub || faa-tada
-  Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || icon-youxiang || faa-tada
-  RSS: atom.xml || icon-rss || faa-tada
-  BiliBili: https://space.bilibili.com/372204786 || icon-bilibili || faa-tada
-  QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || icon-QQ1 || faa-tada
+  # Github: https://github.com/anzhiyu-c || icon-gitHub || faa-tada
+  # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || icon-youxiang || faa-tada
+  # RSS: atom.xml || icon-rss || faa-tada
+  # BiliBili: https://space.bilibili.com/372204786 || icon-bilibili || faa-tada
+  # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || icon-QQ1 || faa-tada
 
 author_status:
   enable: true

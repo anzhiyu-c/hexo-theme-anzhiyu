@@ -1,17 +1,18 @@
 - const { darkmode } = theme
 nav#nav
   span#blog_name
-    .back-home-button(tabindex='-1')
-      i.back-home-button-icon.fas.fa-grip-vertical
-      .back-menu-list-groups
-        each group in theme.nav.menu
-          .back-menu-list-group
-            .back-menu-list-title= group.title
-            .back-menu-list
-              each item in group.item
-                a.back-menu-item(href=item.link, title=item.name, target='_blank')
-                  img.back-menu-item-icon(src=item.icon)
-                  span.back-menu-item-text= item.name
+    if theme.nav.enable
+      .back-home-button(tabindex='-1')
+        i.back-home-button-icon.fas.fa-grip-vertical
+        .back-menu-list-groups
+          each group in theme.nav.menu
+            .back-menu-list-group
+              .back-menu-list-title= group.title
+              .back-menu-list
+                each item in group.item
+                  a.back-menu-item(href=item.link, title=item.name, target='_blank')
+                    img.back-menu-item-icon(src=item.icon)
+                    span.back-menu-item-text= item.name
     a#site-name(href=url_for('/'))
       .title #[=config.title]
       i.fa-solid.fa-house
