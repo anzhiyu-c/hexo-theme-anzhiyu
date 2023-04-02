@@ -19,8 +19,6 @@ mixin postUI(posts)
       if (theme.post_meta.page.categories && article.categories.data.length > 0)
         each item, index in article.categories.data
           a(href=url_for(item.path)).article-meta__categories #[=item.name]
-          if (index < article.categories.data.length - 1)
-            i.fas.fa-angle-right.article-meta-link
       .recent-post-info(class=no_cover)
         if new_post
           span.newPost 最新文章
