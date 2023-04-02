@@ -29,7 +29,7 @@
 在博客根目录里安装最新版【推荐】
 
 ```powershell
-git clone -b anzhiyu anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu
+git clone -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu
 ```
 
 ## ⚙ 应用主题
