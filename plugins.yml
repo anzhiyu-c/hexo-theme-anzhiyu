@@ -223,5 +223,5 @@ animation_css:
   version: 1.0.17
 iconfont_js:
   name: anzhiyu-theme-static
-  file: 1.0.0
-  version: ali_font.js
+  file: ali_font.js
+  version: 1.0.0
