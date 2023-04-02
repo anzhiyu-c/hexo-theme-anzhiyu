@@ -1,0 +1,260 @@
+.todayCard-title,
+.todayCard-tips,
+.topGroup .banner-button {
+  color: #ffffff;
+}
+
+div#bannerGroup {
+  flex: 1;
+}
+
+@media screen and (min-width: 1300px) {
+  .topGroup .todayCard {
+    position: absolute;
+    width: calc(600px + 1rem);
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: var(--anzhiyu-card-bg);
+    border-radius: 12px;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    cursor: pointer;
+    pointer-events: all;
+  }
+
+  .topGroup .todayCard .todayCard-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 2;
+    color: var(--anzhiyu-white);
+    max-width: 60%;
+    transition: 0.3s;
+  }
+
+  .topGroup .todayCard .todayCard-info .todayCard-tips {
+    opacity: 0.8;
+    font-size: 0.6rem;
+  }
+
+  .topGroup .todayCard .todayCard-info .todayCard-title {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 36px;
+  }
+  .topGroup .todayCard .todayCard-cover {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    z-index: -1;
+    transition: 0.3s;
+  }
+
+  .topGroup .banner-button-group {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    display: flex;
+    transition: 0.3s;
+  }
+  .topGroup .todayCard.hide .todayCard-cover {
+    transform: scale(1.2);
+  }
+
+  .topGroup .banner-button {
+    background: var(--anzhiyu-white-op);
+    border-radius: 20px;
+    color: var(--anzhiyu-white);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: 0.3s;
+    cursor: pointer;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: translateZ(0);
+    height: 40px;
+    width: 118px;
+    justify-content: center;
+  }
+  .topGroup .banner-button i {
+    margin-right: 8px;
+    font-size: 22px;
+  }
+  .topGroup .todayCard::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .topGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-between;
+    width: calc(600px + 1.5rem);
+    position: relative;
+  }
+  .topGroup .todayCard.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .topGroup .todayCard img {
+    object-fit: cover;
+    width: 100%;
+    height: 80px;
+    background: var(--anzhiyu-secondbg);
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+.topGroup .recent-post-item {
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--anzhiyu-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 200px;
+  height: 164px !important;
+  max-height: 164px;
+  border: var(--style-border-always);
+  transition: 0.3s;
+  position: relative;
+  box-shadow: var(--anzhiyu-shadow-border);
+  margin-left: 0.5rem;
+  margin-right: 0px;
+  margin-bottom: 0.5rem;
+}
+.topGroup .recent-post-item .post_cover {
+  width: 100%;
+}
+.topGroup .recent-post-item .post_cover a {
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+}
+.topGroup span.recent-post-top-text {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  display: flex;
+  z-index: 1;
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
+  padding: 2px 8px;
+  font-size: 0.6rem;
+  border-radius: 12px 0 12px 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.topGroup .recent-post-item .post_cover img {
+  object-fit: cover;
+  width: 100%;
+  background: var(--anzhiyu-secondbg);
+  border-radius: 12px 12px 0 0;
+}
+.topGroup .recent-post-item .recent-post-info {
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  transition: 0.3s;
+}
+.topGroup .recent-post-item .recent-post-info .article-title {
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: center;
+  padding-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem !important;
+  padding: 0 !important;
+}
+
+.topGroup .recent-post-item:hover .recent-post-top-text {
+  left: 0;
+}
+
+@media screen and (max-width: 1300px) {
+  #random-banner {
+    display: none;
+  }
+
+  .topGroup .todayCard {
+    background: #0e57d5;
+  }
+
+  div#bannerGroup {
+    display: flex !important;
+  }
+
+  .categoryGroup .categoryItem:nth-child(3) {
+    display: none;
+  }
+  .categoryGroup {
+    flex-direction: column;
+    height: 95%;
+  }
+  .topGroup {
+    display: flex;
+  }
+
+  .topGroup .todayCard {
+    display: none;
+  }
+
+  .swiper_container_card {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  div#bannerGroup {
+    height: auto;
+  }
+  .categoryItem {
+    height: 48%;
+    min-width: 200px;
+  }
+  .categoryGroup {
+    display: flex !important;
+  }
+  #bbTimeList {
+    margin: 0 15px 20px;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+.swiper_container_card::-webkit-scrollbar {
+  display: none;
+}
+
+.topGroup .banner-button:hover {
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
+}
+
+.topGroup .recent-post-item:nth-child(4),
+.topGroup .recent-post-item:nth-child(5),
+.topGroup .recent-post-item:nth-child(6) {
+  margin-bottom: 0;
+  margin-top: 4px;
+}
