@@ -819,7 +819,7 @@ note:
   # Offset also applied to label tag variables. This option can work with disabled note tag.
   light_bg_offset: 0
 
-iconfont: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/ali_font.js #参看 https://akilar.top/posts/d2ebecef/
+iconfont: #参看 https://akilar.top/posts/d2ebecef/
 
 # other
 # --------------------------------------
@@ -1093,3 +1093,4 @@ CDN:
     # categoryBar:
     # catalog_bar:
     # animation_css:
+    # iconfont_js:

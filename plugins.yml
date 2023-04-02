@@ -221,3 +221,7 @@ animation_css:
   name: hexo-butterfly-tag-plugins-plus
   file: lib/assets/font-awesome-animation.min.css
   version: 1.0.17
+iconfont_js:
+  name: anzhiyu-theme-static
+  file: 1.0.0
+  version: ali_font.js

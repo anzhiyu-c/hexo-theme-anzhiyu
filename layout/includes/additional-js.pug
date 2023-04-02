@@ -103,6 +103,7 @@ div
       LA.init({id: "#{ck}", ck: "#{ck}"});
       new LingQue.Monitor().init({id: "#{theme.LA.LingQueMonitorID}", sendSuspicious:true});
   //- iconfont依赖
+  script(async src=url_for(theme.asset.iconfont_js))
   script(async src=url_for(theme.iconfont))
 
   != fragment_cache('injectBottom', function(){return injectHtml(theme.inject.bottom)})
