@@ -8,7 +8,7 @@ if site.data.essay && theme.essay.enable
           .tips 使用 即刻短文静态部署版 构建
         .banner-button-group
           a.banner-button(onclick='pjax.loadUrl("/about/")')
-            i.fas.fa-circle-arrow-up-right(style='font-size: 1.5rem')
+            i.fas.fa-circle-right(style='font-size: 1.5rem')
             span.banner-button-text 关于我
     #bber
       section.timeline.page-1
@@ -43,7 +43,7 @@ if site.data.essay && theme.essay.enable
                           | 链接
                       if item.from
                         .bber-info-from
-                          i.far.fa-popsicle
+                          i.fas.fa-fire
                           span=item.from
                     .bber-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
                       i.fa-solid.fa-message

@@ -17,7 +17,9 @@
   border-radius: 20px;
   justify-content: center;
 }
-
+.card-widget.card-info .banner-button-group .banner-button-text {
+  margin-right: 5px;
+}
 .card-info-avatar .avatar-img {
   width: 100px;
   height: 100px;

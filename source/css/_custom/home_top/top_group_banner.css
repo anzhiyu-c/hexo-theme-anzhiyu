@@ -64,6 +64,7 @@ div#bannerGroup {
     display: flex;
     transition: 0.3s;
   }
+
   .topGroup .todayCard.hide .todayCard-cover {
     transform: scale(1.2);
   }

@@ -124,10 +124,11 @@ snackbar:
   name: node-snackbar
   file: dist/snackbar.min.js
   version: 0.1.16
-fontawesomeV6:
-  name: anzhiyu-blog
-  file: fonts/fontawesome/css/all.min.css
-  version: 2.1.0
+fontawesome:
+  name: "@fortawesome/fontawesome-free"
+  file: css/all.min.css
+  other_name: font-awesome
+  version: 6.3.0
 flickr_justified_gallery_js:
   name: flickr-justified-gallery
   file: dist/fjGallery.min.js

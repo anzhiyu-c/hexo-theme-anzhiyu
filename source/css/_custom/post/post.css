@@ -28,7 +28,7 @@
 }
 #article-container .headerlink::before {
   content: "\f0c1";
-  font-family: "Font Awesome 6 Pro";
+  font-family: "Font Awesome 6 Free";
 }
 
 #article-container h1 .headerlink {

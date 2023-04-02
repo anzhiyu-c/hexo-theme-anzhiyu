@@ -13,11 +13,11 @@ menu:
   #   音乐馆: /music/ || fas fa-music
   #   追番页: /bangumis/ || icon-bilibili1
   #   相册集: /album/ || fas fa-images
-  #   小空调: /air-conditioner/ || fa-regular fa-fan
+  #   小空调: /air-conditioner/ || fas fa-fan
 
   # 关于:
   #   关于本人: /about/ || icon-zhifeiji
-  #   闲言碎语: /essay/ || fas fa-lightbulb-on
+  #   闲言碎语: /essay/ || fas fas fa-lightbulb
   #   随便逛逛: javascript:toRandomPost() || fas fa-shoe-prints
 
 # nav左侧菜单
@@ -683,7 +683,7 @@ aside:
     description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>
     button:
       enable: true
-      icon: fas fa-circle-arrow-up-right
+      icon: fas fa-circle-right
       text: 了解更多
       link: /about/
   card_announcement:
@@ -1069,7 +1069,7 @@ CDN:
     # fireworks:
     # click_heart:
     # ClickShowText:
-    # fontawesomeV6:
+    # fontawesome:
     # flickr_justified_gallery_js:
     # flickr_justified_gallery_css:
     # aplayer_css:
