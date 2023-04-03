@@ -54,5 +54,6 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
     !=partial('includes/anzhiyu/console', {}, {cache:true})
     !=partial('includes/third-party/search/index', {}, {cache: true})
     !=partial('includes/anzhiyu/rightmenu', {}, {cache:true})
-    !=partial('includes/anzhiyu/clock', {}, {cache:true})
+    if (theme.nav.clock)
+      !=partial('includes/anzhiyu/clock', {}, {cache:true})
     include ./additional-js.pug

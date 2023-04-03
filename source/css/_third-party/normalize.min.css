@@ -2,6 +2,7 @@
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 60px;
 }
 
 body {

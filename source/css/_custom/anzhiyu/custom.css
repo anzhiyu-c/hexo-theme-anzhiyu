@@ -3,10 +3,6 @@ body {
   height: 100%;
 }
 
-html {
-  scroll-padding-top: 60px;
-}
-
 #web_bg {
   width: 200%;
   height: 200%;
@@ -14,11 +10,6 @@ html {
   left: -50%;
   transform: rotate(-1deg);
   -webkit-overflow-scrolling: touch;
-}
-
-/* 天气组件颜色变白 */
-#he-plugin-simple .sticker-important {
-  color: var(--anzhiyu-white) !important;
 }
 
 h1#site-title {

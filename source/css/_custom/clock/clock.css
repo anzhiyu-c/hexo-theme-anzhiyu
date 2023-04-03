@@ -9,6 +9,11 @@
   opacity: 0.5;
   pointer-events: unset;
 }
+
+#he-plugin-simple .sticker-important {
+  color: var(--anzhiyu-white) !important;
+}
+
 .s-sticker div[data-v-41ba7e2c]:not(:first-child):not(:last-child) {
   padding: 0 0.07em !important;
 }
