@@ -1,4 +1,4 @@
-script.
+script(async).
   // 初始化函数
   let rm = {};
 
@@ -299,7 +299,7 @@ script.
     } else {
       txt = window.getSelection().toString();
     }
-    selectTextNow = txt !== "" ? txt : selectTextNow;
+    selectTextNow = txt !== "" ? txt : "";
   }
 
   // 读取剪切板
