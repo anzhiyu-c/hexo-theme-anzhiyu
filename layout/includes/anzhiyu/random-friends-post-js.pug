@@ -158,7 +158,7 @@ script(defer data-pjax=true).
             var title = json.title;
             var link = json.link;
             var author = json.author;
-            if (document.querySelector("#random-post")) {
+            if (document.getElementById("random-post")) {
               window.setTimeout(function () {
                 document.getElementById("random-post").innerHTML =
                   randomPostTipsItem +
