@@ -67,7 +67,7 @@ social:
   # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || icon-QQ1 || faa-tada
 
 author_status:
-  enable: true
+  enable: false
   status: ✍️
   alias: writing_hand
   fallback_src: https://github.githubassets.com/images/icons/emoji/unicode/270d.png
