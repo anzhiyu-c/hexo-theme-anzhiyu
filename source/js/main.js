@@ -1228,7 +1228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navMusicEl.querySelector("#nav-music meting-js").aplayer.on("pause", function () {
           navMusicEl.classList.remove("playing");
           document.getElementById("menu-music-toggle").innerHTML =
-            '<i class="fa-solid fa-pause"></i><span>暂停音乐</span>';
+            '<i class="fa-solid fa-play"></i><span>播放音乐</span>';
           document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停";
           document.querySelector("#consoleMusic").classList.remove("on");
           anzhiyu_musicPlaying = false;

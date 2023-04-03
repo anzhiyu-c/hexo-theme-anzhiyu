@@ -48,7 +48,8 @@
 		.rightMenu-item#menu-music-forward
 			i.fas.fa-forward
 			span 切换到下一首
-		.rightMenu-item#menu-music-playlist(onclick='window.open(\'https://y.qq.com/n/ryqq/playlist/8152976493\', \'_blank\');', style='display: none;')
+		- const nav_music_all_playlist = theme.nav_music.all_playlist
+		.rightMenu-item#menu-music-playlist(onclick=`window.open("${nav_music_all_playlist}", "_blank");`, style='display: none;')
 			i.fas.fa-radio
 			span 查看所有歌曲
 		.rightMenu-item#menu-music-copyMusicName

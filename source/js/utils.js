@@ -574,6 +574,7 @@ const anzhiyu = {
       navMusicEl.classList.add("stretch");
     }
     if (changePaly) document.querySelector("#nav-music meting-js").aplayer.toggle();
+    rm.hideRightMenu();
   },
   // 音乐伸缩
   musicTelescopic: function () {
@@ -587,11 +588,13 @@ const anzhiyu = {
   //音乐上一曲
   musicSkipBack: function () {
     navMusicEl.querySelector("meting-js").aplayer.skipBack();
+    rm.hideRightMenu();
   },
 
   //音乐下一曲
   musicSkipForward: function () {
     navMusicEl.querySelector("meting-js").aplayer.skipForward();
+    rm.hideRightMenu();
   },
 
   //获取音乐中的名称
