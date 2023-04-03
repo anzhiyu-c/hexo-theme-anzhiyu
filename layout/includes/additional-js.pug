@@ -1,4 +1,6 @@
 div
+  //- jquery
+  script(src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js")
   script(src=url_for(theme.asset.utils))
   script(src=url_for(theme.asset.main))
 
@@ -67,15 +69,9 @@ div
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
     else if (!is_post() && page.aside !== false)
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
-  //- jquery
-  script(src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js")
   //- 气泡效果
   if theme.bubble.enable
     script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/bubble/bubble.js")
-  //- 自定义js
-  script(data-pjax src="/js/anzhiyufunction.js")
-  script(async src="/js/anzhiyuOnlyOne.js")
-  script(data-pjax src="/js/anzhiyu.js")
   if theme.visitorMail.enable
     - const mail = theme.visitorMail.mail
     script.
@@ -93,7 +89,8 @@ div
   //- 即刻依赖waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))
   //- 右键菜单
-  script(async src=url_for(theme.asset.rightmenu))
+  != partial("includes/anzhiyu/rightmenu-js.pug", {}, { cache: true })
+  include ./anzhiyu/anzhiyu-js.pug
   //- 51la统计&灵雀统计
   if (theme.LA.enable)
     script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")

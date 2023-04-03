@@ -3,8 +3,8 @@ window.addEventListener("load", () => {
     const bodyStyle = document.body.style;
     bodyStyle.width = "100%";
     bodyStyle.overflow = "hidden";
-    btf.animateIn(document.getElementById("search-mask"), "to_show 0.5s");
-    btf.animateIn(document.querySelector("#algolia-search .search-dialog"), "titleScale 0.5s");
+    anzhiyu.animateIn(document.getElementById("search-mask"), "to_show 0.5s");
+    anzhiyu.animateIn(document.querySelector("#algolia-search .search-dialog"), "titleScale 0.5s");
     setTimeout(() => {
       document.querySelector("#algolia-search .ais-SearchBox-input").focus();
     }, 100);
@@ -22,8 +22,8 @@ window.addEventListener("load", () => {
     const bodyStyle = document.body.style;
     bodyStyle.width = "";
     bodyStyle.overflow = "";
-    btf.animateOut(document.querySelector("#algolia-search .search-dialog"), "search_close .5s");
-    btf.animateOut(document.getElementById("search-mask"), "to_hide 0.5s");
+    anzhiyu.animateOut(document.querySelector("#algolia-search .search-dialog"), "search_close .5s");
+    anzhiyu.animateOut(document.getElementById("search-mask"), "to_hide 0.5s");
   };
 
   const searchClickFn = () => {

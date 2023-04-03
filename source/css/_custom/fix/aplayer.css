@@ -294,17 +294,16 @@
   padding: 5px 0;
 }
 #nav-music.stretch .aplayer.aplayer-withlrc .aplayer-lrc {
-  margin-left: 8px;
-}
-#nav-music.stretch .aplayer.aplayer-withlrc .aplayer-lrc {
   width: 200px;
-  margin-bottom: 0;
+  margin-left: 8px;
+  margin-bottom: 28px;
   opacity: 1;
 }
 
 #nav-music .aplayer .aplayer-lrc p.aplayer-lrc-current {
   color: var(--anzhiyu-white);
   border: none;
+  min-height: 20px;
 }
 
 #nav-music .aplayer .aplayer-lrc:after,
@@ -314,6 +313,9 @@
 
 #nav-music .aplayer .aplayer-lrc p {
   color: #ffffffb3;
+  line-height: 20px !important;
+  height: 20px !important;
+  margin: 20px 0 !important;
 }
 
 #nav-music .aplayer .aplayer-pic {

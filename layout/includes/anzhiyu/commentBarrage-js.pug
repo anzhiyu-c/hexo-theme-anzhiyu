@@ -122,10 +122,10 @@ script(data-pjax=true).
   // 自动隐藏
   document.addEventListener(
     "scroll",
-    btf.throttle(function () {
+    anzhiyu.throttle(function () {
       var a = (window.scrollY, document.querySelector(".comment-barrage")),
         t = document.getElementById("post-comment");
-      t && a && 768 < document.body.clientWidth && (a.style.bottom = !isInViewPortOfOne(t) ? "0" : "-200px");
+      t && a && 768 < document.body.clientWidth && (a.style.bottom = !anzhiyu.isInViewPortOfOne(t) ? "0" : "-200px");
     }, 200),
     { passive: true }
   ),

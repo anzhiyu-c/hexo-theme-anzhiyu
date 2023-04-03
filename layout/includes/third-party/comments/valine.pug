@@ -22,7 +22,7 @@ script.
   }
 
   if ('!{theme.comments.use[0]}' === 'Valine' || !!{theme.comments.lazyload}) {
-    if (!{theme.comments.lazyload}) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    if (!{theme.comments.lazyload}) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
     else setTimeout(loadValine, 0)
   } else {
     function loadOtherComment () {

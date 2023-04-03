@@ -10,7 +10,7 @@ script.
         envId: '!{envId}',
         region: '!{region}',
         onCommentLoaded: function () {
-          btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+          anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
         }
       }, !{JSON.stringify(option)}))
     }
@@ -43,7 +43,7 @@ script.
       getScript('!{url_for(theme.asset.twikoo)}').then(runFn)
     }
     if ('!{use[0]}' === 'Twikoo' || !!{lazyload}) {
-      if (!{lazyload}) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+      if (!{lazyload}) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
       else loadTwikoo()
     } else {
       window.loadOtherComment = () => {

@@ -197,10 +197,6 @@ gsap_js:
   name: anzhiyu-theme-static
   file: gsap/gsap.min.js
   version: 1.0.0
-about_js:
-  name: anzhiyu-theme-static
-  file: about/about.js
-  version: 1.0.0
 rightmenu:
   name: anzhiyu-theme-static
   file: rightmenu/rightmenu.js

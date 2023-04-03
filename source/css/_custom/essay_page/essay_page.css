@@ -264,8 +264,8 @@ body[data-type="essay"] #page .author-content-item .card-content .banner-button-
 }
 #bber .aplayer .aplayer-lrc p {
   color: var(--anzhiyu-fontcolor);
-  min-height: 20px;
-  line-height: 20px !important;
-  height: 20px !important;
-  margin: 19px 0 !important;
+  min-height: 40px;
+  line-height: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
 }

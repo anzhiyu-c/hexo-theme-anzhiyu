@@ -29,7 +29,7 @@ script.
   }
 
   if ('!{use[0]}' === 'Waline' || !!{lazyload}) {
-    if (!{lazyload}) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    if (!{lazyload}) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
     else setTimeout(loadWaline, 0)
   } else {
     function loadOtherComment () {
