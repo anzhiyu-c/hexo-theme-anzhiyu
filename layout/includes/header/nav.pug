@@ -24,9 +24,10 @@ nav#nav
   #menus
     !=partial('includes/header/menu_item', {}, {cache: true})
   #nav-right
-    .nav-button.only-home#travellings_button(style='display: flex')
-      a.site-page(onclick='totraveling()', title='随机前往一个开往项目网站', href='javascript:void(0);', rel='external nofollow', data-pjax-state='external')
-        i.fas.fa-train(style='font-size:1.2rem')
+    if theme.nav.travelling
+      .nav-button.only-home#travellings_button(style='display: flex')
+        a.site-page(onclick='totraveling()', title='随机前往一个开往项目网站', href='javascript:void(0);', rel='external nofollow', data-pjax-state='external')
+          i.fas.fa-train(style='font-size:1.2rem')
     .nav-button#randomPost_button
       a.site-page(onclick='toRandomPost()', title='随机前往一个文章', href='javascript:void(0);')
         i.fas.fa-dice(style='font-size:1.2rem')

@@ -1,13 +1,14 @@
 - let home_top_config = theme.home_top
+- let { title, subTitle, siteText } = home_top_config
 if home_top_config.enable
   #home_top
     .swiper_container_card(style='height: auto;width: 100%')
       #bannerGroup
         #random-banner
           .banners-title
-            .banners-title-big 生活明朗
-            .banners-title-big 万物可爱。
-            .banners-title-small ANZHIY.CN
+            .banners-title-big=title
+            .banners-title-big=subTitle
+            .banners-title-small=siteText
           include ../anzhiyu/tags-group-all.pug
 
           a#random-hover(href='javascript:toRandomPost()')

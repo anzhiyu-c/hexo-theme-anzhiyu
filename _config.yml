@@ -20,9 +20,10 @@ menu:
   #   闲言碎语: /essay/ || fas fas fa-lightbulb
   #   随便逛逛: javascript:toRandomPost() || fas fa-shoe-prints
 
-# nav左侧菜单
+# nav相关配置
 nav:
   enable: false
+  travelling: false
   menu:
     - title: 网页
       item:
@@ -898,9 +899,13 @@ envelope_comment:
     top_img: false
     type: envelope
 
+# 首页顶部相关配置
 home_top:
   enable: true # 开关
   timemode: date #date/updated
+  title: 生活明朗
+  subTitle: 万物可爱。
+  siteText: ANZHIY.CN
   category:
     - name: 前端
       path: /categories/前端开发/
