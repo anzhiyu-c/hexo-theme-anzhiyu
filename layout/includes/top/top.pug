@@ -73,9 +73,9 @@ if home_top_config.enable
             .recent-post-item
               .post_cover.left_radius
                 a(href=item.path, title=item.title)
-                  span.recent-post-top-text(onclick=`pjax.loadUrl(${item.path})`) 荐
+                  span.recent-post-top-text 荐
                   img.post_bg(onerror=item.cover, alt='',  src=item.cover)
-              .recent-post-info(onclick=`pjax.loadUrl(${item.path})`)
+              .recent-post-info
                 a.article-title(href=item.path, title=item.title)=item.title
           a#todayCard.todayCard(href=top_group_banner_link, style='z-index: 1;')
             .todayCard-info
