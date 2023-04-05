@@ -68,9 +68,7 @@
   color: var(--anzhiyu-secondtext);
 }
 #twikoo pre code {
-  padding: none;
   background: none;
-  color: none;
 }
 #twikoo code {
   padding: 2px 4px;
