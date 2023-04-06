@@ -51,7 +51,7 @@
 #console .console-card-group-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   height: 100%;
   width: 60%;
   overflow: hidden;
