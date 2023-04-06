@@ -1,6 +1,6 @@
 #swiper_container_blog {
   width: 49%;
-  transition: all .3s, width 0s;
+  transition: all 0.3s, width 0s;
   border-radius: 12px;
 }
 .swiper-wrapper {
@@ -400,9 +400,7 @@ div#swiper_container:hover {
   .blog-slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets {
     top: 218px;
   }
-  #swiper_container_blog {
-    padding: 10px;
-  }
+
   .swiper_container_card #swiper_container_blog div#swiper_container.blog-slider {
     padding: 10px;
     overflow: hidden;
@@ -423,15 +421,12 @@ div#swiper_container:hover {
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1024px) {
   div#swiper_container {
     width: 100%;
   }
 }
-@media screen and (max-width: 1280px) {
-  div#bannerGroup {
-    display: none !important;
-  }
+@media screen and (max-width: 1024px) {
   #swiper_container_blog {
     width: 99%;
   }

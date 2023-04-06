@@ -8,7 +8,7 @@ div#bannerGroup {
   flex: 1;
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   .topGroup .todayCard {
     position: absolute;
     width: calc(600px + 1rem);
@@ -190,7 +190,7 @@ div#bannerGroup {
   left: 0;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1024px) {
   #random-banner {
     display: none;
   }
@@ -200,7 +200,8 @@ div#bannerGroup {
   }
 
   div#bannerGroup {
-    display: flex !important;
+    display: flex;
+    height: auto;
   }
 
   .categoryGroup .categoryItem:nth-child(3) {
@@ -227,9 +228,6 @@ div#bannerGroup {
     overflow-x: scroll;
   }
 
-  div#bannerGroup {
-    height: auto;
-  }
   .categoryItem {
     height: 48%;
     min-width: 200px;

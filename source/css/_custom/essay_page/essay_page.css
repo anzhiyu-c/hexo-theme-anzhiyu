@@ -244,7 +244,7 @@ body[data-type="essay"] #page .author-content-item .card-content .banner-button-
 }
 
 /* 响应式 */
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1024px) {
   #bber .timeline ul li.bber-item {
     width: 49%;
     margin-right: 1%;

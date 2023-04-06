@@ -12,6 +12,9 @@
     align-items: center
     overflow: hidden
     height: 18em
+    position: relative
+    border-radius: 12px;
+    box-shadow: none;
 
     +maxWidth768()
       flex-direction: column
@@ -118,7 +121,41 @@
         @extend .limit-more-line
         -webkit-line-clamp: 2
 
+#topPostGroup
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+  height: 128px;
+  align-content: space-between;
+  width: 100%;
+#home_top
+  margin: 0 auto 0;
+  padding: 0px 15px 20px;
+  max-width: 1400px;
+  width: 100%;
+  overflow: hidden;
+
++maxWidth768()
+  #topPostGroup
+    height: 240px;
+  #swiper_container_blog
+    padding: 10px;
+  
+  
 if hexo-config('home_top.swiper.enable') == true
   div#bannerGroup
-    margin-right: 10px;
-    width: calc(51% - 10px) !important;
+      margin-right: 10px;
+      width: calc(51% - 10px) !important;
+  +maxWidth768()
+    #home_top
+      padding: 0px 15px;
+    #topPostGroup 
+      height: 280px;
+    #swiper_container_blog
+      padding: 0 10px;
+  +maxWidth1024()
+    div#bannerGroup {
+      display: none !important;
+    }
