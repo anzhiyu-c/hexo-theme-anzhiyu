@@ -4,11 +4,6 @@
   border-radius: 50%;
 }
 
-/* 文章圆角 */
-#recent-posts > .recent-post-item {
-  border-radius: 12px;
-}
-
 /* 相关推荐圆角 */
 #pagination.pagination-post {
   border-radius: 10px;

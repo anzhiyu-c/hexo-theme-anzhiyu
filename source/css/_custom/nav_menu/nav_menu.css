@@ -98,11 +98,6 @@ ul.menus_item_child {
   line-height: 35px;
 }
 
-#nav .menus_items .menus_item:hover {
-  padding: 0 5px 27px 5px !important;
-  margin-bottom: -14.5px !important;
-}
-
 #nav .menus_items .menus_item .menus_item_child {
   top: 44px;
   box-shadow: var(--anzhiyu-shadow-black);
@@ -151,7 +146,7 @@ ul.menus_item_child {
     font-weight: 700;
   }
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   #page-header.nav-fixed #nav #page-name:hover:after {
     opacity: 1;
   }

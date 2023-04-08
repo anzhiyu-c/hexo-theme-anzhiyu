@@ -7,18 +7,7 @@
 
 # hexo-theme-anzhiyu
 
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3dab5a29.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3dac6e62.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3daee9b8.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3daef07a.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3daf4019.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3daf1a87.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3db096a3.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3db075fb.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3db0998c.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3db09f9b.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3db09650.png!blogimg)
-![](https://img02.anzhiy.cn/adminuploads/1/2022/12/28/63abc3db09c62.png!blogimg)
+![](https://pic.imgdb.cn/item/6430cc430d2dde5777c394e4.png)
 
 一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 修改的主题
 

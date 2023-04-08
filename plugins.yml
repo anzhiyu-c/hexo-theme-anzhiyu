@@ -153,17 +153,17 @@ prismjs_js:
   name: prismjs
   file: prism.js
   other_name: prism
-  version: 1.28.0
+  version: 1.29.0
 prismjs_lineNumber_js:
   name: prismjs
   file: plugins/line-numbers/prism-line-numbers.min.js
   other_name: prism
-  version: 1.28.0
+  version: 1.29.0
 prismjs_autoloader:
   name: prismjs
   file: plugins/autoloader/prism-autoloader.min.js
   other_name: prism
-  version: 1.28.0
+  version: 1.29.0
 artalk_js:
   name: artalk
   file: dist/Artalk.js

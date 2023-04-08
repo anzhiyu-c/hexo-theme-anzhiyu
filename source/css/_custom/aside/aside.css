@@ -16,7 +16,7 @@
   color: var(--anzhiyu-white) !important;
   box-shadow: var(--anzhiyu-shadow-theme);
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   #aside-content .card-tag-cloud a:active {
     transform: scale(0.97);
   }
@@ -67,7 +67,7 @@ li.card-archive-list-item {
   padding-right: 0.5rem;
   border: 1px solid transparent;
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
   #aside-content .card-categories ul.card-category-list > .card-category-list-item a:hover {
     transform: scale(1.03);
@@ -131,7 +131,7 @@ li.card-archive-list-item {
   margin: 6px 0;
   cursor: pointer;
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   #aside-content .aside-list > .aside-list-item:hover {
     transform: scale(1.03);
   }

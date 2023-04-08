@@ -1,5 +1,5 @@
 /* 分页样式 */
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   #pagination a.extend.next:hover,
   #pagination a.extend.prev:hover {
     transform: scale(1.03);
@@ -162,12 +162,14 @@ a#toPageButton {
   border: var(--style-border-always);
   cursor: pointer;
 }
-#pagination .pagination .toPageGroup:hover input, #pagination .pagination .toPageGroup input:focus {
+#pagination .pagination .toPageGroup:hover input,
+#pagination .pagination .toPageGroup input:focus {
   border: var(--style-border-hover-always);
   outline-style: none;
   width: 100px;
 }
-#pagination .toPageGroup:hover a#toPageButton, #pagination .toPageGroup:focus-within a#toPageButton {
+#pagination .toPageGroup:hover a#toPageButton,
+#pagination .toPageGroup:focus-within a#toPageButton {
   width: 30px;
   height: 30px;
   right: 4px;

@@ -7,6 +7,9 @@ if hexo-config('preloader')
     background: var(--anzhiyu-card-bg);
     z-index: 1001;
     opacity: 1;
+    overflow hidden
+    &::-webkit-scrollbar 
+      display: none
 
   #loading-box
     position: absolute;

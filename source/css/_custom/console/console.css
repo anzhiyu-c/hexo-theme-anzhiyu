@@ -51,7 +51,7 @@
 #console .console-card-group-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   height: 100%;
   width: 60%;
   overflow: hidden;
@@ -531,7 +531,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   margin-top: 80px;
 }
 
-@media screen and (min-width: 1300px) and (max-width: 1450px) {
+@media screen and (min-width: 1024px) and (max-width: 1450px) {
   body:has(#console.show) #nav-music {
     left: 45%;
   }
@@ -562,7 +562,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   height: 230px;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1024px) {
   /* 移动端音乐列表 */
   body:has(#console.show) #nav-music .aplayer-list {
     display: block;
