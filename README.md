@@ -7,7 +7,7 @@
 
 # hexo-theme-anzhiyu
 
-![](https://pic.imgdb.cn/item/6430cc430d2dde5777c394e4.png)
+![](https://img02.anzhiy.cn/adminuploads/1/2023/04/08/643135f2ca61a.webp)
 
 一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 修改的主题
 
