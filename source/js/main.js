@@ -843,7 +843,8 @@ document.addEventListener("DOMContentLoaded", function () {
     backToTop: () => {
       document.querySelectorAll("#article-container .tabs .tab-to-top").forEach(function (item) {
         item.addEventListener("click", function () {
-          anzhiyu.scrollToDest(anzhiyu.getEleTop(anzhiyu.getParents(this, ".tabs")), 300);
+          console.info(1);
+          anzhiyu.scrollToDest(anzhiyu.getEleTop(anzhiyu.getParents(this, ".tabs")) - 60, 300);
         });
       });
     },
