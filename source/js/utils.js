@@ -128,7 +128,7 @@ const anzhiyu = {
 
   scrollToDest: (pos, time = 500) => {
     const currentPos = window.pageYOffset;
-    if (currentPos > pos) pos = pos - 70;
+    // if (currentPos > pos) pos = pos - 60;
 
     if ("scrollBehavior" in document.documentElement.style) {
       window.scrollTo({
