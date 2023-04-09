@@ -333,14 +333,10 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: https://waline-api-xxxx.vercel.app/ # Waline server address url
+  serverURL: # Waline server address url
+  bg: # waline background
   pageview: false
-  avatar: mp # gravatar style https://zh-tw.gravatar.com/site/implement/images/#default-image
-  emojiCDN: //i0.hdslb.com/bfs/emote/ # emoji CDN
-  bg: /img/comment_bg.png # waline background
-  visitor: false
   option:
-    - placeholder: 今天应该会收到少佐的信叭<br>生活明朗，万物可爱
 
 # Twikoo
 # https://github.com/imaegoo/twikoo

@@ -60,6 +60,23 @@ hexo.extend.helper.register("inject_head_js", function () {
     })
   `;
 
+  const getCSS = `
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  `;
+
   let darkmodeJs = "";
   if (darkmode.enable) {
     darkmodeJs = `
@@ -91,11 +108,10 @@ hexo.extend.helper.register("inject_head_js", function () {
             if (isLightMode) activateLightMode()
             else if (isDarkMode) activateDarkMode()
             else if (isNotSpecified || hasNoSupport) {
-              // const now = new Date()
-              // const hour = now.getHours()
-              // const isNight = hour <= 6 || hour >= 18
-              // isNight ? activateDarkMode() : activateLightMode()
-              activateDarkMode()
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
             }
             window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
               if (saveToLocal.get('theme') === undefined) {
@@ -145,5 +161,7 @@ hexo.extend.helper.register("inject_head_js", function () {
     detectApple()
     `;
 
-  return `<script>(win=>{${localStore + getScript + darkmodeJs + asideStatus + detectApple}})(window)</script>`;
+  return `<script>(win=>{${
+    localStore + getScript + getCSS + darkmodeJs + asideStatus + detectApple
+  }})(window)</script>`;
 });

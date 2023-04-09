@@ -379,30 +379,71 @@ document.addEventListener("DOMContentLoaded", function () {
    * justified-gallery 圖庫排版
    */
   const runJustifiedGallery = function (ele) {
-    ele.forEach(item => {
-      const $imgList = item.querySelectorAll("img");
-
-      $imgList.forEach(i => {
-        const dataLazySrc = i.getAttribute("data-lazy-src");
-        if (dataLazySrc) i.src = dataLazySrc;
-        anzhiyu.wrap(i, "div", { class: "fj-gallery-item" });
+    const htmlStr = arr => {
+      let str = "";
+      const replaceDq = str => str.replace(/"/g, "&quot;"); // replace double quotes to &quot;
+      arr.forEach(i => {
+        const alt = i.alt ? `alt="${replaceDq(i.alt)}"` : "";
+        const title = i.title ? `title="${replaceDq(i.title)}"` : "";
+        str += `<div class="fj-gallery-item"><img src="${i.url}" ${alt + title}"></div>`;
       });
-    });
+      return str;
+    };
+
+    const lazyloadFn = (i, arr, limit) => {
+      const loadItem = limit;
+      const arrLength = arr.length;
+      if (arrLength > loadItem) i.insertAdjacentHTML("beforeend", htmlStr(arr.splice(0, loadItem)));
+      else {
+        i.insertAdjacentHTML("beforeend", htmlStr(arr));
+        i.classList.remove("lazyload");
+      }
+      return arrLength > loadItem ? loadItem : arrLength;
+    };
+
+    const fetchUrl = async url => {
+      const response = await fetch(url);
+      return await response.json();
+    };
+
+    const runJustifiedGallery = (item, arr) => {
+      if (!item.classList.contains("lazyload")) item.innerHTML = htmlStr(arr);
+      else {
+        const limit = item.getAttribute("data-limit");
+        lazyloadFn(item, arr, limit);
+        const clickBtnFn = () => {
+          const lastItemLength = lazyloadFn(item, arr, limit);
+          fjGallery(
+            item,
+            "appendImages",
+            item.querySelectorAll(`.fj-gallery-item:nth-last-child(-n+${lastItemLength})`)
+          );
+          anzhiyu.loadLightbox(item.querySelectorAll("img"));
+          lastItemLength < limit && item.nextElementSibling.removeEventListener("click", clickBtnFn);
+        };
+        item.nextElementSibling.addEventListener("click", clickBtnFn);
+      }
+      anzhiyu.initJustifiedGallery(item);
+      anzhiyu.loadLightbox(item.querySelectorAll("img"));
+    };
+
+    const addJustifiedGallery = () => {
+      ele.forEach(item => {
+        item.classList.contains("url")
+          ? fetchUrl(item.textContent).then(res => {
+              runJustifiedGallery(item, res);
+            })
+          : runJustifiedGallery(item, JSON.parse(item.textContent));
+      });
+    };
 
     if (window.fjGallery) {
-      setTimeout(() => {
-        anzhiyu.initJustifiedGallery(ele);
-      }, 100);
+      addJustifiedGallery();
       return;
     }
 
-    const newEle = document.createElement("link");
-    newEle.rel = "stylesheet";
-    newEle.href = GLOBAL_CONFIG.source.justifiedGallery.css;
-    document.body.appendChild(newEle);
-    getScript(`${GLOBAL_CONFIG.source.justifiedGallery.js}`).then(() => {
-      anzhiyu.initJustifiedGallery(ele);
-    });
+    getCSS(`${GLOBAL_CONFIG.source.justifiedGallery.css}`);
+    getScript(`${GLOBAL_CONFIG.source.justifiedGallery.js}`).then(addJustifiedGallery);
   };
 
   /**
