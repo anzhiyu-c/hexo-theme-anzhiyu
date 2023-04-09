@@ -1296,7 +1296,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     GLOBAL_CONFIG.islazyload && lazyloadImg();
     GLOBAL_CONFIG.copyright !== undefined && addCopyright();
-    listenNavMusicPause();
+    GLOBAL_CONFIG.navMusic && listenNavMusicPause();
     clickFnOfSubMenu();
   };
 
