@@ -301,8 +301,9 @@ center#name-container {
   margin: 4px 8px;
   padding: 4px 8px !important;
   transition: 0.3s;
-  border-radius: 8px;
   width: 150px;
+  border-radius: 8px !important;
+  transition: 0.2s !important;
 }
 .back-home-button .back-menu-list .back-menu-item .back-menu-item-text {
   font-size: var(--global-font-size);
@@ -331,9 +332,7 @@ center#name-container {
 .back-home-button .back-menu-list .back-menu-item:hover .back-menu-item-text {
   color: var(--anzhiyu-white);
 }
-.back-home-button .back-menu-list .back-menu-item {
-  border-radius: 8px !important;
-}
+
 .back-menu-item-icon.loading img {
   width: 25px;
 }
