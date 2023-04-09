@@ -99,19 +99,3 @@
   color: var(--anzhiyu-secondtext);
   border-radius: 8px;
 }
-
-/* table */
-table thead {
-  background: var(--anzhiyu-secondbg);
-}
-
-table td,
-table th {
-  padding: 0.3rem 0.6rem;
-  border: var(--style-border-always);
-}
-.table-wrap {
-  margin: 1rem 0;
-  border-radius: 8px;
-  overflow-x: scroll;
-}

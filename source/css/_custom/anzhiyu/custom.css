@@ -232,10 +232,6 @@ html.hide-aside .layout > div:first-child {
     width: calc(100% - 245px);
   }
 }
-.layout #recent-posts > .recent-post-item .post_cover {
-  width: 100%;
-  height: 225px;
-}
 
 [data-theme="dark"] #footer:before {
   content: none;

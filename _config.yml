@@ -36,9 +36,9 @@ nav:
           icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png
     - title: 项目
       item:
-        - name: 德信官网
-          link: http://blgou.net/#/main/home
-          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png
+        - name: 安知鱼云盘
+          link: https://cloud.anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png
 
 # Code Blocks (代码相关)
 # --------------------------------------
@@ -504,6 +504,12 @@ theme_color:
   meta_theme_color_light: "#f7f9fe"
   meta_theme_color_dark: "#18171d"
 
+# 表格隔行变色
+table_interlaced_discoloration: false
+
+# 首页双栏显示
+article_double_row: false
+
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默认top_img全屏，site_info在中间)
 # The position of site info, eg: 300px/300em/300rem/10% (主页标题距离顶部距离)
@@ -877,10 +883,8 @@ css_prefix: true
 
 # envelope_comment
 # see https://akilar.top/posts/e2d3c450/
-# envelope_comment
-# see https://akilar.top/posts/e2d3c450/
 envelope_comment:
-  enable: true #控制开关
+  enable: false #控制开关
   custom_pic:
     cover: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/violet.jpg #信笺头部图片
     line: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png #信笺底部图片
