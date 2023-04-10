@@ -79,7 +79,7 @@
 #article-container.post-content h4,
 #article-container.post-content h5,
 #article-container.post-content h6 {
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   line-height: 1.6;
   border-top: 1px dashed var(--anzhiyu-theme-op);
   padding-top: 1.5rem;

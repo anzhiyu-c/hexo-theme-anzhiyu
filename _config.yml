@@ -28,12 +28,9 @@ nav:
   menu:
     - title: 网页
       item:
-        - name: 个人主页
-          link: https://index.anzhiy.cn/
-          icon: https://index.anzhiy.cn/assets/home.svg
         - name: 博客
           link: https://anzhiy.cn/
-          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png
+          icon: /img/favicon.png
     - title: 项目
       item:
         - name: 安知鱼云盘
