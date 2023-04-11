@@ -218,10 +218,12 @@ script(async).
       activateDarkMode();
       saveToLocal.set("theme", "dark", 2);
       GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+      document.querySelector(".menu-darkmode-text").textContent = "浅色模式";
     } else {
       activateLightMode();
       saveToLocal.set("theme", "light", 2);
       GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+      document.querySelector(".menu-darkmode-text").textContent = "深色模式";
     }
     // handle some cases
     typeof runMermaid === "function" && window.runMermaid();
