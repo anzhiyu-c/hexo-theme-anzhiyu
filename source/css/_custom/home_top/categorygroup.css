@@ -56,6 +56,7 @@ a.categoryButton i {
   width: 100px;
   text-align: center;
   filter: blur(2px);
+  transform: scale(1) rotate(15deg);
 }
 
 a.categoryButton.blue {
