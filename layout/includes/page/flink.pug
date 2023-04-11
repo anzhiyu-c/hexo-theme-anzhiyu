@@ -6,8 +6,8 @@
           h2!= i.class_name + "(" + i.link_list.length + ")"
         if i.class_desc
           .flink-desc!=i.class_desc
-        if i.flink_style === 'butterfly'
-          .butterfly-flink-list
+        if i.flink_style === 'anzhiyu'
+          .anzhiyu-flink-list
             if i.link_list
               each item in i.link_list
                 .flink-list-item

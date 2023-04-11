@@ -31,13 +31,13 @@ script(async).
   };
 
   // 尺寸
-  let rmWidth = $("#rightMenu").width();
-  let rmHeight = $("#rightMenu").height();
+  let rmWidth = document.getElementById("rightMenu").offsetWidth;
+  let rmHeight = document.getElementById("rightMenu").offsetHeight;
 
   // 重新定义尺寸
   rm.reloadrmSize = function () {
-    rmWidth = $("#rightMenu").width();
-    rmHeight = $("#rightMenu").height();
+    rmWidth = document.getElementById("rightMenu").offsetWidth;
+    rmHeight = document.getElementById("rightMenu").offsetHeight;
   };
 
   // 获取点击的href
@@ -52,100 +52,100 @@ script(async).
       let pageY = event.clientY;
 
       //其他额外菜单
-      let $rightMenuOther = $(".rightMenuOther");
-      let $rightMenuPlugin = $(".rightMenuPlugin");
-      let $rightMenuCopyText = $("#menu-copytext");
-      let $rightMenuPasteText = $("#menu-pastetext");
-      let $rightMenuCommentText = $("#menu-commenttext");
-      let $rightMenuNewWindow = $("#menu-newwindow");
-      let $rightMenuNewWindowImg = $("#menu-newwindowimg");
-      let $rightMenuCopyLink = $("#menu-copylink");
-      let $rightMenuCopyImg = $("#menu-copyimg");
-      let $rightMenuDownloadImg = $("#menu-downloadimg");
-      let $rightMenuSearch = $("#menu-search");
-      let $rightMenuSearchBaidu = $("#menu-searchBaidu");
-      let $rightMenuMusicToggle = $("#menu-music-toggle");
-      let $rightMenuMusicBack = $("#menu-music-back");
-      let $rightMenuMusicForward = $("#menu-music-forward");
-      let $rightMenuMusicPlaylist = $("#menu-music-playlist");
-      let $rightMenuMusicCopyMusicName = $("#menu-music-copyMusicName");
+      const $rightMenuOther = document.querySelector(".rightMenuOther");
+      const $rightMenuPlugin = document.querySelector(".rightMenuPlugin");
+      const $rightMenuCopyText = document.querySelector("#menu-copytext");
+      const $rightMenuPasteText = document.querySelector("#menu-pastetext");
+      const $rightMenuCommentText = document.querySelector("#menu-commenttext");
+      const $rightMenuNewWindow = document.querySelector("#menu-newwindow");
+      const $rightMenuNewWindowImg = document.querySelector("#menu-newwindowimg");
+      const $rightMenuCopyLink = document.querySelector("#menu-copylink");
+      const $rightMenuCopyImg = document.querySelector("#menu-copyimg");
+      const $rightMenuDownloadImg = document.querySelector("#menu-downloadimg");
+      const $rightMenuSearch = document.querySelector("#menu-search");
+      const $rightMenuSearchBaidu = document.querySelector("#menu-searchBaidu");
+      const $rightMenuMusicToggle = document.querySelector("#menu-music-toggle");
+      const $rightMenuMusicBack = document.querySelector("#menu-music-back");
+      const $rightMenuMusicForward = document.querySelector("#menu-music-forward");
+      const $rightMenuMusicPlaylist = document.querySelector("#menu-music-playlist");
+      const $rightMenuMusicCopyMusicName = document.querySelector("#menu-music-copyMusicName");
+
       let href = event.target.href;
       let imgsrc = event.target.currentSrc;
 
       // 判断模式 扩展模式为有事件
       let pluginMode = false;
-      $rightMenuOther.show();
+      $rightMenuOther.style.display = "block";
       globalEvent = event;
 
       // 检查是否需要复制 是否有选中文本
       if (selectTextNow && window.getSelection()) {
         pluginMode = true;
-        $rightMenuCopyText.show();
-        $rightMenuCommentText.show();
-        $rightMenuSearch.show();
-        $rightMenuSearchBaidu.show();
+        $rightMenuCopyText.style.display = "block";
+        $rightMenuCommentText.style.display = "block";
+        $rightMenuSearch.style.display = "block";
+        $rightMenuSearchBaidu.style.display = "block";
       } else {
-        $rightMenuCopyText.hide();
-        $rightMenuCommentText.hide();
-        $rightMenuSearchBaidu.hide();
-        $rightMenuSearch.hide();
+        $rightMenuCopyText.style.display = "none";
+        $rightMenuCommentText.style.display = "none";
+        $rightMenuSearchBaidu.style.display = "none";
+        $rightMenuSearch.style.display = "none";
       }
 
       //检查是否右键点击了链接a标签
       if (href) {
         pluginMode = true;
-        $rightMenuNewWindow.show();
-        $rightMenuCopyLink.show();
+        $rightMenuNewWindow.style.display = "block";
+        $rightMenuCopyLink.style.display = "block";
         domhref = href;
       } else {
-        $rightMenuNewWindow.hide();
-        $rightMenuCopyLink.hide();
+        $rightMenuNewWindow.style.display = "none";
+        $rightMenuCopyLink.style.display = "none";
       }
 
       //检查是否需要复制图片
       if (imgsrc) {
         pluginMode = true;
-        $rightMenuCopyImg.show();
-        $rightMenuDownloadImg.show();
-        $rightMenuNewWindowImg.show();
+        $rightMenuCopyImg.style.display = "block";
+        $rightMenuDownloadImg.style.display = "block";
+        $rightMenuNewWindowImg.style.display = "block";
         domImgSrc = imgsrc;
       } else {
-        $rightMenuCopyImg.hide();
-        $rightMenuDownloadImg.hide();
-        $rightMenuNewWindowImg.hide();
+        $rightMenuCopyImg.style.display = "none";
+        $rightMenuDownloadImg.style.display = "none";
+        $rightMenuNewWindowImg.style.display = "none";
       }
 
       // 判断是否为输入框
       if (event.target.tagName.toLowerCase() === "input" || event.target.tagName.toLowerCase() === "textarea") {
-        console.log("这是一个输入框");
         pluginMode = true;
-        $rightMenuPasteText.show();
+        $rightMenuPasteText.style.display = "block";
       } else {
-        $rightMenuPasteText.hide();
+        $rightMenuPasteText.style.display = "none";
       }
       const navMusicEl = document.querySelector("#nav-music");
       //判断是否是音乐
       if (navMusicEl && navMusicEl.contains(event.target)) {
         pluginMode = true;
-        $rightMenuMusicToggle.show();
-        $rightMenuMusicBack.show();
-        $rightMenuMusicForward.show();
-        $rightMenuMusicPlaylist.show();
-        $rightMenuMusicCopyMusicName.show();
+        $rightMenuMusicToggle.style.display = "block";
+        $rightMenuMusicBack.style.display = "block";
+        $rightMenuMusicForward.style.display = "block";
+        $rightMenuMusicPlaylist.style.display = "block";
+        $rightMenuMusicCopyMusicName.style.display = "block";
       } else {
-        $rightMenuMusicToggle.hide();
-        $rightMenuMusicBack.hide();
-        $rightMenuMusicForward.hide();
-        $rightMenuMusicPlaylist.hide();
-        $rightMenuMusicCopyMusicName.hide();
+        $rightMenuMusicToggle.style.display = "none";
+        $rightMenuMusicBack.style.display = "none";
+        $rightMenuMusicForward.style.display = "none";
+        $rightMenuMusicPlaylist.style.display = "none";
+        $rightMenuMusicCopyMusicName.style.display = "none";
       }
 
       // 如果不是扩展模式则隐藏扩展模块
       if (pluginMode) {
-        $rightMenuOther.hide();
-        $rightMenuPlugin.show();
+        $rightMenuOther.style.display = "none";
+        $rightMenuPlugin.style.display = "block";
       } else {
-        $rightMenuPlugin.hide();
+        $rightMenuPlugin.style.display = "none";
       }
 
       rm.reloadrmSize();
@@ -159,7 +159,7 @@ script(async).
       }
 
       rm.showRightMenu(true, pageY, pageX);
-      $("#rightmenu-mask").attr("style", "display: flex");
+      document.getElementById("rightmenu-mask").style.display = "flex";
       return false;
     }
   };
@@ -230,14 +230,17 @@ script(async).
   };
 
   rm.copyUrl = function (id) {
-    $("body").after("<input id='copyVal'></input>");
-    var text = id;
-    var input = document.getElementById("copyVal");
+    const input = document.createElement("input"); // Create a new <input> element
+    input.id = "copyVal"; // Set the id of the new element to "copyVal"
+    document.body.appendChild(input); // Append the new element to the end of the <body> element
+    
+    const text = id;
     input.value = text;
     input.select();
     input.setSelectionRange(0, input.value.length);
     document.execCommand("copy");
-    $("#copyVal").remove();
+    
+    input.remove(); // Remove the <input> element from the DOM
   };
 
   function stopMaskScroll() {
@@ -342,7 +345,7 @@ script(async).
   //引用到评论
   rm.rightMenuCommentText = function (txt) {
     rm.hideRightMenu();
-    const postCommentDom = document.querySelector("#post-comment");
+    const postCommentDom = document.getElementById("post-comment");
     var domTop = postCommentDom.offsetTop;
     window.scrollTo(0, domTop - 80);
     if (txt == "undefined" || txt == "null") txt = "好棒！";
@@ -387,68 +390,96 @@ script(async).
 
   function addRightMenuClickEvent() {
     // 添加点击事件
-    $("#menu-backward").on("click", function () {
-      window.history.back();
+    document.getElementById("menu-backward").addEventListener("click", function () {
+    window.history.back();
       rm.hideRightMenu();
     });
-    $("#menu-forward").on("click", function () {
+
+    document.getElementById("menu-forward").addEventListener("click", function () {
       window.history.forward();
       rm.hideRightMenu();
     });
-    $("#menu-refresh").on("click", function () {
+
+    document.getElementById("menu-refresh").addEventListener("click", function () {
       window.location.reload();
     });
-    $("#menu-top").on("click", function () {
+
+    document.getElementById("menu-top").addEventListener("click", function () {
       anzhiyu.scrollToDest(0, 500);
       rm.hideRightMenu();
     });
-    $(".menu-link").on("click", rm.hideRightMenu);
-    $("#menu-darkmode").on("click", rm.switchDarkMode);
-    $("#menu-home").on("click", function () {
+
+    const menuLinks = document.querySelectorAll(".menu-link");
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", rm.hideRightMenu);
+    });
+
+    document.getElementById("menu-darkmode").addEventListener("click", rm.switchDarkMode);
+
+    document.getElementById("menu-home") && document.getElementById("menu-home").addEventListener("click", function () {
       window.location.href = window.location.origin;
     });
-    $("#menu-randomPost").on("click", function () {
+
+    document.getElementById("menu-randomPost").addEventListener("click", function () {
       toRandomPost();
     });
-    $("#menu-commentBarrage").on("click", anzhiyu.switchCommentBarrage);
-    $("#rightmenu-mask").on("click", rm.hideRightMenu);
-    $("#rightmenu-mask").contextmenu(function () {
+
+    document.getElementById("menu-commentBarrage").addEventListener("click", anzhiyu.switchCommentBarrage);
+
+    document.getElementById("rightmenu-mask").addEventListener("click", rm.hideRightMenu);
+
+    document.getElementById("rightmenu-mask").addEventListener("contextmenu", function (event) {
       rm.hideRightMenu();
-      return false;
+      event.preventDefault(); // Prevent the default context menu from appearing
     });
-    $("#menu-copy").on("click", rm.copyPageUrl);
-    $("#menu-pastetext").on("click", rm.pasteText);
-    $("#menu-copytext").on("click", function () {
+
+    document.getElementById("menu-copy").addEventListener("click", rm.copyPageUrl);
+
+    document.getElementById("menu-pastetext").addEventListener("click", rm.pasteText);
+
+    document.getElementById("menu-copytext").addEventListener("click", function () {
       rm.rightmenuCopyText(selectTextNow);
       anzhiyu.snackbarShow("复制成功，复制和转载请标注本文地址");
     });
-    $("#menu-commenttext").on("click", function () {
+
+    document.getElementById("menu-commenttext").addEventListener("click", function () {
       rm.rightMenuCommentText(selectTextNow);
     });
-    $("#menu-newwindow").on("click", function () {
+
+    document.getElementById("menu-newwindow").addEventListener("click", function () {
       window.open(domhref);
       rm.hideRightMenu();
     });
-    $("#menu-copylink").on("click", rm.copyLink);
-    $("#menu-downloadimg").on("click", function () {
+
+    document.getElementById("menu-copylink").addEventListener("click", rm.copyLink);
+
+    document.getElementById("menu-downloadimg").addEventListener("click", function () {
       anzhiyu.downloadImage(domImgSrc, "anzhiyu");
     });
-    $("#menu-newwindowimg").on("click", function () {
+
+    document.getElementById("menu-newwindowimg").addEventListener("click", function () {
       window.open(domImgSrc);
       rm.hideRightMenu();
     });
-    $("#menu-copyimg").on("click", function () {
+
+    document.getElementById("menu-copyimg").addEventListener("click", function () {
       rm.writeClipImg(domImgSrc);
     });
-    $("#menu-searchBaidu").on("click", rm.searchBaidu);
+
+    document.getElementById("menu-searchBaidu").addEventListener("click", rm.searchBaidu);
+
     //音乐
-    $("#menu-music-toggle").on("click", anzhiyu.musicToggle);
-    $("#menu-music-back").on("click", anzhiyu.musicSkipBack);
-    $("#menu-music-forward").on("click", anzhiyu.musicSkipForward);
-    $("#menu-music-copyMusicName").on("click", function () {
+    document.getElementById("menu-music-toggle").addEventListener("click", anzhiyu.musicToggle);
+
+    document.getElementById("menu-music-back").addEventListener("click", anzhiyu.musicSkipBack);
+
+    document.getElementById("menu-music-forward").addEventListener("click", anzhiyu.musicSkipForward);
+
+    document.getElementById("menu-music-copyMusicName").addEventListener("click", function () {
       rm.rightmenuCopyText(anzhiyu.musicGetName());
       anzhiyu.snackbarShow("复制歌曲名称成功", false, 3000);
     });
+
   }
 
   addRightMenuClickEvent();

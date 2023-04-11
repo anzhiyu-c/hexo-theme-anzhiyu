@@ -1,6 +1,4 @@
 div
-  //- jquery
-  script(src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js")
   script(src=url_for(theme.asset.utils))
   script(src=url_for(theme.asset.main))
 
@@ -71,7 +69,7 @@ div
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
   //- 气泡效果
   if theme.bubble.enable
-    script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/bubble/bubble.js")
+    script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js")
   if theme.visitorMail.enable
     - const mail = theme.visitorMail.mail
     script.
