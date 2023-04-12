@@ -1,15 +1,18 @@
 <div align="right">
   语言:
   中文
+  <a title="English" href="/README_EN.md">English</a>
 </div>
 
-文档：[https://anzhiy.cn/posts/61e4.html](https://anzhiy.cn/posts/61e4.html)
+预览: 👍 [AnZhiYu](https://anzhiy.cn/)  ||  🤞 [AnZhiYu](https://index.anzhiy.cn/)
+
+文档: 📖 [anzhiyu Docs](https://anzhiy.cn/posts/61e4.html)
+
+一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)修改的主題
 
 # hexo-theme-anzhiyu
 
-![](https://img02.anzhiy.cn/adminuploads/1/2023/04/08/643135f2ca61a.webp)
-
-一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 修改的主题
+![](https://img02.anzhiy.cn/adminuploads/1/2023/04/12/64367c8fdcc7f.webp)
 
 ## 💻 安裝
 
