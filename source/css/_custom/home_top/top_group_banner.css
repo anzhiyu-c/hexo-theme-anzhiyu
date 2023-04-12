@@ -237,7 +237,7 @@ div#bannerGroup {
     display: flex !important;
   }
   #bbTimeList {
-    margin: 0 15px 20px;
+    margin: 15px 15px 0;
     max-width: 100%;
     width: auto;
   }

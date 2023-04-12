@@ -71,6 +71,7 @@
     top: 58px;
     z-index: 2;
     align-items: center;
+    margin-top: 0;
   }
   #category-bar.category-bar {
     width: 100%;

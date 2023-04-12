@@ -20,8 +20,8 @@
   }
 }
 @media screen and (max-width: 768px) {
-  #bbTimeList {
-    margin: 0.2rem auto 0;
+  div#bbTimeList {
+    margin: 0 15px 15px;
   }
 }
 [data-theme="dark"] #bbTimeList {
