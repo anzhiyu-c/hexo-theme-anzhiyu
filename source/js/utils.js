@@ -565,13 +565,9 @@ const anzhiyu = {
       .then(json => {
         var name = json.name;
         var link = json.link;
-        anzhiyu.snackbarShow(
-          "点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：「" + name + "」",
-          !1,
-          5000
-        );
         Snackbar.show({
-          text: msg,
+          text:
+            "点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：「" + name + "」",
           duration: 8000,
           pos: "top-center",
           actionText: "前往",

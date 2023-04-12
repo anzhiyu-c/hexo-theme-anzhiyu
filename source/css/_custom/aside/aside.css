@@ -58,18 +58,25 @@ li.card-archive-list-item {
   width: 100%;
   flex: 0 0 48%;
 }
+
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a:hover {
   color: var(--anzhiyu-white);
   background-color: var(--anzhiyu-theme);
   border-radius: var(--anzhiyu-border-radius);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 3px 3px;
   border: 1px solid transparent;
 }
+
 @media screen and (min-width: 1024px) {
+  #content-inner #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
+  #content-inner #aside-content .card-categories ul.card-category-list > .card-category-list-item a:hover {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
   #aside-content .card-categories ul.card-category-list > .card-category-list-item a:hover {
+    padding: 3px 3px;
     transform: scale(1.03);
   }
   #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:active,
@@ -77,6 +84,7 @@ li.card-archive-list-item {
     transform: scale(0.97);
   }
 }
+
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a {
   border-radius: var(--anzhiyu-border-radius);
