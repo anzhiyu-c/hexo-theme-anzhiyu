@@ -14,8 +14,11 @@ block content
             each item, index in page.categories.data
               a(href=url_for(item.path)).post-meta__box__categoryes
                 span.categoryes-punctuation 
-                  svg.icon.iconfont.icon-biaoqian(title=item.name,aria-hidden="true")
-                    use(xlink:href="#icon-fenlei")
+                  if theme.icons.iconfont_multicolor_js
+                    svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
+                      use(xlink:href="#anzhiyu-colorful-icon-fenlei")
+                  else 
+                    i.anzhiyufont.anzhiyu-icon-tag
                 =item.name
                 span.categoryesPageCount=item.length
         if (theme.post_meta.post.tags)
@@ -23,8 +26,11 @@ block content
             each item, index in page.tags.data
               a(href=url_for(item.path)).post-meta__box__tags
                 span.tags-punctuation 
-                  svg.icon.iconfont.icon-biaoqian(title=item.name,aria-hidden="true")
-                    use(xlink:href="#icon-biaoqian1")
+                  if theme.icons.iconfont_multicolor_js
+                    svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
+                      use(xlink:href="#anzhiyu-colorful-icon-biaoqian")
+                  else 
+                    i.anzhiyufont.anzhiyu-icon-inbox
                 =item.name
                 span.tagsPageCount=item.length
       include includes/third-party/share/index.pug

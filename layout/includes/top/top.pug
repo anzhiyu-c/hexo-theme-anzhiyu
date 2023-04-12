@@ -12,21 +12,33 @@ if home_top_config.enable
           include ../anzhiyu/tags-group-all.pug
 
           a#random-hover(href='javascript:toRandomPost()')
-            i.fa.fa-paper-plane(style='margin-left:10px')
+            i.anzhiyufont.anzhiyu-icon-paper-plane(style='margin-left:10px')
             div(style='margin-left:10px') 随便逛逛
-              i.fa-solid.fa-arrow-right(style='margin-left:10px')
+              i.anzhiyufont.anzhiyu-icon-arrow-right(style='margin-left:10px')
         .categoryGroup
           each item in home_top_config.category
             .categoryItem(style=`box-shadow:${item.shadow}`)
               a.categoryButton(onclick=`pjax.loadUrl("${item.path}");` href='javascript:void(0);' class=`${item.class}`)
                 span.categoryButtonText=item.name
-                i(class=`${item.icon}`)
+                if (item.icon.startsWith("fa"))
+                  i(class=`${item.icon}`)
+                else if (item.icon.startsWith("icon"))
+                  svg.icon(aria-hidden="true")
+                    use(xlink:href=`#`+ item.icon)
+                else if (item.icon.startsWith("anzhiyu"))
+                  i.anzhiyufont(class=`${item.icon}`)
           else 
             each item in category
               .categoryItem(style=`box-shadow: ${item.shadow}`)
                 a.categoryButton(href=item.path class=`${item.class}`)
                   span.categoryButtonText=item.name
-                  i(class=`${item.icon}`)
+                  if (item.icon.startsWith("fa"))
+                    i(class=`${item.icon}`)
+                  else if (item.icon.startsWith("icon"))
+                    svg.icon(aria-hidden="true")
+                      use(xlink:href=`#`+ item.icon)
+                  else if (item.icon.startsWith("anzhiyu"))
+                    i.anzhiyufont(class=`${item.icon}`)
       if theme.home_top.swiper.enable
         #swiper_container_blog
           #swiper_container.blog-slider.swiper-container-fade.swiper-container-horizontal
@@ -84,7 +96,7 @@ if home_top_config.enable
             .todayCard-cover(style=`background: url(${top_group_banner_image}) no-repeat center /cover`)
             .banner-button-group
               .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
-                i.fa-solid.fa-circle-plus
+                i.anzhiyufont.anzhiyu-icon-arrow-circle-right
                 span.banner-button-text 更多推荐
         
         link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)

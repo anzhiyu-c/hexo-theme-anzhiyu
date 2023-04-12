@@ -3,111 +3,114 @@
  * for aside archives
  */
 
-'use strict'
+"use strict";
 
-hexo.extend.helper.register('aside_archives', function (options = {}) {
-  const { config } = this
-  const archiveDir = config.archive_dir
-  const { timezone } = config
-  const lang = toMomentLocale(this.page.lang || this.page.language || config.language)
-  let { format } = options
-  const type = options.type || 'monthly'
-  const { transform } = options
-  const showCount = Object.prototype.hasOwnProperty.call(options, 'show_count') ? options.show_count : true
-  const order = options.order || -1
-  const compareFunc = type === 'monthly'
-    ? (yearA, monthA, yearB, monthB) => yearA === yearB && monthA === monthB
-    : (yearA, monthA, yearB, monthB) => yearA === yearB
-  const limit = options.limit
-  let result = ''
+hexo.extend.helper.register("aside_archives", function (options = {}) {
+  const { config } = this;
+  const archiveDir = config.archive_dir;
+  const { timezone } = config;
+  const lang = toMomentLocale(this.page.lang || this.page.language || config.language);
+  let { format } = options;
+  const type = options.type || "monthly";
+  const { transform } = options;
+  const showCount = Object.prototype.hasOwnProperty.call(options, "show_count") ? options.show_count : true;
+  const order = options.order || -1;
+  const compareFunc =
+    type === "monthly"
+      ? (yearA, monthA, yearB, monthB) => yearA === yearB && monthA === monthB
+      : (yearA, monthA, yearB, monthB) => yearA === yearB;
+  const limit = options.limit;
+  let result = "";
 
   if (!format) {
-    format = type === 'monthly' ? 'MMMM YYYY' : 'YYYY'
+    format = type === "monthly" ? "MMMM YYYY" : "YYYY";
   }
 
-  const posts = this.site.posts.sort('date', order)
-  if (!posts.length) return result
+  const posts = this.site.posts.sort("date", order);
+  if (!posts.length) return result;
 
-  const data = []
-  let length = 0
+  const data = [];
+  let length = 0;
 
   posts.forEach(post => {
     // Clone the date object to avoid pollution
-    let date = post.date.clone()
+    let date = post.date.clone();
 
-    if (timezone) date = date.tz(timezone)
+    if (timezone) date = date.tz(timezone);
 
-    const year = date.year()
-    const month = date.month() + 1
-    const lastData = data[length - 1]
+    const year = date.year();
+    const month = date.month() + 1;
+    const lastData = data[length - 1];
 
     if (!lastData || !compareFunc(lastData.year, lastData.month, year, month)) {
-      if (lang) date = date.locale(lang)
-      const name = date.format(format)
+      if (lang) date = date.locale(lang);
+      const name = date.format(format);
       length = data.push({
         name,
         year,
         month,
-        count: 1
-      })
+        count: 1,
+      });
     } else {
-      lastData.count++
+      lastData.count++;
     }
-  })
+  });
 
   const link = item => {
-    let url = `${archiveDir}/${item.year}/`
+    let url = `${archiveDir}/${item.year}/`;
 
-    if (type === 'monthly') {
-      if (item.month < 10) url += '0'
-      url += `${item.month}/`
+    if (type === "monthly") {
+      if (item.month < 10) url += "0";
+      url += `${item.month}/`;
     }
 
-    return this.url_for(url)
-  }
+    return this.url_for(url);
+  };
 
-  const len = data.length
-  const Judge = limit === 0 ? len : Math.min(len, limit)
+  const len = data.length;
+  const Judge = limit === 0 ? len : Math.min(len, limit);
 
-  result += `<div class="item-headline"><i class="fas fa-archive"></i><span>${this._p('aside.card_archives')}</span>`
+  result += `<div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>${this._p(
+    "aside.card_archives"
+  )}</span>`;
 
   if (len > Judge) {
-    result += `<a class="card-more-btn" href="${this.url_for(archiveDir)}/" title="${this._p('aside.more_button')}">
-    <i class="fas fa-angle-right"></i></a>`
+    result += `<a class="card-more-btn" href="${this.url_for(archiveDir)}/" title="${this._p("aside.more_button")}">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a>`;
   }
 
-  result += '</div><ul class="card-archive-list">'
+  result += '</div><ul class="card-archive-list">';
 
   for (let i = 0; i < Judge; i++) {
-    const item = data[i]
+    const item = data[i];
 
-    result += '<li class="card-archive-list-item">'
+    result += '<li class="card-archive-list-item">';
 
-    result += `<a class="card-archive-list-link" href="${link(item)}">`
-    result += '<span class="card-archive-list-date">'
-    result += transform ? transform(item.name) : item.name
-    result += '</span>'
+    result += `<a class="card-archive-list-link" href="${link(item)}">`;
+    result += '<span class="card-archive-list-date">';
+    result += transform ? transform(item.name) : item.name;
+    result += "</span>";
 
     if (showCount) {
-      result += `<div class="card-archive-list-count-group"><span class="card-archive-list-count">${item.count}</span><span>篇</span></div>`
+      result += `<div class="card-archive-list-count-group"><span class="card-archive-list-count">${item.count}</span><span>篇</span></div>`;
     }
-    result += '</a>'
-    result += '</li>'
+    result += "</a>";
+    result += "</li>";
   }
 
-  result += '</ul>'
-  return result
-})
+  result += "</ul>";
+  return result;
+});
 
 const toMomentLocale = function (lang) {
   if (lang === undefined) {
-    return undefined
+    return undefined;
   }
 
   // moment.locale('') equals moment.locale('en')
   // moment.locale(null) equals moment.locale('en')
-  if (!lang || lang === 'en' || lang === 'default') {
-    return 'en'
+  if (!lang || lang === "en" || lang === "default") {
+    return "en";
   }
-  return lang.toLowerCase().replace('_', '-')
-}
+  return lang.toLowerCase().replace("_", "-");
+};

@@ -88,7 +88,7 @@ if site.data.about
                 - let link = item.statistic.link
                 - let text = item.statistic.text
                 a.banner-button(onclick=`pjax.loadUrl("${link}")`)
-                  i.fas.fa-circle-right
+                  i.anzhiyufont.anzhiyu-icon-arrow-circle-right
                   |  
                   span.banner-button-text=text
         .author-content-item-group.column.mapAndInfo
@@ -154,7 +154,7 @@ if site.data.about
               |  
               span=buff_bottom
           .card-background-icon
-            i.fas.fa-dice-d20
+            i.anzhiyufont.anzhiyu-icon-dice-d20
 
       .author-content
         - let {game_tips, game_title, game_uid, game_bg} = item.game
@@ -195,76 +195,77 @@ if site.data.about
               .tips=`跟 ${aboutName} 一起欣赏更多音乐`
             .banner-button-group
               a.banner-button(onclick=`pjax.loadUrl("${music_link}")`)
-                i.fas.fa-circle-right
+                i.anzhiyufont.anzhiyu-icon-arrow-circle-right
                 |  
                 span.banner-button-text 更多推荐
 
       if item.extra
         include ../anzhiyu/about-extra.pug
         
-      .author-content
-        .author-content-item.single.reward
-          .author-content-item-tips 致谢
-          span.author-content-item-title 赞赏名单
-          .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
-            - let rawData = item.reward_list
-            .reward-list-all
-              - let reward_list_amount = item.reward_list.sort((a,b)=>b.amount -  a.amount)
-              each item, index in reward_list_amount
-                .reward-list-item
-                  .reward-list-item-name=item.name
-                  .reward-list-bottom-group
-                    if item.amount >= 50
-                      .reward-list-item-money(style='background:var(--anzhiyu-yellow)')=`¥${item.amount}`
-                    else 
-                      .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
-                    .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
-            .reward-list-updateDate
-              | 最新更新时间： 
-              time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
-          .about-reward
-            #con
-            #TA-con(onclick="anzhiyu.rewardShowConsole()")
-              #text-con
-                #linght
-                #TA 为TA充电
-            #tube-con
-              svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-                path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
-                path(d='M0 140H233.035L329.72 71H1028', stroke='#e5e9ef', stroke-width='20')
-                path(d='M1 255H234.226L307.006 307H790', stroke='#e5e9ef', stroke-width='20')
-                path(d='M0 305H233.035L329.72 375H1028', stroke='#e5e9ef', stroke-width='20')
-                rect(y='186', width='236', height='24', fill='#e5e9ef')
-                ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#e5e9ef')
-                circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-                ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#e5e9ef')
-                circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-              #mask
+      - let rawData = item.reward_list
+      if rawData
+        .author-content
+          .author-content-item.single.reward
+            .author-content-item-tips 致谢
+            span.author-content-item-title 赞赏名单
+            .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
+              .reward-list-all
+                - let reward_list_amount = item.reward_list.sort((a,b)=>b.amount -  a.amount)
+                each item, index in reward_list_amount
+                  .reward-list-item
+                    .reward-list-item-name=item.name
+                    .reward-list-bottom-group
+                      if item.amount >= 50
+                        .reward-list-item-money(style='background:var(--anzhiyu-yellow)')=`¥${item.amount}`
+                      else 
+                        .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
+                      .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
+              .reward-list-updateDate
+                | 最新更新时间： 
+                time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
+            .about-reward
+              #con
+              #TA-con(onclick="anzhiyu.rewardShowConsole()")
+                #text-con
+                  #linght
+                  #TA 为TA充电
+              #tube-con
                 svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-                  path(d='M1 77H234.226L307.006 24H790', stroke='#f25d8e', stroke-width='20')
-                  path(d='M0 140H233.035L329.72 71H1028', stroke='#f25d8e', stroke-width='20')
-                  path(d='M1 255H234.226L307.006 307H790', stroke='#f25d8e', stroke-width='20')
-                  path(d='M0 305H233.035L329.72 375H1028', stroke='#f25d8e', stroke-width='20')
-                  rect(y='186', width='236', height='24', fill='#f25d8e')
-                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#f25d8e')
+                  path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
+                  path(d='M0 140H233.035L329.72 71H1028', stroke='#e5e9ef', stroke-width='20')
+                  path(d='M1 255H234.226L307.006 307H790', stroke='#e5e9ef', stroke-width='20')
+                  path(d='M0 305H233.035L329.72 375H1028', stroke='#e5e9ef', stroke-width='20')
+                  rect(y='186', width='236', height='24', fill='#e5e9ef')
+                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#e5e9ef')
                   circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#f25d8e')
+                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#e5e9ef')
                   circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-              #orange-mask
-                svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-                  path(d='M1 77H234.226L307.006 24H790', stroke='#ffd52b', stroke-width='20')
-                  path(d='M0 140H233.035L329.72 71H1028', stroke='#ffd52b', stroke-width='20')
-                  path(d='M1 255H234.226L307.006 307H790', stroke='#ffd52b', stroke-width='20')
-                  path(d='M0 305H233.035L329.72 375H1028', stroke='#ffd52b', stroke-width='20')
-                  rect(y='186', width='236', height='24', fill='#ffd52b')
-                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#ffd52b')
-                  circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#ffd52b')
-                  circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-              p#people
-                | 共
-                b=item.reward_list.length
-                | 人
+                #mask
+                  svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
+                    path(d='M1 77H234.226L307.006 24H790', stroke='#f25d8e', stroke-width='20')
+                    path(d='M0 140H233.035L329.72 71H1028', stroke='#f25d8e', stroke-width='20')
+                    path(d='M1 255H234.226L307.006 307H790', stroke='#f25d8e', stroke-width='20')
+                    path(d='M0 305H233.035L329.72 375H1028', stroke='#f25d8e', stroke-width='20')
+                    rect(y='186', width='236', height='24', fill='#f25d8e')
+                    ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#f25d8e')
+                    circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
+                    ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#f25d8e')
+                    circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
+                #orange-mask
+                  svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
+                    path(d='M1 77H234.226L307.006 24H790', stroke='#ffd52b', stroke-width='20')
+                    path(d='M0 140H233.035L329.72 71H1028', stroke='#ffd52b', stroke-width='20')
+                    path(d='M1 255H234.226L307.006 307H790', stroke='#ffd52b', stroke-width='20')
+                    path(d='M0 305H233.035L329.72 375H1028', stroke='#ffd52b', stroke-width='20')
+                    rect(y='186', width='236', height='24', fill='#ffd52b')
+                    ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#ffd52b')
+                    circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
+                    ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#ffd52b')
+                    circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
+                p#people
+                  | 共
+                  b=item.reward_list.length
+                  | 人
 
 
     script(src=url_for(theme.asset.countup_js))

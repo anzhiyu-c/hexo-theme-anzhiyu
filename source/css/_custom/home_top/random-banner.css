@@ -16,8 +16,12 @@
   box-shadow: var(--anzhiyu-shadow-border);
   transition: 0.3s;
   clip-path: inset(0 0 0 0 round 12px);
+  animation: slide-in 0.6s 0.1s backwards;
 }
 
+#random-hover i {
+  font-size: 60px;
+}
 #random-hover {
   position: absolute;
   opacity: 0;

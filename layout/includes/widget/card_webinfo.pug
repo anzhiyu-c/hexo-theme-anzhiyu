@@ -1,7 +1,7 @@
 if theme.aside.card_webinfo.enable
   .card-webinfo
     .item-headline
-      i.fas.fa-chart-line
+      i.anzhiyufont.anzhiyu-icon-chart-line
       span= _p('aside.card_webinfo.headline')
     .webinfo
       if theme.aside.card_webinfo.post_count
@@ -12,7 +12,7 @@ if theme.aside.card_webinfo.enable
         .webinfo-item
           .item-name= _p('aside.card_webinfo.runtime.name') + " :"
           .item-count#runtimeshow(data-publishDate=date_xml(theme.runtimeshow.publish_date))
-            i.fa-solid.fa-spinner.fa-spin
+            i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
       if theme.wordcount.enable && theme.wordcount.total_wordcount
         .webinfo-item
           .item-name=_p('aside.card_webinfo.site_wordcount') + " :"
@@ -21,15 +21,15 @@ if theme.aside.card_webinfo.enable
         .webinfo-item
           .item-name= _p('aside.card_webinfo.site_uv_name') + " :"
           .item-count#busuanzi_value_site_uv
-            i.fa-solid.fa-spinner.fa-spin
+            i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
       if theme.busuanzi.site_pv
         .webinfo-item
           .item-name= _p('aside.card_webinfo.site_pv_name') + " :"
           .item-count#busuanzi_value_site_pv
-            i.fa-solid.fa-spinner.fa-spin
+            i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
       if theme.aside.card_webinfo.last_push_date
         .webinfo-item
           .item-name= _p('aside.card_webinfo.last_push_date.name') + " :"
           .item-count#last-push-date(data-lastPushDate=date_xml(Date.now()))
-            i.fa-solid.fa-spinner.fa-spin
+            i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
 

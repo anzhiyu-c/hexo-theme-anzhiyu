@@ -1,7 +1,7 @@
 -
   var options = {
-    prev_text: '<i class="fas fa-chevron-left fa-fw"></i><div class="pagination_tips_prev">上页</div>',
-    next_text: '<div class="pagination_tips_next">下页</div><i class="fas fa-chevron-right fa-fw"></i>',
+    prev_text: '<i class="anzhiyufont anzhiyu-icon-chevron-left fa-fw" style="font-weight: inherit; font-size: 1rem;"></i><div class="pagination_tips_prev">上页</div>',
+    next_text: '<div class="pagination_tips_next">下页</div><i style="font-weight: inherit; font-size: 1rem;" class="anzhiyufont anzhiyu-icon-chevron-right fa-fw"></i>',
     mid_size: 1,
     escape: false
   }
@@ -39,4 +39,4 @@ else
         div(class="toPageGroup")
           input(id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')")
           a(id="toPageButton" onclick="anzhiyu.toPage()")
-            i(class="fas fa-angles-right")
+            i.anzhiyufont.anzhiyu-icon-angles-right(style="font-weight: inherit; font-size: 1rem;")

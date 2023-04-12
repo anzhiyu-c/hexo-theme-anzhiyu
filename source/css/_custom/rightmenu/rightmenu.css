@@ -43,6 +43,7 @@
 }
 #rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {
   display: flex;
+  align-items: center;
 }
 
 #rightMenu .rightMenu-group .rightMenu-item:hover {
@@ -60,6 +61,7 @@
   line-height: 1.5rem;
   width: 1.5rem;
   padding: 0 0.25rem;
+  font-size: 1.1rem;
 }
 #rightMenu .rightMenu-line .rightMenu-item i {
   margin: 0 0.25rem;

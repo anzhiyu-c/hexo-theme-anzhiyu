@@ -5,13 +5,15 @@ mixin articleSort(posts, current)
       - let tempYear = date(article.date, 'YYYY')
       - let no_cover = article.cover === false || !theme.cover.archives_enable ? 'no-article-cover' : ''
       - let title = article.title || _p('no_title')
-      - let iconAnimal = '#'+ getAnimalIcon(tempYear)
+      
       if tempYear !== year
         - year = tempYear
         .article-sort-item.year
           span= year
-          svg.icon(aria-hidden='true')
-            use(xlink:href=iconAnimal)
+          if (theme.icons.iconfont_multicolor_js)
+            - let iconAnimal = '#'+ getAnimalIcon(tempYear)
+            svg.icon(aria-hidden='true')
+              use(xlink:href=iconAnimal)
       .article-sort-item(class=no_cover)
         if article.cover && theme.cover.archives_enable
           a.article-sort-item-img(href=url_for(article.path) title=title)
@@ -20,21 +22,14 @@ mixin articleSort(posts, current)
           a.article-sort-item-title(href=url_for(article.path) title=title)= title
           span.article-sort-item-index= (current - 1) * config.per_page + post_index + 1
           .article-meta-wrap
-            //- if (theme.post_meta.page.categories && article.categories.data.length > 0)
-            //-   span.article-sort-item-categories
-            //-     i.fas.fa-inbox
-            //-     each item, index in article.categories.data
-            //-       a(href=url_for(item.path)).article-meta__categories #[=item.name]
-            //-       if (index < article.categories.data.length - 1)
-            //-         i.fas.fa-angle-right
             if (theme.post_meta.page.tags && article.tags.data.length > 0)
               span.article-sort-item-tags
-                i.fas.fa-tag
+                i.anzhiyufont.anzhiyu-icon-tag
                 each item, index in article.tags.data
                   a(href=url_for(item.path)).article-meta__tags #[=item.name]
                   if (index < article.tags.data.length - 1)
                     span.article-meta__link #[='•']
             .article-sort-item-time
-              i.far.fa-calendar-alt
+              i.anzhiyufont.anzhiyu-icon-calendar-alt
               time.post-meta-date-created(datetime=date_xml(article.date) title=_p('post.created') + ' ' + full_date(article.date))= date(article.date, config.date_format)
     - })

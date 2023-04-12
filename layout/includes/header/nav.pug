@@ -3,7 +3,7 @@ nav#nav
   span#blog_name
     if theme.nav.enable
       .back-home-button(tabindex='-1')
-        i.back-home-button-icon.fas.fa-grip-vertical
+        i.anzhiyufont.anzhiyu-icon-grip-vertical
         .back-menu-list-groups
           each group in theme.nav.menu
             .back-menu-list-group
@@ -15,7 +15,7 @@ nav#nav
                     span.back-menu-item-text= item.name
     a#site-name(href=url_for('/'))
       .title #[=config.title]
-      i.fa-solid.fa-house
+      i.anzhiyufont.anzhiyu-icon-house-chimney
 
   div.mask-name-container
     center(id="name-container")
@@ -27,28 +27,28 @@ nav#nav
     if theme.nav.travelling
       .nav-button.only-home#travellings_button(style='display: flex')
         a.site-page(onclick='anzhiyu.totraveling()', title='随机前往一个开往项目网站', href='javascript:void(0);', rel='external nofollow', data-pjax-state='external')
-          i.fas.fa-train(style='font-size:1.2rem')
+          i.anzhiyufont.anzhiyu-icon-train
     .nav-button#randomPost_button
       a.site-page(onclick='toRandomPost()', title='随机前往一个文章', href='javascript:void(0);')
-        i.fas.fa-dice(style='font-size:1.2rem')
+        i.anzhiyufont.anzhiyu-icon-dice
     if (theme.algolia_search.enable || theme.local_search.enable)
       div.nav-button#search-button
         a.site-page.social-icon.search(href='javascript:void(0);', title='搜索🔍')
-          i.fas.fa-search.fa-fw
+          i.anzhiyufont.anzhiyu-icon-magnifying-glass
           span=' '+_p('search.title')
     
     if darkmode.enable && darkmode.button
       div.nav-button#darkmode_navswitch
         a.darkmode_switchbutton(type="button" href='javascript:void(0);' title=_p('rightside.night_mode_title') onclick="rm.switchDarkMode()")
-          i.fas.fa-adjust
+          i.anzhiyufont.anzhiyu-icon-circle-half-stroke(style="font-size: 1.3rem")
 
     div.nav-button#nav-totop
       a.totopbtn(href='javascript:void(0);')
-        i.fas.fa-arrow-up
+        i.anzhiyufont.anzhiyu-icon-arrow-up
         span#percent(onclick="anzhiyu.scrollToDest(0,500)") 0
     
     #toggle-menu
       a.site-page(href='javascript:void(0);')
-        i.fas.fa-bars.fa-fw
+        i.anzhiyufont.anzhiyu-icon-bars
 
 

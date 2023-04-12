@@ -69,11 +69,13 @@ if (theme.pwa && theme.pwa.enable)
 
 
 //- animation依赖
-link(rel="stylesheet", href=url_for(theme.asset.animation_css))
+if (theme.icons && theme.icons.fontawesome_animation_css)
+  link(rel="stylesheet", href=url_for(theme.icons.fontawesome_animation_css))
 
 //- main css
 link(rel='stylesheet', href=url_for(theme.asset.main_css))
-link(rel='stylesheet', href=url_for(theme.asset.fontawesome) media="print" onload="this.media='all'")
+if (theme.icons && theme.icons.fontawesome)
+  link(rel='stylesheet', href=url_for(theme.asset.fontawesome) media="print" onload="this.media='all'")
 
 if (theme.snackbar && theme.snackbar.enable)
   link(rel='stylesheet', href=url_for(theme.asset.snackbar_css) media="print" onload="this.media='all'")

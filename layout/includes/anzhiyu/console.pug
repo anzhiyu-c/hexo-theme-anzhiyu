@@ -1,6 +1,6 @@
 #console
   .close-btn(onclick='anzhiyu.hideConsole()', href='javascript:void(0);')
-    i.fas.fa-circle-xmark
+    i.anzhiyufont.anzhiyu-icon-circle-xmark(style="font-size: 35px;")
   .console-card-group-reward
     ul.reward-all.console-card
       each item in theme.reward.QR_code
@@ -24,20 +24,20 @@
             !=partial('includes/widget/card_tags', {}, {cache: true})
       .console-card.history(onclick='anzhiyu.hideConsole()')
         .item-headline
-          i.fas.fa-archive
+          i.anzhiyufont.anzhiyu-icon-box-archiv
           span 文章
         !=partial('includes/widget/card_archives', {}, {cache: true})
   .button-group
     .console-btn-item
       a.darkmode_switchbutton(onclick='rm.switchDarkMode()', title='显示模式切换', href='javascript:void(0);')
-        i.fas.fa-moon(style='font-size: 1rem;')
+        i.anzhiyufont.anzhiyu-icon-moon
     .console-btn-item#consoleHideAside(onclick='anzhiyu.hideAsideBtn()', title='边栏显示控制')
       a.asideSwitch
-        i.fas.fa-arrows-alt-h
+        i.anzhiyufont.anzhiyu-icon-arrows-left-right
     .console-btn-item.on#consoleCommentBarrage(onclick='anzhiyu.switchCommentBarrage()', title='热评开关')
       a.commentBarrage
-        i.fa-solid.fa-message
+        i.anzhiyufont.anzhiyu-icon-message
     .console-btn-item#consoleMusic(onclick='anzhiyu.musicToggle()', title='音乐开关')
       a.music-switch
-        i.fas.fa-music
+        i.anzhiyufont.anzhiyu-icon-music
   .console-mask(onclick='anzhiyu.hideConsole()', href='javascript:void(0);')

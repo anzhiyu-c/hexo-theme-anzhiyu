@@ -213,11 +213,11 @@ catalog_bar:
   name: anzhiyu-theme-static
   file: "catalog-bar/catalog-bar.js"
   version: 1.0.0
-animation_css:
-  name: hexo-butterfly-tag-plugins-plus
-  file: lib/assets/font-awesome-animation.min.css
-  version: 1.0.17
+iconfont_css:
+  name: anzhiyu-theme-static
+  file: icon/iconfont_css.css
+  version: 1.0.3
 iconfont_js:
   name: anzhiyu-theme-static
-  file: ali_font.js
-  version: 1.0.0
+  file: icon/ali_font.js
+  version: 1.0.3

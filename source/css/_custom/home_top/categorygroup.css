@@ -46,6 +46,7 @@ a.categoryButton {
 .categoryButtonText {
   padding-left: 21px;
 }
+a.categoryButton svg,
 a.categoryButton i {
   font-size: 5rem;
   opacity: 0.2;
@@ -76,10 +77,12 @@ a.categoryButton.green {
   width: 50%;
 }
 
+.categoryItem:hover svg,
 .categoryItem:hover i {
   transform: scale(1.03);
 }
 
+.categoryItem:hover svg,
 .categoryItem:hover i {
   opacity: 0.8;
   transition: 0.8s;

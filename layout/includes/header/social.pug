@@ -3,8 +3,10 @@ each value, title in theme.social
     if value.split('||')[1]
       - var icon_value = trim(value.split('||')[1])
       - var anima_value = value.split('||')[2] ? trim(value.split('||')[2]) : 'faa-tada'
-      if icon_value.substring(0,2)=="fa"
-        i.fa-fw(class=icon_value + ' ' + anima_value)
-      else if icon_value.substring(0,4)=="icon"
+      if (icon_value.startsWith("fa"))
+        i(class=icon_value + ' ' + anima_value)
+      else if (icon_value.startsWith("icon"))
         svg.icon(aria-hidden="true" class=anima_value)
           use(xlink:href=`#`+ icon_value)
+      else if (icon_value.startsWith("anzhiyu"))
+        i.anzhiyufont(class=icon_value)

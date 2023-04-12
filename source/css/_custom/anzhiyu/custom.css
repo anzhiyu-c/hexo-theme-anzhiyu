@@ -27,7 +27,6 @@ h1#site-title {
 
 /* 时间轴生肖icon */
 svg.icon {
-  /* 这里定义svg.icon，避免和Butterfly自带的note标签冲突 */
   width: 1em;
   height: 1em;
   /* width和height定义图标的默认宽度和高度*/

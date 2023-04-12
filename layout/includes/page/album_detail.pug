@@ -10,7 +10,7 @@
             .tips=i.description
           .banner-button-group
             a.banner-button(onclick='pjax.loadUrl("/about/")', data-pjax-state)
-              i.fas.fa-circle-right(style='font-size: 1.5rem')
+              i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
               span.banner-button-text 关于我
       section.timeline.page-1
         ul#waterfall.list
@@ -34,21 +34,21 @@
                 .album-info
                   .album-info-time
                     - var datedata = new Date(item.date).toISOString()
-                    i.fa-brands.fa-instagram
+                    i.anzhiyufont.anzhiyu-icon-instagram
                     time.datatime(datetime= item.date)= datedata
                   if item.link 
                     a.album-content-link(target="_blank", title="跳转到短文指引的链接", href=item.link, rel="external nofollow")
-                      i.fas.fa-link
+                      i.anzhiyufont.anzhiyu-icon-link
                       | 链接
                   if item.address
                     .album-info-address
-                      i.fas.fa-location-dot
+                      i.anzhiyufont.anzhiyu-icon-location-dot
                       span=item.address
                   .album-info-from
-                      i.fas.fa-fire
+                      i.anzhiyufont.anzhiyu-icon-fw-fire
                       if item.from 
                           span=item.from
                       else 
                         span 安知鱼
                 .album-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
-                  i.fa-solid.fa-message
+                  i.anzhiyufont.anzhiyu-icon-message

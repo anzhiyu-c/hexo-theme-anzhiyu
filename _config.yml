@@ -1,24 +1,24 @@
 menu:
   # 文章:
-  #   隧道: /archives/ || fas fa-archive
-  #   分类: /categories/ || fas fa-shapes
-  #   标签: /tags/ || fas fa-tags
+  #   隧道: /archives/ || anzhiyu-icon-box-archive
+  #   分类: /categories/ || anzhiyu-icon-shapes
+  #   标签: /tags/ || anzhiyu-icon-tags
 
   # 友链:
-  #   友人帐: /link/ || fas fa-link
-  #   朋友圈: /fcircle/ || fab fa-artstation
-  #   留言板: /comments/ || fas fa-envelope
+  #   友人帐: /link/ || anzhiyu-icon-link
+  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
+  #   留言板: /comments/ || anzhiyu-icon-envelope
 
   # 我的:
-  #   音乐馆: /music/ || fas fa-music
-  #   追番页: /bangumis/ || icon-bilibili1
-  #   相册集: /album/ || fas fa-images
-  #   小空调: /air-conditioner/ || fas fa-fan
+  #   音乐馆: /music/ || anzhiyu-icon-music
+  #   追番页: /bangumis/ || anzhiyu-icon-bilibili
+  #   相册集: /album/ || anzhiyu-icon-images
+  #   小空调: /air-conditioner/ || anzhiyu-icon-fan
 
   # 关于:
-  #   关于本人: /about/ || icon-zhifeiji
-  #   闲言碎语: /essay/ || fas fas fa-lightbulb
-  #   随便逛逛: javascript:toRandomPost() || fas fa-shoe-prints
+  #   关于本人: /about/ || anzhiyu-icon-paper-plane
+  #   闲言碎语: /essay/ || anzhiyu-icon-lightbulb
+  #   随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
 
 # nav相关配置
 nav:
@@ -33,9 +33,9 @@ nav:
           icon: /img/favicon.png
     - title: 项目
       item:
-        - name: 安知鱼云盘
-          link: https://cloud.anzhiy.cn/
-          icon: https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png
+        - name: 安知鱼图床
+          link: https://image.anzhiy.cn/
+          icon: https://image.anzhiy.cn/favicon.ico
 
 # Code Blocks (代码相关)
 # --------------------------------------
@@ -59,11 +59,11 @@ copy:
 # formal:
 #   icon: link || the description || Animation
 social:
-  # Github: https://github.com/anzhiyu-c || icon-gitHub || faa-tada
-  # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || icon-youxiang || faa-tada
-  # RSS: atom.xml || icon-rss || faa-tada
-  # BiliBili: https://space.bilibili.com/372204786 || icon-bilibili || faa-tada
-  # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || icon-QQ1 || faa-tada
+  # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
+  # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || anzhiyu-icon-envelope
+  # RSS: atom.xml || anzhiyu-icon-rss
+  # BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
+  # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || anzhiyu-icon-qq
 
 author_status:
   enable: false
@@ -672,7 +672,7 @@ aside:
     description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>
     button:
       enable: true
-      icon: fas fa-circle-right
+      icon: anzhiyu-icon-arrow-circle-right
       text: 了解更多
       link: /about/
   card_announcement:
@@ -808,7 +808,11 @@ note:
   # Offset also applied to label tag variables. This option can work with disabled note tag.
   light_bg_offset: 0
 
-iconfont: #参看 https://akilar.top/posts/d2ebecef/
+icons:
+  iconfont_multicolor_js: false # 是否启用阿里多色图标，文章隧道会有生肖图标。
+  ali_iconfont_js: # 阿里图标链接，主题会进行加载 symbol 引用
+  fontawesome: false #是否启用fontawesome6图标
+  fontawesome_animation_css: #fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css
 
 # other
 # --------------------------------------
@@ -909,17 +913,17 @@ home_top:
       path: /categories/前端开发/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
-      icon: fas fa-dove
+      icon: icon-dove
     - name: 大学
       path: /categories/大学生涯/
       shadow: var(--anzhiyu-shadow-red)
       class: red
-      icon: fas fa-burn
+      icon: icon-fire
     - name: 生活
       path: /categories/生活日常/
       shadow: var(--anzhiyu-shadow-green)
       class: green
-      icon: fas fa-book
+      icon: icon-book
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: false
@@ -1083,5 +1087,5 @@ CDN:
     # waterfall:
     # categoryBar:
     # catalog_bar:
-    # animation_css:
+    # iconfont_css:
     # iconfont_js:

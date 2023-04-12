@@ -95,7 +95,7 @@
   font-size: 100%;
 }
 .article-sort:not(#fc-container) .article-sort-item-time .post-meta-date-updated,
-.article-sort:not(#fc-container) .article-sort-item-time i.fa-history {
+.article-sort:not(#fc-container) .article-sort-item-time i.anzhiyu-icon-history {
   display: none;
 }
 .article-sort-item-categories a.article-meta__categories,

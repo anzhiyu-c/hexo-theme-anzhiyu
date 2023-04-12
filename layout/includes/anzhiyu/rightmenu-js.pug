@@ -1,4 +1,4 @@
-script(async).
+script.
   // 初始化函数
   let rm = {};
 
@@ -12,6 +12,7 @@ script(async).
 
   // 显示菜单
   rm.showRightMenu = function (isTrue, x = 0, y = 0) {
+    console.info(x, y)
     let rightMenu = document.getElementById("rightMenu");
     rightMenu.style.top = x + "px";
     rightMenu.style.left = y + "px";
@@ -36,8 +37,12 @@ script(async).
 
   // 重新定义尺寸
   rm.reloadrmSize = function () {
+    rightMenu.style.visibility = "hidden";
+    rightMenu.style.display = "block";
+    // 获取宽度和高度
     rmWidth = document.getElementById("rightMenu").offsetWidth;
     rmHeight = document.getElementById("rightMenu").offsetHeight;
+    rightMenu.style.visibility = "visible";
   };
 
   // 获取点击的href
@@ -109,6 +114,7 @@ script(async).
         $rightMenuCopyImg.style.display = "block";
         $rightMenuDownloadImg.style.display = "block";
         $rightMenuNewWindowImg.style.display = "block";
+        document.getElementById("rightMenu").style.width="12rem"
         domImgSrc = imgsrc;
       } else {
         $rightMenuCopyImg.style.display = "none";
@@ -150,7 +156,7 @@ script(async).
 
       rm.reloadrmSize();
 
-      // 鼠标默认显示在鼠标右下方，当鼠标靠右或考下时，将菜单显示在鼠标左方\上方
+      // 鼠标默认显示在鼠标右下方，当鼠标靠右或靠下时，将菜单显示在鼠标左方\上方
       if (pageX + rmWidth > window.innerWidth) {
         pageX -= rmWidth + 10;
       }

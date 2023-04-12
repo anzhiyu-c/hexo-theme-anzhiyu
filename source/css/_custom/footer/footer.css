@@ -1,9 +1,15 @@
 [data-theme="light"] #footer-wrap {
   color: var(--font-color);
 }
-#footer-wrap .fas.fa-heartbeat {
+#footer-wrap .anzhiyufont.anzhiyu-icon-heartbeat {
   transition: 0.3s;
   animation: heartbeat-bounce 2s ease-in-out infinite;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
 }
 @keyframes heartbeat-bounce {
   0%,

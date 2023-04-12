@@ -15,7 +15,7 @@ function link(args) {
     imgUrl = "https://api.iowen.cn/favicon/" + urlNoProtocol + ".png";
   }
   if (isOutside === "yes") {
-    imgUrl = "/img/favicon.ico"
+    imgUrl = "/img/favicon.ico";
   }
 
   return `<div calss='anzhiyu-tag-link'><a class="tag-Link" target="_blank" href="${urlFor(link)}">
@@ -26,7 +26,7 @@ function link(args) {
             <div class="tag-link-title">${title}</div>
             <div class="tag-link-sitename">${sitename}</div>
         </div>
-        <i class="fa-solid fa-angle-right"></i>
+        <i class="anzhiyufont anzhiyu-icon-angle-right"></i>
     </div>
     </a></div>`;
 }

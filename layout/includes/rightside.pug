@@ -5,33 +5,32 @@ mixin rightsideItem(array)
       when 'readmode'
         if is_post() && readmode
           button#readmode(type="button" title=_p('rightside.readmode_title'))
-            i.fas.fa-book-open
+            i.anzhiyufont.anzhiyu-icon-book-open
       when 'translate'
         if translate.enable
           button#translateLink(type="button" title=_p('rightside.translate_title'))= translate.default
       when 'darkmode'
         if darkmode.enable && darkmode.button
           button#darkmode(type="button" title=_p('rightside.night_mode_title'))
-            i.fas.fa-adjust
+            i.anzhiyufont.anzhiyu-icon-circle-half-stroke
       when 'hideAside'
         if aside.enable && aside.button && page.aside !== false
           button#hide-aside-btn(type="button" title=_p('rightside.aside'))
-            i.fas.fa-arrows-alt-h
+            i.anzhiyufont.anzhiyu-icon-arrows-left-right
       when 'toc'
         if showToc
           button#mobile-toc-button.close(type="button" title=_p("rightside.toc"))
-            i.fas.fa-list-ul
+            i.anzhiyufont.anzhiyu-icon-list-ul
       when 'chat'
         if chat_btn
           button#chat_btn(type="button" title=_p("rightside.chat"))
-            i.fas.fa-sms
+            i.anzhiyufont.anzhiyu-icon-comment-sms
       when 'comment'
         if commentsJsLoad
           a#to_comment(href="#post-comment" title=_p("rightside.scroll_to_comment"))
-            i.fas.fa-comments
+            i.anzhiyufont.anzhiyu-icon-comments
           a#switch_commentBarrage(href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕")
-            svg.icon(aria-hidden='true')
-              use(href='#icon-danmu')
+            i.anzhiyufont.anzhiyu-icon-danmu
 
 #rightside
   - const { enable, hide, show } = theme.rightside_item_order
@@ -46,20 +45,20 @@ mixin rightsideItem(array)
     if enable
       if hide
         button#rightside_config(type="button" title=_p("rightside.setting"))
-          i.fas.fa-cog.fa-spin
+          i.anzhiyufont.anzhiyu-icon-gear
     else
       if is_post()
         if (readmode || translate.enable || (darkmode.enable && darkmode.button))
           button#rightside_config(type="button" title=_p("rightside.setting"))
-            i.fas.fa-cog.fa-spin
+            i.anzhiyufont.anzhiyu-icon-gear
       else if translate.enable || (darkmode.enable && darkmode.button)
         button#rightside_config(type="button" title=_p("rightside.setting"))
-          i.fas.fa-cog.fa-spin
+          i.anzhiyufont.anzhiyu-icon-gear
 
     if showArray
       +rightsideItem(showArray)
 
     button#center-console(type="button" title=_p("中控台"))
-      i.fas.fa-fish-fins
+      i.anzhiyufont.anzhiyu-icon-fish
     button#go-up(type="button" title=_p("rightside.back_to_top"))
-      i.fas.fa-arrow-up
+      i.anzhiyufont.anzhiyu-icon-arrow-up

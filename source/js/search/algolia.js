@@ -86,7 +86,7 @@ window.addEventListener("load", () => {
     searchClient: algoliasearch(algolia.appId, algolia.apiKey),
     searchFunction(helper) {
       if (helper.state.query) {
-        let innerLoading = '<div class="fa fa-spinner fa-spin"></div>';
+        let innerLoading = '<div class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></div>';
         document.getElementById("algolia-hits").innerHTML = innerLoading;
         helper.search();
       }
@@ -135,7 +135,7 @@ window.addEventListener("load", () => {
         templates += `
           </div>
         </div>`;
-        const loadingLogo = document.querySelector("#algolia-hits .fa.fa-spinner.fa-spin");
+        const loadingLogo = document.querySelector("#algolia-hits .anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin");
         if (loadingLogo) {
           loadingLogo.style.display = "none";
         }
@@ -145,7 +145,7 @@ window.addEventListener("load", () => {
         return templates;
       },
       empty: function (data) {
-        const loadingLogo = document.querySelector("#algolia-hits .fa.fa-spinner.fa-spin");
+        const loadingLogo = document.querySelector("#algolia-hits .fa.anzhiyu-spinner.anzhiyu-spin");
         if (loadingLogo) {
           loadingLogo.style.display = "none";
         }
@@ -181,10 +181,10 @@ window.addEventListener("load", () => {
     container: "#algolia-pagination",
     totalPages: 5,
     templates: {
-      first: '<i class="fas fa-angle-double-left"></i>',
-      last: '<i class="fas fa-angle-double-right"></i>',
-      previous: '<i class="fas fa-angle-left"></i>',
-      next: '<i class="fas fa-angle-right"></i>',
+      first: '<i class="anzhiyufont anzhiyu-icon-angle-double-left"></i>',
+      last: '<i class="anzhiyufont anzhiyu-icon-angle-double-right"></i>',
+      previous: '<i class="anzhiyufont anzhiyu-icon-angle-left"></i>',
+      next: '<i class="anzhiyufont anzhiyu-icon-angle-right"></i>',
     },
   });
 

@@ -259,11 +259,13 @@ body[data-type="about"] #web_bg {
   cursor: pointer;
   border-bottom: 0 !important;
 }
-.author-content-item .card-content .banner-button-group .banner-button i {
+.author-content-item .card-content .banner-button-group .banner-button i,
+.author-content-item .card-content .banner-button-group .banner-button svg {
   margin-right: 8px;
   font-size: 1rem;
 }
-#about-page .author-content-item .card-content .banner-button-group .banner-button i {
+#about-page .author-content-item .card-content .banner-button-group .banner-button i,
+#about-page .author-content-item .card-content .banner-button-group .banner-button svg {
   font-size: 1.5rem;
 }
 
@@ -653,7 +655,8 @@ body[data-type="about"] #web_bg {
     background: 0 0;
     padding: 0;
   }
-  .author-content-item .card-content .banner-button-group .banner-button i {
+  .author-content-item .card-content .banner-button-group .banner-button i,
+  .author-content-item .card-content .banner-button-group .banner-button svg {
     margin-right: 0;
     font-size: 1.5rem;
     background: white;

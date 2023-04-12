@@ -11,10 +11,12 @@ if theme.menu
               - var icon_value = trim(value.split('||')[1])
               - var anima_value = value.split('||')[2] ? trim(value.split('||')[2]) : 'faa-tada'
               if icon_value.substring(0,2)=="fa"      
-                i.fa-fw(class=icon_value + ' ' + anima_value)
-              else if icon_value.substring(0,4)=="icon"          
+                i(class=icon_value + ' ' + anima_value)
+              else if icon_value.substring(0,4)=="icon"
                 svg.icon(aria-hidden="true" class=anima_value)
                   use(xlink:href=`#`+ icon_value)
+              else if icon_value.substring(0,4)=="anzhiyu"
+                i.anzhiyufont(style="font-size: 0.9em;" class=icon_value + ' ' + anima_value)
             span=' '+label
       else
         .menus_item
@@ -23,12 +25,13 @@ if theme.menu
               - var icon_label = trim(label.split('||')[1])
               - var anima_label = label.split('||')[2] ? trim(label.split('||')[2]) : 'faa-tada'
               if icon_label.substring(0,2)=="fa"      
-                i.fa-fw(class=icon_label + ' ' + anima_label)
-              else if icon_label.substring(0,4)=="icon"    
+                i(class=icon_label + ' ' + anima_label)
+              else if (icon_value.startsWith("icon"))
                 svg.icon(aria-hidden="true" class=anima_label)
                   use(xlink:href=`#`+ icon_label)
+              else if (icon_value.startsWith("anzhiyu"))
+                i.anzhiyufont(style="font-size: 0.9em;" class=icon_label + ' ' + anima_label)
             span=' '+ trim(label.split('||')[0])
-            //- i.fas.fa-chevron-down.expand(class=sidebarChildHide)
           ul.menus_item_child(style=`left:`+ (-48 * Object.keys(value).length + 65) + `px;`)
             each val,lab in value
               li
@@ -37,8 +40,10 @@ if theme.menu
                     - var icon_val = trim(val.split('||')[1])
                     - var anima_val = val.split('||')[2] ? trim(val.split('||')[2]) : 'faa-tada'
                     if icon_val.substring(0,2)=="fa"      
-                      i.fa-fw(class=icon_val + ' ' + anima_val)
-                    else if icon_val.substring(0,4)=="icon"
+                      i(class=icon_val + ' ' + anima_val)
+                    else if (icon_val.startsWith("icon"))
                       svg.icon(aria-hidden="true" class=anima_val)
                         use(xlink:href=`#`+ icon_val)
+                    else if (icon_val.startsWith("anzhiyu"))
+                      i.anzhiyufont(style="font-size: 0.9em;" class=icon_val + ' ' + anima_val)
                   span=' '+ lab

@@ -85,7 +85,8 @@ div#bannerGroup {
     width: 118px;
     justify-content: center;
   }
-  .topGroup .banner-button i {
+  .topGroup .banner-button i,
+  .topGroup .banner-button svg {
     margin-right: 8px;
     font-size: 22px;
   }

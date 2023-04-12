@@ -58,7 +58,8 @@ header#page-header(class=`${isHomeClass}`)
           #site_social_icons
             !=fragment_cache('social', function(){return partial('includes/header/social')})
       #scroll-down
-        i.fas.fa-angle-down.scroll-down-effects
+        svg.icon.scroll-down-effects(aria-hidden="true")
+          use(xlink:href="#icon-angle-down")
     else
       #page-site-info
         h1#site-title=site_title

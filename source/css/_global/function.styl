@@ -134,12 +134,51 @@ if hexo-config('enter_transitions')
 .scroll-down-effects
   animation: scroll-down-effect 1.5s infinite
 
+.anzhiyu-spin
+  animation-name: anzhiyu-spin;
+  animation-duration: var(--anzhiyu-animation-duration,2s);
+  animation-iteration-count: var(--anzhiyu-animation-iteration-count,infinite);
+  animation-timing-function: var(--anzhiyu-animation-timing,linear);
+
+
+.anzhiyu-pulse-icon
+  animation: anzhiyu-pulse-animation 1s infinite linear;
+
+.anzhiyu-shake:hover {
+  animation: shake 0.8s;
+}
+
 if hexo-config('avatar.effect') == true
   .avatar-img
     animation: avatar_turn_around 2s linear infinite
 
 .reward-main
   animation: donate_effcet .3s .1s ease both
+
+@keyframes anzhiyu-shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes anzhiyu-pulse-animation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes anzhiyu-spin
+  0%
+    transform: rotate(0deg);
+  100% 
+    transform: rotate(1turn);
 
 @keyframes scroll-down-effect
   0%

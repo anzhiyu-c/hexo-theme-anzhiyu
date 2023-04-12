@@ -19,7 +19,14 @@ if theme.aside.card_author.enable
       .banner-button-group
         a.banner-button(onclick='pjax.loadUrl("' + theme.aside.card_author.button.link +'")')
           span.banner-button-text=theme.aside.card_author.button.text
-          i(class=theme.aside.card_author.button.icon)
+          - button_icon = theme.aside.card_author.button.icon
+          if (button_icon.startsWith("fa")) 
+            i(class=button_icon)
+          else if (button_icon.startsWith("icon"))
+            svg.icon(aria-hidden='true')
+              use(xlink:href="#" + button_icon)
+          else if (button_icon.startsWith("anzhiyu"))
+            i.anzhiyufont(class=button_icon)
   
     if(theme.social)
         .card-info-social-icons.is-center
