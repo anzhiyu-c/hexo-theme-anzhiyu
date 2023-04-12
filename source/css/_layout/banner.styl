@@ -1,0 +1,37 @@
+.banners-title
+  top: 2.9rem;
+  left: 3rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+.banners-title-big 
+  font-size: 36px;
+  line-height: 1;
+  font-weight: bold;
+  margin-bottom: 8px;
+
+.banners-title-small
+  font-size: 12px;
+  line-height: 1;
+  color: var(--anzhiyu-secondtext);
+  margin-top: 8px;
+  margin-bottom: 0.5rem;
+
+.banner-button 
+  padding: 8px 12px;
+  background: var(--anzhiyu-fontcolor);
+  border-radius: 12px;
+  color: var(--anzhiyu-card-bg);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: var(--anzhiyu-shadow-black);
+  &.secondary 
+    background: var(--anzhiyu-secondbg);
+    border: var(--style-border-always);
+    color: var(--anzhiyu-lighttext);
+    margin-right: 1rem;
+    box-shadow: var(--anzhiyu-shadow-border);

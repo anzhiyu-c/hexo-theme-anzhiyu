@@ -1,4 +1,56 @@
 #article-container
+  - let totalLinks = 0;
+  each item in site.data.link
+    - totalLinks += item.link_list.length
+  if totalLinks >= 50
+    #flink-banners
+      .banner-top-box
+        .flink-banners-title
+          .banners-title-small 友情链接
+          .banners-title-big 与数百名博主无限进步
+        .banner-button-group
+          a.banner-button.secondary.no-text-decoration(onclick="anzhiyu.travelling()")
+            i.anzhiyufont.anzhiyu-icon-paper-plane1
+            span.banner-button-text 随机访问
+          a.banner-button.no-text-decoration(onclick="anzhiyu.addFriendLink()")
+            i.anzhiyufont.anzhiyu-icon-arrow-circle-right
+            span.banner-button-text 申请友链
+      #skills-tags-group-all
+        .tags-group-wrapper
+          each i, index in site.data.link.slice(0, 15)
+            - const link_list = i.link_list.slice()
+            - const evenNum = link_list.filter((x, index) => index % 2 === 0);
+            - const oddNum = link_list.filter((x, index) => index % 2 === 1);
+            each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
+              - const index = index2 * 2
+              if (index <= 16 && typeof evenNum[index] !== 'undefined' && typeof oddNum[index] !== 'undefined')
+                .tags-group-icon-pair
+                  a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
+                    img.no-lightbox(title=evenNum[index].name, src=evenNum[index].avatar)
+                  a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
+                    img.no-lightbox(title=oddNum[index].name, src=oddNum[index].avatar)
+          each i, index in site.data.link.slice(0, 15)
+            - const link_list = i.link_list.slice()
+            - const evenNum = link_list.filter((x, index) => index % 2 === 0);
+            - const oddNum = link_list.filter((x, index) => index % 2 === 1);
+            each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
+              - const index = index2 * 2
+              if (index <= 16 && typeof evenNum[index] !== 'undefined' && typeof oddNum[index] !== 'undefined')
+                .tags-group-icon-pair
+                  a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
+                    img.no-lightbox(title=evenNum[index].name, src=evenNum[index].avatar)
+                  a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
+                    img.no-lightbox(title=oddNum[index].name, src=oddNum[index].avatar)
+    .title-h2-a
+      .title-h2-a-left
+        h2(style='padding-top:0;margin:.6rem 0 .6rem') 🎣 钓鱼
+        a.random-post-start.no-text-decoration(href='javascript:fetchRandomPost();')
+          i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
+      .title-h2-a-right
+        a.random-post-all.no-text-decoration(href='/link/') 全部友链
+    #random-post
+
+    include ../anzhiyu/random-friends-post-js.pug
   .flink
     if site.data.link
       each i in site.data.link

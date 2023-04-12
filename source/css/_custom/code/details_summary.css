@@ -34,6 +34,7 @@ details.folding-tag > summary {
   border-radius: 14px !important;
   box-shadow: var(--anzhiyu-shadow-border);
   color: var(--font-color) !important;
+  user-select: none;
 }
 details.folding-tag > summary::marker {
   color: var(--anzhiyu-main);
