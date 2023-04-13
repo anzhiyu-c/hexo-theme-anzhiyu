@@ -22,6 +22,7 @@ div#runtime {
 #workboard img.boardsign {
   width: 100%;
   max-width: 130px;
+  border-radius: 0px;
 }
 @-moz-keyframes flashlight {
   from {
