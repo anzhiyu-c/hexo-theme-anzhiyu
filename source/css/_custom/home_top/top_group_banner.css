@@ -82,7 +82,7 @@ div#bannerGroup {
     -webkit-backdrop-filter: blur(20px);
     transform: translateZ(0);
     height: 40px;
-    width: 118px;
+    width: 130px;
     justify-content: center;
   }
   .topGroup .banner-button i,
