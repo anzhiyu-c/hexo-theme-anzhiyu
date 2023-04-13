@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   padding: 0.1rem 0.7rem;
-  border-radius: 24px;
+  border-radius: 8px;
   height: 36px;
   line-height: 36px;
 }

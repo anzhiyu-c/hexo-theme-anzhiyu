@@ -50,7 +50,7 @@
           order: 0
 
     & >.recent-post-info
-      padding: 23px 40px 0
+      padding: 23px 40px 10px
       width: 57%
 
       +maxWidth768()
@@ -113,10 +113,11 @@
 
         a
           color: $theme-meta-color
+          font-size: 14px
+          margin-right: 4px
 
           &:hover
             color: $text-hover
-            text-decoration: underline
 
       & > .content
         @extend .limit-more-line
