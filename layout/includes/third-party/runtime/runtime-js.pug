@@ -9,10 +9,12 @@ script(async=true).
     var hnum;
     var mnum;
     var snum;
+    var nowHour;
 
     // 计算并更新天数、小时数、分钟数和秒数
     function updateTime() {
       now = new Date(); // 更新 now 的值
+      nowHour = now.getHours(); // 更新 nowHour 的值
       var days = (now - grt) / 1000 / 60 / 60 / 24;
       dnum = Math.floor(days);
       var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
@@ -35,7 +37,7 @@ script(async=true).
     // 更新网页中显示的网站运行时间
     function updateHtml() {
       let currentTimeHtml = "";
-      if (hnum < 18 && hnum >= 9) {
+      if (nowHour < 18 && nowHour >= 9) {
         // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
         currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
       } else {
