@@ -398,6 +398,9 @@ center#name-container {
   transition: 0.3s ease-in;
   letter-spacing: normal;
 }
+.post #blog_name #site-name .title {
+  transition: 0s;
+}
 
 #blog_name #site-name:hover i {
   transform: scale(1);

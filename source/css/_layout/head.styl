@@ -87,9 +87,8 @@
       border-bottom: none;
     &.nav-fixed
       #nav
-        backdrop-filter: saturate(180%) blur(20px);
-        background: var(--anzhiyu-maskbgdeep);
-        border-bottom: var(--style-border);
+        background: var(--anzhiyu-card-bg);
+        outline: 1px solid var(--anzhiyu-card-border);
         transform: translateZ(0);
       +maxWidth768()
         #nav
@@ -98,7 +97,8 @@
       height: 360px
       &.nav-fixed
         #nav
-          background: var(--anzhiyu-background);
+          background: var(--anzhiyu-card-bg);
+          outline: 1px solid var(--anzhiyu-card-border);
 
     &:before    
       position: absolute
@@ -150,6 +150,9 @@
     #nav
       position: fixed
       z-index: 91
+      background: var(--anzhiyu-card-bg);
+      outline: 1px solid var(--anzhiyu-card-border);
+      transform: translateZ(0);
       
       a,
       #site-name,
@@ -274,7 +277,7 @@
 
 #nav
   position: fixed
-  transition: border 0s, all 0s
+  transition: .3s
   top: 0
   z-index: 90
   display: flex
@@ -285,10 +288,7 @@
   font-size: 1.3em
   opacity: 1
   justify-content: space-between;
-  border-bottom: var(--style-border);
-  background: var(--anzhiyu-maskbgdeep);
-  backdrop-filter: saturate(180%) blur(20px);
-  transform: translateZ(0);
+  outline: 1px solid var(--anzhiyu-none);
   i
     font-size: 1.2rem
 

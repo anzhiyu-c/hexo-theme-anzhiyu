@@ -475,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const scroolTask = anzhiyu.throttle(() => {
       const currentTop = window.scrollY || document.documentElement.scrollTop;
       const isDown = scrollDirection(currentTop);
-      if (currentTop > 56) {
+      if (currentTop > 16) {
         if (isDown) {
           if ($header.classList.contains("nav-visible")) $header.classList.remove("nav-visible");
           if (isChatBtnShow && isChatShow === true) {
