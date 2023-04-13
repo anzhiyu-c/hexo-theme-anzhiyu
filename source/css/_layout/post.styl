@@ -168,7 +168,7 @@ beautify()
           display: flex
           align-items: center
           justify-content: center
-          margin: 8px 8px 8px 0
+          margin: 4px 8px 4px 0
           padding: 0 12px
           width: fit-content
           border-radius: 8px
@@ -194,19 +194,35 @@ beautify()
           line-height: w
 
   .post-copyright
-    position: relative
-    margin: 40px 0 10px
-    padding: 10px 16px
-    border: 1px solid var(--light-grey)
-    transition: box-shadow .3s ease-in-out
-
+    background: var(--anzhiyu-card-bg);
+    padding: 1rem 1.3rem;
+    overflow: hidden;
+    border: var(--style-border);
+    border-width: 1px;
+    transition: 0.3s;
+    position: relative;
+    margin: 2rem 0px 0.5rem;
+    border-radius: 12px;
+    &__author
+      display: flex;
+      align-items: center;
+    &__original,&__reprint
+      background: var(--anzhiyu-fontcolor);
+      color: var(--anzhiyu-card-bg);
+      padding: 0.2rem 1rem;
+      font-size: .8rem;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+      font-weight: bold;
+      line-height: 1.5;
+      white-space: nowrap;
+      user-select: none;
+  
     &:before
-      @extend .fontawesomeIcon
       position: absolute
       top: 2px
       right: 12px
       color: $theme-color
-      content: '\f1f9'
       font-size: 1.3em
 
     &:hover
@@ -226,6 +242,28 @@ beautify()
 
           &:hover
             text-decoration: none
+      &__type
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .copy-button
+          background: var(--anzhiyu-card-bg);
+          border: var(--style-border);
+          color: var(--anzhiyu-fontcolor);
+          border-radius: 8px;
+          cursor: pointer;
+          transition: 0.3s;
+          width: 38px;
+          height: 28px;
+          margin-left: 8px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          &:hover
+            background: var(--anzhiyu-theme);
+            border-color: var(--anzhiyu-theme);
+            color: var(--anzhiyu-white);
 
   .post-outdate-notice
     position: relative

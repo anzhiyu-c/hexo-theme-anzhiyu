@@ -1,21 +1,17 @@
-link(rel='stylesheet' href=url_for(theme.asset.coin_css) media="defer" onload="this.media='all'")
-.post-reward
-  button.tip-button.reward-button
-    span.tip-button__text= _p('donate')
-    .coin-wrapper
-      .coin
-        .coin__middle
-        .coin__back
-        .coin__front
-    .reward-main
-      ul.reward-all
+.post-reward(onclick='AddRewardMask()')
+  .reward-button.button--animated(title='赞赏作者')
+    i.anzhiyufont.anzhiyu-icon-hand-heart-fill
+    | 打赏作者
+  .reward-main
+    .reward-all
+      span.reward-title 感谢你赐予我前进的力量
+      ul.reward-group
         each item in theme.reward.QR_code
-          - var clickTo = (item.itemlist||item).link ? (item.itemlist||item).link : (item.itemlist||item).img
+          - var clickTo = item.link ? item.link : item.img
           li.reward-item
-            a(href=clickTo target='_blank')
-              img.post-qr-code-img(src=url_for((item.itemlist||item).img) alt=(item.itemlist||item).text)
-            .post-qr-code-desc=(item.itemlist||item).text
-if theme.reward.coinAudio
-  - var coinAudio = theme.reward.coinAudio ? url_for(theme.reward.coinAudio) : 'https://cdn.cbd.int/akilar-candyassets@1.0.36/audio/coin.mp3'
-  audio#coinAudio(src=coinAudio)
-script(defer src=url_for(theme.asset.coin_js))
+            a(href=url_for(clickTo) target='_blank')
+              img.post-qr-code-img(src=url_for(item.img) alt=item.text)
+            .post-qr-code-desc=item.text
+      a.reward-main-btn(href='/about/' target='_blank')
+        .reward-text 赞赏者名单
+        .reward-dec 因为你们的支持让我意识到写文章的价值🙏

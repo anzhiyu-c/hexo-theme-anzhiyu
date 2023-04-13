@@ -74,6 +74,7 @@ sup {
 img {
   border-style: none;
   border-radius: 8px;
+  max-width: 100%;
 }
 
 button,

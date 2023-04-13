@@ -1,0 +1,106 @@
+- let url = page.copyright_url || page.permalink
+if !theme.disable_top_img && page.top_img !== false
+  if is_post()
+    - var top_img = page.top_img || page.cover || page.randomcover
+  else if is_page()
+    - var top_img = page.top_img || theme.default_top_img
+  else if is_tag()
+    - var top_img = theme.tag_per_img && theme.tag_per_img[page.tag] 
+    - top_img = top_img ? top_img : (theme.tag_img !== false ? theme.tag_img || theme.default_top_img : false)
+  else if is_category()
+    - var top_img = theme.category_per_img && theme.category_per_img[page.category]
+    - top_img = top_img ? top_img : (theme.category_img !== false ? theme.category_img || theme.default_top_img : false)
+  else if is_home()
+    - var top_img = theme.index_img !== false ? theme.index_img || theme.default_top_img : false
+  else if is_archive()
+    - var top_img = theme.archive_img !== false ? theme.archive_img || theme.default_top_img : false
+  else
+    - var top_img = page.top_img || theme.default_top_img
+
+  if top_img !== false
+    - var imgSource = top_img && top_img.indexOf('/') !== -1 ? url_for(top_img) : top_img
+    - var bg_img = top_img ? imgSource : ''
+    - var site_title = page.title || page.tag || page.category || config.title
+#post-tools.post-tools
+  .post-tools-left
+    if theme.reward.enable && theme.reward.QR_code
+        !=partial('includes/post/reward', {}, {cache: true})
+    .reward-link.mode
+      a.reward-link-button(href='/wechat/' data-pjax-state='')
+        i.anzhiyufont.anzhiyu-icon-plant-fill
+        | 运营模式与责任
+    .share-link.mobile
+      .share-qrcode
+        .share-button(title='使用手机访问这篇文章')
+          i.anzhiyufont.anzhiyu-icon-qrcode
+        .share-main
+          .share-main-all
+            #qrcode(title=url)
+            .reward-dec 使用手机访问这篇文章
+    .share-link.weibo
+      a.share-button(target='_blank' href=`https://service.weibo.com/share/share.php?title=${site_title}&url=${url}&pic=${bg_img}` rel='external nofollow noreferrer noopener')
+        i.anzhiyufont.anzhiyu-icon-weibo
+    .share-link.copyurl
+      #post-share-url.share-button(title='复制链接' onclick='rm.copyPageUrl()')
+        i.anzhiyufont.anzhiyu-icon-link
+  .post-tools-right
+    if (!theme.ptool.categories)
+      .tag_share
+        .post-meta__box
+          if (theme.post_meta.post.tags)
+            .post-meta__box__tag-list
+              each item, index in page.tags.data
+                a(href=url_for(item.path)).post-meta__box__tags
+                  span.tags-punctuation 
+                    if theme.icons.iconfont_multicolor_js
+                      svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
+                        use(xlink:href="#anzhiyu-colorful-icon-biaoqian")
+                    else 
+                      i.anzhiyufont.anzhiyu-icon-tag
+                  =item.name
+                  span.tagsPageCount=item.length
+
+if theme.ptool.categories
+  .tag_share
+    .post-meta__box
+      if (theme.post_meta.post.categories && page.categories.data.length > 0)
+        .post-meta__box__category-list
+          each item, index in page.categories.data
+            a(href=url_for(item.path)).post-meta__box__categoryes
+              span.categoryes-punctuation 
+                if theme.icons.iconfont_multicolor_js
+                  svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
+                    use(xlink:href="#anzhiyu-colorful-icon-fenlei")
+                else 
+                  i.anzhiyufont.anzhiyu-icon-inbox
+              =item.name
+              span.categoryesPageCount=item.length
+      if (theme.post_meta.post.tags)
+        .post-meta__box__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__box__tags
+              span.tags-punctuation 
+                if theme.icons.iconfont_multicolor_js
+                  svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
+                    use(xlink:href="#anzhiyu-colorful-icon-biaoqian")
+                else 
+                  i.anzhiyufont.anzhiyu-icon-tag
+              =item.name
+              span.tagsPageCount=item.length
+
+    !=partial('includes/third-party/share/index.pug', {}, {cache: true})
+
+
+script(data-pjax src='https://cdn2.tianli0.top/gh/davidshimjs/qrcodejs@master/qrcode.min.js')
+script(type='text/javascript').
+    // 二维码
+  if (document.getElementById('qrcode')){
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: window.location.href,
+      width: 250,
+      height: 250,
+      colorDark : "#000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+  }

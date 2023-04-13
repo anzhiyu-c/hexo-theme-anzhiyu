@@ -1,0 +1,94 @@
+.post-tools
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  -webkit-user-select: none;
+  .post-tools-left
+    white-space: nowrap;
+    display: flex;
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  .post-tools-right
+    overflow: scroll;
+    overflow-x: overlay;
+    padding-right: 0px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    
+.share-link
+  margin-left: 0.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  &.mobile:hover 
+    .share-button
+      background: var(--anzhiyu-green);
+      border-color: var(--anzhiyu-green);
+      box-shadow: var(--anzhiyu-shadow-green);
+      color: var(--anzhiyu-white);
+    .share-main
+      opacity: 1;
+      transform: translateY(0);
+
+
+  .share-qrcode
+    display: flex;
+    justify-content: center;
+  .share-button
+    background: var(--anzhiyu-card-bg);
+    border: var(--style-border);
+    color: var(--anzhiyu-fontcolor);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 56px;
+    height: 40px;
+    &:hover
+      background: var(--anzhiyu-theme);
+      border-color: var(--anzhiyu-theme);
+      color: var(--anzhiyu-white);
+      transition: 0.3s;
+      box-shadow: var(--anzhiyu-shadow-blue);
+
+    i
+      line-height: 38px;
+      font-size: 1.1rem;
+  .share-main
+    position: absolute;
+    bottom: 40px;
+    z-index: 100;
+    padding-bottom: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    transform: translateY(8px);
+    .share-main-all
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--anzhiyu-background);
+      animation: donate_effcet 0.3s 0.1s ease both;
+      flex-direction: column;
+      border: var(--style-border-always);
+      #qrcode 
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        min-height: 150px;
+        background: var(--anzhiyu-white);
+        padding: 8px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        border: var(--style-border-always);
+      .reward-dec 
+        font-size: 0.6rem;
+      
+
+
+
+
+

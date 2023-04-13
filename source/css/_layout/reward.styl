@@ -1,73 +1,125 @@
 .post-reward
-  position: relative
-  margin-top: 80px
-  width: 100%
-  text-align: center
-  pointer-events: none
+  position: relative;
+  text-align: center;
+  margin-top: 0rem;
+  display: flex;
+  justify-content: center;
+  &:hover
+    .reward-button
+      color: var(--anzhiyu-white);
+      background: var(--anzhiyu-theme);
+      box-shadow: none;
+      
+    & > .reward-main
+      display: flex;
+      justify-content: left;
+
 
   & > *
     pointer-events: auto
 
-  .reward-button
-    display: inline-block
-    padding: 4px 24px
-    background: var(--btn-bg)
-    color: var(--btn-color)
-    cursor: pointer
-
-  &:hover
-    .reward-button
-      background: var(--btn-hover-color)
-      
-      & > .reward-main
-        display: block
+  .reward-button 
+    border-radius: 8px
+    background: var(--anzhiyu-red);
+    color: var(--anzhiyu-white);
+    padding: 0;
+    width: 126px;
+    height: 40px;
+    line-height: 39px;
+    box-shadow: var(--anzhiyu-shadow-red);
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
 
   .reward-main
-    position: absolute
-    bottom: 40px
-    left: -23%
-    z-index: 100
-    display: none
-    padding: 0 0 15px
-
+    position: absolute;
+    bottom: 40px;
+    left: 0px;
+    z-index: 90;
+    display: none;
+    padding: 0px 0px 15px;
+    width: 100%;
     .reward-all
-      display: flex
-      margin: 0
-      padding: 20px 10px
-      border-radius: 4px
-      background: var(--reward-pop)
+      border-radius: 12px;
+      background: var(--anzhiyu-background);
+      border: var(--style-border-always);
+      padding: 0.8rem;
+      display: flex;
+      margin: 0px;
+      box-shadow: var(--anzhiyu-shadow-border);
+      flex-direction: column;
+      align-items: center;
+      &::before 
+        position: absolute;
+        bottom: -10px;
+        left: 0px;
+        width: 100%;
+        height: 20px;
+        content: "";
 
-      &:before
-        position: absolute
-        bottom: -10px
-        left: 0
-        width: 100%
-        height: 20px
-        content: ''
+      .reward-title
+        font-weight: bold;
+        color: var(--anzhiyu-red);
+      .reward-group
+        display: flex;
+        margin-top: 0.5rem;
+        padding: 0;
+        .reward-item
+          display: inline-block;
+          padding: 0px 8px;
+          list-style-type: none;
+          vertical-align: top;
+          .post-qr-code-img
+            box-shadow: var(--anzhiyu-shadow-lightblack);
+            border-radius: 12px;
+            border: var(--style-border-always);
+          .post-qr-code-desc
+              padding-top: 0rem;
+              margin-top: -8px;
+              margin-bottom: 8px;
+          img 
+            width: 130px;
+            height: 130px;
+          &:first-child img
+            border-color: var(--anzhiyu-green);
+          &:last-child img
+            border-color: var(--anzhiyu-blue);
 
-      &:after
-        position: absolute
-        right: 0
-        bottom: 2px
-        left: 0
-        margin: 0 auto
-        width: 0
-        height: 0
-        border-top: 13px solid var(--reward-pop)
-        border-right: 13px solid transparent
-        border-left: 13px solid transparent
-        content: ''
-
-      .reward-item
-        display: inline-block
-        padding: 0 8px
-        list-style-type: none
-        vertical-align: top
-
-        img
-          width: 130px
-          height: 130px
-
-        .post-qr-code-desc
-          width: 130px
-          color: $reward-pop-up-color
+      .reward-main-btn
+        background: var(--anzhiyu-secondbg);
+        color: var(--anzhiyu-fontcolor);
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        padding: 4px 0;
+        border: var(--style-border-always);
+        margin: 8px;
+        width: 100%;
+        &:hover 
+          color: var(--anzhiyu-white);
+          background: var(--anzhiyu-red);
+          box-shadow: var(--anzhiyu-shadow-red);
+        .reward-text
+          margin-bottom: 0rem;
+          font-weight: bold;
+        .reward-dec
+          font-size: 0.6rem;
+.reward-link.mode
+  background: var(--anzhiyu-green);
+  color: var(--anzhiyu-white);
+  padding: 0;
+  width: 173px;
+  height: 40px;
+  line-height: 39px;
+  box-shadow: var(--anzhiyu-shadow-green);
+  border-radius: 8px;
+  margin-left: 0.5rem;
+  text-align: center;
+  transition: 0.3s;
+  &:hover
+    background: var(--anzhiyu-theme);
+    box-shadow: none;
+  a
+    color: var(--anzhiyu-white);
+  i
+    margin-right: 4px;
