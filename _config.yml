@@ -808,7 +808,7 @@ note:
   light_bg_offset: 0
 
 icons:
-  ali_iconfont_js: # 阿里图标链接，主题会进行加载 symbol 引用
+  ali_iconfont_js: # 阿里图标symbol 引用链接，主题会进行加载 symbol 引用
   fontawesome: false #是否启用fontawesome6图标
   fontawesome_animation_css: #fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css
 
@@ -997,7 +997,7 @@ essay:
 ptool:
   enable: true
   categories: false
-  
+
 # 欢迎语配置
 greetingBox:
   enable: false
@@ -1093,4 +1093,3 @@ CDN:
     # categoryBar:
     # catalog_bar:
     # iconfont_css:
-    # iconfont_js:
