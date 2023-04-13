@@ -10,10 +10,6 @@ mixin articleSort(posts, current)
         - year = tempYear
         .article-sort-item.year
           span= year
-          if (theme.icons.iconfont_multicolor_js)
-            - let iconAnimal = '#'+ getAnimalIcon(tempYear)
-            svg.icon(aria-hidden='true')
-              use(xlink:href=iconAnimal)
       .article-sort-item(class=no_cover)
         if article.cover && theme.cover.archives_enable
           a.article-sort-item-img(href=url_for(article.path) title=title)

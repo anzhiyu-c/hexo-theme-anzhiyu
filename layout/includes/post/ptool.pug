@@ -52,11 +52,7 @@ if !theme.disable_top_img && page.top_img !== false
               each item, index in page.tags.data
                 a(href=url_for(item.path)).post-meta__box__tags
                   span.tags-punctuation 
-                    if theme.icons.iconfont_multicolor_js
-                      svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
-                        use(xlink:href="#anzhiyu-colorful-icon-biaoqian")
-                    else 
-                      i.anzhiyufont.anzhiyu-icon-tag
+                    i.anzhiyufont.anzhiyu-icon-tag
                   =item.name
                   span.tagsPageCount=item.length
 
@@ -68,11 +64,7 @@ if theme.ptool.categories
           each item, index in page.categories.data
             a(href=url_for(item.path)).post-meta__box__categoryes
               span.categoryes-punctuation 
-                if theme.icons.iconfont_multicolor_js
-                  svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
-                    use(xlink:href="#anzhiyu-colorful-icon-fenlei")
-                else 
-                  i.anzhiyufont.anzhiyu-icon-inbox
+                i.anzhiyufont.anzhiyu-icon-inbox
               =item.name
               span.categoryesPageCount=item.length
       if (theme.post_meta.post.tags)
@@ -80,11 +72,7 @@ if theme.ptool.categories
           each item, index in page.tags.data
             a(href=url_for(item.path)).post-meta__box__tags
               span.tags-punctuation 
-                if theme.icons.iconfont_multicolor_js
-                  svg.icon.icon-biaoqian(title=item.name,aria-hidden="true")
-                    use(xlink:href="#anzhiyu-colorful-icon-biaoqian")
-                else 
-                  i.anzhiyufont.anzhiyu-icon-tag
+                i.anzhiyufont.anzhiyu-icon-tag
               =item.name
               span.tagsPageCount=item.length
 

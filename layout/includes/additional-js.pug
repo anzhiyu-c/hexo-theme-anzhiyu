@@ -99,8 +99,6 @@ div
       new LingQue.Monitor().init({id: "#{theme.LA.LingQueMonitorID}", sendSuspicious:true});
   //- iconfont依赖
   link(rel="stylesheet" href=url_for(theme.asset.iconfont_css))
-  if (theme.icons && theme.icons.iconfont_multicolor_js)
-    script(async src=url_for(theme.asset.iconfont_js))
   if (theme.icons && theme.icons.ali_iconfont_js)
     script(async src=url_for(theme.icons.ali_iconfont_js))
 
