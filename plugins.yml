@@ -213,7 +213,7 @@ catalog_bar:
   name: anzhiyu-theme-static
   file: "catalog-bar/catalog-bar.js"
   version: 1.0.0
-iconfont_css:
+ali_iconfont_css:
   name: anzhiyu-theme-static
-  file: icon/iconfont_css.css
-  version: 1.0.3
+  file: icon/ali_iconfont_css.css
+  version: 1.0.4

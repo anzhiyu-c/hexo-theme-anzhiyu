@@ -77,18 +77,3 @@ if theme.ptool.categories
               span.tagsPageCount=item.length
 
     !=partial('includes/third-party/share/index.pug', {}, {cache: true})
-
-
-script(data-pjax src='https://cdn2.tianli0.top/gh/davidshimjs/qrcodejs@master/qrcode.min.js')
-script(type='text/javascript').
-    // 二维码
-  if (document.getElementById('qrcode')){
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
-      text: window.location.href,
-      width: 250,
-      height: 250,
-      colorDark : "#000",
-      colorLight : "#ffffff",
-      correctLevel : QRCode.CorrectLevel.H
-    });
-  }
