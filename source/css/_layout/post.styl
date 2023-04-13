@@ -203,6 +203,16 @@ beautify()
     position: relative;
     margin: 2rem 0px 0.5rem;
     border-radius: 12px;
+    a.link,.post-copyright__notice a
+      font-weight: 500;
+      border-bottom: solid 2px var(--anzhiyu-lighttext);
+      color: var(--anzhiyu-fontcolor);
+      padding: 0 0.2em;
+      text-decoration: none;
+      &:hover
+        color: var(--anzhiyu-white);
+        background-color: var(--anzhiyu-main);
+        border-radius: 4px;
     &__author
       display: flex;
       align-items: center;
@@ -218,12 +228,12 @@ beautify()
       white-space: nowrap;
       user-select: none;
   
-    &:before
+    .anzhiyufont.anzhiyu-icon-copyright
       position: absolute
-      top: 2px
-      right: 12px
-      color: $theme-color
       font-size: 1.3em
+      top: -71px;
+      right: -20px;
+      font-size: 8.3em;
 
     &:hover
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
