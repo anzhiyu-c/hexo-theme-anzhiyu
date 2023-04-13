@@ -15,12 +15,7 @@
   width: 100%;
   padding: 0.5rem;
   margin: 0.3rem 0;
-  background: var(--global-bg);
   border-radius: var(--anzhiyu-border-radius);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .article-sort-item.year {
@@ -55,8 +50,13 @@
   padding-right: 2.25rem;
 }
 .article-sort-item-title {
-  color: var(--anzhiyu-secondtext) !important;
   font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.3;
+  -webkit-line-clamp: 1;
+  color: var(--heo-fontcolor);
+  font-size: 1.1em;
+  transition: all 0.3s ease 0s;
 }
 @media screen and (max-width: 600px) {
   .article-sort-item-time {
@@ -87,9 +87,7 @@
 .article-sort-item .article-meta__link {
   display: none;
 }
-.article-sort-item-title:hover {
-  color: var(--anzhiyu-lighttext) !important;
-}
+
 .article-sort-item-time {
   float: right;
   font-size: 100%;

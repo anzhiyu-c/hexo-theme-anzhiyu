@@ -758,6 +758,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  //监听蒙版关闭
+  document.addEventListener(
+    "touchstart",
+    e => {
+      anzhiyu.removeRewardMask();
+    },
+    false
+  );
+
   /**
    * menu
    * 側邊欄sub-menu 展開/收縮

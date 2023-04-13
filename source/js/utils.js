@@ -1061,4 +1061,14 @@ const anzhiyu = {
     const top = offsetTop - scrollTop;
     return top <= viewPortHeight;
   },
+  //添加赞赏蒙版
+  addRewardMask: function () {
+    document.querySelector(".reward-main").style.display = "flex";
+    document.getElementById("quit-box").style.display = "flex";
+  },
+  // 移除赞赏蒙版
+  removeRewardMask: function () {
+    document.querySelector(".reward-main").style.display = "none";
+    document.getElementById("quit-box").style.display = "none";
+  },
 };
