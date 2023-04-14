@@ -110,14 +110,7 @@ a.extend.next {
     padding: 0 !important;
   }
 }
-#post .post-copyright:before {
-  z-index: -1;
-}
-@media screen and (min-width: 1365px) {
-  #post .post-copyright:before {
-    z-index: 0;
-  }
-}
+
 .layout > div:not(.recent-posts) #pagination .pagination > span,
 .layout > div:not(.recent-posts) #pagination .pagination > a {
   display: inline-block;

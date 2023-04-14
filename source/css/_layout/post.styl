@@ -210,6 +210,8 @@ beautify()
     position: relative;
     margin: 2rem 0px 0.5rem;
     border-radius: 12px;
+    +maxWidth768()
+      margin: 0
     a.link,.post-copyright__notice a
       font-weight: 500;
       border-bottom: solid 2px var(--anzhiyu-lighttext);
@@ -241,6 +243,10 @@ beautify()
       top: -71px;
       right: -20px;
       font-size: 8.3em;
+      z-index: -1;
+      @media screen and (min-width: 1365px)
+        z-index: 0;
+        
 
     &:hover
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)

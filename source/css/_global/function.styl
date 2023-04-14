@@ -11,6 +11,11 @@
 .fontbold
   font-weight: bold
 
+.anzhiyu-icon-spinner
+  margin: 0
+  width: 16px;
+  line-height: 16px;
+  height: 16px;
 if hexo-config('icons.fontawesome')
   .fontawesomeIcon
     display: inline-block
@@ -145,6 +150,7 @@ if hexo-config('enter_transitions')
   animation: scroll-down-effect 1.5s infinite
 
 .anzhiyu-spin
+  transform-origin: 50% 50%;
   animation-name: anzhiyu-spin;
   animation-duration: var(--anzhiyu-animation-duration,2s);
   animation-iteration-count: var(--anzhiyu-animation-iteration-count,infinite);

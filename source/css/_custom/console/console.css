@@ -648,7 +648,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
 
   #console .button-group {
     position: absolute;
-    bottom: 50px;
+    bottom: 70px;
   }
   body:has(#console.show) #nav-music #nav-music-hoverTips {
     display: none;

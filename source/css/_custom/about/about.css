@@ -633,7 +633,7 @@ body[data-type="about"] #web_bg {
   .site-card-group > a {
     width: 100% !important;
   }
-  .post-reward {
+  body[data-type="about"] .post-reward {
     display: none;
   }
   .reward-list-item {

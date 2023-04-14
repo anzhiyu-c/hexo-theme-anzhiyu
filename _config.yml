@@ -483,7 +483,7 @@ theme_color:
   #   main: "#3b70fc"
   paginator: "#3b70fc"
   #   button_hover: "#FF7242"
-  text_selection: "#3b70fc"
+  text_selection: "#2128bd"
   link_color: "var(--anzhiyu-fontcolor)"
   meta_color: "var(--anzhiyu-fontcolor)"
   #   hr_color: "#A4D8FA"
@@ -911,17 +911,17 @@ home_top:
       path: /categories/前端开发/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
-      icon: icon-dove
+      icon: anzhiyu-icon-dove
     - name: 大学
       path: /categories/大学生涯/
       shadow: var(--anzhiyu-shadow-red)
       class: red
-      icon: icon-fire
+      icon: anzhiyu-icon-fire
     - name: 生活
       path: /categories/生活日常/
       shadow: var(--anzhiyu-shadow-green)
       class: green
-      icon: icon-book
+      icon: anzhiyu-icon-book
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: false
@@ -996,7 +996,8 @@ essay:
 # ptool 文章底部工具
 ptool:
   enable: true
-  categories: false
+  categories: false # 是否显示分类
+  mode: /wechat/ # 运营模式与责任，不配置不显示
 
 # 欢迎语配置
 greetingBox:
