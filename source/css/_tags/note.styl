@@ -82,7 +82,10 @@
         top: calc(50% - .95em)
         left: .8em
         font-size: larger
-        @extend .fontawesomeIcon
+        if hexo-config('icons.fontawesome')
+          @extend .fontawesomeIcon
+        else
+          @extend .anzhiyufont
 
   for $type in $note-types
     &.{$type}

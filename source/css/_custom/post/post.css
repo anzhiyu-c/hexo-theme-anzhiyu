@@ -27,8 +27,10 @@
   display: none;
 }
 #article-container .headerlink::before {
-  content: "\f0c1";
-  font-family: "Font Awesome 6 Free";
+  content: "\e64a";
+  font-family: "anzhiyufont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #article-container h1 .headerlink {

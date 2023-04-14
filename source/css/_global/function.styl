@@ -10,13 +10,21 @@
 
 .fontbold
   font-weight: bold
-.fontawesomeIcon
-  display: inline-block
-  font-weight: 600
-  font-family: 'Font Awesome 6 Free'
-  text-rendering: auto
-  -webkit-font-smoothing: antialiased
 
+if hexo-config('icons.fontawesome')
+  .fontawesomeIcon
+    display: inline-block
+    font-weight: 600
+    font-family: 'Font Awesome 6 Free'
+    text-rendering: auto
+    -webkit-font-smoothing: antialiased
+
+.anzhiyufont
+  font-family: "anzhiyufont";
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 // card hover
 .cardHover
   border-radius: 8px

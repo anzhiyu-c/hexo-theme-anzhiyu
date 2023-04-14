@@ -595,7 +595,7 @@ display_mode: light
 beautify:
   enable: true
   field: post # site/post
-  title-prefix-icon: '\f0c1'
+  title-prefix-icon: '\e64a'
   title-prefix-icon-color: "#F47466"
 
 # Global font settings
@@ -615,7 +615,7 @@ blog_title_font:
 # The setting of divider icon (水平分隔线图标设置)
 hr_icon:
   enable: true
-  icon: \f0f3 # the unicode value of Font Awesome icon, such as '\3423'
+  icon: \e607 # the unicode value of Font Awesome icon, such as '\3423'
   icon-top:
 
 # the subtitle on homepage (主页subtitle)

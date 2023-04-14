@@ -24,7 +24,10 @@ beautify()
       content: $title-prefix-icon
       line-height: 1
       transition: all .2s ease-out
-      @extend .fontawesomeIcon
+      if hexo-config('icons.fontawesome')
+        @extend .fontawesomeIcon
+      else
+        @extend .anzhiyufont
 
     &:hover
       &:before
@@ -106,10 +109,14 @@ beautify()
   if hexo-config('anchor')
     a.headerlink
       &:after
-        @extend .fontawesomeIcon
+        if hexo-config('icons.fontawesome')
+          @extend .fontawesomeIcon
+          content: '\f0c1'
+        else
+          @extend .anzhiyufont
+          content: '\e64a'
         float: right
         color: var(--headline-presudo)
-        content: '\f0c1'
         font-size: .95em
         opacity: 0
         transition: all .3s
@@ -287,12 +294,16 @@ beautify()
       border-left: 5px solid $noticeOutdate-border
 
       &:before
-        @extend .fontawesomeIcon
+        if hexo-config('icons.fontawesome')
+          @extend .fontawesomeIcon
+          content: '\f071'
+        else
+          @extend .anzhiyufont
+          content: '\e66f'
         position: absolute
         top: 50%
         left: .9em
         color: $noticeOutdate-border
-        content: '\f071'
         transform: translateY(-50%)
 
   .ads-wrap
