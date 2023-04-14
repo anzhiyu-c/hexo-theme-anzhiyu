@@ -556,6 +556,8 @@ body[data-type="about"] #web_bg {
 .author-content-item.comic-content .comic-item .comic-item-cover img {
   height: 100%;
   transition: 0.8s;
+  max-width: none;
+  border-radius: 0px;
 }
 .author-content-item.comic-content::after {
   box-shadow: 0 -48px 203px 11px #fbe9b8 inset;
