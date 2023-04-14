@@ -13,7 +13,6 @@ li details.folding-tag summary {
 }
 
 details.folding-tag {
-  background: transparent !important;
   transition: border 0s ease !important;
   border: none !important;
 }

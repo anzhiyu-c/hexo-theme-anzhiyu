@@ -5,6 +5,9 @@ trans($time = 0.28s)
   -o-transition: all $time ease
 bgcolor($c, $mix = 10)
   return mix($c, #fff, $mix)
+details[open]:not(.tk-admin-config-group) {
+  background: var(--anzhiyu-card-bg);
+}
 details.folding-tag
   display: block
   padding: 16px
