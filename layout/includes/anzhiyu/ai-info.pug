@@ -115,7 +115,6 @@ if (description || ai)
           };
           const truncateDescription = "#{description}".substring(0, num)
           const queryParams = `key=${options.key}&content=${truncateDescription}`;
-          console.info(queryParams)
           const requestOptions = {
             method: "GET",
             headers: {
@@ -123,16 +122,15 @@ if (description || ai)
               Referer: options.Referer
             },
           };
-          startAI("测试测试")
-          //- fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
-          //-   .then(response => response.json())
-          //-   .then(result => {
-          //-     const summary = result.summary.trim();
-          //-     startAI(summary);
-          //-   })
-          //-   .catch(error => {
-          //-     console.error(error);
-          //-   });
+          fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+              const summary = result.summary.trim();
+              startAI(summary);
+            })
+            .catch(error => {
+              console.error(error);
+            });
         }
         function aiRecommend() {
           i = 0; //重置计数器
@@ -160,7 +158,6 @@ if (description || ai)
         }
         const aiFunctions = [Introduce, aiAbstract, aiRecommend, aiGoHome];
         ai_btn_item.forEach((item, index) => {
-          console.info(item, index, aiFunctions[index])
           item.addEventListener("click", () => {
             aiFunctions[index]();
           });
