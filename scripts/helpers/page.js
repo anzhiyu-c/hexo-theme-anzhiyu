@@ -39,7 +39,10 @@ hexo.extend.helper.register("get_page_fill_description", function () {
       return text.replace(/<\/?[^>]+>/g, "");
     });
 
-    description = escapeHTML(stripHTML(description).trim()).replace(/\n/g, " ");
+    description = escapeHTML(stripHTML(description).trim())
+      .replace(/\n/g, " ")
+      .replace(/[^\u4e00-\u9fa5]/gi, "");
+
     return contents.join(", ") + description;
   }
 });
