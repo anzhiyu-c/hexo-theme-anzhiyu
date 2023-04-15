@@ -4,7 +4,8 @@ block content
   #post
     if top_img === false
       include includes/header/post-info.pug
-
+    if theme.post_head_ai_description
+      include includes/anzhiyu/ai-info.pug
     article#article-container.post-content!=page.content
 
     //- ptool

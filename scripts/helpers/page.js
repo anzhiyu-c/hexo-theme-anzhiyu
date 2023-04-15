@@ -20,6 +20,16 @@ hexo.extend.helper.register("page_description", function () {
   }
 });
 
+hexo.extend.helper.register("get_page_fill_description", function () {
+  const { config, page } = this;
+  let description = page.description || page.content || page.title || config.description;
+
+  if (description) {
+    description = escapeHTML(stripHTML(description).trim()).replace(/\n/g, " ");
+    return description;
+  }
+});
+
 hexo.extend.helper.register("cloudTags", function (options = {}) {
   const env = this;
   let source = options.source;

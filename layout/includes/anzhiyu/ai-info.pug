@@ -1,0 +1,218 @@
+- let description = get_page_fill_description()
+
+- let ai = page.ai
+if (description || ai)
+  .post-ai-description
+    .ai-title
+      i.anzhiyufont.anzhiyu-icon-bilibili
+      .ai-title-text AI-摘要
+      #ai-Toggle 切换
+      #ai-tag TianliGPT
+    .ai-explanation AI初始化中...
+    .ai-btn-box
+      .ai-btn-item 介绍自己
+      .ai-btn-item 生成本文简介
+      .ai-btn-item 推荐相关文章
+      .ai-btn-item 前往主页
+      .ai-btn-item#go-tianli-blog 前往tianli博客
+    script(data-pjax).
+      (function(){
+        let animationRunning = true; // 标志变量，控制动画函数的运行
+        const explanation = document.querySelector(".ai-explanation");
+        const post_ai = document.querySelector(".post-ai-description");
+        let ai_str = "";
+        let ai_str_length = "";
+        let delay_init = 600;
+        let i = 0;
+        let j = 0;
+        let sto = [];
+        let elapsed = 0;
+        const animate = timestamp => {
+          if (!animationRunning) {
+            return; // 动画函数停止运行
+          }
+          if (!animate.start) animate.start = timestamp;
+          elapsed = timestamp - animate.start;
+          if (elapsed >= 20) {
+            animate.start = timestamp;
+            if (i < ai_str_length - 1) {
+              let char = ai_str.charAt(i + 1);
+              let delay = /[,.，。!?！？]/.test(char) ? 150 : 20;
+              if (explanation.firstElementChild) {
+                explanation.removeChild(explanation.firstElementChild);
+              }
+              explanation.innerHTML += char;
+              let div = document.createElement("div");
+              div.className = "ai-cursor";
+              explanation.appendChild(div);
+              i++;
+              if (delay === 150) {
+                document.querySelector(".ai-explanation .ai-cursor").style.opacity = "0";
+              }
+              if (i === ai_str_length - 1) {
+                observer.disconnect(); // 暂停监听
+                explanation.removeChild(explanation.firstElementChild);
+              }
+              sto[0] = setTimeout(() => {
+                requestAnimationFrame(animate);
+              }, delay);
+            }
+          } else {
+            requestAnimationFrame(animate);
+          }
+        };
+        const observer = new IntersectionObserver(
+          entries => {
+            let isVisible = entries[0].isIntersecting;
+            animationRunning = isVisible; // 标志变量更新
+            if (animationRunning) {
+              delay_init = i === 0 ? 200 : 20;
+              sto[1] = setTimeout(() => {
+                if (j) {
+                  i = 0;
+                  j = 0;
+                }
+                if (i === 0) {
+                  explanation.innerHTML = ai_str.charAt(0);
+                }
+                requestAnimationFrame(animate);
+              }, delay_init);
+            }
+          },
+          { threshold: 0 }
+        );
+        function clearSTO() {
+          if (sto.length) {
+            sto.forEach(item => {
+              if (item) {
+                clearTimeout(item);
+              }
+            });
+          }
+        }
+        function startAI(str, df = true) {
+          i = 0; //重置计数器
+          j = 1;
+          clearSTO();
+          animationRunning = false;
+          elapsed = 0;
+          if (df) {
+            explanation.innerHTML = "生成中. . .";
+          } else {
+            explanation.innerHTML = "请等待. . .";
+          }
+          ai_str = str;
+          ai_str_length = ai_str.length;
+          observer.disconnect(); // 暂停上一次监听
+          observer.observe(post_ai); //启动新监听
+        }
+
+        function aiAbstract(num = 1000) {
+          num = Math.max(1000, Math.min(1999, num));
+          const options = {
+            key: "#{theme.post_head_ai_description.key}",
+            Referer: "#{theme.post_head_ai_description.Referer}"
+          };
+          const truncateDescription = "#{description}".substring(0, num)
+          const queryParams = `key=${options.key}&content=${truncateDescription}`;
+          console.info(queryParams)
+          const requestOptions = {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Referer: options.Referer
+            },
+          };
+          startAI("测试测试")
+          //- fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
+          //-   .then(response => response.json())
+          //-   .then(result => {
+          //-     const summary = result.summary.trim();
+          //-     startAI(summary);
+          //-   })
+          //-   .catch(error => {
+          //-     console.error(error);
+          //-   });
+        }
+        function aiRecommend() {
+          i = 0; //重置计数器
+          j = 1;
+          clearSTO();
+          animationRunning = false;
+          elapsed = 0;
+          explanation.innerHTML = "生成中. . .";
+          ai_str = "";
+          ai_str_length = "";
+          observer.disconnect(); // 暂停上一次监听
+          sto[2] = setTimeout(() => {
+            explanation.innerHTML = recommendList();
+          }, 600);
+        }
+        function aiGoHome() {
+          startAI("正在前往博客主页...", false);
+          sto[2] = setTimeout(() => {
+            pjax.loadUrl("/");
+          }, 1000);
+        }
+        const ai_btn_item = document.querySelectorAll(".ai-btn-item");
+        function Introduce() {
+          startAI("我是文章辅助AI: TianliGPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+        }
+        const aiFunctions = [Introduce, aiAbstract, aiRecommend, aiGoHome];
+        ai_btn_item.forEach((item, index) => {
+          console.info(item, index, aiFunctions[index])
+          item.addEventListener("click", () => {
+            aiFunctions[index]();
+          });
+        });
+
+        function recommendList() {
+          const relatedPosts = document.querySelector('.relatedPosts');
+          if (!relatedPosts) {
+            return "很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />";
+          }
+          const thumbnail = relatedPosts.querySelectorAll('.relatedPosts-list a');
+          if (!thumbnail.length) {
+            return "很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />";
+          }
+          let info = `推荐文章：<br />`;
+          info += '<div class="ai-recommend">';
+          thumbnail.forEach((item, index) => {
+            info += `<div class="ai-recommend-item"><span>推荐${
+              index + 1
+            }：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${
+              item.title
+            }" data-pjax-state="">${item.title}</a></div>`;
+          });
+          info += "</div>";
+          return info;
+        }
+        //- 监听tag点击事件
+        document.getElementById("ai-tag").addEventListener("click", () => {
+          document.querySelectorAll(".ai-btn-item").forEach(item => item.style.display = "none");
+          document.getElementById("go-tianli-blog").style.display = "block";
+          startAI("你好，我是Tianli开发的摘要生成助理TianliGPT，是一个基于GPT-4的生成式AI。我在这里只负责摘要的预生成和显示，你无法与我直接沟通，如果你也需要一个这样的AI摘要接口，可以在下方购买。（暂未开放购买，敬请期待）")
+        });
+
+        document.getElementById("go-tianli-blog").addEventListener("click", () => {
+          window.open("https://tianli-blog.club/%e5%85%b3%e4%ba%8e/privacy-chatgpt/", "_blank");
+        });
+        
+        document.getElementById("ai-Toggle").addEventListener("click", () => {
+          const value = Math.floor(Math.random() * 500) + 1000;
+          aiAbstract(value);
+          showAiBtn();
+        });
+
+        function showAiBtn() {
+          document.querySelectorAll(".ai-btn-item").forEach(item => {
+            if (item.id !== "go-tianli-blog") {
+              item.style.display = "block";
+            }
+          });
+        }
+
+
+        aiAbstract();
+        showAiBtn()
+      })()
