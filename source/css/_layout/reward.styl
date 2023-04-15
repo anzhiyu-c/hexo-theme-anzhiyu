@@ -10,8 +10,8 @@
       background: var(--anzhiyu-theme);
       box-shadow: none;
       
-    & > .reward-main
-      display: flex;
+    .reward-main
+      display: flex !important;
       justify-content: left;
 
 
@@ -81,6 +81,7 @@
           img 
             width: 130px;
             height: 130px;
+            max-width: fit-content
           &:first-child img
             border-color: var(--anzhiyu-green);
           &:last-child img
@@ -123,3 +124,14 @@
     color: var(--anzhiyu-white);
   i
     margin-right: 4px;
+
+#quit-box
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .2);
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 101;
+  margin: 0;

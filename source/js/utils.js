@@ -1082,6 +1082,7 @@ const anzhiyu = {
   //添加赞赏蒙版
   addRewardMask: function () {
     document.querySelector(".reward-main").style.display = "flex";
+    document.querySelector(".reward-main").style.zIndex = "102";
     document.getElementById("quit-box").style.display = "flex";
   },
   // 移除赞赏蒙版
