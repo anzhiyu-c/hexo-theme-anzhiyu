@@ -106,14 +106,14 @@ if (description || ai)
           observer.disconnect(); // 暂停上一次监听
           observer.observe(post_ai); //启动新监听
         }
-
         function aiAbstract(num = 1000) {
           num = Math.max(1000, Math.min(1999, num));
           const options = {
             key: "#{theme.post_head_ai_description.key}",
             Referer: "#{theme.post_head_ai_description.Referer}"
           };
-          const truncateDescription = "#{description}".substring(0, num)
+          const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
+          
           const queryParams = `key=${options.key}&content=${truncateDescription}`;
           const requestOptions = {
             method: "GET",

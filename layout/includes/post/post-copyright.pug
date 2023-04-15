@@ -2,12 +2,6 @@ if theme.post_copyright.enable && page.copyright !== false
   - let author = page.copyright_author || config.author
   - let authorHref = page.copyright_author_href || theme.post_copyright.author_href || config.url
   - let url = page.copyright_url || page.permalink
-  - var pageTitle
-  - is_archive() ? page.title = findArchivesTitle(page, theme.menu, date) : ''
-  - if (is_tag()) pageTitle = _p('page.tag') + ': ' + page.tag
-  - else if (is_category()) pageTitle = _p('page.category') + ': ' + page.category
-  - else if (is_current('/404.html', [strict])) pageTitle = _p('error404')
-  - else pageTitle = page.title || config.title || ''
   - let info = page.copyright_info || _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
   .post-copyright
     i.anzhiyufont.anzhiyu-icon-copyright
