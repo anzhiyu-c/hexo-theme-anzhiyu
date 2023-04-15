@@ -6,12 +6,14 @@
 - let btnLink = theme.post_head_ai_description.btnLink
 - let gptName = theme.post_head_ai_description.gptName
 - let mode = theme.post_head_ai_description.mode
+- let switchBtn = theme.post_head_ai_description.switchBtn
 if (description && ai)
   .post-ai-description
     .ai-title
       i.anzhiyufont.anzhiyu-icon-bilibili
       .ai-title-text AI-摘要
-      #ai-Toggle 切换
+      if (switchBtn)
+        #ai-Toggle 切换
       i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
       #ai-tag
         if mode == "tianli"
@@ -252,9 +254,11 @@ if (description && ai)
           window.open("#{btnLink}", "_blank");
         });
         
-        document.getElementById("ai-Toggle").addEventListener("click", () => {
-          changeShowMode()
-        });
+        if (#{switchBtn}) {
+          document.getElementById("ai-Toggle").addEventListener("click", () => {
+            changeShowMode()
+          });
+        }
 
         aiTitleRefreshIcon.addEventListener("click", () => {
           const value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
