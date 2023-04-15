@@ -1005,9 +1005,11 @@ greetingBox:
 
 # 文章顶部ai摘要
 post_head_ai_description:
-  enable: true
-  key:
-  Referer:
+  enable: false
+  randomNum: 3 # 按钮最大的随机次数，也就是一篇文章最大随机出来几种
+  basicWordCount: 1000 # 最低获取字符数, 最小1000, 最大1999
+  key: xxxx
+  Referer: https://xx.xx/
 
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)

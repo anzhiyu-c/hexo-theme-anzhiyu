@@ -1,6 +1,8 @@
 - let description = get_page_fill_description()
 
 - let ai = page.ai
+- let randomNum = theme.post_head_ai_description.randomNum
+- let basicWordCount = theme.post_head_ai_description.basicWordCount
 if (description || ai)
   .post-ai-description
     .ai-title
@@ -106,7 +108,7 @@ if (description || ai)
           observer.disconnect(); // 暂停上一次监听
           observer.observe(post_ai); //启动新监听
         }
-        function aiAbstract(num = 1000) {
+        function aiAbstract(num = #{basicWordCount}) {
           num = Math.max(1000, Math.min(1999, num));
           const options = {
             key: "#{theme.post_head_ai_description.key}",
@@ -196,7 +198,7 @@ if (description || ai)
         });
         
         document.getElementById("ai-Toggle").addEventListener("click", () => {
-          const value = Math.floor(Math.random() * 500) + 1000;
+          const value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
           aiAbstract(value);
           showAiBtn();
         });
