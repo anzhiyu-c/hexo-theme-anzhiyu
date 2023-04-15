@@ -1005,7 +1005,10 @@ greetingBox:
 
 # 文章顶部ai摘要
 post_head_ai_description:
-  enable: false
+  enable: true
+  gptName: AnZhiYu
+  mode: local # 默认模式 可选值: tianli/local
+  btnLink: https://afdian.net/item/2e07e870dad911edacb852540025c377
   randomNum: 3 # 按钮最大的随机次数，也就是一篇文章最大随机出来几种
   basicWordCount: 1000 # 最低获取字符数, 最小1000, 最大1999
   key: xxxx
