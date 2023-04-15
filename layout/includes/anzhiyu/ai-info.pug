@@ -3,13 +3,21 @@
 - let ai = page.ai
 - let randomNum = theme.post_head_ai_description.randomNum
 - let basicWordCount = theme.post_head_ai_description.basicWordCount
-if (description || ai)
+- let btnLink = theme.post_head_ai_description.btnLink
+- let gptName = theme.post_head_ai_description.gptName
+- let mode = theme.post_head_ai_description.mode
+if (description && ai)
   .post-ai-description
     .ai-title
       i.anzhiyufont.anzhiyu-icon-bilibili
       .ai-title-text AI-摘要
       #ai-Toggle 切换
-      #ai-tag TianliGPT
+      i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
+      #ai-tag
+        if mode == "tianli"
+          = "tianli GPT"
+        else
+          = gptName + " GPT"
     .ai-explanation AI初始化中...
     .ai-btn-box
       .ai-btn-item 介绍自己
@@ -19,7 +27,14 @@ if (description || ai)
       .ai-btn-item#go-tianli-blog 前往tianli博客
     script(data-pjax).
       (function(){
+        // 当前随机到的ai摘要到index
+        let lastAiRandomIndex = -1;
         let animationRunning = true; // 标志变量，控制动画函数的运行
+        // 当前gpt模式
+        let mode = "#{mode}"
+        // 刷新点击次数
+        let refreshNum = 0
+        const aiTitleRefreshIcon = document.querySelector(".ai-title .anzhiyufont.anzhiyu-icon-arrow-rotate-right")
         const explanation = document.querySelector(".ai-explanation");
         const post_ai = document.querySelector(".post-ai-description");
         let ai_str = "";
@@ -109,30 +124,51 @@ if (description || ai)
           observer.observe(post_ai); //启动新监听
         }
         function aiAbstract(num = #{basicWordCount}) {
-          num = Math.max(1000, Math.min(1999, num));
-          const options = {
-            key: "#{theme.post_head_ai_description.key}",
-            Referer: "#{theme.post_head_ai_description.Referer}"
-          };
-          const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
+          if (mode == "tianli") {
+            num = Math.max(1000, Math.min(1999, num));
+            const options = {
+              key: "#{theme.post_head_ai_description.key}",
+              Referer: "#{theme.post_head_ai_description.Referer}"
+            };
+            const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
+            
+            const queryParams = `key=${options.key}&content=${truncateDescription}`;
+            const requestOptions = {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Referer: options.Referer
+              },
+            };
+            fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
+              .then(response => response.json())
+              .then(result => {
+                const summary = result.summary.trim();
+                setTimeout(()=>{
+                  aiTitleRefreshIcon.style.opacity = "1";
+                }, 300)
+                startAI(summary);
+              })
+              .catch(error => {
+                console.error(error);
+              });        
+          } else {
+            const strArr = "#{ai}".split(",").map(item => item.trim()); // 将字符串转换为数组，去除每个字符串前后的空格
+            if (strArr.length != 1) {
+              let randomIndex = Math.floor(Math.random() * strArr.length);  // 随机生成一个索引
+              if (randomIndex === lastAiRandomIndex) {  // 如果随机到了上次的索引
+                randomIndex = (randomIndex + 1) % strArr.length;  // 将索引加 1，如果超出数组长度则取模
+              }
+              lastAiRandomIndex = randomIndex;  // 更新上次随机到的索引
+              startAI(strArr[randomIndex]);
+            } else {
+              startAI(strArr[0])
+            }
+            setTimeout(()=>{
+              aiTitleRefreshIcon.style.opacity = "1";
+            }, 600)
+          }
           
-          const queryParams = `key=${options.key}&content=${truncateDescription}`;
-          const requestOptions = {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Referer: options.Referer
-            },
-          };
-          fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              const summary = result.summary.trim();
-              startAI(summary);
-            })
-            .catch(error => {
-              console.error(error);
-            });
         }
         function aiRecommend() {
           i = 0; //重置计数器
@@ -186,27 +222,57 @@ if (description || ai)
           info += "</div>";
           return info;
         }
+
+        function changeShowMode() {
+          if (mode === "tianli") {
+            mode = "local"
+            document.getElementById("ai-tag").innerHTML = "#{gptName} GPT"
+            aiAbstract(#{basicWordCount})
+          } else {
+            mode = "tianli"
+            document.getElementById("ai-tag").innerHTML = "tianli GPT"
+            aiAbstract(#{basicWordCount})
+          }
+        }
+
         //- 监听tag点击事件
         document.getElementById("ai-tag").addEventListener("click", () => {
-          document.querySelectorAll(".ai-btn-item").forEach(item => item.style.display = "none");
-          document.getElementById("go-tianli-blog").style.display = "block";
-          startAI("你好，我是Tianli开发的摘要生成助理TianliGPT，是一个基于GPT-4的生成式AI。我在这里只负责摘要的预生成和显示，你无法与我直接沟通，如果你也需要一个这样的AI摘要接口，可以在下方购买。（暂未开放购买，敬请期待）")
+          if (mode === "tianli") {
+            document.querySelectorAll(".ai-btn-item").forEach(item => item.style.display = "none");
+            document.getElementById("go-tianli-blog").style.display = "block";
+            startAI("你好，我是Tianli开发的摘要生成助理TianliGPT，是一个基于GPT-4的生成式AI。我在这里只负责摘要的预生成和显示，你无法与我直接沟通，如果你也需要一个这样的AI摘要接口，可以在下方购买。（暂未开放购买，敬请期待）")
+          } else {
+            document.getElementById("go-tianli-blog").style.display = "none";
+            startAI("你好，我是本站摘要生成助理#{gptName} GPT，是一个基于GPT-4的生成式AI。我在这里只负责摘要的预生成和显示，你无法与我直接沟通。")
+          }
+
         });
 
         document.getElementById("go-tianli-blog").addEventListener("click", () => {
-          window.open("https://afdian.net/item/2e07e870dad911edacb852540025c377", "_blank");
+          window.open("#{btnLink}", "_blank");
         });
         
         document.getElementById("ai-Toggle").addEventListener("click", () => {
+          changeShowMode()
+        });
+
+        aiTitleRefreshIcon.addEventListener("click", () => {
           const value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+          aiTitleRefreshIcon.style.opacity = "0.2";
+          aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+          aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
           aiAbstract(value);
           showAiBtn();
+          refreshNum++
         });
 
         function showAiBtn() {
           document.querySelectorAll(".ai-btn-item").forEach(item => {
             if (item.id !== "go-tianli-blog") {
               item.style.display = "block";
+            }
+            if (item.id === "go-tianli-blog") {
+              item.style.display = "none";
             }
           });
         }
