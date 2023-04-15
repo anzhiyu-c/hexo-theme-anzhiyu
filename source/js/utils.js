@@ -922,18 +922,20 @@ const anzhiyu = {
   },
   // 监听按键
   toPage: function () {
-    var e = document.querySelectorAll(".page-number"),
-      t = e[e.length - 1].innerHTML,
-      n = Number(t),
-      a = document.getElementById("toPageText"),
-      o = Number(a.value);
-    if ("" != o && !isNaN(o) && o % 1 == 0)
-      if (1 == o) document.getElementById("toPageButton").href = "/";
-      else if (o > n) {
-        var d = "/page/" + n + "/";
-        document.getElementById("toPageButton").href = d;
-      } else (d = "/page/" + a.value + "/"), (document.getElementById("toPageButton").href = d);
+    var toPageText = document.getElementById("toPageText"),
+      toPageButton = document.getElementById("toPageButton"),
+      pageNumbers = document.querySelectorAll(".page-number"),
+      lastPageNumber = Number(pageNumbers[pageNumbers.length - 1].innerHTML),
+      pageNumber = Number(toPageText.value);
+
+    if (!isNaN(pageNumber) && pageNumber >= 1 && Number.isInteger(pageNumber)) {
+      var url = "/page/" + (pageNumber > lastPageNumber ? lastPageNumber : pageNumber) + "/";
+      toPageButton.href = pageNumber === 1 ? "/" : url;
+    } else {
+      toPageButton.href = "javascript:void(0);";
+    }
   },
+
   //删除多余的class
   removeBodyPaceClass: function () {
     var body = document.querySelector("body");
