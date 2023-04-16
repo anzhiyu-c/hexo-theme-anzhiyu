@@ -247,7 +247,7 @@ body[data-type="about"] #web_bg {
 }
 .author-content-item .card-content .banner-button-group .banner-button {
   height: 40px;
-  width: 124px;
+  width: 140px;
   border-radius: 20px;
   justify-content: center;
   background: var(--anzhiyu-card-bg);
@@ -267,6 +267,14 @@ body[data-type="about"] #web_bg {
 #about-page .author-content-item .card-content .banner-button-group .banner-button i,
 #about-page .author-content-item .card-content .banner-button-group .banner-button svg {
   font-size: 1.5rem;
+  margin-right: 0;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  background: white;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
 }
 
 .author-content-item .card-content .banner-button-group .banner-button:hover {

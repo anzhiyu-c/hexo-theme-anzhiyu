@@ -1,33 +1,8 @@
 beautify()
   headStyle(fontsize)
-    padding-left: unit(fontsize + 12, 'px')
-
     &:before
       margin-left: unit((-(fontsize + 6)), 'px')
       font-size: unit(fontsize, 'px')
-
-    &:hover
-      padding-left: unit(fontsize + 18, 'px')
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6
-    transition: all .2s ease-out
-
-    &:before
-      position: absolute
-      top: calc(50% - 7px)
-      color: $title-prefix-icon-color
-      content: $title-prefix-icon
-      line-height: 1
-      transition: all .2s ease-out
-      if hexo-config('icons.fontawesome')
-        @extend .fontawesomeIcon
-      else
-        @extend .anzhiyufont
 
     &:hover
       &:before
@@ -69,9 +44,29 @@ beautify()
   ul > li
     list-style-type: circle
 
+blockquote {
+  border: var(--style-border-always);
+  background-color: var(--anzhiyu-secondbg);
+  color: var(--anzhiyu-secondtext);
+  border-radius: 8px;
+  margin: 1rem 0;
+  padding: 0.5rem 0.8rem;
+}
+
 #article-container
   word-wrap: break-word
   overflow-wrap: break-word
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    .post-content
+      line-height: 1.6;
+      border-top: 1px dashed var(--anzhiyu-theme-op);
+      padding-top: 1.5rem;
+      padding-left: 0;
 
   a
     color: $theme-link-color
@@ -105,25 +100,62 @@ beautify()
     font-size: .9em
     font-family: Monaco, 'Ubuntu Mono', monospace
     line-height: 1em
+  h1
+    .headerlink
+      float: right;
+      opacity: 0.08;
+      position: relative;
+      padding: 0px;
+      border: none;
+      line-height: 1;
+      font-size: 2rem;
+      border-radius: 8px !important;
+      text-decoration: none;
+      font-weight: 700;
+      &::before
+        font-size: 2rem;
+  h2
+    .headerlink
+      float: right;
+      opacity: 0.08;
+      position: relative;
+      padding: 0px;
+      border: none;
+      line-height: 1;
+      font-size: 1.8rem;
+      border-radius: 8px !important;
+      text-decoration: none;
+      font-weight: 700;
+      &::before
+        font-size: 1.8rem;
+  h3,h4,h5,h6
+    .headerlink
+      float: right;
+      opacity: 0.08;
+      position: relative;
+      padding: 0px;
+      border: none;
+      line-height: 1;
+      font-size: 1.3rem;
+      border-radius: 8px !important;
+      text-decoration: none;
+      font-weight: 700;
+      &::before
+        font-size: 1.3rem;
+  a.headerlink
+    &::before
+      if hexo-config('icons.fontawesome')
+        @extend .fontawesomeIcon
+      else
+        @extend .anzhiyufont
+      content: '\f0c1'
+      float: right
+      color: var(--headline-presudo)
+      transition: all .3s
 
-  if hexo-config('anchor')
-    a.headerlink
+    &:hover
       &:after
-        if hexo-config('icons.fontawesome')
-          @extend .fontawesomeIcon
-          content: '\f0c1'
-        else
-          @extend .anzhiyufont
-          content: '\e64a'
-        float: right
-        color: var(--headline-presudo)
-        font-size: .95em
-        opacity: 0
-        transition: all .3s
-
-      &:hover
-        &:after
-          color: var(--pseudo-hover)
+        color: var(--pseudo-hover)
 
     h1,
     h2,
@@ -319,6 +351,18 @@ beautify()
   .ads-wrap
     margin: 40px 0
 
+  #content-inner.layout #article-container
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
 .post-ai-description
   background: var(--anzhiyu-secondbg);
   border-radius: 12px;

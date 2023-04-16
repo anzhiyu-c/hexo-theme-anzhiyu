@@ -43,6 +43,11 @@ hexo.extend.helper.register("get_page_fill_description", function () {
       .replace(/\n/g, " ")
       .replace(/[^\u4e00-\u9fa5]/gi, "");
 
+    // if (page.ai) {
+    //   console.log(page.title + contents.join(", ") + description);
+    //   console.log(page.title, "========================");
+    // }
+
     return contents.join(", ") + description;
   }
 });

@@ -25,7 +25,7 @@ body[data-type="room"] #page .page-title {
 }
 #room_page .banner-button-group .banner-button {
   height: 40px;
-  width: 124px;
+  width: 140px;
   border-radius: 20px;
   justify-content: center;
   color: var(--anzhiyu-white);
