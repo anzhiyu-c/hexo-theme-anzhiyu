@@ -271,7 +271,6 @@ body[data-type="about"] #web_bg {
   height: 40px;
   width: 40px;
   display: flex;
-  background: white;
   border-radius: 50px;
   align-items: center;
   justify-content: center;
@@ -282,9 +281,9 @@ body[data-type="about"] #web_bg {
   color: var(--anzhiyu-white);
   border-radius: 20px !important;
 }
-.author-content-item.personalities {
-  position: relative;
-  width: 59%;
+.author-content-item .card-content .banner-button-group .banner-button:hover i,
+.author-content-item .card-content .banner-button-group .banner-button:hover svg .author-content-item.personalities {
+  background: none !important;
 }
 
 .author-content-item.personalities .image {
@@ -632,7 +631,7 @@ body[data-type="about"] #web_bg {
     height: 95%;
   }
   .author-content-item.personalities {
-    height: 170px;
+    height: 200px;
   }
   .post-tips {
     left: auto;
