@@ -194,7 +194,11 @@ if (description && ai)
         }
         const ai_btn_item = document.querySelectorAll(".ai-btn-item");
         function Introduce() {
-          startAI("我是文章辅助AI: TianliGPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+          if (mode == "tianli") {
+            startAI("我是文章辅助AI: TianliGPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+          } else {
+            startAI("我是文章辅助AI: #{gptName} GPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+          }
         }
         const aiFunctions = [Introduce, aiAbstract, aiRecommend, aiGoHome];
         ai_btn_item.forEach((item, index) => {
@@ -206,11 +210,26 @@ if (description && ai)
         function recommendList() {
           const relatedPosts = document.querySelector('.relatedPosts');
           if (!relatedPosts) {
-            return "很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />";
+            const cardRecentPost = document.querySelector('.card-widget.card-recent-post'); 
+            if (!cardRecentPost) return
+            const thumbnail = cardRecentPost.querySelectorAll('.aside-list-item a');
+
+            let info = `很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />`;
+            info += '<div class="ai-recommend">';
+            thumbnail.forEach((item, index) => {
+              info += `<div class="ai-recommend-item"><span class="index">${
+                index + 1
+              }：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${
+                item.title
+              }" data-pjax-state="">${item.title}</a></div>`;
+            });
+            info += "</div>";
+
+            return info;
           }
           const thumbnail = relatedPosts.querySelectorAll('.relatedPosts-list a');
           if (!thumbnail.length) {
-            return "很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />";
+            return "很抱歉，无法找到类似的文章<br />";
           }
           let info = `推荐文章：<br />`;
           info += '<div class="ai-recommend">';
