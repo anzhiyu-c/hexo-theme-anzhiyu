@@ -117,18 +117,21 @@ if (description && ai)
           clearSTO();
           animationRunning = false;
           elapsed = 0;
-          if (df) {
-            explanation.innerHTML = "生成中. . .";
-          } else {
-            explanation.innerHTML = "请等待. . .";
-          }
+          observer.disconnect(); // 暂停上一次监听
+          explanation.innerHTML = df ? "生成中. . ." : "请等待. . .";
           ai_str = str;
           ai_str_length = ai_str.length;
-          observer.disconnect(); // 暂停上一次监听
           observer.observe(post_ai); //启动新监听
         }
-        function aiAbstract(num = #{basicWordCount}) {
-          if (mode == "tianli") {
+
+        async function aiAbstract(num = #{basicWordCount}) {
+          i = 0; //重置计数器
+          j = 1;
+          clearSTO();
+          animationRunning = false;
+          elapsed = 0;
+          observer.disconnect(); // 暂停上一次监听
+          if (mode === "tianli") {
             num = Math.max(10, Math.min(2000, num));
             console.info(num)
             const options = {
@@ -136,7 +139,7 @@ if (description && ai)
               Referer: "#{theme.post_head_ai_description.Referer}"
             };
             const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
-            
+
             const queryParams = `key=${options.key}&content=${truncateDescription}`;
             const requestOptions = {
               method: "GET",
@@ -145,36 +148,37 @@ if (description && ai)
                 Referer: options.Referer
               },
             };
-            fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
-              .then(response => response.json())
-              .then(result => {
-                const summary = result.summary.trim();
-                setTimeout(()=>{
-                  aiTitleRefreshIcon.style.opacity = "1";
-                }, 300)
-                startAI(summary);
-              })
-              .catch(error => {
-                console.error(error);
-              });
+            try {
+              explanation.innerHTML = "生成中. . .";
+              const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
+              const result = await response.json();
+              const summary = result.summary.trim();
+              setTimeout(() => {
+                aiTitleRefreshIcon.style.opacity = "1";
+              }, 300)
+              startAI(summary);
+
+            } catch (error) {
+              console.error(error);
+            }
           } else {
             const strArr = "#{ai}".split(",").map(item => item.trim()); // 将字符串转换为数组，去除每个字符串前后的空格
-            if (strArr.length != 1) {
-              let randomIndex = Math.floor(Math.random() * strArr.length);  // 随机生成一个索引
-              if (randomIndex === lastAiRandomIndex) {  // 如果随机到了上次的索引
-                randomIndex = (randomIndex + 1) % strArr.length;  // 将索引加 1，如果超出数组长度则取模
+            if (strArr.length !== 1) {
+              let randomIndex = Math.floor(Math.random() * strArr.length); // 随机生成一个索引
+              while (randomIndex === lastAiRandomIndex) { // 如果随机到了上次的索引
+                randomIndex = Math.floor(Math.random() * strArr.length); // 再次随机
               }
-              lastAiRandomIndex = randomIndex;  // 更新上次随机到的索引
+              lastAiRandomIndex = randomIndex; // 更新上次随机到的索引
               startAI(strArr[randomIndex]);
             } else {
               startAI(strArr[0])
             }
-            setTimeout(()=>{
+            setTimeout(() => {
               aiTitleRefreshIcon.style.opacity = "1";
             }, 600)
           }
-          
         }
+
         function aiRecommend() {
           i = 0; //重置计数器
           j = 1;
