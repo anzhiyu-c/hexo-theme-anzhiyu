@@ -661,8 +661,9 @@ body[data-type="about"] #web_bg {
     bottom: 1rem;
   }
   .author-content-item .card-content .banner-button-group .banner-button {
-    background: 0 0;
+    background: none;
     padding: 0;
+    width: auto;
   }
   .author-content-item .card-content .banner-button-group .banner-button i,
   .author-content-item .card-content .banner-button-group .banner-button svg {
@@ -672,6 +673,11 @@ body[data-type="about"] #web_bg {
     border-radius: 50%;
     padding: 6px;
     margin-left: 80px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .author-content-item .card-content .banner-button-group .banner-button:hover i {
     background: var(--anzhiyu-background) !important;

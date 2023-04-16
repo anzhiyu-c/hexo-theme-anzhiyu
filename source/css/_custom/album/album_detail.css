@@ -117,7 +117,10 @@ body[data-type="album_detail"] #page .page-title {
 
 #album_detail .album-info {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  width: 95%;
 }
 
 #album_detail > section > ul > li > div .album-info-time,
@@ -131,7 +134,17 @@ body[data-type="album_detail"] #page .page-title {
   cursor: default;
   display: flex;
   align-items: center;
+  height: 35px;
+  line-height: 35px;
+  margin: 4px;
+  overflow: hidden;
 }
+#album_detail > section > ul > li > div .album-info-time time {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 #album_detail > section > ul > li > div .album-info-address,
 #album_detail > section > ul > li > div .album-info-from {
   margin-left: 4px;
@@ -139,6 +152,9 @@ body[data-type="album_detail"] #page .page-title {
 #album_detail > section > ul > li > div .album-info-address span,
 #album_detail > section > ul > li > div .album-info-from span {
   margin-left: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #album_detail .album-info .anzhiyufont.anzhiyu-icon-instagram {
   margin-right: 8px;
@@ -153,6 +169,7 @@ body[data-type="album_detail"] #page .page-title {
 
 #album_detail .album-bottom .album-reply {
   cursor: pointer;
+  width: 5%;
 }
 
 #album_detail .timeline ul li.album-item:hover {
