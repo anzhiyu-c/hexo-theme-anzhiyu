@@ -208,41 +208,31 @@ if (description && ai)
         });
 
         function recommendList() {
-          const relatedPosts = document.querySelector('.relatedPosts');
-          if (!relatedPosts) {
-            const cardRecentPost = document.querySelector('.card-widget.card-recent-post'); 
-            if (!cardRecentPost) return
-            const thumbnail = cardRecentPost.querySelectorAll('.aside-list-item a');
-
-            let info = `很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />`;
-            info += '<div class="ai-recommend">';
-            thumbnail.forEach((item, index) => {
-              info += `<div class="ai-recommend-item"><span class="index">${
-                index + 1
-              }：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${
-                item.title
-              }" data-pjax-state="">${item.title}</a></div>`;
-            });
-            info += "</div>";
-
-            return info;
-          }
-          const thumbnail = relatedPosts.querySelectorAll('.relatedPosts-list a');
+          let thumbnail = document.querySelectorAll('.relatedPosts-list a');
           if (!thumbnail.length) {
-            return "很抱歉，无法找到类似的文章<br />";
+            const cardRecentPost = document.querySelector('.card-widget.card-recent-post'); 
+            if (!cardRecentPost) return '';
+
+            thumbnail = cardRecentPost.querySelectorAll('.aside-list-item a');
+
+            let list = '';
+            for (let i = 0; i < thumbnail.length; i++) {
+              const item = thumbnail[i];
+              list += `<div class="ai-recommend-item"><span class="index">${i + 1}：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${item.title}" data-pjax-state="">${item.title}</a></div>`;
+            }
+            
+            return `很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br /><div class="ai-recommend">${list}</div>`;
           }
-          let info = `推荐文章：<br />`;
-          info += '<div class="ai-recommend">';
-          thumbnail.forEach((item, index) => {
-            info += `<div class="ai-recommend-item"><span>推荐${
-              index + 1
-            }：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${
-              item.title
-            }" data-pjax-state="">${item.title}</a></div>`;
-          });
-          info += "</div>";
-          return info;
+
+          let list = '';
+          for (let i = 0; i < thumbnail.length; i++) {
+            const item = thumbnail[i];
+            list += `<div class="ai-recommend-item"><span>推荐${i + 1}：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${item.title}" data-pjax-state="">${item.title}</a></div>`;
+          }
+
+          return `推荐文章：<br /><div class="ai-recommend">${list}</div>`;
         }
+
 
         function changeShowMode() {
           if (mode === "tianli") {
