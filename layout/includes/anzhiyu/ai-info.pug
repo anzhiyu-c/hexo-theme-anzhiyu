@@ -36,6 +36,8 @@ if (description && ai)
         let mode = "#{mode}"
         // 刷新点击次数
         let refreshNum = 0
+        // 记录上一次传递给aiAbstract的参数
+        let prevParam;
         const aiTitleRefreshIcon = document.querySelector(".ai-title .anzhiyufont.anzhiyu-icon-arrow-rotate-right")
         const explanation = document.querySelector(".ai-explanation");
         const post_ai = document.querySelector(".post-ai-description");
@@ -127,7 +129,8 @@ if (description && ai)
         }
         function aiAbstract(num = #{basicWordCount}) {
           if (mode == "tianli") {
-            num = Math.max(1000, Math.min(1999, num));
+            num = Math.max(10, Math.min(2000, num));
+            console.info(num)
             const options = {
               key: "#{theme.post_head_ai_description.key}",
               Referer: "#{theme.post_head_ai_description.Referer}"
@@ -153,7 +156,7 @@ if (description && ai)
               })
               .catch(error => {
                 console.error(error);
-              });        
+              });
           } else {
             const strArr = "#{ai}".split(",").map(item => item.trim()); // 将字符串转换为数组，去除每个字符串前后的空格
             if (strArr.length != 1) {
@@ -200,7 +203,10 @@ if (description && ai)
             startAI("我是文章辅助AI: #{gptName} GPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
           }
         }
-        const aiFunctions = [Introduce, aiAbstract, aiRecommend, aiGoHome];
+        function aiTitleRefreshIconClick() {
+          aiTitleRefreshIcon.click()
+        }
+        const aiFunctions = [Introduce, aiTitleRefreshIconClick, aiRecommend, aiGoHome];
         ai_btn_item.forEach((item, index) => {
           item.addEventListener("click", () => {
             aiFunctions[index]();
@@ -236,13 +242,33 @@ if (description && ai)
 
         function changeShowMode() {
           if (mode === "tianli") {
-            mode = "local"
-            document.getElementById("ai-tag").innerHTML = "#{gptName} GPT"
-            aiAbstract(#{basicWordCount})
+            mode = "local";
+            document.getElementById("ai-tag").innerHTML = "#{gptName} GPT";
+            aiAbstract(#{basicWordCount});
           } else {
-            mode = "tianli"
-            document.getElementById("ai-tag").innerHTML = "Tianli GPT"
-            aiAbstract(#{basicWordCount})
+            mode = "tianli";
+            document.getElementById("ai-tag").innerHTML = "Tianli GPT";
+
+            const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, #{basicWordCount});
+            let value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+            while (value === prevParam || truncateDescription.length - value === prevParam) {
+              value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+            }
+            aiTitleRefreshIcon.style.opacity = "0.2";
+            aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+            aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+            if (truncateDescription.length <= 1000) {
+              let param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+              while (param === prevParam) {
+                param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+              }
+              aiAbstract(param);
+              prevParam = param;
+            } else {
+              aiAbstract(value);
+              prevParam = value;
+            }
+            refreshNum++;
           }
         }
 
@@ -259,6 +285,30 @@ if (description && ai)
 
         });
 
+        aiTitleRefreshIcon.addEventListener("click", () => {
+          const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, #{basicWordCount});
+          let value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+          while (value === prevParam || truncateDescription.length - value === prevParam) {
+            value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+          }
+          aiTitleRefreshIcon.style.opacity = "0.2";
+          aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+          aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+          if (truncateDescription.length <= 1000) {
+            let param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+            while (param === prevParam) {
+              param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+            }
+            aiAbstract(param);
+            prevParam = param;
+          } else {
+            aiAbstract(value);
+            prevParam = value;
+          }
+          showAiBtn();
+          refreshNum++;
+        });
+
         document.getElementById("go-tianli-blog").addEventListener("click", () => {
           window.open("#{btnLink}", "_blank");
         });
@@ -268,21 +318,6 @@ if (description && ai)
             changeShowMode()
           });
         }
-
-        aiTitleRefreshIcon.addEventListener("click", () => {
-          const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
-          const value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
-          aiTitleRefreshIcon.style.opacity = "0.2";
-          aiTitleRefreshIcon.style.transitionDuration = "0.3s";
-          aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
-          if (truncateDescription.length <= 1000) {
-            aiAbstract(truncateDescription.length - Math.floor(Math.random() * #{randomNum}));
-          } else {
-            aiAbstract(value);
-          }
-          showAiBtn();
-          refreshNum++
-        });
 
         function showAiBtn() {
           document.querySelectorAll(".ai-btn-item").forEach(item => {
