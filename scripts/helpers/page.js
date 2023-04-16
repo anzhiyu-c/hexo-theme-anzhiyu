@@ -39,13 +39,18 @@ hexo.extend.helper.register("get_page_fill_description", function () {
       return text.replace(/<\/?[^>]+>/g, "");
     });
 
+    // 排除 div.post-ai-description 元素中的内容
+    const excludedDivRegex = /<div[^>]*class="?post-ai-description"?.*?>[\s\S]*?<\/div>/gi;
+    description = description.replace(excludedDivRegex, "");
+
     description = escapeHTML(stripHTML(description).trim())
       .replace(/\n/g, " ")
       .replace(/[^\u4e00-\u9fa5]/gi, "");
 
     // if (page.ai) {
-    //   console.log(page.title + contents.join(", ") + description);
-    //   console.log(page.title, "========================");
+    //   if (page.abbrlink != "61e4") return;
+    //   const info = page.title + contents.join(", ") + description;
+    //   console.log(info.trim().substring(0, 395));
     // }
 
     return contents.join(", ") + description;

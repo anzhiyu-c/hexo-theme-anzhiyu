@@ -270,11 +270,16 @@ if (description && ai)
         }
 
         aiTitleRefreshIcon.addEventListener("click", () => {
+          const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
           const value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
           aiTitleRefreshIcon.style.opacity = "0.2";
           aiTitleRefreshIcon.style.transitionDuration = "0.3s";
           aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
-          aiAbstract(value);
+          if (truncateDescription.length <= 1000) {
+            aiAbstract(truncateDescription.length - Math.floor(Math.random() * #{randomNum}));
+          } else {
+            aiAbstract(value);
+          }
           showAiBtn();
           refreshNum++
         });
