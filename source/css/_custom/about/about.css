@@ -624,7 +624,7 @@ body[data-type="about"] #web_bg {
     height: 95%;
   }
   .author-content-item.personalities {
-    height: 170px;
+    height: 200px;
   }
   .post-tips {
     left: auto;
@@ -661,7 +661,7 @@ body[data-type="about"] #web_bg {
   .author-content-item .card-content .banner-button-group .banner-button svg {
     margin-right: 0;
     font-size: 1.5rem;
-    background: white;
+    color: white;
     border-radius: 50%;
     padding: 6px;
     margin-left: 80px;
