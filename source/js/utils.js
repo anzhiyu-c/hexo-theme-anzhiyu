@@ -627,7 +627,7 @@ const anzhiyu = {
 
   //获取音乐中的名称
   musicGetName: function () {
-    var x = $(".aplayer-title");
+    var x = document.querySelector(".aplayer-title");
     var arr = [];
     for (var i = x.length - 1; i >= 0; i--) {
       arr[i] = x[i].innerText;
@@ -638,10 +638,12 @@ const anzhiyu = {
   // 检测显示模式
   darkModeStatus: function () {
     let theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    if (theme == "light") {
-      $(".menu-darkmode-text").text("深色模式");
+    const menuDarkmodeText = document.querySelector(".menu-darkmode-text");
+
+    if (theme === "light") {
+      menuDarkmodeText.textContent = "深色模式";
     } else {
-      $(".menu-darkmode-text").text("浅色模式");
+      menuDarkmodeText.textContent = "浅色模式";
     }
   },
 
