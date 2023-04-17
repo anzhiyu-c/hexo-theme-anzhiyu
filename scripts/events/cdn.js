@@ -49,11 +49,11 @@ hexo.extend.filter.register("before_generate", () => {
     Object.keys(data).map(key => {
       let { name, version, file, other_name } = data[key];
 
-      const min_file = minFile(file);
       const cdnjs_name = other_name || name;
       const cdnjs_file = file.replace(/^[lib|dist]*\/|browser\//g, "");
       const min_cdnjs_file = minFile(cdnjs_file);
       if (cond === "internal") file = `source/${file}`;
+      const min_file = minFile(file);
       const verType = CDN.version ? `@${version}` : "";
 
       const value = {
