@@ -283,3 +283,27 @@ body[data-type="album_detail"] #page .author-content-item .card-content .banner-
 #album_detail .aplayer .aplayer-lrc p {
   color: var(--anzhiyu-fontcolor);
 }
+
+#album_detail .type-gallery {
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+#album_detail_gallery_load_more {
+  opacity: 0;
+}
+
+#album_detail .tag-address {
+  display: flex;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: var(--anzhiyu-black-op);
+  font-size: 12px;
+  color: var(--anzhiyu-post-tabs-bg);
+  transition: 0.3s;
+  z-index: 1;
+  user-select: none;
+}

@@ -34,7 +34,7 @@ script(data-pjax="true").
       var xhr = new XMLHttpRequest();
       xhr.withCredentials = true;
       xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
+        if (this.readyState === 4 && this.responseText) {
           commentBarrageConfig.barrageList = commentLinkFilter(JSON.parse(this.responseText).data);
           commentBarrageConfig.dom.innerHTML = "";
         }

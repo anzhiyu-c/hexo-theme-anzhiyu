@@ -1,6 +1,7 @@
 #album_detail
   each i in site.data.album
     - let path_name = (is_current(i.path_name)) ? true : false
+    - type = i.type
     if (path_name && i.album_list)
       .author-content.author-content-item.album.single
         .card-content
@@ -13,42 +14,69 @@
               i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
               span.banner-button-text 关于我
       section.timeline.page-1
-        ul#waterfall.list
-          each item, index in i.album_list
-            li.album-item
-              .album-content
-                p.datacont= item.content
-                  if item.image
-                    .album-container-img
-                      each iten, indey in item.image
-                        a.album-content-img(href=item.image[indey], target="_blank", data-fancybox="gallery", data-caption="")
-                          img(src=item.image[indey])
-                      .album-content-noimg
-                      .album-content-noimg
-                      .album-content-noimg
-                  if item.aplayer
-                    .album-music
-                      .aplayer.no-destroy(data-id=item.aplayer.id data-server=item.aplayer.server data-type="song"  data-order="list" data-preload="none" data-autoplay="false" data-mutex="true" data-theme='var(--anzhiyu-main)')
-              hr
-              .album-bottom
-                .album-info
-                  .album-info-time
-                    - var datedata = new Date(item.date).toISOString()
-                    i.anzhiyufont.anzhiyu-icon-instagram
-                    time.datatime(datetime= item.date)= datedata
-                  if item.link 
-                    a.album-content-link(target="_blank", title="跳转到短文指引的链接", href=item.link, rel="external nofollow")
-                      i.anzhiyufont.anzhiyu-icon-link
-                      | 链接
-                  if item.address
-                    .album-info-address
-                      i.anzhiyufont.anzhiyu-icon-location-dot
-                      span=item.address
-                  .album-info-from
-                      i.anzhiyufont.anzhiyu-icon-fw-fire
-                      if item.from 
-                          span=item.from
-                      else 
-                        span 安知鱼
-                .album-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
-                  i.anzhiyufont.anzhiyu-icon-message
+        if type == 1
+          ul#waterfall.list
+            each item, index in i.album_list
+              li.album-item
+                .album-content
+                  p.datacont= item.content
+                    if item.image
+                      .album-container-img
+                        each iten, indey in item.image
+                          a.album-content-img(href=item.image[indey], target="_blank", data-fancybox="gallery", data-caption="")
+                            img(src=item.image[indey])
+                        .album-content-noimg
+                        .album-content-noimg
+                        .album-content-noimg
+                    if item.aplayer
+                      .album-music
+                        .aplayer.no-destroy(data-id=item.aplayer.id data-server=item.aplayer.server data-type="song"  data-order="list" data-preload="none" data-autoplay="false" data-mutex="true" data-theme='var(--anzhiyu-main)')
+                hr
+                .album-bottom
+                  .album-info
+                    .album-info-time
+                      - var datedata = new Date(item.date).toISOString()
+                      i.anzhiyufont.anzhiyu-icon-instagram
+                      time.datatime(datetime= item.date)= datedata
+                    if item.link 
+                      a.album-content-link(target="_blank", title="跳转到短文指引的链接", href=item.link, rel="external nofollow")
+                        i.anzhiyufont.anzhiyu-icon-link
+                        | 链接
+                    if item.address
+                      .album-info-address
+                        i.anzhiyufont.anzhiyu-icon-location-dot
+                        span=item.address
+                    .album-info-from
+                        i.anzhiyufont.anzhiyu-icon-fw-fire
+                        if item.from 
+                            span=item.from
+                        else 
+                          span 安知鱼
+                  .album-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
+                    i.anzhiyufont.anzhiyu-icon-message
+        else if type == 2
+          .type-gallery
+            - const rowHeight = i.rowHeight != "undefined" ? i.rowHeight : 220
+            - const limit = i.limit != "undefined" ? i.limit : 10
+            - const lazyload = i.lazyload != "undefined" ? i.lazyload : true
+            - const lazyloadClass = lazyload == true ? "lazyload" : "";
+            - const btn = i.btnLazyload != "undefined" ? i.btnLazyload : false
+            - const btnLazyloadClass = btn == true ? " btn_album_detail_lazyload" : "";
+            - const imgType = i.url ? " url" : " data";
+            - let dataStr = []
+            - let durl = i.url ?? false
+            each item, index in i.album_list
+              each iten, indey in item.image
+                  - let obj = {}
+                  - obj.url = iten
+                  - obj.alt = item.content
+                  - obj.title = item.content
+                  - obj.address = item.address
+                  - dataStr.push(obj)
+            .gallery
+              .fj-gallery(data-rowHeight=rowHeight data-limit=limit class=`${lazyloadClass + btnLazyloadClass + imgType}`)
+                if durl 
+                  span.gallery-data=durl
+                else 
+                  span.gallery-data=JSON.stringify(dataStr)
+              #album_detail_gallery_load_more

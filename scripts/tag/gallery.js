@@ -41,11 +41,12 @@ function gallery(args, content) {
 
   return `<div class="gallery">
     <div class="fj-gallery ${lazyloadClass + type}" data-rowHeight="${rowHeight}" data-limit="${limit}">
-    <span class="gallery-data">${dataStr}</span>
+      <span class="gallery-data">${dataStr}</span>
     </div>
-    <button class="gallery-load-more"><span>${
-      data[languages[0]].load_more
-    }</span><i class="anzhiyufont anzhiyu-icon-arrow-down"></i></button>
+    <button class="gallery-load-more">
+      <span>${data[languages[0]].load_more}</span>
+      <i class="anzhiyufont anzhiyu-icon-arrow-down"></i>
+    </button>
     </div>`;
 }
 
