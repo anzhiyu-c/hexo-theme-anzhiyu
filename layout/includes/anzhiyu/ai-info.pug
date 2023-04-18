@@ -149,7 +149,13 @@ if (description && ai)
               },
             };
             try {
-              explanation.innerHTML = "生成中. . .";
+              let animationInterval = null
+              if (animationInterval) clearInterval(animationInterval);
+              animationInterval = setInterval(() => {
+                const animationText = "生成中" + ".".repeat(j);
+                explanation.innerHTML = animationText;
+                j = (j % 3) + 1; // 在 1、2、3 之间循环
+              }, 500);
               const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
               const result = await response.json();
               const summary = result.summary.trim();
@@ -157,6 +163,7 @@ if (description && ai)
                 aiTitleRefreshIcon.style.opacity = "1";
               }, 300)
               startAI(summary);
+              clearInterval(animationInterval)
 
             } catch (error) {
               console.error(error);
