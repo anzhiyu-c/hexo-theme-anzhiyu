@@ -74,41 +74,6 @@ const anzhiyu = {
     });
   },
 
-  diffDate: (d, more = false) => {
-    const dateNow = new Date();
-    const datePost = new Date(d);
-    const dateDiff = dateNow.getTime() - datePost.getTime();
-    const minute = 1000 * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-    const month = day * 30;
-
-    let result;
-    if (more) {
-      const monthCount = dateDiff / month;
-      const dayCount = dateDiff / day;
-      const hourCount = dateDiff / hour;
-      const minuteCount = dateDiff / minute;
-
-      if (monthCount > 12) {
-        result = datePost.toLocaleDateString().replace(/\//g, "-");
-      } else if (monthCount >= 1) {
-        result = parseInt(monthCount) + " " + GLOBAL_CONFIG.date_suffix.month;
-      } else if (dayCount >= 1) {
-        result = parseInt(dayCount) + " " + GLOBAL_CONFIG.date_suffix.day;
-      } else if (hourCount >= 1) {
-        result = parseInt(hourCount) + " " + GLOBAL_CONFIG.date_suffix.hour;
-      } else if (minuteCount >= 1) {
-        result = parseInt(minuteCount) + " " + GLOBAL_CONFIG.date_suffix.min;
-      } else {
-        result = GLOBAL_CONFIG.date_suffix.just;
-      }
-    } else {
-      result = parseInt(dateDiff / day);
-    }
-    return result;
-  },
-
   loadComment: (dom, callback) => {
     if ("IntersectionObserver" in window) {
       const observerItem = new IntersectionObserver(

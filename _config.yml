@@ -294,7 +294,7 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Valine/Waline/Twikoo/Artalk
-  use: Twikoo # Valine
+  use: # Twikoo/Waline
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
@@ -333,6 +333,9 @@ waline:
   bg: # waline background
   pageview: false
   option:
+    meta: ["nick", "mail", "link"]
+    locale:
+      placeholder: 生活明朗，万物可爱
 
 # Twikoo
 # https://github.com/imaegoo/twikoo
