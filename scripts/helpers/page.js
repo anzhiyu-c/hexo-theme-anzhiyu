@@ -36,7 +36,8 @@ hexo.extend.helper.register("get_page_fill_description", function () {
     const contents = headings.map(heading => {
       // 去掉 a 标签及其内容
       const text = heading.replace(/<a[^>]*>.*?<\/a>/g, "");
-      return text.replace(/<\/?[^>]+>/g, "");
+      // 去除特殊符号 &,:,; 等
+      return text.replace(/<\/?[^>]+>|&|:|;|#/g, "");
     });
 
     // 排除 div.post-ai-description 元素中的内容
@@ -46,12 +47,6 @@ hexo.extend.helper.register("get_page_fill_description", function () {
     description = escapeHTML(stripHTML(description).trim())
       .replace(/\n/g, " ")
       .replace(/[^\u4e00-\u9fa5]/gi, "");
-
-    // if (page.ai) {
-    //   if (page.abbrlink != "61e4") return;
-    //   const info = page.title + contents.join(", ") + description;
-    //   console.log(info.trim().substring(0, 395));
-    // }
 
     return contents.join(", ") + description;
   }

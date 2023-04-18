@@ -138,7 +138,7 @@ if (description && ai)
               key: "#{theme.post_head_ai_description.key}",
               Referer: "#{theme.post_head_ai_description.Referer}"
             };
-            const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
+            const truncateDescription = ("#{pageTitle}" + "#{description}").trim().substring(0, num)
 
             const queryParams = `key=${options.key}&content=${truncateDescription}`;
             const requestOptions = {
