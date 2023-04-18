@@ -79,4 +79,10 @@
                   span.gallery-data=durl
                 else 
                   span.gallery-data=JSON.stringify(dataStr)
-              #album_detail_gallery_load_more
+              if btn
+                button.gallery-load-more
+                  span=_p('load_more')
+                  i.anzhiyufont.anzhiyu-icon-arrow-down
+              else 
+                #album_detail_gallery_load_more
+

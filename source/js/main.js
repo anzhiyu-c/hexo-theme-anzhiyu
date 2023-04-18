@@ -417,13 +417,13 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const runJustifiedGallery = (item, arr) => {
+      const limit = item.getAttribute("data-limit") ?? arr.length;
       if (!item.classList.contains("lazyload")) {
         // 不懒加载
         item.innerHTML = htmlStr(arr);
       } else {
         if (!item.classList.contains("btn_album_detail_lazyload")) {
           // 滚动懒加载
-          const limit = item.getAttribute("data-limit") ?? arr.length;
           lazyloadFn(item, arr, limit);
           const clickBtnFn = () => {
             const lastItemLength = lazyloadFn(item, arr, limit);
@@ -439,8 +439,8 @@ document.addEventListener("DOMContentLoaded", function () {
           window.runJustifiedGalleryNextElementSiblingLazyloadFn = clickBtnFn;
         } else {
           // 按钮懒加载
-          const limit = item.getAttribute("data-limit");
           lazyloadFn(item, arr, limit);
+          // document.querySelector(".gallery .gallery-load-more").style.display = "inline-block";
           const clickBtnFn = () => {
             const lastItemLength = lazyloadFn(item, arr, limit);
             fjGallery(
