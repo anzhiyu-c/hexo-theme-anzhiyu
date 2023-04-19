@@ -414,6 +414,9 @@ footer:
     - link: https://hexo.io/ #徽标指向网站链接
       shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
       message: 博客框架为Hexo_v5.4.0 #徽标提示语
+    - link: https://anzhiy.cn/
+      shields: https://pan.anzhiy.cn/d/anzhiyu/svg/Theme-AnZhiYu-2E67D3.svg
+      message: 本站使用AnZhiYu主题
     - link: https://www.dogecloud.com/
       shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
       message: 本站使用多吉云为静态资源提供CDN加速
