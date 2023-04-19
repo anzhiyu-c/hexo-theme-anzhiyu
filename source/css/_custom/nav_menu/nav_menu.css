@@ -146,7 +146,7 @@ ul.menus_item_child {
     font-weight: 700;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   #page-header.nav-fixed #nav #page-name:hover:after {
     opacity: 1;
   }

@@ -1,5 +1,5 @@
 /* 分页样式 */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   #pagination a.extend.next:hover,
   #pagination a.extend.prev:hover {
     transform: scale(1.03);

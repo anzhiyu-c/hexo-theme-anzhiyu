@@ -531,7 +531,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   margin-top: 80px;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1450px) {
+@media screen and (min-width: 1025px) and (max-width: 1450px) {
   body:has(#console.show) #nav-music {
     left: 45%;
   }

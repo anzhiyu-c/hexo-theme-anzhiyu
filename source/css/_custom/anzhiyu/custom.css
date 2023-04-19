@@ -175,14 +175,19 @@ body::-webkit-scrollbar {
 }
 
 #article-container
-  a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.tag-Link):not(.btn-anzhiyu):not(.no-text-decoration) {
+  a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.tag-Link):not(.btn-anzhiyu):not(
+    .no-text-decoration
+  ) {
   font-weight: 500;
   border-bottom: solid 2px var(--anzhiyu-lighttext);
   color: var(--anzhiyu-fontcolor);
   padding: 0 0.2em;
   text-decoration: none;
 }
-#article-container a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):not(.no-text-decoration):hover {
+#article-container
+  a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):not(
+    .no-text-decoration
+  ):hover {
   color: var(--anzhiyu-white);
   background: var(--anzhiyu-theme);
   box-shadow: var(--anzhiyu-shadow-lightblack);
@@ -273,13 +278,13 @@ html.hide-aside .layout > div:first-child {
   animation: slide-in 0.6s 0.3s backwards;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   #page > div:not(.author-content-item) {
     animation: slide-in 0.6s 0.2s backwards;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .author-content-item {
     animation: slide-in 0.6s 0s backwards;
   }

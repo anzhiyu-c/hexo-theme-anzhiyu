@@ -8,7 +8,7 @@ div#bannerGroup {
   flex: 1;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .topGroup .todayCard {
     position: absolute;
     width: calc(600px + 1rem);
@@ -252,9 +252,11 @@ div#bannerGroup {
   color: var(--anzhiyu-white);
 }
 
-.topGroup .recent-post-item:nth-child(4),
-.topGroup .recent-post-item:nth-child(5),
-.topGroup .recent-post-item:nth-child(6) {
-  margin-bottom: 0;
-  margin-top: 4px;
+@media screen and (min-width: 1025px) {
+  .topGroup .recent-post-item:nth-child(4),
+  .topGroup .recent-post-item:nth-child(5),
+  .topGroup .recent-post-item:nth-child(6) {
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
 }
