@@ -103,6 +103,11 @@ span.categoryes-punctuation .icon-biaoqian {
 [data-theme="dark"] .post-meta__box a {
   opacity: 0.5;
 }
+[data-theme="dark"] .post-reward .reward-button,
+[data-theme="dark"] .reward-link.mode {
+  opacity: 0.5;
+}
+
 .post-meta__box__tag-list a:nth-child(5n) {
   background-color: #4a4a4a;
   color: #fff;

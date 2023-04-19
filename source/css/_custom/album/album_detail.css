@@ -302,7 +302,7 @@ body[data-type="album_detail"] #page .author-content-item .card-content .banner-
   border-radius: 8px;
   background: var(--anzhiyu-black-op);
   font-size: 12px;
-  color: var(--anzhiyu-post-tabs-bg);
+  color: var(--anzhiyu-white);
   transition: 0.3s;
   z-index: 1;
   user-select: none;
