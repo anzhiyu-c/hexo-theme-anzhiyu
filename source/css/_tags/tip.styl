@@ -47,6 +47,7 @@
       )
       background linear-gradient(0deg, #0092ff, #20b8ff)
       content "\f129"
+      font-family: anzhiyufont;
       text-shadow 0 -1px #20a0ff
   &.success
     background linear-gradient(90deg, #61be33, #8fce44)
@@ -57,6 +58,7 @@
       background linear-gradient(0deg, #52bb1d, #95d34b)
       content "\f00c"
       text-shadow 0 -1px #61be33
+      font-family: anzhiyufont;
   &.warning
     background #ff953f
     background linear-gradient(90deg, #ff953f, #ffb449)
@@ -64,8 +66,9 @@
     box-shadow 0 3px 5px rgba(255, 154, 73, 0.5)
     &::before
       background linear-gradient(0deg, #ff8f35, #ffc149)
-      content "\f12a"
+      content $note-warning-icon
       text-shadow 0 -1px #ff953f
+      font-family: anzhiyufont;
   &.error
     background #ff4949
     background linear-gradient(90deg, #ff4949, #ff7849)
@@ -73,8 +76,9 @@
     box-shadow 0 3px 5px rgba(255, 73, 73, 0.5)
     &:before
       background linear-gradient(0deg, #ff3838, #ff7849)
-      content "\f00d"
+      content $note-error-icon
       text-shadow 0 -1px #ff4949
+      font-family: anzhiyufont;
   &.bolt
     background linear-gradient(530deg, #78ca33, #25822c)
     content "\f00d"
@@ -83,6 +87,7 @@
       background linear-gradient(776deg, #78ca33, #25822c)
       content "\f0e7"
       text-shadow 0 -1px #4cf706
+      font-family: anzhiyufont;
   &.ban
     background linear-gradient(90deg, #ff4949, #f03b49)
     text-shadow 0 -1px #ff4949
@@ -91,6 +96,7 @@
       background linear-gradient(0deg, #ff3838, #ff1022)
       content "\f05e"
       text-shadow 0 -1px #ff4949
+      font-family: anzhiyufont;
   &.home
     background #15e5ff
     background linear-gradient(90deg, #0ec0ef, #80e0f7)
@@ -100,6 +106,7 @@
     &:before
       background linear-gradient(0deg, #0ec0ee, #0ec0ea)
       content "\f015"
+      font-family: anzhiyufont;
       text-shadow 0 -1px #0ec0ea
 
   &.sync
@@ -111,6 +118,7 @@
     &:before
       background linear-gradient(270deg, #40c0e2, #3dc550)
       content "\f021"
+      font-family: anzhiyufont;
       text-shadow 0 -1px #17cfff
   &.cogs
     background linear-gradient(230deg, #40c0e2, #5247e2)
@@ -120,6 +128,7 @@
     &:before
       background linear-gradient(560deg, #40c0e2, #5246e2)
       content "\f085"
+      font-family: anzhiyufont;
       text-shadow 0 -1px #098cf5
   &.key
     background #25c33b
@@ -130,6 +139,7 @@
     &:before
       background linear-gradient(560deg, #bccdd2, #cfced4)
       content "\f084"
+      font-family: anzhiyufont;
       text-shadow 0 -1px #a9b2b9
   &.bell
     background linear-gradient(230deg, #ffaa0d, #deb455)
@@ -138,6 +148,7 @@
     &:before
       background linear-gradient(560deg, #f9ae07, #ffb615)
       content "\f0f3"
+      font-family: anzhiyufont;
       text-shadow 0 -1px #ffb81b
 
 [data-theme="dark"]
