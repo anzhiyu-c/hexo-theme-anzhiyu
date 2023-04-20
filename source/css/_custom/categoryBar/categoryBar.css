@@ -82,12 +82,4 @@
   [data-theme="dark"] #category-bar.category-bar {
     background: var(--anzhiyu-black);
   }
-  #category-bar.category-bar:hover {
-    border: none;
-    box-shadow: none;
-  }
-  #category-bar {
-    border: none;
-    border-radius: 0px;
-  }
 }
