@@ -982,6 +982,7 @@ comment_barrage_config:
   accessToken: ""
 
 # 左下角音乐配置项
+# https://github.com/metowolf/MetingJS
 nav_music:
   enable: true
   console_widescreen_music: false # 宽屏状态控制台显示音乐而不是标签 enable为true 控制台依然会显示

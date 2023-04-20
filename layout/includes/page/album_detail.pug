@@ -46,12 +46,10 @@
                       .album-info-address
                         i.anzhiyufont.anzhiyu-icon-location-dot
                         span=item.address
-                    .album-info-from
-                        i.anzhiyufont.anzhiyu-icon-fw-fire
-                        if item.from 
-                            span=item.from
-                        else 
-                          span 安知鱼
+                    if item.from 
+                      .album-info-from
+                          i.anzhiyufont.anzhiyu-icon-fw-fire
+                          span=item.from
                   .album-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
                     i.anzhiyufont.anzhiyu-icon-message
         else if type == 2
