@@ -15,7 +15,7 @@
 }
 @media screen and (max-width: 1400px) {
   #bbTimeList {
-    max-width: calc(100% - 40px);
+    max-width: calc(100% - 30px);
     animation: slide-in 0.6s 0s backwards;
   }
 }
