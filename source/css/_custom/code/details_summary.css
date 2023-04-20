@@ -29,7 +29,7 @@ details.folding-tag[open] > summary {
 }
 details.folding-tag > summary {
   border: var(--style-border) !important;
-  background: var(--anzhiyu-card-bg) !important;
+  background: var(--anzhiyu-card-bg);
   border-radius: 14px !important;
   box-shadow: var(--anzhiyu-shadow-border);
   color: var(--font-color) !important;
