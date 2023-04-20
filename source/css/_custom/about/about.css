@@ -286,6 +286,10 @@ body[data-type="about"] #web_bg {
   background: none !important;
 }
 
+.author-content-item.personalities {
+  width: 59%;
+}
+
 .author-content-item.personalities .image {
   position: absolute;
   right: 30px;
@@ -307,7 +311,7 @@ body[data-type="about"] #web_bg {
   min-height: 240px;
   position: relative;
   overflow: hidden;
-  width: 49%;
+  width: 39%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -597,6 +601,12 @@ body[data-type="about"] #web_bg {
   left: 0;
 }
 
+@media screen and (max-width: 1025px) {
+  .author-content-item.personalities .image {
+    width: 180px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #gitcalendar {
     display: none;
@@ -637,7 +647,7 @@ body[data-type="about"] #web_bg {
     left: auto;
   }
   .author-content-item.personalities .image {
-    width: 90px;
+    width: 125px;
   }
   .site-card-group > a {
     width: 100% !important;
