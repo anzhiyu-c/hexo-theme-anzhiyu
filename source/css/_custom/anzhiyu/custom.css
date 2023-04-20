@@ -76,10 +76,7 @@ div#tag {
 div#category {
   background: rgba(255, 255, 255, 0.9);
 }
-/* 分类条 */
-#category-bar.category-bar {
-  background: rgba(255, 255, 255, 0.9);
-}
+
 /*夜间模式伪类遮罩层透明*/
 [data-theme="dark"] #recent-posts > .recent-post-item {
   background: #121212;
@@ -271,11 +268,6 @@ html.hide-aside .layout > div:first-child {
 }
 #algolia-search .search-dialog {
   animation: slide-in 0.6s ease 0s 1 normal none running;
-}
-
-#aside-content {
-  padding-left: 1rem;
-  animation: slide-in 0.6s 0.3s backwards;
 }
 
 @media screen and (min-width: 1025px) {

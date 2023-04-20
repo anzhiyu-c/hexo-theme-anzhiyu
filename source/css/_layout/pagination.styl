@@ -1,7 +1,20 @@
 #pagination
+  .toPageGroup
+    display: flex;
+    position: relative;
+    margin: 0;
+    box-shadow: none;
+    width: auto;
+    &:hover 
+      background: none;
   .pagination
-    margin-top: 20px
     text-align: center
+    .extend.next 
+      .pagination_tips_next
+        margin-left: -32px;
+        transition: 0.3s;
+        opacity: 0;
+
 
   .page-number
     &.current
@@ -53,23 +66,59 @@
     margin-top: 40px
     width: 100%
     background: $dark-black
-
+  +maxWidth768()
+    .toPageGroup
+      display: none
+    .page-number
+      display: none !important
+    .space
+      display: none !important
+    .pagination 
+      .extend.next 
+        width: 100%;
+        height: 3rem
+        margin: 0;
+        border-radius: 12px;
+        line-height: 3rem
+        background: var(--anzhiyu-card-bg);
+        border: var(--style-border-always);
+        box-shadow: var(--anzhiyu-shadow-border);
+        margin: 0 20px
+        &:hover
+          background: var(--anzhiyu-theme);
+          color: var(--anzhiyu-white);
+        i
+          display: none
+        .pagination_tips_next
+          opacity: 1;
+          margin-left: 0;
+        
+      .extend.prev
+        width: 100%;
+        height: 3rem;
+        border-radius: 12px;
+        line-height: 3rem;
+        background: var(--anzhiyu-card-bg);
+        border: var(--style-border-always);
+        box-shadow: var(--anzhiyu-shadow-border);
+        margin: 0 20px
+        i
+          display: none
+        .pagination_tips_prev
+          opacity: 1;
+          margin-right: 0
 .layout
   & > .recent-posts
     .pagination
       & > *
         display: inline-block
-        margin: 0 6px
         width: w = 2.5em
         height: w
         line-height: w
 
       & > *:not(.space)
         @extend .cardHover
-
-        &:hover
-          background: var(--btn-hover-color)
-          color: var(--btn-color)
+        transition: 0s;
 
   & > div:not(.recent-posts)
     .pagination

@@ -70,11 +70,6 @@
   justify-content: center;
 }
 
-#pagination a.extend.next .pagination_tips_next {
-  margin-left: -32px;
-  transition: 0.3s;
-  opacity: 0;
-}
 #pagination a.extend.next:hover .pagination_tips_next {
   margin-left: 2px;
   opacity: 1;
@@ -102,10 +97,6 @@ a.extend.next {
   width: 100%;
 }
 @media screen and (max-width: 768px) {
-  #pagination a.extend.next .pagination_tips_next,
-  #pagination a.extend.prev .pagination_tips_prev {
-    display: none;
-  }
   #site-name {
     padding: 0 !important;
   }
@@ -120,16 +111,7 @@ a.extend.next {
   line-height: 2.5em;
   border-radius: 15px;
 }
-#pagination .toPageGroup {
-  display: flex;
-  position: relative;
-  margin: 0;
-  box-shadow: none;
-  width: auto;
-}
-#pagination .toPageGroup:hover {
-  background: none;
-}
+
 #pagination .pagination input {
   width: 2.5em;
   height: 2.5em;

@@ -18,8 +18,6 @@
 
 #catalog-list {
   /* 分类/标签较少时，可以选择不设置 width，居中显示 catalog-list-item */
-  /* width: 100%; */
-  margin: 0 0.5rem;
   display: flex;
   white-space: nowrap;
   overflow-x: scroll;
@@ -30,20 +28,16 @@
 }
 
 .catalog-list-item a {
-  margin: 0rem 0.2rem;
+  margin-right: 0.2rem;
   font-weight: bold;
   color: var(--font-color);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   padding: 0.1rem 0.7rem;
   border-radius: 8px;
-  height: 36px;
-  line-height: 36px;
+  height: 30px;
+  line-height: 30px;
 }
 .catalog-list-item {
   display: flex;

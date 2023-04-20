@@ -21,7 +21,7 @@
 }
 @media screen and (max-width: 768px) {
   div#bbTimeList {
-    margin: 0 15px 15px;
+    margin: 0 20px 15px;
   }
 }
 [data-theme="dark"] #bbTimeList {

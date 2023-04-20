@@ -13,9 +13,9 @@
 
   +maxWidth900()
     width: 100%
+    padding: 20px;
 
   +maxWidth768()
-    padding: 20px
     margin: -1px;
 
   > .card-widget:first-child
@@ -23,6 +23,8 @@
 
     +maxWidth900()
       margin-top: 20px
+    +maxWidth768()
+      margin-top: 0px
 
   .card-widget
     @extend .cardHover

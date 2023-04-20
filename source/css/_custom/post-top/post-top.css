@@ -156,4 +156,8 @@
     height: 40px;
     min-height: 40px;
   }
+  .main-hero-waves-area {
+    display: none;
+    visibility: hidden;
+  }
 }
