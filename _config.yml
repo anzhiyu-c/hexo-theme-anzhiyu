@@ -400,7 +400,6 @@ footer:
     enable: true
     since: 2020
   custom_text:
-  copyright: false # Copyright of theme and framework
   runtime:
     enable: true
     launch_time: 04/01/2021 00:00:00 # 网站上线时间
@@ -673,7 +672,7 @@ aside:
     category: false
   card_author:
     enable: true
-    type: 2 # 1为使用头像card 2为不适用头像card
+    type: 2 # 1为使用头像card 2为不使用头像card
     description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>
     button:
       enable: true
@@ -766,6 +765,8 @@ darkmode:
   # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am
   # autoChangeMode: false
   autoChangeMode: 1
+  start: # 8
+  end: # 22
 
 # Don't modify the following settings unless you know how they work (非必要请不要修改 )
 # Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
