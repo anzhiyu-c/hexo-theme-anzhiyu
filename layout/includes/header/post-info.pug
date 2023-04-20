@@ -25,7 +25,7 @@
             i.post-meta-icon.anzhiyufont(class=date_icon)
             span.post-meta-label= date_title
             time(datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
-      if (theme.post_meta.post.categories && page.categories.data.length > 0)
+      if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
         span.post-meta-categories
           if (theme.post_meta.post.date_type)
             span.post-meta-separator |

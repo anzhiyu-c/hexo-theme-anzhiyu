@@ -192,10 +192,6 @@ div#bannerGroup {
 }
 
 @media screen and (max-width: 1024px) {
-  #random-banner {
-    display: none;
-  }
-
   .topGroup .todayCard {
     background: #0e57d5;
   }
@@ -232,6 +228,7 @@ div#bannerGroup {
   .categoryItem {
     height: 48%;
     min-width: 200px;
+    box-shadow: none !important;
   }
   .categoryGroup {
     display: flex !important;
