@@ -19,6 +19,7 @@
         .tags-group-wrapper
           each i, index in site.data.link.slice(0, 15)
             - const link_list = i.link_list.slice()
+            - const hundredSuffix = i.hundredSuffix ? i.hundredSuffix : ""
             - const evenNum = link_list.filter((x, index) => index % 2 === 0);
             - const oddNum = link_list.filter((x, index) => index % 2 === 1);
             each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
@@ -32,11 +33,12 @@
                 - let evenNumAvatar = getAvatarWithoutExclamationMark(evenNum[index].avatar);
                 .tags-group-icon-pair
                   a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
-                    img.no-lightbox(title=evenNum[index].name, src=oddNumAvatar + "!w120")
+                    img.no-lightbox(title=evenNum[index].name, src=(oddNumAvatar + hundredSuffix))
                   a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
-                    img.no-lightbox(title=oddNum[index].name, src=evenNumAvatar + "!w120")
+                    img.no-lightbox(title=oddNum[index].name, src=(evenNumAvatar + hundredSuffix))
           each i, index in site.data.link.slice(0, 15)
             - const link_list = i.link_list.slice()
+            - const hundredSuffix = i.hundredSuffix ? i.hundredSuffix : ""
             - const evenNum = link_list.filter((x, index) => index % 2 === 0);
             - const oddNum = link_list.filter((x, index) => index % 2 === 1);
             each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
@@ -50,9 +52,9 @@
                 - let evenNumAvatar = getAvatarWithoutExclamationMark(evenNum[index].avatar);
                 .tags-group-icon-pair
                   a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
-                    img.no-lightbox(title=evenNum[index].name, src=oddNumAvatar + "!w120")
+                    img.no-lightbox(title=evenNum[index].name, src=(oddNumAvatar + hundredSuffix))
                   a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
-                    img.no-lightbox(title=oddNum[index].name, src=evenNumAvatar + "!w120")
+                    img.no-lightbox(title=oddNum[index].name, src=(evenNumAvatar + hundredSuffix))
     .title-h2-a
       .title-h2-a-left
         h2(style='padding-top:0;margin:.6rem 0 .6rem') 🎣 钓鱼
