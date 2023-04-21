@@ -27,7 +27,8 @@
 
         &:not(.simple)
           background: lighten(lookup('$tagsP-' + $type + '-color'), 85%) !important
-
+      &::before
+        color: lookup('$tagsP-' + $type + '-color')
       & > .note-icon
         color: lookup('$tagsP-' + $type + '-color')
 
