@@ -202,10 +202,6 @@ html.hide-aside .layout > div:first-child {
   animation-fill-mode: backwards !important;
 }
 
-[data-theme="dark"] img {
-  filter: brightness(1);
-}
-
 /* 文章hover边框 */
 #recent-posts .recent-post-item:hover {
   border: var(--style-border-hover);
