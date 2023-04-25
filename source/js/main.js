@@ -440,7 +440,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           // 按钮懒加载
           lazyloadFn(item, arr, limit);
-          // document.querySelector(".gallery .gallery-load-more").style.display = "inline-block";
           const clickBtnFn = () => {
             const lastItemLength = lazyloadFn(item, arr, limit);
             fjGallery(
@@ -448,6 +447,7 @@ document.addEventListener("DOMContentLoaded", function () {
               "appendImages",
               item.querySelectorAll(`.fj-gallery-item:nth-last-child(-n+${lastItemLength})`)
             );
+            anzhiyu.loadLightbox(item.querySelectorAll("img"));
             lastItemLength < limit && item.nextElementSibling.removeEventListener("click", clickBtnFn);
           };
           item.nextElementSibling.addEventListener("click", clickBtnFn);
@@ -925,7 +925,6 @@ document.addEventListener("DOMContentLoaded", function () {
     backToTop: () => {
       document.querySelectorAll("#article-container .tabs .tab-to-top").forEach(function (item) {
         item.addEventListener("click", function () {
-          console.info(1);
           anzhiyu.scrollToDest(anzhiyu.getEleTop(anzhiyu.getParents(this, ".tabs")) - 60, 300);
         });
       });
@@ -1159,7 +1158,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const root = document.querySelector(":root");
     if (path !== undefined) {
       var httpRequest = new XMLHttpRequest(); //第一步：建立所需的对象
-      httpRequest.open("GET", path + "?imageAve", true); //第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+      httpRequest.open("GET", path + "?imageAve", true); //第二步：打开连接  将请求参数写在url中
       httpRequest.send(); //第三步：发送请求  将请求参数写在URL中
       /**
        * 获取数据后的处理程序

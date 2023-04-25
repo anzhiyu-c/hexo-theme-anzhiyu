@@ -310,7 +310,7 @@
   color: #ffffffb3;
   line-height: 20px !important;
   height: 20px !important;
-  margin: 20px 0 !important;
+  margin: 20px 0;
 }
 
 #nav-music .aplayer .aplayer-pic {

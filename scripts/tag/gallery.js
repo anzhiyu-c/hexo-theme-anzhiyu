@@ -17,8 +17,13 @@ function gallery(args, content) {
 
   if (args[0] === "url") {
     [type, dataStr, lazyload, rowHeight = 220, limit = 10] = args; // url,[link],[lazyload],[rowHeight],[limit]
+    rowHeight = rowHeight == "" ? 220 : rowHeight;
+    limit = limit == "" ? 10 : limit;
   } else {
     [lazyload, rowHeight = 220, limit = 10] = args; // [lazyload],[rowHeight],[limit]
+    rowHeight = rowHeight == "" ? 220 : rowHeight;
+    limit = limit == "" ? 10 : limit;
+
     const regex = /!\[(.*?)\]\(([^\s]*)\s*(?:["'](.*?)["']?)?\s*\)/g;
     let m;
     const arr = [];
@@ -37,7 +42,7 @@ function gallery(args, content) {
   }
 
   type = type ? " url" : " data";
-  const lazyloadClass = lazyload === "true" ? "lazyload" : "";
+  const lazyloadClass = lazyload === "true" ? "lazyload btn_album_detail_lazyload" : "";
 
   return `<div class="gallery">
     <div class="fj-gallery ${lazyloadClass + type}" data-rowHeight="${rowHeight}" data-limit="${limit}">

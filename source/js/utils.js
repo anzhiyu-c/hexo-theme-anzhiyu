@@ -740,7 +740,6 @@ const anzhiyu = {
     if (!window.location.pathname.startsWith("/music/")) {
       return;
     }
-    console.info(window.location.pathname);
     const urlParams = new URLSearchParams(window.location.search);
     const userId = "8152976493";
     const userServer = "netease";

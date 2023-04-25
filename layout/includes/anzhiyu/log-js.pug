@@ -7,7 +7,6 @@ script.
   console.log = function () {};
   let now1 = new Date();
   queueMicrotask(() => {
-    console.log(1)
     const Log = function () {
       HoldLog.apply(console, arguments);
     }; //在恢复前输出日志

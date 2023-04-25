@@ -739,15 +739,17 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     white-space: nowrap;
     animation: an-text-roll 4s cubic-bezier(0.6, 0, 0.5, 1) alternate infinite;
     min-width: 100%;
-    margin: 0;
+    /* margin: 0; */
   }
   body:has(#console.show) #nav-music .aplayer .aplayer-lrc p {
     color: var(--anzhiyu-white);
     font-size: 16px;
     margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
-    margin: 0;
+    margin: -40px 0px 0;
   }
   body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-time {
     color: var(--anzhiyu-white);
