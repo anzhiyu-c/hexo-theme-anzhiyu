@@ -4,9 +4,9 @@
   <a title="English" href="/README_EN.md">English</a>
 </div>
 
-预览: 👍 [AnZhiYu](https://anzhiy.cn/)  ||  🤞 [AnZhiYu](https://index.anzhiy.cn/)
+预览: 👍 [AnZhiYu](https://anzhiy.cn/) || 🤞 [AnZhiYu](https://index.anzhiy.cn/)
 
-文档: 📖 [anzhiyu Docs](https://anzhiy.cn/posts/61e4.html)
+文档: 📖 [anzhiyu Docs](https://anzhiy.cn/docs/)
 
 一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)修改的主題
 
