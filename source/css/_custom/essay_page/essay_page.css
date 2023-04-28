@@ -266,7 +266,7 @@ body[data-type="essay"] #page .author-content-item .card-content .banner-button-
 #bber .aplayer .aplayer-lrc p {
   color: var(--anzhiyu-fontcolor);
   min-height: 40px;
-  line-height: 40px !important;
+  line-height: 30px !important;
   height: 40px !important;
   margin: 0 !important;
 }
