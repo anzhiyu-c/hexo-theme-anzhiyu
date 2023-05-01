@@ -204,6 +204,7 @@ if site.data.about
         include ../anzhiyu/about-extra.pug
         
       - let rawData = item.reward_list
+      - let sortedByDate = rawData.slice().sort((a, b) => new Date(b.datatime) - new Date(a.datatime));
       if rawData
         .author-content
           .author-content-item.single.reward
@@ -223,7 +224,7 @@ if site.data.about
                       .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
               .reward-list-updateDate
                 | 最新更新时间： 
-                time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
+                time.datatime.reward-list-updateDate-time(datatime=sortedByDate[0].datatime)=new Date(sortedByDate[0].datatime).toISOString().slice(0, -14)
             .about-reward
               #con
               #TA-con(onclick="anzhiyu.rewardShowConsole()")
