@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const translateDelay = translate.translateDelay; // 延遲時間,若不在前, 要設定延遲翻譯時間, 如100表示100ms,默認為0
   const msgToTraditionalChinese = translate.msgToTraditionalChinese; // 此處可以更改為你想要顯示的文字
   const msgToSimplifiedChinese = translate.msgToSimplifiedChinese; // 同上，但兩處均不建議更改
+  const rightMenuMsgToTraditionalChinese = translate.rightMenuMsgToTraditionalChinese; // 此處可以更改為你想要顯示的文字
+  const rightMenuMsgToSimplifiedChinese = translate.rightMenuMsgToSimplifiedChinese; // 同上，但兩處均不建議更改
   let currentEncoding = defaultEncoding;
   const targetEncodingCookie = "translate-chn-cht";
   let targetEncoding =
@@ -12,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ? defaultEncoding
       : Number(saveToLocal.get("translate-chn-cht"));
   let translateButtonObject;
+  let translateRightMenuButtonObject;
   const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
 
   function setLang() {
@@ -31,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
     else objs = document.body.childNodes;
     for (let i = 0; i < objs.length; i++) {
       const obj = objs.item(i);
-      if ("||BR|HR|".indexOf("|" + obj.tagName + "|") > 0 || obj === translateButtonObject) {
+      if (
+        "||BR|HR|".indexOf("|" + obj.tagName + "|") > 0 ||
+        obj === translateButtonObject ||
+        obj === translateRightMenuButtonObject
+      ) {
         continue;
       }
       if (obj.title !== "" && obj.title != null) {
@@ -54,11 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
       currentEncoding = 1;
       targetEncoding = 2;
       translateButtonObject.innerHTML = msgToTraditionalChinese;
+      translateRightMenuButtonObject.innerHTML = rightMenuMsgToTraditionalChinese;
       isSnackbar && anzhiyu.snackbarShow(snackbarData.cht_to_chs);
     } else if (targetEncoding === 2) {
       currentEncoding = 2;
       targetEncoding = 1;
       translateButtonObject.innerHTML = msgToSimplifiedChinese;
+      translateRightMenuButtonObject.innerHTML = rightMenuMsgToSimplifiedChinese;
       isSnackbar && anzhiyu.snackbarShow(snackbarData.chs_to_cht);
     }
     saveToLocal.set(targetEncodingCookie, targetEncoding, 2);
@@ -97,15 +106,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function translateInitialization() {
     translateButtonObject = document.getElementById("translateLink");
-    const translateRightMenuButtonObject = document.getElementById("menu-translate");
-    if (translateButtonObject) {
+    translateRightMenuButtonObject = document.getElementById("menu-translate").querySelector("span");
+    const translateRightMenuButtonElement = document.getElementById("menu-translate");
+
+    if (translateButtonObject || translateRightMenuButtonObject) {
       if (currentEncoding !== targetEncoding) {
         translateButtonObject.innerHTML = targetEncoding === 1 ? msgToSimplifiedChinese : msgToTraditionalChinese;
+        translateRightMenuButtonObject.innerHTML =
+          targetEncoding === 1 ? rightMenuMsgToSimplifiedChinese : rightMenuMsgToTraditionalChinese;
         setLang();
         setTimeout(translateBody, translateDelay);
       }
       translateButtonObject.addEventListener("click", translatePage, false);
-      translateRightMenuButtonObject.addEventListener("click", translatePage, false);
+      translateRightMenuButtonElement.addEventListener("click", translatePage, false);
     }
   }
   translateInitialization();

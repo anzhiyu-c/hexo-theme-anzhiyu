@@ -1,3 +1,4 @@
+- const { translate } = theme
 #rightMenu
 	.rightMenu-group.rightMenu-small
 		.rightMenu-item#menu-backward
@@ -77,5 +78,5 @@
 			span.menu-darkmode-text 深色模式
 		a.rightMenu-item#menu-translate(href='javascript:void(0);')
 			i.anzhiyufont.anzhiyu-icon-language
-			span 轉為繁體
+			span=translate.rightMenuMsgDefault
 #rightmenu-mask
