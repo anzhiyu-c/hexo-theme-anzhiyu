@@ -508,7 +508,7 @@ if hexo-config('aside.enable')
 
   else if hexo-config('aside.card_author.type') == "1"
     #aside-content
-      > .card-info
+      > .card-widget.card-info
           background: #fff url(https://img02.anzhiy.cn/adminuploads/1/2022/10/26/6358a07bf21fc.webp) top -24% center no-repeat;
           position: relative;
           .author-info__name 
@@ -532,3 +532,6 @@ if hexo-config('aside.enable')
             &:hover
               background: var(--anzhiyu-theme-deep);
               color: var(--anzhiyu-white);
+          .card-info-social-icons
+            .social-icon
+              color: var(--anzhiyu-font)
