@@ -485,7 +485,8 @@ site_verification:
 
 theme_color:
   enable: true
-  #   main: "#3b70fc"
+  main: "#3b70fc"
+  dark_main: "#0084ff"
   paginator: "#3b70fc"
   #   button_hover: "#FF7242"
   text_selection: "#2128bd"
