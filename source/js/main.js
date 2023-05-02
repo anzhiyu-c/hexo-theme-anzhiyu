@@ -411,7 +411,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const fetchUrl = async url => {
-      console.info(url);
       const response = await fetch(url);
       return await response.json();
     };
