@@ -3,8 +3,10 @@ $bright-blue = #3b70fc
 $strong-cyan = #00c4b6
 $light-orange = #FF7242
 $light-red = #F47466
+$dark-blue = #0084ff
 $themeColorEnable = hexo-config('theme_color') && hexo-config('theme_color.enable')
 $theme-color = $themeColorEnable && hexo-config('theme_color.main') ? convert(hexo-config('theme_color.main')) : $bright-blue
+$theme-dark-color = $themeColorEnable && hexo-config('theme_color.dark_main') ? convert(hexo-config('theme_color.dark_main')) : $dark-blue
 $theme-paginator-color = $themeColorEnable && hexo-config('theme_color.paginator') ? convert(hexo-config('theme_color.paginator')) : $strong-cyan
 $theme-text-selection-color = $themeColorEnable && hexo-config('theme_color.text_selection') ? convert(hexo-config('theme_color.text_selection')) : $strong-cyan
 $theme-link-color = $themeColorEnable && hexo-config('theme_color.link_color') ? convert(hexo-config('theme_color.link_color')) : $bright-blue
@@ -12,6 +14,7 @@ $theme-hr-color = $themeColorEnable && hexo-config('theme_color.hr_color') ? con
 $code-foreground = $themeColorEnable && hexo-config('theme_color.code_foreground') ? convert(hexo-config('theme_color.code_foreground')) : $light-red
 $code-background = $themeColorEnable && hexo-config('theme_color.code_background') ? convert(hexo-config('theme_color.code_background')) : rgba(27, 31, 35, .05)
 $theme-toc-color = $themeColorEnable && hexo-config('theme_color.toc_color') ? convert(hexo-config('theme_color.toc_color')) : $strong-cyan
+
 // font
 $dafault-font-family = -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif
 $dafault-code-font = consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif
