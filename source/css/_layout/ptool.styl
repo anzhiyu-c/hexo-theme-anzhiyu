@@ -91,9 +91,9 @@
         border: var(--style-border-always);
       .reward-dec 
         font-size: 0.6rem;
-      
 
-
-
-
-
+if hexo-config('ptool.enable') == true && !hexo-config('ptool.mode')
+  .post-tools .post-tools-left > div
+    margin: 0
+  .post-tools .post-tools-left
+    width auto
