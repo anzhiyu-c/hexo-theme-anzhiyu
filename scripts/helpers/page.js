@@ -59,6 +59,8 @@ hexo.extend.helper.register("cloudTags", function (options = {}) {
   const maxfontsize = options.maxfontsize;
   const limit = options.limit;
   const unit = options.unit || "px";
+  const colorful = options.color || false;
+  const highlightTags = options.highlightTags || [];
 
   let result = "";
   if (limit > 0) {
@@ -77,15 +79,22 @@ hexo.extend.helper.register("cloudTags", function (options = {}) {
     const ratio = length ? sizes.indexOf(tag.length) / length : 0;
     const size = minfontsize + (maxfontsize - minfontsize) * ratio;
     let style = `font-size: ${parseFloat(size.toFixed(2))}${unit};`;
-    const color =
-      "rgb(" +
-      Math.floor(Math.random() * 201) +
-      ", " +
-      Math.floor(Math.random() * 201) +
-      ", " +
-      Math.floor(Math.random() * 201) +
-      ")"; // 0,0,0 -> 200,200,200
-    style += ` color: ${color}`;
+    if (colorful) {
+      const color =
+        "rgb(" +
+        Math.floor(Math.random() * 201) +
+        ", " +
+        Math.floor(Math.random() * 201) +
+        ", " +
+        Math.floor(Math.random() * 201) +
+        ")"; // 0,0,0 -> 200,200,200
+      style += ` color: ${color};`;
+    }
+
+    const matchingTag = highlightTags.find(highlightTag => highlightTag === tag.name);
+    if (matchingTag) {
+      style += ` font-weight: 500; color: var(--anzhiyu-lighttext)`;
+    }
     result += `<a href="${env.url_for(tag.path)}" style="${style}">${tag.name}<sup>${tag.length}</sup></a>`;
   });
   return result;

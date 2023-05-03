@@ -1,16 +1,10 @@
 /* tags样式 */
 #aside-content .card-tag-cloud a {
-  color: var(--anzhiyu-fontcolor) !important;
-  font-size: 1.05rem !important;
   border-radius: var(--anzhiyu-border-radius);
   display: inline-block;
   margin-right: 4px;
 }
-#aside-content .card-tag-cloud a[href*="/tags/%E5%89%8D%E7%AB%AF/"],
-#aside-content .card-tag-cloud a[href*="/tags/Hexo/"] {
-  color: var(--anzhiyu-lighttext) !important;
-  font-weight: 500;
-}
+
 #aside-content .card-tag-cloud a:hover {
   background: var(--anzhiyu-theme);
   color: var(--anzhiyu-white) !important;
