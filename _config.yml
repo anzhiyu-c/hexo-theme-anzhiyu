@@ -988,6 +988,9 @@ essay:
 # ptool 文章底部工具
 ptool:
   enable: true
+  share_mobile: true
+  share_weibo: true
+  share_copyurl: true
   categories: false # 是否显示分类
   mode: # 运营模式与责任，不配置不显示
 
