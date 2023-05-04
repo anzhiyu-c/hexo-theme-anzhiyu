@@ -36,9 +36,6 @@
   -webkit-backdrop-filter: blur(20px);
   transform: translateZ(0);
   position: fixed;
-  right: 20px;
-  bottom: 0px;
-  margin-bottom: 20px;
   box-shadow: var(--anzhiyu-shadow-border);
 }
 .comment-barrage-item:hover {

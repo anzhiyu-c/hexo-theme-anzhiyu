@@ -484,12 +484,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const $rightside = document.getElementById("rightside");
     const innerHeight = window.innerHeight + 56;
 
-    // 當滾動條小于 56 的時候，且不是朋友圈页面: ps朋友圈页面加载完之前 高度不够 会导致无法监听到滚动
+    // 當滾動條小于 56 的時候
     if (document.body.scrollHeight <= innerHeight) {
       $rightside.style.cssText = "opacity: 1; transform: translateX(-58px)";
-      if (!window.location.pathname.startsWith("/fcircle")) {
-        return;
-      }
     }
 
     // find the scroll direction

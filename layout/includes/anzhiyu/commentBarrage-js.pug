@@ -120,16 +120,32 @@ script(data-pjax="true").
       }
 
       // 自动隐藏
-      document.addEventListener("scroll", anzhiyu.throttle(function () {
-        var a = (window.scrollY, document.querySelector(".comment-barrage-item")),
-        t = document.getElementById("post-comment");
-        t && a && 768 < document.body.clientWidth && (a.style.bottom = !anzhiyu.isInViewPortOfOne(t) ? "0" : "-200px");
-      }, 200), { passive: true });
+      const commentEntryCallback = (entries) => {
+        const commentBarrage = document.querySelector(".comment-barrage");
+        const postComment = document.getElementById("post-comment");
+
+        entries.forEach(entry => {
+          if (postComment && commentBarrage && document.body.clientWidth > 768) {
+            commentBarrage.style.bottom = entry.isIntersecting ? "-200px" : "0";
+          }
+        });
+      };
+      // 创建IntersectionObserver实例
+      const observer = new IntersectionObserver(commentEntryCallback, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0
+      });
+      // 监视目标元素
+      const postCommentTarget = document.getElementById("post-comment");
+      if (postCommentTarget) {
+        observer.observe(postCommentTarget);
+      }
 
       initCommentBarrage();
 
       if (localStorage.getItem("commentBarrageSwitch") !== "false") {
-        document.querySelector(".comment-barrage").style.display = "block";
+        document.querySelector(".comment-barrage").style.display = "flex";
         document.querySelector(".menu-commentBarrage-text").textContent = "关闭热评";
       } else {
         document.querySelector(".comment-barrage").style.display = "none";
