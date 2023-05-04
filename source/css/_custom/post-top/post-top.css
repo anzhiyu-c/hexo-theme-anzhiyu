@@ -10,44 +10,7 @@
   transition: all 0.5s, border 0.3s;
 }
 
-#page-header #post-top-cover {
-  width: 70%;
-  height: 100%;
-  position: relative;
-  margin: 0 -20% 0 auto;
-  overflow: hidden;
-  margin-bottom: 0;
-  transform: rotate(10deg) translateY(-10%) scale(2);
-  filter: blur(10px);
-}
-#page-header #post-top-cover #post-top-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-width: 50vw;
-  min-height: 20rem;
-  animation: slide-in 0.6s 0.3s backwards;
-}
-#page-header #post-top-cover::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  box-shadow: 110px -130px 300px 60px var(--anzhiyu-bar-background) inset;
-}
-
 @media screen and (max-width: 768px) {
-  #page-header #post-top-cover {
-    margin: 0 0 0 auto;
-    transform: rotate(0deg) translateY(0) scale(1);
-    filter: blur(0px);
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: 2;
-  }
   #page-header #post-top-cover #post-top-bg {
     min-height: 15rem !important;
     height: 70% !important;

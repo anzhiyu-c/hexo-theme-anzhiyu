@@ -9,8 +9,9 @@
 div#swiper_container {
   transition: 0.3s;
 }
+/* 防止轮播图css未加载完时的超度横行滚动条 */
 #swiper_container {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 div.swiper_container_card {
   margin: 1rem auto 0;
