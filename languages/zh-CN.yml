@@ -82,7 +82,7 @@ aside:
     image: 图片
     link: 链接
     code: 代码
-  card_toc: 目录
+  card_toc: 文章目录
 
 date_suffix:
   just: 刚刚

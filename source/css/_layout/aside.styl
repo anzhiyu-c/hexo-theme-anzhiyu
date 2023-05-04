@@ -1,7 +1,8 @@
 .post
   +maxWidth768()
     #aside-content
-      background: rgba(255, 255, 255, 0.9);
+      background: var(--anzhiyu-background);
+      border: none;
 #aside-content
   width: 26%
 
@@ -16,7 +17,7 @@
     padding: 20px;
 
   +maxWidth768()
-    margin: -1px;
+    margin-top: -1px;
 
   > .card-widget:first-child
     margin-top: 0
@@ -127,8 +128,12 @@
         padding-left: 10px
 
   .item-headline
-    padding-bottom: 6px
-    font-size: 1.2em
+    padding-bottom: 0;
+    margin-left: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 
     span
       margin-left: 6px
@@ -289,6 +294,7 @@
       transform-origin: right bottom
 
     .toc-percentage
+      display: none
       float: right
       margin-top: -9px
       color: #a9a9a9

@@ -553,6 +553,9 @@ center#name-container {
     backdrop-filter: none;
     background: var(--anzhiyu-background);
   }
+  #page-header #nav #nav-right div {
+    margin-left: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 768px) {

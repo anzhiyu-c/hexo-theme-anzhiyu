@@ -41,6 +41,7 @@
 
 #article-container .tag-Link .tag-link-bottom .tag-link-right {
   margin-left: 1rem;
+  max-width: calc(100% - 76px - 1rem);
 }
 
 #article-container .tag-Link .tag-link-bottom .tag-link-right .tag-link-title {

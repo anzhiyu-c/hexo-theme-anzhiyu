@@ -1035,8 +1035,7 @@ CDN:
   internal_provider: elemecdn
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
-  # option: local/jsdelivr/unpkg/cdnjs/custom
-  # when set it to local, you need to install hexo-butterfly-extjs
+  # option: jsdelivr/unpkg/cdnjs/custom
   third_party_provider: elemecdn
 
   # Add version number to CDN, true or false

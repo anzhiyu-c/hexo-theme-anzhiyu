@@ -564,20 +564,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const $cardTocLayout = document.getElementById("card-toc");
       $cardToc = $cardTocLayout.getElementsByClassName("toc-content")[0];
       $tocLink = $cardToc.querySelectorAll(".toc-link");
-      const $tocPercentage = $cardTocLayout.querySelector(".toc-percentage");
+      // const $tocPercentage = $cardTocLayout.querySelector(".toc-percentage");
       isExpand = $cardToc.classList.contains("is-expand");
 
-      scrollPercent = currentTop => {
-        const docHeight = $article.clientHeight;
-        const winHeight = document.documentElement.clientHeight;
-        const headerHeight = $article.offsetTop;
-        const contentMath =
-          docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight;
-        const scrollPercent = (currentTop - headerHeight) / contentMath;
-        const scrollPercentRounded = Math.round(scrollPercent * 100);
-        const percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded;
-        $tocPercentage.textContent = percentage;
-      };
+      // scrollPercent = currentTop => {
+      //   const docHeight = $article.clientHeight;
+      //   const winHeight = document.documentElement.clientHeight;
+      //   const headerHeight = $article.offsetTop;
+      //   const contentMath =
+      //     docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight;
+      //   const scrollPercent = (currentTop - headerHeight) / contentMath;
+      //   const scrollPercentRounded = Math.round(scrollPercent * 100);
+      //   const percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded;
+      //   $tocPercentage.textContent = percentage;
+      // };
 
       window.mobileToc = {
         open: () => {
@@ -673,7 +673,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.tocScrollFn = function () {
       return anzhiyu.throttle(function () {
         const currentTop = window.scrollY || document.documentElement.scrollTop;
-        isToc && scrollPercent(currentTop);
+        // isToc && scrollPercent(currentTop);
         findHeadPosition(currentTop);
       }, 100)();
     };

@@ -657,11 +657,7 @@ body[data-type="about"] #web_bg {
   .reward-list-item {
     width: 100% !important;
   }
-  .layout > div:first-child:not(.recent-posts) {
-    padding: 1rem 1rem !important;
-    box-shadow: none !important;
-    background: var(--anzhiyu-background);
-  }
+
   .author-content-item .card-content .banner-button-group .banner-button-text {
     display: none;
   }

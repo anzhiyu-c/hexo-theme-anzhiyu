@@ -27,8 +27,10 @@ body[data-type="link"]
   .banner-button-group 
     position: absolute;
     right: 2rem;
-    top: 2rem;
+    top: 2.5rem;
     display: flex;
+    +maxWidth768()
+      display: none
     .banner-button
       color: var(--anzhiyu-card-bg);
       &.secondary 

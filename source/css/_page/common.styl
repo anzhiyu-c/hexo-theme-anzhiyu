@@ -22,12 +22,19 @@
     max-width: 1500px
 
   & > div:first-child:not(.recent-posts)
-    @extend .cardHover
-    align-self: flex-start
-    padding: 50px 40px
+    box-shadow: var(--anzhiyu-shadow-border);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    background: var(--anzhiyu-card-bg);
+    border: var(--style-border);
+    width: calc(100% - 300px);
+    align-self: flex-start;
+    animation: slide-in 0.6s 0.1s backwards;
 
     +maxWidth768()
-      padding: 36px 14px
+      padding: 1rem 1rem;
+      box-shadow: none;
+      background: var(--anzhiyu-background);
 
   & > div:first-child
     width: 74%

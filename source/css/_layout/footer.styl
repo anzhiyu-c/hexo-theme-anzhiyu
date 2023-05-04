@@ -5,8 +5,9 @@
   background-position: bottom
   background-size: cover
   +maxWidth768()
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--anzhiyu-background);
     z-index: 3
+    margin-top: -1px;
 
   if hexo-config('footer_bg') != false
     &:before

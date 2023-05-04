@@ -223,9 +223,6 @@ li.card-archive-list-item {
   border-radius: 12px 0 0 0px;
 }
 
-#aside-content .item-headline {
-  display: none;
-}
 @media screen and (min-width: 900px) {
   #aside-content .sticky_layout {
     top: 70px;
