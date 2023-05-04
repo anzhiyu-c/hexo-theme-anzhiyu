@@ -4,9 +4,9 @@
   English
 </div>
 
-Preview: 👍 [AnZhiYu](https://anzhiy.cn/)  ||  🤞 [AnZhiYu](https://index.anzhiy.cn/)
+Preview: 👍 [AnZhiYu](https://anzhiy.cn/) || 🤞 [AnZhiYu](https://index.anzhiy.cn/)
 
-Document: 📖 [anzhiyu Docs](https://anzhiy.cn/posts/61e4.html)
+Document: 📖 [anzhiyu Docs](https://anzhiy.cn/docs)
 
 Based: [hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
 
