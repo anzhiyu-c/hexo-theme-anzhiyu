@@ -37,6 +37,8 @@ if hexo-config('comments.use') == 'Twikoo'
     background-color: var(--anzhiyu-card-bg);
 
   #twikoo 
+    .tk-nick
+      line-height: 40px;
     .tk-expand
       &:hover
         color: #fff;
@@ -55,7 +57,13 @@ if hexo-config('comments.use') == 'Twikoo'
       padding: 2px 4px;
       background: var(--anzhiyu-secondbg);
       color: #f47466;
-
+    .tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar
+      height: 2.5rem !important;
+      width: 2.5rem !important;
+    .tk-avatar 
+      border-radius: 50px;
+      .tk-avatar-img
+        height: 2.5rem !important;
 
   .tk-replies
     .tk-comment
@@ -70,8 +78,10 @@ if hexo-config('comments.use') == 'Twikoo'
 
   [data-theme="dark"] #owo-big
     background-color: #4a4a4a;
-
-
+  .tk-comments-container .tk-submit
+      opacity: 1;
+      height: auto;
+      overflow: auto;
   /* 输入提示 */
   /* 设置文字内容 :nth-child(1)的作用是选择第几个 */
   .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
@@ -220,6 +230,9 @@ if hexo-config('comments.use') == 'Twikoo'
     box-shadow: var(--anzhiyu-shadow-border);
     color: var(--anzhiyu-fontcolor);
   }
+  #body-wrap.page .tk-admin-config .el-input__inner{
+    color: currentColor;
+  }
 
   #twikoo.twikoo .el-input__inner:focus,
   #twikoo.twikoo .el-textarea__inner:focus {
@@ -317,8 +330,4 @@ if hexo-config('comments.use') == 'Twikoo'
   .OwO .OwO-body .OwO-items .OwO-item:hover {
     box-shadow: var(--anzhiyu-shadow-lightblack) !important;
     border-radius: 8px;
-  }
-
-  #post-comment .tk-avatar.tk-clickable {
-    margin: 5px;
   }
