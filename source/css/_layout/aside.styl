@@ -517,9 +517,10 @@ if hexo-config('aside.enable')
             color: var(--anzhiyu-black);
 
   else if hexo-config('aside.card_author.type') == "1"
+    $card_info_background = hexo-config('aside.card_author.info_background') 
     #aside-content
       > .card-widget.card-info
-          background: #fff url(https://img02.anzhiy.cn/adminuploads/1/2022/10/26/6358a07bf21fc.webp) top -24% center no-repeat;
+          background: #fff url($card_info_background) top -24% center no-repeat;
           position: relative;
           .author-info__name 
             line-height: 1.5em;

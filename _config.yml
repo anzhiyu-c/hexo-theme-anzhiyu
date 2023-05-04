@@ -675,7 +675,8 @@ aside:
   card_author:
     enable: true
     type: 2 # 1为使用头像card 2为不使用头像card
-    description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div>
+    description: # 默认为站点描述
+    info_background: https://bu.dusays.com/2023/04/23/6444b2b59a295.webp # type为1时有效
     button:
       enable: true
       icon: anzhiyu-icon-arrow-circle-right
