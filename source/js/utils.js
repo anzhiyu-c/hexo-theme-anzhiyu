@@ -537,8 +537,8 @@ const anzhiyu = {
           pos: "top-center",
           actionText: "前往",
           onActionClick: function (element) {
-            //Set opacity of element to 0 to close Snackbar
-            $(element).css("opacity", 0);
+            console.info(element);
+            element.style.opacity = 0;
             window.open(link, "_blank");
           },
         });
