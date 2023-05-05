@@ -39,6 +39,9 @@ if hexo-config('comments.use') == 'Twikoo'
   #twikoo 
     .tk-nick
       line-height: 40px;
+    .tk-extras
+      margin-top: .5rem;
+      padding-bottom: .5rem;
     .tk-expand
       &:hover
         color: #fff;
@@ -66,10 +69,12 @@ if hexo-config('comments.use') == 'Twikoo'
         height: 2.5rem !important;
 
   .tk-replies
+    max-height: 10rem !important
     .tk-comment
       border-top: var(--style-border-dashed);
       border-radius: 12px;
       padding: 1rem 0px 0px;
+      margin-top: 0;
       transition: all 0.3s ease 0s;
     .tk-content span:first-child:not(.token)
       font-size: 0.5rem;
