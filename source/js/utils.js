@@ -537,7 +537,6 @@ const anzhiyu = {
           pos: "top-center",
           actionText: "前往",
           onActionClick: function (element) {
-            console.info(element);
             element.style.opacity = 0;
             window.open(link, "_blank");
           },
