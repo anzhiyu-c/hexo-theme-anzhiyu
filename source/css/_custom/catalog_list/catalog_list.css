@@ -28,7 +28,7 @@
 }
 
 .catalog-list-item a {
-  margin-right: 0.2rem;
+  margin-right: 0.3rem;
   font-weight: bold;
   color: var(--font-color);
   transition: all 0.3s ease-in-out;
@@ -44,7 +44,7 @@
   align-items: center;
 }
 .catalog-list-item:hover .notification-tip {
-  color: var(--anzhiyu-main);
+  color: var(--anzhiyu-white);
 }
 .catalog-list-item .notification-tip {
   display: flex;
