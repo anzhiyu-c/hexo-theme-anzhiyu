@@ -1,0 +1,55 @@
+#keyboard-tips
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 999;
+  background: var(--anzhiyu-maskbgdeep);
+  border-radius: 12px;
+  border: var(--style-border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+  pointer-events: none;
+  box-shadow: var(--anzhiyu-shadow-border);
+  opacity: 0;
+  transition: 0.3s;
+  &.show 
+    opacity: 1;
+    transition: 0.1s;
+  .keyboardTitle
+    font-size: 12px;
+    color: var(--anzhiyu-secondtext);
+    line-height: 1;
+  .keybordList
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+  .keybordItem 
+    display: flex;
+    margin-top: 4px;
+  .keyGroup
+    display: flex;
+    align-items: center;
+    width: 90px;
+    .key
+      padding: 0.2em 0.4em;
+      font-family: inherit;
+      background-color: var(--anzhiyu-card-bg);
+      color: var(--anzhiyu-fontcolor);
+      border: var(--style-border);
+      border-color: var(--anzhiyu-secondtext);
+      border-bottom: 2px solid var(--anzhiyu-secondtext);
+      box-shadow: var(--anzhiyu-shadow-border);
+      border-radius: 0.25rem;
+      overflow-wrap: break-word;
+      overflow-x: auto;
+      font-weight: 500;
+      font-size: .875em;
+      margin-right: 4px;
+      vertical-align: baseline;
+      line-height: 1;
+      height: 24px;
+

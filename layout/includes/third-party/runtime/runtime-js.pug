@@ -36,6 +36,8 @@ script(async=true).
 
     // 更新网页中显示的网站运行时间
     function updateHtml() {
+      const footer = document.getElementById("footer");
+      if (!footer) return
       let currentTimeHtml = "";
       if (nowHour < 18 && nowHour >= 9) {
         // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改

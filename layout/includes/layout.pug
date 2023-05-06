@@ -48,6 +48,9 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
       !=partial('includes/loading/index', {}, {cache: true})
 
     !=partial('includes/sidebar', {}, {cache: true})
+
+    if theme.shortcutKey.enable
+      !=partial('includes/shortcutKey', {}, {cache: true})
     include ./rightside.pug
 
     if (theme.nav_music.enable || theme.nav_music.console_widescreen_music)

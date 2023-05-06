@@ -40,4 +40,8 @@
     .console-btn-item#consoleMusic(onclick='anzhiyu.musicToggle()', title='音乐开关')
       a.music-switch
         i.anzhiyufont.anzhiyu-icon-music
+    if theme.shortcutKey.enable
+    .console-btn-item#consoleKeyboard(onclick='anzhiyu.keyboardToggle()', title='音乐开关')
+      a.keyboard-switch
+        i.anzhiyufont.anzhiyu-icon-keyboard
   .console-mask(onclick='anzhiyu.hideConsole()', href='javascript:void(0);')

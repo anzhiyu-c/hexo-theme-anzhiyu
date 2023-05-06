@@ -750,6 +750,16 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         consoleEl.classList.add("show");
       }
+      const consoleKeyboard = document.querySelector("#consoleKeyboard");
+      if (consoleKeyboard) {
+        if (localStorage.getItem("keyboardToggle") === "true") {
+          consoleKeyboard.classList.add("on");
+          anzhiyu_keyboard = true;
+        } else {
+          consoleKeyboard.classList.remove("on");
+          anzhiyu_keyboard = false;
+        }
+      }
     },
 
     runMobileToc: () => {

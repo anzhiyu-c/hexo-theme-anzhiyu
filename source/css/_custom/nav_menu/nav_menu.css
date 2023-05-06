@@ -409,7 +409,6 @@ center#name-container {
 #page-header #nav #nav-right .nav-button a i,
 #page-header #nav #nav-left .nav-button a i {
   line-height: 1;
-  color: var(--font-color);
   transition: background 0.35s ease-in-out, color 0.2s ease-in-out;
 }
 

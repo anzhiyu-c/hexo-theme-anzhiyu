@@ -626,6 +626,11 @@ const anzhiyu = {
     consoleEl.classList.add("reward-show");
     anzhiyu.initConsoleState();
   },
+  // 显示中控台
+  showConsole: function () {
+    document.querySelector("#console").classList.add("show");
+    anzhiyu.initConsoleState();
+  },
 
   //隐藏中控台
   hideConsole: function () {
@@ -636,6 +641,10 @@ const anzhiyu = {
       // 如果是打赏控制台，就关闭打赏控制台
       consoleEl.classList.remove("reward-show");
     }
+  },
+  // 取消加载动画
+  hideLoading: function () {
+    document.getElementById("loading-box").classList.add("loaded");
   },
   // 将音乐缓存播放
   cacheAndPlayMusic() {
@@ -1056,5 +1065,28 @@ const anzhiyu = {
     if (!document.querySelector(".reward-main")) return;
     document.querySelector(".reward-main").style.display = "none";
     document.getElementById("quit-box").style.display = "none";
+  },
+
+  keyboardToggle: function () {
+    const isKeyboardOn = anzhiyu_keyboard;
+
+    if (isKeyboardOn) {
+      const consoleKeyboard = document.querySelector("#consoleKeyboard");
+      consoleKeyboard.classList.remove("on");
+      anzhiyu_keyboard = false;
+    } else {
+      const consoleKeyboard = document.querySelector("#consoleKeyboard");
+      consoleKeyboard.classList.add("on");
+      anzhiyu_keyboard = true;
+    }
+
+    localStorage.setItem("keyboardToggle", isKeyboardOn ? "false" : "true");
+  },
+  rightMenuToggle: function () {
+    if (window.oncontextmenu) {
+      window.oncontextmenu = null;
+    } else if (!window.oncontextmenu && oncontextmenuFunction) {
+      window.oncontextmenu = oncontextmenuFunction;
+    }
   },
 };
