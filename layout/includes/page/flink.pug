@@ -35,9 +35,9 @@
                 - let evenNumAvatar = getAvatarWithoutExclamationMark(evenNum[index].avatar);
                 .tags-group-icon-pair
                   a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
-                    img.no-lightbox(title=evenNum[index].name, src=(oddNumAvatar + hundredSuffix))
+                    img.no-lightbox(title=evenNum[index].name, src=(evenNumAvatar + hundredSuffix))
                   a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
-                    img.no-lightbox(title=oddNum[index].name, src=(evenNumAvatar + hundredSuffix))
+                    img.no-lightbox(title=oddNum[index].name, src=(oddNumAvatar + hundredSuffix))
           each i, index in site.data.link.slice(0, 15)
             - const link_list = i.link_list.slice()
             - const hundredSuffix = i.hundredSuffix ? i.hundredSuffix : ""
