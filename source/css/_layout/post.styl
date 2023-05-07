@@ -294,9 +294,14 @@ blockquote {
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
 
     .post-copyright
+      &-title
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       &-meta
         color: $light-blue
         font-weight: bold
+        min-width: 75px;
 
       &-info
         padding-left: 6px
@@ -324,6 +329,8 @@ blockquote {
           flex-direction: row;
           align-items: center;
           justify-content: center;
+          +maxWidth768()
+            display: none
           &:hover
             background: var(--anzhiyu-theme);
             border-color: var(--anzhiyu-theme);
