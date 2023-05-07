@@ -5,7 +5,6 @@
   margin-top: 2rem;
   flex-wrap: wrap;
   -webkit-user-select: none;
-  overflow hidden
   .post-tools-left
     white-space: nowrap;
     display: flex;
@@ -14,6 +13,8 @@
     margin-bottom: 0.5rem;
     .rewardLeftButton, .shareRight
       display: flex
+    .rewardLeftButton
+      overflow hidden
     +maxWidth768()
       margin-top: 1rem;
       justify-content: center;
