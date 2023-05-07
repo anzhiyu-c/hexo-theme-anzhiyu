@@ -86,9 +86,17 @@
     })
   }
 
+  let friends_vue_info = 'undefined'
+  if (theme.friends_vue && theme.friends_vue.enable) {
+    friends_vue_info = JSON.stringify({
+      apiurl: theme.friends_vue.apiurl
+    })
+  }
+
 script.
   const GLOBAL_CONFIG = { 
     root: '!{config.root}',
+    friends_vue_info: !{friends_vue_info},
     navMusic: !{theme.nav_music.enable},
     algolia: !{algolia},
     localSearch: !{localSearch},

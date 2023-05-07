@@ -9,12 +9,14 @@
           .banners-title-small 友情链接
           .banners-title-big 与数百名博主无限进步
         .banner-button-group
-          a.banner-button.secondary.no-text-decoration(onclick="anzhiyu.travelling()")
-            i.anzhiyufont.anzhiyu-icon-paper-plane1
-            span.banner-button-text 随机访问
-          a.banner-button.no-text-decoration(onclick="anzhiyu.addFriendLink()")
-            i.anzhiyufont.anzhiyu-icon-arrow-circle-right
-            span.banner-button-text 申请友链
+          if (theme.friends_vue.apiurl)
+            a.banner-button.secondary.no-text-decoration(onclick="anzhiyu.travelling()")
+              i.anzhiyufont.anzhiyu-icon-paper-plane1
+              span.banner-button-text 随机访问
+          if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
+            a.banner-button.no-text-decoration(onclick="anzhiyu.addFriendLink()")
+              i.anzhiyufont.anzhiyu-icon-arrow-circle-right
+              span.banner-button-text 申请友链
       #skills-tags-group-all
         .tags-group-wrapper
           each i, index in site.data.link.slice(0, 15)
