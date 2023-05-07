@@ -5,12 +5,15 @@
   margin-top: 2rem;
   flex-wrap: wrap;
   -webkit-user-select: none;
+  overflow hidden
   .post-tools-left
     white-space: nowrap;
     display: flex;
     text-overflow: ellipsis;
     flex-wrap: wrap;
     margin-bottom: 0.5rem;
+    .rewardLeftButton, .shareRight
+      display: flex
     +maxWidth768()
       margin-top: 1rem;
       justify-content: center;

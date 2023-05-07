@@ -23,30 +23,32 @@ if !theme.disable_top_img && page.top_img !== false
     - var site_title = page.title || page.tag || page.category || config.title
 #post-tools.post-tools
   .post-tools-left
-    if theme.reward.enable && theme.reward.QR_code
-        !=partial('includes/post/reward', {}, {cache: true})
-    if theme.ptool.mode
-      .reward-link.mode
-        a.reward-link-button(href=theme.ptool.mode data-pjax-state='')
-          i.anzhiyufont.anzhiyu-icon-plant-fill
-          | 运营模式与责任
-    if theme.ptool.share_mobile
-      .share-link.mobile
-        .share-qrcode
-          .share-button(title='使用手机访问这篇文章')
-            i.anzhiyufont.anzhiyu-icon-qrcode
-          .share-main
-            .share-main-all
-              #qrcode(title=url)
-              .reward-dec 使用手机访问这篇文章
-    if theme.ptool.share_weibo
-      .share-link.weibo
-        a.share-button(target='_blank' href=`https://service.weibo.com/share/share.php?title=${site_title}&url=${url}&pic=${bg_img}` rel='external nofollow noreferrer noopener')
-          i.anzhiyufont.anzhiyu-icon-weibo
-    if theme.ptool.share_copyurl
-      .share-link.copyurl
-        #post-share-url.share-button(title='复制链接' onclick='rm.copyPageUrl()')
-          i.anzhiyufont.anzhiyu-icon-link
+    div.rewardLeftButton
+      if theme.reward.enable && theme.reward.QR_code
+          !=partial('includes/post/reward', {}, {cache: true})
+      if theme.ptool.mode
+        .reward-link.mode
+          a.reward-link-button(href=theme.ptool.mode data-pjax-state='')
+            i.anzhiyufont.anzhiyu-icon-plant-fill
+            | 运营模式与责任
+    div.shareRight
+      if theme.ptool.share_mobile
+        .share-link.mobile
+          .share-qrcode
+            .share-button(title='使用手机访问这篇文章')
+              i.anzhiyufont.anzhiyu-icon-qrcode
+            .share-main
+              .share-main-all
+                #qrcode(title=url)
+                .reward-dec 使用手机访问这篇文章
+      if theme.ptool.share_weibo
+        .share-link.weibo
+          a.share-button(target='_blank' href=`https://service.weibo.com/share/share.php?title=${site_title}&url=${url}&pic=${bg_img}` rel='external nofollow noreferrer noopener')
+            i.anzhiyufont.anzhiyu-icon-weibo
+      if theme.ptool.share_copyurl
+        .share-link.copyurl
+          #post-share-url.share-button(title='复制链接' onclick='rm.copyPageUrl()')
+            i.anzhiyufont.anzhiyu-icon-link
   .post-tools-right
     if (!theme.ptool.categories)
       .tag_share
