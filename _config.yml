@@ -1015,6 +1015,11 @@ post_head_ai_description:
   key: xxxx
   Referer: https://xx.xx/
 
+# 快捷键配置
+shortcutKey:
+  enable: false
+  delay: 300 # shift按下延时多久开启
+
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
