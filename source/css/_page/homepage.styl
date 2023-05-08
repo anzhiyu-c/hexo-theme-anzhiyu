@@ -15,6 +15,38 @@
     position: relative
     border-radius: 12px;
     box-shadow: none;
+    .recent-post-info
+      margin-top: 0px;
+      position: relative;
+      .newPost 
+        display: flex;
+        color: var(--anzhiyu-lighttext);
+        font-size: 0.5rem;
+        position: absolute;
+        top: 3px;
+      .article-title
+        font-weight: bold;
+    .article-meta__categories__box
+      position: absolute;
+      top: 15px;
+      left: 11px;
+      z-index: 2;
+      max-width: 100%;
+      display: flex;
+      .article-meta__categories
+        display: inline-block
+        padding: 1px 6px;
+        background: var(--anzhiyu-black-op);
+        border-radius: 8px;
+        margin-left: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--anzhiyu-white);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transform: translateZ(0);
+        &:hover 
+          background: var(--anzhiyu-main);
 
     +maxWidth768()
       flex-direction: column
@@ -218,3 +250,18 @@ if hexo-config('article_double_row') == true
 
     #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator
       display: none
+
+#content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+  display: -webkit-box;
+  height: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.4;
+  color: var(--anzhiyu-secondtext);
+  margin-top: 0.5rem;
+
+#recent-posts > .recent-post-item > .recent-post-info > .article-title
+  margin: 0 !important;

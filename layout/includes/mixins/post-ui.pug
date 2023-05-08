@@ -12,13 +12,14 @@ mixin postUI(posts)
         let no_cover = article.cover === false || !theme.cover.index_enable ? 'no-cover' : ''
         const new_post = numberone !== 1 && is_current('/') && (!article.sticky || (article.new && article.sticky))
       -
+      if (theme.post_meta.page.categories && article.categories.data.length > 0)
+        .article-meta__categories__box
+          each item, index in article.categories.data
+            a(href=url_for(item.path)).article-meta__categories #[=item.name]
       if post_cover && theme.cover.index_enable
         .post_cover(class=leftOrRight)
           a(href=url_for(link) title=title)
             img.post_bg(src=url_for(post_cover) onerror=`this.onerror=null;this.src='`+ url_for(theme.error_img.post_page) + `'` alt=title)
-      if (theme.post_meta.page.categories && article.categories.data.length > 0)
-        each item, index in article.categories.data
-          a(href=url_for(item.path)).article-meta__categories #[=item.name]
       .recent-post-info(class=no_cover)
         if new_post
           span.newPost 最新文章
