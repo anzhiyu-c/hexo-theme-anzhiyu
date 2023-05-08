@@ -167,8 +167,8 @@ error_img:
 # A simple 404 page
 error_404:
   enable: true
-  subtitle: "Page Not Found"
-  background: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/page-404.png
+  subtitle: "请尝试站内搜索寻找文章"
+  background: https://bu.dusays.com/2023/03/03/6401a7906aa4a.gif
 
 post_meta:
   page: # Home Page
