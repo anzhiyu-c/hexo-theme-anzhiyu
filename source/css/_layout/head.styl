@@ -123,6 +123,10 @@
         min-width: 50vw;
         min-height: 20rem;
         animation: slide-in 0.6s 0.3s backwards;
+        +maxWidth768()
+          min-height: 15rem !important;
+          height: 70% !important;
+          opacity: 1 !important;
 
     #nav
       backdrop-filter: none;
@@ -160,7 +164,7 @@
     height 100%
     display: flex
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     z-index: 3
     animation: slide-in 0.6s 0.3s backwards;
@@ -229,7 +233,6 @@
     margin-bottom: 30px
 
     .post-title
-      padding-bottom: 4px
       border-bottom: 1px solid var(--light-grey)
       color: var(--text-highlight-color)
 
@@ -247,12 +250,15 @@
       transition: 0
   .post-title
     @extend .limit-more-line
-    margin-bottom: 8px
     color: var(--white)
-    font-weight: normal
-    font-size: 2.5em
     line-height: 1.5
-    -webkit-line-clamp: 3
+    font-weight: 700;
+    font-size: 3.3rem;
+    text-align: left;
+    margin: 1rem 0 1rem 0;
+    -webkit-line-clamp: 2;
+    padding: 0;
+    overflow: hidden;
 
     +maxWidth768()
       font-size: 2.1em
@@ -267,7 +273,7 @@
     display: flex;
     width: 50rem;
     max-width: 100%;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
 
@@ -286,7 +292,7 @@
 
     .post-meta
       &-separator
-        margin: 0 5px
+        margin: 0 8px
 
       &-icon
         margin-right: 4px
@@ -461,3 +467,172 @@
       &:hover
         &:after
           width: 100%
+
+@keyframes move-forever
+  0%
+    transform: translate3d(-90px, 0, 0);
+  100%
+    transform: translate3d(85px, 0, 0)
+
+// #page-header.post-bg
+#page-header.post-bg
+  height: 34rem
+  transition: 0s
+  background-color: transparent
+  overflow: hidden
+  background-color: var(--anzhiyu-bar-background)
+
+  // #nav
+  #nav
+    transition: all 0.5s, border 0.3s
+
+  // .post-meta
+  .post-meta:has(.bldbanner),
+  .post-meta:has(.bili-banner),
+  .post-meta:has(.blqbanner)
+    pointer-events: all
+
+  // #post-info
+  #post-info:has(.bldbanner),
+  #post-info:has(.bili-banner),
+  #post-info:has(.blqbanner)
+    pointer-events: none
+
+  &:has(.bldbanner),
+  &:has(.bili-banner),
+  &:has(.blqbanner)
+    height: 15rem
+
+//波浪css
+.main-hero-waves-area
+  width: 100%
+  position: absolute
+  left: 0
+  bottom: -11px
+  z-index: 5
+
+.waves-area .waves-svg
+  width: 100%
+  height: 5rem
+
+//Animation
+.parallax > use
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite
+
+.parallax > use:nth-child(1)
+  animation-delay: -2s
+  animation-duration: 7s
+  fill: #f7f9febd
+
+.parallax > use:nth-child(2)
+  animation-delay: -3s
+  animation-duration: 10s
+  fill: #f7f9fe82
+
+.parallax > use:nth-child(3)
+  animation-delay: -4s
+  animation-duration: 13s
+  fill: #f7f9fe36
+
+.parallax > use:nth-child(4)
+  animation-delay: -5s
+  animation-duration: 20s
+  fill: #f7f9fe
+
+//黑色模式背景
+[data-theme="dark"] .parallax > use:nth-child(1)
+  animation-delay: -2s
+  animation-duration: 7s
+  fill: #18171dc8
+
+[data-theme="dark"] .parallax > use:nth-child(2)
+  animation-delay: -3s
+  animation-duration: 10s
+  fill: #18171d80
+
+[data-theme="dark"] .parallax > use:nth-child(3)
+  animation-delay: -4s
+  animation-duration: 13s
+  fill: #18171d3e
+
+[data-theme="dark"] .parallax > use:nth-child(4)
+  animation-delay: -5s
+  animation-duration: 20s
+  fill: #18171d
+#post-firstinfo
+  text-align: left;
+  display: flex;
+  white-space: nowrap;
+  -webkit-user-select: none;
+
+  .meta-firstline
+    display: flex;
+    align-items: center;
+    height: 32px;
+
+    a.post-meta-original
+      background: var(--anzhiyu-white-op);
+      color: var(--anzhiyu-white);
+      padding: 0 0.7rem;
+      font-size: 0.9rem;
+      margin: auto;
+      border-radius: 8px;
+      font-weight: bold;
+      height: 32px;
+      line-height: 32px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+    span.post-meta-categories
+      background: var(--anzhiyu-white-op);
+      color: var(--anzhiyu-white);
+      padding: 0 0.7rem;
+      font-size: 0.9rem;
+      margin: auto;
+      border-radius: 8px;
+      font-weight: bold;
+      height: 32px;
+      line-height: 32px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      margin-left: .4rem
+      i 
+       display: none
+
+      a.post-meta-categories
+        color: var(--anzhiyu-white);
+        font-size: 0.9rem;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        display: flex;
+    .article-meta.tags
+      margin-left: 1.2rem;
+    .article-meta__tags
+      color: var(--anzhiyu-white);
+      opacity: 0.8;
+      margin-right: 8px;
+    .anzhiyu-icon-hashtag:before 
+      font-size: 17px;
+    .anzhiyu-icon-location-dot
+      margin-right: 4px
+
++maxWidth768()
+  .layout > div:first-child:not(.recent-posts)
+    z-index: 10;
+    margin-top: -30px;
+  #page-header.post-bg #nav
+    background: linear-gradient(to top, var(--anzhiyu-main-none) 0%, var(--anzhiyu-bar-background) 100%);
+  .post-bg:has(.bldbanner) #post-info:after,
+  .post-bg:has(.bili-banner) #post-info:after,
+  .post-bg:has(.blqbanner) #post-info:after
+    box-shadow: 0px -214px 287px 45px var(--anzhiyu-black-op) inset;
+  /*Shrinking for mobile*/
+  .waves-area .waves-svg
+    height: 40px;
+    min-height: 40px;
+  .main-hero-waves-area
+    display: none;
+    visibility: hidden;

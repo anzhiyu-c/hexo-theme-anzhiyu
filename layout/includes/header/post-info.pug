@@ -1,5 +1,29 @@
 - let comments = theme.comments
 #post-info
+  #post-firstinfo
+    .meta-firstline
+      if (page.copyright_author && page.copyright_author !== config.author)
+        a.post-meta-original 转载
+      else 
+        a.post-meta-original 原创
+      if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+        span.post-meta-categories
+          if (theme.post_meta.post.date_type)
+            span.post-meta-separator
+
+          each item, index in page.categories.data
+            i.anzhiyufont.anzhiyu-icon-inbox.post-meta-icon
+            a(href=url_for(item.path)).post-meta-categories #[=item.name]
+            if (index < page.categories.data.length - 1)
+              i.anzhiyufont.anzhiyu-icon-angle-right.post-meta-separator
+      if (theme.post_meta.page.tags)
+        span.article-meta.tags
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).article-meta__tags 
+              span 
+                i.anzhiyufont.anzhiyu-icon-hashtag
+                =item.name
+
   h1.post-title= page.title || _p('no_title')
     if theme.post_edit.enable
       a.post-edit-link(href=theme.post_edit.url + page.source title=_p('post.edit') target="_blank")
@@ -13,7 +37,7 @@
             i.anzhiyufont.anzhiyu-icon-calendar-days.post-meta-icon
             span.post-meta-label= _p('post.created')
             time.post-meta-date-created(datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
-            span.post-meta-separator |
+            span.post-meta-separator
             i.anzhiyufont.anzhiyu-icon-history.post-meta-icon
             span.post-meta-label= _p('post.updated')
             time.post-meta-date-updated(datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
@@ -28,7 +52,7 @@
       if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
         span.post-meta-categories
           if (theme.post_meta.post.date_type)
-            span.post-meta-separator |
+            span.post-meta-separator
 
           each item, index in page.categories.data
             i.anzhiyufont.anzhiyu-icon-inbox.post-meta-icon
@@ -39,25 +63,25 @@
     .meta-secondline
       - let postWordcount = theme.wordcount.enable && (theme.wordcount.post_wordcount || theme.wordcount.min2read)
       if (postWordcount)
-        span.post-meta-separator |
+        span.post-meta-separator
         span.post-meta-wordcount
           if theme.wordcount.post_wordcount
-            i.anzhiyufont.anzhiyu-icon-file-word.post-meta-icon
-            span.post-meta-label= _p('post.wordcount') + ':'
-            span.word-count= wordcount(page.content)
+            i.anzhiyufont.anzhiyu-icon-file-word.post-meta-icon(title="文章字数")
+            span.post-meta-label(title="文章字数")= _p('post.wordcount') + ':'
+            span.word-count(title="文章字数")= wordcount(page.content)
             if theme.wordcount.min2read
-              span.post-meta-separator |
+              span.post-meta-separator
           if theme.wordcount.min2read
-            i.anzhiyufont.anzhiyu-icon-clock.post-meta-icon
-            span.post-meta-label= _p('post.min2read') + ':'
+            i.anzhiyufont.anzhiyu-icon-clock.post-meta-icon(title="阅读时长")
+            span.post-meta-label(title="阅读时长")= _p('post.min2read') + ':'
             span= min2read(page.content, {cn: 350, en: 160}) + _p('post.min2read_unit')
     
       //- for pv and count
       mixin pvBlock(parent_id,parent_class,parent_title)
-        span.post-meta-separator |
+        span.post-meta-separator
         span(class=parent_class id=parent_id data-flag-title=page.title)
           i.anzhiyufont.anzhiyu-icon-fw-eye.post-meta-icon
-          span.post-meta-label=_p('post.page_pv') + ':'
+          span.post-meta-label(title="阅读量")=_p('post.page_pv') + ':'
           if block
             block
 
@@ -65,15 +89,15 @@
       if page.comments !== false && commentUse && !comments.lazyload
         if commentUse[0] === 'Valine' && theme.valine.visitor
           +pvBlock(url_for(page.path),'leancloud_visitors',page.title)
-            span.leancloud-visitors-count
+            span.leancloud-visitors-count(title="评论数")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Waline' && theme.waline.pageview
           +pvBlock('','','')
-            span.waline-pageview-count(data-path=url_for(page.path))
+            span.waline-pageview-count(data-path=url_for(page.path) title="评论数")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Twikoo' && theme.twikoo.visitor
           +pvBlock('','','')
-            span#twikoo_visitors
+            span#twikoo_visitors(title="评论数")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Artalk' && theme.artalk.visitor
           +pvBlock('','','')
@@ -87,12 +111,18 @@
         +pvBlock('','post-meta-pv-cv','')
           span#busuanzi_value_page_pv
             i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
+      - let location = page.location ? page.location : theme.post_copyright.location
+      if theme.post_copyright.enable && location
+        span.post-meta-separator        
+        span.post-meta-position(title="作者IP属地为" + location)
+          i.anzhiyufont.anzhiyu-icon-location-dot
+          =location
 
       if comments.count && !comments.lazyload && page.comments !== false && comments.use
         - var whichCount = comments.use[0]
 
         mixin countBlock
-          span.post-meta-separator |
+          span.post-meta-separator
           span.post-meta-commentcount
             i.anzhiyufont.anzhiyu-icon-comments.post-meta-icon
             span.post-meta-label= _p('post.comments') + ':'
