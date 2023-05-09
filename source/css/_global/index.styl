@@ -94,6 +94,7 @@
   --anzhiyu-reverse: #000;
   --anzhiyu-maskbg: rgba(255, 255, 255, 0.6);
   --anzhiyu-maskbgdeep: rgba(255, 255, 255, 0.85);
+  --anzhiyu-scrollbar: rgba(60, 60, 67, 0.4);
   --anzhiyu-hovertext: var(--anzhiyu-theme);
   --anzhiyu-ahoverbg: #f7f7fa;
   --anzhiyu-lighttext: var(--anzhiyu-main);
@@ -130,6 +131,7 @@
   --anzhiyu-maskbgdeep: rgba(0, 0, 0, 0.85);
   --anzhiyu-hovertext: #0a84ff;
   --anzhiyu-ahoverbg: #fff;
+  --anzhiyu-scrollbar: rgba(200, 200, 223, 0.4);
   --anzhiyu-lighttext: #f2b94b;
   --anzhiyu-secondtext: #a1a2b8;
   --anzhiyu-scrollbar: rgba(200, 200, 223, 0.4);
@@ -158,14 +160,20 @@ body
 
 // scrollbar - chrome/safari
 *::-webkit-scrollbar
-  width: 8px
-  height: 8px
+  width: 6px
+  height: 6px
 
 *::-webkit-scrollbar-thumb
   background: var(--scrollbar-color)
+  border-radius: 8px;
+  cursor: pointer;
 
 *::-webkit-scrollbar-track
   background-color: transparent
+
+::-webkit-scrollbar-corner
+  background-color: transparent;
+
 
 // scrollbar - firefox
 *

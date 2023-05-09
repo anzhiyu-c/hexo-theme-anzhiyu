@@ -1089,4 +1089,27 @@ const anzhiyu = {
       window.oncontextmenu = oncontextmenuFunction;
     }
   },
+  // 定义 intersectionObserver 函数，并接收两个可选参数
+  intersectionObserver: function (enterCallback, leaveCallback) {
+    let observer;
+    let isIntersected = false; // 增加一个状态变量，用于判断是否已经观察到过目标元素
+    return () => {
+      if (!observer) {
+        observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.intersectionRatio > 0 && !isIntersected) {
+              enterCallback?.();
+              isIntersected = true; // 设置状态变量为 true，表示已经观察到过目标元素
+            } else {
+              leaveCallback?.();
+            }
+          });
+        });
+      } else {
+        // 如果 observer 对象已经存在，则先取消对之前元素的观察
+        observer.disconnect();
+      }
+      return observer;
+    };
+  },
 };

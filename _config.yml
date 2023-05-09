@@ -460,8 +460,8 @@ footer:
             link: https://v6.51.la/
           - title: 十年之约
             link: https://www.foreverblog.cn/
-          - title: 版权协议
-            link: /copyright/
+          - title: 开往
+            link: https://github.com/travellings-link/travellings
       - title: 主题
         links:
           - title: 文档
@@ -559,7 +559,7 @@ theme_color:
   toc_color: "#3b70fc"
   #   blockquote_padding_color: "#3b70fc"
   #   blockquote_background_color: "#3b70fc"
-  scrollbar_color: "#3b70fc"
+  scrollbar_color: "var(--anzhiyu-scrollbar)"
   meta_theme_color_light: "#f7f9fe"
   meta_theme_color_dark: "#18171d"
 

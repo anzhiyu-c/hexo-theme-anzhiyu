@@ -110,36 +110,6 @@ div#category {
   background: transparent !important;
 }
 
-/* 头图透明 */
-/* #page-header {
-  background: transparent !important;
-} */
-
-/* 滚动条 */
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3b70fc;
-  border-radius: 2em;
-}
-
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-
-::-moz-selection {
-  color: #fff;
-  background-color: #3b70fc;
-}
-
 /* md网站下划线 */
 #article-container a:hover {
   text-decoration: none !important;
