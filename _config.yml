@@ -439,7 +439,7 @@ footer:
         icon: anzhiyufont anzhiyu-icon-weibo
       - title: facebook
         link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
-        icon: anzhiyufont anzhiyu-icon-envelope
+        icon: anzhiyufont anzhiyu-icon-facebook1
     right:
       - title: Github
         link: https://github.com/anzhiyu-c
@@ -449,7 +449,7 @@ footer:
         icon: anzhiyufont anzhiyu-icon-bilibili
       - title: 抖音
         link: https://v.douyin.com/DwCpMEy/
-        icon: anzhiyufont anzhiyu-icon-envelope
+        icon: anzhiyufont anzhiyu-icon-tiktok
   list:
     enable: false
     randomFriends: 3
