@@ -170,7 +170,8 @@
     animation: slide-in 0.6s 0.3s backwards;
 
     +maxWidth768()
-      padding: 0 6%;
+      padding: 11rem 6% 0;
+      align-items: center;
       &:after
         display: block
         position: absolute;
@@ -261,7 +262,10 @@
     overflow: hidden;
 
     +maxWidth768()
-      font-size: 2.1em
+      font-size: 1.5rem
+      -webkit-line-clamp: 3;
+      margin: 0.2rem auto !important;
+      text-align: center;
       z-index: 4
 
     .post-edit-link
@@ -285,10 +289,15 @@
     +maxWidth768()
       font-size: 90%
       z-index: 4
+      align-items: center;
 
       > .meta-firstline,
       > .meta-secondline
-        display: inline
+        display: flex;
+        font-size: 90%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
 
     .post-meta
       &-separator
@@ -564,6 +573,8 @@
   display: flex;
   white-space: nowrap;
   -webkit-user-select: none;
+  +maxWidth768()
+    z-index 4
 
   .meta-firstline
     display: flex;
@@ -610,6 +621,8 @@
         display: flex;
     .article-meta.tags
       margin-left: 1.2rem;
+      +maxWidth768()
+        display: none
     .article-meta__tags
       color: var(--anzhiyu-white);
       opacity: 0.8;

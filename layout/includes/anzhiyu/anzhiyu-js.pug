@@ -26,4 +26,9 @@ script(data-pjax).
 
   anzhiyu.getCustomPlayList();
   anzhiyu.addEventListenerConsoleMusicList(false);
-  addFriendLinksInFooter()
+  setTimeout(()=>{
+    if (typeof addFriendLinksInFooter === "function") {
+      addFriendLinksInFooter();
+    }
+  }, 200)
+
