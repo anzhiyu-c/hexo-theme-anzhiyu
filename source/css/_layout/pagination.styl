@@ -110,13 +110,13 @@
 .layout
   & > .recent-posts
     .pagination
-      & > *
+      & > *:not(pangu)
         display: inline-block
         width: w = 2.5em
         height: w
         line-height: w
 
-      & > *:not(.space)
+      & > *:not(.space):not(pangu)
         @extend .cardHover
         transition: 0s;
 
