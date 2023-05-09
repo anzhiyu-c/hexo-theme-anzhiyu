@@ -1,6 +1,7 @@
 hexo.extend.generator.register("random", function (locals) {
   const config = hexo.config.random || {};
-  const randomNumberFriend = hexo.config.theme_config.footer.list.randomFriends || 0;
+  const themeConfig = hexo.theme.config;
+  const randomNumberFriend = themeConfig.footer.list.randomFriends || 0;
   const posts = [];
   const link = locals.data.link || [];
   for (const post of locals.posts.data) {
@@ -15,14 +16,13 @@ hexo.extend.generator.register("random", function (locals) {
     });
   });
 
-  return {
-    path: config.path || "anzhiyu/random.js",
-    data: `
-    var posts=${JSON.stringify(posts)};
-    function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+  let result = `var posts=${JSON.stringify(
+    posts
+  )};function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};`;
 
-    var friend_link_list=${JSON.stringify(link_list)};
-    var refreshNum = 1
+  if (themeConfig.footer.list.enable && randomNumberFriend > 0) {
+    result += `var friend_link_list=${JSON.stringify(link_list)};
+    var refreshNum = 1;
     var footerRandomFriendsBtn = document.getElementById("footer-random-friends-btn");
     function addFriendLinksInFooter() {
       footerRandomFriendsBtn.style.opacity = "0.2";
@@ -58,7 +58,10 @@ hexo.extend.generator.register("random", function (locals) {
       setTimeout(()=>{
         footerRandomFriendsBtn.style.opacity = "1";
       }, 300)
-    }
-    `,
+    };`;
+  }
+  return {
+    path: config.path || "anzhiyu/random.js",
+    data: result,
   };
 });
