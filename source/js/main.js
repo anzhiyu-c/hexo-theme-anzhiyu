@@ -799,8 +799,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //监听蒙版关闭
-  const bodyWrap = document.getElementById("content-inner");
-  bodyWrap.addEventListener(
+  document.addEventListener(
     "touchstart",
     e => {
       anzhiyu.removeRewardMask();

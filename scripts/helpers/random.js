@@ -25,6 +25,7 @@ hexo.extend.generator.register("random", function (locals) {
     var refreshNum = 1;
     var footerRandomFriendsBtn = document.getElementById("footer-random-friends-btn");
     function addFriendLinksInFooter() {
+      if(!footerRandomFriendsBtn) return;
       footerRandomFriendsBtn.style.opacity = "0.2";
       footerRandomFriendsBtn.style.transitionDuration = "0.3s";
       footerRandomFriendsBtn.style.transform = "rotate(" + 360 * refreshNum++ + "deg)";
