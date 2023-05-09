@@ -799,12 +799,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //监听蒙版关闭
-  document.addEventListener(
+  const bodyWrap = document.getElementById("content-inner");
+  bodyWrap.addEventListener(
     "touchstart",
     e => {
       anzhiyu.removeRewardMask();
     },
-    false
+    { passive: true }
   );
 
   /**
