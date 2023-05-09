@@ -47,9 +47,6 @@
   border-radius: 8px;
 }
 
-.catalog-list-item.selected .notification-tip {
-  color: var(--font-color);
-}
 .category-bar-more {
   margin-left: 1rem;
   font-weight: bold;
