@@ -204,8 +204,8 @@ if site.data.about
         include ../anzhiyu/about-extra.pug
         
       - let rawData = item.reward_list
-      - let sortedByDate = rawData.slice().sort((a, b) => new Date(b.datatime) - new Date(a.datatime));
       if rawData
+        - let sortedByDate = rawData.slice().sort((a, b) => new Date(b.datatime) - new Date(a.datatime));
         .author-content
           .author-content-item.single.reward#about-reward
             .author-content-item-tips 致谢
