@@ -21,6 +21,9 @@ div
 
   if theme.pangu.enable
     != partial("includes/third-party/pangu.pug", {}, { cache: true })
+  if theme.asset.meting_api
+    script.
+      var meting_api = "!{theme.asset.meting_api}";
 
   //- 黑色模式粒子效果canvas
   if theme.universe.enable
