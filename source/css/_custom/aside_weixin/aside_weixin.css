@@ -12,10 +12,7 @@
   background-color: #121121;
   border: var(--style-border);
 }
-#aside-content .card-widget {
-  border-radius: 12px;
-  transition: 0.3s;
-}
+
 #flip-wrapper {
   -webkit-perspective: 1000;
   perspective: 1000;
