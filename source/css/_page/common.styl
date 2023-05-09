@@ -2,7 +2,15 @@
   display: flex
   flex-direction: column
   min-height: 100vh
-
+  +maxWidth768()
+    #home_top ~ main 
+      padding: 0;
+    &.post
+      .layout
+        padding: 0;
+    #bbTimeList ~ main
+      padding: 0;
+  
 .layout
   display: flex
   flex: 1 auto
@@ -15,7 +23,7 @@
     flex-direction: column
 
   +maxWidth768()
-    padding: 0
+    padding: 20px 15px;
     z-index: 3
 
   +minWidth2000()

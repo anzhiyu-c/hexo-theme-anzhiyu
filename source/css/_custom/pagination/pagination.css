@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: 0.3s;
+    transition: all 0.3s, color 0s;
     position: absolute;
   }
 
@@ -102,7 +102,7 @@ a.extend.next {
   }
 }
 
-.layout > div:not(.recent-posts) #pagination .pagination > span,
+/* .layout > div:not(.recent-posts) #pagination .pagination > span,
 .layout > div:not(.recent-posts) #pagination .pagination > a {
   display: inline-block;
   margin: 0 6px;
@@ -110,7 +110,7 @@ a.extend.next {
   height: 2.5em;
   line-height: 2.5em;
   border-radius: 15px;
-}
+} */
 
 #pagination .pagination input {
   width: 2.5em;
