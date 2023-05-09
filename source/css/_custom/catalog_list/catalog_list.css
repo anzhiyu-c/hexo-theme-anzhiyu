@@ -53,6 +53,7 @@ a.catalog-more {
   min-width: fit-content;
   font-weight: bold;
   color: var(--anzhiyu-fontcolor);
+  margin-left: 16px;
 }
 
 a.catalog-more:hover {

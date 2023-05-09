@@ -3,13 +3,13 @@
   flex-direction: column
   min-height: 100vh
   +maxWidth768()
-    #home_top ~ main 
+    .layout
       padding: 0;
-    &.post
-      .layout
-        padding: 0;
-    #bbTimeList ~ main
-      padding: 0;
+    #category,#tag
+      padding: 40px 15px 20px;
+      background: var(--anzhiyu-background)
+    #archive
+      background: var(--anzhiyu-background)
   
 .layout
   display: flex

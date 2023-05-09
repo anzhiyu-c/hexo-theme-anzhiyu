@@ -1112,4 +1112,33 @@ const anzhiyu = {
       return observer;
     };
   },
+  // CategoryBar滚动
+  scrollCategoryBarToRight: function() {
+    // 获取需要操作的元素
+    const items = document.getElementById("catalog-list");
+    const nextButton = document.getElementById("category-bar-next");
+  
+    // 检查元素是否存在
+    if (items && nextButton) {
+      const itemsWidth = items.clientWidth;
+  
+      // 判断是否已经滚动到最右侧
+      if (items.scrollLeft + items.clientWidth + 1 >= items.scrollWidth) {
+        // 滚动到初始位置并更新按钮内容
+        items.scroll({
+          left: 0,
+          behavior: "smooth"
+        });
+        nextButton.innerHTML = '<i class="anzhiyufont anzhiyu-icon-angle-double-right"></i>';
+      } else {
+        // 滚动到下一个视图
+        items.scrollBy({
+          left: itemsWidth,
+          behavior: "smooth"
+        });
+      }
+    } else {
+      console.error("Element(s) not found: 'catalog-list' and/or 'category-bar-next'.");
+    }
+  },
 };

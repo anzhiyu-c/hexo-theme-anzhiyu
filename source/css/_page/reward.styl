@@ -1,0 +1,135 @@
+.reward
+  & #con
+    width 350px
+    height 85px
+    position relative
+    border-radius 4px
+
+  & #TA-con
+    width 157px
+    height 50px
+    background-color #f25d8e
+    box-shadow 0 4px 4px rgba(255, 112, 159, 0.3)
+    position absolute
+    top 50%
+    left 10%
+    transform translateY(-50%)
+    border-radius 4px
+    cursor pointer
+    +maxWidth768()
+      width: 125px;
+      left: 54px;
+
+    &:hover
+      background-color #ff6b9a
+
+  & #text-con
+    width 100px
+    height 100%
+    margin 0 auto
+    position relative
+
+
+  & #linght
+    width 0
+    height 0
+    position absolute
+    top 36%
+    left 4px
+    border-color transparent
+    border-style solid
+    border-width 10px
+    border-top 10px solid #fff
+    border-radius 4px
+    transform rotate(-55deg)
+
+    &::after
+      position absolute
+      top -13px
+      left -11px
+      content ""
+      width 0
+      height 0
+      border-color transparent
+      border-style solid
+      border-width 10px
+      border-top 10px solid #fff
+      transform rotate(180deg)
+      border-radius 4px
+
+  & #TA
+    float right
+    line-height 50px
+    font-size 15px
+    color #fff
+
+  & #tube-con
+    width 157px
+    height 55px
+    position absolute
+    right -5px
+    top 15px
+
+  & svg
+    width 100%
+    height 100%
+
+  & #mask
+    width 0px
+    height 100%
+    overflow hidden
+    position absolute
+    top 0
+    left 0
+    transition all 0.5s
+
+  & #mask svg
+    width 157px
+    height 55px
+
+  & #TA-con:hover + #tube-con > #mask
+    width 157px
+
+  & #TA-con:hover + #tube-con > #orange-mask
+    animation move1 0.5s linear 0.2s infinite
+
+  & #TA-con:hover + #tube-con > #orange-mask svg
+    animation movetwo 0.5s linear 0.2s infinite
+
+  & #orange-mask
+    width 18px
+    height 100%
+    overflow hidden
+    position absolute
+    left -15px
+    top 0px
+
+  & #orange-mask svg
+    position absolute
+    top 0
+    left 15px
+    width 157px
+    height 55px
+
+@keyframes move1
+  0%
+    left -15px
+  100%
+    left 140px
+
+@keyframes movetwo
+  0%
+    left 15px
+  100%
+    left -140px
+
+.reward #people
+  position absolute
+  right 10px
+  top 4px
+  font-size 12px
+  font-family "雅黑"
+  color #aaa
+
+  & > b
+    color #777

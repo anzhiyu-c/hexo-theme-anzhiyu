@@ -2,6 +2,8 @@
 var anzhiyu_musicFirst = false;
 // 音乐播放状态
 var anzhiyu_musicPlaying = false;
+// 是否开启快捷键
+var anzhiyu_keyboard = false
 
 var adjectives = [
   "美丽的",

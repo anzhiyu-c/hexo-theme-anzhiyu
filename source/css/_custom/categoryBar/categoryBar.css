@@ -16,6 +16,17 @@
   transition: all 0.3s ease 0s;
   animation: slide-in 0.6s 0.3s backwards;
 }
+
+.category-bar-next {
+  margin-left: 16px;
+  cursor: pointer;
+  display: flex;
+}
+
+.category-bar-next:hover {
+  color: var(--anzhiyu-lighttext);
+}
+
 #category-bar #catalog-bar {
   margin-bottom: 0;
   overflow-y: hidden;
