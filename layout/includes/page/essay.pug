@@ -1,21 +1,22 @@
 if site.data.essay && theme.essay.enable
+  - let essayConfig = theme.essay
   #essay_page
-    .author-content.author-content-item.essayPage.single(style = theme.essay.enable ? `background: url(${theme.essay.top_background}) left 28% / cover no-repeat;` : "")
+    .author-content.author-content-item.essayPage.single(style = essayConfig.enable ? `background: url(${essayConfig.top_background}) left 28% / cover no-repeat;` : "")
       .card-content
-        .author-content-item-tips 即刻短文
-        span.author-content-item-title 咸鱼的日常生活。
+        .author-content-item-tips=essayConfig.title
+        span.author-content-item-title=essayConfig.subTitle
         .content-bottom
-          .tips 使用 即刻短文静态部署版 构建
+          .tips=essayConfig.tips
         .banner-button-group
-          a.banner-button(onclick='pjax.loadUrl("/about/")')
+          a.banner-button(href=essayConfig.buttonLink)
             i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
-            span.banner-button-text 关于我
+            span.banner-button-text=essayConfig.button
     #bber
       section.timeline.page-1
         ul#waterfall.list
           each i in site.data.essay
             each item, index in i.essay_list
-              if index < 30
+              if index < essayConfig.limit
                 li.bber-item
                   .bber-content
                     p.datacont= item.content
@@ -45,7 +46,11 @@ if site.data.essay && theme.essay.enable
                         .bber-info-from
                           i.anzhiyufont.anzhiyu-icon-fw-fire
                           span=item.from
+                      if item.address
+                        .bber-info-from
+                          i.anzhiyufont.anzhiyu-icon-location-dot
+                          span=item.address
                     .bber-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
                       i.anzhiyufont.anzhiyu-icon-message
     #bber-tips(style='color: var(--anzhiyu-secondtext);')
-      | - 只展示最近30条短文 -
+      ="- 只展示最近" + essayConfig.limit + "条短文 -"

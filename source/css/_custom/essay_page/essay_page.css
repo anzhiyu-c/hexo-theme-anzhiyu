@@ -136,6 +136,12 @@ body[data-type="essay"] #web_bg {
 #bber > section > ul > li > div .bber-info-from {
   margin-left: 4px;
 }
+#bber > section > ul > li > div .bber-info-from i {
+  font-size: 0.7rem;
+}
+#bber .bber-item hr::before {
+  display: none;
+}
 
 #bber .bber-bottom {
   display: flex;
@@ -164,6 +170,7 @@ body[data-type="essay"] #web_bg {
 }
 #bber .bber-content-link i {
   margin-right: 3px;
+  font-size: 0.7rem;
 }
 #bber .bber-content-link:hover {
   background-color: var(--anzhiyu-main);
