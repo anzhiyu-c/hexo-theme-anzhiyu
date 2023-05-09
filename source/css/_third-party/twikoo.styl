@@ -63,6 +63,16 @@ if hexo-config('comments.use') == 'Twikoo'
     .tk-comment .tk-submit .tk-avatar, .tk-replies .tk-avatar
       height: 2.5rem !important;
       width: 2.5rem !important;
+    
+    +maxWidth768()
+      .tk-comments-container .tk-comment
+        padding: 1rem;
+        border: var(--style-border-always);
+        box-shadow: var(--anzhiyu-shadow-border);
+        background: var(--anzhiyu-card-bg);
+      .tk-replies .tk-comment
+        border: none
+
     .tk-avatar 
       border-radius: 50px;
       .tk-avatar-img
