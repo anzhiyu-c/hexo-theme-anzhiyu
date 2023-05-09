@@ -1048,6 +1048,12 @@ visitorMail:
 # 即刻页面配置
 essay:
   enable: false
+  title: 即刻短文
+  subTitle: 咸鱼的日常生活。
+  tips: 使用 即刻短文静态部署版 构建
+  button: 关于我
+  buttonLink: /about/
+  limit: 30
   top_background:
 
 # ptool 文章底部工具
