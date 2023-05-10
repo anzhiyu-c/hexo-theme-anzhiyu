@@ -147,6 +147,9 @@ category_img:
 #  - category name: xxxxx
 category_per_img:
 
+# 开启一图流
+OneGraphFlow: false
+
 cover:
   # display the cover or not (是否显示文章封面)
   index_enable: true
@@ -937,7 +940,7 @@ lazyload:
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
 pwa:
-  enable: true
+  enable: false
   startup_image_enable: true
   manifest: /manifest.json
   theme_color: var(--anzhiyu-main)
