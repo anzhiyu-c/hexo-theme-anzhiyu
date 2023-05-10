@@ -147,9 +147,6 @@ category_img:
 #  - category name: xxxxx
 category_per_img:
 
-# 开启一图流
-OneGraphFlow: false
-
 cover:
   # display the cover or not (是否显示文章封面)
   index_enable: true
