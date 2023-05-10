@@ -30,7 +30,7 @@ nav:
       item:
         - name: 博客
           link: https://anzhiy.cn/
-          icon: /img/favicon.png
+          icon: /img/favicon.ico
     - title: 项目
       item:
         - name: 安知鱼图床
@@ -110,7 +110,7 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: /img/favicon.png
+favicon: /img/favicon.ico
 
 # Avatar (头像)
 avatar:
@@ -593,9 +593,6 @@ footer_bg: false
 # the position of bottom right button/default unit: px (右下角按钮距离底部的距离/默认单位为px)
 rightside-bottom: 100px
 
-# Enter transitions (开啓网页进入效果)
-enter_transitions: false
-
 # Background effects (背景特效)
 # --------------------------------------
 
@@ -940,13 +937,15 @@ lazyload:
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
 pwa:
-  enable: false
+  enable: true
+  startup_image_enable: true
   manifest: /manifest.json
   theme_color: var(--anzhiyu-main)
-  apple_touch_icon: /img/siteicon/128.png
+  mask_icon: /img/siteicon/apple-icon-180.png
+  apple_touch_icon: /img/siteicon/apple-icon-180.png
+  bookmark_icon: /img/siteicon/apple-icon-180.png
   favicon_32_32: /img/siteicon/32.png
   favicon_16_16: /img/siteicon/16.png
-  mask_icon: /img/siteicon/128.png
 
 # Open graph meta tags
 # https://developers.facebook.com/docs/sharing/webmasters/

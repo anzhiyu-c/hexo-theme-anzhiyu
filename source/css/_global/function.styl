@@ -117,35 +117,6 @@ minWidth2000()
   @media screen and (min-width: 2000px)
     {block}
 
-// animation
-if hexo-config('enter_transitions')
-  #content-inner,
-  #footer
-    animation: bottom-top 1s
-
-  #page-header
-    animation: header-effect 1s
-
-  #site-title,
-  #site-subtitle
-    animation: titleScale 1s
-
-  #nav.show
-    animation: headerNoOpacity 1s
-
-  canvas:not(#ribbon-canvas),
-  #web_bg
-    animation: to_show 4s
-
-  #ribbon-canvas
-    animation: ribbon_to_show 4s
-
-  #sidebar-menus
-    &.open
-      for i in 1 2 3 4
-        > :nth-child({i})
-          animation: sidebarItem (i / 5)s
-
 .scroll-down-effects
   animation: scroll-down-effect 1.5s infinite
 
