@@ -515,7 +515,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const isDown = scrollDirection(currentTop);
 
       const delta = Math.abs(lastScrollTop - currentTop);
-      console.info(delta, lastScrollTop, currentTop)
       if (delta < 50 && delta!=0) {
         // ignore small scrolls
         return;
