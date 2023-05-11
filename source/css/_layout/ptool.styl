@@ -24,7 +24,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    // width 100%
+    +maxWidth768()
+      flex-direction: column;
     
 .share-link
   margin-left: 0.5rem;
@@ -102,3 +103,4 @@ if hexo-config('ptool.enable') == true && !hexo-config('ptool.mode')
 if hexo-config('ptool.enable') == true && hexo-config('ptool.categories')
   #post .tag_share
     margin-bottom: 2rem
+    flex-direction: column;
