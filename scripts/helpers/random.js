@@ -23,8 +23,8 @@ hexo.extend.generator.register("random", function (locals) {
   if (themeConfig.footer.list.enable && randomNumberFriend > 0) {
     result += `var friend_link_list=${JSON.stringify(link_list)};
     var refreshNum = 1;
-    var footerRandomFriendsBtn = document.getElementById("footer-random-friends-btn");
     function addFriendLinksInFooter() {
+      var footerRandomFriendsBtn = document.getElementById("footer-random-friends-btn");
       if(!footerRandomFriendsBtn) return;
       footerRandomFriendsBtn.style.opacity = "0.2";
       footerRandomFriendsBtn.style.transitionDuration = "0.3s";
