@@ -2,12 +2,14 @@ script.
   // 初始化函数
   let rm = {};
 
-  //禁止图片拖拽
-  let imgElements = document.getElementsByTagName("img");
-  for (let i = 0; i < imgElements.length; i++) {
-    imgElements[i].addEventListener("dragstart", function (event) {
-      event.preventDefault();
-    });
+  //禁止图片与超链接拖拽
+  let aElements = document.getElementsByTagName("a");
+  for (let i = 0; i < aElements.length; i++) {
+    aElements[i].setAttribute("draggable", "false");
+    let imgElements = aElements[i].getElementsByTagName("img");
+    for (let j = 0; j < imgElements.length; j++) {
+      imgElements[j].setAttribute("draggable", "false");
+    }
   }
 
   // 显示菜单
