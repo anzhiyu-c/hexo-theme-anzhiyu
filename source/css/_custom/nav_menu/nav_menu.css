@@ -18,18 +18,17 @@
 .nav-button {
   cursor: pointer;
 }
-div#menus {
+
+#nav #menus {
+  padding: 0 calc((100% - 1370px) / 2);
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   position: absolute;
   height: 60px;
   left: 0;
   margin: 0;
-  z-index: 2;
-  padding: 0 calc((100% - 1370px) / 2);
-  transition: 0.3s;
+  transform: translateZ(0);
 }
 
 #nav .site-page {
@@ -81,11 +80,15 @@ ul.menus_item_child {
 
 /* 一级菜单居中 */
 #nav .menus_items {
+  position: relative;
+  width: fit-content;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  top: 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  height: 60px;
 }
 
 #nav .menus_items .menus_item:hover .menus_item_child {
@@ -128,6 +131,27 @@ ul.menus_item_child {
   font-weight: bold;
   border-radius: 100px;
 }
+
+#name-container {
+  align-items: center;
+  display: flex;
+  border-radius: 12px;
+  height: 40px;
+  position: absolute;
+  top: 62px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  justify-content: center;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+}
+#page-header.nav-fixed.nav-visible #name-container {
+  z-index: 100;
+  top: 60px;
+  transition: 0.3s;
+}
+
 #page-header.nav-fixed #nav #page-name:hover {
   color: var(--anzhiyu-main);
 }
@@ -140,10 +164,12 @@ ul.menus_item_child {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     margin: auto;
     color: var(--anzhiyu-white) !important;
     font-weight: 700;
+    line-height: 2;
   }
 }
 @media screen and (min-width: 1201px) {
@@ -156,13 +182,21 @@ ul.menus_item_child {
 }
 
 #page-header #nav #page-name {
+  display: inline;
+  font-weight: bold;
+  padding: 4px 8px;
+  opacity: 0;
+  transition: 0.1s;
+  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 0 15px;
-  max-width: 60%;
-  min-width: 10%;
   position: relative;
+  text-align: center;
+  cursor: pointer;
+  top: 0;
+  font-size: 1rem;
+  animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
 }
 #menus > div.menus_items > div > a {
   letter-spacing: 0.3rem;
@@ -172,11 +206,12 @@ ul.menus_item_child {
   line-height: 35px;
 }
 #nav .menus_items .menus_item {
-  padding: 0 5px;
+  padding: 0 0.4rem;
   display: flex;
   flex-direction: column;
-  margin: auto;
   align-items: center;
+  margin: auto;
+  position: relative;
 }
 
 #nav div#toggle-menu {
@@ -187,8 +222,10 @@ ul.menus_item_child {
   opacity: 1;
 }
 
-#name-container:hover {
-  transform: translateX(-50%) scale(1.03);
+::backdrop {
+  display: block;
+  position: fixed;
+  top: 0px;
 }
 
 center#name-container {
@@ -198,11 +235,13 @@ center#name-container {
   transition: all 0.3s;
   justify-content: center;
   align-items: center;
-  transform: translateY(60px);
+  position: absolute;
+  top: 62px;
+  z-index: 2;
 }
 
 .nav-fixed #name-container {
-  transform: translateY(0px);
+  top: 0;
 }
 
 .mask-name-container {
@@ -211,8 +250,6 @@ center#name-container {
   position: absolute;
   overflow: hidden;
   left: 0;
-  padding: 0 calc((100% - 1370px) / 2);
-  z-index: 1;
 }
 
 #nav .menus_items .menus_item > a > i:last-child {
@@ -371,9 +408,15 @@ center#name-container {
 }
 
 #nav-right {
+  z-index: 102;
+  position: absolute;
+  right: 0;
   display: flex;
+  flex-direction: row;
+  height: 100%;
   align-items: center;
-  z-index: 2;
+  margin-right: 1.5rem;
+  overflow: hidden;
 }
 
 /* nav left */
@@ -383,7 +426,7 @@ center#name-container {
   display: flex;
   align-items: center;
   transition: 0.3s;
-  z-index: 3;
+  z-index: 102;
 }
 #blog_name #site-name i {
   transform: scale(0);

@@ -1,6 +1,10 @@
 #page-header
   position: relative
   width: 100%
+  transition: all 0.5s ease 0s;
+  #nav
+    box-shadow: none;
+    transition: 0.3s;
 
   // index
   &.full_page
@@ -207,6 +211,7 @@
       background: var(--anzhiyu-card-bg);
       outline: 1px solid var(--anzhiyu-card-border);
       transform: translateZ(0);
+      top: 0
       
       a,
       #site-name,
@@ -217,18 +222,42 @@
 
         &:hover
           color: var(--white)
-    
-    #menus
-      transform: translateY(-60px);
-      transition: 0.3s;
+      div.menus_items
+        position: relative;
+        top: -60px;
+        transition: .3s;
 
-  &.nav-visible
+  &.nav-fixed
     #name-container
-      transform: translateY(60px);
-    #menus
+      z-index: 101;
       transition: 0.3s;
-      line-height: 60px;
-      transform: translateY(0px);
+      top: 10px;
+      #page-name
+        display: inline;
+        opacity: 1;
+        transition: 0.3s;
+        line-height: 2;
+    #nav 
+      #menus
+        z-index: 100;
+        div.menus_items
+          transition: 0.3s;
+          height: 40px;
+          margin: auto 0;
+          position: relative;
+          top: -60px;
+  &.nav-fixed.nav-visible 
+    #page-name
+      z-index: 100;
+      top: 60px;
+      transition: 0.3s;
+    #nav 
+      #menus
+        div.menus_items
+          opacity: 1;
+          transition: 0.15s;
+          position: relative;
+          top: 0px;
 
 #page
   h1.page-title
