@@ -278,7 +278,7 @@ const anzhiyu = {
       .replace('"', "")
       .replace('"', "");
     const currentTop = window.scrollY || document.documentElement.scrollTop;
-    if (currentTop > 56) {
+    if (currentTop > 16) {
       if (anzhiyu.is_Post()) {
         themeColor = getComputedStyle(document.documentElement)
           .getPropertyValue("--anzhiyu-meta-theme-post-color")
@@ -765,10 +765,10 @@ const anzhiyu = {
   hideTodayCard: function () {
     if (document.getElementById("todayCard")) {
       document.getElementById("todayCard").classList.add("hide");
-      const topGroup = document.querySelector('.topGroup');
-      const recentPostItems = topGroup.querySelectorAll('.recent-post-item');
+      const topGroup = document.querySelector(".topGroup");
+      const recentPostItems = topGroup.querySelectorAll(".recent-post-item");
       recentPostItems.forEach(item => {
-        item.style.display = 'flex';
+        item.style.display = "flex";
       });
     }
   },
@@ -1118,28 +1118,28 @@ const anzhiyu = {
     };
   },
   // CategoryBar滚动
-  scrollCategoryBarToRight: function() {
+  scrollCategoryBarToRight: function () {
     // 获取需要操作的元素
     const items = document.getElementById("catalog-list");
     const nextButton = document.getElementById("category-bar-next");
-  
+
     // 检查元素是否存在
     if (items && nextButton) {
       const itemsWidth = items.clientWidth;
-  
+
       // 判断是否已经滚动到最右侧
       if (items.scrollLeft + items.clientWidth + 1 >= items.scrollWidth) {
         // 滚动到初始位置并更新按钮内容
         items.scroll({
           left: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
         nextButton.innerHTML = '<i class="anzhiyufont anzhiyu-icon-angle-double-right"></i>';
       } else {
         // 滚动到下一个视图
         items.scrollBy({
           left: itemsWidth,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     } else {

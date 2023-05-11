@@ -3,7 +3,7 @@ var anzhiyu_musicFirst = false;
 // 音乐播放状态
 var anzhiyu_musicPlaying = false;
 // 是否开启快捷键
-var anzhiyu_keyboard = false
+var anzhiyu_keyboard = false;
 
 var adjectives = [
   "美丽的",
@@ -515,7 +515,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const isDown = scrollDirection(currentTop);
 
       const delta = Math.abs(lastScrollTop - currentTop);
-      if (delta < 50 && delta!=0) {
+      if (currentTop > 56 && delta < 50 && delta != 0) {
         // ignore small scrolls
         return;
       }
@@ -534,13 +534,13 @@ document.addEventListener("DOMContentLoaded", function () {
             isChatShow = true;
           }
         }
-        $header.classList.add("nav-fixed");
         anzhiyu.initThemeColor();
+        $header.classList.add("nav-fixed");
         if (window.getComputedStyle($rightside).getPropertyValue("opacity") === "0") {
           $rightside.style.cssText = "opacity: 0.8; transform: translateX(-58px)";
         }
       } else {
-        if (currentTop === 0) {
+        if (currentTop <= 5) {
           if (!$header.querySelector(".bili-banner")) {
             $header.classList.remove("nav-fixed");
             $header.classList.remove("nav-visible");
@@ -1143,7 +1143,7 @@ document.addEventListener("DOMContentLoaded", function () {
           ) - document.documentElement.clientHeight, // 整个网页高度 减去 可视高度
         result = Math.round((scrollTop / scrollHeight) * 100); // 计算百分比
 
-      result = Math.min(99, Math.max(0, result));
+      result = Math.min(99, Math.max(1, result));
 
       // 滚动到底部区域需要做的操作
       if (anzhiyu.isInViewPortOfOne(pageBottomDomFlag) || 90 < result) {
