@@ -106,7 +106,7 @@
       & > .article-title
         @extend .limit-more-line
         color: var(--text-highlight-color)
-        font-size: 1.72em
+        font-size: 1.2em
         line-height: 1.4
         transition: all .2s ease-in-out
         -webkit-line-clamp: 2 !important
@@ -123,8 +123,10 @@
         font-size: 90%
 
         & > .post-meta-date
-          cursor: default
-          display block
+          color: var(--anzhiyu-fontcolor);
+          font-size: 14px;
+          display: flex;
+          align-items: center;
 
         .sticky
           color: $sticky-color
@@ -202,6 +204,9 @@ if hexo-config('home_top.swiper.enable') == true
     }
 
 if hexo-config('article_double_row') == true
+  #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
+    opacity: 0;
+    height: 0;
   +maxWidth1200()
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
@@ -220,6 +225,13 @@ if hexo-config('article_double_row') == true
       top: -10px;
     #recent-posts > .recent-post-item.lastestpost-item .recent-post-info
       padding: 10px 40px 0px;
+    #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
+      opacity: 1;
+      height: auto;
+  +maxWidth768()
+    #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
+      opacity: 0;
+      height: 0;
   +minWidth1200()
     #recent-posts
       align-content: flex-start
@@ -232,7 +244,11 @@ if hexo-config('article_double_row') == true
         display: inline-block
         height: auto
         width: 49%
-
+        .recent-post-info
+          .content
+            display: none
+          .article-title
+            font-size: 1.72em
         .post_cover
           width: 100%
           height: 200px
@@ -241,9 +257,6 @@ if hexo-config('article_double_row') == true
           img.post_bg
             width: 100%
             height: 100%
-
-        .recent-post-info>.content
-          display: none
 
         -webkit-flex-direction: column
         -ms-flex-direction: column
@@ -278,16 +291,15 @@ if hexo-config('article_double_row') == true
         display: none
 
 #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
-  opacity: 0;
   transition: all 0.3s ease 0s;
   display: -webkit-box;
-  height: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-height: 1.4;
   color: var(--anzhiyu-secondtext);
   margin-top: 0.5rem;
+  font-size: 14px;
 
 #recent-posts > .recent-post-item > .recent-post-info > .article-title
   margin: 0 !important;
