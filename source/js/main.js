@@ -490,6 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollFn = function () {
     const $rightside = document.getElementById("rightside");
     const innerHeight = window.innerHeight + 56;
+    let lastScrollTop = 0;
 
     // 當滾動條小于 56 的時候
     if (document.body.scrollHeight <= innerHeight) {
@@ -512,6 +513,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const scroolTask = anzhiyu.throttle(() => {
       const currentTop = window.scrollY || document.documentElement.scrollTop;
       const isDown = scrollDirection(currentTop);
+
+      const delta = Math.abs(lastScrollTop - currentTop);
+      console.info(delta, lastScrollTop, currentTop)
+      if (delta < 50 && delta!=0) {
+        // ignore small scrolls
+        return;
+      }
+      lastScrollTop = currentTop;
       if (currentTop > 16) {
         if (isDown) {
           if ($header.classList.contains("nav-visible")) $header.classList.remove("nav-visible");

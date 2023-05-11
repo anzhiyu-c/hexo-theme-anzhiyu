@@ -1,65 +1,21 @@
 .article-sort
-  margin-left: 10px
-  padding-left: 20px
-  border-left: 2px solid lighten($light-blue, 20)
-
+  margin: .25rem
   &-title
-    position: relative
-    margin-left: 10px
-    padding-bottom: 20px
-    padding-left: 20px
-    font-size: 1.72em
-
-    &:hover
-      &:before
-        border-color: var(--pseudo-hover)
-
-    &:before
-      position: absolute
-      top: calc(((100% - 36px) / 2))
-      left: -9px
-      z-index: 1
-      width: w = 10px
-      height: h = w
-      border: .5 * w solid $light-blue
-      border-radius: w
-      background: var(--card-bg)
-      content: ''
-      line-height: h
-      transition: all .2s ease-in-out
-
-    &:after
-      position: absolute
-      bottom: 0
-      left: 0
-      z-index: 0
-      width: 2px
-      height: 1.5em
-      background: lighten($light-blue, 20)
-      content: ''
+    margin: 0.25rem;
+    padding: 0;
+    border: none;
+    font-weight: bold;
+    font-size: 2em;
 
   &-item
     position: relative
     display: flex
     align-items: center
-    margin: 0 0 20px 10px
     transition: all 0.2s ease-in-out 0s;
-
-    &:hover
-      &:before
-        border-color: var(--pseudo-hover)
-
-    &:before
-      $w = 6px
-      position: absolute
-      left: calc(-20px - 17px)
-      width: w = $w
-      height: h = w
-      border: .5 * w solid $light-blue
-      border-radius: w
-      background: var(--card-bg)
-      content: ''
-      transition: all .2s ease-in-out
+    border: none;
+    margin: 0 0 1rem 0rem;
+    overflow: hidden;
+    border-radius: 12px;
 
     &.no-article-cover
       height: 80px
@@ -68,7 +24,9 @@
         padding: 0
 
     &.year
-      font-size: 1.43em
+      font-size: 1rem;
+      color: var(--anzhiyu-secondtext);
+      margin-bottom: 0.25rem;
 
       &:hover
         &:before
@@ -90,7 +48,13 @@
       color: var(--font-color)
       font-size: 1.1em
       transition: all .3s
-      -webkit-line-clamp: 2
+      -webkit-line-clamp: 1
+      margin-right: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      order: 0;
+      font-weight: bold;
+      line-height: 1.3;
 
       &:hover
         color: var(--anzhiyu-lighttext)
@@ -105,12 +69,37 @@
 
     &-img
       overflow: hidden
-      width: 80px
+      width: 151px
       height: 80px
+      border-radius: 12px;
+      min-width: 151px;
+      min-height: 80px;
+      background: var(--anzhiyu-secondbg);
+      -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
 
       img
         @extend .imgHover
 
     &-info
-      flex: 1
-      padding: 0 16px
+      padding: 0 0.8rem;
+      display: flex;
+      flex-direction: column;
+      max-height: 80px;
+      height: 80px;
+      .article-sort-item-title
+        height: 50%;
+      .article-meta-wrap
+        height: 50%;
+        .article-sort-item-tags a
+          color: var(--anzhiyu-fontcolor);
+          transition: 0.3s;
+          margin-right: auto;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 0 0.2rem;
+          padding-left: 0;
+          span
+            font-size: 12px;
+            margin-right: 1px;
+        .article-sort-item-time
+            font-size: 12px;

@@ -11,6 +11,6 @@ block content
     #tag
       #tag-page-tags
         !=tags_page_list("tags")
-      .article-sort-title= _p('page.tag') + ' - ' + page.tag
+      .article-sort-title= page.tag
       +articleSort(page.posts, page.current)
       include includes/pagination.pug
