@@ -28,7 +28,6 @@
   height: 60px;
   left: 0;
   margin: 0;
-  transform: translateZ(0);
 }
 
 #nav .site-page {
@@ -238,10 +237,6 @@ center#name-container {
   position: absolute;
   top: 62px;
   z-index: 2;
-}
-
-.nav-fixed #name-container {
-  top: 0;
 }
 
 .mask-name-container {

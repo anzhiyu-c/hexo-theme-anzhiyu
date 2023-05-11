@@ -28,11 +28,13 @@
   width: 60px;
   margin: 0 auto !important;
 }
+[data-theme="dark"] #skills-tags-group-all .tags-group-icon img {
+  filter: none;
+}
 #skills-tags-group-all .tags-group-icon-pair .tags-group-icon:nth-child(even) {
   margin-top: 1rem;
   transform: translate(-60px);
 }
-
 
 #skills-tags-group-all .etc {
   margin-right: 10px;
