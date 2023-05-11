@@ -319,6 +319,13 @@ if hexo-config('lazyload.enable') && hexo-config('lazyload.blur') && !hexo-confi
     &[data-lazy-src].error
       filter: none
 
+// lazyload progressive
+if hexo-config('lazyload.enable') && hexo-config('lazyload.progressive') && !hexo-config('lazyload.placeholder')
+  img
+    &[data-lazy-src]:not(.loaded)
+      opacity: 0;
+  img[src=''], img:not([src]) 
+    opacity 0
 .img-alt
   margin: -10px 0 10px
   color: #858585

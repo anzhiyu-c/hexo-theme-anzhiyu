@@ -765,6 +765,11 @@ const anzhiyu = {
   hideTodayCard: function () {
     if (document.getElementById("todayCard")) {
       document.getElementById("todayCard").classList.add("hide");
+      const topGroup = document.querySelector('.topGroup');
+      const recentPostItems = topGroup.querySelectorAll('.recent-post-item');
+      recentPostItems.forEach(item => {
+        item.style.display = 'flex';
+      });
     }
   },
 

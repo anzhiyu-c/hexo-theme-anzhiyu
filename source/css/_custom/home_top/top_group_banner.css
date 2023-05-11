@@ -9,6 +9,9 @@ div#bannerGroup {
 }
 
 @media screen and (min-width: 1025px) {
+  .topGroup {
+    height: 340px;
+  }
   .topGroup .todayCard {
     position: absolute;
     width: calc(600px + 1rem);
@@ -121,7 +124,7 @@ div#bannerGroup {
 }
 
 .topGroup .recent-post-item {
-  display: flex;
+  display: none;
   width: 200px;
   flex-direction: column;
   align-items: flex-start;
@@ -199,6 +202,9 @@ div#bannerGroup {
   div#bannerGroup {
     display: flex;
     height: auto;
+  }
+  .topGroup .recent-post-item {
+    display: flex;
   }
 
   .categoryGroup .categoryItem:nth-child(3) {

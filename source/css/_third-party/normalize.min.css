@@ -75,6 +75,7 @@ img {
   border-style: none;
   border-radius: 8px;
   max-width: 100%;
+  transition: all 0.2s ease 0s;
 }
 
 button,

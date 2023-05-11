@@ -932,6 +932,7 @@ lazyload:
   field: site # site/post
   placeholder:
   blur: true
+  progressive: true
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
