@@ -1,12 +1,12 @@
-- var top_img = theme.error_404.background || theme.default_top_img
-- var bg_img = `background-image: url('${url_for(top_img)}')`
+- let error_404_top_img = theme.error_404.background || theme.default_top_img
+- let error_404_bg_img = `background-image: url('${url_for(error_404_top_img)}')`
 
 #body-wrap.error
   include ./header/index.pug
   .error-box
     #error-wrap
       .error-content
-        .error-img(style=bg_img)
+        .error-img(style=error_404_bg_img)
         .error-info
           h1.error_title= '404'
           .error_subtitle= theme.error_404.subtitle
