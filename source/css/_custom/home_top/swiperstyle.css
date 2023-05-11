@@ -422,12 +422,12 @@ div#swiper_container:hover {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   div#swiper_container {
     width: 100%;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   #swiper_container_blog {
     width: 99%;
   }

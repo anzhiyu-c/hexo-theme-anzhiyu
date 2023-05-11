@@ -9,7 +9,7 @@ div#bannerGroup {
   flex-direction: column;
   justify-content: space-between;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   div#bannerGroup {
     width: auto;
   }

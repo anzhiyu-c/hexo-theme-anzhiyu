@@ -600,7 +600,7 @@ body[data-type="about"] #web_bg {
   left: 0;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1201px) {
   .author-content-item.personalities .image {
     width: 180px;
   }

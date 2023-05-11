@@ -262,7 +262,7 @@ body[data-type="album_detail"] #page .author-content-item .card-content .banner-
 }
 
 /* 响应式 */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   #album_detail .timeline ul li.album-item {
     width: 49%;
     margin-right: 1%;

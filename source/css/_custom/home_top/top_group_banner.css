@@ -4,11 +4,7 @@
   color: #ffffff;
 }
 
-div#bannerGroup {
-  flex: 1;
-}
-
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1201px) {
   .topGroup {
     height: 340px;
   }
@@ -194,7 +190,7 @@ div#bannerGroup {
   left: 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .topGroup .todayCard {
     background: #0e57d5;
   }
@@ -255,7 +251,7 @@ div#bannerGroup {
   color: var(--anzhiyu-white);
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1201px) {
   .topGroup .recent-post-item:nth-child(4),
   .topGroup .recent-post-item:nth-child(5),
   .topGroup .recent-post-item:nth-child(6) {

@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   #random-banner {
     display: none;
   }
