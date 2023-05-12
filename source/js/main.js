@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
       lastScrollTop = currentTop;
-      if (currentTop > 16) {
+      if (currentTop > 56) {
         if (isDown) {
           if ($header.classList.contains("nav-visible")) $header.classList.remove("nav-visible");
           if (isChatBtnShow && isChatShow === true) {
@@ -541,10 +541,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } else {
         if (currentTop <= 5) {
-          if (!$header.querySelector(".bili-banner")) {
-            $header.classList.remove("nav-fixed");
-            $header.classList.remove("nav-visible");
-          }
+          $header.classList.remove("nav-fixed");
+          $header.classList.remove("nav-visible");
           // 修改顶栏颜色
           anzhiyu.initThemeColor();
         }
@@ -1226,6 +1224,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // 修改顶栏tab bar状态栏
             anzhiyu.initThemeColor();
           }
+        } else {
+          root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-main)");
+          anzhiyu.initThemeColor();
         }
       };
     } else {

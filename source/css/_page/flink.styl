@@ -55,106 +55,141 @@ body[data-type="link"]
 .flink-desc
   margin: .2rem 0 .5rem
 
-.anzhiyu-flink-list
-  overflow: auto
-  padding: 10px 10px 0
-  text-align: center
+#article-container
+  .anzhiyu-flink-list
+    overflow: auto
+    padding: 10px 10px 0
+    text-align: center
 
-  & > .flink-list-item
-    position: relative
-    float: left
-    overflow: hidden
-    line-height: 17px
-    -webkit-transform: translateZ(0)
-    height: 100px;
-    padding: 10px;
-    width: calc(100% / 5 - 0.5rem)
-    margin: 0.5rem 0.25rem;
-    border-radius: 12px;
-    border: var(--style-border);
-    background-color: var(--anzhiyu-card-bg);
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-
-    +maxWidth1200()
-      width: calc(50% - 15px) !important
-
-    +maxWidth600()
-      width: calc(100% - 15px) !important
-
-    &:hover
-      border-color: var(--anzhiyu-main)!important;
-      background-color: var(--anzhiyu-main)!important;
-      box-shadow: var(--anzhiyu-shadow-theme)!important;
-
-      .flink-item-icon
-        width: 0;
-        height: 0;
-        margin-left: -10px;
-      .flink-item-name,.flink-item-desc
-        color: var(--anzhiyu-white);
-
-    &:hover:before,
-    &:focus:before,
-    &:active:before
-      transform: scale(1)
-
-    a
-      color: var(--font-color)
-      text-decoration: none
-
-      .flink-item-icon
-        float: left
-        overflow: hidden
-        margin: 15px 10px
-        width: 60px
-        height: 60px
-        border-radius: 35px
-        transition: all .3s ease-out
-        margin: 8px 0 8px 0;
-        background: var(--anzhiyu-background);
-        border-radius: 50%;
-        overflow: hidden;
-
+    .flink-list-item
+      margin: 6px 6px;
+      transition: 0.3s;
+      border-radius: 12px;
+      transition-timing-function: ease-in-out;
+      position: relative;
+      width: calc(20% - 12px);
+      border: var(--style-border);
+      box-shadow: var(--anzhiyu-shadow-border);
+      background: var(--anzhiyu-card-bg);
+      display: flex;
+      float: left;
+      overflow: hidden;
+      height: 90px;
+      line-height: 17px;
+      transform: translateZ(0px);
+      .cf-friends-link
+        display: flex;
+        border: none;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        color: var(--anzhiyu-fontcolor);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0 4px;
+        border-radius: 4px 4px 0 0;
         img
-          width: 100%
-          height: 100%
-          transition: filter 375ms ease-in .2s, transform .3s
-          object-fit: cover
+          border-radius: 32px;
+          margin: 15px 20px 15px 15px;
+          transition: 0.3s;
+          background: var(--anzhiyu-background);
+          min-width: 60px;
+          min-height: 60px;
+          width: 60px;
+          height: 60px;
+          float: left;
+          object-fit: cover;
 
-      .img-alt
-        display: none
-.flink-item-info
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 10px;
-  text-align: left;
-  flex-direction: column;
 
-  .flink-item-name
-    @extend .limit-one-line
-    padding: 12px 0 16px 0;
-    height: auto;
-    font-weight: bold
-    font-size: 1.1em
-    color: var(--anzhiyu-fontcolor);
+      +maxWidth1200()
+        width: calc(50% - 15px) !important
 
-  .flink-item-desc
-    @extend .limit-one-line
-    padding: 0
-    height: 35px
-    font-size: .93em
-    opacity: .7;
-    color: var(--anzhiyu-fontcolor);
-    word-break: break-all;
-    white-space: break-spaces;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+      +maxWidth600()
+        width: calc(100% - 15px) !important
+          
+
+      &:hover:before,
+      &:focus:before,
+      &:active:before
+        transform: scale(1)
+
+      .flink-item-info
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: calc(100% - 90px);
+        height: fit-content;
+
+        .flink-item-name
+          @extend .limit-one-line
+          text-align: left;
+          line-height: 20px;
+          color: var(--anzhiyu-fontcolor);
+          display: block;
+          padding: 0px 10px 0px 0px;
+          font-weight: 700;
+          font-size: 19px;
+          max-width: calc(100% - 12px);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+        .flink-item-desc
+          @extend .limit-one-line
+          white-space: normal;
+          padding: 5px 10px 16px 0;
+          color: var(--anzhiyu-fontcolor);
+          text-align: left;
+          font-size: 0.93em;
+          height: 40px;
+          text-overflow: ellipsis;
+          opacity: 0.7;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        img
+          position: absolute;
+          opacity: 0;
+          right: -30px;
+          bottom: -40px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          z-index: -1;
+          margin: 15px 20px 15px 15px;
+          transition: 0.3s;
+          background: var(--anzhiyu-background);
+          min-width: 60px;
+          min-height: 60px;
+      &:hover
+        transform: scale(1);
+        background: var(--anzhiyu-theme);
+        border: var(--style-border-hover);
+        box-shadow: var(--anzhiyu-shadow-main);
+        .site-card-tag
+          left: -70px;
+        a 
+          img 
+            transition: 0.6s;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            margin: 0.5rem;
+            min-width: 0px;
+            min-height: 0px;
+          .flink-item-info
+            min-width: calc(100% - 20px);
+            img
+              opacity: .8
+              width: 100px;
+              height: 100px;
+          .flink-item-name
+            color: var(--anzhiyu-white);
+          .flink-item-desc
+            overflow: hidden;
+            width: 100%;
+            color: var(--anzhiyu-white);
 
 .flink-name
   margin-bottom: 5px
@@ -289,3 +324,16 @@ body[data-type="link"]
 .justified-gallery > div > a > svg,
 .justified-gallery > figure > a > svg
   position static!important
+
+.site-card-tag
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px 8px;
+  background-color: var(--anzhiyu-theme);
+  box-shadow: var(--anzhiyu-shadow-blue);
+  color: var(--anzhiyu-white);
+  z-index: 1;
+  border-radius: 12px 0 12px 0;
+  transition: 0.3s;
+  font-size: 0.6rem;

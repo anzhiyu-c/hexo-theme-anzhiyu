@@ -278,7 +278,7 @@ const anzhiyu = {
       .replace('"', "")
       .replace('"', "");
     const currentTop = window.scrollY || document.documentElement.scrollTop;
-    if (currentTop > 16) {
+    if (currentTop > 56) {
       if (anzhiyu.is_Post()) {
         themeColor = getComputedStyle(document.documentElement)
           .getPropertyValue("--anzhiyu-meta-theme-post-color")
@@ -317,10 +317,6 @@ const anzhiyu = {
     scrollTop = bodyScrollTop - documentScrollTop > 0 ? bodyScrollTop : documentScrollTop;
 
     if (scrollTop != 0) {
-      pageHeaderEl.classList.add("nav-fixed");
-      pageHeaderEl.classList.add("nav-visible");
-    }
-    if (pageHeaderEl.querySelector(".bili-banner")) {
       pageHeaderEl.classList.add("nav-fixed");
       pageHeaderEl.classList.add("nav-visible");
     }

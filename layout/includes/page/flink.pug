@@ -79,12 +79,13 @@
             if i.link_list
               each item in i.link_list
                 .flink-list-item
+                  if item.recommend
+                    span.site-card-tag 荐
                   a.cf-friends-link(href=url_for(item.link) title=item.name target="_blank")
-                    .flink-item-icon
-                      if theme.lazyload.enable
-                        img.cf-friends-avatar(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
-                      else
-                        img.cf-friends-avatar(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                    if theme.lazyload.enable
+                      img.cf-friends-avatar(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                    else
+                      img.cf-friends-avatar(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
                     .flink-item-info
                       if i.lost_contact
                         .flink-item-name.cf-friends-name-lost-contact= item.name
@@ -92,6 +93,10 @@
                       else 
                         .flink-item-name.cf-friends-name= item.name
                         .flink-item-desc(title=item.descr)= item.descr
+                      if theme.lazyload.enable
+                        img(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                      else
+                        img(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
           
         else if i.flink_style === 'flexcard'
           .flexcard-flink-list

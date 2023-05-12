@@ -398,7 +398,6 @@ ul.menus_item_child
   flex-direction row
   height 100%
   align-items center
-  margin-right 1.5rem
   overflow hidden
 
 /* nav left */
@@ -438,6 +437,14 @@ ul.menus_item_child
 #page-header #nav #nav-left .nav-button a:hover i
   color var(--anzhiyu-white)
   transition background 0.35s ease-in-out, color 0.2s ease-in-out
+
+[data-theme="dark"] #page-header #nav #nav-right .nav-button a i,
+[data-theme="dark"] #page-header #nav #nav-left .nav-button a i,
+[data-theme="dark"] #page-header #nav #nav-right .nav-button a i,
+[data-theme="dark"] #page-header #nav #nav-left .nav-button a i,
+[data-theme="dark"] #page-header.nav-fixed:not(.not-top-img) #nav .back-home-button
+  +maxWidth768()
+    color: #c9c9c9 !important
 
 /* 返回顶部按钮样式 */
 #nav-totop
@@ -482,7 +489,6 @@ ul.menus_item_child
   display flex
   justify-content center
   align-items center
-  transition 0.3s
   white-space nowrap
   color var(--card-bg)
   width 25px

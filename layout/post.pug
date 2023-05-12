@@ -2,7 +2,7 @@ extends includes/layout.pug
 
 block content
   #post
-    if top_img === false
+    if top_img === false || page.bilibili_bg
       include includes/header/post-info.pug
     if theme.post_head_ai_description
       include includes/anzhiyu/ai-info.pug

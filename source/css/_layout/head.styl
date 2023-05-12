@@ -220,9 +220,6 @@
         text-shadow: none
         transition: background .35s ease-in-out,color .2s ease-in-out;
 
-        &:hover
-          color: var(--white)
-
   &.nav-fixed
     #name-container
       z-index: 101;
@@ -533,6 +530,8 @@
   .post-meta:has(.bili-banner),
   .post-meta:has(.blqbanner)
     pointer-events: all
+  .bili-banner
+    margin-top: 0 !important
 
   // #post-info
   #post-info:has(.bldbanner),
@@ -541,9 +540,14 @@
     pointer-events: none
 
   &:has(.bldbanner),
-  &:has(.bili-banner),
   &:has(.blqbanner)
     height: 15rem
+    img
+      border-radius: 0px 
+  &:has(.bili-banner)
+    height: 11rem
+    img
+      border-radius: 0px 
 
 //波浪css
 .main-hero-waves-area

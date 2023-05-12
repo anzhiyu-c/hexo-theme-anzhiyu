@@ -1,6 +1,7 @@
 - let author = config.author
 - let launch_time = theme.footer.runtime.launch_time
 - let since = theme.footer.owner.since
+- let version = get_version("tags")
 script.
   // 消除控制台打印
   var HoldLog = console.log;
@@ -30,7 +31,7 @@ script.
       "已上线",
       dnum,
       "天",
-      "©#{since} By 安知鱼",
+      "©#{since} By 安知鱼 #{version}",
     ];
     const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
