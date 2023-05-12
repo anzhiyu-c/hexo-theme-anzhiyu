@@ -1224,9 +1224,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // 修改顶栏tab bar状态栏
             anzhiyu.initThemeColor();
           }
-        } else {
-          root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-main)");
-          anzhiyu.initThemeColor();
         }
       };
     } else {

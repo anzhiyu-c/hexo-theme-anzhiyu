@@ -126,28 +126,12 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
 
 @media screen and (max-width: 1400px) {
   #he-plugin-simple {
-    left: 120px !important;
-    opacity: 1;
-    display: block;
+    display: none;
   }
 }
+
 @media screen and (min-width: 1400px) and (max-width: 1690px) {
   #he-plugin-simple {
     left: 262px !important;
-  }
-}
-
-@media screen and (max-width: 760px) {
-  #he-plugin-simple {
-    transition: 0.5s all !important;
-    left: auto !important;
-    right: -300px;
-    z-index: 103;
-  }
-
-  body:has(#sidebar-menus.open) #he-plugin-simple {
-    transform: translate3d(-100%, 0, 0);
-    left: auto !important;
-    right: -25px;
   }
 }
