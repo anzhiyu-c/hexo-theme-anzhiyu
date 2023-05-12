@@ -64,6 +64,12 @@ const anzhiyu = {
     const root = document.querySelector(":root");
     root.style.setProperty("--anzhiyu-snackbar-time", duration + "ms");
 
+    anzhiyu.changeThemeColor(bg);
+
+    setTimeout(() => {
+      anzhiyu.initThemeColor();
+    }, duration);
+
     Snackbar.show({
       text: text,
       backgroundColor: bg,
