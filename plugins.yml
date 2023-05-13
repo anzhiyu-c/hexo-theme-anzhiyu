@@ -205,14 +205,6 @@ waterfall:
   name: anzhiyu-theme-static
   file: waterfall/waterfall.js
   version: 1.0.0
-categoryBar:
-  name: anzhiyu-theme-static
-  file: categoryBar/categoryBar.js
-  version: 1.0.0
-catalog_bar:
-  name: anzhiyu-theme-static
-  file: "catalog-bar/catalog-bar.js"
-  version: 1.0.0
 ali_iconfont_css:
   name: anzhiyu-theme-static
   file: icon/ali_iconfont_css.css

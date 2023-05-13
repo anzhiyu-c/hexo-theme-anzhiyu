@@ -36,7 +36,7 @@ a.categoryButton {
   text-align: left;
   line-height: 4em;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: var(--anzhiyu-white);
   transition: all 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
   transform: scale(1);
@@ -92,7 +92,7 @@ a.categoryButton.green {
   filter: blur(0);
 }
 a.categoryButton:after {
-  top: 40px;
+  top: 47px;
   width: 1rem;
   left: 21px;
   height: 2px;

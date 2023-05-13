@@ -1037,51 +1037,69 @@ document.addEventListener("DOMContentLoaded", function () {
     let body = document.querySelector("body");
     body.appendChild(div);
 
-    document.getElementById("post-comment").addEventListener("DOMNodeInserted", dom => {
-      if (dom.target.classList && dom.target.classList.value == "OwO-body") {
-        let owo_body = dom.target;
-
-        // 禁用右键（手机端长按会出现右键菜单，为了体验给禁用掉）
-        owo_body.addEventListener("contextmenu", e => e.preventDefault());
-
-        // 鼠标移入
-        owo_body.addEventListener("mouseover", e => {
-          if (e.target.tagName == "IMG" && flag) {
-            flag = 0;
-            // 移入300毫秒后显示盒子
-            owo_time = setTimeout(() => {
-              let height = e.target.clientHeight * m; // 盒子高
-              let width = e.target.clientWidth * m; // 盒子宽
-              let left = e.x - e.offsetX - (width - e.target.clientWidth) / 2; // 盒子与屏幕左边距离
-              if (left + width > body.clientWidth) {
-                left -= left + width - body.clientWidth + 10;
-              } // 右边缘检测，防止超出屏幕
-              if (left < 0) left = 10; // 左边缘检测，防止超出屏幕
-              let top = e.y - e.offsetY; // 盒子与屏幕顶部距离
-
-              // 设置盒子样式
-              div.style.height = height + "px";
-              div.style.width = width + "px";
-              div.style.left = left + "px";
-              div.style.top = top + "px";
-              div.style.display = "flex";
-              // 在盒子中插入图片
-              div.innerHTML = `<img src="${e.target.src}">`;
-            }, 300);
+    // 监听 post-comment 元素的子元素添加事件
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        const addedNodes = mutation.addedNodes;
+        // 判断新增的节点中是否包含 OwO-body 类名的元素
+        for (let i = 0; i < addedNodes.length; i++) {
+          const node = addedNodes[i];
+          if (
+            node.nodeType === Node.ELEMENT_NODE &&
+            node.classList.contains("OwO-body") &&
+            !node.classList.contains("comment-barrage")
+          ) {
+            const owo_body = node;
+            // 禁用右键（手机端长按会出现右键菜单，为了体验给禁用掉）
+            owo_body.addEventListener("contextmenu", e => e.preventDefault());
+            // 鼠标移入
+            owo_body.addEventListener("mouseover", handleMouseOver);
+            // 鼠标移出
+            owo_body.addEventListener("mouseout", handleMouseOut);
           }
-        });
-
-        // 鼠标移出
-        owo_body.addEventListener("mouseout", e => {
-          // 隐藏盒子
-          div.style.display = "none";
-          flag = 1;
-          clearTimeout(owo_time);
-        });
-      }
+        }
+      });
     });
-  };
 
+    // 配置 MutationObserver 选项
+    const config = { childList: true, subtree: true };
+
+    // 开始监听
+    observer.observe(document.getElementById("post-comment"), config);
+
+    function handleMouseOver(e) {
+      if (e.target.tagName == "IMG" && flag) {
+        flag = 0;
+        // 移入100毫秒后显示盒子
+        owo_time = setTimeout(() => {
+          let height = e.target.clientHeight * m; // 盒子高
+          let width = e.target.clientWidth * m; // 盒子宽
+          let left = e.x - e.offsetX - (width - e.target.clientWidth) / 2; // 盒子与屏幕左边距离
+          if (left + width > body.clientWidth) {
+            left -= left + width - body.clientWidth + 10;
+          } // 右边缘检测，防止超出屏幕
+          if (left < 0) left = 10; // 左边缘检测，防止超出屏幕
+          let top = e.y - e.offsetY; // 盒子与屏幕顶部距离
+
+          // 设置盒子样式
+          div.style.height = height + "px";
+          div.style.width = width + "px";
+          div.style.left = left + "px";
+          div.style.top = top + "px";
+          div.style.display = "flex";
+          // 在盒子中插入图片
+          div.innerHTML = `<img src="${e.target.src}">`;
+        }, 100);
+      }
+    }
+
+    function handleMouseOut(e) {
+      // 隐藏盒子
+      div.style.display = "none";
+      flag = 1;
+      clearTimeout(owo_time);
+    }
+  };
   // 网页百分比
   const anzhiyuScrollFn = function () {
     // 第一次滑动到底部的标识符

@@ -10,6 +10,5 @@ if site.data.essay
                 .li-style.swiper-slide= contentText
       i.bber-gotobb.anzhiyufont.anzhiyu-icon-circle-arrow-right( onclick=`pjax.loadUrl("/essay/")`,title="查看全文")
 
-  if (is_home() && !is_current("/"))
-    script(src=url_for(theme.home_top.swiper.swiper_js))
-    link(rel="stylesheet" href=theme.home_top.swiper.swiper_css onload="this.media='all'")
+  script(src=url_for(theme.home_top.swiper.swiper_js))
+  link(rel="stylesheet" href=theme.home_top.swiper.swiper_css onload="this.media='all'")

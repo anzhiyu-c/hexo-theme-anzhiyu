@@ -83,10 +83,7 @@ div
   //- 评论弹幕
   if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
     != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
-  //- 分类和标签界面导航栏
-  script(data-pjax src=url_for(theme.asset.catalog_bar))
-  //- 首页分类bar
-  script(async data-pjax src=url_for(theme.asset.categoryBar))
+
   //- 即刻依赖waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))
   //- 文章二维码

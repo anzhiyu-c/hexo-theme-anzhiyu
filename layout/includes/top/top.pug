@@ -101,8 +101,38 @@ if home_top_config.enable
         
         link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)
       
-  script(src=url_for(theme.home_top.swiper.swiper_js))
-  script(src=url_for(theme.home_top.swiper.swiper_init))
+  if theme.home_top.swiper.enable
+    if !site.data.essay
+      script(src=url_for(theme.home_top.swiper.swiper_js))
+    script.
+      var swiper = new Swiper(".blog-slider", {
+        passiveListeners: true,
+        spaceBetween: 30,
+        effect: "fade",
+        loop: true,
+        autoplay: {
+          disableOnInteraction: true,
+          delay: 3000,
+        },
+        mousewheel: {
+          passive: true, // 将 mousewheel 事件处理程序标记为被动的
+        },
+        // autoHeight: true,
+        pagination: {
+          el: ".blog-slider__pagination",
+          clickable: true,
+        },
+      });
 
-  link(rel="stylesheet" href=theme.home_top.swiper.swiper_css onload="this.media='all'")
+      var comtainer = document.getElementById("swiper_container");
+      if (comtainer !== null) {
+        comtainer.onmouseenter = function () {
+          swiper.autoplay.stop();
+        };
+        comtainer.onmouseleave = function () {
+          swiper.autoplay.start();
+        };
+      }
+  if !site.data.essay
+    link(rel="stylesheet" href=theme.home_top.swiper.swiper_css onload="this.media='all'")
   link(rel="stylesheet" href=theme.home_top.swiper.categorygroup_css onload="this.media='all'")

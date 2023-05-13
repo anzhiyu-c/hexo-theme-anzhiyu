@@ -183,7 +183,7 @@ post_meta:
     categories: true # true or false 文章页是否显示分类
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
-    rotate: true # true or false 文章顶部图片是否旋转并使用主色调
+    mainTone: true # true or false 文章顶部图片是否使用主色调
 
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计
@@ -978,7 +978,6 @@ home_top:
     enable: false
     swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
-    swiper_init: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
   banner:
     tips: 新品主题
     title: Theme-AnZhiYu
@@ -1169,6 +1168,4 @@ CDN:
     # busuanzi:
     # rightmenu:
     # waterfall:
-    # categoryBar:
-    # catalog_bar:
     # ali_iconfont_css:
