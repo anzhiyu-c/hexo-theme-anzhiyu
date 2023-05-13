@@ -502,9 +502,7 @@ body[data-type="about"] #web_bg {
   height: 18px;
   margin-right: 0.5rem;
 }
-.icon-pos-mid {
-  background: url(https://img02.anzhiy.cn/adminuploads/1/2022/09/25/632fb9cecfc8c.png);
-}
+
 .author-content-item.game-yuanshen::after {
   box-shadow: 0 -69px 203px 11px #575d8b inset;
   position: absolute;

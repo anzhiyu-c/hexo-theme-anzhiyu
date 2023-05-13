@@ -114,7 +114,7 @@ favicon: /img/favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+  img: https://bu.dusays.com/2023/04/27/64496e511b09c.jpg
   effect: false
 
 # Disable all banner image
@@ -739,8 +739,8 @@ aside:
     content: 欢迎来看我的博客鸭~
   card_weixin:
     enable: true
-    face: https://img02.anzhiy.cn/adminuploads/1/2022/09/11/631ddb7c9b250.png
-    backFace: https://img02.anzhiy.cn/adminuploads/1/2022/09/11/631ddeb0900b7.png
+    face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
+    backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -981,7 +981,7 @@ home_top:
   banner:
     tips: 新品主题
     title: Theme-AnZhiYu
-    image: https://img02.anzhiy.cn/adminuploads/1/2023/03/27/64215d46a1ca6.webp
+    image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
     link: https://anzhiy.cn/docs
 
 # 朋友圈配置
