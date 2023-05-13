@@ -63,7 +63,6 @@ const anzhiyu = {
     const bg = document.documentElement.getAttribute("data-theme") === "light" ? bgLight : bgDark;
     const root = document.querySelector(":root");
     root.style.setProperty("--anzhiyu-snackbar-time", duration + "ms");
-
     Snackbar.show({
       text: text,
       backgroundColor: bg,
@@ -271,10 +270,7 @@ const anzhiyu = {
   },
 
   //顶栏自适应主题色
-  initThemeColor: function (needDuration = false) {
-    if (needDuration) {
-      setTimeout(() => {}, needDuration);
-    }
+  initThemeColor: function () {
     let themeColor = getComputedStyle(document.documentElement)
       .getPropertyValue("--anzhiyu-bar-background")
       .trim()
@@ -295,6 +291,26 @@ const anzhiyu = {
       if (themeColorMeta.getAttribute("content") === themeColor) return;
       this.changeThemeColor(themeColor);
     }
+  },
+  switchDarkMode: () => {
+    // Switch Between Light And Dark Mode
+    const nowMode = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const rightMenu = document.getElementById("rightMenu");
+    if (nowMode === "light") {
+      activateDarkMode();
+      saveToLocal.set("theme", "dark", 2);
+      GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+      rightMenu.querySelector(".menu-darkmode-text").textContent = "浅色模式";
+    } else {
+      activateLightMode();
+      saveToLocal.set("theme", "light", 2);
+      GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+      rightMenu.querySelector(".menu-darkmode-text").textContent = "深色模式";
+    }
+    // handle some cases
+    typeof runMermaid === "function" && window.runMermaid();
+    rm && rm.hideRightMenu();
+    anzhiyu.darkModeStatus();
   },
   //是否是文章页
   is_Post: function () {

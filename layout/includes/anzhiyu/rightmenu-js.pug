@@ -221,26 +221,6 @@ script.
     navigator.clipboard.write([item]);
   }
 
-  rm.switchDarkMode = function () {
-    // Switch Between Light And Dark Mode
-    const nowMode = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    if (nowMode === "light") {
-      activateDarkMode();
-      saveToLocal.set("theme", "dark", 2);
-      GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-      document.querySelector(".menu-darkmode-text").textContent = "浅色模式";
-    } else {
-      activateLightMode();
-      saveToLocal.set("theme", "light", 2);
-      GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-      document.querySelector(".menu-darkmode-text").textContent = "深色模式";
-    }
-    // handle some cases
-    typeof runMermaid === "function" && window.runMermaid();
-    rm.hideRightMenu();
-    anzhiyu.darkModeStatus();
-  };
-
   rm.copyUrl = function (id) {
     const input = document.createElement("input"); // Create a new <input> element
     input.id = "copyVal"; // Set the id of the new element to "copyVal"
@@ -426,7 +406,7 @@ script.
       link.addEventListener("click", rm.hideRightMenu);
     });
 
-    document.getElementById("menu-darkmode").addEventListener("click", rm.switchDarkMode);
+    document.getElementById("menu-darkmode").addEventListener("click", anzhiyu.switchDarkMode);
 
     document.getElementById("menu-home") && document.getElementById("menu-home").addEventListener("click", function () {
       window.location.href = window.location.origin;

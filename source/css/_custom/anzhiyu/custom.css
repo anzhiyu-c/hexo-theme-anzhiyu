@@ -3,15 +3,6 @@ body {
   height: 100%;
 }
 
-#web_bg {
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  transform: rotate(-1deg);
-  -webkit-overflow-scrolling: touch;
-}
-
 h1#site-title {
   font-size: 3em !important;
 }

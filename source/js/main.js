@@ -715,21 +715,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       newEle.addEventListener("click", clickFn);
     },
-    switchDarkMode: () => {
-      // Switch Between Light And Dark Mode
-      const nowMode = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-      if (nowMode === "light") {
-        activateDarkMode();
-        saveToLocal.set("theme", "dark", 2);
-        GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-      } else {
-        activateLightMode();
-        saveToLocal.set("theme", "light", 2);
-        GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-      }
-      // handle some cases
-      typeof runMermaid === "function" && window.runMermaid();
-    },
     showOrHideBtn: e => {
       // rightside 點擊設置 按鈕 展開
       const rightsideHideClassList = document.getElementById("rightside-config-hide").classList;
@@ -802,7 +787,7 @@ document.addEventListener("DOMContentLoaded", function () {
         rightSideFn.switchReadMode();
         break;
       case "darkmode":
-        rightSideFn.switchDarkMode();
+        anzhiyu.switchDarkMode();
         break;
       case "hide-aside-btn":
         rightSideFn.hideAsideBtn();
