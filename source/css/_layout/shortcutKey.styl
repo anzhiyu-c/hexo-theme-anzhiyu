@@ -16,6 +16,8 @@
   box-shadow: var(--anzhiyu-shadow-border);
   opacity: 0;
   transition: 0.3s;
+  +maxWidth768()
+    display: none !important
   &.show 
     opacity: 1;
     transition: 0.1s;

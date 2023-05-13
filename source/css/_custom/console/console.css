@@ -690,13 +690,14 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     box-shadow: inset 0 0px 10px 116px var(--anzhiyu-white);
   }
   body:has(#console.show) #nav-music .aplayer.aplayer-withlrc .aplayer-pic {
-    height: 50%;
-    width: 100%;
-    border-radius: 15px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
     animation: none;
     border: none;
     transform: none !important;
     box-shadow: none;
+    margin-top: 80px;
   }
 
   body:has(#console.show) #nav-music .aplayer {
@@ -937,6 +938,9 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   .console-card-group-reward .reward-all .reward-item img {
     width: 130px;
     height: 130px;
+  }
+  #console #consoleKeyboard {
+    display: none;
   }
 }
 
