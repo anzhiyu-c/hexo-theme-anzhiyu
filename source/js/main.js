@@ -4,6 +4,11 @@ var anzhiyu_musicFirst = false;
 var anzhiyu_musicPlaying = false;
 // 是否开启快捷键
 var anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
+var $web_container = document.getElementById("web_container");
+var $web_box = document.getElementById("web_box");
+var $bodyWrap = document.getElementById("body-wrap");
+
+var isDragging = false;
 
 var adjectives = [
   "美丽的",
@@ -138,8 +143,44 @@ var vegetablesAndFruits = [
   "火龙果",
 ];
 document.addEventListener("DOMContentLoaded", function () {
-  let blogNameWidth, menusWidth, searchWidth, $nav;
+  let blogNameWidth, menusWidth, searchWidth;
   let mobileSidebarOpen = false;
+  const $sidebarMenus = document.getElementById("sidebar-menus");
+  const $rightside = document.getElementById("rightside");
+  let $nav = document.getElementById("nav");
+
+  let startX, offsetX;
+
+  function startDrag(event) {
+    isDragging = true;
+    startX = event.clientX || event.touches[0].clientX;
+    offsetX = $web_box.offsetLeft;
+  }
+
+  function moveDrag(event) {
+    if (!isDragging) return;
+
+    const clientX = event.clientX || event.touches[0].clientX;
+    const newX = offsetX + (clientX - startX);
+    const limitedX = Math.max(0, Math.min(newX, 20));
+    console.info(limitedX);
+
+    $web_box.style.left = `${limitedX}px`;
+  }
+
+  function stopDrag() {
+    isDragging = false;
+  }
+
+  // 监听鼠标事件
+  $web_box.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", moveDrag);
+  document.addEventListener("mouseup", stopDrag);
+
+  // 监听触摸事件
+  $web_box.addEventListener("touchstart", startDrag);
+  document.addEventListener("touchmove", moveDrag);
+  document.addEventListener("touchend", stopDrag);
 
   const adjustMenu = init => {
     if (init) {
@@ -176,17 +217,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarFn = {
     open: () => {
       anzhiyu.sidebarPaddingR();
-      document.body.style.overflow = "hidden";
       anzhiyu.animateIn(document.getElementById("menu-mask"), "to_show 0.5s");
-      document.getElementById("sidebar-menus").classList.add("open");
+      $sidebarMenus.classList.add("open");
+      $web_box.classList.add("open");
+      $rightside.classList.add("hide");
+      $nav.style.borderTopLeftRadius = "12px";
       mobileSidebarOpen = true;
     },
     close: () => {
       const $body = document.body;
-      $body.style.overflow = "";
       $body.style.paddingRight = "";
       anzhiyu.animateOut(document.getElementById("menu-mask"), "to_hide 0.5s");
-      document.getElementById("sidebar-menus").classList.remove("open");
+      $sidebarMenus.classList.remove("open");
+      $web_box.classList.remove("open");
+      $rightside.classList.remove("hide");
+      $nav.style.borderTopLeftRadius = "0px";
       mobileSidebarOpen = false;
     },
   };
@@ -485,14 +530,13 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * 滾動處理
+   * 滚动处理
    */
   const scrollFn = function () {
     const $rightside = document.getElementById("rightside");
     const innerHeight = window.innerHeight + 56;
     let lastScrollTop = 0;
 
-    // 當滾動條小于 56 的時候
     if (document.body.scrollHeight <= innerHeight) {
       $rightside.style.cssText = "opacity: 1; transform: translateX(-58px)";
     }
@@ -510,8 +554,68 @@ document.addEventListener("DOMContentLoaded", function () {
     const isChatBtnHide = typeof chatBtnHide === "function";
     const isChatBtnShow = typeof chatBtnShow === "function";
 
+    // 第一次滑动到底部的标识符
+    let scrollBottomFirstFlag = false;
+    // 缓存常用dom元素
+    const musicDom = document.getElementById("nav-music"),
+      footerDom = document.getElementById("footer"),
+      waterfallDom = document.getElementById("waterfall"),
+      $percentBtn = document.getElementById("percent"),
+      $navTotop = document.getElementById("nav-totop");
+    // 页面底部Dom是否存在
+    let pageBottomDomFlag = document.getElementById("post-comment") || document.getElementById("footer");
+
+    function percentageScrollFn(currentTop) {
+      // 处理滚动百分比
+      const docHeight = $bodyWrap.clientHeight;
+      const winHeight = document.documentElement.clientHeight;
+      const contentMath =
+        docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight;
+      const scrollPercent = currentTop / contentMath;
+
+      const scrollPercentRounded = Math.round(scrollPercent * 100);
+      const percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 1 : scrollPercentRounded;
+      $percentBtn.textContent = percentage;
+
+      if (anzhiyu.isInViewPortOfOne(pageBottomDomFlag) || percentage > 90) {
+        $navTotop.classList.add("long");
+        $percentBtn.textContent = "返回顶部";
+      } else {
+        $navTotop.classList.remove("long");
+        $percentBtn.textContent = percentage;
+      }
+
+      // 如果当前页面需要瀑布流，就处理瀑布流
+      if (waterfallDom) {
+        const waterfallResult = scrollTop % document.documentElement.clientHeight; // 卷去一个视口
+        if (!scrollBottomFirstFlag && waterfallResult + 100 >= document.documentElement.clientHeight) {
+          console.info(waterfallResult, document.documentElement.clientHeight);
+          setTimeout(() => {
+            waterfall("#waterfall");
+          }, 500);
+        } else {
+          setTimeout(() => {
+            waterfallDom && waterfall("#waterfall");
+          }, 500);
+        }
+      }
+
+      function runLazyLoad() {
+        const runFn = window.runJustifiedGalleryNextElementSiblingLazyloadFn;
+        if (runFn) {
+          runFn();
+        }
+      }
+
+      // 如果当前为相册详情页
+      const albumDetailGalleryLoadMore = document.getElementById("album_detail_gallery_load_more");
+      if (albumDetailGalleryLoadMore && anzhiyu.isInViewPortOfOne(albumDetailGalleryLoadMore)) {
+        setTimeout(runLazyLoad, 100);
+      }
+    }
+
     const scroolTask = anzhiyu.throttle(() => {
-      const currentTop = window.scrollY || document.documentElement.scrollTop;
+      const currentTop = $web_container.scrollTop || document.documentElement.scrollTop;
       const isDown = scrollDirection(currentTop);
 
       const delta = Math.abs(lastScrollTop - currentTop);
@@ -556,10 +660,32 @@ document.addEventListener("DOMContentLoaded", function () {
       if (document.body.scrollHeight <= innerHeight) {
         $rightside.style.cssText = "opacity: 0.8; transform: translateX(-58px)";
       }
-    }, 200);
+
+      percentageScrollFn(currentTop);
+    }, 96);
+
+    // 进入footer隐藏音乐
+    anzhiyu
+      .intersectionObserver(
+        () => {
+          // console.log(1);
+          if (footerDom && musicDom && 768 < document.body.clientWidth) {
+            musicDom.style.bottom = "-10px";
+            musicDom.style.opacity = "0";
+          }
+          scrollBottomFirstFlag = true;
+        },
+        () => {
+          if (footerDom && musicDom && 768 < document.body.clientWidth) {
+            musicDom.style.bottom = "20px";
+            musicDom.style.opacity = "1";
+          }
+        }
+      )()
+      .observe(footerDom);
 
     window.scrollCollect = scroolTask;
-    window.addEventListener("scroll", scrollCollect);
+    $web_container.addEventListener("scroll", scrollCollect);
   };
 
   /**
@@ -572,26 +698,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!($article && (isToc || isAnchor))) return;
 
-    let $tocLink, $cardToc, scrollPercent, autoScrollToc, isExpand;
-
+    let $tocLink, $cardToc, autoScrollToc, isExpand;
     if (isToc) {
       const $cardTocLayout = document.getElementById("card-toc");
       $cardToc = $cardTocLayout.getElementsByClassName("toc-content")[0];
       $tocLink = $cardToc.querySelectorAll(".toc-link");
-      // const $tocPercentage = $cardTocLayout.querySelector(".toc-percentage");
       isExpand = $cardToc.classList.contains("is-expand");
-
-      // scrollPercent = currentTop => {
-      //   const docHeight = $article.clientHeight;
-      //   const winHeight = document.documentElement.clientHeight;
-      //   const headerHeight = $article.offsetTop;
-      //   const contentMath =
-      //     docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight;
-      //   const scrollPercent = (currentTop - headerHeight) / contentMath;
-      //   const scrollPercentRounded = Math.round(scrollPercent * 100);
-      //   const percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded;
-      //   $tocPercentage.textContent = percentage;
-      // };
 
       window.mobileToc = {
         open: () => {
@@ -684,14 +796,12 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // main of scroll
-    window.tocScrollFn = function () {
-      return anzhiyu.throttle(function () {
-        const currentTop = window.scrollY || document.documentElement.scrollTop;
-        // isToc && scrollPercent(currentTop);
-        findHeadPosition(currentTop);
-      }, 100)();
-    };
-    window.addEventListener("scroll", tocScrollFn);
+    window.tocScrollFn = anzhiyu.throttle(() => {
+      const currentTop = $web_container.scrollTop || document.documentElement.scrollTop;
+      findHeadPosition(currentTop);
+    }, 96);
+
+    $web_container.addEventListener("scroll", tocScrollFn);
   };
 
   /**
@@ -1100,84 +1210,6 @@ document.addEventListener("DOMContentLoaded", function () {
       clearTimeout(owo_time);
     }
   };
-  // 网页百分比
-  const anzhiyuScrollFn = function () {
-    // 第一次滑动到底部的标识符
-    let scrollBottomFirstFlag = false;
-    // 缓存常用dom元素
-    const musicDom = document.getElementById("nav-music"),
-      footerDom = document.getElementById("footer"),
-      waterfallDom = document.getElementById("waterfall"),
-      percentBtn = document.getElementById("percent");
-
-    // 页面底部Dom是否存在
-    let pageBottomDomFlag = document.getElementById("post-comment") || document.getElementById("footer");
-
-    function scrollFn() {
-      // 自动隐藏音乐
-      if (footerDom && musicDom && 768 < document.body.clientWidth) {
-        musicDom.style.bottom = !anzhiyu.isInViewPortOfOne(footerDom) ? "20px" : "-10px";
-        musicDom.style.opacity = !anzhiyu.isInViewPortOfOne(footerDom) ? "1" : "0";
-      }
-
-      // 处理滚动百分比
-      let scrollTop = document.documentElement.scrollTop || window.pageYOffset, // 卷去高度
-        scrollHeight =
-          Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight,
-            document.body.offsetHeight,
-            document.documentElement.offsetHeight,
-            document.body.clientHeight,
-            document.documentElement.clientHeight
-          ) - document.documentElement.clientHeight, // 整个网页高度 减去 可视高度
-        result = Math.round((scrollTop / scrollHeight) * 100); // 计算百分比
-
-      result = Math.min(99, Math.max(1, result));
-
-      // 滚动到底部区域需要做的操作
-      if (anzhiyu.isInViewPortOfOne(pageBottomDomFlag) || 90 < result) {
-        document.getElementById("nav-totop").classList.add("long");
-        percentBtn.textContent = "返回顶部";
-        scrollBottomFirstFlag = true;
-      } else {
-        document.getElementById("nav-totop").classList.remove("long");
-        percentBtn.textContent = result;
-      }
-
-      // 如果当前页面需要瀑布流，就处理瀑布流
-      if (waterfallDom) {
-        const waterfallResult = scrollTop % document.documentElement.clientHeight; // 卷去一个视口
-        if (!scrollBottomFirstFlag && waterfallResult + 100 >= document.documentElement.clientHeight) {
-          console.info(waterfallResult, document.documentElement.clientHeight);
-          setTimeout(() => {
-            waterfall("#waterfall");
-          }, 500);
-        } else {
-          setTimeout(() => {
-            waterfallDom && waterfall("#waterfall");
-          }, 500);
-        }
-      }
-
-      function runLazyLoad() {
-        const runFn = window.runJustifiedGalleryNextElementSiblingLazyloadFn;
-        if (runFn) {
-          runFn();
-        }
-      }
-
-      // 如果当前为相册详情页
-      const albumDetailGalleryLoadMore = document.getElementById("album_detail_gallery_load_more");
-      if (albumDetailGalleryLoadMore && anzhiyu.isInViewPortOfOne(albumDetailGalleryLoadMore)) {
-        setTimeout(runLazyLoad, 100);
-      }
-    }
-
-    // 绑定滚动处理函数
-    window.anzhiyuScrollFnToDo = anzhiyu.throttle(scrollFn, 48); // 执行函数
-    window.addEventListener("scroll", anzhiyuScrollFnToDo);
-  };
 
   //封面纯色
   const coverColor = () => {
@@ -1395,7 +1427,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mouseleaveHomeCard();
     coverColor();
-    anzhiyuScrollFn();
     listenToPageInputPress();
   };
 

@@ -1,5 +1,4 @@
 #sidebar
-  #menu-mask
   #sidebar-menus
     .avatar-img.is-center
       img(src=url_for(theme.avatar.img) onerror=`onerror=null;src='${theme.error_img.flink}'` alt="avatar")
@@ -14,5 +13,4 @@
         .headline= _p('aside.categories') 
         .length-num= site.categories.length
 
-    hr
     !=partial('includes/header/menu_item', {}, {cache: true})

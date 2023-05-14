@@ -10,36 +10,38 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
   body(data-type="anzhiyu")
     #web_bg
     #an_music_bg
+    #web_box
+      #web_container
+        #menu-mask
+        if page.type !== '404'
+          #body-wrap(class=pageType)
+            include ./header/index.pug
+            if (is_home())
+              include ./bbTimeList.pug
+            if is_current("/")
+              include ./top/top.pug
 
-    if page.type !== '404'
-      #body-wrap(class=pageType)
-        include ./header/index.pug
-        if (is_home())
-          include ./bbTimeList.pug
-        if is_current("/")
-          include ./top/top.pug
+            main#content-inner.layout(class=hideAside)
+              if body
+                div!= body
+              else
+                block content
+                if theme.aside.enable && page.aside !== false
+                  include widget/index.pug
 
-        main#content-inner.layout(class=hideAside)
-          if body
-            div!= body
-          else
-            block content
-            if theme.aside.enable && page.aside !== false
-              include widget/index.pug
+            - var footerBg = theme.footer_bg
+            if (footerBg)
+              if (footerBg === true)
+                - var footer_bg = bg_img
+              else
+                - var footer_bg = theme.footer_bg.indexOf('/') !== -1 ? `background-image: url('${url_for(footerBg)}')` : `background: ${footerBg}`
+            else
+              - var footer_bg = ''
 
-        - var footerBg = theme.footer_bg
-        if (footerBg)
-          if (footerBg === true)
-            - var footer_bg = bg_img
-          else
-            - var footer_bg = theme.footer_bg.indexOf('/') !== -1 ? `background-image: url('${url_for(footerBg)}')` : `background: ${footerBg}`
+            footer#footer(style=footer_bg)
+              !=partial('includes/footer', {}, {cache: true})
         else
-          - var footer_bg = ''
-
-        footer#footer(style=footer_bg)
-          !=partial('includes/footer', {}, {cache: true})
-    else
-      include ./404.pug
+          include ./404.pug
 
     if theme.preloader.enable
       !=partial('includes/loading/index', {}, {cache: true})

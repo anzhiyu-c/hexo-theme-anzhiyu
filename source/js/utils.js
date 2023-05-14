@@ -91,11 +91,12 @@ const anzhiyu = {
   },
 
   scrollToDest: (pos, time = 500) => {
-    const currentPos = window.pageYOffset;
+    const currentPos = $web_container.scrollTop;
+    console.info(currentPos);
     // if (currentPos > pos) pos = pos - 60;
 
     if ("scrollBehavior" in document.documentElement.style) {
-      window.scrollTo({
+      $web_container.scrollTo({
         top: pos,
         behavior: "smooth",
       });
@@ -104,18 +105,18 @@ const anzhiyu = {
 
     let start = null;
     pos = +pos;
-    window.requestAnimationFrame(function step(currentTime) {
+    $web_container.requestAnimationFrame(function step(currentTime) {
       start = !start ? currentTime : start;
       const progress = currentTime - start;
       if (currentPos < pos) {
-        window.scrollTo(0, ((pos - currentPos) * progress) / time + currentPos);
+        $web_container.scrollTo(0, ((pos - currentPos) * progress) / time + currentPos);
       } else {
-        window.scrollTo(0, currentPos - ((currentPos - pos) * progress) / time);
+        $web_container.scrollTo(0, currentPos - ((currentPos - pos) * progress) / time);
       }
       if (progress < time) {
-        window.requestAnimationFrame(step);
+        $web_container.requestAnimationFrame(step);
       } else {
-        window.scrollTo(0, pos);
+        $web_container.scrollTo(0, pos);
       }
     });
   },
@@ -276,7 +277,7 @@ const anzhiyu = {
       .trim()
       .replace('"', "")
       .replace('"', "");
-    const currentTop = window.scrollY || document.documentElement.scrollTop;
+    const currentTop = $web_container.scrollTop || document.documentElement.scrollTop;
     if (currentTop > 26) {
       if (anzhiyu.is_Post()) {
         themeColor = getComputedStyle(document.documentElement)
@@ -327,8 +328,8 @@ const anzhiyu = {
     var scrollTop = 0,
       bodyScrollTop = 0,
       documentScrollTop = 0;
-    if (document.body) {
-      bodyScrollTop = document.body.scrollTop;
+    if ($bodyWrap) {
+      bodyScrollTop = $bodyWrap.scrollTop;
     }
     if (document.documentElement) {
       documentScrollTop = document.documentElement.scrollTop;
@@ -970,8 +971,7 @@ const anzhiyu = {
 
   //删除多余的class
   removeBodyPaceClass: function () {
-    var body = document.querySelector("body");
-    body.className = "pace-done";
+    document.body.className = "pace-done";
   },
   // 修改body的type类型以适配css
   setValueToBodyType: function () {
@@ -1150,14 +1150,12 @@ const anzhiyu = {
   // 定义 intersectionObserver 函数，并接收两个可选参数
   intersectionObserver: function (enterCallback, leaveCallback) {
     let observer;
-    let isIntersected = false; // 增加一个状态变量，用于判断是否已经观察到过目标元素
     return () => {
       if (!observer) {
         observer = new IntersectionObserver(entries => {
           entries.forEach(entry => {
-            if (entry.intersectionRatio > 0 && !isIntersected) {
+            if (entry.intersectionRatio > 0) {
               enterCallback?.();
-              isIntersected = true; // 设置状态变量为 true，表示已经观察到过目标元素
             } else {
               leaveCallback?.();
             }
