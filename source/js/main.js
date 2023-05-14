@@ -143,6 +143,7 @@ var vegetablesAndFruits = [
 document.addEventListener("DOMContentLoaded", function () {
   let blogNameWidth, menusWidth, searchWidth;
   let mobileSidebarOpen = false;
+  let firstOpen = false;
   const $sidebarMenus = document.getElementById("sidebar-menus");
   const $rightside = document.getElementById("rightside");
   let $nav = document.getElementById("nav");
@@ -187,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $rightside.classList.add("hide");
       $nav.style.borderTopLeftRadius = "12px";
       mobileSidebarOpen = true;
+      document.body.style.overflow = "hidden";
     },
     close: () => {
       const $body = document.body;
@@ -197,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $rightside.classList.remove("hide");
       $nav.style.borderTopLeftRadius = "0px";
       mobileSidebarOpen = false;
+      document.body.style.overflow = "auto";
     },
   };
 
