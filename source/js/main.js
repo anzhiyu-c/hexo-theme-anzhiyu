@@ -7,6 +7,7 @@ var anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.get
 var $web_container = document.getElementById("web_container");
 var $web_box = document.getElementById("web_box");
 var $bodyWrap = document.getElementById("body-wrap");
+var $main = document.querySelector("main");
 
 var adjectives = [
   "美丽的",
@@ -528,18 +529,18 @@ document.addEventListener("DOMContentLoaded", function () {
       footerDom = document.getElementById("footer"),
       waterfallDom = document.getElementById("waterfall"),
       $percentBtn = document.getElementById("percent"),
-      $navTotop = document.getElementById("nav-totop");
+      $navTotop = document.getElementById("nav-totop"),
+      $bodyWrap = document.getElementById("body-wrap");
     // 页面底部Dom是否存在
     let pageBottomDomFlag = document.getElementById("post-comment") || document.getElementById("footer");
 
     function percentageScrollFn(currentTop) {
       // 处理滚动百分比
-      const docHeight = $bodyWrap.clientHeight;
+      let docHeight = $bodyWrap.clientHeight;
       const winHeight = document.documentElement.clientHeight;
       const contentMath =
         docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight;
       const scrollPercent = currentTop / contentMath;
-
       const scrollPercentRounded = Math.round(scrollPercent * 100);
       const percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 1 : scrollPercentRounded;
       $percentBtn.textContent = percentage;
@@ -582,7 +583,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const scroolTask = anzhiyu.throttle(() => {
-      const currentTop = $web_container.scrollTop || document.documentElement.scrollTop;
+      const currentTop = window.scrollY || document.documentElement.scrollTop;
       const isDown = scrollDirection(currentTop);
 
       const delta = Math.abs(lastScrollTop - currentTop);
@@ -652,7 +653,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .observe(footerDom);
 
     window.scrollCollect = scroolTask;
-    $web_container.addEventListener("scroll", scrollCollect);
+    window.addEventListener("scroll", scrollCollect);
   };
 
   /**
@@ -764,11 +765,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // main of scroll
     window.tocScrollFn = anzhiyu.throttle(() => {
-      const currentTop = $web_container.scrollTop || document.documentElement.scrollTop;
+      const currentTop = window.scrollY || document.documentElement.scrollTop;
       findHeadPosition(currentTop);
     }, 96);
 
-    $web_container.addEventListener("scroll", tocScrollFn);
+    window.addEventListener("scroll", tocScrollFn);
   };
 
   /**

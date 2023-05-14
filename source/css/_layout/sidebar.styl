@@ -27,7 +27,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-right: calc(100% - 270px);
-    transition: all 10s ease-out;
+    transition: all .3s ease-out;
     &::-webkit-scrollbar
       opacity: 0;
       display: none;
@@ -343,15 +343,13 @@ li.card-archive-list-item {
 }
 
 #web_box
-  #web_container
-    overflow-y: overlay;
   &.open
     transition-property: transform, border-radius;
     transition-duration: 0ms;
     transform-origin: 0 46%;
     transform: translate3d(300px, 0px, 0px) scale3d(0.86, 0.86, 1);
     border-radius: 12px
-    transition: all 0.3s ease-out;
+    transition: 0.3s ease-out;
     #post-top-cover 
       display: none
     #web_container

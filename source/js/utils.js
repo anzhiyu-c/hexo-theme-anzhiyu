@@ -91,12 +91,11 @@ const anzhiyu = {
   },
 
   scrollToDest: (pos, time = 500) => {
-    const currentPos = $web_container.scrollTop;
-    console.info(currentPos);
+    const currentPos = window.pageYOffset;
     // if (currentPos > pos) pos = pos - 60;
 
     if ("scrollBehavior" in document.documentElement.style) {
-      $web_container.scrollTo({
+      window.scrollTo({
         top: pos,
         behavior: "smooth",
       });
@@ -105,18 +104,18 @@ const anzhiyu = {
 
     let start = null;
     pos = +pos;
-    $web_container.requestAnimationFrame(function step(currentTime) {
+    window.requestAnimationFrame(function step(currentTime) {
       start = !start ? currentTime : start;
       const progress = currentTime - start;
       if (currentPos < pos) {
-        $web_container.scrollTo(0, ((pos - currentPos) * progress) / time + currentPos);
+        window.scrollTo(0, ((pos - currentPos) * progress) / time + currentPos);
       } else {
-        $web_container.scrollTo(0, currentPos - ((currentPos - pos) * progress) / time);
+        window.scrollTo(0, currentPos - ((currentPos - pos) * progress) / time);
       }
       if (progress < time) {
-        $web_container.requestAnimationFrame(step);
+        window.requestAnimationFrame(step);
       } else {
-        $web_container.scrollTo(0, pos);
+        window.scrollTo(0, pos);
       }
     });
   },
@@ -277,7 +276,7 @@ const anzhiyu = {
       .trim()
       .replace('"', "")
       .replace('"', "");
-    const currentTop = $web_container.scrollTop || document.documentElement.scrollTop;
+    const currentTop = window.scrollY || document.documentElement.scrollTop;
     if (currentTop > 26) {
       if (anzhiyu.is_Post()) {
         themeColor = getComputedStyle(document.documentElement)
