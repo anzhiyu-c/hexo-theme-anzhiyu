@@ -20,9 +20,13 @@
   +maxWidth768()
     .layout
       padding: 0;
-    #category,#tag
+    #category,
+    #tag
       padding: 40px 15px 20px;
       background: var(--anzhiyu-background)
+    +maxWidth768()
+      #tag
+        background: transparent;
     #archive
       background: var(--anzhiyu-background)
   
