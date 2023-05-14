@@ -8,8 +8,6 @@ var $web_container = document.getElementById("web_container");
 var $web_box = document.getElementById("web_box");
 var $bodyWrap = document.getElementById("body-wrap");
 
-var isDragging = false;
-
 var adjectives = [
   "美丽的",
   "英俊的",
@@ -148,40 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const $sidebarMenus = document.getElementById("sidebar-menus");
   const $rightside = document.getElementById("rightside");
   let $nav = document.getElementById("nav");
-
-  let startX, offsetX;
-
-  function startDrag(event) {
-    isDragging = true;
-    startX = event.clientX || event.touches[0].clientX;
-    offsetX = $web_box.offsetLeft;
-  }
-
-  function moveDrag(event) {
-    if (!isDragging) return;
-
-    const clientX = event.clientX || event.touches[0].clientX;
-    const newX = offsetX + (clientX - startX);
-    const limitedX = Math.max(0, Math.min(newX, 20));
-    console.info(limitedX);
-
-    $web_box.style.left = `${limitedX}px`;
-  }
-
-  function stopDrag() {
-    isDragging = false;
-  }
-
-  // 监听鼠标事件
-  $web_box.addEventListener("mousedown", startDrag);
-  document.addEventListener("mousemove", moveDrag);
-  document.addEventListener("mouseup", stopDrag);
-
-  // 监听触摸事件
-  $web_box.addEventListener("touchstart", startDrag);
-  document.addEventListener("touchmove", moveDrag);
-  document.addEventListener("touchend", stopDrag);
-
   const adjustMenu = init => {
     if (init) {
       blogNameWidth = document.getElementById("site-name").offsetWidth;
