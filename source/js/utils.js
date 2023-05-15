@@ -833,15 +833,19 @@ const anzhiyu = {
     aplayerIconMenu.addEventListener("click", function () {
       document.getElementById("menu-mask").style.display = "block";
       document.getElementById("menu-mask").style.animation = "0.5s ease 0s 1 normal none running to_show";
+      anMusicPage.querySelector(".aplayer.aplayer-withlist .aplayer-list").style.opacity = "1";
     });
 
-    document.getElementById("menu-mask").addEventListener("click", function () {
+    function anMusicPageMenuAask() {
       if (window.location.pathname != "/music/") {
-        $web_container.style.background = "var(--global-bg)";
+        document.getElementById("menu-mask").removeEventListener("click", anMusicPageMenuAask);
         return;
       }
+
       anMusicPage.querySelector(".aplayer-list").classList.remove("aplayer-list-hide");
-    });
+    }
+
+    document.getElementById("menu-mask").addEventListener("click", anMusicPageMenuAask);
 
     // 监听增加单曲按钮
     anMusicBtnGetSong.addEventListener("click", () => {

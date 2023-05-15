@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function completeTransition() {
     $web_box.style.transition = "all 0.3s ease-out";
     $web_box.style.transform = "none";
-    // sidebarFn.close();
+    sidebarFn.close();
     removeMoveEndListeners(onDragMove, onDragEnd);
   }
 
@@ -251,6 +251,8 @@ document.addEventListener("DOMContentLoaded", function () {
       $web_box.addEventListener("touchstart", onDragStart, { passive: false });
       if (window.location.pathname.startsWith("/music/")) {
         $web_container.style.background = "rgb(255 255 255 / 20%)";
+      } else {
+        $web_container.style.background = "var(--global-bg)";
       }
     },
     close: () => {
@@ -608,7 +610,21 @@ document.addEventListener("DOMContentLoaded", function () {
       const percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 1 : scrollPercentRounded;
       $percentBtn.textContent = percentage;
 
-      if (anzhiyu.isInViewPortOfOne(pageBottomDomFlag) || percentage > 90) {
+      function isInViewPortOfOneNoDis(el) {
+        if (!el) return;
+        const elDisplay = window.getComputedStyle(el).getPropertyValue("display");
+        if (elDisplay == "none") {
+          return;
+        }
+        const viewPortHeight =
+          window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        const offsetTop = el.offsetTop;
+        const scrollTop = document.documentElement.scrollTop;
+        const top = offsetTop - scrollTop;
+        return top <= viewPortHeight;
+      }
+
+      if (isInViewPortOfOneNoDis(pageBottomDomFlag) || percentage > 90) {
         $navTotop.classList.add("long");
         $percentBtn.textContent = "返回顶部";
       } else {

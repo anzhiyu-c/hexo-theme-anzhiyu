@@ -342,6 +342,9 @@ li.card-archive-list-item {
   content: none;
 }
 
+#anMusic-page-meting .aplayer.aplayer-withlist .aplayer-list
+  opacity: 0
+
 #web_box
   &.open
     transition-property: transform, border-radius;
@@ -350,12 +353,17 @@ li.card-archive-list-item {
     transform: translate3d(300px, 0px, 0px) scale3d(0.86, 0.86, 1);
     border-radius: 12px
     transition: 0.3s ease-out;
+    #menu-mask
+      display: block
     #post-top-cover 
       display: none
     #web_container
       overflow-y: overlay;
       transition: 0s
       border-radius: 12px;
+    #anMusic-page-meting .aplayer.aplayer-withlist .aplayer-list
+      display: none
+
     &:before 
       position: absolute;
       top: 1.6rem;
