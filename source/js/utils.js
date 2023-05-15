@@ -430,18 +430,7 @@ const anzhiyu = {
           disableOnInteraction: true,
           delay: 3000,
         },
-        mousewheel: {
-          forceToAxis: true, // 如果需要限制鼠标滚轮仅影响垂直方向，请将此属性设置为 true
-          eventsTarget: ".essay_bar_swiper_container",
-          releaseOnEdges: false,
-          invert: false,
-          sensitivity: 1,
-          eventsTarged: "container",
-          options: {
-            // 添加 options 对象
-            passive: true, // 将 passive 设置为 true
-          },
-        },
+        mousewheel: false,
       });
 
       let essay_bar_comtainer = document.getElementById("bbtalk");
@@ -460,7 +449,7 @@ const anzhiyu = {
       $list.scrollLeft -= e.wheelDelta / 2;
       e.preventDefault();
     };
-    $list.addEventListener("mousewheel", scrollHandler, { passive: true });
+    $list.addEventListener("mousewheel", scrollHandler, { passive: false });
     if ($target) {
       $target.classList.add("selected");
       $list.scrollLeft = $target.offsetLeft - $list.offsetLeft - ($list.offsetWidth - $target.offsetWidth) / 2;
@@ -773,6 +762,7 @@ const anzhiyu = {
       // player listswitch 会进入此处
       const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
       anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+      $web_container.style.background = "none";
     } else {
       // 第一次进入，绑定事件，改背景
       let timer = setInterval(() => {
@@ -846,7 +836,10 @@ const anzhiyu = {
     });
 
     document.getElementById("menu-mask").addEventListener("click", function () {
-      if (window.location.pathname != "/music/") return;
+      if (window.location.pathname != "/music/") {
+        $web_container.style.background = "var(--global-bg)";
+        return;
+      }
       anMusicPage.querySelector(".aplayer-list").classList.remove("aplayer-list-hide");
     });
 

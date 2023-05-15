@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function onDragStart(event) {
     // event.preventDefault();
     dragStartX = getEventX(event);
-    $web_box.style.transition = "none";
+    $web_box.style.transition = "all .3s";
     addMoveEndListeners(onDragMove, onDragEnd);
   }
 
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function completeTransition() {
     $web_box.style.transition = "all 0.3s ease-out";
     $web_box.style.transform = "none";
-    sidebarFn.close();
+    // sidebarFn.close();
     removeMoveEndListeners(onDragMove, onDragEnd);
   }
 
@@ -249,6 +249,9 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.overflow = "hidden";
       $web_box.addEventListener("mousedown", onDragStart);
       $web_box.addEventListener("touchstart", onDragStart, { passive: false });
+      if (window.location.pathname.startsWith("/music/")) {
+        $web_container.style.background = "rgb(255 255 255 / 20%)";
+      }
     },
     close: () => {
       const $body = document.body;
@@ -615,7 +618,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 如果当前页面需要瀑布流，就处理瀑布流
       if (waterfallDom) {
-        const waterfallResult = scrollTop % document.documentElement.clientHeight; // 卷去一个视口
+        const waterfallResult = currentTop % document.documentElement.clientHeight; // 卷去一个视口
         if (!scrollBottomFirstFlag && waterfallResult + 100 >= document.documentElement.clientHeight) {
           console.info(waterfallResult, document.documentElement.clientHeight);
           setTimeout(() => {
