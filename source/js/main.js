@@ -8,6 +8,7 @@ var $web_container = document.getElementById("web_container");
 var $web_box = document.getElementById("web_box");
 var $bodyWrap = document.getElementById("body-wrap");
 var $main = document.querySelector("main");
+var dragStartX;
 
 var adjectives = [
   "美丽的",
@@ -142,9 +143,65 @@ var vegetablesAndFruits = [
   "火龙果",
 ];
 document.addEventListener("DOMContentLoaded", function () {
+  function onDragStart(event) {
+    // event.preventDefault();
+    dragStartX = getEventX(event);
+    $web_box.style.transition = "none";
+    addMoveEndListeners(onDragMove, onDragEnd);
+  }
+
+  function onDragMove(event) {
+    const deltaX = getEventX(event) - dragStartX;
+    if (deltaX < 0) {
+      const screenWidth = window.innerWidth;
+      const translateX = Math.min(-300, ((-1 * deltaX) / screenWidth) * 300);
+      const scale = Math.min(1, 0.86 + (deltaX / screenWidth) * (1 - 0.86));
+      $web_box.style.transform = `translate3d(-${translateX}px, 0px, 0px) scale3d(${scale}, ${scale}, 1)`;
+    }
+  }
+
+  function onDragEnd(event) {
+    const screenWidth = window.innerWidth;
+    if (getEventX(event) <= screenWidth / 1.5) {
+      completeTransition();
+    } else {
+      resetTransition();
+    }
+    removeMoveEndListeners(onDragMove, onDragEnd);
+  }
+
+  function completeTransition() {
+    $web_box.style.transition = "all 0.3s ease-out";
+    $web_box.style.transform = "none";
+    sidebarFn.close();
+    removeMoveEndListeners(onDragMove, onDragEnd);
+  }
+
+  function resetTransition() {
+    $web_box.style.transition = "";
+    $web_box.style.transform = "";
+  }
+
+  function getEventX(event) {
+    return event.type.startsWith("touch") ? event.changedTouches[0].clientX : event.clientX;
+  }
+
+  function addMoveEndListeners(moveHandler, endHandler) {
+    document.addEventListener("mousemove", moveHandler);
+    document.addEventListener("mouseup", endHandler);
+    document.addEventListener("touchmove", moveHandler, { passive: false });
+    document.addEventListener("touchend", endHandler);
+  }
+
+  function removeMoveEndListeners(moveHandler, endHandler) {
+    document.removeEventListener("mousemove", moveHandler);
+    document.removeEventListener("mouseup", endHandler);
+    document.removeEventListener("touchmove", moveHandler);
+    document.removeEventListener("touchend", endHandler);
+  }
+
   let blogNameWidth, menusWidth, searchWidth;
   let mobileSidebarOpen = false;
-  let firstOpen = false;
   const $sidebarMenus = document.getElementById("sidebar-menus");
   const $rightside = document.getElementById("rightside");
   let $nav = document.getElementById("nav");
@@ -190,6 +247,8 @@ document.addEventListener("DOMContentLoaded", function () {
       $nav.style.borderTopLeftRadius = "12px";
       mobileSidebarOpen = true;
       document.body.style.overflow = "hidden";
+      $web_box.addEventListener("mousedown", onDragStart);
+      $web_box.addEventListener("touchstart", onDragStart, { passive: false });
     },
     close: () => {
       const $body = document.body;
@@ -201,6 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $nav.style.borderTopLeftRadius = "0px";
       mobileSidebarOpen = false;
       document.body.style.overflow = "auto";
+      anzhiyu.addNavBackgroundInit();
     },
   };
 
