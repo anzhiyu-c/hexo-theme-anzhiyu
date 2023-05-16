@@ -342,8 +342,10 @@ li.card-archive-list-item {
   content: none;
 }
 
-#anMusic-page-meting .aplayer.aplayer-withlist .aplayer-list
-  opacity: 0
+#anMusic-page-meting 
+  +maxWidth768()
+    .aplayer.aplayer-withlist .aplayer-list
+      opacity: 0
 
 #web_box
   &.open
