@@ -240,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarFn = {
     open: () => {
       anzhiyu.sidebarPaddingR();
+      anzhiyu.changeThemeColor("#607d8b");
       anzhiyu.animateIn(document.getElementById("menu-mask"), "to_show 0.5s");
       $sidebarMenus.classList.add("open");
       $web_box.classList.add("open");
@@ -257,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     close: () => {
       const $body = document.body;
+      anzhiyu.initThemeColor();
       $body.style.paddingRight = "";
       anzhiyu.animateOut(document.getElementById("menu-mask"), "to_hide 0.5s");
       $sidebarMenus.classList.remove("open");
