@@ -4,7 +4,7 @@
 }
 
 #category-bar {
-  padding: 0.5rem 20px;
+  padding: 0.5rem 10px;
   background: var(--anzhiyu-card-bg);
   display: flex;
   white-space: nowrap;
@@ -96,5 +96,6 @@
   #category-bar {
     border: none;
     border-radius: 0px;
+    padding: 0.5rem 20px;
   }
 }

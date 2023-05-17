@@ -21,7 +21,6 @@
   display: flex;
   white-space: nowrap;
   overflow-x: scroll;
-  margin-left: 10px;
 }
 
 #catalog-list::-webkit-scrollbar {
