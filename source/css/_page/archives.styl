@@ -86,13 +86,17 @@
       flex-direction: column;
       max-height: 80px;
       height: 80px;
+      justify-content: space-between;
+      .article-sort-item-index
+        +maxWidth768()
+          display: none
       .article-sort-item-title
-        height: 50%;
+        height: 30%;
         +maxWidth768()
           font-size: .9em;
-          width: 90%;
+          height: 25%;
       .article-meta-wrap
-        height: 50%;
+        height: 35%;
         .article-sort-item-tags a
           color: var(--anzhiyu-fontcolor);
           transition: 0.3s;
