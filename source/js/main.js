@@ -714,24 +714,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 96);
 
     // 进入footer隐藏音乐
-    anzhiyu
-      .intersectionObserver(
-        () => {
-          // console.log(1);
-          if (footerDom && musicDom && 768 < document.body.clientWidth) {
-            musicDom.style.bottom = "-10px";
-            musicDom.style.opacity = "0";
+    if (footerDom) {
+      anzhiyu
+        .intersectionObserver(
+          () => {
+            if (footerDom && musicDom && 768 < document.body.clientWidth) {
+              musicDom.style.bottom = "-10px";
+              musicDom.style.opacity = "0";
+            }
+            scrollBottomFirstFlag = true;
+          },
+          () => {
+            if (footerDom && musicDom && 768 < document.body.clientWidth) {
+              musicDom.style.bottom = "20px";
+              musicDom.style.opacity = "1";
+            }
           }
-          scrollBottomFirstFlag = true;
-        },
-        () => {
-          if (footerDom && musicDom && 768 < document.body.clientWidth) {
-            musicDom.style.bottom = "20px";
-            musicDom.style.opacity = "1";
-          }
-        }
-      )()
-      .observe(footerDom);
+        )()
+        .observe(footerDom);
+    }
 
     window.scrollCollect = scroolTask;
     window.addEventListener("scroll", scrollCollect);
