@@ -418,15 +418,15 @@ footer:
     - link: https://anzhiy.cn/
       shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
       message: 本站使用AnZhiYu主题
-    - link: https://www.dogecloud.com/
-      shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
-      message: 本站使用多吉云为静态资源提供CDN加速
-    - link: https://github.com/
-      shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
-      message: 本站项目由Github托管
-    - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
-      shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
-      message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+    # - link: https://www.dogecloud.com/
+    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
+    #   message: 本站使用多吉云为静态资源提供CDN加速
+    # - link: https://github.com/
+    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
+    #   message: 本站项目由Github托管
+    # - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
+    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
+    #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
   socialBar:
     enable: false
     centerImg:
