@@ -60,10 +60,18 @@ body[data-type="link"]
 #article-container
   .anzhiyu-flink-list
     overflow: auto
-    padding: 10px 10px 0
+    margin: -6px
     text-align: center
     .img-alt
       display: none
+    &.cf-friends-lost-contact
+      .flink-list-item
+        height 60px
+        .cf-friends-link img
+          width: 30px;
+          height: 30px;
+          min-width: 30px;
+          min-height: 30px;
 
     .flink-list-item
       margin: 6px 6px;
@@ -152,20 +160,6 @@ body[data-type="link"]
           overflow: hidden;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
-        img
-          position: absolute;
-          opacity: 0;
-          right: -30px;
-          bottom: -40px;
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          z-index: -1;
-          margin: 15px 20px 15px 15px;
-          transition: 0.3s;
-          background: var(--anzhiyu-background);
-          min-width: 60px;
-          min-height: 60px;
       &:hover
         transform: scale(1);
         background: var(--anzhiyu-theme);
@@ -184,10 +178,6 @@ body[data-type="link"]
             min-height: 0px;
           .flink-item-info
             min-width: calc(100% - 20px);
-            img
-              opacity: .8
-              width: 100px;
-              height: 100px;
           .flink-item-name
             color: var(--anzhiyu-white);
           .flink-item-desc

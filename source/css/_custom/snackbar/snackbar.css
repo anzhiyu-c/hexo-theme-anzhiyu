@@ -14,6 +14,7 @@
   height: 60px !important;
   transform: none !important;
   margin: 0 !important;
+  z-index: 99999;
 }
 .snackbar-container p {
   font-weight: 700 !important;
@@ -40,7 +41,7 @@
   top: 0;
   background: var(--anzhiyu-white);
   opacity: 0.1;
-  content: '';
+  content: "";
   animation: snackbar-progress var(--anzhiyu-snackbar-time) linear forwards;
   pointer-events: none;
 }

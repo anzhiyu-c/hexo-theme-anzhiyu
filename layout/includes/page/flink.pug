@@ -75,7 +75,7 @@
         if i.class_desc
           .flink-desc!=i.class_desc
         if i.flink_style === 'anzhiyu'
-          .anzhiyu-flink-list
+          div(class=i.lost_contact ? 'anzhiyu-flink-list cf-friends-lost-contact' : 'anzhiyu-flink-list')
             if i.link_list
               each item in i.link_list
                 .flink-list-item
@@ -89,14 +89,9 @@
                     .flink-item-info
                       if i.lost_contact
                         .flink-item-name.cf-friends-name-lost-contact= item.name
-                        .flink-item-desc(title=item.descr)= item.descr
                       else 
                         .flink-item-name.cf-friends-name= item.name
                         .flink-item-desc(title=item.descr)= item.descr
-                      if theme.lazyload.enable
-                        img(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
-                      else
-                        img(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
           
         else if i.flink_style === 'flexcard'
           .flexcard-flink-list
