@@ -1,3 +1,4 @@
+- let title = config.title
 script(data-pjax).
   var themeColorMeta = document.querySelector('meta[name="theme-color"]');
   var pageHeaderEl = document.getElementById("page-header");
@@ -12,7 +13,7 @@ script(data-pjax).
   // 当前默认播放列表
   var defaultPlayMusicList = [];
 
-  document.getElementById("page-name").innerText = document.title.split(" | 安知鱼")[0];
+  document.getElementById("page-name").innerText = document.title.split(" | #{title}")[0];
   anzhiyu.initIndexEssay();
   anzhiyu.changeTimeInEssay();
   anzhiyu.removeBodyPaceClass();
