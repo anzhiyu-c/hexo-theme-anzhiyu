@@ -44,6 +44,8 @@ function gallery(args, content) {
   type = type ? " url" : " data";
   const lazyloadClass = lazyload === "true" ? "lazyload btn_album_detail_lazyload" : "";
 
+  console.info(dataStr);
+
   return `<div class="gallery">
     <div class="fj-gallery ${lazyloadClass + type}" data-rowHeight="${rowHeight}" data-limit="${limit}">
       <span class="gallery-data">${dataStr}</span>

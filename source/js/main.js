@@ -465,7 +465,9 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * justified-gallery 圖庫排版
    */
+  const loading_bg = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
   const runJustifiedGallery = function (ele) {
+    const album_detail_gallery_load_more = document.getElementById("album_detail_gallery_load_more");
     const htmlStr = arr => {
       let str = "";
       const replaceDq = str => str.replace(/"/g, "&quot;"); // replace double quotes to &quot;
@@ -473,13 +475,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const alt = i.alt ? `alt="${replaceDq(i.alt)}"` : "";
         const title = i.title ? `title="${replaceDq(i.title)}"` : "";
         const address = i.address ? i.address : "";
-        if (address) {
-          str += `<div class="fj-gallery-item"><div class="tag-address">${address}</div><img src="${i.url}" ${
-            alt + title
-          }"></div>`;
-        } else {
-          str += `<div class="fj-gallery-item"><img src="${i.url}" ${alt + title}"></div>`;
-        }
+        const galleryItem = `
+        <div class="fj-gallery-item">
+          ${address ? `<div class="tag-address">${address}</div>` : ""}
+          <img src="${album_detail_gallery_load_more ? i.url : loading_bg}" ${
+          !album_detail_gallery_load_more ? `data-lazy-src="${i.url}"` : ""
+        } ${alt + title}>
+        </div>
+      `;
+        str += galleryItem;
       });
 
       return str;
