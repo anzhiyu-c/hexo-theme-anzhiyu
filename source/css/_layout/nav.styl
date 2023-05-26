@@ -160,6 +160,7 @@ ul.menus_item_child
   font-weight bold
   border-radius 100px
   min-width 100px
+  line-height: 1.5rem;
 
 #name-container
   align-items center
@@ -413,28 +414,31 @@ ul.menus_item_child
   z-index 102
 
 #blog_name #site-name i
-  transform scale(0)
   position absolute
-  transition 0.3s ease-in
+  transition 0.3s
+  opacity 0
 
 #blog_name #site-name:hover .title
-  transform scale(0)
+  opacity 0
 
 #blog_name #site-name .title
-  transition 0.3s ease-in
+  transition 0.3s
   letter-spacing normal
+  font-size: 1.2rem;
+  padding: 0 5px;
+  line-height: 2rem;
 
 .post #blog_name #site-name .title
   transition 0s
 
 #blog_name #site-name:hover i
-  transform scale(1)
   color white
+  opacity 1
 
 #page-header #nav #nav-right .nav-button a i,
 #page-header #nav #nav-left .nav-button a i
   line-height 1
-  transition background 0.35s ease-in-out, color 0.2s ease-in-out
+  transition .3s
 
 #page-header #nav #nav-right .nav-button a:hover i,
 #page-header #nav #nav-left .nav-button a:hover i
@@ -484,6 +488,7 @@ ul.menus_item_child
   display flex
   align-items center
   justify-content center
+  transition: background 0.3s ease-in-out, color 0s ease-in-out;
 
 .nav-fixed #nav-totop #percent,
 .page #nav-totop #percent
