@@ -987,7 +987,7 @@ home_top:
 # 朋友圈配置
 friends_vue:
   enable: false
-  vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.8/friends/index.804b9513.js
+  vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
   apiurl: # 朋友圈后端地址
   top_background:
 
