@@ -230,6 +230,14 @@
         opacity: 1;
         transition: 0.3s;
         line-height: 2;
+        +minWidth768()
+          max-width: 15.5rem
+        +minWidth900()
+          max-width: 25.5rem
+        +minWidth1200()
+          max-width: 35.5rem
+        +minWidth2000()
+          max-width: 45.5rem
     #nav 
       #menus
         z-index: 100;

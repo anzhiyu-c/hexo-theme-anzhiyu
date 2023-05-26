@@ -262,7 +262,7 @@ const anzhiyu = {
   },
 
   //更改主题色
-  changeThemeColor: function (color) {
+  changeThemeMetaColor: function (color) {
     // console.info(`%c ${color}`, `font-size:36px;color:${color};`);
     if (themeColorMeta !== null) {
       themeColorMeta.setAttribute("content", color);
@@ -286,10 +286,10 @@ const anzhiyu = {
           .replace('"', "");
       }
       if (themeColorMeta.getAttribute("content") === themeColor) return;
-      this.changeThemeColor(themeColor);
+      this.changeThemeMetaColor(themeColor);
     } else {
       if (themeColorMeta.getAttribute("content") === themeColor) return;
-      this.changeThemeColor(themeColor);
+      this.changeThemeMetaColor(themeColor);
     }
   },
   switchDarkMode: () => {

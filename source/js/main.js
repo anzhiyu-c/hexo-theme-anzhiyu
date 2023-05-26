@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarFn = {
     open: () => {
       anzhiyu.sidebarPaddingR();
-      anzhiyu.changeThemeColor("#607d8b");
+      anzhiyu.changeThemeMetaColor("#607d8b");
       anzhiyu.animateIn(document.getElementById("menu-mask"), "to_show 0.5s");
       $sidebarMenus.classList.add("open");
       $web_box.classList.add("open");
@@ -1269,6 +1269,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!path) {
       root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
       anzhiyu.initThemeColor();
+
+      if (GLOBAL_CONFIG.changeMainColorPost) {
+        document.documentElement.style.setProperty(
+          "--anzhiyu-main",
+          getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
+        );
+      }
+
       return;
     }
 
@@ -1291,15 +1299,18 @@ document.addEventListener("DOMContentLoaded", function () {
             value = LightenDarkenColor(colorHex(value), -40);
           }
         } catch (err) {
-          value = "var(--anzhiyu-main)";
+          value = "var(--anzhiyu-theme)";
         }
       } else if (isRequestCompleted) {
-        value = "var(--anzhiyu-main)";
+        value = "var(--anzhiyu-theme)";
       }
 
       if (value) {
         root.style.setProperty("--anzhiyu-bar-background", value);
         anzhiyu.initThemeColor();
+        if (GLOBAL_CONFIG.changeMainColorPost) {
+          document.documentElement.style.setProperty("--anzhiyu-main", value);
+        }
       }
     };
   };

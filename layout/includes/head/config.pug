@@ -93,11 +93,17 @@
     })
   }
 
+  let changeMainColorPost = 'undefined'
+  if (theme.theme_color && theme.theme_color.enable && theme.theme_color.cover_change) {
+    changeMainColorPost = theme.theme_color.cover_change
+  }
+
 script.
   const GLOBAL_CONFIG = { 
     root: '!{config.root}',
     friends_vue_info: !{friends_vue_info},
     navMusic: !{theme.nav_music.enable},
+    changeMainColorPost: !{changeMainColorPost},
     algolia: !{algolia},
     localSearch: !{localSearch},
     translate: !{translate},

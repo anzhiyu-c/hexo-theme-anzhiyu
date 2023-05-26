@@ -268,7 +268,7 @@ blockquote {
       display: flex;
       align-items: center;
     &__original,&__reprint
-      background: var(--anzhiyu-fontcolor);
+      background: var(--anzhiyu-main);
       color: var(--anzhiyu-card-bg);
       padding: 0.2rem 1rem;
       font-size: .8rem;
@@ -286,6 +286,7 @@ blockquote {
       right: -20px;
       font-size: 8.3em;
       z-index: -1;
+      color: var(--anzhiyu-main)
       @media screen and (min-width: 1365px)
         z-index: 0;
         
@@ -464,7 +465,7 @@ blockquote {
   margin: 10px 16px 0px 5px;
   width: fit-content;
   line-height: 1;
-  background: rgba(48, 52, 63, 0.75);
+  background: var(--anzhiyu-main)
   color: #fff;
   border-radius: 6px;
   user-select: none;

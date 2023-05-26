@@ -546,6 +546,7 @@ site_verification:
 
 theme_color:
   enable: true
+  cover_change: false
   main: "#3b70fc"
   dark_main: "#0084ff"
   paginator: "#3b70fc"
