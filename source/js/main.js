@@ -465,9 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * justified-gallery 圖庫排版
    */
-  const loading_bg = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
   const runJustifiedGallery = function (ele) {
-    const album_detail_gallery_load_more = document.getElementById("album_detail_gallery_load_more");
     const htmlStr = arr => {
       let str = "";
       const replaceDq = str => str.replace(/"/g, "&quot;"); // replace double quotes to &quot;
@@ -478,9 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const galleryItem = `
         <div class="fj-gallery-item">
           ${address ? `<div class="tag-address">${address}</div>` : ""}
-          <img src="${album_detail_gallery_load_more ? i.url : loading_bg}" ${
-          !album_detail_gallery_load_more ? `data-lazy-src="${i.url}"` : ""
-        } ${alt + title}>
+          <img src="${i.url}" ${alt + title}>
         </div>
       `;
         str += galleryItem;
@@ -512,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 不懒加载
         item.innerHTML = htmlStr(arr);
       } else {
-        if (!item.classList.contains("btn_album_detail_lazyload")) {
+        if (!item.classList.contains("btn_album_detail_lazyload") || item.classList.contains("page_img_lazyload")) {
           // 滚动懒加载
           lazyloadFn(item, arr, limit);
           const clickBtnFn = () => {
@@ -523,12 +519,24 @@ document.addEventListener("DOMContentLoaded", function () {
               item.querySelectorAll(`.fj-gallery-item:nth-last-child(-n+${lastItemLength})`)
             );
             anzhiyu.loadLightbox(item.querySelectorAll("img"));
-            lastItemLength < Number(limit) && (window.runJustifiedGalleryNextElementSiblingLazyloadFn = null);
+            if (lastItemLength < Number(limit)) {
+              observer.unobserve(item.nextElementSibling);
+            }
           };
 
-          window.runJustifiedGalleryNextElementSiblingLazyloadFn = clickBtnFn;
+          // 创建IntersectionObserver实例
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              // 如果元素进入视口
+              if (entry.isIntersecting) {
+                // 执行clickBtnFn函数
+                setTimeout(clickBtnFn(), 100);
+              }
+            });
+          });
+          observer.observe(item.nextElementSibling);
         } else {
-          // 按钮懒加载
+          // 相册详情 按钮懒加载
           lazyloadFn(item, arr, limit);
           const clickBtnFn = () => {
             const lastItemLength = lazyloadFn(item, arr, limit);
@@ -651,19 +659,6 @@ document.addEventListener("DOMContentLoaded", function () {
             waterfallDom && waterfall("#waterfall");
           }, 500);
         }
-      }
-
-      function runLazyLoad() {
-        const runFn = window.runJustifiedGalleryNextElementSiblingLazyloadFn;
-        if (runFn) {
-          runFn();
-        }
-      }
-
-      // 如果当前为相册详情页
-      const albumDetailGalleryLoadMore = document.getElementById("album_detail_gallery_load_more");
-      if (albumDetailGalleryLoadMore && anzhiyu.isInViewPortOfOne(albumDetailGalleryLoadMore)) {
-        setTimeout(runLazyLoad, 100);
       }
     }
 

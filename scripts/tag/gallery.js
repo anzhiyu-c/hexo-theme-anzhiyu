@@ -13,16 +13,18 @@ const urlFor = require("hexo-util").url_for.bind(hexo);
 function gallery(args, content) {
   const { data, languages } = hexo.theme.i18n;
   args = args.join(" ").split(",");
-  let rowHeight, limit, lazyload, type, dataStr;
+  let rowHeight, limit, lazyload, type, dataStr, lazyloadBtn;
 
   if (args[0] === "url") {
-    [type, dataStr, lazyload, rowHeight = 220, limit = 10] = args; // url,[link],[lazyload],[rowHeight],[limit]
+    [type, dataStr, lazyload, rowHeight = 220, limit = 10, lazyloadBtn = false] = args; // url,[link],[lazyload],[rowHeight],[limit]
     rowHeight = rowHeight == "" ? 220 : rowHeight;
     limit = limit == "" ? 10 : limit;
+    lazyloadBtn = lazyloadBtn == false ? false : lazyloadBtn;
   } else {
-    [lazyload, rowHeight = 220, limit = 10] = args; // [lazyload],[rowHeight],[limit]
+    [lazyload, rowHeight = 220, limit = 10, lazyloadBtn = false] = args; // [lazyload],[rowHeight],[limit]
     rowHeight = rowHeight == "" ? 220 : rowHeight;
     limit = limit == "" ? 10 : limit;
+    lazyloadBtn = lazyloadBtn == false ? false : lazyloadBtn;
 
     const regex = /!\[(.*?)\]\(([^\s]*)\s*(?:["'](.*?)["']?)?\s*\)/g;
     let m;
@@ -43,18 +45,18 @@ function gallery(args, content) {
 
   type = type ? " url" : " data";
   const lazyloadClass = lazyload === "true" ? "lazyload btn_album_detail_lazyload" : "";
+  const pageImgLazyloadClass = lazyloadBtn == true ? "" : "page_img_lazyload ";
+  let html = `<div class="gallery">
+  <div class="fj-gallery ${
+    pageImgLazyloadClass + lazyloadClass + type
+  }" data-rowHeight="${rowHeight}" data-limit="${limit}">
+    <span class="gallery-data">${dataStr}</span>
+  </div><button class="gallery-load-more" style="${!lazyloadBtn ? "opacity:0" : ""}">
+  <span>${data[languages[0]].load_more}</span>
+  <i class="anzhiyufont anzhiyu-icon-arrow-down"></i>
+  </button>`;
 
-  console.info(dataStr);
-
-  return `<div class="gallery">
-    <div class="fj-gallery ${lazyloadClass + type}" data-rowHeight="${rowHeight}" data-limit="${limit}">
-      <span class="gallery-data">${dataStr}</span>
-    </div>
-    <button class="gallery-load-more">
-      <span>${data[languages[0]].load_more}</span>
-      <i class="anzhiyufont anzhiyu-icon-arrow-down"></i>
-    </button>
-    </div>`;
+  return (html += `</div>`);
 }
 
 function galleryGroup(args) {
