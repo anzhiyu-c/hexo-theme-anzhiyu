@@ -47,6 +47,10 @@
   display: none;
 }
 
+#category #catalog-list .catalog-list-item:first-child {
+  margin-left: 5px;
+}
+
 .catalog-list-item:hover a {
   background: var(--anzhiyu-main);
   color: var(--anzhiyu-white);
