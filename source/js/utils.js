@@ -591,8 +591,8 @@ const anzhiyu = {
       anzhiyu.musicBindEvent();
       anzhiyu_musicFirst = true;
     }
-    let msgPlay = '<i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span>'; // 此處可以更改為你想要顯示的文字
-    let msgPause = '<i class="anzhiyufont anzhiyu-icon-pause"></i><span>暂停音乐</span>'; // 同上，但兩處均不建議更改
+    let msgPlay = '<i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span>';
+    let msgPause = '<i class="anzhiyufont anzhiyu-icon-pause"></i><span>暂停音乐</span>';
     if (anzhiyu_musicPlaying) {
       navMusicEl.classList.remove("playing");
       document.getElementById("menu-music-toggle").innerHTML = msgPlay;
