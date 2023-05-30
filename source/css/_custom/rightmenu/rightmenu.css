@@ -47,7 +47,7 @@
 }
 
 #rightMenu .rightMenu-group .rightMenu-item:hover {
-  background-color: var(--anzhiyu-theme);
+  background-color: var(--anzhiyu-main);
   color: var(--anzhiyu-white);
   box-shadow: var(--anzhiyu-shadow-theme);
   padding: 0 10px;

@@ -402,14 +402,14 @@ const anzhiyu = {
   switchCommentBarrage: function () {
     let commentBarrage = document.querySelector(".comment-barrage");
     if (commentBarrage) {
-      if (window.getComputedStyle(commentBarrage).display === "block") {
+      if (window.getComputedStyle(commentBarrage).display === "flex") {
         commentBarrage.style.display = "none";
         anzhiyu.snackbarShow("✨ 已关闭评论弹幕");
         document.querySelector(".menu-commentBarrage-text").textContent = "显示热评";
         document.querySelector("#consoleCommentBarrage").classList.remove("on");
         localStorage.setItem("commentBarrageSwitch", "false");
       } else {
-        commentBarrage.style.display = "block";
+        commentBarrage.style.display = "flex";
         document.querySelector(".menu-commentBarrage-text").textContent = "关闭热评";
         document.querySelector("#consoleCommentBarrage").classList.add("on");
         anzhiyu.snackbarShow("✨ 已开启评论弹幕");

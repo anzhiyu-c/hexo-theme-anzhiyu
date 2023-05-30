@@ -245,7 +245,7 @@ script.
           rm.hideRightMenu();
           // e.preventDefault();
         },
-        false
+        { passive: true }
       );
     }
     if (document.getElementById("rightMenu")) {
@@ -257,7 +257,7 @@ script.
           rm.hideRightMenu();
           // e.preventDefault();
         },
-        false
+        { passive: true }
       );
     }
   }
