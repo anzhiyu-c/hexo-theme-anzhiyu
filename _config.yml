@@ -57,7 +57,7 @@ copy:
 
 # social settings (社交图标设置)
 # formal:
-#   icon: link || the description || Animation
+#   name: link || icon
 social:
   # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
   # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || anzhiyu-icon-envelope
