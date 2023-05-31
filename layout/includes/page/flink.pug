@@ -83,9 +83,9 @@
                     span.site-card-tag 荐
                   a.cf-friends-link(href=url_for(item.link) title=item.name target="_blank")
                     if theme.lazyload.enable
-                      img.cf-friends-avatar(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                      img.cf-friends-avatar.no-lightbox(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
                     else
-                      img.cf-friends-avatar(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                      img.cf-friends-avatar.no-lightbox(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
                     .flink-item-info
                       if i.lost_contact
                         .flink-item-name.cf-friends-name-lost-contact= item.name
@@ -105,8 +105,8 @@
                     img.cover.fadeIn(src=siteshot onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.post_page) + `'` alt='' )    
                 .info
                   if theme.lazyload.enable
-                    img.cf-friends-avatar.flink-avatar(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt='' )
+                    img.cf-friends-avatar.no-lightbox.flink-avatar(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt='' )
                   else
-                    img.cf-friends-avatar(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt='' )
+                    img.cf-friends-avatar.no-lightbox(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt='' )
                   span.flink-sitename.cf-friends-name= item.name
     != page.content
