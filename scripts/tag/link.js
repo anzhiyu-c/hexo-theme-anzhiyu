@@ -5,23 +5,25 @@ function link(args) {
   let sitename = args[1];
   let link = args[2];
   let imgUrl = args[3] || "";
-  let isOutside = args[4] || "no";
+  let InsideStation = false;
 
   link = link.trim();
+  imgUrl = imgUrl.trim();
 
   // 获取网页favicon
   if (!imgUrl) {
     let urlNoProtocol = link.replace(/^https?\:\/\//i, "");
     imgUrl = "https://api.iowen.cn/favicon/" + urlNoProtocol + ".png";
   }
-  if (isOutside === "yes") {
-    imgUrl = "/img/favicon.ico";
+
+  if (imgUrl == "true") {
+    InsideStation = true;
   }
 
   return `<div calss='anzhiyu-tag-link'><a class="tag-Link" target="_blank" href="${urlFor(link)}">
-    <div class="tag-link-tips">${isOutside != "yes" ? "引用站外地址" : "站内地址"}</div>
+    <div class="tag-link-tips">${InsideStation ? "站内地址" : "引用站外地址"}</div>
     <div class="tag-link-bottom">
-        <div class="tag-link-left" style="background-image: url(${imgUrl});"></div>
+        <div class="tag-link-left" style="background-image: url(${InsideStation ? "/img/512.png" : imgUrl});"></div>
         <div class="tag-link-right">
             <div class="tag-link-title">${title}</div>
             <div class="tag-link-sitename">${sitename}</div>

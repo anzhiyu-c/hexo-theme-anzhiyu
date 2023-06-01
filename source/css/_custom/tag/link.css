@@ -37,6 +37,7 @@
   min-width: 60px;
   height: 60px;
   background-size: cover;
+  border-radius: var(--anzhiyu-border-radius);
 }
 
 #article-container .tag-Link .tag-link-bottom .tag-link-right {
