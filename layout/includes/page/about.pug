@@ -200,8 +200,9 @@ if site.data.about
                 |  
                 span.banner-button-text 更多推荐
 
-      if item.extra
-        include ../anzhiyu/about-extra.pug
+      .author-content
+        .create-site-post.author-content-item.single
+          != page.content
         
       - let rawData = item.reward_list
       if rawData
