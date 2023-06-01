@@ -56,6 +56,9 @@
   font-size: 0.85em;
   line-height: 1.45em;
 }
+#article-container ol[start] {
+  counter-reset: unset;
+}
 #article-container ol li:not(.tab),
 #article-container ul li:not(.tab) {
   position: relative;
