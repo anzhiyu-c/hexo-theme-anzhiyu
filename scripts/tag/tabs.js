@@ -56,7 +56,6 @@ function postTabs(args, content) {
 
   tabNav = `<ul class="nav-tabs">${tabNav}</ul>`;
   tabContent = `<div class="tab-contents">${tabContent}</div>`;
-
   return `<div class="tabs" id="${tabName.toLowerCase().split(" ").join("-")}">${tabNav + tabContent}</div>`;
 }
 

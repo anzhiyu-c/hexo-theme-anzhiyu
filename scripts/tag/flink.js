@@ -55,7 +55,6 @@ const flinkFn = (args, content) => {
                   }" onerror='this.onerror=null;this.src="${urlFor(hexo.theme.config.error_img.flink)}"' alt="${
           j.name
         }"/>
-
                   <span class="flink-sitename cf-friends-name">${j.name}</span>
                 </div>
               </a>`;

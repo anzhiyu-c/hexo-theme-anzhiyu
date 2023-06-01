@@ -18,6 +18,8 @@
 
   for $type in $color-types
     &.{$type}
+      &.disabled
+        background: lighten(lookup('$tagsP-' + $type + '-color'), 85%) !important
       &:not(.disabled)
         border-left-color: lookup('$tagsP-' + $type + '-color') !important
 
