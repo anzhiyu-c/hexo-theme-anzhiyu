@@ -97,17 +97,21 @@
       margin: 0 -20% 0 auto;
       overflow: hidden;
       margin-bottom: 0;
-      filter: blur(10px);
-      opacity: 0.5;
-      animation: showCover 1s 0.3s backwards;
       transform: rotate(10deg) translateY(-10%) scale(2);
       if !hexo-config('post_meta.post.mainTone')
+        filter: blur(10px) brightness(60%);
+        animation: none;
+        transition: filter 0s
         margin: auto
         width: auto
         &::after
           display: none
         img
           border-radius: 0
+      else
+        filter: blur(10px);
+        opacity: 0.5;
+        animation: showCover 1s 0.3s backwards;
 
       +maxWidth768()
         margin: 0 0 0 auto;
