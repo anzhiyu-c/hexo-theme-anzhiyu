@@ -299,8 +299,12 @@ blockquote {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        font-weight: 500
+        
+        &:hover
+          color: var(--anzhiyu-fontcolor)
       &-meta
-        color: $light-blue
+        color: var(--anzhiyu-main)
         font-weight: bold
         min-width: 75px;
 
@@ -333,8 +337,8 @@ blockquote {
           +maxWidth768()
             display: none
           &:hover
-            background: var(--anzhiyu-theme);
-            border-color: var(--anzhiyu-theme);
+            background: var(--anzhiyu-main);
+            border-color: var(--anzhiyu-main);
             color: var(--anzhiyu-white);
 
   .post-outdate-notice

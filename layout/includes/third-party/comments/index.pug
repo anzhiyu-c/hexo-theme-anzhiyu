@@ -14,9 +14,9 @@ hr
         span.switch-btn
         span.second-comment=theme.comments.use[1]
     
-    .comment-tips#comment-tips
-      span 你无需删除空行，直接评论以获取最佳展示效果
-
+    if defaultComment == "Twikoo"
+      .comment-tips#comment-tips
+        span 你无需删除空行，直接评论以获取最佳展示效果
 
   .comment-wrap
     each name in theme.comments.use

@@ -269,8 +269,10 @@ script.
     rm.hideRightMenu();
   };
 
-  rm.copyPageUrl = function () {
-    var url = window.location.href;
+  rm.copyPageUrl = function (url) {
+    if (!url) {
+      url = window.location.href;
+    }
     rm.copyUrl(url);
     anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
     rm.hideRightMenu();

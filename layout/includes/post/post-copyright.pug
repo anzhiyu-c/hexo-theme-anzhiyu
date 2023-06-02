@@ -20,7 +20,7 @@ if theme.post_copyright.enable && page.copyright !== false
       span.post-copyright-meta= _p('post.copyright.link') + ": "
       span.post-copyright-info
         a.link(href=url_for(url))= theme.post_copyright.decode ? decodeURI(url) : url
-      span.copy-button(onclick="rm.copyPageUrl()")
+      span.copy-button(onclick=`rm.copyPageUrl('${theme.post_copyright.decode ? decodeURI(url) : url})'`)
         i.anzhiyufont.anzhiyu-icon-copy
     .post-copyright__notice
       span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
