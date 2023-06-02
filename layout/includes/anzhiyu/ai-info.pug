@@ -166,6 +166,7 @@ if (description && ai)
 
             } catch (error) {
               console.error(error);
+              explanation.innerHTML = "发生异常" + error;
             }
           } else {
             const strArr = "#{ai}".split(",").map(item => item.trim()); // 将字符串转换为数组，去除每个字符串前后的空格
