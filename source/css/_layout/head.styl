@@ -648,7 +648,6 @@
       width: 100%;
       height: 100%;
       display: flex;
-
     span.post-meta-categories
       background: var(--anzhiyu-white-op);
       color: var(--anzhiyu-white);
@@ -685,7 +684,14 @@
       font-size: 17px;
     .anzhiyu-icon-location-dot
       margin-right: 4px
-
+#post
+  #post-info
+    #post-firstinfo
+      .meta-firstline 
+        a.post-meta-original
+          background: var(--anzhiyu-black)
+        .article-meta__tags
+          color: var(--anzhiyu-black)
 +maxWidth768()
   .layout > div:first-child:not(.recent-posts)
     z-index: 10;
