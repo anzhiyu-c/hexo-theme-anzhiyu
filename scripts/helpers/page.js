@@ -22,7 +22,7 @@ hexo.extend.helper.register("page_description", function () {
 
 hexo.extend.helper.register("get_page_fill_description", function () {
   const { config, page } = this;
-  let description = page.description || page.content || page.title || config.description;
+  let description = page.content || page.description || page.title || config.description;
 
   if (description) {
     // 使用正则表达式匹配 h1-h6 标签中的文本内容

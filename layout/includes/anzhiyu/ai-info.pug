@@ -304,17 +304,14 @@ if (description && ai)
           aiTitleRefreshIcon.style.opacity = "0.2";
           aiTitleRefreshIcon.style.transitionDuration = "0.3s";
           aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
-          console.info(truncateDescription.length)
           if (truncateDescription.length <= #{basicWordCount}) {
             let param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
             while (param === prevParam) {
               param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
             }
-            console.info("小", param)
             aiAbstract(param);
             prevParam = param;
           } else {
-            console.info("大", value)
             aiAbstract(value);
             prevParam = value;
           }
