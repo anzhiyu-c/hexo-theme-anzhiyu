@@ -141,13 +141,17 @@ div#category {
   color: var(--anzhiyu-fontcolor);
   padding: 0 0.2em;
   text-decoration: none;
+  font-family: auto;
 }
-#article-container a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):hover {
-  color: var(--anzhiyu-white) !important;
-  background: var(--anzhiyu-main) !important;
-  box-shadow: var(--anzhiyu-shadow-lightblack) !important;
-  border-radius: 0.25em !important;
-  text-decoration: none !important;
+#article-container
+  a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):not(
+    .no-text-decoration
+  ):hover {
+  color: var(--anzhiyu-white);
+  background: var(--anzhiyu-main);
+  box-shadow: var(--anzhiyu-shadow-lightblack);
+  border-radius: 0.25em;
+  text-decoration: none;
 }
 
 html.hide-aside .layout > div:first-child {

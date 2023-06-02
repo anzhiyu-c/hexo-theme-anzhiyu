@@ -5,6 +5,7 @@ script(data-pjax="true").
       barrageTime: #{theme.comment_barrage_config.barrageTime},
       twikooUrl: "#{theme.twikoo.envId}",
       accessToken: "#{theme.comment_barrage_config.accessToken}",
+      mailMd5: "#{theme.comment_barrage_config.mailMd5}",
       pageUrl: window.location.pathname,
       barrageTimer: [],
       barrageList: [],
@@ -16,11 +17,9 @@ script(data-pjax="true").
     
     document.querySelector(".comment-barrage").addEventListener("mouseenter", function() {
       hoverOnCommentBarrage = true;
-      console.log("热评悬浮");
     });
     document.querySelector(".comment-barrage").addEventListener("mouseleave", function() {
       hoverOnCommentBarrage = false;
-      console.log("停止悬浮");
     });
 
     function initCommentBarrage() {
@@ -93,9 +92,9 @@ script(data-pjax="true").
       barrage.innerHTML = `
           <div class="barrageHead">
             <a class="barrageTitle ${
-              data.mailMd5 === "d338f432ad0bf2f61e5fe4ad1642725d" ? "barrageBloggerTitle" : ""
+              data.mailMd5 === commentBarrageConfig.mailMd5 ? "barrageBloggerTitle" : ""
             }" href="javascript:anzhiyu.scrollTo('#post-comment')"">
-              ${data.mailMd5 === "d338f432ad0bf2f61e5fe4ad1642725d" ? "博主" : "热评"}
+              ${data.mailMd5 === commentBarrageConfig.mailMd5 ? "博主" : "热评"}
             </a>
             <div class="barrageNick">${data.nick}</div>
             <img class="nolazyload barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>

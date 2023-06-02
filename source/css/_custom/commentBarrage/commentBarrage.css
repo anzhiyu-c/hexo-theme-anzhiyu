@@ -46,6 +46,9 @@
   opacity: 0;
   animation: barrageOut 0.6s cubic-bezier(0.42, 0, 0.3, 1.11);
 }
+.comment-barrage-item a.barrageContent:hover {
+  color: var(--anzhiyu-main);
+}
 .comment-barrage-item.hovered {
   opacity: 0;
 }

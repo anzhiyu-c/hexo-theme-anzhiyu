@@ -1025,6 +1025,8 @@ comment_barrage_config:
   barrageTime: 4000
   # token，在控制台中获取
   accessToken: ""
+  # 博主邮箱md5值
+  mailMd5: ""
 
 # 左下角音乐配置项
 # https://github.com/metowolf/MetingJS
