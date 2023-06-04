@@ -1,22 +1,21 @@
-if site.data.essay && theme.essay.enable
-  - let essayConfig = theme.essay
-  #essay_page
-    .author-content.author-content-item.essayPage.single(style = essayConfig.enable ? `background: url(${essayConfig.top_background}) left 28% / cover no-repeat;` : "")
-      .card-content
-        .author-content-item-tips=essayConfig.title
-        span.author-content-item-title=essayConfig.subTitle
-        .content-bottom
-          .tips=essayConfig.tips
-        .banner-button-group
-          a.banner-button(href=essayConfig.buttonLink)
-            i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
-            span.banner-button-text=essayConfig.button
-    #bber
-      section.timeline.page-1
-        ul#waterfall.list
-          each i in site.data.essay
+if site.data.essay
+  each i in site.data.essay
+    #essay_page
+      .author-content.author-content-item.essayPage.single(style = i.enable ? `background: url(${i.top_background}) left 28% / cover no-repeat;` : "")
+        .card-content
+          .author-content-item-tips=i.title
+          span.author-content-item-title=i.subTitle
+          .content-bottom
+            .tips=i.tips
+          .banner-button-group
+            a.banner-button(href=i.buttonLink)
+              i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
+              span.banner-button-text=i.buttonText
+      #bber
+        section.timeline.page-1
+          ul#waterfall.list
             each item, index in i.essay_list
-              if index < essayConfig.limit
+              if index < i.limit
                 li.bber-item
                   .bber-content
                     p.datacont= item.content
@@ -52,5 +51,5 @@ if site.data.essay && theme.essay.enable
                           span=item.address
                     .bber-reply(onclick="rm.rightMenuCommentText(" + `'${item.content}'` + ")")
                       i.anzhiyufont.anzhiyu-icon-message
-    #bber-tips(style='color: var(--anzhiyu-secondtext);')
-      ="- 只展示最近" + essayConfig.limit + "条短文 -"
+      #bber-tips(style='color: var(--anzhiyu-secondtext);')
+        ="- 只展示最近" + i.limit + "条短文 -"
