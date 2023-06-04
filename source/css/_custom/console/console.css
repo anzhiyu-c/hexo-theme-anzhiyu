@@ -147,7 +147,7 @@
 }
 
 #card-newest-comments .aside-list-item:hover {
-  background: var(--anzhiyu-theme);
+  background: var(--anzhiyu-main);
   color: var(--anzhiyu-white);
 }
 
@@ -255,7 +255,7 @@
 }
 
 #console .close-btn:hover {
-  color: var(--anzhiyu-hovertext);
+  color: var(--anzhiyu-main);
 }
 
 #console .console-card.history {
