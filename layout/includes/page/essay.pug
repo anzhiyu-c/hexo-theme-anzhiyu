@@ -1,7 +1,7 @@
 if site.data.essay
   each i in site.data.essay
     #essay_page
-      .author-content.author-content-item.essayPage.single(style = i.enable ? `background: url(${i.top_background}) left 28% / cover no-repeat;` : "")
+      .author-content.author-content-item.essayPage.single(style = i.top_background ? `background: url(${i.top_background}) left 28% / cover no-repeat;` : "")
         .card-content
           .author-content-item-tips=i.title
           span.author-content-item-title=i.subTitle
