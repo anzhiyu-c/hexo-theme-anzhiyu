@@ -758,8 +758,8 @@ aside:
     color: false
     sort_order: # Don't modify the setting unless you know how it works
     highlightTags:
-      - Hexo
-      - 前端
+      # - Hexo
+      # - 前端
   card_archives:
     enable: true
     type: monthly # yearly or monthly
