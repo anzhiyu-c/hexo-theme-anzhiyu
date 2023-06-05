@@ -200,9 +200,10 @@ if site.data.about
                 |  
                 span.banner-button-text 更多推荐
 
-      .author-content
-        .create-site-post.author-content-item.single
-          != page.content
+      if page.content
+        .author-content
+          .create-site-post.author-content-item.single
+            != page.content
         
       - let rawData = item.reward_list
       if rawData
