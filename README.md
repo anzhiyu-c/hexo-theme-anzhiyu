@@ -4,15 +4,15 @@
   <a title="English" href="/README_EN.md">English</a>
 </div>
 
-预览: 👍 [AnZhiYu](https://anzhiy.cn/) || 🤞 [AnZhiYu](https://index.anzhiy.cn/)
+预览: 👍 [AnZhiYu](https://blog.anheyu.com/) || 🤞 [AnZhiYu](https://index.anheyu.com/)
 
-文档: 📖 [anzhiyu Docs](https://anzhiy.cn/docs/)
+文档: 📖 [anzhiyu Docs](https://blog.anheyu.com/docs/)
 
 一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)修改的主題
 
 # hexo-theme-anzhiyu
 
-![](https://img02.anzhiy.cn/adminuploads/1/2023/04/12/64367c8fdcc7f.webp)
+![](https://img02.anheyu.com/adminuploads/1/2023/04/12/64367c8fdcc7f.webp)
 
 ## 💻 安裝
 

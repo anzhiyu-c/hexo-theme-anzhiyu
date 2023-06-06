@@ -29,13 +29,13 @@ nav:
     - title: 网页
       item:
         - name: 博客
-          link: https://anzhiy.cn/
+          link: https://blog.anheyu.com/
           icon: /img/favicon.ico
     - title: 项目
       item:
         - name: 安知鱼图床
-          link: https://image.anzhiy.cn/
-          icon: https://image.anzhiy.cn/favicon.ico
+          link: https://image.anheyu.com/
+          icon: https://image.anheyu.com/favicon.ico
 
 # Code Blocks (代码相关)
 # --------------------------------------
@@ -415,7 +415,7 @@ footer:
     - link: https://hexo.io/ #徽标指向网站链接
       shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
       message: 博客框架为Hexo_v5.4.0 #徽标提示语
-    - link: https://anzhiy.cn/
+    - link: https://anheyu.com/
       shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
       message: 本站使用AnZhiYu主题
     # - link: https://www.dogecloud.com/
@@ -957,7 +957,7 @@ home_top:
   timemode: date #date/updated
   title: 生活明朗
   subTitle: 万物可爱。
-  siteText: ANZHIY.CN
+  siteText: anheyu.com
   category:
     - name: 前端
       path: /categories/前端开发/
@@ -983,7 +983,7 @@ home_top:
     tips: 新品主题
     title: Theme-AnZhiYu
     image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://anzhiy.cn/docs
+    link: https://blog.anheyu.com/docs
 
 # 朋友圈配置
 friends_vue:
@@ -1040,7 +1040,7 @@ nav_music:
 # 评论匿名邮箱
 visitorMail:
   enable: true
-  mail: visitor@anzhiy.cn
+  mail: visitor@anheyu.com
 
 # ptool 文章底部工具
 ptool:

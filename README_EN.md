@@ -4,15 +4,15 @@
   English
 </div>
 
-Preview: 👍 [AnZhiYu](https://anzhiy.cn/) || 🤞 [AnZhiYu](https://index.anzhiy.cn/)
+Preview: 👍 [AnZhiYu](https://blog.anheyu.com/) || 🤞 [AnZhiYu](https://index.anheyu.com/)
 
-Document: 📖 [anzhiyu Docs](https://anzhiy.cn/docs)
+Document: 📖 [anzhiyu Docs](https://blog.anheyu.com/docs)
 
 Based: [hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
 
 # hexo-theme-anzhiyu
 
-![](https://img02.anzhiy.cn/adminuploads/1/2023/04/12/64367c8fdcc7f.webp)
+![](https://img02.anheyu.com/adminuploads/1/2023/04/12/64367c8fdcc7f.webp)
 
 ## 💻 Install
 
