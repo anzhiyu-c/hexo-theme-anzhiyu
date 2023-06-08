@@ -18,6 +18,7 @@ div#runtime {
   height: 20px;
   max-width: 150px;
   border-radius: 4px;
+  pointer-events: none;
 }
 #workboard img.boardsign {
   width: 100%;
