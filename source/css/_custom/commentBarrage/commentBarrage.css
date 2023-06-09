@@ -67,9 +67,7 @@
 .comment-barrage-item p img:not(.tk-owo-emotion) {
   display: none;
 }
-.comment-barrage-item blockquote {
-  display: none;
-}
+
 .comment-barrage-item .barrageHead {
   height: 30px;
   padding: 0;
@@ -123,6 +121,9 @@
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+}
+.comment-barrage-item .barrageContent blockquote p {
+  margin: 0;
 }
 .comment-barrage-item .barrageContent h1,
 .comment-barrage-item .barrageContent h2,
