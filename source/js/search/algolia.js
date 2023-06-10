@@ -52,6 +52,11 @@ window.addEventListener("load", () => {
     document.querySelector("#search-button > .search").addEventListener("click", openSearch);
     document.getElementById("search-mask").addEventListener("click", closeSearch);
     document.querySelector("#algolia-search .search-close-button").addEventListener("click", closeSearch);
+  };
+
+  const searchClickFnOnce = () => {
+    document.getElementById("search-mask").addEventListener("click", closeSearch);
+    document.querySelector("#algolia-search .search-close-button").addEventListener("click", closeSearch);
     const menuSearch = document.querySelector("#menu-search");
     menuSearch.addEventListener("click", function () {
       rm.hideRightMenu();
@@ -63,11 +68,6 @@ window.addEventListener("load", () => {
         document.querySelector("#algolia-search-input > div > form > button.ais-SearchBox-submit").click();
       }, 64);
     });
-  };
-
-  const searchClickFnOnce = () => {
-    document.getElementById("search-mask").addEventListener("click", closeSearch);
-    document.querySelector("#algolia-search .search-close-button").addEventListener("click", closeSearch);
   };
 
   const cutContent = content => {
@@ -157,7 +157,7 @@ window.addEventListener("load", () => {
         templates += `
           </div>
         </div>`;
-        const loadingLogo = document.querySelector("#algolia-hits .anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin");
+        const loadingLogo = document.querySelector("#algolia-hits .anzhiyu-spin");
         if (loadingLogo) {
           loadingLogo.style.display = "none";
         }
@@ -167,7 +167,8 @@ window.addEventListener("load", () => {
         return templates;
       },
       empty: function (data) {
-        const loadingLogo = document.querySelector("#algolia-hits .fa.anzhiyu-spinner.anzhiyu-spin");
+        const loadingLogo = document.querySelector("#algolia-hits .anzhiyu-spin");
+        console.info(loadingLogo);
         if (loadingLogo) {
           loadingLogo.style.display = "none";
         }
