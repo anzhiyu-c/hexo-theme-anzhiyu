@@ -10,6 +10,8 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
   body(data-type="anzhiyu")
     #web_bg
     #an_music_bg
+    if theme.preloader.enable
+      !=partial('includes/loading/index', {}, {cache: true})
     #web_box
       #web_container
         #menu-mask
@@ -42,9 +44,6 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
               !=partial('includes/footer', {}, {cache: true})
         else
           include ./404.pug
-
-    if theme.preloader.enable
-      !=partial('includes/loading/index', {}, {cache: true})
 
     !=partial('includes/sidebar', {}, {cache: true})
 
