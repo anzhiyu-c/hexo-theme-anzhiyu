@@ -248,7 +248,7 @@ body[data-type="about"] #web_bg {
   height: 40px;
   width: 140px;
   border-radius: 20px;
-  justify-content: center;
+  justify-content: flex-start;
   background: var(--anzhiyu-card-bg);
   color: var(--font-color);
   display: flex;
