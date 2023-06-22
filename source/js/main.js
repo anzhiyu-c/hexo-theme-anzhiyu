@@ -288,8 +288,8 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * 代碼
-   * 只適用於Hexo默認的代碼渲染
+   * 代码
+   * 只适用于Hexo默认的代码渲染
    */
   const addHighlightTool = function () {
     const highLight = GLOBAL_CONFIG.highlight;
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         $figureHighlight.forEach(function (item) {
           let langName = item.getAttribute("class").split(" ")[1];
-          if (langName === "plain" || langName === undefined) langName = "Code";
+          if (langName === "plain" || langName === undefined || langName === "plaintext") langName = "Code";
           const highlightLangEle = `<div class="code-lang">${langName}</div>`;
           createEle(highlightLangEle, item, "hl");
         });
