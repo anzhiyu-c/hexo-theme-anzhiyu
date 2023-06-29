@@ -412,21 +412,23 @@ footer:
   # 徽标部分配置项 https://shields.io/
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
   bdageitem:
-    - link: https://hexo.io/ #徽标指向网站链接
-      shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
-      message: 博客框架为Hexo_v5.4.0 #徽标提示语
-    - link: https://anheyu.com/
-      shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
-      message: 本站使用AnZhiYu主题
-    # - link: https://www.dogecloud.com/
-    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
-    #   message: 本站使用多吉云为静态资源提供CDN加速
-    # - link: https://github.com/
-    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
-    #   message: 本站项目由Github托管
-    # - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
-    #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
-    #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+    enable: true
+    list:
+      - link: https://hexo.io/ #徽标指向网站链接
+        shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
+        message: 博客框架为Hexo_v5.4.0 #徽标提示语
+      - link: https://anheyu.com/
+        shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
+        message: 本站使用AnZhiYu主题
+      # - link: https://www.dogecloud.com/
+      #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
+      #   message: 本站使用多吉云为静态资源提供CDN加速
+      # - link: https://github.com/
+      #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
+      #   message: 本站项目由Github托管
+      # - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
+      #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
+      #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
   socialBar:
     enable: false
     centerImg:

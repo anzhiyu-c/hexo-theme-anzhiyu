@@ -42,9 +42,9 @@
     #workboard
       img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
       #runtimeTextTip
-  if theme.footer.bdageitem
+  if theme.footer.bdageitem.enable
     p#ghbdages
-      each item in theme.footer.bdageitem
+      each item in theme.footer.bdageitem.list
         a.github-badge(target='_blank' href=item.link style='margin-inline:5px' data-title=item.message title=item.message)
           img(src=item.shields alt=item.message)
   if theme.footer.custom_text
