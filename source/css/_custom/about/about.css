@@ -482,6 +482,9 @@ body[data-type="about"] #web_bg {
   transform: rotate(30deg);
   transition: 2s ease-in-out;
 }
+.card-background-icon i {
+  font-size: 12rem;
+}
 .author-content-item.game-yuanshen {
   background-size: cover;
   min-height: 300px;

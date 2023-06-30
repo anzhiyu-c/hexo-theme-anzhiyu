@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", function () {
         i.insertAdjacentHTML("beforeend", htmlStr(arr));
         i.classList.remove("lazyload");
       }
-      window.lazyLoadInstance.update();
+      window.lazyLoadInstance && window.lazyLoadInstance.update();
       return arrLength > loadItem ? loadItem : arrLength;
     };
 
@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       anzhiyu.initJustifiedGallery(item);
       anzhiyu.loadLightbox(item.querySelectorAll("img"));
-      window.lazyLoadInstance.update();
+      window.lazyLoadInstance && window.lazyLoadInstance.update();
     };
 
     const addJustifiedGallery = () => {
@@ -708,7 +708,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (document.body.scrollHeight <= innerHeight) {
         $rightside.style.cssText = "opacity: 0.8; transform: translateX(-58px)";
       }
-
+      
       percentageScrollFn(currentTop);
     }, 96);
 
@@ -1479,6 +1479,9 @@ document.addEventListener("DOMContentLoaded", function () {
     addHighlightTool();
     GLOBAL_CONFIG.isPhotoFigcaption && addPhotoFigcaption();
     scrollFn();
+
+    // 刷新时第一次滚动百分比
+    window.scrollCollect && window.scrollCollect();
 
     const $jgEle = document.querySelectorAll("#content-inner .fj-gallery");
     $jgEle.length && runJustifiedGallery($jgEle);
