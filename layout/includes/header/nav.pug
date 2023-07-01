@@ -3,7 +3,7 @@ nav#nav
   #nav-group
     span#blog_name
       if theme.nav.enable
-        .back-home-button(tabindex='-1')
+        .back-home-button
           i.anzhiyufont.anzhiyu-icon-grip-vertical
           .back-menu-list-groups
             each group in theme.nav.menu
@@ -14,7 +14,7 @@ nav#nav
                     a.back-menu-item(href=item.link, title=item.name, target='_blank')
                       img.back-menu-item-icon(src=item.icon alt=item.name)
                       span.back-menu-item-text= item.name
-      a#site-name(href=url_for('/'))
+      a#site-name(href=url_for('/') accesskey="h")
         .title #[=config.title]
         i.anzhiyufont.anzhiyu-icon-house-chimney
 

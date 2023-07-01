@@ -51,7 +51,7 @@ mixin postUI(posts)
           if (theme.post_meta.page.tags && article.tags.data.length > 0)
             span.article-meta.tags
               each item, index in article.tags.data
-                a(href=url_for(item.path)).article-meta__tags 
+                a(href=url_for(item.path) tabindex="-1").article-meta__tags
                   span 
                     i.anzhiyufont.anzhiyu-icon-hashtag
                     =item.name
@@ -79,7 +79,7 @@ mixin postUI(posts)
                       i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
               when 'Twikoo'
                 +countBlockInIndex
-                  a.twikoo-count(href=url_for(link) + '#post-comment')
+                  a.twikoo-count(href=url_for(link) + '#post-comment' tabindex="-1")
                     i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
               when 'Artalk'
                 +countBlockInIndex

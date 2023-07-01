@@ -28,7 +28,7 @@ function intCard(args) {
           </div>
         </div>
         <div class="right">
-          <a href="${urlFor(link)}" class="no-text-decoration">前往</a>
+          <a href="${urlFor(link)}" tableindex="-1" class="no-text-decoration">前往</a>
         </div>
       </div>
     `;

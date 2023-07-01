@@ -1222,12 +1222,12 @@ const anzhiyu = {
   },
   // 切换菜单显示热评
   switchRightClickMenuHotReview: function () {
-    const postComment = document.getElementById("post-comment")
-    const menuCommentBarrageDom = document.getElementById("menu-commentBarrage")
+    const postComment = document.getElementById("post-comment");
+    const menuCommentBarrageDom = document.getElementById("menu-commentBarrage");
     if (postComment) {
-      menuCommentBarrageDom.style.display = "flex"
+      menuCommentBarrageDom.style.display = "flex";
     } else {
-      menuCommentBarrageDom.style.display = "none"
+      menuCommentBarrageDom.style.display = "none";
     }
-  }
+  },
 };

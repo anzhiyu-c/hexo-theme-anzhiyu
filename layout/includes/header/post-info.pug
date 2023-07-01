@@ -19,7 +19,7 @@
       if (theme.post_meta.page.tags)
         span.article-meta.tags
           each item, index in page.tags.data
-            a(href=url_for(item.path)).article-meta__tags 
+            a(href=url_for(item.path) tabindex="-1").article-meta__tags 
               span 
                 i.anzhiyufont.anzhiyu-icon-hashtag
                 =item.name
@@ -132,7 +132,7 @@
                   i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
           when 'Twikoo'
             +countBlock
-              a(href=url_for(page.path) + '#post-comment')
+              a(href=url_for(page.path) + '#post-comment' tabindex="-1")
                 span#twikoo-count
                   i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
           when 'Artalk'

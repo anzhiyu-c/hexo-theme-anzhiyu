@@ -21,7 +21,7 @@ mixin articleSort(posts, current)
             if (theme.post_meta.page.tags && article.tags.data.length > 0)
               span.article-sort-item-tags
                 each item, index in article.tags.data
-                  a(href=url_for(item.path)).article-meta__tags 
+                  a(href=url_for(item.path) tabindex="-1").article-meta__tags 
                     span 
                       i.anzhiyufont.anzhiyu-icon-hashtag
                       =item.name

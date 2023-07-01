@@ -35,47 +35,47 @@ script.
     }
 
     if (isKeyboardEnabled && isShiftKeyPressed && !isInInputField) {
-      anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
-        switch (event.keyCode) {
-          case 16:
+      switch (event.keyCode) {
+        case 16:
+          anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
             document.querySelector("#keyboard-tips").classList.add("show");
-            break;
-          case 65:
-            anzhiyu.showConsole();
-            break;
-          case 77:
-            anzhiyu.musicToggle();
-            break;
-          case 75:
-            anzhiyu.keyboardToggle();
-            break;
-          case 73:
-            anzhiyu.rightMenuToggle();
-            break;
-          case 82:
-            toRandomPost();
-            break;
-          case 72:
-            pjax.loadUrl("/");
-            break;
-          case 68:
-            anzhiyu.switchDarkMode();
-            break;
-          case 70:
-            pjax.loadUrl("/fcircle/");
-            break;
-          case 76:
-            pjax.loadUrl("/link/");
-            break;
-          case 80:
-            pjax.loadUrl("/about/");
-            break;
-          default:
-            break;
-        }
+          }, #{shortcutKeyDelay});
+          break;
+        case 65:
+          anzhiyu.showConsole();
+          break;
+        case 77:
+          anzhiyu.musicToggle();
+          break;
+        case 75:
+          anzhiyu.keyboardToggle();
+          break;
+        case 73:
+          anzhiyu.rightMenuToggle();
+          break;
+        case 82:
+          toRandomPost();
+          break;
+        case 72:
+          pjax.loadUrl("/");
+          break;
+        case 68:
+          anzhiyu.switchDarkMode();
+          break;
+        case 70:
+          pjax.loadUrl("/fcircle/");
+          break;
+        case 76:
+          pjax.loadUrl("/link/");
+          break;
+        case 80:
+          pjax.loadUrl("/about/");
+          break;
+        default:
+          break;
+      }
 
-        event.preventDefault();
-      }, #{shortcutKeyDelay});
+      event.preventDefault();
     }
   }
 
