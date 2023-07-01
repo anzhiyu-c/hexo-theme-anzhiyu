@@ -1279,6 +1279,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    if (!GLOBAL_CONFIG.changeMainColorPost) return
     const httpRequest = new XMLHttpRequest();
     httpRequest.open("GET", `${path}?imageAve`, true);
     httpRequest.send();
