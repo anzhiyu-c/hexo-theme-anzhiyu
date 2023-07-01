@@ -648,7 +648,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     left: 5.2%;
     top: 3.9rem !important;
     height: 70%;
-    width: 90%;
+    width: 85%;
   }
   body:has(#console.show) #console-music-bg {
     display: block;
@@ -957,6 +957,11 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   #console .button-group .console-btn-item:hover a {
     background: var(--anzhiyu-main);
     color: var(--anzhiyu-white);
+  }
+}
+@media screen and (max-width: 768px) {
+  body:has(#console.show) #nav-music {
+    width: 90%;
   }
 }
 /* 歌词超出文本滚动动画 */

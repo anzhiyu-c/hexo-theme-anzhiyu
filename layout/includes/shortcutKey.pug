@@ -1,4 +1,5 @@
-- shortcutKeyDelay = theme.shortcutKey.delay
+- shortcutKeyDelay = theme.shortcutKey.delay ? theme.shortcutKey.delay : 100
+- shortcutKeyShiftDelay = theme.shortcutKey.shiftDelay ? theme.shortcutKey.shiftDelay : 200
 #keyboard-tips(class='')
   .keyboardTitle 博客快捷键
   .keybordList
@@ -14,6 +15,7 @@
 script.
   var anzhiyu_intype = false
   var anzhiyu_keyUpEvent_timeoutId = null
+  var anzhiyu_keyUpShiftDelayEvent_timeoutId = null
   function addKeyShotListener() {
     const windowObject = window;
     windowObject.removeEventListener("keydown", keyDownEvent);
@@ -35,47 +37,49 @@ script.
     }
 
     if (isKeyboardEnabled && isShiftKeyPressed && !isInInputField) {
-      switch (event.keyCode) {
-        case 16:
-          anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
-            document.querySelector("#keyboard-tips").classList.add("show");
-          }, #{shortcutKeyDelay});
-          break;
-        case 65:
-          anzhiyu.showConsole();
-          break;
-        case 77:
-          anzhiyu.musicToggle();
-          break;
-        case 75:
-          anzhiyu.keyboardToggle();
-          break;
-        case 73:
-          anzhiyu.rightMenuToggle();
-          break;
-        case 82:
-          toRandomPost();
-          break;
-        case 72:
-          pjax.loadUrl("/");
-          break;
-        case 68:
-          anzhiyu.switchDarkMode();
-          break;
-        case 70:
-          pjax.loadUrl("/fcircle/");
-          break;
-        case 76:
-          pjax.loadUrl("/link/");
-          break;
-        case 80:
-          pjax.loadUrl("/about/");
-          break;
-        default:
-          break;
-      }
+      anzhiyu_keyUpShiftDelayEvent_timeoutId = setTimeout(()=>{
+        switch (event.keyCode) {
+          case 16:
+            anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
+              document.querySelector("#keyboard-tips").classList.add("show");
+            }, #{shortcutKeyShiftDelay});
+            break;
+          case 65:
+            anzhiyu.showConsole();
+            break;
+          case 77:
+            anzhiyu.musicToggle();
+            break;
+          case 75:
+            anzhiyu.keyboardToggle();
+            break;
+          case 73:
+            anzhiyu.rightMenuToggle();
+            break;
+          case 82:
+            toRandomPost();
+            break;
+          case 72:
+            pjax.loadUrl("/");
+            break;
+          case 68:
+            anzhiyu.switchDarkMode();
+            break;
+          case 70:
+            pjax.loadUrl("/fcircle/");
+            break;
+          case 76:
+            pjax.loadUrl("/link/");
+            break;
+          case 80:
+            pjax.loadUrl("/about/");
+            break;
+          default:
+            break;
+        }
 
-      event.preventDefault();
+        event.preventDefault();
+      }, #{shortcutKeyDelay});
     }
   }
 
@@ -105,6 +109,7 @@ script.
 
   function keyUpEvent(event) {
     anzhiyu_keyUpEvent_timeoutId && clearTimeout(anzhiyu_keyUpEvent_timeoutId);
+    anzhiyu_keyUpShiftDelayEvent_timeoutId && clearTimeout(anzhiyu_keyUpShiftDelayEvent_timeoutId);
     if (event.keyCode === 16) {
       const keyboardTips = document.querySelector("#keyboard-tips");
       keyboardTips.classList.remove("show");
