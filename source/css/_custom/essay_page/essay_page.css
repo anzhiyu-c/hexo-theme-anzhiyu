@@ -150,8 +150,13 @@ body[data-type="essay"] #web_bg {
   margin-top: 10px;
 }
 
-#bber .bber-bottom .bber-reply {
+.bber-reply {
   cursor: pointer !important;
+}
+
+.bber-reply:hover {
+  color: var(--anzhiyu-main);
+  max-height: 35px;
 }
 
 #bber .timeline ul li.bber-item:hover {

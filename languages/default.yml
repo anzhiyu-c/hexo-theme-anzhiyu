@@ -115,6 +115,7 @@ Snackbar:
   cht_to_chs: Simplified Chinese Activated Manually
   day_to_night: Dark Mode Activated Manually
   night_to_day: Light Mode Activated Manually
+  copy_equipment_name: Installed device name has been loaded
 
 loading: Loading...
 

@@ -116,6 +116,7 @@ Snackbar:
   cht_to_chs: 你已切換為簡體
   day_to_night: 你已切換為深色模式
   night_to_day: 你已切換為淺色模式
+  copy_equipment_name: 已複製裝備名稱
 
 loading: 載入中...
 

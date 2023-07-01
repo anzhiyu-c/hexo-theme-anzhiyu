@@ -1,20 +1,32 @@
 #equipment
   if site.data.equipment
     each i in site.data.equipment
-      .equipment-item
-        h2.equipment-item-title= i.class_name
-        .equipment-item-description= i.description
-        .equipment-item-content
-          each item, index in i.equipment_list
-            .equipment-item-content-item
-              .equipment-item-content-item-cover
-                img.equipment-item-content-item-image(data-lazy-src=url_for(item.image) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name)
-              .equipment-item-content-item-info
-                .equipment-item-content-item-name= item.name
-                .equipment-item-content-item-specification= item.specification
-                .equipment-item-content-item-description= item.description
-                .equipment-item-content-item-toolbar
-                  if item.link.includes('https://') || item.link.includes('http://')
-                    a.equipment-item-content-item-link(href= item.link, target='_blank') 详情
-                  else
-                    a.equipment-item-content-item-link(href= item.link, target='_blank') 查看文章
+      .author-content.author-content-item.fcirclePage.single(style = `background: url(${i.top_background}) left 37% / cover no-repeat !important;`)
+        .card-content
+          .author-content-item-tips=i.class_name
+          span.author-content-item-title=i.description
+          .content-bottom
+            .tips=i.tip
+      each item in i.good_things
+        .goodthings-item
+          h2.goodthings-title= item.title
+          .goodthings-item-description= item.description
+          .equipment-item
+            .equipment-item-content
+              each iten, indey in item.equipment_list
+                .equipment-item-content-item
+                  .equipment-item-content-item-cover
+                    img.equipment-item-content-item-image(data-lazy-src=url_for(iten.image) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=iten.name)
+                  .equipment-item-content-item-info
+                    .equipment-item-content-item-name(onclick=`rm.rightmenuCopyText("${iten.name}");anzhiyu.snackbarShow("${_p('Snackbar.copy_equipment_name') + " 【" + iten.name + "】"}");` title=iten.name)= iten.name
+                    .equipment-item-content-item-specification= iten.specification
+                    .equipment-item-content-item-description= iten.description
+                    .equipment-item-content-item-toolbar
+                      if iten.link.includes('https://') || iten.link.includes('http://')
+                        a.equipment-item-content-item-link(href= iten.link, target='_blank') 详情
+                        .bber-reply(onclick="rm.rightMenuCommentText(" + `'${iten.name + " " + iten.specification + " " + iten.description}'` + ")")
+                          i.anzhiyufont.anzhiyu-icon-message
+                      else  
+                        a.equipment-item-content-item-link(href= iten.link, target='_blank') 查看文章
+                        .bber-reply(onclick="rm.rightMenuCommentText(" + `'${iten.name + " " + iten.specification + " " + iten.description}'` + ")")
+                          i.anzhiyufont.anzhiyu-icon-message
