@@ -162,7 +162,7 @@ post_meta:
     categories: true # true or false 文章页是否显示分类
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
-    mainTone: true # true or false 文章顶部图片是否使用主色调
+    mainTone: false # true or false 文章顶部图片是否使用主色调
 
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计

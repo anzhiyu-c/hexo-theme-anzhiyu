@@ -1279,7 +1279,11 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    if (!GLOBAL_CONFIG.changeMainColorPost) return
+    if (!GLOBAL_CONFIG.changeMainColorPost) {
+      root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-theme)");
+      anzhiyu.initThemeColor();
+      return
+    }
     const httpRequest = new XMLHttpRequest();
     httpRequest.open("GET", `${path}?imageAve`, true);
     httpRequest.send();
