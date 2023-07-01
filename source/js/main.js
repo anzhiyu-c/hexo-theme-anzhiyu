@@ -507,6 +507,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!item.classList.contains("lazyload") || arr.length < limit) {
         // 不懒加载
         item.innerHTML = htmlStr(arr);
+        item.nextElementSibling.style.display = "none"
       } else {
         if (!item.classList.contains("btn_album_detail_lazyload") || item.classList.contains("page_img_lazyload")) {
           // 滚动懒加载
