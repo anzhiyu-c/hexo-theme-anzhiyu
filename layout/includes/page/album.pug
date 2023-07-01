@@ -1,5 +1,6 @@
 #album
-  .author-content.author-content-item.album.single
+  - let album_background = page.top_background
+  .author-content.author-content-item.album.single(style=`${album_background ? `background: url(${album_background}) top / cover no-repeat;` : ""}`)
     .card-content
       .author-content-item-tips 相册集
       span.author-content-item-title 这里是我的相册集哦😯

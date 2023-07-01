@@ -1,0 +1,115 @@
+.introduction-card {
+  position: relative;
+}
+
+.introduction-card-bottom {
+  background-color: transparent;
+  color: inherit;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.introduction-card:active .introduction-card-bottom {
+  background-color: var(--anzhiyu-main);
+  color: white;
+}
+.introduction-card:active .introduction-card-bottom .left .info .subTitle {
+  color: white !important;
+}
+
+@keyframes resetAnimation {
+  0% {
+    background-color: var(--anzhiyu-main);
+    color: white;
+  }
+  100% {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+.introduction-card:active .introduction-card-bottom {
+  animation: resetAnimation 3s 1s forwards;
+}
+
+.introduction-card
+  display: flex
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 15px
+  box-shadow: var(--anzhiyu-shadow-blackdeep)
+  height: 520px;
+  transition: all 0.3s ease 0s;
+  cursor pointer
+  +maxWidth1200()
+    width 80%
+  +maxWidth768()
+    width 100%
+  &:active
+    transform: scale(0.97);
+  .introduction-card-top
+    height 80%
+    width: 100%;
+    overflow hidden
+    border-radius: 15px 15px 0 0;
+    position relative
+    .int-card-info
+      position absolute
+      padding: 20px;
+      .int-tip
+        opacity: .8;
+        font-size: .6rem;
+        margin-bottom: 0.5rem;
+        color: var(--anzhiyu-white);
+      .int-cardTitle
+        font-size: 36px;
+        color: var(--anzhiyu-white);
+        font-weight: 700;
+        line-height: 1.1;
+    img
+      width: 100%;
+      height: 100%;
+      border-radius: 0px !important;
+      margin: 0 !important
+
+  .introduction-card-bottom
+    height 20%
+    display: flex;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    .left
+      width 70%
+      display: flex
+      align-items: center;
+      .info
+        user-select: none
+        .title
+          font-weight: 600;
+          line-height: 26px;
+        .subTitle
+          line-height: 14px;
+          font-size: 14px;
+          color: var(--anzhiyu-gray);
+          opacity: .8;
+      img
+        width 2.875rem
+        height 2.875rem
+        margin: 0 20px !important;
+        border-radius: 12px !important
+    .right
+      width 30%
+      display: flex;
+      align-items: center;
+      a
+        width: 100%;
+        text-align: center;
+        background: #EFEEF2
+        color: var(--anzhiyu-main)!important;
+        border-radius: 50px;
+        height: 35px;
+        line-height: 35px;
+        margin-right: 20px;
+        &:hover
+          background: var(--anzhiyu-main);
+          color: var(--anzhiyu-white) !important;

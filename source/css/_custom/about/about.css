@@ -248,7 +248,7 @@ body[data-type="about"] #web_bg {
   height: 40px;
   width: 140px;
   border-radius: 20px;
-  justify-content: flex-start;
+  justify-content: center;
   background: var(--anzhiyu-card-bg);
   color: var(--font-color);
   display: flex;
@@ -260,15 +260,19 @@ body[data-type="about"] #web_bg {
 }
 .author-content-item .card-content .banner-button-group .banner-button i,
 .author-content-item .card-content .banner-button-group .banner-button svg {
-  margin-right: 8px;
   font-size: 1rem;
 }
+
+.author-content-item .card-content .banner-button-group .banner-button .banner-button-text {
+  margin-left: 4px;
+}
+
 #about-page .author-content-item .card-content .banner-button-group .banner-button i,
 #about-page .author-content-item .card-content .banner-button-group .banner-button svg {
   font-size: 1.5rem;
   margin-right: 0;
   height: 40px;
-  width: 40px;
+  max-width: 40px;
   display: flex;
   border-radius: 50px;
   align-items: center;
@@ -477,6 +481,9 @@ body[data-type="about"] #web_bg {
   bottom: -40%;
   transform: rotate(30deg);
   transition: 2s ease-in-out;
+}
+.card-background-icon i {
+  font-size: 12rem;
 }
 .author-content-item.game-yuanshen {
   background-size: cover;

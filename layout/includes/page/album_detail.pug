@@ -2,8 +2,9 @@
   each i in site.data.album
     - let path_name = (is_current(i.path_name)) ? true : false
     - type = i.type
+    - let album_detail_background = i.top_background
     if (path_name && i.album_list)
-      .author-content.author-content-item.album.single
+      .author-content.author-content-item.album.single(style=`${album_detail_background ? `background: url(${album_detail_background}) top / cover no-repeat;` : ""}`)
         .card-content
           .author-content-item-tips 相册集
           span.author-content-item-title=i.class_name

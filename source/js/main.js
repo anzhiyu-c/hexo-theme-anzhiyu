@@ -288,8 +288,8 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * 代碼
-   * 只適用於Hexo默認的代碼渲染
+   * 代码
+   * 只适用于Hexo默认的代码渲染
    */
   const addHighlightTool = function () {
     const highLight = GLOBAL_CONFIG.highlight;
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         $figureHighlight.forEach(function (item) {
           let langName = item.getAttribute("class").split(" ")[1];
-          if (langName === "plain" || langName === undefined) langName = "Code";
+          if (langName === "plain" || langName === undefined || langName === "plaintext") langName = "Code";
           const highlightLangEle = `<div class="code-lang">${langName}</div>`;
           createEle(highlightLangEle, item, "hl");
         });
@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", function () {
         i.insertAdjacentHTML("beforeend", htmlStr(arr));
         i.classList.remove("lazyload");
       }
-      window.lazyLoadInstance.update();
+      window.lazyLoadInstance && window.lazyLoadInstance.update();
       return arrLength > loadItem ? loadItem : arrLength;
     };
 
@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       anzhiyu.initJustifiedGallery(item);
       anzhiyu.loadLightbox(item.querySelectorAll("img"));
-      window.lazyLoadInstance.update();
+      window.lazyLoadInstance && window.lazyLoadInstance.update();
     };
 
     const addJustifiedGallery = () => {
@@ -708,7 +708,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (document.body.scrollHeight <= innerHeight) {
         $rightside.style.cssText = "opacity: 0.8; transform: translateX(-58px)";
       }
-
+      
       percentageScrollFn(currentTop);
     }, 96);
 
@@ -1479,6 +1479,9 @@ document.addEventListener("DOMContentLoaded", function () {
     addHighlightTool();
     GLOBAL_CONFIG.isPhotoFigcaption && addPhotoFigcaption();
     scrollFn();
+
+    // 刷新时第一次滚动百分比
+    window.scrollCollect && window.scrollCollect();
 
     const $jgEle = document.querySelectorAll("#content-inner .fj-gallery");
     $jgEle.length && runJustifiedGallery($jgEle);
