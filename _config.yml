@@ -126,27 +126,6 @@ index_img: false
 # If the banner of page not setting, it will show the top_img
 default_top_img: false
 
-# The banner image of archive page
-archive_img: false
-
-# If the banner of tag page not setting, it will show the top_img
-# note: tag page, not tags page (子标籤页面的 top_img)
-tag_img:
-
-# The banner image of tag page
-# format:
-#  - tag name: xxxxx
-tag_per_img:
-
-# If the banner of category page not setting, it will show the top_img
-# note: category page, not categories page (子分类页面的 top_img)
-category_img:
-
-# The banner image of category page
-# format:
-#  - category name: xxxxx
-category_per_img:
-
 cover:
   # display the cover or not (是否显示文章封面)
   index_enable: true
