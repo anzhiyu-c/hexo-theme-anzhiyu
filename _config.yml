@@ -535,7 +535,7 @@ theme_color:
   text_selection: "#2128bd"
   link_color: "var(--anzhiyu-fontcolor)"
   meta_color: "var(--anzhiyu-fontcolor)"
-  #   hr_color: "#A4D8FA"
+  hr_color: "#4259ef23"
   code_foreground: "#fff"
   code_background: "var(--anzhiyu-code-stress)"
   toc_color: "#3b70fc"
