@@ -22,8 +22,8 @@ if site.data.essay
                       if item.image
                         .bber-container-img
                           each iten, indey in item.image
-                            a.bber-content-img(href=item.image[indey], target="_blank", data-fancybox="gallery", data-caption="")
-                              img(src=item.image[indey])
+                            a.bber-content-img(href=url_for(item.image[indey]), target="_blank", data-fancybox="gallery", data-caption="")
+                              img(src=url_for(item.image[indey]))
                           .bber-content-noimg
                           .bber-content-noimg
                           .bber-content-noimg
@@ -38,7 +38,7 @@ if site.data.essay
                         i.anzhiyufont.anzhiyu-icon-clock
                         time.datatime(datetime= item.date)= datedata
                       if item.link 
-                        a.bber-content-link(target="_blank", title="跳转到短文指引的链接", href=item.link, rel="external nofollow")
+                        a.bber-content-link(target="_blank", title="跳转到短文指引的链接", href=url_for(item.link), rel="external nofollow")
                           i.anzhiyufont.anzhiyu-icon-link
                           | 链接
                       if item.from
