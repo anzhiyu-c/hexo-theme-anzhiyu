@@ -30,9 +30,6 @@
         position: absolute;
         left: 40px;
         top: 5px;
-      +maxWidth768()
-        left: 20px;
-        top: 231px;
       &:visited
         color: var(--anzhiyu-card-bg);
     .recent-post-info
@@ -87,9 +84,6 @@
     +maxWidth768()
       flex-direction: column
       height: auto
-      &:has(.newPost)
-        .unvisited-post 
-          left: 52px !important;
       &.lastestpost-item
         margin-top: 10px !important;
 
@@ -255,7 +249,7 @@ if hexo-config('article_double_row') == true
       left: calc(44% + 40px);
       width: 24px;
     #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
-      left: calc(44% + 63px) !important;
+      left: calc(44% + 88px) !important;
       top: 24px;
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
@@ -281,6 +275,9 @@ if hexo-config('article_double_row') == true
     #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
       opacity: 0;
       height: 0;
+    #recent-posts > .recent-post-item .unvisited-post
+      left: 20px;
+      top: 231px;
   +minWidth1200()
     #recent-posts
       align-content: flex-start
@@ -338,6 +335,15 @@ if hexo-config('article_double_row') == true
 
       #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator
         display: none
+
+
+
+#recent-posts 
+  +maxWidth768()
+    .recent-post-item
+      &:has(.newPost) .unvisited-post
+        left: 74px !important;
+        top: 230.5px !important;
 
 #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
   transition: all 0.3s ease 0s;
