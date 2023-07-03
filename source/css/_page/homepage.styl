@@ -30,6 +30,9 @@
         position: absolute;
         left: 40px;
         top: 5px;
+      +maxWidth768()
+        left: 20px;
+        top: 231px;
       &:visited
         color: var(--anzhiyu-card-bg);
     .recent-post-info
@@ -84,6 +87,9 @@
     +maxWidth768()
       flex-direction: column
       height: auto
+      &:has(.newPost)
+        .unvisited-post 
+          left: 52px !important;
       &.lastestpost-item
         margin-top: 10px !important;
 
@@ -244,6 +250,13 @@ if hexo-config('article_double_row') == true
     opacity: 0;
     height: 0;
   +maxWidth1200()
+    #recent-posts > .recent-post-item .unvisited-post
+      top: 10px;
+      left: calc(44% + 40px);
+      width: 24px;
+    #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
+      left: calc(44% + 63px) !important;
+      top: 24px;
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
       font-weight: bold;
