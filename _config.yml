@@ -163,6 +163,7 @@ post_meta:
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
     mainTone: false # true or false 文章顶部图片是否使用主色调
+    unread: false # true or false 文章未读功能
 
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计
