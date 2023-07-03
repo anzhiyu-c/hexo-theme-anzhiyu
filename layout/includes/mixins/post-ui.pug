@@ -25,7 +25,7 @@ mixin postUI(posts)
             img.post_bg(src=url_for(post_cover) onerror=`this.onerror=null;this.src='`+ url_for(theme.error_img.post_page) + `'` alt=title)
       .recent-post-info(class=no_cover)
         if new_post
-          span.newPost 最新
+          span.newPost 最新文章
           - var numberone = 1
         a.article-title(href=url_for(link) title=title)= title
         .article-meta-wrap
