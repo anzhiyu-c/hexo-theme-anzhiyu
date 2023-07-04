@@ -32,11 +32,9 @@
   position: relative;
   align-items: center;
 
-.nav-fixed
-  #center-console
-    & + label
-      i
-        background: var(--font-color);
+#page-header.nav-fixed #center-console
+  & + label i
+    background: var(--font-color);
 #center-console
   display: none
   & + label
@@ -65,7 +63,6 @@
           transform: none;
     i
       background: var(--light-grey);
-      box-shadow: var(--font-color);
       position: absolute;
       border-radius: calc(var(--icon-size)*.15);
       transition: .5s var(--animation-on);
@@ -101,7 +98,7 @@
       border-radius: 50px;
     &:is(.widget, .widget:hover) i
       height: calc(var(--icon-size)/4.5);
-      background: var(--anzhiyu-white);
+      background: var(--anzhiyu-white) !important;
     i.left
       width: 100% !important;
       transform: rotate(-45deg) !important;
@@ -547,7 +544,6 @@ ul.menus_item_child
   flex-direction row
   height 100%
   align-items center
-  overflow hidden
 
 /* nav left */
 #nav #blog_name
