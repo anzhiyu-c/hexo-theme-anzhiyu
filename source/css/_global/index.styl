@@ -1,4 +1,8 @@
 :root
+  --animation-on: cubic-bezier(.6, .1, 0, 1);
+  --animation-in: cubic-bezier(.6, .2, .25, 1);
+  --animation-ot: opacity .5s var(--animation-in) backwards, transform 1s var(--animation-in) backwards;
+  --animation-otf: opacity .5s var(--animation-in) backwards, transform 1s var(--animation-in) backwards, filter .7s var(--animation-in) backwards;
   --global-font-size: $font-size
   --global-bg: $body-bg
   --font-color: $font-black
@@ -51,6 +55,8 @@
   --anzhiyu-yellow: #ffc93e;
   --anzhiyu-orange: #e38100;
   --anzhiyu-blue-hover: #5390e6;
+  --anzhiyu-radius-full: 50px;
+  --anzhiyu-radius: 8px;
   --anzhiyu-border-radius: 8px;
   --anzhiyu-main: var(--anzhiyu-theme);
   --anzhiyu-main-op: var(--anzhiyu-theme-op);

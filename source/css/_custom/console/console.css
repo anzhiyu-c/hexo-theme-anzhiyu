@@ -6,13 +6,15 @@
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 9999;
   justify-content: center;
   opacity: 0;
   transition: 0.3s ease-out;
   flex-direction: column;
   align-items: center;
   pointer-events: none;
+  margin: 0 !important;
+  font-size: var(--global-font-size);
+  z-index: 2;
 }
 #console-music-bg {
   display: none;
@@ -81,6 +83,7 @@
   position: absolute;
   z-index: -1;
   transition: 0.3s;
+  margin: 0px !important;
 }
 
 #console.show .console-mask,
@@ -158,6 +161,7 @@
   -webkit-box-orient: vertical;
   line-height: 24px;
   font-size: 14px;
+  border-radius: 0px;
 }
 
 #console .aside-list-item:hover .thumbnail,
@@ -239,23 +243,6 @@
 
 .console-card.tags .card-tag-cloud a sup {
   opacity: 0.6;
-}
-
-#console .close-btn {
-  width: 35px;
-  height: 35px;
-  position: fixed;
-  right: 35px;
-  top: 35px;
-  font-size: 35px;
-  color: var(--anzhiyu-fontcolor);
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
-}
-
-#console .close-btn:hover {
-  color: var(--anzhiyu-main);
 }
 
 #console .console-card.history {
@@ -763,7 +750,6 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     .aplayer-controller
     .aplayer-time
     .aplayer-icon.aplayer-icon-menu,
-  body:has(#console.show) .aplayer-volume-wrap,
   body:has(#console.show) .aplayer.aplayer-mobile .aplayer-icon-volume-down {
     display: inline-block;
     opacity: 1;
@@ -913,7 +899,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
 }
 
 @media screen and (max-width: 867px) {
-  #console .close-btn {
+  #center-console:checked + label {
     display: none;
   }
   #console .console-card-group {

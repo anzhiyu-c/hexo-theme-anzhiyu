@@ -208,9 +208,14 @@
     background: 0
 
     #nav
-      a
-        color: var(--font-color)
-        text-shadow: none
+      #blog_name,
+      .mask-name-container,
+      #menus,
+      #nav-right .nav-button,
+      #nav-right #toggle-menu
+        a
+          color: var(--font-color)
+          text-shadow: none
 
   &.nav-fixed
     #nav
@@ -220,12 +225,19 @@
       outline: 1px solid var(--anzhiyu-card-border);
       transform: translateZ(0);
       top: 0
-      
-      a,
       #toggle-menu
         color: var(--font-color)
         text-shadow: none
-        transition: background .3s ease-in-out,color 0s ease-in-out;
+        transition: background .3s ease-in-out,color 0s ease-in-out
+      #blog_name,
+      .mask-name-container,
+      #menus,
+      #nav-right .nav-button,
+      #nav-right #toggle-menu
+        a
+          color: var(--font-color)
+          text-shadow: none
+          transition: background .3s ease-in-out,color 0s ease-in-out
 
   &.nav-fixed
     #name-container
@@ -404,12 +416,15 @@
 
     &:hover
       color: var(--white)
-
-  a
-    color: var(--light-grey)
-
-    &:hover
-      color: var(--white)
+  #blog_name,
+  .mask-name-container,
+  #menus,
+  #nav-right .nav-button,
+  #nav-right #toggle-menu
+    a
+      color: var(--light-grey)
+      &:hover
+        color: var(--white)
 
   #site-name
     font-weight: bold

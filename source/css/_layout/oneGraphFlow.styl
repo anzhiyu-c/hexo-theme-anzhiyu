@@ -2,9 +2,17 @@ if hexo-config('index_img')
   #nav
     +maxWidth768()
       background: var(--anzhiyu-card-bg) !important;
-  #page-header #nav a, #page-header #nav #site-name, #page-header #nav #toggle-menu,#page-header:not(.not-top-img) #nav .back-home-button
+  #page-header #nav #site-name, #page-header #nav #toggle-menu,#page-header:not(.not-top-img) #nav .back-home-button
     +maxWidth768()
       color: var(--font-color) !important;
+  #blog_name,
+  .mask-name-container,
+  #menus,
+  #nav-right .nav-button,
+  #nav-right #toggle-menu
+    a
+      +maxWidth768()
+        color: var(--font-color) !important;
   div#bbTimeList
     +maxWidth768()
       margin: 20px 15px !important;

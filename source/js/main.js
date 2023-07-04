@@ -899,30 +899,6 @@ document.addEventListener("DOMContentLoaded", function () {
         : saveToLocal.set("aside-status", "hide", 2);
       $htmlDom.toggle("hide-aside");
     },
-    switchConsole: () => {
-      // switch console
-      const consoleEl = document.getElementById("console");
-      //初始化隐藏边栏
-      const $htmlDom = document.documentElement.classList;
-      $htmlDom.contains("hide-aside")
-        ? document.querySelector("#consoleHideAside").classList.add("on")
-        : document.querySelector("#consoleHideAside").classList.remove("on");
-      if (consoleEl.classList.contains("show")) {
-        consoleEl.classList.remove("show");
-      } else {
-        consoleEl.classList.add("show");
-      }
-      const consoleKeyboard = document.querySelector("#consoleKeyboard");
-      if (consoleKeyboard) {
-        if (localStorage.getItem("keyboardToggle") === "true") {
-          consoleKeyboard.classList.add("on");
-          anzhiyu_keyboard = true;
-        } else {
-          consoleKeyboard.classList.remove("on");
-          anzhiyu_keyboard = false;
-        }
-      }
-    },
 
     runMobileToc: () => {
       if (window.getComputedStyle(document.getElementById("card-toc")).getPropertyValue("opacity") === "0")
@@ -951,9 +927,6 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case "hide-aside-btn":
         rightSideFn.hideAsideBtn();
-        break;
-      case "center-console":
-        rightSideFn.switchConsole();
         break;
       default:
         break;

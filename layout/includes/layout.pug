@@ -53,7 +53,6 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
 
     if (theme.nav_music.enable || theme.nav_music.console_widescreen_music)
       include ./music.pug
-    !=partial('includes/anzhiyu/console', {}, {cache:true})
     !=partial('includes/third-party/search/index', {}, {cache: true})
     !=partial('includes/anzhiyu/rightmenu', {}, {cache:true})
     if (theme.nav.clock)

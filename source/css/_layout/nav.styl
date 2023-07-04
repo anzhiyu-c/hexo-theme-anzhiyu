@@ -31,6 +31,120 @@
   display: flex;
   position: relative;
   align-items: center;
+
+.nav-fixed
+  #center-console
+    & + label
+      i
+        background: var(--font-color);
+#center-console
+  display: none
+  & + label
+    --icon-size: 1.375rem;
+    position: relative;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    z-index: 31;
+    cursor: pointer;
+    transition: 1s;
+    margin-left: 1rem
+    &:hover
+      i
+        background: var(--anzhiyu-main)
+        &.left
+          width: calc(var(--icon-size)/2.5);
+        &.center
+          opacity: 0.5
+          width: calc(var(--icon-size)/2.5);
+        &.right
+          width: calc(var(--icon-size)/2.5);
+          height: calc(var(--icon-size)/1.15);
+          transform: none;
+    i
+      background: var(--light-grey);
+      box-shadow: var(--font-color);
+      position: absolute;
+      border-radius: calc(var(--icon-size)*.15);
+      transition: .5s var(--animation-on);
+      inset: 0;
+      margin: auto;
+      right: auto;
+      width: calc(var(--icon-size)/3);
+      height: calc(var(--icon-size)/3);
+      transform: translateY(calc(var(--icon-size)/4));
+      &.left
+        width: 100%;
+        transform: translateY(calc(var(--icon-size)/-4));
+      &.right
+        left: auto;
+        right: 0;
+        width: calc(var(--icon-size)/2);
+  &:checked + label
+    right: 0
+    top: 0.5rem;
+    &:hover
+      &::after
+        background: var(--anzhiyu-main) !important;
+    &::after
+      content: "";
+      width: 35px;
+      height: 35px;
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: -6px;
+      left: -6.3px;
+      background: var(--anzhiyu-fontcolor) !important;
+      border-radius: 50px;
+    &:is(.widget, .widget:hover) i
+      height: calc(var(--icon-size)/4.5);
+      background: var(--anzhiyu-white);
+    i.left
+      width: 100% !important;
+      transform: rotate(-45deg) !important;
+    i.center
+      width: 0 !important;
+    i.right
+      width: 100% !important;
+      transform: rotate(45deg) !important;
+
+div#travellings_button
+  display: flex
+  &:hover::after
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  &::after
+    --height: 2rem;
+    content: attr(title);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--anzhiyu-white);
+    background: var(--anzhiyu-main) !important;
+    box-shadow: var(--anzhiyu-shadow-nav);
+    border-radius: var(--anzhiyu-radius-full);
+    width: fit-content;
+    height: var(--height);
+    font-size: var(--global-font-size);
+    white-space: nowrap;
+    margin: auto;
+    padding: 0 4em;
+    top: calc((60px - var(--height)) / 2);
+    right: 0;
+    left: 0;
+    line-height: 0;
+    opacity: 0;
+    z-index: 1;
+    visibility: hidden;
+    transform: scaleX(1.1);
+    pointer-events: none;
+    transition: .5s;
+
 @media screen and (max-width: 768px)
   #page-header #nav
     padding: 20px
@@ -52,16 +166,22 @@
   #randomPost_button
     display: none !important
 
-#nav a:hover
-  background var(--anzhiyu-main)
-  transition 0.3s
+#nav 
+  #blog_name,
+  .mask-name-container,
+  #menus,
+  #nav-right .nav-button,
+  #nav-right #toggle-menu
+    a:hover
+      background var(--anzhiyu-main)
+      transition 0.3s
 
 #page-header.not-top-img
   margin-bottom 0px
 #page-header:not(.nav-fixed) #percent
   transition 0.3s
 
-#page-header #nav #nav-right div
+#page-header #nav #nav-right > div
   margin-left 1rem
   padding 0
 
@@ -147,13 +267,36 @@ ul.menus_item_child
 #nav .menus_items .menus_item .menus_item_child:hover
   border var(--style-border-hover)
   box-shadow var(--anzhiyu-shadow-main)
-#nav a
-  border-radius 50px
-.page #nav a:hover, .post #nav a:hover
-  color var(--anzhiyu-white)
-  background var(--anzhiyu-main)
-  transition 0.3s
-  box-shadow var(--anzhiyu-shadow-main)
+#nav 
+  #blog_name,
+  .mask-name-container,
+  #menus,
+  #nav-right .nav-button,
+  #nav-right #toggle-menu
+    a
+      border-radius 50px;
+.page #nav 
+  #blog_name,
+  .mask-name-container,
+  #menus,
+  #nav-right .nav-button,
+  #nav-right #toggle-menu
+    a:hover
+      color var(--anzhiyu-white)
+      background var(--anzhiyu-main)
+      transition 0.3s
+      box-shadow var(--anzhiyu-shadow-main)
+.post #nav 
+  #blog_name,
+  .mask-name-container,
+  #menus,
+  #nav-right .nav-button,
+  #nav-right #toggle-menu
+    a:hover
+      color var(--anzhiyu-white)
+      background var(--anzhiyu-main)
+      transition 0.3s
+      box-shadow var(--anzhiyu-shadow-main)
 
 #page-header.nav-fixed #nav #page-name
   background none
@@ -569,7 +712,7 @@ ul.menus_item_child
     border-bottom none
     background var(--anzhiyu-background)
   #page-header #nav #nav-right div
-    margin-left 0.5rem
+    margin-left 1rem
 
 @media screen and (min-width: 768px)
   .menus_item:hover > a.site-page
