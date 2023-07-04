@@ -1,5 +1,7 @@
 body[data-type="music"]
   background rgb(13, 13, 13)
+  #center-console + label i
+    background: var(--anzhiyu-white) !important
   .layout
     flex-direction: row;
   #page
@@ -14,8 +16,13 @@ body[data-type="music"]
       backdrop-filter none !important
       background 0 0 !important
       border-bottom none !important
-      a, .back-home-button
-        color var(--anzhiyu-white)
+      #blog_name,
+      .mask-name-container,
+      #menus,
+      #nav-right .nav-button,
+      #nav-right #toggle-menu
+        a, .back-home-button
+          color var(--anzhiyu-white)
   #footer, #nav-music
     display none
   #an_music_bg

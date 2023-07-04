@@ -552,7 +552,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   }
   body:has(#console.show) .aplayer-list {
     position: fixed;
-    z-index: 1002;
+    display: none;
     width: 100%;
     bottom: -76%;
     left: 0;
