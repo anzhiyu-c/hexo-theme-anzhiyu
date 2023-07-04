@@ -820,6 +820,7 @@ darkmode:
 # Don't repeat 不要重複
 rightside_item_order:
   enable: false
+  centralConsole: false # 中控台
   hide: # readmode,translate,darkmode,hideAside
   show: # toc,chat,comment
 

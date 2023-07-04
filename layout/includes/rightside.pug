@@ -33,7 +33,7 @@ mixin rightsideItem(array)
             i.anzhiyufont.anzhiyu-icon-danmu
 
 #rightside
-  - const { enable, hide, show } = theme.rightside_item_order
+  - const { enable, hide, show, centralConsole } = theme.rightside_item_order
   - const hideArray = enable ? hide && hide.split(',') : ['readmode','translate','darkmode','hideAside']
   - const showArray = enable ? show && show.split(',') : ['toc','chat','comment']
 
@@ -57,8 +57,8 @@ mixin rightsideItem(array)
 
     if showArray
       +rightsideItem(showArray)
-
-    button#center-console(type="button" title=_p("中控台"))
-      i.anzhiyufont.anzhiyu-icon-fish
+    if centralConsole
+      button#center-console(type="button" title=_p("中控台"))
+        i.anzhiyufont.anzhiyu-icon-fish
     button#go-up(type="button" title=_p("rightside.back_to_top"))
       i.anzhiyufont.anzhiyu-icon-arrow-up
