@@ -1,41 +1,46 @@
 menu:
-  # 文章:
-  #   隧道: /archives/ || anzhiyu-icon-box-archive
-  #   分类: /categories/ || anzhiyu-icon-shapes
-  #   标签: /tags/ || anzhiyu-icon-tags
+   文章:
+     隧道: /archives/ || anzhiyu-icon-box-archive
+     分类: /categories/ || anzhiyu-icon-shapes
+     标签: /tags/ || anzhiyu-icon-tags
 
-  # 友链:
-  #   友人帐: /link/ || anzhiyu-icon-link
-  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
-  #   留言板: /comments/ || anzhiyu-icon-envelope
+   友链:
+     友人帐: /link/ || anzhiyu-icon-link
+     朋友圈: /fcircle/ || anzhiyu-icon-artstation
+     留言板: /comments/ || anzhiyu-icon-envelope
 
-  # 我的:
-  #   音乐馆: /music/ || anzhiyu-icon-music
-  #   追番页: /bangumis/ || anzhiyu-icon-bilibili
-  #   相册集: /album/ || anzhiyu-icon-images
-  #   小空调: /air-conditioner/ || anzhiyu-icon-fan
+   我的:
+     音乐馆: /music/ || anzhiyu-icon-music
+     追番页: /bangumis/ || anzhiyu-icon-bilibili
+     相册集: /album/ || anzhiyu-icon-images
+     小空调: /air-conditioner/ || anzhiyu-icon-fan
+     AI助手: https://chatgpt.sjava.cn || anzhiyu-icon-comments
 
-  # 关于:
-  #   关于本人: /about/ || anzhiyu-icon-paper-plane
-  #   闲言碎语: /essay/ || anzhiyu-icon-lightbulb
-  #   随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
+   关于:
+     关于本人: /about/ || anzhiyu-icon-paper-plane
+     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
+     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
+     我的装备: /equipment/ || anzhiyu-icon-dice-d20
 
 # nav相关配置
 nav:
-  enable: false
+  enable: true
   travelling: false
   clock: false
   menu:
-    - title: 网页
+    - title: 博客
       item:
-        - name: 博客
-          link: https://blog.anheyu.com/
+        - name: 神经蛙
+          link: https://sjava.cn/
           icon: /img/favicon.ico
-    - title: 项目
+        - name: 芈亓
+          link: https://lx95.top/
+          icon: /img/img.png
+    - title: AI助手
       item:
-        - name: 安知鱼图床
-          link: https://image.anheyu.com/
-          icon: https://image.anheyu.com/favicon.ico
+        - name: ChatGPT
+          link: https://chatgpt.sjava.cn/
+          icon: /img/chatgpt.png
 
 # Code Blocks (代码相关)
 # --------------------------------------
@@ -59,11 +64,11 @@ copy:
 # formal:
 #   name: link || icon
 social:
-  # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
-  # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || anzhiyu-icon-envelope
-  # RSS: atom.xml || anzhiyu-icon-rss
-  # BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
-  # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || anzhiyu-icon-qq
+   Github: https://github.com/sunstar1995 || anzhiyu-icon-github
+   Email: https://mail.163.com/js6/main.jsp?df=mail163_letter&email=sunstarlx@163.com || anzhiyu-icon-envelope
+   RSS: rss.xml || anzhiyu-icon-rss
+   BiliBili: https://space.bilibili.com/97714912 || anzhiyu-icon-bilibili
+   QQ: tencent://Message/?Uin=57658668&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || anzhiyu-icon-qq
 
 author_status:
   enable: false
@@ -78,7 +83,7 @@ author_status:
 
 # Algolia search
 algolia_search:
-  enable: false
+  enable: true
   hits:
     per_page: 6
 
@@ -97,7 +102,7 @@ local_search:
 
 # MathJax
 mathjax:
-  enable: false
+  enable: true
   per_page: false
 
 # KaTeX
@@ -114,7 +119,7 @@ favicon: /img/favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://bu.dusays.com/2023/04/27/64496e511b09c.jpg
+  img: /img/happy.gif
   effect: false
 
 # Disable all banner image
@@ -126,6 +131,7 @@ index_img: false
 # If the banner of page not setting, it will show the top_img
 default_top_img: false
 
+
 cover:
   # display the cover or not (是否显示文章封面)
   index_enable: true
@@ -133,10 +139,11 @@ cover:
   archives_enable: true
   # the position of cover in home page (封面显示的位置)
   # left/right/both
-  position: left
+  position: both
   # When cover is not set, the default cover is displayed (当没有设置cover时，默认的封面显示)
   default_cover:
     - /img/default_cover.jpg
+    - /img/img_1.png
 
 # Replace Broken Images (替换无法显示的图片)
 error_img:
@@ -152,7 +159,7 @@ error_404:
 post_meta:
   page: # Home Page
     date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: date # date/relative 显示日期还是相对日期
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
     label: true # true or false 显示描述性文字
@@ -163,12 +170,12 @@ post_meta:
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
     mainTone: false # true or false 文章顶部图片是否使用主色调
-    unread: false # true or false 文章未读功能
+    unread: true # true or false 文章未读功能
 
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/#字数统计
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -201,20 +208,17 @@ post_copyright:
   enable: true
   decode: false
   author_href:
-  location: 长沙
+  location: 北京
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 # Sponsor/reward
 reward:
-  enable: true
+  enable: false
   QR_code:
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png
+    - img: https://lx95.top/upload/2023/06/wxqli.png
       link:
-      text: wechat
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
-      link:
-      text: alipay
+      text: wechat&alipay
 
 # Post edit
 # Easily browse and edit blog source code online.
@@ -276,12 +280,12 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Valine/Waline/Twikoo/Artalk
-  use: # Twikoo/Waline
+  use: Twikoo
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
   lazyload: false
-  count: false # Display comment count in post's top_img
+  count: true # Display comment count in post's top_img
   card_post_count: false # Display comment count in Home Page
 
 # valine
@@ -322,9 +326,9 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId:
-  region:
-  visitor: false
+  envId: https://mongodb.sjava.cn/
+  region: ap-shanghai
+  visitor:
   option:
 
 # Artalk
@@ -380,14 +384,14 @@ crisp:
 footer:
   owner:
     enable: true
-    since: 2020
+    since: 2018
   custom_text:
   runtime:
     enable: true
-    launch_time: 04/01/2021 00:00:00 # 网站上线时间
-    work_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg
+    launch_time: 01/06/2018 00:00:00 # 网站上线时间
+    work_img: https://lx95.top/upload/2023/07/sb.svg
     work_description: 距离月入25k也就还差一个大佬带我~
-    offduty_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-下班啦.svg
+    offduty_img: https://lx95.top/upload/2023/07/xb.svg
     offduty_description: 下班了就该开开心心的玩耍，嘿嘿~
   # 徽标部分配置项 https://shields.io/
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
@@ -410,38 +414,38 @@ footer:
       #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
       #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
   socialBar:
-    enable: false
+    enable: true
     centerImg:
     left:
-      # - title: email
-      #   link: mailto:anzhiyu-c@qq.com
-      #   icon: anzhiyufont anzhiyu-icon-envelope
-      # - title: 微博
-      #   link: https://weibo.com/u/6378063631
-      #   icon: anzhiyufont anzhiyu-icon-weibo
-      # - title: facebook
-      #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
-      #   icon: anzhiyufont anzhiyu-icon-facebook1
+       - title: email
+         link: mailto:sunstarlx@163.com
+         icon: anzhiyufont anzhiyu-icon-envelope
+       - title: 微博
+         link: https://weibo.com/
+         icon: anzhiyufont anzhiyu-icon-weibo
+       - title: facebook
+         link: https://www.facebook.com/
+         icon: anzhiyufont anzhiyu-icon-facebook1
     right:
-      # - title: Github
-      #   link: https://github.com/anzhiyu-c
-      #   icon: anzhiyufont anzhiyu-icon-github
-      # - title: Bilibili
-      #   link: https://space.bilibili.com/372204786
-      #   icon: anzhiyufont anzhiyu-icon-bilibili
-      # - title: 抖音
-      #   link: https://v.douyin.com/DwCpMEy/
-      #   icon: anzhiyufont anzhiyu-icon-tiktok
+       - title: Github
+         link: https://github.com/sunstar1995
+         icon: anzhiyufont anzhiyu-icon-github
+       - title: Bilibili
+         link: https://space.bilibili.com/97714912
+         icon: anzhiyufont anzhiyu-icon-bilibili
+       - title: 抖音
+         link: https://v.douyin.com/
+         icon: anzhiyufont anzhiyu-icon-tiktok
   list:
-    enable: false
+    enable: true
     randomFriends: 3
     project:
-      # - title: 服务
-      #   links:
-      #     - title: 51la统计
-      #       link: https://v6.51.la/
-      #     - title: 十年之约
-      #       link: https://www.foreverblog.cn/
+       - title: 服务
+         links:
+           - title: 51la统计
+             link: https://v6.51.la/
+           - title: 十年之约
+             link: https://www.foreverblog.cn/
       #     - title: 开往
       #       link: https://github.com/travellings-link/travellings
       # - title: 主题
@@ -452,29 +456,29 @@ footer:
       #       link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
       #     - title: 更新日志
       #       link: /update/
-      # - title: 导航
-      #   links:
-      #     - title: 即刻短文
-      #       link: /essay/
-      #     - title: 友链文章
-      #       link: /fcircle/
-      #     - title: 留言板
-      #       link: /comments/
-      # - title: 协议
-      #   links:
-      #     - title: 隐私协议
-      #       link: /privacy/
-      #     - title: Cookies
-      #       link: /cookies/
-      #     - title: 版权协议
-      #       link: /copyright/
+       - title: 导航
+         links:
+           - title: 即刻短文
+             link: /essay/
+           - title: 友链文章
+             link: /fcircle/
+           - title: 留言板
+             link: /comments/
+       - title: 协议
+         links:
+           - title: 隐私协议
+             link: /privacy/
+#           - title: Cookies
+#             link: /cookies/
+           - title: 版权协议
+             link: /copyright/
 
 # Analysis
 # --------------------------------------
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
+baidu_analytics: https://hm.baidu.com/hm.js?d853825dd7de911da81d827ef21fbba5
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -550,7 +554,7 @@ theme_color:
 table_interlaced_discoloration: false
 
 # 首页双栏显示
-article_double_row: false
+article_double_row: true
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默认top_img全屏，site_info在中间)
@@ -692,7 +696,7 @@ preloader:
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
-  avatar: # 自定义头像
+  avatar: /img/img.png
 
 # aside (侧边栏)
 # --------------------------------------
@@ -758,15 +762,15 @@ aside:
 # busuanzi count for PV / UV in site
 # 访问人数
 busuanzi:
-  site_uv: false
-  site_pv: false
-  page_pv: false
+  site_uv: true
+  site_pv: true
+  page_pv: true
 
 # Time difference between publish date and now (网页运行时间)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
   enable: true
-  publish_date: 4/1/2021 00:00:00
+  publish_date: 1/6/2018 00:00:00
 
 # Aside widget - Newest Comments
 newest_comments:
@@ -866,7 +870,7 @@ note:
 
 icons:
   ali_iconfont_js: # 阿里图标symbol 引用链接，主题会进行加载 symbol 引用
-  fontawesome: false #是否启用fontawesome6图标
+  fontawesome: true #是否启用fontawesome6图标
   fontawesome_animation_css: #fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css
 
 # other
@@ -878,8 +882,8 @@ icons:
 pjax:
   enable: true
   exclude:
-    # - xxxx
-    # - xxxx
+    - /music/
+    - /no-pjax/
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
@@ -940,22 +944,22 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 生活明朗
-  subTitle: 万物可爱。
-  siteText: anheyu.com
+  title: 分享知识
+  subTitle: 记录、充实自己
+  siteText: sjava.cn
   category:
-    - name: 前端
-      path: /categories/前端开发/
+    - name: 经验分享
+      path: /categories/经验分享/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 大学
-      path: /categories/大学生涯/
+    - name: 资源下载
+      path: /categories/资源下载/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
-    - name: 生活
-      path: /categories/生活日常/
+    - name: 人工智能
+      path: /categories/人工智能/
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-book
@@ -965,17 +969,17 @@ home_top:
     swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
   banner:
-    tips: 新品主题
-    title: Theme-AnZhiYu
-    image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://blog.anheyu.com/docs
+    tips: AI好帮手
+    title:
+    image: https://lx95.top/upload/2023/07/chatgpt.webp
+    link: https://chatgpt.sjava.cn
 
 # 朋友圈配置
 friends_vue:
-  enable: false
-  vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
-  apiurl: # 朋友圈后端地址
-  top_background:
+  enable: true
+  vue_js: /js/index.4f887d95.js
+  apiurl: https://friends.sjava.cn/
+  top_background: https://lx95.top/upload/2023/06/image-1688025920430.png
 
 # 黑色模式粒子效果canvas
 universe:
@@ -991,9 +995,9 @@ console:
 
 # 51a统计配置
 LA:
-  enable: false
-  ck:
-  LingQueMonitorID:
+  enable: true
+  ck: 3F1Sxhbz3OcAZ2DL
+  LingQueMonitorID: 3F1Sxhbz3OcAZ2DL
 
 # 标签卖萌
 diytitle:
@@ -1003,7 +1007,7 @@ diytitle:
 
 # 留言弹幕配置
 comment_barrage_config:
-  enable: false
+  enable: true
   # 同时最多显示弹幕数
   maxBarrage: 1
   # 弹幕显示间隔时间ms
@@ -1024,7 +1028,7 @@ nav_music:
 
 # 评论匿名邮箱
 visitorMail:
-  enable: true
+  enable: false
   mail: visitor@anheyu.com
 
 # ptool 文章底部工具
@@ -1038,7 +1042,7 @@ ptool:
 
 # 欢迎语配置
 greetingBox:
-  enable: false
+  enable: true
   default: 晚上好👋
   list:
     - greeting: 晚安😴
@@ -1070,14 +1074,14 @@ greetingBox:
 # 文章顶部ai摘要
 post_head_ai_description:
   enable: true
-  gptName: AnZhiYu
-  mode: local # 默认模式 可选值: tianli/local
-  switchBtn: false # 可以配置是否显示切换按钮 以切换tianli/local
+  gptName: 神经蛙
+  mode: tianli # 默认模式 可选值: tianli/local
+  switchBtn: true # 可以配置是否显示切换按钮 以切换tianli/local
   btnLink: https://afdian.net/item/886a79d4db6711eda42a52540025c377
   randomNum: 3 # 按钮最大的随机次数，也就是一篇文章最大随机出来几种
   basicWordCount: 1000 # 最低获取字符数, 最小1000, 最大1999
-  key: xxxx
-  Referer: https://xx.xx/
+  key: F8YFdVIWpR4BydPnDXqR
+  Referer: https://hexo.sjava.cn/
 
 # 快捷键配置
 shortcutKey:
@@ -1100,7 +1104,7 @@ inject:
   bottom:
     # 自定义js
     # - <script src="/js/xxx"></script>
-
+    - <script src="/js/custom.js"></script>
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要请不要修改
