@@ -11,7 +11,7 @@
       !=partial('includes/widget/card_newest_comment', {}, {cache: true})
     - const nav_console_music_enable = theme.nav_music.console_widescreen_music
     .console-card-group-right
-      .console-card.tags(onclick='anzhiyu.hideConsole()')
+      .console-card.tags
         .card-content
           if nav_console_music_enable
             .author-content-item-tips 音乐
@@ -20,7 +20,7 @@
             .author-content-item-tips 兴趣点
             span.author-content-item-title 寻找你感兴趣的领域
             !=partial('includes/widget/card_tags', {}, {cache: true})
-      .console-card.history(onclick='anzhiyu.hideConsole()')
+      .console-card.history
         .item-headline
           i.anzhiyufont.anzhiyu-icon-box-archiv
           span 文章
