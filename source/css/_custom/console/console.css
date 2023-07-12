@@ -26,6 +26,10 @@
   pointer-events: all;
 }
 
+#console.reward-show .console-card-group {
+  pointer-events: none;
+}
+
 #console .console-card-group {
   display: flex;
   justify-content: space-between;

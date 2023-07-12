@@ -46,7 +46,6 @@
     bottom: 0;
     height: var(--icon-size);
     width: var(--icon-size);
-    z-index: 31;
     cursor: pointer;
     transition: 1s;
     margin-left: 1rem
@@ -83,6 +82,7 @@
   &:checked + label
     right: 0
     top: 0.5rem;
+    z-index: 31;
     &:hover
       &::after
         background: var(--anzhiyu-main) !important;

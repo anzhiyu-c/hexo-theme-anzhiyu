@@ -670,7 +670,7 @@ const anzhiyu = {
   },
   // 显示中控台
   showConsole: function () {
-    document.querySelector("#console").classList.add("show");
+    consoleEl.classList.add("show");
     anzhiyu.initConsoleState();
   },
 

@@ -38,11 +38,6 @@ nav#nav
             i.anzhiyufont.anzhiyu-icon-magnifying-glass
             span=' '+_p('search.title')
       
-      //- if darkmode.enable && darkmode.button
-      //-   div.nav-button#darkmode_navswitch
-      //-     a.darkmode_switchbutton(type="button" href='javascript:void(0);' title=_p('rightside.night_mode_title') onclick="anzhiyu.switchDarkMode()")
-      //-       i.anzhiyufont.anzhiyu-icon-circle-half-stroke(style="font-size: 1.3rem")
-      
       input#center-console(type="checkbox")
       if theme.centerConsole
         label.widget(for="center-console" title=_p("中控台") onclick="anzhiyu.switchConsole();")
