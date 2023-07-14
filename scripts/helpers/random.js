@@ -23,6 +23,21 @@ hexo.extend.generator.register("random", function (locals) {
   if (themeConfig.footer.list.enable && randomNumberFriend > 0) {
     result += `var friend_link_list=${JSON.stringify(link_list)};
     var refreshNum = 1;
+    function friendChainRandomTransmission() {
+      const randomIndex = Math.floor(Math.random() * friend_link_list.length);
+      const { name, link } = friend_link_list.splice(randomIndex, 1)[0];
+      Snackbar.show({
+        text:
+          "点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：「" + name + "」",
+        duration: 8000,
+        pos: "top-center",
+        actionText: "前往",
+        onActionClick: function (element) {
+          element.style.opacity = 0;
+          window.open(link, "_blank");
+        },
+      });
+    }
     function addFriendLinksInFooter() {
       var footerRandomFriendsBtn = document.getElementById("footer-random-friends-btn");
       if(!footerRandomFriendsBtn) return;
