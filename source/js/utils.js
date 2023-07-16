@@ -63,11 +63,13 @@ const anzhiyu = {
     const bg = document.documentElement.getAttribute("data-theme") === "light" ? bgLight : bgDark;
     const root = document.querySelector(":root");
     root.style.setProperty("--anzhiyu-snackbar-time", duration + "ms");
+
     Snackbar.show({
       text: text,
       backgroundColor: bg,
       onActionClick: showActionFunction,
       actionText: actionText,
+      showAction: actionText,
       duration: duration,
       pos: position,
       customClass: "snackbar-css",
