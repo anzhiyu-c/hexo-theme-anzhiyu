@@ -167,11 +167,11 @@ prismjs_autoloader:
 artalk_js:
   name: artalk
   file: dist/Artalk.js
-  version: 2.3.4
+  version: 2.5.5
 artalk_css:
   name: artalk
   file: dist/Artalk.css
-  version: 2.3.4
+  version: 2.5.5
 pace_js:
   name: pace-js
   other_name: pace
