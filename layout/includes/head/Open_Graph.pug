@@ -2,7 +2,17 @@ if theme.Open_Graph_meta
   - let contentType = is_post() ? 'article' : 'website'
   - let metaImage = (page.cover || theme.avatar.img) ? full_url_for(page.cover || theme.avatar.img) : ''
 
-  != open_graph({type: contentType, image: metaImage, fb_admins: fb_admins, fb_app_id: fb_appId})
+  meta(property="og:type", content=contentType)
+  meta(property="og:title", content=pageTitle)
+  meta(property="og:url", content=theme.post_copyright.decode ? decodeURI(url) : url)
+  meta(property="og:site_name", content=config.title)
+  meta(property="og:description", content=page_description())
+  meta(property="og:locale", content=config.language)
+  meta(property="og:image", content=metaImage)
+  meta(property="article:author" content=config.author)
+  meta(property="article:tag" content=config.keywords)
+  meta(name="twitter:card", content="summary")
+  meta(name="twitter:image", content=metaImage)
 
 else
   meta(name="description" content=page_description())
