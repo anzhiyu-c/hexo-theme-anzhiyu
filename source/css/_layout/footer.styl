@@ -16,9 +16,56 @@
       background-color: alpha($dark-black, .5)
       content: ''
 
+#footer-bar
+  padding: 1rem;
+  color: var(--anzhiyu-fontcolor);
+  margin-top: 1rem;
+  background: var(--anzhiyu-secondbg);
+  display: flex;
+  overflow: hidden;
+  z-index: 1002;
+  transition: 0.3s;
+  a
+    &:hover
+      color: var(--anzhiyu-lighttext);
+  .footer-bar-link
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 1rem;
+    color: var(--anzhiyu-fontcolor);
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+    &.cc i
+      margin-right: 0.7rem;
+      font-size: 18px;
+  .footer-bar-links
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1;
+
+    .footer-bar-left
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 32px;
+      align-items: center;
+    .footer-bar-right
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+
 #footer-wrap
   position: relative
-  padding: 40px 20px
+  if hexo-config('footer.footerBar') && hexo-config('footer.footerBar.enable')
+    padding: 40px 20px 0
+  else 
+    padding: 40px 20px
   color: var(--light-grey)
   text-align: center
   #footer_deal

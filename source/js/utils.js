@@ -475,7 +475,7 @@ const anzhiyu = {
     }
   },
   // 修改时间显示"最近"
-  diffDate: function (d, more = false) {
+  diffDate: function (d, more = false, simple =false) {
     const dateNow = new Date();
     const datePost = new Date(d);
     const dateDiff = dateNow.getTime() - datePost.getTime();
@@ -502,11 +502,30 @@ const anzhiyu = {
       } else {
         result = GLOBAL_CONFIG.date_suffix.just;
       }
+    } else if (simple) {
+      const monthCount = dateDiff / month;
+      const dayCount = dateDiff / day;
+      const hourCount = dateDiff / hour;
+      const minuteCount = dateDiff / minute;
+      if (monthCount >= 1) {
+        result = datePost.toLocaleDateString().replace(/\//g, "-");
+      } else if (dayCount >= 1 && dayCount <= 3) {
+        result = parseInt(dayCount) + " " + GLOBAL_CONFIG.date_suffix.day;
+      } else if (dayCount > 3) {
+        result = datePost.getMonth()+1 + "/" + datePost.getDate();
+      } else if (hourCount >= 1) {
+        result = parseInt(hourCount) + " " + GLOBAL_CONFIG.date_suffix.hour;
+      } else if (minuteCount >= 1) {
+        result = parseInt(minuteCount) + " " + GLOBAL_CONFIG.date_suffix.min;
+      } else {
+        result = GLOBAL_CONFIG.date_suffix.just;
+      }
     } else {
       result = parseInt(dateDiff / day);
     }
     return result;
   },
+
   // 修改即刻中的时间显示
   changeTimeInEssay: function () {
     document.querySelector("#bber") &&

@@ -24,11 +24,18 @@
         display: flex
       if hexo-config('cover.index_enable') 
         position: fixed;
-        left: 40px;
-        top: 205px;
+        if hexo-config('article_double_row') == true
+          top: 245px;
+          left: 32px
+        else 
+          left: calc(44% + 30px);
+          top: 33px
+        +maxWidth768()
+          top: 200px;
+          left: 32px;
       else 
         position: absolute;
-        left: 40px;
+        left: 32px;
         top: 5px;
       &:visited
         color: var(--anzhiyu-card-bg);
@@ -40,7 +47,10 @@
         color: var(--anzhiyu-lighttext);
         font-size: 0.5rem;
         margin-right: 8px;
-        top: 5px;
+        top: 20px;
+        left: 32px
+        +maxWidth768()
+          top: 2px;
         if hexo-config('cover.index_enable') 
           position: absolute;
         else 
@@ -100,11 +110,11 @@
     .post_cover
       overflow: hidden
       width: 44%
-      height: 225px;
+      height: 200px;
 
       +maxWidth768()
         width: 100%
-        height: 230px
+        height: 200px
 
       img.post_bg
         border-radius: 0px
@@ -119,15 +129,17 @@
         +maxWidth768()
           order: 0
     & >.recent-post-info
-      padding: 1.875rem 2.5rem .85rem
       width: 57%
+      height: 174px;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+      display: inline-block;
+      overflow: hidden;
 
       +maxWidth768()
-        padding: 20px 20px 10px !important
         width: 100%
-        .newPost
-          top: 1px !important;
-
+        height: 140px;
       &.no-cover
         width: 100%
 
@@ -135,6 +147,10 @@
           padding: 30px 20px
 
       & > .article-title
+        margin: 0 !important;
+        padding: 0 32px;
+        position: absolute;
+        top: 44px;
         @extend .limit-more-line
         color: var(--text-highlight-color)
         font-size: 1.2em
@@ -143,15 +159,27 @@
         -webkit-line-clamp: 2 !important
 
         +maxWidth768()
-          font-size: 1.43em
+          top: 20px
 
         &:hover
           color: $text-hover
 
       & > .article-meta-wrap
-        margin: 6px 0
         color: $theme-meta-color
         font-size: 90%
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 30px;
+        padding: 0 32px;
+        width 100%
+        align-items: center;
+        .article-meta
+          white-space: nowrap;
+          overflow: hidden;
+          display: inline-block;
+          text-overflow: ellipsis;
 
         & > .post-meta-date
           color: var(--anzhiyu-fontcolor);
@@ -159,6 +187,10 @@
           display: flex;
           align-items: center;
           flex-wrap: wrap;
+          white-space: nowrap;
+          overflow: hidden;
+          display: inline-block;
+          text-overflow: ellipsis;
           +maxWidth500()
             font-size: 13px
 
@@ -245,12 +277,12 @@ if hexo-config('article_double_row') == true
     height: 0;
   +maxWidth1200()
     #recent-posts > .recent-post-item .unvisited-post
-      top: 10px;
-      left: calc(44% + 40px);
+      top: 32px;
+      left: calc(44% + 32px);
       width: 24px;
     #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
       left: calc(44% + 88px) !important;
-      top: 24px;
+      top: 32px;
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
       font-weight: bold;
@@ -262,22 +294,13 @@ if hexo-config('article_double_row') == true
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-    #recent-posts > .recent-post-item >.recent-post-info
-      padding: 0px 40px 0px;
-    #recent-posts > .recent-post-item .recent-post-info .newPost
-      top: -10px;
-    #recent-posts > .recent-post-item.lastestpost-item .recent-post-info
-      padding: 10px 40px 0px;
-    #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
-      opacity: 1;
-      height: auto;
   +maxWidth768()
     #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
       opacity: 0;
       height: 0;
     #recent-posts > .recent-post-item .unvisited-post
-      left: 20px;
-      top: 231px;
+      left: 32px;
+      top: 202px;
   +minWidth1200()
     #recent-posts
       align-content: flex-start
@@ -287,7 +310,7 @@ if hexo-config('article_double_row') == true
 
       &>.recent-post-item
         margin-top: 1rem
-        display: inline-block
+        display: flex
         height: auto
         width: 49%
         .recent-post-info
@@ -297,7 +320,7 @@ if hexo-config('article_double_row') == true
             font-size: 1.72em
         .post_cover
           width: 100%
-          height: 200px
+          height: 225px
           transition: 1s !important;
           
           img.post_bg
@@ -326,9 +349,6 @@ if hexo-config('article_double_row') == true
             font-size: 1.2em
             line-height: 1.4
 
-          >.article-meta-wrap
-            margin-bottom: 1rem
-
     @media screen and (max-width:768px)
       #recent-posts>.recent-post-item
         width: 100%
@@ -342,8 +362,8 @@ if hexo-config('article_double_row') == true
   +maxWidth768()
     .recent-post-item
       &:has(.newPost) .unvisited-post
-        left: 74px !important;
-        top: 230.5px !important;
+        left: 90px !important;
+        top: 202px !important;
 
 #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
   transition: all 0.3s ease 0s;
@@ -355,6 +375,5 @@ if hexo-config('article_double_row') == true
   color: var(--anzhiyu-secondtext);
   margin-top: 0.5rem;
   font-size: 14px;
-
-#recent-posts > .recent-post-item > .recent-post-info > .article-title
-  margin: 0 !important;
+  opacity 0
+  height 0

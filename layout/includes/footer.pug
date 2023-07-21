@@ -28,7 +28,7 @@
               i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
           .footer-links#friend-links-in-footer
 
-  if theme.footer.owner.enable
+  if theme.footer.owner.enable && !theme.footer.footerBar.enable
     - var now = new Date()
     - var nowYear = now.getFullYear()
     if theme.footer.owner.since && theme.footer.owner.since != nowYear
@@ -49,3 +49,26 @@
       each item in theme.footer.bdageitem.list
         a.github-badge(target='_blank' href=item.link style='margin-inline:5px' data-title=item.message title=item.message)
           img(src=item.shields alt=item.message)
+
+if theme.footer.footerBar && theme.footer.footerBar.enable
+  #footer-bar
+    .footer-bar-links
+      .footer-bar-left
+        #footer-bar-tips
+          if theme.footer.owner.enable
+            - var now = new Date()
+            - var nowYear = now.getFullYear()
+            if theme.footer.owner.since && theme.footer.owner.since != nowYear
+              .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By `
+                a.footer-bar-link(href=config.url title=config.author target="_blank")=config.author
+            else
+              .copyright!= `&copy;${nowYear} By ${config.author} `
+      .footer-bar-right
+        each item in theme.footer.footerBar.linkList
+          a.footer-bar-link(href=url_for(item.link) title=item.text)=item.text
+        if theme.footer.footerBar.cc.enable 
+          a.footer-bar-link.cc(href=url_for(theme.footer.footerBar.cc.link) title="cc协议")
+            i.anzhiyufont.anzhiyu-icon-copyright-line
+            i.anzhiyufont.anzhiyu-icon-creative-commons-by-line
+            i.anzhiyufont.anzhiyu-icon-creative-commons-nc-line
+            i.anzhiyufont.anzhiyu-icon-creative-commons-nd-line

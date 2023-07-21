@@ -1138,11 +1138,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  const relativeDate = function (selector) {
+  const relativeDate = function (selector, simple = false) {
     selector.forEach(item => {
       const $this = item;
       const timeVal = $this.getAttribute("datetime");
-      $this.innerText = anzhiyu.diffDate(timeVal, true);
+      if (simple) {
+        $this.innerText = anzhiyu.diffDate(timeVal, false, simple);
+      } else {
+        $this.innerText = anzhiyu.diffDate(timeVal, true);
+      }
       $this.style.display = "inline";
     });
   };
@@ -1447,7 +1451,11 @@ document.addEventListener("DOMContentLoaded", function () {
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice();
       GLOBAL_CONFIG.relativeDate.post && relativeDate(document.querySelectorAll("#post-meta time"));
     } else {
-      GLOBAL_CONFIG.relativeDate.homepage && relativeDate(document.querySelectorAll("#recent-posts time"));
+      if(GLOBAL_CONFIG.relativeDate.homepage) {
+        relativeDate(document.querySelectorAll("#recent-posts time"));
+      } else if (GLOBAL_CONFIG.relativeDate.simplehomepage) {
+        relativeDate(document.querySelectorAll("#recent-posts time"), true);
+      }
       GLOBAL_CONFIG.runtime && addRuntime();
       addLastPushDate();
       toggleCardCategory();

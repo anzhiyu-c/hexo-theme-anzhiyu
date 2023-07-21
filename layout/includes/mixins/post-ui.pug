@@ -16,9 +16,9 @@ mixin postUI(posts)
         .article-meta__categories__box(style=`${(new_post && !theme.cover.index_enable) ? "left: 95px":""}`)
           each item, index in article.categories.data
             a(href=url_for(item.path)).article-meta__categories #[=item.name]
-          a.unvisited-post(href=url_for(link) title=title style=`${(!theme.cover.index_enable) ? "position: static;": new_post ? "left: 95px;":""}`) 未读
+          a.unvisited-post(href=url_for(link) title=title style=`${(!theme.cover.index_enable) ? "position: static;": new_post ? (theme.article_double_row ? "left: 90px;": "left: calc(44% + 85px);"):""}`) 未读
       else 
-        a.unvisited-post(href=url_for(link) title=title style=`${(new_post && theme.cover.index_enable) ? "left: 95px;":""}`) 未读
+        a.unvisited-post(href=url_for(link) title=title style=`${(new_post && theme.cover.index_enable) ? "left: 90px;":""}`) 未读
       if post_cover && theme.cover.index_enable
         .post_cover(class=leftOrRight)
           a(href=url_for(link) title=title)
@@ -36,11 +36,11 @@ mixin postUI(posts)
           if (theme.post_meta.page.date_type)
             span.post-meta-date
               if (theme.post_meta.page.date_type === 'both')
-                i.anzhiyufont.anzhiyu-icon-calendar-alt
+                i.anzhiyufont.anzhiyu-icon-calendar-alt(style=`${theme.post_meta.page.date_format==="simple" ? "display:none":""}`)
                 span.article-meta-label=_p('post.created')
                 time.post-meta-date-created(datetime=date_xml(article.date) title=_p('post.created') + ' ' + full_date(article.date))=date(article.date, config.date_format)
                 span.article-meta-separator
-                i.anzhiyufont.anzhiyu-icon-history
+                i.anzhiyufont.anzhiyu-icon-history(style=`font-size: 15px; ${theme.post_meta.page.date_format==="simple" ? "display:none":""}`)
                 span.article-meta-label=_p('post.updated')
                 time.post-meta-date-updated(datetime=date_xml(article.updated) title=_p('post.updated') + ' ' + full_date(article.updated))=date(article.updated, config.date_format)
               else
@@ -48,7 +48,7 @@ mixin postUI(posts)
                 - let date_type = data_type_updated ? 'updated' : 'date'
                 - let date_icon = data_type_updated ? 'anzhiyu-icon-history' :'anzhiyu-icon-calendar-days'
                 - let date_title = data_type_updated ? _p('post.updated') : _p('post.created')
-                i.anzhiyufont(class=date_icon)
+                i.anzhiyufont(class=date_icon style=`font-size: 15px; ${theme.post_meta.page.date_format==="simple" ? "display:none":""}`)
                 span.article-meta-label=date_title
                 time(datetime=date_xml(article[date_type]) title=date_title + ' ' + full_date(article[date_type]))=date(article[date_type], config.date_format)
           if (theme.post_meta.page.tags && article.tags.data.length > 0)
