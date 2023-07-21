@@ -88,7 +88,28 @@
                       else 
                         .flink-item-name.cf-friends-name= item.name
                         .flink-item-desc(title=item.descr)= item.descr
-          
+        
+        else if i.flink_style === 'telescopic'
+          .telescopic-site-card-group
+            each item in i.link_list
+              - let color = item.color || ""
+              - let tag = item.tag || "技术"
+              - let siteshot = item.siteshot || `https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/${item.link}` || theme.default_img
+              .site-card
+                if color == "vip"
+                  span.site-card-tag.vip #[=tag]
+                else if color == "speed"
+                  span.site-card-tag.speed #[=tag]
+                else 
+                  span.site-card-tag #[=tag]
+                a.img.no-text-decoration(target='_blank', title=`${item.name}`, href=`${item.link}`, rel='external nofollow')
+                  img.flink-avatar(data-lazy-src=siteshot, onerror=`this.onerror=null;this.src='${theme.default_img}'`, alt=item.name, style="pointer-events: none;", src=`${siteshot}`)
+                a.info.cf-friends-link.no-text-decoration(target='_blank', title=`${item.name}`, href=`${item.link}`, rel='external nofollow')
+                  .site-card-avatar
+                    img.flink-avatar.cf-friends-avatar.no-fancybox(data-lazy-src=item.avatar, onerror=`this.onerror=null;this.src='${theme.default_img}'`, alt=item.name, src=item.avatar)
+                  .site-card-text
+                    span.title.cf-friends-name #[=item.name]
+                    span.desc(title=`${item.descr}`) #[=item.descr]
         else if i.flink_style === 'flexcard'
           .flexcard-flink-list
             each item in i.link_list
