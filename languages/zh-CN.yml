@@ -64,15 +64,15 @@ aside:
   card_recent_post: 最新文章
   card_webinfo:
     headline: 网站资讯
-    article_name: 文章数目
+    article_name: 文章总数
     runtime:
-      name: 已运行时间
+      name: 建站天数
       unit: 天
     last_push_date:
       name: 最后更新时间
-    site_wordcount: 本站总字数
-    site_uv_name: 本站访客数
-    site_pv_name: 本站总访问量
+    site_wordcount: 全站字数
+    site_uv_name: 全站访客数
+    site_pv_name: 全站总访问量
   more_button: 查看更多
   card_newest_comments:
     headline: 最新评论

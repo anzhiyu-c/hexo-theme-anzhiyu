@@ -383,7 +383,7 @@ footer:
     since: 2020
   custom_text:
   runtime:
-    enable: true
+    enable: false
     launch_time: 04/01/2021 00:00:00 # 网站上线时间
     work_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg
     work_description: 距离月入25k也就还差一个大佬带我~
@@ -392,7 +392,7 @@ footer:
   # 徽标部分配置项 https://shields.io/
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
   bdageitem:
-    enable: true
+    enable: false
     list:
       - link: https://hexo.io/ #徽标指向网站链接
         shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
@@ -468,6 +468,18 @@ footer:
       #       link: /cookies/
       #     - title: 版权协议
       #       link: /copyright/
+  footerBar:
+    enable: true
+    cc: 
+      enable: false
+      link: /copyright
+    linkList:
+      - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
+        text: 主题
+      # - link: https://image.anheyu.com
+      #   text: 图床
+      - link: https://beian.miit.gov.cn/
+        text: 湘ICP备-xxxxxxx号
 
 # Analysis
 # --------------------------------------
@@ -752,7 +764,7 @@ aside:
   card_webinfo:
     enable: true
     post_count: true
-    last_push_date: true
+    last_push_date: false
     sort_order: # Don't modify the setting unless you know how it works
 
 # busuanzi count for PV / UV in site

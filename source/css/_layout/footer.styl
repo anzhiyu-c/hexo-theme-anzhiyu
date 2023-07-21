@@ -162,5 +162,6 @@
     max-height: 1.4em
     width: auto
     vertical-align: text-bottom
-[data-theme=light] .post #footer #footer-wrap
-  background: var(--anzhiyu-background);
+[data-theme=light] .post #footer
+  +maxWidth768()
+    background: linear-gradient(180deg, var(--anzhiyu-background) 0%, var(--anzhiyu-card-bg) 25%);
