@@ -542,7 +542,7 @@ theme_color:
   enable: true
   cover_change: false # 整篇文章跟随cover修改主色调
   main: "#3b70fc"
-  dark_main: "#0084ff"
+  dark_main: "#f2b94b"
   paginator: "#3b70fc"
   #   button_hover: "#FF7242"
   text_selection: "#2128bd"
@@ -1101,8 +1101,10 @@ shortcutKey:
 accesskey:
   enable: true
 
-# 友情链接顶部标题
-linkPageTitle: 与数百名博主无限进步
+# 友情链接顶部相关配置
+linkPageTop: 
+  enable: false
+  title: 与数百名博主无限进步
 
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
