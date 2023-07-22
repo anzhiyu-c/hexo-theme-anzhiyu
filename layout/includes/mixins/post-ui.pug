@@ -30,7 +30,7 @@ mixin postUI(posts)
         a.article-title(href=url_for(link) title=title)= title
         .article-meta-wrap
           if (is_home() && (article.top || article.sticky > 0))
-            span.article-meta
+            span.article-meta.sticky-warp
               i.anzhiyufont.anzhiyu-icon-thumbtack.sticky
               span.sticky= _p('sticky')
           if (theme.post_meta.page.date_type)
