@@ -1174,6 +1174,7 @@ const anzhiyu = {
       consoleEl.classList.add("show");
     }
     const consoleKeyboard = document.querySelector("#consoleKeyboard");
+
     if (consoleKeyboard) {
       if (localStorage.getItem("keyboardToggle") === "true") {
         consoleKeyboard.classList.add("on");

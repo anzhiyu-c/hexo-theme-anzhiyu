@@ -1,5 +1,7 @@
 // 第一次播放音乐
 var anzhiyu_musicFirst = false;
+// 快捷键
+var anzhiyu_keyboard = null;
 // 音乐播放状态
 var anzhiyu_musicPlaying = false;
 var $web_container = document.getElementById("web_container");
@@ -1439,6 +1441,11 @@ document.addEventListener("DOMContentLoaded", function () {
     GLOBAL_CONFIG.islazyload && lazyloadImg();
     GLOBAL_CONFIG.copyright !== undefined && addCopyright();
     GLOBAL_CONFIG.navMusic && listenNavMusicPause();
+    if (GLOBAL_CONFIG.shortcutKey && document.getElementById("consoleKeyboard")) {
+      localStorage.setItem("keyboardToggle", "true")
+      document.getElementById("consoleKeyboard").classList.add("on");
+      anzhiyu_keyboard = true;
+    }
     clickFnOfSubMenu();
   };
 

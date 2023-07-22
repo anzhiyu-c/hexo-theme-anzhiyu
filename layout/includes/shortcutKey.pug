@@ -17,7 +17,7 @@ script.
   var anzhiyu_keyUpEvent_timeoutId = null
   var anzhiyu_keyUpShiftDelayEvent_timeoutId = null
   // 是否开启快捷键
-  var anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
+  anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
   function addKeyShotListener() {
     const windowObject = window;
     windowObject.removeEventListener("keydown", keyDownEvent);
