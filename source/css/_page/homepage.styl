@@ -167,23 +167,32 @@
       & > .article-meta-wrap
         color: $theme-meta-color
         font-size: 90%
-        display: flex;
+        
         flex-direction: row-reverse;
         justify-content: space-between;
         position: absolute;
-        bottom: 30px;
+        
         padding: 0 32px;
         width 100%
         align-items: center;
+        if hexo-config("post_meta.page.date_type") == 'both'
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block
+          bottom: 20px;
+        else 
+          display: flex;
+          bottom: 30px;
         .sticky-warp
           position: absolute;
           top: -100px;
           right: 32px;
         .article-meta
-          white-space: nowrap;
-          overflow: hidden;
-          display: inline-block;
-          text-overflow: ellipsis;
+          if hexo-config("post_meta.page.date_type") != 'both'
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
         & > .post-meta-date
           color: var(--anzhiyu-fontcolor);
@@ -191,10 +200,10 @@
           display: flex;
           align-items: center;
           flex-wrap: wrap;
-          white-space: nowrap;
-          overflow: hidden;
-          display: inline-block;
-          text-overflow: ellipsis;
+          if hexo-config("post_meta.page.date_type") != 'both'
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           +maxWidth500()
             font-size: 13px
 

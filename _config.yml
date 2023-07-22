@@ -152,7 +152,7 @@ error_404:
 post_meta:
   page: # Home Page
     date_type: created # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: simple # date/relative 显示日期还是相对日期 或者 简单日期
+    date_format: simple # date/relative/simple 显示日期还是相对日期 或者 简单日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
     label: false # true or false 显示描述性文字
