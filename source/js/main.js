@@ -2,8 +2,6 @@
 var anzhiyu_musicFirst = false;
 // 音乐播放状态
 var anzhiyu_musicPlaying = false;
-// 是否开启快捷键
-var anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
 var $web_container = document.getElementById("web_container");
 var $web_box = document.getElementById("web_box");
 var $bodyWrap = document.getElementById("body-wrap");
