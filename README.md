@@ -48,7 +48,10 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 ```
 
 - windows
-  复制`/themes/anzhiyu/_config.yml`此文件到 hexo 根目录，并重命名为`_config.anzhiyu.yml`
+  在博客根目录运行
+```bash
+copy themes\anzhiyu\_config.yml .\ && ren _config.yml _config.anzhiyu.yml
+```
 
 ## 仓库统计
 
