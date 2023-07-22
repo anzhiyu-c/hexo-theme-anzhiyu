@@ -69,10 +69,10 @@ aside:
       name: 建站天数
       unit: 天
     last_push_date:
-      name: 最后更新时间
+      name: 最后更新
     site_wordcount: 全站字数
-    site_uv_name: 全站访客数
-    site_pv_name: 全站总访问量
+    site_uv_name: 总访客数
+    site_pv_name: 总访问量
   more_button: 查看更多
   card_newest_comments:
     headline: 最新评论
