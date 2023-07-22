@@ -709,10 +709,10 @@ aside:
   button: true
   mobile: true # display on mobile
   position: right # left or right
-  display:
+  display: # 控制对应详情页面是否显示侧边栏
     archive: true
     tag: true
-    category: false
+    category: true
   card_author:
     enable: true
     type: 2 # 1为使用头像card 2为不使用头像card
