@@ -252,12 +252,6 @@ noticeOutdate:
 # Share System (分享功能)
 # --------------------------------------
 
-# AddThis
-# https://www.addthis.com/
-addThis:
-  enable: false
-  pubid:
-
 # Share.js
 # https://github.com/overtrue/share.js
 sharejs:
