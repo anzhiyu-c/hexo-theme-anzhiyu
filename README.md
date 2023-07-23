@@ -6,7 +6,7 @@
 
 预览: 👍 [AnZhiYu](https://blog.anheyu.com/) || 🤞 [AnZhiYu](https://index.anheyu.com/)
 
-文档: 📖 [anzhiyu Docs](https://blog.anheyu.com/docs/)
+文档: 📖 [anzhiyu Docs](https://docs.anheyu.com/)
 
 一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)修改的主題
 
