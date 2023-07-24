@@ -119,8 +119,12 @@
         transform: rotate(0deg) translateY(0) scale(1);
         filter: blur(0px);
         width: 100%;
-        position: fixed;
-        height: 30rem;
+        if hexo-config('post_meta.post.mainTone')
+          position: fixed;
+          height: 30rem;
+        else
+          position: absolute;
+          height: 100vh;
         z-index: 1;
       &::after
         position: absolute;
@@ -140,7 +144,10 @@
         animation: slide-in 0.6s 0.3s backwards;
         +maxWidth768()
           min-height: 15rem !important;
-          height: 70% !important;
+          if hexo-config('post_meta.post.mainTone')
+            height: 70% !important;
+          else
+            height: 100% !important;
           opacity: 1 !important;
 
     #nav
