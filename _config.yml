@@ -556,7 +556,7 @@ theme_color:
 table_interlaced_discoloration: false
 
 # 首页双栏显示
-article_double_row: false
+article_double_row: true
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默认top_img全屏，site_info在中间)
