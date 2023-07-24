@@ -12,7 +12,7 @@ Based: [hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
 
 # hexo-theme-anzhiyu
 
-![](https://img02.anheyu.com/adminuploads/1/2023/04/12/64367c8fdcc7f.webp)
+![](https://bu.dusays.com/2023/07/24/64bdcbfe96762.webp)
 
 ## 💻 Install
 
