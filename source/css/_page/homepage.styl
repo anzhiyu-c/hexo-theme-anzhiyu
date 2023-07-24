@@ -157,10 +157,10 @@
         line-height: 1.4
         transition: all .2s ease-in-out
         -webkit-line-clamp: 2 !important
-
         +maxWidth768()
+          if hexo-config("post_meta.page.date_type") == 'both'
+            -webkit-line-clamp: 1 !important;
           top: 20px
-
         &:hover
           color: $text-hover
 
@@ -180,7 +180,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           display: inline-block
-          bottom: 20px;
+          bottom: 15px;
         else 
           display: flex;
           bottom: 30px;
