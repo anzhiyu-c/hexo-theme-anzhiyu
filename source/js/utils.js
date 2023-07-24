@@ -462,7 +462,17 @@ const anzhiyu = {
   catalogActive: function () {
     const $list = document.getElementById("catalog-list");
     if ($list) {
-      const $catalog = document.getElementById(decodeURIComponent(window.location.pathname));
+      const pathname = decodeURIComponent(window.location.pathname);
+      const catalogListItems = $list.querySelectorAll(".catalog-list-item");
+  
+      let $catalog = null;
+      catalogListItems.forEach(item => {
+        if (pathname.startsWith(item.id)) {
+          $catalog = item;
+          return;
+        }
+      });
+
       anzhiyu.scrollByMouseWheel($list, $catalog);
     }
   },
