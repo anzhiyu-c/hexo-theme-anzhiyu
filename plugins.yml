@@ -6,6 +6,16 @@ instantsearch_v4:
   name: instantsearch.js
   file: dist/instantsearch.production.min.js
   version: 4.46.1
+docsearch_js:
+  name: '@docsearch/js'
+  other_name: docsearch-js
+  file: dist/umd/index.js
+  version: 3.5.1
+docsearch_css:
+  name: '@docsearch/css'
+  other_name: docsearch-css
+  file: dist/style.css
+  version: 3.5.1
 pjax:
   name: pjax
   file: pjax.min.js
