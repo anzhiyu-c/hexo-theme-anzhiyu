@@ -76,6 +76,7 @@
               each item in i.link_list
                 - let color = item.color || ""
                 - let tag = item.tag || ""
+                
                 .flink-list-item
                   if color == "vip"
                     span.site-card-tag.vip #[=tag]
