@@ -1,41 +1,58 @@
 #article-container
-  if theme.linkPageTop && theme.linkPageTop.enable
-    #flink-banners
-      .banner-top-box
-        .flink-banners-title
-          .banners-title-small 友情链接
-          .banners-title-big=theme.linkPageTop ? theme.linkPageTop.title : "与数百名博主无限进步"
-        .banner-button-group
-          if (theme.friends_vue.apiurl)
-            a.banner-button.secondary.no-text-decoration(onclick="friendChainRandomTransmission()")
-              i.anzhiyufont.anzhiyu-icon-paper-plane1
-              span.banner-button-text 随机访问
-          if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
-            a.banner-button.no-text-decoration(onclick="anzhiyu.addFriendLink()")
-              i.anzhiyufont.anzhiyu-icon-arrow-circle-right
-              span.banner-button-text 申请友链
-      #skills-tags-group-all
-        .tags-group-wrapper
-          - function getAvatarWithoutExclamationMark(url) {
-          -   const index = url.indexOf('!');
-          -   return index !== -1 ? url.substring(0, index) : url;
-          - }
-          each y in [1,2]
-            each i, index in site.data.link.slice(0, 15)
-              - const link_list = i.link_list.slice()
-              - const hundredSuffix = i.hundredSuffix ? i.hundredSuffix : ""
-              - const evenNum = link_list.filter((x, index) => index % 2 === 0);
-              - const oddNum = link_list.filter((x, index) => index % 2 === 1);
-              each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
-                - const index = index2 * 2
-                if (index <= 15 && typeof evenNum[index] !== 'undefined' && typeof oddNum[index] !== 'undefined')
-                  - let oddNumAvatar = getAvatarWithoutExclamationMark(oddNum[index].avatar);
-                  - let evenNumAvatar = getAvatarWithoutExclamationMark(evenNum[index].avatar);
-                  .tags-group-icon-pair
-                    a.tags-group-icon.no-text-decoration(href=url_for(evenNum[index].link), title=evenNum[index].name)
-                      img.no-lightbox(title=evenNum[index].name, src=url_for(evenNumAvatar + hundredSuffix) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=evenNum[index].name)
-                    a.tags-group-icon.no-text-decoration(href=url_for(oddNum[index].link), title=oddNum[index].name)
-                      img.no-lightbox(title=oddNum[index].name, src=url_for(oddNumAvatar + hundredSuffix) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=oddNum[index].name)
+  #flink-banners
+    .banner-top-box
+      .flink-banners-title
+        .banners-title-small 友情链接
+        .banners-title-big=theme.linkPageTitle ? theme.linkPageTitle : "与数百名博主无限进步"
+      .banner-button-group
+        if (theme.friends_vue.apiurl)
+          a.banner-button.secondary.no-text-decoration(onclick="friendChainRandomTransmission()")
+            i.anzhiyufont.anzhiyu-icon-paper-plane1
+            span.banner-button-text 随机访问
+        if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
+          a.banner-button.no-text-decoration(onclick="anzhiyu.addFriendLink()")
+            i.anzhiyufont.anzhiyu-icon-arrow-circle-right
+            span.banner-button-text 申请友链
+    #skills-tags-group-all
+      .tags-group-wrapper
+        each i, index in site.data.link.slice(0, 15)
+          - const link_list = i.link_list.slice()
+          - const hundredSuffix = i.hundredSuffix ? i.hundredSuffix : ""
+          - const evenNum = link_list.filter((x, index) => index % 2 === 0);
+          - const oddNum = link_list.filter((x, index) => index % 2 === 1);
+          each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
+            - const index = index2 * 2
+            if (index <= 16 && typeof evenNum[index] !== 'undefined' && typeof oddNum[index] !== 'undefined')
+              - function getAvatarWithoutExclamationMark(url) {
+              -   const index = url.indexOf('!');
+              -   return index !== -1 ? url.substring(0, index) : url;
+              - }
+              - let oddNumAvatar = getAvatarWithoutExclamationMark(oddNum[index].avatar);
+              - let evenNumAvatar = getAvatarWithoutExclamationMark(evenNum[index].avatar);
+              .tags-group-icon-pair
+                a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
+                  img.no-lightbox(title=evenNum[index].name, src=(evenNumAvatar + hundredSuffix))
+                a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
+                  img.no-lightbox(title=oddNum[index].name, src=(oddNumAvatar + hundredSuffix))
+        each i, index in site.data.link.slice(0, 15)
+          - const link_list = i.link_list.slice()
+          - const hundredSuffix = i.hundredSuffix ? i.hundredSuffix : ""
+          - const evenNum = link_list.filter((x, index) => index % 2 === 0);
+          - const oddNum = link_list.filter((x, index) => index % 2 === 1);
+          each item, index2 in link_list.slice(0, Math.min(evenNum.length, oddNum.length))
+            - const index = index2 * 2
+            if (index <= 16 && typeof evenNum[index] !== 'undefined' && typeof oddNum[index] !== 'undefined')
+              - function getAvatarWithoutExclamationMark(url) {
+              -   const index = url.indexOf('!');
+              -   return index !== -1 ? url.substring(0, index) : url;
+              - }
+              - let oddNumAvatar = getAvatarWithoutExclamationMark(oddNum[index].avatar);
+              - let evenNumAvatar = getAvatarWithoutExclamationMark(evenNum[index].avatar);
+              .tags-group-icon-pair
+                a.tags-group-icon.no-text-decoration(href=evenNum[index].link, title=evenNum[index].name)
+                  img.no-lightbox(title=evenNum[index].name, src=(oddNumAvatar + hundredSuffix))
+                a.tags-group-icon.no-text-decoration(href=oddNum[index].link, title=oddNum[index].name)
+                  img.no-lightbox(title=oddNum[index].name, src=(evenNumAvatar + hundredSuffix))
   .title-h2-a
     .title-h2-a-left
       h2(style='padding-top:0;margin:.6rem 0 .6rem') 🎣 钓鱼
@@ -57,9 +74,18 @@
           div(class=i.lost_contact ? 'anzhiyu-flink-list cf-friends-lost-contact' : 'anzhiyu-flink-list')
             if i.link_list
               each item in i.link_list
+                - let color = item.color || ""
+                - let tag = item.tag || ""
+                
                 .flink-list-item
-                  if item.recommend
-                    span.site-card-tag 荐
+                  if color == "vip"
+                    span.site-card-tag.vip #[=tag]
+                  else if color == "speed"
+                    span.site-card-tag.speed #[=tag]
+                  else if item.tag
+                    span.site-card-tag(style=`background-color: ${color}`) #[=tag]
+                  else 
+                    span
                   a.cf-friends-link(href=url_for(item.link) title=item.name target="_blank")
                     if theme.lazyload.enable
                       img.cf-friends-avatar.no-lightbox(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
@@ -76,15 +102,17 @@
           .telescopic-site-card-group
             each item in i.link_list
               - let color = item.color || ""
-              - let tag = item.tag || "技术"
+              - let tag = item.tag || ""
               - let siteshot = item.siteshot || `https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/${item.link}` || theme.default_img
               .site-card
                 if color == "vip"
                   span.site-card-tag.vip #[=tag]
                 else if color == "speed"
                   span.site-card-tag.speed #[=tag]
+                else if item.tag
+                  span.site-card-tag(style=`background-color: ${color}`) #[=tag]
                 else 
-                  span.site-card-tag #[=tag]
+                  span
                 a.img.no-text-decoration(target='_blank', title=`${item.name}`, href=`${item.link}`, rel='external nofollow')
                   img.flink-avatar(data-lazy-src=siteshot, onerror=`this.onerror=null;this.src='${theme.default_img}'`, alt=item.name, style="pointer-events: none;", src=`${siteshot}`)
                 a.info.cf-friends-link.no-text-decoration(target='_blank', title=`${item.name}`, href=`${item.link}`, rel='external nofollow')
