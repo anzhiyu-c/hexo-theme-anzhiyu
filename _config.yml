@@ -87,7 +87,7 @@ algolia_search:
 # Crawler Admin Console: see https://crawler.algolia.com/
 # Settings: https://www.algolia.com/
 docsearch:
-  enable: true
+  enable: false
   appId:  # see email
   apiKey:  # see email
   indexName:  # see email
@@ -128,7 +128,6 @@ docsearch:
           suggestedQueryText: '您可尝试搜索'
           reportMissingResultsText: '确认搜索结果是正确的？'
           reportMissingResultsLinkText: '反馈给Algolia'
-
 
 # Local search
 local_search:
