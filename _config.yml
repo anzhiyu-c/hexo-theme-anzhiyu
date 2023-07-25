@@ -110,7 +110,7 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: /img/favicon.ico
+favicon: /favicon.ico
 
 # Avatar (头像)
 avatar:
