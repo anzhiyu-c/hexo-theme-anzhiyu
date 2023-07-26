@@ -99,7 +99,7 @@
       margin-bottom: 0;
       user-select: none
       transform: rotate(10deg) translateY(-10%) scale(2);
-      if !hexo-config('post_meta.post.mainTone')
+      if !hexo-config('mainTone.enable')
         filter: blur(10px) brightness(60%);
         animation: none;
         transition: filter 0s
@@ -119,7 +119,7 @@
         transform: rotate(0deg) translateY(0) scale(1);
         filter: blur(0px);
         width: 100%;
-        if hexo-config('post_meta.post.mainTone')
+        if hexo-config('mainTone.enable')
           position: fixed;
           height: 30rem;
         else
@@ -144,7 +144,7 @@
         animation: slide-in 0.6s 0.3s backwards;
         +maxWidth768()
           min-height: 15rem !important;
-          if hexo-config('post_meta.post.mainTone')
+          if hexo-config('mainTone.enable')
             height: 70% !important;
           else
             height: 100% !important;
@@ -168,7 +168,7 @@
         #nav
           background: var(--anzhiyu-card-bg);
           outline: 1px solid var(--anzhiyu-card-border);
-    if hexo-config('post_meta.post.mainTone')
+    if hexo-config('mainTone.enable')
       &:before    
         position: absolute
         width: 100%
@@ -196,7 +196,7 @@
     +maxWidth768()
       padding: 11rem 6% 0;
       align-items: center;
-      if hexo-config('post_meta.post.mainTone')
+      if hexo-config('mainTone.enable')
         &:after
           display: block
           position: absolute;
@@ -565,7 +565,7 @@
   transition: 0.6s
   background-color: transparent
   overflow: hidden
-  if hexo-config('post_meta.post.mainTone')
+  if hexo-config('mainTone.enable')
     background-color: var(--anzhiyu-bar-background)
 
   // #nav
@@ -727,7 +727,7 @@
   .layout > div:first-child:not(.recent-posts)
     z-index: 10;
     margin-top: -30px;
-  if hexo-config('post_meta.post.mainTone')
+  if hexo-config('mainTone.enable')
     #page-header.post-bg #nav
       background: linear-gradient(to top, var(--anzhiyu-main-none) 0%, var(--anzhiyu-bar-background) 100%);
   .post-bg:has(.bldbanner) #post-info:after,

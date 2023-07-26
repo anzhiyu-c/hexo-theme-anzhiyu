@@ -93,9 +93,13 @@
     })
   }
 
-  let changeMainColorPost = 'undefined'
-  if (theme.theme_color && theme.theme_color.enable && theme.theme_color.cover_change) {
-    changeMainColorPost = theme.theme_color.cover_change
+  let mainTone = 'undefined'
+  if (theme.mainTone && theme.mainTone.enable) {
+    mainTone = JSON.stringify({
+      mode: theme.mainTone.mode,
+      api: theme.mainTone.api,
+      cover_change: theme.mainTone.cover_change,
+    })
   }
 
 script.
@@ -103,7 +107,7 @@ script.
     root: '!{config.root}',
     friends_vue_info: !{friends_vue_info},
     navMusic: !{theme.nav_music.enable},
-    changeMainColorPost: !{changeMainColorPost},
+    mainTone: !{mainTone},
     algolia: !{algolia},
     localSearch: !{localSearch},
     translate: !{translate},
