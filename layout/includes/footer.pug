@@ -64,7 +64,7 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
             else
               .copyright!= `&copy;${nowYear} By ${config.author} `
         #footer-type-tips
-        if theme.footer.footerBar.typing.enable
+        if theme.footer.footerBar && theme.footer.footerBar.typing && theme.footer.footerBar.typing.enable
           - let typingConfig = theme.footer.footerBar.typing
           script(src=url_for(theme.asset.typed))
           script.
