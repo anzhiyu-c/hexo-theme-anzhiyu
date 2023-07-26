@@ -1273,13 +1273,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const response = await fetch(fetchPath);
         if (response.ok && response.headers.get("content-type")?.includes("application/json")) {
           const obj = await response.json();
-          // let value = GLOBAL_CONFIG.mainTone.mode == "cdn" ? ("#" + obj.RGB.slice(2)) : obj.RGB;
           let value =
             GLOBAL_CONFIG.mainTone.mode == "cdn" || GLOBAL_CONFIG.mainTone.mode == "both"
               ? "#" + obj.RGB.slice(2)
               : obj.RGB;
-          // #e0e0e0
-          // 0xe0e0e0
           if (getContrastYIQ(value) === "light") {
             value = LightenDarkenColor(colorHex(value), -40);
           }
@@ -1292,6 +1289,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         } else {
           if (GLOBAL_CONFIG.mainTone.mode == "both") {
+            console.info(response.headers.get("content-type"));
             // both继续请求
             try {
               const response = await fetch(GLOBAL_CONFIG.mainTone.api + path);
