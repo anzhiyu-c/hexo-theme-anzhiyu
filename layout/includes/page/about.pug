@@ -391,7 +391,7 @@ if site.data.about
         }, 2000);
 
         document.addEventListener("pjax:send", function () {
-          clearInterval(pursuitInterval);
+          pursuitInterval && clearInterval(pursuitInterval);
         });
 
         var helloAboutEl = document.querySelector(".hello-about");
