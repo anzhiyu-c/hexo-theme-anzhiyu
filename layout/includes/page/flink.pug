@@ -93,7 +93,7 @@
                 else if color == "speed" && tag
                   span.site-card-tag.speed #[=tag]
                 else if tag
-                  span.site-card-tag #[=tag]
+                  span.site-card-tag(style=`background-color: ${color}`) #[=tag]
                 else if item.recommend
                   span.site-card-tag 荐
                 a.img.no-text-decoration(target='_blank', title=`${item.name}`, href=`${item.link}`, rel='external nofollow')
