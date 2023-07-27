@@ -48,10 +48,7 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 ```
 
 - windows
-   Run in the blog root directory
-```bash
-copy themes\anzhiyu\_config.yml .\ && ren _config.yml _config.anzhiyu.yml
-```
+  Copy the file `/themes/anzhiyu/_config.yml` to the hexo root directory and rename it to`_config.anzhiyu.yml`
 
 ## Warehouse Statistics
 
