@@ -183,7 +183,7 @@ cover:
   position: left
   # When cover is not set, the default cover is displayed (当没有设置cover时，默认的封面显示)
   default_cover:
-    - /img/default_cover.jpg
+    # - /img/default_cover.jpg
 
 # Replace Broken Images (替换无法显示的图片)
 error_img:

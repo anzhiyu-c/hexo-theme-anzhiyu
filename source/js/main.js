@@ -1242,6 +1242,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const coverColor = async () => {
     const root = document.querySelector(":root");
     const path = document.getElementById("post-top-bg")?.src;
+    console.info(getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme"));
 
     if (!path) {
       // 非文章情况，直接设置不需要请求了
@@ -1253,6 +1254,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.style.setProperty(
           "--anzhiyu-main",
           getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
+        );
+        document.documentElement.style.setProperty(
+          "--anzhiyu-theme-op",
+          getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") + "23"
+        );
+        document.documentElement.style.setProperty(
+          "--anzhiyu-theme-op-deep",
+          getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") +"dd"
         );
       }
 
@@ -1286,6 +1295,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (GLOBAL_CONFIG.mainTone.cover_change) {
             document.documentElement.style.setProperty("--anzhiyu-main", value);
+            document.documentElement.style.setProperty(
+              "--anzhiyu-theme-op",
+              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") + "23"
+            );
+            document.documentElement.style.setProperty(
+              "--anzhiyu-theme-op-deep",
+              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") +"dd"
+            );
           }
         } else {
           if (GLOBAL_CONFIG.mainTone.mode == "both") {
@@ -1306,6 +1323,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (GLOBAL_CONFIG.mainTone.cover_change) {
                   document.documentElement.style.setProperty("--anzhiyu-main", value);
+                  document.documentElement.style.setProperty(
+                    "--anzhiyu-theme-op",
+                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") + "23"
+                  );
+                  document.documentElement.style.setProperty(
+                    "--anzhiyu-theme-op-deep",
+                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") +"dd"
+                  );
                 }
               } else {
                 root.style.setProperty("--anzhiyu-bar-background", fallbackValue);
