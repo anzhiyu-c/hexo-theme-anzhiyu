@@ -1195,13 +1195,13 @@ inject:
 # 非必要请不要修改
 CDN:
   # The CDN provider of internal scripts (主题内部 js 的 cdn 配置)
-  # option: local/elemecdn/jsdelivr/unpkg/cdnjs/custom
+  # option: local/elemecdn/jsdelivr/unpkg/cdnjs/onmicrosoft/cbd/custom
   # Dev version can only choose. ( dev版的主题只能设置为 local )
-  internal_provider: onmicrosoft
+  internal_provider: local
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
-  # option: elemecdn/jsdelivr/unpkg/cdnjs/custom
-  third_party_provider: onmicrosoft
+  # option: elemecdn/jsdelivr/unpkg/cdnjs/onmicrosoft/cbd/custom
+  third_party_provider: cbd
 
   # Add version number to CDN, true or false
   version: true
