@@ -1242,28 +1242,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const coverColor = async () => {
     const root = document.querySelector(":root");
     const path = document.getElementById("post-top-bg")?.src;
-    console.info(getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme"));
-
     if (!path) {
       // 非文章情况，直接设置不需要请求了
       root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
       anzhiyu.initThemeColor();
 
-      if (GLOBAL_CONFIG.mainTone.cover_change) {
-        // 如果开启了cover主题色改变 要改回来默认主色
-        document.documentElement.style.setProperty(
-          "--anzhiyu-main",
-          getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
-        );
-        document.documentElement.style.setProperty(
-          "--anzhiyu-theme-op",
-          getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") + "23"
-        );
-        document.documentElement.style.setProperty(
-          "--anzhiyu-theme-op-deep",
-          getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") +"dd"
-        );
-      }
+      // 要改回来默认主色
+      document.documentElement.style.setProperty(
+        "--anzhiyu-main",
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
+      );
+      document.documentElement.style.setProperty(
+        "--anzhiyu-theme-op",
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "23"
+      );
+      document.documentElement.style.setProperty(
+        "--anzhiyu-theme-op-deep",
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") +"dd"
+      );
+    
 
       return;
     }
@@ -1297,11 +1294,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.documentElement.style.setProperty("--anzhiyu-main", value);
             document.documentElement.style.setProperty(
               "--anzhiyu-theme-op",
-              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") + "23"
+              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "23"
             );
             document.documentElement.style.setProperty(
               "--anzhiyu-theme-op-deep",
-              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") +"dd"
+              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") +"dd"
             );
           }
         } else {
@@ -1325,11 +1322,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   document.documentElement.style.setProperty("--anzhiyu-main", value);
                   document.documentElement.style.setProperty(
                     "--anzhiyu-theme-op",
-                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") + "23"
+                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "23"
                   );
                   document.documentElement.style.setProperty(
                     "--anzhiyu-theme-op-deep",
-                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme") +"dd"
+                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") +"dd"
                   );
                 }
               } else {

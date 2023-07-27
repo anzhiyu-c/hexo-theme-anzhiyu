@@ -1,33 +1,23 @@
 if theme.aside.card_author.enable
   .card-widget.card-info
-    .author-info-top 
-      .card-info-avatar
-        if theme.aside.card_author.type === 1
-          a.avatar-img(href='/about')
+    .card-content
+      .author-info__sayhi#author-info__sayhi
+      .author-info-top(title='点击展开')
+        .card-info-avatar
+          .avatar-img
             img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
-        if theme.author_status.enable
-          .author-status-box
-            .author-status
-              g-emoji(class='g-emoji', alias=theme.author_status.alias, fallback-src=theme.author_status.fallback_src)=theme.author_status.status
-              span=theme.author_status.text
+          if theme.aside.card_author.author_status.enable
+            .author-status-box
+              .author-status
+                g-emoji(class='g-emoji', alias=theme.aside.card_author.author_status.alias, fallback-src=theme.aside.card_author.author_status.fallback_src)=theme.aside.card_author.author_status.status
+                span=theme.aside.card_author.author_status.text
 
-    .author-info__sayhi#author-info__sayhi
-    h1.author-info__name= config.author
-    .author-info__description!= theme.aside.card_author.description || config.description
+      .author-info__description!= theme.aside.card_author.description || config.description
 
-    if theme.aside.card_author.button.enable
-      .banner-button-group
-        a.banner-button(onclick='pjax.loadUrl("' + theme.aside.card_author.button.link +'")')
-          span.banner-button-text=theme.aside.card_author.button.text
-          - button_icon = theme.aside.card_author.button.icon
-          if (button_icon.startsWith("fa")) 
-            i(class=button_icon)
-          else if (button_icon.startsWith("icon"))
-            svg.icon(aria-hidden='true')
-              use(xlink:href="#" + button_icon)
-          else if (button_icon.startsWith("anzhiyu"))
-            i.anzhiyufont(class=button_icon style="font-size: 1.5rem")
-  
-    if(theme.social)
-        .card-info-social-icons.is-center
-          !=fragment_cache('social', function(){return partial('includes/header/social')}) 
+      if(theme.social)
+        .author-info__bottom-group
+          a.author-info__bottom-group-left(href=url_for(theme.aside.card_author.name_link))
+            h1.author-info__name=config.author
+            .author-info__desc=config.subtitle
+          .card-info-social-icons.is-center
+            !=fragment_cache('social', function(){return partial('includes/header/social')}) 

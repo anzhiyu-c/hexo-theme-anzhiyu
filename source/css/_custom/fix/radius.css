@@ -1,9 +1,3 @@
-/* 头像圆角 */
-.avatar-img img {
-  border: var(--style-border-avatar);
-  border-radius: 50%;
-}
-
 /* 相关推荐圆角 */
 #pagination.pagination-post {
   border-radius: 10px;

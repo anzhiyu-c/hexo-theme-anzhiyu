@@ -60,10 +60,7 @@ copy:
 #   name: link || icon
 social:
   # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
-  # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || anzhiyu-icon-envelope
-  # RSS: atom.xml || anzhiyu-icon-rss
   # BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
-  # QQ: tencent://Message/?Uin=2268025923&amp;websiteName=local.edu.com:8888=&amp;Menu=yes || anzhiyu-icon-qq
 
 author_status:
   enable: false
@@ -473,6 +470,9 @@ footer:
       # - title: facebook
       #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
       #   icon: anzhiyu-icon-facebook1
+      # - title: RSS
+      #   link: atom.xml
+      #   icon: anzhiyu-icon-rss
     right:
       # - title: Github
       #   link: https://github.com/anzhiyu-c
@@ -483,6 +483,9 @@ footer:
       # - title: 抖音
       #   link: https://v.douyin.com/DwCpMEy/
       #   icon: anzhiyu-icon-tiktok
+      # - title: CC
+      #   link: /copyright
+      #   icon: anzhiyu-icon-copyright-line
   list:
     enable: false
     randomFriends: 3
@@ -715,7 +718,7 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size: 17px
+  global-font-size: 16px
   code-font-size:
   font-family:
   code-font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
@@ -781,14 +784,15 @@ aside:
     category: true
   card_author:
     enable: true
-    type: 2 # 1为使用头像card 2为不使用头像card
-    description: # 默认为站点描述
-    info_background: https://bu.dusays.com/2023/04/23/6444b2b59a295.webp # type为1时有效
-    button:
+    description: # <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> # 默认为站点描述
+    author_status:
       enable: true
-      icon: anzhiyu-icon-arrow-circle-right
-      text: 了解更多
-      link: /about/
+      status: ✍️
+      alias: writing_hand
+      fallback_src: https://img02.anheyu.com/adminuploads/1/2023/02/18/63f0281af0c8c.png
+      text: on Studying
+    name_link: /
+  
   card_announcement:
     enable: false
     content: 欢迎来看我的博客鸭~

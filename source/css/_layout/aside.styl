@@ -4,7 +4,7 @@
       background: var(--anzhiyu-background);
       border: none;
 #aside-content
-  width: 26%
+  width: 300px
 
   +minWidth900()
     if hexo-config('aside.position') == 'right'
@@ -38,15 +38,35 @@
       +maxWidth768()
         &:not(#card-toc)
           display: none
-    .author-info
-      &__name
-        font-weight: 500
-        font-size: 1.57em
+    .author-info__bottom-group
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      .author-info__name
+        text-align: left;
+        font-weight: 700;
+        color: var(--anzhiyu-white);
+        font-size: 20px;
+        line-height: 1;
+        margin-bottom: 5px;
+        margin-top: 0
+      .author-info__desc
+        font-size: 12px;
+        color: var(--anzhiyu-white);
+        opacity: .6;
+        line-height: 1;
 
-      &__description
-        margin-top: -.42em
-        color: var(--btn-color);
-    
+    .author-info__description
+      position: absolute;
+      top: 50px;
+      width: 100%;
+      left: 0;
+      padding: 1rem 1.2rem;
+      opacity: 0;
+      transition: .3s;
+      pointer-events: none
+
     .banner-button-group .banner-button 
       padding: 20px 12px;
       color: var(--anzhiyu-white);
@@ -66,7 +86,6 @@
         left: calc(100% - 28px);
         width: 28px;
         height: 28px;
-        border: var(--style-border-deep-ash);
         border-radius: 2em;
         background-color: var(--anzhiyu-white);
         transition: 0.3s;
@@ -91,28 +110,43 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             transition: 0.3s;
+            line-height: 28px;
 
     
     [data-theme="dark"] .card-info-avatar .author-status-box
       color: var(--anzhiyu-black);
 
-    .card-info-data
-      margin: 14px 0 4px
-
     .card-info-social-icons
-      margin: 6px 0 -6px
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      cursor: pointer;
 
       .social-icon
-        margin: 0 10px
-        color: var(--anzhiyu-white)
-        font-size: 1.4em
-
-      i
-        transition: all .3s
-        font-size: 1.4rem
-
-        &:hover
-          transform: rotate(540deg)
+        margin: 0 0 0 10px
+        color: var(--anzhiyu-fontcolor);
+        font-size: 1.4em;
+        cursor: pointer;
+        display: flex;
+        i
+          background: var(--anzhiyu-white-op);
+          color: var(--anzhiyu-white);
+          font-size: 1rem;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all .3s ease 0s;
+          padding: 8px;
+          border-radius: 32px;
+          &:hover
+            background: var(--anzhiyu-secondbg);
+            transform: scale(1.1);
+            color: var(--anzhiyu-main);
+            box-shadow: none;
 
     #card-info-btn
       display: block
@@ -399,9 +433,6 @@
     transition: filter 375ms ease-in .2s, transform .3s
     object-fit: cover
 
-    &:hover
-      transform: rotate(360deg)
-
 .site-data
   display: table
   width: 100%
@@ -489,104 +520,86 @@
       order: hexo-config('aside.card_webinfo.sort_order')
 
 if hexo-config('aside.enable')
-  if hexo-config('aside.card_author.type') == "2"
-    #aside-content
-      >.card-widget.card-info
-        // background: linear-gradient(-25deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
-        background: var(--anzhiyu-main);
+  #aside-content
+    >.card-widget.card-info
+      background: var(--anzhiyu-card-bg);
+      box-shadow: var(--anzhiyu-shadow-black);
+      position: relative;
+      padding: 0
+      > .card-content
+        padding: 1rem 1.2rem;
+        min-height: 320px;
+        position: relative;
+      &::before
+        background: linear-gradient(-25deg,var(--anzhiyu-main),var(--anzhiyu-main-op-deep),var(--anzhiyu-main),var(--anzhiyu-main-op-deep));
         background-size: 400%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        content: '';
         animation: gradient 15s ease infinite;
-      .card-info
-        .author-info__name
-            text-align: left;
-            font-weight: bold;
-            color: var(--anzhiyu-white);
-            font-size: 28px;
-            line-height: 1.1;
-            margin-top: 1.3rem;
-            margin-bottom: 1rem;
-        #author-info__sayhi 
-          text-align: left;
-          color: var(--anzhiyu-white);
-          background: var(--anzhiyu-white-op);
-          font-size: 12px;
-          margin-right: auto;
-          padding: 2px 8px;
-          border-radius: 12px;
-          width: fit-content;
-          cursor: pointer;
-          -webkit-user-select: none;
-          transition: 0.3s;
-        .card-info-avatar 
-          .author-status-box
-            top 0
-            left 0
-        .banner-button-group .banner-button
-          border-radius: 35px;
-          background: var(--anzhiyu-white-op);
-          &:hover
-            background: var(--anzhiyu-white);
-            color: var(--anzhiyu-black);
+    .card-info
+      &:hover 
+        .author-info-top
+          opacity: 0;
+          transform: scale(0);
+        .author-info__description
+          opacity: 1;
+        .author-status-box
+          opacity: 0;
+          transform: scale(0);
 
-  else if hexo-config('aside.card_author.type') == "1"
-    $card_info_background = hexo-config('aside.card_author.info_background') 
-    #aside-content
-      > .card-widget.card-info
-          background: #fff url($card_info_background) top -24% center no-repeat;
-          position: relative;
-          .author-info__name 
-            line-height: 1.5em;
-            margin: 4px 0;
-          #author-info__sayhi
-            text-align: left;
-            background: var(--anzhiyu-white-op);
-            color: var(--font-color);
-            border: var(--style-border);
-            font-size: 12px;
-            margin-right: auto;
-            padding: 5px 8px;
-            border-radius: 12px;
-            width: fit-content;
-            display: inline;
-            margin-left: -1px;
-          .banner-button-group .banner-button
-            border-radius: 12px;
-            background: var(--anzhiyu-theme);
-            &:hover
-              background: var(--anzhiyu-theme-deep);
-              color: var(--anzhiyu-white);
-          .card-info-social-icons
-            .social-icon
-              color: var(--anzhiyu-font)
 
-.card-widget .author-info-top
-  margin: 15px auto 0
-  display: flex
-  justify-content: center
-  +maxWidth768()
-    display: none
-
-.card-widget .card-info-avatar
-  display: inline-block
-  position: relative
-
-.card-widget.card-info .banner-button-group
-  margin: 5px 0
-  display: flex
-
-#aside-content .card-info .banner-button
-  height: 40px
-  width: 100%
-  border-radius: 20px
-  justify-content: center
-
-.card-widget.card-info .banner-button-group .banner-button-text
-  margin-right: 5px
-
-.card-info-avatar .avatar-img
-  width: 100px
-  height: 100px
-  display: block
+      .banner-button
+        height: 40px
+        width: 100%
+        border-radius: 20px
+        justify-content: center
+      .banner-button-group
+        margin: 5px 0
+        display: flex
+        .banner-button-text
+          margin-right: 5px
+      .author-info-top
+        margin: 45px auto
+        display: flex
+        justify-content: center
+        width: 118px;
+        height: 118px;
+        transition: cubic-bezier(.69,.39,0,1.21) .3s;
+        transform-origin: bottom;
+        +maxWidth768()
+          display: none
+      .card-info-avatar
+        display: inline-block
+        position: relative
+        .avatar-img
+          width: 118px
+          height: 118px
+          display: block
+          img
+            border: var(--style-border-avatar);
+            border-radius: 50%;
+            filter: blur(0) brightness(1);
+      #author-info__sayhi 
+        text-align: left;
+        color: var(--anzhiyu-white);
+        background: var(--anzhiyu-white-op);
+        font-size: 12px;
+        margin: auto;
+        padding: 2px 8px;
+        border-radius: 12px;
+        width: fit-content;
+        cursor: pointer;
+        transition: 0.3s;
+      .banner-button-group .banner-button
+        border-radius: 35px;
+        background: var(--anzhiyu-white-op);
+        &:hover
+          background: var(--anzhiyu-white);
+          color: var(--anzhiyu-black);
 
 [data-theme="dark"] #aside-content > .card-info
   background: var(--anzhiyu-card-bg)
