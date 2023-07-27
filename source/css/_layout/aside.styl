@@ -525,7 +525,9 @@ if hexo-config('aside.enable')
       background: var(--anzhiyu-card-bg);
       box-shadow: var(--anzhiyu-shadow-black);
       position: relative;
-      padding: 0
+      padding: 0;
+      +maxWidth768()
+        display: none;
       > .card-content
         padding: 1rem 1.2rem;
         min-height: 320px;
@@ -551,17 +553,6 @@ if hexo-config('aside.enable')
           opacity: 0;
           transform: scale(0);
 
-
-      .banner-button
-        height: 40px
-        width: 100%
-        border-radius: 20px
-        justify-content: center
-      .banner-button-group
-        margin: 5px 0
-        display: flex
-        .banner-button-text
-          margin-right: 5px
       .author-info-top
         margin: 45px auto
         display: flex

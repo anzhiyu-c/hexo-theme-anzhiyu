@@ -3,7 +3,6 @@ if hexo-config('ptool.enable') == true
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: .5rem;
     flex-wrap: wrap;
     -webkit-user-select: none;
     flex-direction: column;
@@ -14,8 +13,10 @@ if hexo-config('ptool.enable') == true
       text-overflow: ellipsis;
       flex-wrap: wrap;
       margin-bottom: 0.5rem;
+      justify-content: center;
       .rewardLeftButton, .shareRight
         display: flex
+        margin: 10px
       +maxWidth768()
         margin-top: 1rem;
         justify-content: center;

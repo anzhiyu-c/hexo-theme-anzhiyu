@@ -68,10 +68,11 @@
     padding: 40px 20px
   color: var(--light-grey)
   text-align: center
+  +maxWidth768()
+    padding: 0
   #footer_deal
     justify-content: center;
     display: flex;
-    padding-top: 2rem;
     align-items: center;
     +maxWidth768()
       flex-wrap: wrap;
@@ -109,7 +110,7 @@
     margin: 1rem auto;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 1rem;
+    padding: 0 2rem;
     .footer-group
       min-width: 120px;
       .footer-title-group
@@ -129,6 +130,7 @@
       font-size: 1rem;
       text-align: left;
       font-weight: 600;
+      margin: 1rem 0;
     .footer-links
       display: flex;
       flex-direction: column;
