@@ -6,11 +6,23 @@
     #footer_deal
       each item, index in leftInfo
         a.deal_link(href=url_for(item.link) title=item.title)
-          i(class=item.icon)
+          if (item.icon.startsWith("fa"))
+            i(class=`${item.icon}`)
+          else if (item.icon.startsWith("icon"))
+            svg.icon(aria-hidden="true")
+              use(xlink:href=`#`+ item.icon)
+          else if (item.icon.startsWith("anzhiyu"))
+            i.anzhiyufont(class=`${item.icon}`)
       img.footer_mini_logo(title="返回顶部", onclick="anzhiyu.scrollToDest(0, 500)", src=centerImg, size="50px")
       each item, index in rightInfo
         a.deal_link(href=url_for(item.link) title=item.title)
-          i(class=item.icon)
+          if (item.icon.startsWith("fa"))
+            i(class=`${item.icon}`)
+          else if (item.icon.startsWith("icon"))
+            svg.icon(aria-hidden="true")
+              use(xlink:href=`#`+ item.icon)
+          else if (item.icon.startsWith("anzhiyu"))
+            i.anzhiyufont(class=`${item.icon}`)
   if theme.footer.list.enable
     - let projectList = theme.footer.list.project
     #anzhiyu-footer

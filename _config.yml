@@ -466,23 +466,23 @@ footer:
     left:
       # - title: email
       #   link: mailto:anzhiyu-c@qq.com
-      #   icon: anzhiyufont anzhiyu-icon-envelope
+      #   icon: anzhiyu-icon-envelope
       # - title: 微博
       #   link: https://weibo.com/u/6378063631
-      #   icon: anzhiyufont anzhiyu-icon-weibo
+      #   icon: anzhiyu-icon-weibo
       # - title: facebook
       #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
-      #   icon: anzhiyufont anzhiyu-icon-facebook1
+      #   icon: anzhiyu-icon-facebook1
     right:
       # - title: Github
       #   link: https://github.com/anzhiyu-c
-      #   icon: anzhiyufont anzhiyu-icon-github
+      #   icon: anzhiyu-icon-github
       # - title: Bilibili
       #   link: https://space.bilibili.com/372204786
-      #   icon: anzhiyufont anzhiyu-icon-bilibili
+      #   icon: anzhiyu-icon-bilibili
       # - title: 抖音
       #   link: https://v.douyin.com/DwCpMEy/
-      #   icon: anzhiyufont anzhiyu-icon-tiktok
+      #   icon: anzhiyu-icon-tiktok
   list:
     enable: false
     randomFriends: 3
