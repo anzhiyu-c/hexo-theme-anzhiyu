@@ -1,32 +1,35 @@
-.post-tools
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  -webkit-user-select: none;
-  .post-tools-left
-    white-space: nowrap;
+if hexo-config('ptool.enable') == true
+  .post-tools
     display: flex;
-    text-overflow: ellipsis;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: .5rem;
     flex-wrap: wrap;
-    margin-bottom: 0.5rem;
-    .rewardLeftButton, .shareRight
-      display: flex
-    +maxWidth768()
-      margin-top: 1rem;
-      justify-content: center;
-      width: 100%;
-      > div
-        margin: 8px;
-  .post-tools-right
-    padding-right: 0px;
-    display: flex;
+    -webkit-user-select: none;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 0.5rem;
-    +maxWidth768()
-      flex-direction: column;
-    
+    .post-tools-left
+      white-space: nowrap;
+      display: flex;
+      text-overflow: ellipsis;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+      .rewardLeftButton, .shareRight
+        display: flex
+      +maxWidth768()
+        margin-top: 1rem;
+        justify-content: center;
+        width: 100%;
+        > div
+          margin: 8px;
+
+.post-tools-right
+  padding-right: 0px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  +maxWidth768()
+    flex-direction: column;
 .share-link
   margin-left: 0.5rem;
   display: flex;

@@ -243,30 +243,77 @@ blockquote {
           line-height: w
 
   .post-copyright
-    background: var(--anzhiyu-card-bg);
+    background: var(--anzhiyu-secondbg);
     padding: 1rem 1.3rem;
-    overflow: hidden;
     border: var(--style-border);
     border-width: 1px;
     transition: 0.3s;
     position: relative;
-    margin: 2rem 0px 0.5rem;
+    margin: 80px 0 30px;
     border-radius: 12px;
+    .copyright-cc-box
+      position: absolute;
+      right: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      pointer-events: none;
     +maxWidth768()
       margin: 0
-    a.link,.post-copyright__notice a
-      font-weight: 500;
-      border-bottom: solid 2px var(--anzhiyu-lighttext);
-      color: var(--anzhiyu-fontcolor);
-      padding: 0 0.2em;
-      text-decoration: none;
-      &:hover
-        color: var(--anzhiyu-white);
-        background-color: var(--anzhiyu-main);
-        border-radius: 4px;
-    &__author
+    &__author_box
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .post-copyright__author_img
+        width: 66px;
+        height: 66px;
+        margin: auto;
+        border-radius: 66px;
+        overflow: hidden;
+        position: absolute;
+        left: calc(50% - 33px);
+        top: -33px;
+        border: var(--style-border-always);
+        box-shadow: var(--anzhiyu-shadow-main);
+        &:hover
+          img.post-copyright__author_img_back
+            z-index: 21;
+            transform: translateY(0px);
+          if hexo-config('post_copyright.avatarSinks')
+            img.post-copyright__author_img_front
+              transform: translateY(3px);
+
+        img.post-copyright__author_img_front
+          z-index: 20;
+          transition: .3s
+
+        img.post-copyright__author_img_back
+          border-radius: 66px;
+          z-index: 10;
+          transition: .3s
+        img
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+      .post-copyright__author_name
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--anzhiyu-fontcolor);
+        line-height: 1;
+      .post-copyright__author_desc
+          text-align: center;
+          font-size: 14px;
+          color: var(--anzhiyu-secondtext);
+          margin-top: 4px;
+
+    &__post__info
+      display: flex;
+      align-items: center;
+      margin-top: 12px;
     &__original,&__reprint
       background: var(--anzhiyu-main);
       color: var(--anzhiyu-card-bg);
@@ -289,57 +336,31 @@ blockquote {
       color: var(--anzhiyu-main)
       @media screen and (min-width: 1365px)
         z-index: 0;
-        
 
-    &:hover
-      box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
-
-    .post-copyright
-      &-title
-        white-space: nowrap;
+    &-title
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 500
+      width: 80%;
+      span
+        cursor pointer
+      
+      &:hover
+        color: var(--anzhiyu-fontcolor)
+    .post-copyright__notice
+      font-size: 12px;
+      .post-copyright-info
+        padding-left: 0;
+        color: var(--anzhiyu-secondtext);
         overflow: hidden;
-        text-overflow: ellipsis;
-        font-weight: 500
-        
-        &:hover
-          color: var(--anzhiyu-fontcolor)
-      &-meta
-        color: var(--anzhiyu-main)
-        font-weight: bold
-        min-width: 75px;
-
-      &-info
-        padding-left: 6px
-
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-align: center;
         a
-          word-break: break-word
-
           &:hover
-            text-decoration: none
-      &__type
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        .copy-button
-          background: var(--anzhiyu-card-bg);
-          border: var(--style-border);
-          color: var(--anzhiyu-fontcolor);
-          border-radius: 8px;
-          cursor: pointer;
-          transition: 0.3s;
-          width: 38px;
-          height: 28px;
-          margin-left: 8px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          +maxWidth768()
-            display: none
-          &:hover
-            background: var(--anzhiyu-main);
-            border-color: var(--anzhiyu-main);
-            color: var(--anzhiyu-white);
+            color: var(--anzhiyu-main)
 
   .post-outdate-notice
     position: relative

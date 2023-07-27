@@ -1,27 +1,42 @@
 if theme.post_copyright.enable && page.copyright !== false
   - let author = page.copyright_author || config.author
-  - let authorHref = page.copyright_author_href || theme.post_copyright.author_href || config.url
   - let url = page.copyright_url || page.permalink
   - let info = page.copyright_info || _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
   .post-copyright
-    i.anzhiyufont.anzhiyu-icon-copyright
-    .post-copyright__author
+    .copyright-cc-box
+      i.anzhiyufont.anzhiyu-icon-copyright
+    .post-copyright__post__info
       if (page.copyright_author && page.copyright_author !== config.author)
         a.post-copyright__reprint(title="该文章为转载文章，注意版权协议" href=url_for(url)) 转载
       else
         a.post-copyright__original(title="该文章为原创文章，注意版权协议" href=url_for(url)) 原创
       a.post-copyright-title
-        span=pageTitle
-    .post-copyright-info-box
-      span.post-copyright-meta= _p('post.copyright.author') + ": "
-      span.post-copyright-info
-      a.link(href=authorHref)=author
-    .post-copyright__type
-      span.post-copyright-meta= _p('post.copyright.link') + ": "
-      span.post-copyright-info
-        a.link(href=url_for(url))= theme.post_copyright.decode ? decodeURI(url) : url
-      span.copy-button(onclick=`rm.copyPageUrl('${theme.post_copyright.decode ? decodeURI(url) : url}')`)
-        i.anzhiyufont.anzhiyu-icon-copy
+        span(onclick=`rm.copyPageUrl('${theme.post_copyright.decode ? decodeURI(url) : url}')`)=pageTitle
+    .post-copyright__author_box
+      - let copyright_author_img_back = theme.post_copyright.copyright_author_img_back ? theme.post_copyright.copyright_author_img_back : theme.avatar.img
+      - let copyright_author_img_front = theme.post_copyright.copyright_author_img_front ? theme.post_copyright.copyright_author_img_front : theme.avatar.img
+      - let copyright_author_link = theme.post_copyright.copyright_author_link ? theme.post_copyright.copyright_author_link : '/'
+      a.post-copyright__author_img(href=url_for(copyright_author_link) title='头像')
+        img.post-copyright__author_img_back(src=url_for(copyright_author_img_back) title='头像' alt='头像')
+        img.post-copyright__author_img_front(src=url_for(copyright_author_img_front) title="头像" alt='头像')
+      .post-copyright__author_name=author
+      .post-copyright__author_desc=config.subtitle
+    //- ptool
+    if theme.ptool.enable
+      include ./ptool.pug
     .post-copyright__notice
-      span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
       span.post-copyright-info!= info
+  .post-tools-right
+    if (!theme.ptool.categories)
+      .tag_share
+        .post-meta__box
+          if (theme.post_meta.post.tags)
+            .post-meta__box__tag-list
+              each item, index in page.tags.data
+                a(href=url_for(item.path)).post-meta__box__tags
+                  span.tags-punctuation 
+                    i.anzhiyufont.anzhiyu-icon-tag
+                  =item.name
+                  span.tagsPageCount=item.length
+
+      !=partial('includes/third-party/share/index.pug', {}, {cache: true})
