@@ -71,6 +71,7 @@ hexo.extend.filter.register("before_generate", () => {
         unpkg: `https://unpkg.com/${name}${verType}/${file}`,
         cdnjs: `https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${min_cdnjs_file}`,
         elemecdn: `https://npm.elemecdn.com/${name}${verType}/${file}`,
+        onmicrosoft: `https://npm.onmicrosoft.cn/${name}${verType}/${file}`,
         custom: (CDN.custom_format || "").replace(/\$\{(.+?)\}/g, (match, $1) => value[$1]),
       };
 

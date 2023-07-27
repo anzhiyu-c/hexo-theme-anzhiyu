@@ -1303,7 +1303,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         } else {
           if (GLOBAL_CONFIG.mainTone.mode == "both") {
-            console.info(response.headers.get("content-type"));
             // both继续请求
             try {
               const response = await fetch(GLOBAL_CONFIG.mainTone.api + path);
