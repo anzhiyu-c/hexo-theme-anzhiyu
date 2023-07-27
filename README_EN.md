@@ -50,7 +50,7 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 - windows
    Run in the blog root directory
 ```bash
-copy themes\anzhiyu\_config.yml .\ && ren _config.yml _config.anzhiyu.yml
+ren themes\anzhiyu\_config.yml _config.anzhiyu.yml && copy themes\anzhiyu\_config.anzhiyu.yml .\ && ren themes\anzhiyu\_config.anzhiyu.yml _config.yml
 ```
 
 ## Warehouse Statistics
