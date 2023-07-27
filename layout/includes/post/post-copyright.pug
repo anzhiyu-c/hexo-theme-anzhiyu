@@ -5,13 +5,6 @@ if theme.post_copyright.enable && page.copyright !== false
   .post-copyright
     .copyright-cc-box
       i.anzhiyufont.anzhiyu-icon-copyright
-    .post-copyright__post__info
-      if (page.copyright_author && page.copyright_author !== config.author)
-        a.post-copyright__reprint(title="该文章为转载文章，注意版权协议" href=url_for(url)) 转载
-      else
-        a.post-copyright__original(title="该文章为原创文章，注意版权协议" href=url_for(url)) 原创
-      a.post-copyright-title
-        span(onclick=`rm.copyPageUrl('${theme.post_copyright.decode ? decodeURI(url) : url}')`)=pageTitle
     .post-copyright__author_box
       - let copyright_author_img_back = theme.post_copyright.copyright_author_img_back ? theme.post_copyright.copyright_author_img_back : theme.avatar.img
       - let copyright_author_img_front = theme.post_copyright.copyright_author_img_front ? theme.post_copyright.copyright_author_img_front : theme.avatar.img
@@ -21,6 +14,13 @@ if theme.post_copyright.enable && page.copyright !== false
         img.post-copyright__author_img_front(src=url_for(copyright_author_img_front) title="头像" alt='头像')
       .post-copyright__author_name=author
       .post-copyright__author_desc=config.subtitle
+    .post-copyright__post__info
+      if (page.copyright_author && page.copyright_author !== config.author)
+        a.post-copyright__reprint(title="该文章为转载文章，注意版权协议" href=url_for(url)) 转载
+      else
+        a.post-copyright__original(title="该文章为原创文章，注意版权协议" href=url_for(url)) 原创
+      a.post-copyright-title
+        span(onclick=`rm.copyPageUrl('${theme.post_copyright.decode ? decodeURI(url) : url}')`)=pageTitle
     //- ptool
     if theme.ptool.enable
       include ./ptool.pug
