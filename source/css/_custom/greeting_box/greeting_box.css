@@ -7,6 +7,11 @@
   z-index: 999;
   pointer-events: none;
 }
+@media screen and (max-width: 768px) {
+  #greetingBox {
+    display: none;
+  }
+}
 
 #greeting {
   display: inline-block;

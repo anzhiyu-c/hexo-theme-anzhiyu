@@ -1,16 +1,16 @@
 if theme.aside.card_author.enable
   .card-widget.card-info
     .card-content
-      .author-info__sayhi#author-info__sayhi
+      .author-info__sayhi#author-info__sayhi(onclick="anzhiyu.changeSayHelloText()")
       .author-info-top(title='点击展开')
         .card-info-avatar
           .avatar-img
             img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
-          if theme.aside.card_author.author_status.enable
+          if theme.author_status.enable
             .author-status-box
               .author-status
-                g-emoji(class='g-emoji', alias=theme.aside.card_author.author_status.alias, fallback-src=theme.aside.card_author.author_status.fallback_src)=theme.aside.card_author.author_status.status
-                span=theme.aside.card_author.author_status.text
+                g-emoji(class='g-emoji', alias=theme.author_status.alias, fallback-src=theme.author_status.fallback_src)=theme.author_status.status
+                span=theme.author_status.text
 
       .author-info__description!= theme.aside.card_author.description || config.description
 

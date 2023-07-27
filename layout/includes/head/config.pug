@@ -102,12 +102,20 @@
     })
   }
 
+  let authorStatus = 'undefined'
+  if (theme.author_status && theme.author_status.enable) {
+    authorStatus = JSON.stringify({
+      skills: theme.author_status.skills
+    })
+  }
+
 script.
   const GLOBAL_CONFIG = { 
     root: '!{config.root}',
     friends_vue_info: !{friends_vue_info},
     navMusic: !{theme.nav_music.enable},
     mainTone: !{mainTone},
+    authorStatus: !{authorStatus},
     algolia: !{algolia},
     localSearch: !{localSearch},
     translate: !{translate},

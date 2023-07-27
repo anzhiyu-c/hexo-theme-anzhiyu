@@ -464,7 +464,7 @@ const anzhiyu = {
     if ($list) {
       const pathname = decodeURIComponent(window.location.pathname);
       const catalogListItems = $list.querySelectorAll(".catalog-list-item");
-  
+
       let $catalog = null;
       catalogListItems.forEach(item => {
         if (pathname.startsWith(item.id)) {
@@ -485,7 +485,7 @@ const anzhiyu = {
     }
   },
   // 修改时间显示"最近"
-  diffDate: function (d, more = false, simple =false) {
+  diffDate: function (d, more = false, simple = false) {
     const dateNow = new Date();
     const datePost = new Date(d);
     const dateDiff = dateNow.getTime() - datePost.getTime();
@@ -522,7 +522,7 @@ const anzhiyu = {
       } else if (dayCount >= 1 && dayCount <= 3) {
         result = parseInt(dayCount) + " " + GLOBAL_CONFIG.date_suffix.day;
       } else if (dayCount > 3) {
-        result = datePost.getMonth()+1 + "/" + datePost.getDate();
+        result = datePost.getMonth() + 1 + "/" + datePost.getDate();
       } else if (hourCount >= 1) {
         result = parseInt(hourCount) + " " + GLOBAL_CONFIG.date_suffix.hour;
       } else if (minuteCount >= 1) {
@@ -566,24 +566,31 @@ const anzhiyu = {
   },
   sayhi: function () {
     const $sayhiEl = document.getElementById("author-info__sayhi");
-    const getTimeState = function () {
-      var e = new Date().getHours(),
-        t = "";
-      return (
-        0 <= e && e <= 5
-          ? (t = "晚安😴")
-          : 5 < e && e <= 10
-          ? (t = "早上好👋")
-          : 10 < e && e <= 14
-          ? (t = "中午好👋")
-          : 14 < e && e <= 18
-          ? (t = "下午好👋")
-          : 18 < e && e <= 24 && (t = "晚上好👋"),
-        t
-      );
+  
+    const getTimeState = () => {
+      const hour = new Date().getHours();
+      let message = "";
+  
+      if (hour >= 0 && hour <= 5) {
+        message = "睡个好觉，保证精力充沛";
+      } else if (hour > 5 && hour <= 10) {
+        message = "一日之计在于晨";
+      } else if (hour > 10 && hour <= 14) {
+        message = "吃饱了才有力气干活";
+      } else if (hour > 14 && hour <= 18) {
+        message = "集中精力，攻克难关";
+      } else if (hour > 18 && hour <= 24) {
+        message = "不要太劳累了，早睡更健康";
+      }
+  
+      return message;
     };
-    $sayhiEl && ($sayhiEl.innerHTML = getTimeState() + "！我是");
+  
+    if ($sayhiEl) {
+      $sayhiEl.innerHTML = getTimeState();
+    }
   },
+  
   // 友链注入预设评论
   addFriendLink() {
     var input = document.getElementsByClassName("el-textarea__inner")[0];
@@ -1281,5 +1288,20 @@ const anzhiyu = {
     } else {
       menuCommentBarrageDom.style.display = "none";
     }
+  },
+  // 切换作者卡片状态文字
+  changeSayHelloText: function () {
+    console.info(GLOBAL_CONFIG);
+    const greetings = GLOBAL_CONFIG.authorStatus.skills;
+
+    const authorInfoSayHiElement = document.getElementById("author-info__sayhi");
+
+    let lastSayHello = authorInfoSayHiElement.textContent;
+
+    let randomGreeting = lastSayHello;
+    while (randomGreeting === lastSayHello) {
+      randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+    }
+    authorInfoSayHiElement.textContent = randomGreeting;
   },
 };

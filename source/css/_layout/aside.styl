@@ -594,6 +594,12 @@ if hexo-config('aside.enable')
         width: fit-content;
         cursor: pointer;
         transition: 0.3s;
+        user-select: none
+        &:hover
+          background: var(--anzhiyu-card-bg);
+          color: var(--anzhiyu-fontcolor);
+          transform: scale(1.1);
+
       .banner-button-group .banner-button
         border-radius: 35px;
         background: var(--anzhiyu-white-op);
