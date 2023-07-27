@@ -1197,18 +1197,18 @@ CDN:
   # The CDN provider of internal scripts (主题内部 js 的 cdn 配置)
   # option: local/elemecdn/jsdelivr/unpkg/cdnjs/custom
   # Dev version can only choose. ( dev版的主题只能设置为 local )
-  internal_provider: elemecdn
+  internal_provider: onmicrosoft
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
   # option: elemecdn/jsdelivr/unpkg/cdnjs/custom
-  third_party_provider: elemecdn
+  third_party_provider: onmicrosoft
 
   # Add version number to CDN, true or false
   version: true
 
   # Custom format
   # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
-  custom_format: https://npm.elemecdn.com/${name}@latest/${file}
+  custom_format: # https://npm.elemecdn.com/${name}@latest/${file}
 
   option:
     # main_css:
