@@ -50,7 +50,7 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 - windows
   在博客根目录运行
 ```bash
-copy themes\anzhiyu\_config.yml .\ && ren _config.yml _config.anzhiyu.yml
+ren themes\anzhiyu\_config.yml _config.anzhiyu.yml && copy themes\anzhiyu\_config.anzhiyu.yml .\ && ren themes\anzhiyu\_config.anzhiyu.yml _config.yml
 ```
 
 ## 仓库统计
