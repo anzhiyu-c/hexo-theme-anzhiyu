@@ -79,15 +79,15 @@
       if page.comments !== false && commentUse && !comments.lazyload
         if commentUse[0] === 'Valine' && theme.valine.visitor
           +pvBlock(url_for(page.path),'leancloud_visitors',page.title)
-            span.leancloud-visitors-count(title="评论数")
+            span.leancloud-visitors-count(title="访问量")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Waline' && theme.waline.pageview
           +pvBlock('','','')
-            span.waline-pageview-count(data-path=url_for(page.path) title="评论数")
+            span.waline-pageview-count(data-path=url_for(page.path) title="访问量")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Twikoo' && theme.twikoo.visitor
           +pvBlock('','','')
-            span#twikoo_visitors(title="评论数")
+            span#twikoo_visitors(title="访问量")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Artalk' && theme.artalk.visitor
           +pvBlock('','','')
