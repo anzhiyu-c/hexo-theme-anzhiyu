@@ -433,7 +433,7 @@ const anzhiyu = {
           disableOnInteraction: true,
           delay: 3000,
         },
-        mousewheel: false,
+        mousewheel: true,
       });
 
       let essay_bar_comtainer = document.getElementById("bbtalk");

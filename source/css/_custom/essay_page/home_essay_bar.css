@@ -12,6 +12,7 @@
   height: 50px;
   width: 100%;
   max-width: 1370px;
+  animation: slide-in .6s 0s backwards;
 }
 @media screen and (max-width: 1400px) {
   #bbTimeList {
@@ -29,9 +30,6 @@
 }
 #bbtalk {
   width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 #bber-talk {
   width: 100%;

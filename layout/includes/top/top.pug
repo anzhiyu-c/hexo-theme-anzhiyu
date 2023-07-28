@@ -133,6 +133,5 @@ if home_top_config.enable
           swiper.autoplay.start();
         };
       }
-  if !site.data.essay
-    link(rel="stylesheet" href=theme.home_top.swiper.swiper_css onload="this.media='all'")
-  link(rel="stylesheet" href=theme.home_top.swiper.categorygroup_css onload="this.media='all'")
+
+  link(rel="stylesheet" href=url_for(theme.home_top.swiper.categorygroup_css))

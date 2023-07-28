@@ -68,6 +68,9 @@ if (theme.snackbar && theme.snackbar.enable)
 if theme.fancybox
   link(rel='stylesheet' href=url_for(theme.asset.fancybox_css_v4) media="print" onload="this.media='all'")
 
+if site.data.essay || theme.home_top.swiper.enable
+  link(rel='stylesheet' href=url_for(theme.home_top.swiper.swiper_css) media="print" onload="this.media='all'")
+
 //- google_adsense
 !=partial('includes/head/google_adsense', {}, {cache: true})
 
