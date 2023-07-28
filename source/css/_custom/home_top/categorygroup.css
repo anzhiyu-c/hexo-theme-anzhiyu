@@ -79,17 +79,13 @@ a.categoryButton.green {
 
 .categoryItem:hover svg,
 .categoryItem:hover i {
-  transform: scale(1.03);
-}
-
-.categoryItem:hover svg,
-.categoryItem:hover i {
   opacity: 0.8;
   transition: 0.8s;
   transition-delay: 0.15s;
   transform: scale(1.03);
   font-size: 2.5rem;
   filter: blur(0);
+  top: 15%;
 }
 a.categoryButton:after {
   top: 47px;
