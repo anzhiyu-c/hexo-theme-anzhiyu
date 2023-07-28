@@ -79,18 +79,91 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
         if theme.footer.footerBar && theme.footer.footerBar.typing && theme.footer.footerBar.typing.enable
           - let typingConfig = theme.footer.footerBar.typing
           script(src=url_for(theme.asset.typed))
-          script.
-            document.addEventListener("DOMContentLoaded", function() {
-              var configStrings = !{JSON.stringify(typingConfig.strings)};
-              var typed = new Typed("#footer-type-tips", {
-                strings: configStrings,
-                startDelay: parseInt('#{typingConfig.startDelay}'),
-                backDelay: parseInt('#{typingConfig.backDelay}'),
-                typeSpeed: parseInt('#{typingConfig.typeSpeed}'),
-                loop: '#{typingConfig.loop}' === 'true',
-                backSpeed: parseInt('#{typingConfig.backSpeed}')
+          script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+          script(src="https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js")
+          if typingConfig.source == "1"
+            script.
+              document.addEventListener("DOMContentLoaded", function() {
+                axios.get("https://api.qjqq.cn/api/Yi")
+                  .then(function(response) {
+                    var hitokotoText = response.data.hitokoto;
+                    var typed = new Typed("#footer-type-tips", {
+                      strings: [hitokotoText], // 使用接口返回的文本内容作为打字效果的字符串
+                      startDelay: parseInt('#{typingConfig.startDelay}'),
+                      backDelay: parseInt('#{typingConfig.backDelay}'),
+                      typeSpeed: parseInt('#{typingConfig.typeSpeed}'),
+                      loop: '#{typingConfig.loop}' === 'true',
+                      backSpeed: parseInt('#{typingConfig.backSpeed}')
+                    });
+                  })
+                  .catch(function(error) {
+                    console.error("Error fetching data from the API:", error);
+                  });
               });
-            });
+          else if typingConfig.source == "2"
+            script.
+              document.addEventListener("DOMContentLoaded", function() {
+                axios.get("https://v1.hitokoto.cn")
+                  .then(function(response) {
+                    var hitokotoText = response.data.hitokoto; // 提取接口返回的文本内容
+                    var typed = new Typed("#footer-type-tips", {
+                      strings: [hitokotoText], // 使用接口返回的文本内容作为打字效果的字符串
+                      startDelay: parseInt('#{typingConfig.startDelay}'),
+                      backDelay: parseInt('#{typingConfig.backDelay}'),
+                      typeSpeed: parseInt('#{typingConfig.typeSpeed}'),
+                      loop: '#{typingConfig.loop}' === 'true',
+                      backSpeed: parseInt('#{typingConfig.backSpeed}')
+                    });
+                  })
+                  .catch(function(error) {
+                    console.error("Error fetching data from the API:", error);
+                  });
+              });
+          else if typingConfig.source == "3"
+            script(src="https://sdk.jinrishici.com/v2/browser/jinrishici.js")
+            script.
+                document.addEventListener("DOMContentLoaded", function() {
+                  // 函数用于通过Jinrishici API获取随机诗句
+                  function fetchRandomPoem(callback) {
+                    // 调用Jinrishici API
+                    jinrishici.load(function(result) {
+                      // 检查API调用是否成功并且包含诗句数据
+                      if (result && result.status === "success" && result.data) {
+                        // 提取诗句内容并将其传递给回调函数
+                        callback(result.data.content);
+                      } else {
+                        // 如果出现错误或没有诗句数据，则显示默认消息
+                        callback("获取诗句失败，请稍后再试。");
+                      }
+                    });
+                  }
+
+                  // 调用函数获取随机诗句，并使用Typed.js显示出来
+                  fetchRandomPoem(function(poemContent) {
+                    // 使用获取到的诗句内容初始化Typed.js
+                    var typed = new Typed("#footer-type-tips", {
+                      strings: [poemContent],
+                      startDelay: parseInt('#{typingConfig.startDelay}'),
+                      backDelay: parseInt('#{typingConfig.backDelay}'),
+                      typeSpeed: parseInt('#{typingConfig.typeSpeed}'),
+                      loop: '#{typingConfig.loop}' === 'true',
+                      backSpeed: parseInt('#{typingConfig.backSpeed}')
+                    });
+                  });
+                });
+          else 
+            script.
+              document.addEventListener("DOMContentLoaded", function() {
+                var configStrings = !{JSON.stringify(typingConfig.strings)};
+                var typed = new Typed("#footer-type-tips", {
+                  strings: configStrings,
+                  startDelay: parseInt('#{typingConfig.startDelay}'),
+                  backDelay: parseInt('#{typingConfig.backDelay}'),
+                  typeSpeed: parseInt('#{typingConfig.typeSpeed}'),
+                  loop: '#{typingConfig.loop}' === 'true',
+                  backSpeed: parseInt('#{typingConfig.backSpeed}')
+                });
+              });
       .footer-bar-right
         each item in theme.footer.footerBar.linkList
           a.footer-bar-link(href=url_for(item.link) title=item.text)=item.text
