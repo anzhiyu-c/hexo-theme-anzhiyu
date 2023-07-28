@@ -36,7 +36,7 @@
   padding-left: 1rem;
   opacity: 1;
   color: #ffffff;
-  background-color: #425aefdd;
+  background-color: var(--anzhiyu-theme-op-deep);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   transition: 0.3s;
