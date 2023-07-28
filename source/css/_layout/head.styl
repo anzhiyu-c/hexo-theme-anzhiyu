@@ -11,6 +11,11 @@
     height: $index_top_img_height
     background-attachment: fixed
     border-radius: 0
+  if hexo-config('index_img')
+    +maxWidth768()
+      #center-console + label
+        i
+          background: var(--font-color)
 
     #site-info
       position: absolute
