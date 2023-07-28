@@ -1258,9 +1258,8 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       document.documentElement.style.setProperty(
         "--anzhiyu-theme-op-deep",
-        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") +"dd"
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
       );
-    
 
       return;
     }
@@ -1298,7 +1297,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
             document.documentElement.style.setProperty(
               "--anzhiyu-theme-op-deep",
-              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") +"dd"
+              getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
             );
           }
         } else {
@@ -1325,7 +1324,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   );
                   document.documentElement.style.setProperty(
                     "--anzhiyu-theme-op-deep",
-                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") +"dd"
+                    getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
                   );
                 }
               } else {

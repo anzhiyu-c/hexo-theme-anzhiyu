@@ -22,7 +22,6 @@ script.
     endLoading: () => {
       document.body.style.overflow = 'auto';
       document.getElementById('loading-box').classList.add("loaded");
-      Pace.restart()
     },
     initLoading: () => {
       document.body.style.overflow = '';
@@ -30,6 +29,7 @@ script.
     }
   }
   window.addEventListener('load',()=> { preloader.endLoading() })
+  setTimeout(function(){preloader.endLoading();},10000)
 
   if (!{theme.pjax && theme.pjax.enable}) {
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
