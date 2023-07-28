@@ -537,8 +537,8 @@ footer:
         text: 主题
       # - link: https://image.anheyu.com
       #   text: 图床
-      - link: https://beian.miit.gov.cn/
-        text: 湘ICP备-xxxxxxx号
+      # - link: https://beian.miit.gov.cn/
+      #   text: 湘ICP备-xxxxxxx号
     typing:
       enable: false
       strings:
