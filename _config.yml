@@ -541,6 +541,7 @@ footer:
       #   text: 湘ICP备-xxxxxxx号
     typing:
       enable: false
+      source: 1 #调用第三方服务 1.青桔的随机一言、2.随机文案、3.随机诗句 。如果不填则会执行strings
       strings:
         - "愿岁并谢，与友长兮。"
         - "Forever friends, always grateful."
