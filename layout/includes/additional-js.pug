@@ -8,7 +8,7 @@ div
   if theme.medium_zoom
     script(src=url_for(theme.asset.medium_zoom))
   else if theme.fancybox
-    script(src=url_for(theme.asset.fancybox_v4))
+    script(src=url_for(theme.asset.fancybox))
 
   if theme.instantpage
     script(src=url_for(theme.asset.instantpage), type='module')
@@ -43,7 +43,7 @@ div
 
   //- search
   if theme.algolia_search.enable
-    script(src=url_for(theme.asset.algolia_search_v4))
+    script(src=url_for(theme.asset.algolia_search))
     script(src=url_for(theme.asset.instantsearch_v4))
     script(src=url_for(theme.asset.algolia_js))
   else if theme.local_search.enable

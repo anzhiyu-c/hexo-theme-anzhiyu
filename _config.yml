@@ -1222,7 +1222,7 @@ CDN:
     # translate:
     # local_search:
     # algolia_js:
-    # algolia_search_v4:
+    # algolia_search:
     # instantsearch_v4:
     # pjax:
     # blueimp_md5:
@@ -1243,8 +1243,8 @@ CDN:
     # instantpage:
     # typed:
     # pangu:
-    # fancybox_css_v4:
-    # fancybox_v4:
+    # fancybox_css:
+    # fancybox:
     # medium_zoom:
     # snackbar_css:
     # snackbar:
