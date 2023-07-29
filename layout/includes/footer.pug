@@ -70,9 +70,10 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
           if theme.footer.owner.enable
             - var now = new Date()
             - var nowYear = now.getFullYear()
+            - let authorLink = theme.footer.footerBar.authorLink ? theme.footer.footerBar.authorLink : config.url
             if theme.footer.owner.since && theme.footer.owner.since != nowYear
               .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By `
-                a.footer-bar-link(href=url_for(config.url) title=config.author target="_blank")=config.author
+                a.footer-bar-link(href=url_for(authorLink) title=config.author target="_blank")=config.author
             else
               .copyright!= `&copy;${nowYear} By ${config.author} `
         #footer-type-tips
