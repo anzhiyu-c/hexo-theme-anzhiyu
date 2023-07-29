@@ -32,7 +32,7 @@ nav#nav
       .nav-button#randomPost_button
         a.site-page(onclick='toRandomPost()', title='随机前往一个文章', href='javascript:void(0);')
           i.anzhiyufont.anzhiyu-icon-dice
-      if (theme.algolia_search.enable || theme.local_search.enable)
+      if (theme.algolia_search.enable || theme.local_search.enable || theme.docsearch.enable)
         div.nav-button#search-button
           a.site-page.social-icon.search(href='javascript:void(0);', title='搜索🔍' accesskey="s")
             i.anzhiyufont.anzhiyu-icon-magnifying-glass
