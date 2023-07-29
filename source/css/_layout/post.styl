@@ -111,7 +111,14 @@ blockquote {
       font-weight: 700;
       &::before
         font-size: 2rem;
+  > :first-child:is(h2)
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
   h2
+    border-top: 1px dashed var(--anzhiyu-theme-op);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
     .headerlink
       float: right;
       opacity: 0.08;

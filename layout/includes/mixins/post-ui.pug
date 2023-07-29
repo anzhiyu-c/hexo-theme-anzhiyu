@@ -1,3 +1,7 @@
+- let maxDate = 0
+each item in site.posts.data
+  if item.date > maxDate
+    - maxDate = item.date
 mixin postUI(posts)
   each article , index in page.posts.data
     div(class = (index === 0 ? 'recent-post-item lastestpost-item' : 'recent-post-item'))
@@ -10,8 +14,8 @@ mixin postUI(posts)
           : position === 'left' ? 'left' : 'right'
         let post_cover = article.cover
         let no_cover = article.cover === false || !theme.cover.index_enable ? 'no-cover' : ''
-        const new_post = numberone !== 1 && is_current('/') && (!article.sticky || (article.new && article.sticky))
       -
+      - const new_post = is_current('/') && (maxDate === article.date)
       if (theme.post_meta.page.categories && article.categories.data.length > 0)
         .article-meta__categories__box(style=`${(new_post && !theme.cover.index_enable) ? "left: 95px":""}`)
           each item, index in article.categories.data
@@ -26,7 +30,6 @@ mixin postUI(posts)
       .recent-post-info(class=no_cover)
         if new_post
           span.newPost 最新文章
-          - var numberone = 1
         a.article-title(href=url_for(link) title=title)= title
         .article-meta-wrap
           if (is_home() && (article.top || article.sticky > 0))
