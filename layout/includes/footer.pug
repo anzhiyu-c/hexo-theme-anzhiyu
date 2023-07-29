@@ -77,21 +77,9 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
             else
               .copyright!= `&copy;${nowYear} By ${config.author} `
         #footer-type-tips
-        if theme.footer.footerBar && theme.footer.footerBar.typing && theme.footer.footerBar.typing.enable
-          - let typingConfig = theme.footer.footerBar.typing
-          script(src=url_for(theme.asset.typed))
-          script.
-            document.addEventListener("DOMContentLoaded", function() {
-              var configStrings = !{JSON.stringify(typingConfig.strings)};
-              var typed = new Typed("#footer-type-tips", {
-                strings: configStrings,
-                startDelay: parseInt('#{typingConfig.startDelay}'),
-                backDelay: parseInt('#{typingConfig.backDelay}'),
-                typeSpeed: parseInt('#{typingConfig.typeSpeed}'),
-                loop: '#{typingConfig.loop}' === 'true',
-                backSpeed: parseInt('#{typingConfig.backSpeed}')
-              });
-            });
+        if theme.footer.footerBar && theme.footer.footerBar.subTitle && theme.footer.footerBar.subTitle.enable
+          .js-pjax
+            include ./third-party/footerBarSubtitle.pug
       .footer-bar-right
         each item in theme.footer.footerBar.linkList
           a.footer-bar-link(href=url_for(item.link) title=item.text)=item.text

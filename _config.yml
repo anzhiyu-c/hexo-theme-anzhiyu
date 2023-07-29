@@ -540,16 +540,26 @@ footer:
       #   text: 图床
       # - link: https://beian.miit.gov.cn/
       #   text: 湘ICP备-xxxxxxx号
-    typing:
+    subTitle:
       enable: false
-      strings:
-        - "愿岁并谢，与友长兮。"
-        - "Forever friends, always grateful."
-      startDelay: 200
-      backDelay: 2000
-      typeSpeed: 100
+      # Typewriter Effect (打字效果)
+      effect: true
+      # Effect Speed Options (打字效果速度参数)
+      startDelay: 300 # time before typing starts in milliseconds
+      typeSpeed: 150 # type speed in milliseconds
+      backSpeed: 50 # backspacing speed in milliseconds
+      # loop (循环打字)
       loop: true
-      backSpeed: 20
+      # source 调用第三方服务
+      # source: false 关闭调用
+      # source: 1  调用一言网的一句话（简体） https://hitokoto.cn/
+      # source: 2  调用一句网（简体） http://yijuzhan.com/
+      # source: 3  调用今日诗词（简体） https://www.jinrishici.com/
+      # subtitle 会先显示 source , 再显示 sub 的内容
+      source: 1
+      # 如果关闭打字效果，subtitle 只会显示 sub 的第一行文字
+      sub:
+        - 生活明朗&#44; 万物可爱&#44; 人间值得&#44; 未来可期.
 
 # Analysis
 # --------------------------------------
