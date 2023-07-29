@@ -22,7 +22,7 @@ mixin rightsideItem(array)
           button#mobile-toc-button.close(type="button" title=_p("rightside.toc"))
             i.anzhiyufont.anzhiyu-icon-list-ul
       when 'chat'
-        if chat_btn
+        if chat_btn && (theme.chatra.enable || theme.tidio.enable || theme.daovoice.enable || theme.crisp.enable)
           button#chat_btn(type="button" title=_p("rightside.chat"))
             i.anzhiyufont.anzhiyu-icon-comment-sms
       when 'comment'
