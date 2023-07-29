@@ -11,12 +11,12 @@
   align-items: center;
   height: 50px;
   width: 100%;
-  max-width: 1370px;
+  max-width: calc(1400px - 3rem);
   animation: slide-in .6s 0s backwards;
 }
 @media screen and (max-width: 1400px) {
   #bbTimeList {
-    max-width: calc(100% - 30px);
+    max-width: calc(100% - 3rem);
     animation: slide-in 0.6s 0s backwards;
   }
 }
