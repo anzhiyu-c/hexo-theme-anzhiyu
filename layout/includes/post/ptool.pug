@@ -41,25 +41,3 @@ if !theme.disable_top_img && page.top_img !== false
         .share-link.copyurl
           #post-share-url.share-button(title='复制链接' onclick='rm.copyPageUrl()')
             i.anzhiyufont.anzhiyu-icon-link
-
-if theme.ptool.categories
-  .tag_share
-    .post-meta__box
-      if (page.categories.data.length > 0)
-        .post-meta__box__category-list
-          each item, index in page.categories.data
-            a(href=url_for(item.path)).post-meta__box__categoryes
-              span.categoryes-punctuation 
-                i.anzhiyufont.anzhiyu-icon-inbox
-              =item.name
-              span.categoryesPageCount=item.length
-      if (theme.post_meta.post.tags)
-        .post-meta__box__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__box__tags
-              span.tags-punctuation 
-                i.anzhiyufont.anzhiyu-icon-tag
-              =item.name
-              span.tagsPageCount=item.length
-
-    !=partial('includes/third-party/share/index.pug', {}, {cache: true})

@@ -40,3 +40,24 @@ if theme.post_copyright.enable && page.copyright !== false
                   span.tagsPageCount=item.length
 
       !=partial('includes/third-party/share/index.pug', {}, {cache: true})
+    else
+      .tag_share
+        .post-meta__box
+          if (page.categories.data.length > 0)
+            .post-meta__box__category-list
+              each item, index in page.categories.data
+                a(href=url_for(item.path)).post-meta__box__categoryes
+                  span.categoryes-punctuation 
+                    i.anzhiyufont.anzhiyu-icon-inbox
+                  =item.name
+                  span.categoryesPageCount=item.length
+          if (theme.post_meta.post.tags)
+            .post-meta__box__tag-list
+              each item, index in page.tags.data
+                a(href=url_for(item.path)).post-meta__box__tags
+                  span.tags-punctuation 
+                    i.anzhiyufont.anzhiyu-icon-tag
+                  =item.name
+                  span.tagsPageCount=item.length
+
+        !=partial('includes/third-party/share/index.pug', {}, {cache: true})
