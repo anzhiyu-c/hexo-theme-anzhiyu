@@ -86,14 +86,14 @@ if home_top_config.enable
               .post_cover.left_radius
                 a(href=item.path, title=item.title)
                   span.recent-post-top-text 荐
-                  img.post_bg(onerror=item.cover, alt='',  src=item.cover)
+                  img.post_bg(onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`, alt='',  src=item.cover)
               .recent-post-info
                 a.article-title(href=item.path, title=item.title)=item.title
           a#todayCard.todayCard(href=top_group_banner_link, style='z-index: 1;')
             .todayCard-info
               .todayCard-tips=top_group_banner_tips
               .todayCard-title=top_group_banner_title
-            .todayCard-cover(style=`background: url(${top_group_banner_image}) no-repeat center /cover`)
+            img.todayCard-cover(src=url_for(top_group_banner_image) onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'` alt='封面')
             .banner-button-group
               .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
                 i.anzhiyufont.anzhiyu-icon-arrow-circle-right
