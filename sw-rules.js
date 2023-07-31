@@ -72,8 +72,14 @@ module.exports.config = {
      * @type VoidFunction
      */
     onsuccess: () => {
-      const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
-      isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
+      if ('serviceWorker' in navigator) {
+        if (navigator.serviceWorker.controller) {
+          navigator.serviceWorker.addEventListener('controllerchange', function() {
+            const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
+            isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
+          })
+        }
+      }
     },
   },
   /**
@@ -205,7 +211,20 @@ module.exports.cacheList = {
     // [clean] 项用于声明符合该规则的缓存在进行全局清理时是否清除
     // 如果你无法确定是否需要声明为 false 的话写 true 即可
     clean: true,
-    // 该项用于匹配缓存，传入的参数是 URL 类型的，返回一个 boolean
+    /**
+     * 标记当前规则是否依据 search（URL 中问号及问号之后的部分）的不同而做出不同的响应
+     * 该项可以不填，不需要依据参数变化的 URL 均建议不填该项
+     * 插件**不易监测**带参数的 URL 的更新，需要更新缓存时很可能需要手动刷新缓存，该项慎填
+     * @type {boolean|undefined}
+     */
+    search: false,
+    /**
+     * 匹配缓存，第二个参数可以不写
+     * @param url {URL} 链接的 URL 对象（对象包括 hash 和 search，但不要使用 hash，search 为 false 时不要使用 false）
+     * @param $eject {Object} 用于访问通过 [ejectValues] 函数插入的变量
+     * @return boolean
+     * @see https://kmar.top/posts/73014407/#eee25160
+     */
     match: (url, $eject) => {
       const allowedHost = $eject.domain;
       const allowedPaths = ["/404.html", "/css/index.css"];
