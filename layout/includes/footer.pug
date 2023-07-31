@@ -41,8 +41,7 @@
           .footer-links#friend-links-in-footer
 
   if theme.footer.owner.enable && !theme.footer.footerBar.enable
-    - var now = new Date()
-    - var nowYear = now.getFullYear()
+    - var nowYear = new Date().getFullYear()
     if theme.footer.owner.since && theme.footer.owner.since != nowYear
       .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
     else
@@ -68,8 +67,7 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
       .footer-bar-left
         #footer-bar-tips
           if theme.footer.owner.enable
-            - var now = new Date()
-            - var nowYear = now.getFullYear()
+            - var nowYear = new Date().getFullYear()
             - let authorLink = theme.footer.footerBar.authorLink ? theme.footer.footerBar.authorLink : config.url
             if theme.footer.owner.since && theme.footer.owner.since != nowYear
               .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By `

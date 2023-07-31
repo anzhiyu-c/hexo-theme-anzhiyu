@@ -4,9 +4,9 @@ each item in site.posts.data
     - maxDate = item.date
 mixin postUI(posts)
   each article , index in page.posts.data
-    div(class = (index === 0 ? 'recent-post-item lastestpost-item' : 'recent-post-item'))
+    - let link = article.link || article.path
+    div(class = (index === 0 ? 'recent-post-item lastestpost-item' : 'recent-post-item') onclick=`pjax.loadUrl('${link}')`)
       -
-        let link = article.link || article.path
         let title = article.title || _p('no_title')
         const position = theme.cover.position
         let leftOrRight = position === 'both'

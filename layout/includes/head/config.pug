@@ -109,9 +109,17 @@
     })
   }
 
+  let preloader = 'undefined'
+  if (theme.preloader && theme.preloader.enable) {
+    preloader = JSON.stringify({
+      source: theme.preloader.source
+    })
+  }
+
 script.
   const GLOBAL_CONFIG = { 
     root: '!{config.root}',
+    preloader: !{preloader},
     friends_vue_info: !{friends_vue_info},
     navMusic: !{theme.nav_music.enable},
     mainTone: !{mainTone},
