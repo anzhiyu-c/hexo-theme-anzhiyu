@@ -142,7 +142,7 @@
     transform-origin: bottom right;
   }
   100% {
-    transform: none;
+    transform: translateZ(0);
     transform-origin: bottom right;
     opacity: 1;
   }
@@ -150,7 +150,7 @@
 
 @keyframes barrageOut {
   0% {
-    transform: none;
+    transform: translateZ(0);
     opacity: 1;
   }
   100% {
