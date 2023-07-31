@@ -125,7 +125,7 @@ script(data-pjax="true").
 
         entries.forEach(entry => {
           if (postComment && commentBarrage && document.body.clientWidth > 768) {
-            commentBarrage.style.bottom = entry.isIntersecting ? "-200px" : "0";
+            commentBarrage.style.bottom = entry.isIntersecting ? `-${commentBarrageConfig.maxBarrage * 200}px` : "0";
           }
         });
       };
