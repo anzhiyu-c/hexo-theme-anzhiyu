@@ -93,12 +93,45 @@ div
   include ./anzhiyu/anzhiyu-js.pug
   //- 51la统计&灵雀统计
   if (theme.LA.enable)
-    script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")
-    script(src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous")
     - const ck = theme.LA.ck
+    - const monitorID = theme.LA.LingQueMonitorID;
     script.
-      LA.init({id: "#{ck}", ck: "#{ck}"});
-      new LingQue.Monitor().init({id: "#{theme.LA.LingQueMonitorID}", sendSuspicious:true});
+      const loadScript = (url, charset = "UTF-8", crossorigin) => {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = url;
+          script.async = true;
+          if (charset) {
+            script.setAttribute("charset", charset);
+          }
+          if (crossorigin) {
+            script.setAttribute("crossorigin", crossorigin);
+          }
+          script.onerror = reject;
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState;
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return;
+            script.onload = script.onreadystatechange = null;
+            resolve();
+          };
+          document.head.appendChild(script);
+        });
+      };
+
+      const scriptUrls = [
+        { url: 'https://sdk.51.la/js-sdk-pro.min.js', charset: 'UTF-8', id: 'LA_COLLECT' },
+        { url: 'https://sdk.51.la/perf/js-sdk-perf.min.js', crossorigin: 'anonymous' }
+      ];
+
+      Promise.all(scriptUrls.map(({ url, charset, crossorigin }) => loadScript(url, charset, crossorigin)))
+        .then(() => {
+          LA.init({ id: "#{ck}", ck: "#{ck}" });
+          new LingQue.Monitor().init({ id: "#{monitorID}", sendSuspicious: true });
+        })
+        .catch(error => {
+          console.error('本地无法加载51a统计，线上即可加载:', error);
+        });
+
   //- iconfont依赖
   link(rel="stylesheet" href=url_for(theme.asset.ali_iconfont_css))
   if (theme.icons && theme.icons.ali_iconfont_js)

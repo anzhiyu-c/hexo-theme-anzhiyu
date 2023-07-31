@@ -31,9 +31,4 @@ script(data-pjax).
   anzhiyu.switchRightClickMenuHotReview();
   anzhiyu.getCustomPlayList();
   anzhiyu.addEventListenerConsoleMusicList(false);
-  setTimeout(() => {
-    if (typeof addFriendLinksInFooter === "function") {
-      addFriendLinksInFooter();
-    }
-  }, 200)
-
+  setTimeout(() => {if (typeof addFriendLinksInFooter === "function") {addFriendLinksInFooter();}}, 200)
