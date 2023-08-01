@@ -5,7 +5,7 @@ each item in site.posts.data
 mixin postUI(posts)
   each article , index in page.posts.data
     - let link = article.link || article.path
-    div(class = (index === 0 ? 'recent-post-item lastestpost-item' : 'recent-post-item') onclick=`pjax.loadUrl('${link}')`)
+    div(class = (index === 0 ? 'recent-post-item lastestpost-item' : 'recent-post-item') onclick=`pjax.loadUrl('/${link}')`)
       -
         let title = article.title || _p('no_title')
         const position = theme.cover.position
