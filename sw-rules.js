@@ -152,8 +152,8 @@ module.exports.config = {
      */
     js: [
       {
-        head: "getScript(",
-        tail: ")",
+        head: "getScript\(",
+        tail: "\)",
       },
     ],
     /**
