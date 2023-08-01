@@ -3,6 +3,8 @@
     - let path_name = (is_current(i.path_name)) ? true : false
     - type = i.type
     - let album_detail_background = i.top_background
+    - let album_detail_top_link = i.top_link
+    - let album_detail_top_btn_text = i.top_btn_text
     if (path_name && i.album_list)
       .author-content.author-content-item.album.single(style=`${album_detail_background ? `background: url(${album_detail_background}) top / cover no-repeat;` : ""}`)
         .card-content
@@ -11,9 +13,9 @@
           .content-bottom
             .tips=i.description
           .banner-button-group
-            a.banner-button(onclick='pjax.loadUrl("/about/")', data-pjax-state)
+            a.banner-button(onclick=`pjax.loadUrl("${url_for(album_detail_top_link ? album_detail_top_link : '/about')}")`, data-pjax-state)
               i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
-              span.banner-button-text 关于我
+              span.banner-button-text=album_detail_top_btn_text ? album_detail_top_btn_text : "关于我"
       section.timeline.page-1
         if type == 1
           ul#waterfall.list
