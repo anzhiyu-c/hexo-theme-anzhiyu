@@ -31,7 +31,7 @@
           .footer-title=item.title
           .footer-links
             each iten, indey in item.links
-              a.footer-item(title=iten.title target="_blank" href=iten.link)=iten.title
+              a.footer-item(title=iten.title href=url_for(iten.link))=iten.title
       if theme.footer.list.randomFriends > 0
         .footer-group
           .footer-title-group
