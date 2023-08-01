@@ -137,6 +137,10 @@
   margin-left: 0.5rem;
   margin-right: 0px;
   margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.topGroup .recent-post-item:hover .recent-post-info .article-title {
+  color: var(--anzhiyu-main);
 }
 .topGroup .recent-post-item .post_cover {
   width: 100%;

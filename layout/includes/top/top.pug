@@ -82,7 +82,7 @@ if home_top_config.enable
           - let top_group_banner_link = url_for(theme.home_top.banner.link)
 
           each item, index in top_group_list.slice(0, 6)
-            .recent-post-item
+            .recent-post-item(onclick=`pjax.loadUrl("${url_for(item.path)}")`)
               .post_cover.left_radius
                 a(href=item.path, title=item.title)
                   span.recent-post-top-text 荐
