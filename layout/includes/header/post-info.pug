@@ -25,10 +25,13 @@
                 =item.name
 
   h1.post-title= page.title || _p('no_title')
-    if theme.post_edit.enable
-      a.post-edit-link(href=theme.post_edit.url + page.source title=_p('post.edit') target="_blank")
+    if (theme.post_edit.enable && (theme.post_edit.github !== false))
+      a.post-edit-link(href=theme.post_edit.url + page.source title=_p('post.edit.github') + ' - ' + page.title target="_blank")
         i.anzhiyufont.anzhiyu-icon-pencil
-        
+    if (theme.post_edit.enable && (theme.post_edit.yuque !== false))
+      a.post-edit-link(href=theme.post_edit.yuque + page.id + '/edit/' title=_p('post.edit.yuque') + ' - ' + page.title target="_blank")
+        i.anzhiyufont.anzhiyu-icon-pencil
+
   #post-meta
     .meta-firstline
       if (theme.post_meta.post.date_type)
