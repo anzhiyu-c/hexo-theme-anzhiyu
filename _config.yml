@@ -285,9 +285,14 @@ reward:
 # Easily browse and edit blog source code online.
 post_edit:
   enable: false
-  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
+  # github: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url:
+  github: false
+
+  # yuque: https://www.yuque.com/usename/repo/
+  # 示例: https://www.yuque.com/yuque/yuque/
+  # 你需要在语雀文章 Front Matter 添加参数 id 并确保其唯一性（例如 “id: yuque”, “id: 01”）
+  yuque: false
 
 # Related Articles
 related_post:
@@ -373,6 +378,7 @@ waline:
   serverURL: # Waline server address url
   bg: # waline background
   pageview: false
+  meta: false # 地址, 操作系统 前是否显示图标
   option:
     meta: ["nick", "mail", "link"]
     locale:

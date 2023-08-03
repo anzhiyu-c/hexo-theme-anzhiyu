@@ -33,7 +33,11 @@ post:
     copyright_content: '本博客所有文章除特别声明外，均采用
       <a href="%s" target="_blank">%s</a> 许可协议。转载请注明来自 <a href="%s" target="_blank">%s</a>！'
   recommend: 相关推荐
-  edit: 编辑
+  edit:
+    github: 在 GitHub 上编辑
+    yuque: 在 语雀 上编辑
+    # notion: 在 Notion 上编辑
+    # flowus: 在 Flowus 上编辑
 
 search:
   title: "搜索"
