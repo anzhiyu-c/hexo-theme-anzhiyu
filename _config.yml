@@ -37,6 +37,12 @@ nav:
           link: https://image.anheyu.com/
           icon: https://image.anheyu.com/favicon.ico
 
+# mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
+# 注意： 仅网站首页变灰，其他页面正常显示
+mourn:
+  enable: false
+  days: [4-5, 5-12, 7-7, 9-18, 12-13]
+
 # Code Blocks (代码相关)
 # --------------------------------------
 
@@ -283,13 +289,13 @@ reward:
 
 # Post edit
 # Easily browse and edit blog source code online.
-post_edit:
+post_edit: # 目前仅可选择一个平台在线编辑
   enable: false
   # github: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   github: false
 
-  # yuque: https://www.yuque.com/usename/repo/
+  # yuque: https://www.yuque.com/uuser-name/repo-name/
   # 示例: https://www.yuque.com/yuque/yuque/
   # 你需要在语雀文章 Front Matter 添加参数 id 并确保其唯一性（例如 “id: yuque”, “id: 01”）
   yuque: false

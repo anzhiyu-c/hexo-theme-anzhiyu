@@ -1,0 +1,9 @@
+script.
+    function initMourn() {
+        const date = new Date();
+        const today = (date.getMonth() + 1) + "-" + date.getDate()
+        const mourn_days = !{JSON.stringify(theme.mourn.days)}
+        if (mourn_days.includes(today)) {
+            document.documentElement.style.filter = "grayscale(1)";
+        }}
+    initMourn();
