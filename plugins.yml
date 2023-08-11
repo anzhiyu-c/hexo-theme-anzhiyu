@@ -43,7 +43,7 @@ waline_css:
   other_name: waline
   version: 2.15.5
 waline_meta_css:
-  name: '@waline/client'
+  name: "@waline/client"
   file: dist/waline-meta.css
   other_name: waline
   version: 2.15.5

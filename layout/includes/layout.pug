@@ -12,6 +12,8 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
     #an_music_bg
     if theme.preloader.enable
       !=partial('includes/loading/index', {}, {cache: true})
+    if (theme.mourn.enable && is_home_first_page())
+      include ./mourn.pug
     #web_box
       #web_container
         #menu-mask
