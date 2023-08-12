@@ -35,7 +35,7 @@ mixin postUI(posts)
           - unvisitedleft = "135px"
         a.unvisited-post(href=url_for(link) title=title style=`${unvisitedleft ? `left: ${unvisitedleft};` : ''}`) 未读
       if post_cover && theme.cover.index_enable
-        .post_cover(class=leftOrRight)
+        .post_cover(class=leftOrRight style='display: flex')
           a(href=url_for(link) title=title)
             img.post_bg(src=url_for(post_cover) onerror=`this.onerror=null;this.src='`+ url_for(theme.error_img.post_page) + `'` alt=title)
       .recent-post-info(class=no_cover)
