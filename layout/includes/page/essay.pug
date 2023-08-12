@@ -27,6 +27,14 @@ if site.data.essay
                           .bber-content-noimg
                           .bber-content-noimg
                           .bber-content-noimg
+                      if item.video
+                        .bber-container-img
+                          each iten, indey in item.video
+                            a.bber-content-video(href=url_for(item.video[indey]) data-fancybox="gallery", data-caption="")
+                              video(src=url_for(item.video[indey]))
+                          .bber-content-noimg
+                          .bber-content-noimg
+                          .bber-content-noimg
                       if item.aplayer
                         .bber-music
                           meting-js(id=item.aplayer.id, server=item.aplayer.server, type="song", mutex="true",preload="none", theme="var(--anzhiyu-main)", data-lrctype="0", order="list")

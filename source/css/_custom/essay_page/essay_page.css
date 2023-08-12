@@ -27,7 +27,8 @@ body[data-type="essay"] #web_bg {
   max-height: 100%;
 }
 
-#bber .bber-content-img {
+#bber .bber-content-img,
+#bber .bber-content-video {
   height: 100px;
   border-radius: 8px;
   overflow: hidden;
@@ -36,6 +37,30 @@ body[data-type="essay"] #web_bg {
   position: relative;
   width: calc(100% / 4 - 5px);
   margin-bottom: 10px;
+}
+
+#bber .bber-content-video video {
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 100%;
+}
+#bber .bber-content-video::after {
+  content: "视频";
+  display: inline-block;
+  padding: 1px 6px;
+  background: var(--anzhiyu-black-op);
+  border-radius: 8px;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--anzhiyu-white);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+  position: absolute;
+  left: 0;
+  top: 4px;
+  z-index: 2;
 }
 
 #bber .bber-content .datacont {
