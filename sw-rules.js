@@ -1,3 +1,7 @@
+/**
+ * @see https://kmar.top/posts/b70ec88f/
+ */
+
 module.exports.config = {
   /**
    * 与 ServiceWorker 有关的配置项
@@ -6,7 +10,7 @@ module.exports.config = {
    */
   serviceWorker: {
     escape: 0,
-    cacheName: "AnZhiYuBlogCache",
+    cacheName: "AnZhiYuThemeCache",
     debug: false,
   },
   register: {
@@ -36,41 +40,27 @@ module.exports.config = {
             isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
           },
           false
-        ); //false代表在冒泡阶段触发，true在捕获阶段触发
+        );
       }
     },
   },
-  /** @type {?VersionJsonConfig|boolean} */
   json: {
-    /** @type {number} */
     maxHtml: 15,
-    /** @type {number} */
     charLimit: 1024,
-    /** @type {string[]} */
     merge: ['page', 'archives', 'categories', 'tags'],
     exclude: {
-      /** @type {RegExp[]} */
       localhost: [],
-      /** @type {RegExp[]} */
       other: [],
     },
   },
-  /** @type {?ExternalMonitorConfig|boolean} */
   external: {
-    /** @type {number} */
     timeout: 5000,
-    /** @type {({head: string, tail: string}|function(string):string[])[]} */
     js: [],
-    /** @type {RegExp[]} */
     stable: [
       /^https:\/\/npm\.elemecdn\.com\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
       /^https:\/\/cdn\.cbd\.int\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
       /^https:\/\/cdn\.jsdelivr\.net\/npm\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
-    ],    
-    /**
-     * @param srcUrl {string} 原始 URL
-     * @return {string[]|string}
-     */
+    ],
     replacer: srcUrl => {
       if (srcUrl.startsWith('https://npm.elemecdn.com')) {
         const url = new URL(srcUrl)
