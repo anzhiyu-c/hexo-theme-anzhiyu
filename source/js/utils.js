@@ -1309,7 +1309,6 @@ const anzhiyu = {
   },
   // 切换作者卡片状态文字
   changeSayHelloText: function () {
-    console.info(GLOBAL_CONFIG);
     const greetings = GLOBAL_CONFIG.authorStatus.skills;
 
     const authorInfoSayHiElement = document.getElementById("author-info__sayhi");
