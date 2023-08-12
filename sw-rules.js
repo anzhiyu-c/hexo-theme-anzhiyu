@@ -32,12 +32,8 @@ module.exports.config = {
   },
   dom: {
     onsuccess: () => {
-      const task = () => {
-        const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
-        isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
-      };
-      if (anzhiyu in window) task();
-      else document.addEventListener("DOMContentLoaded", task, false);
+      const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
+      isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容", false, 2000);
     },
   },
   json: {
