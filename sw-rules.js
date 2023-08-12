@@ -28,48 +28,64 @@ module.exports.config = {
   },
   dom: {
     onsuccess: () => {
-      if('addEventListener' in document){
-        document.addEventListener('DOMContentLoaded', function(){
-          const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
-          isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
-        }, false)//false代表在冒泡阶段触发，true在捕获阶段触发
+      if ("addEventListener" in document) {
+        document.addEventListener(
+          "DOMContentLoaded",
+          function () {
+            const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
+            isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
+          },
+          false
+        ); //false代表在冒泡阶段触发，true在捕获阶段触发
       }
     },
   },
+  /** @type {?VersionJsonConfig|boolean} */
   json: {
+    /** @type {number} */
     maxHtml: 15,
+    /** @type {number} */
     charLimit: 1024,
-    precisionMode: {
-      default: false,
+    /** @type {string[]} */
+    merge: ['page', 'archives', 'categories', 'tags'],
+    exclude: {
+      /** @type {RegExp[]} */
+      localhost: [],
+      /** @type {RegExp[]} */
+      other: [],
     },
-    merge: {
-      index: true,
-      tags: true,
-      archives: true,
-      categories: true,
-      custom: [],
-    },
-    exclude: [/sw\.js$/],
   },
+  /** @type {?ExternalMonitorConfig|boolean} */
   external: {
-    timeout: 1500,
-    js: [
-      {
-        head: "getScript\(",
-        tail: "\)",
-      },
-    ],
-    skip: [],
-    replace: [
-      {
-        source: ["npm.elemecdn.com"],
-        dist: "cdn.cbd.int",
-      },
-    ],
-  },
-  sort: {
-    keywords: false,
-  },
+    /** @type {number} */
+    timeout: 5000,
+    /** @type {({head: string, tail: string}|function(string):string[])[]} */
+    js: [],
+    /** @type {RegExp[]} */
+    stable: [
+      /^https:\/\/npm\.elemecdn\.com\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
+      /^https:\/\/cdn\.cbd\.int\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
+      /^https:\/\/cdn\.jsdelivr\.net\/npm\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
+    ],    
+    /**
+     * @param srcUrl {string} 原始 URL
+     * @return {string[]|string}
+     */
+    replacer: srcUrl => {
+      if (srcUrl.startsWith('https://npm.elemecdn.com')) {
+        const url = new URL(srcUrl)
+        return [
+            srcUrl,
+            `https://cdn.cbd.int` + url.pathname,
+            `https://cdn.jsdelivr.net/npm` + url.pathname,
+            `https://cdn1.tianli0.top/npm` + url.pathname,
+            `https://fastly.jsdelivr.net/npm` + url.pathname
+        ]
+      } else {
+        return srcUrl
+      }
+    },
+  }
 };
 
 /**
