@@ -117,10 +117,6 @@ blockquote {
     padding-top: 0;
     margin-top: 0;
   h2
-    if hexo-config("h2Divider")
-      border-top: 1px dashed var(--anzhiyu-theme-op);
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
     .headerlink
       float: right;
       opacity: 0.08;
@@ -200,6 +196,12 @@ blockquote {
   +maxWidth768()
     background: var(--anzhiyu-background) !important;
     border: none;
+  #article-container
+    h2
+      if hexo-config("h2Divider")
+        border-top: 1px dashed var(--anzhiyu-theme-op);
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
   .post_share
     margin: 8px 0 0
     width: fit-content

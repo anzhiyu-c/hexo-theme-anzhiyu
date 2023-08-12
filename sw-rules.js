@@ -28,11 +28,11 @@ module.exports.config = {
   },
   dom: {
     onsuccess: () => {
-      if (navigator.serviceWorker.controller) {
-        navigator.serviceWorker.addEventListener("controllerchange", function () {
+      if('addEventListener' in document){
+        document.addEventListener('DOMContentLoaded', function(){
           const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
           isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容");
-        });
+        }, false)//false代表在冒泡阶段触发，true在捕获阶段触发
       }
     },
   },
