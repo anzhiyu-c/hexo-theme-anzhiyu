@@ -86,7 +86,7 @@ author_status:
     # - 💢 壮汉人狠话不多
 
 # search (搜索)
-# see https://butterfly.js.org/posts/ceeb73f/#搜索系统
+# see https://blog.anheyu.com/posts/c27d.html#搜索系统
 # --------------------------------------
 
 # Algolia search
@@ -233,7 +233,7 @@ mainTone:
   cover_change: true # 整篇文章跟随cover修改主色调
 
 # wordcount (字数统计)
-# see https://butterfly.js.org/posts/ceeb73f/#字数统计
+# see https://blog.anheyu.com/posts/c27d.html#字数统计
 wordcount:
   enable: false
   post_wordcount: true

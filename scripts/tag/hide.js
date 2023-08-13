@@ -1,5 +1,5 @@
 /**
- * Butterfly
+ * AnZhiYu
  * @example
  * hideInline
  * {% hideInline content,display,bg,color %}
