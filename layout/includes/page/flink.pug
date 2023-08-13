@@ -63,6 +63,7 @@
                 .flink-list-item
                   if color == "vip" && tag
                     span.site-card-tag.vip #[=tag]
+                      i.light
                   else if color == "speed" && tag
                     span.site-card-tag.speed #[=tag]
                   else if tag
@@ -90,6 +91,7 @@
               .site-card
                 if color == "vip" && tag
                   span.site-card-tag.vip #[=tag]
+                    i.light
                 else if color == "speed" && tag
                   span.site-card-tag.speed #[=tag]
                 else if tag
