@@ -32,7 +32,7 @@ if theme.menu
               else if (icon_value.startsWith("anzhiyu"))
                 i.anzhiyufont(style="font-size: 0.9em;" class=icon_label + ' ' + anima_label)
             span=' '+ trim(label.split('||')[0])
-          ul.menus_item_child(style=`left:`+ (-48 * Object.keys(value).length + 65) + `px;`)
+          ul.menus_item_child
             each val,lab in value
               li
                 a.site-page.child.faa-parent.animated-hover(href=url_for(trim(val.split('||')[0])))

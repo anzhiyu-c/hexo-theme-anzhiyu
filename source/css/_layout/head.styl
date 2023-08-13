@@ -450,13 +450,34 @@
     display: inline
 
     .menus_item
-      position: relative
-      display: inline-block
-      padding: 0 0 0 14px
-
+      padding 0 0.4rem
+      display flex
+      flex-direction column
+      align-items center
+      margin auto
+      position relative
+      border-radius: 30px;
+      &:first-child .menus_item_child::after
+        position: absolute;
+        top: -60px;
+        left: 0;
+        width: 50%;
+        height: 60px;
+        content: "";
+      &:last-child .menus_item_child::after
+        position: absolute;
+        top: -60px;
+        right: 0;
+        width: 50%;
+        height: 60px;
+        content: "";
       &:hover
         .menus_item_child
-          display: block
+          border: var(--style-border-hover);
+          box-shadow: var(--anzhiyu-shadow-main);
+          opacity: 1;
+          pointer-events: all;
+          transform: translateY(0) scale(1);
 
         & > a > i:last-child
           transform: rotate(180deg)
@@ -467,22 +488,30 @@
 
       .menus_item_child
         position: absolute
-        right: 0
-        display: none
-        margin-top: 8px
-        padding: 0
+        opacity 0
         width: max-content
-        border-radius: 5px
-        background-color: var(--sidebar-bg)
-        box-shadow: 0 5px 20px -4px rgba($dark-black, .5)
-        animation: sub_menus .2s .1s ease both
-
+        border-radius 5px
+        top 35px
+        box-shadow var(--anzhiyu-shadow-black)
+        border var(--style-border)
+        transition 0.3s
+        background-color var(--anzhiyu-card-bg)
+        border-radius 50px
+        right auto
+        left auto
+        padding 6px 4px
+        box-sizing content-box
+        line-height 35px
+        transform: translateY(-10px) scale(0);
+        transform-origin: top;
+        pointer-events: none
+        margin-top: 8px
         &:before
           position: absolute
-          top: -8px
+          top: -12px
           left: 0
           width: 100%
-          height: 22px
+          height: 16px
           content: ''
 
         li
@@ -542,22 +571,6 @@
     cursor: pointer
     &:hover
       color: var(--anzhiyu-white) !important
-
-    &:not(.child)
-      &:after
-        position: absolute
-        bottom: 0
-        left: 0
-        z-index: -1
-        width: 0
-        height: 3px
-        background-color: lighten($theme-color, 30%)
-        content: ''
-        transition: all .3s ease-in-out
-
-      &:hover
-        &:after
-          width: 100%
 
 @keyframes move-forever
   0%

@@ -219,8 +219,7 @@ div#travellings_button
   transition all 0.3s
   display inline-block
   margin 0 3px
-#nav .menus_items .menus_item .menus_item_child:before
-  top -20px
+
 #site-name, .shuoshuo
   white-space nowrap
   overflow hidden
@@ -231,10 +230,6 @@ div#travellings_button
   align-items center
   justify-content center
   transition 0.3s
-
-/* 圆角隐藏 */
-ul.menus_item_child
-  border-radius 5px
 
 /* 一级菜单居中 */
 #nav .menus_items
@@ -248,25 +243,6 @@ ul.menus_item_child
   flex-direction row
   justify-content center
 
-#nav .menus_items .menus_item:hover .menus_item_child
-  display block
-  transform translateX(-50%)
-  right auto
-  left auto !important
-  padding 6px 4px
-  box-sizing content-box
-  line-height 35px
-
-#nav .menus_items .menus_item .menus_item_child
-  top 35px
-  box-shadow var(--anzhiyu-shadow-black)
-  border var(--style-border)
-  transition 0.3s
-  background-color var(--anzhiyu-card-bg)
-  border-radius 50px
-#nav .menus_items .menus_item .menus_item_child:hover
-  border var(--style-border-hover)
-  box-shadow var(--anzhiyu-shadow-main)
 #nav 
   #blog_name,
   .mask-name-container,
@@ -372,14 +348,6 @@ ul.menus_item_child
   height 35px
   line-height 35px
   transition: color 0s !important
-
-#nav .menus_items .menus_item
-  padding 0 0.4rem
-  display flex
-  flex-direction column
-  align-items center
-  margin auto
-  position relative
 
 #nav div#toggle-menu
   padding 2px 0 4px 6px
