@@ -25,7 +25,7 @@
       if hexo-config('cover.index_enable') 
         position: fixed;
         if hexo-config('article_double_row') == true
-          top: 245px;
+          top: 235px;
           left: 32px
         else 
           left: calc(44% + 30px);
@@ -47,7 +47,7 @@
         color: var(--anzhiyu-lighttext);
         font-size: 0.5rem;
         margin-right: 8px;
-        top: 20px;
+        top: 10px;
         left: 32px
         +maxWidth768()
           top: 2px;
@@ -130,7 +130,7 @@
           order: 0
     & >.recent-post-info
       width: 57%
-      height: 174px;
+      height: 155px;
       cursor: pointer;
       position: relative;
       padding: 0;
@@ -150,10 +150,10 @@
         margin: 0 !important;
         padding: 0 32px;
         position: absolute;
-        top: 40px;
+        top: 35px;
         @extend .limit-more-line
         color: var(--text-highlight-color)
-        font-size: 1.2em
+        font-size: 1.3em
         line-height: 1.4
         transition: all .2s ease-in-out
         -webkit-line-clamp: 2 !important
