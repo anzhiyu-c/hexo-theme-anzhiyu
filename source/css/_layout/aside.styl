@@ -85,13 +85,14 @@
       .author-status-box
         position: absolute;
         bottom: 0;
-        left: calc(100% - 28px);
-        width: 28px;
-        height: 28px;
+        left: calc(100% - 33px);
+        width: 33px;
+        height: 33px;
         border-radius: 2em;
         background-color: var(--anzhiyu-white);
-        transition: 0.3s;
         overflow: hidden;
+        transition: .3s .2s;
+        transform: scale(1);
         &:hover
           width: 105px
           .author-status span
@@ -102,8 +103,15 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 28px;
-          padding: 0 5px;
+          height: 100%;
+          width: 100%;
+          g-emoji
+            font-size: 25px;
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-top: 2px;
+            margin-left: 0.38px;
           span 
             width: 0;
             font-size: 12px;
@@ -112,7 +120,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             transition: 0.3s;
-            line-height: 28px;
+            line-height: 33px;
 
     
     [data-theme="dark"] .card-info-avatar .author-status-box
