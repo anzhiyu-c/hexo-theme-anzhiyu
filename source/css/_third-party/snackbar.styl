@@ -29,8 +29,8 @@ body
     background: var(--anzhiyu-white);
   .snackbar-container::after
     position: absolute;
-    width: 0;
     height: 100%;
+    width: 100%;
     left: 0;
     top: 0;
     background: var(--anzhiyu-white);
@@ -38,11 +38,13 @@ body
     content: "";
     animation: snackbar-progress var(--anzhiyu-snackbar-time) linear forwards;
     pointer-events: none;
+    will-change: transform;
+    transform-origin: left
 @keyframes snackbar-progress {
   from {
-    width: 0;
+    transform: scaleX(0);
   }
   to {
-    width: 100%;
+    transform: scaleX(1);
   }
 }

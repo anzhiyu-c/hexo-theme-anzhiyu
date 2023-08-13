@@ -354,15 +354,13 @@ body[data-type="link"]
     height: 50px;
     background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0))
     animation: light_tag 4s both infinite;
+    will-change: transform;
 
 @keyframes light_tag
   0%
-    transform: skewx(0);
-    left: -150px;
+    transform: skewx(0) translateX(-150px);
   99%
-    transform: skewx(-25deg);
-    left: 50px;
-
+    transform: skewx(-25deg) translateX(50px);
 #article-container
   .telescopic-site-card-group
     padding: 20px 0;
