@@ -7,9 +7,7 @@ div#archive {
 .aplayer.aplayer-fixed {
   overflow: hidden;
 }
-.layout {
-  justify-content: center;
-}
+
 @media screen and (max-width: 768px) {
   #page .fcircle_page .author-content-item .card-content .banner-button-group .banner-button {
     background-color: transparent !important;

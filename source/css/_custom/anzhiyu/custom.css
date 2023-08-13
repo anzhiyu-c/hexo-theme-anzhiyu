@@ -111,18 +111,6 @@ div#category {
 }
 
 /* 宽屏适配 */
-.aside-content {
-  max-width: 312px;
-  min-width: 250px;
-}
-.layout > div:first-child {
-  width: calc(100% - 300px);
-}
-@media screen and (max-width: 900px) {
-  .aside-content {
-    max-width: none !important;
-  }
-}
 .page .layout,
 .post .layout {
   max-width: 1400px;
@@ -184,7 +172,7 @@ html.hide-aside .layout > div:first-child {
 /* 首页文章宽度 */
 @media screen and (max-width: 1200px) {
   .layout > div:first-child {
-    width: calc(100% - 245px);
+    width: 100% !important;
   }
 }
 
@@ -196,11 +184,6 @@ html.hide-aside .layout > div:first-child {
   .layout > div:first-child:not(.recent-posts) {
     border-radius: 12px 12px 0 0;
   }
-}
-
-/* 控制动画 */
-#aside-content {
-  animation: slide-in 0.6s 0.3s backwards;
 }
 
 @keyframes slide-in {

@@ -5,14 +5,15 @@
       border: none;
 #aside-content
   width: 300px
+  animation: slide-in 0.6s 0.3s backwards;
 
-  +minWidth900()
+  +minWidth1200()
     if hexo-config('aside.position') == 'right'
       padding-left: 15px
     else
       padding-right: 15px
 
-  +maxWidth900()
+  +maxWidth1200()
     width: 100%
     padding: 20px;
 
@@ -22,7 +23,7 @@
   > .card-widget:first-child
     margin-top: 0
 
-    +maxWidth900()
+    +maxWidth1200()
       margin-top: 20px
     +maxWidth768()
       margin-top: 0px
@@ -175,7 +176,7 @@
       margin-left: 6px
 
   .sticky_layout
-    +minWidth900()
+    +minWidth1200()
       position: sticky
       position: -webkit-sticky
       top: 20px
@@ -330,7 +331,7 @@
     +minWidth901()
       right: 0 !important
 
-    +maxWidth900()
+    +maxWidth1200()
       position: fixed
       right: -100%
       bottom: 30px
@@ -356,7 +357,7 @@
       margin: 0 -24px
       max-height: calc(100vh - 120px)
 
-      +maxWidth900()
+      +maxWidth1200()
         max-height: calc(100vh - 140px)
 
       & > *
@@ -371,7 +372,7 @@
         .toc-child
           display: none
 
-          +maxWidth900()
+          +maxWidth1200()
             display: block !important
 
         .toc-item
@@ -479,7 +480,7 @@
   100%
     transform: scale(.7)
 
-+minWidth900()
++minWidth1200()
   html.hide-aside
     .layout
       justify-content: center
@@ -489,7 +490,13 @@
 
       > div:first-child
         width: 80%
-
++maxWidth1200()
+  .aside-content
+    max-width: none !important;
+    display: none
++maxWidth768()
+  .aside-content
+    display: block
 .page
   .sticky_layout
     display: flex
