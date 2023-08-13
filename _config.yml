@@ -1295,7 +1295,7 @@ CDN:
     # local_search:
     # algolia_js:
     # algolia_search:
-    # instantsearch_v4:
+    # instantsearch:
     # pjax:
     # blueimp_md5:
     # valine:

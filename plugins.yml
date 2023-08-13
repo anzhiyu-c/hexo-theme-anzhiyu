@@ -1,11 +1,11 @@
 algolia_search:
   name: algoliasearch
   file: dist/algoliasearch-lite.umd.js
-  version: 4.16.0
-instantsearch_v4:
+  version: 4.18.0
+instantsearch:
   name: instantsearch.js
   file: dist/instantsearch.production.min.js
-  version: 4.46.1
+  version: 4.56.5
 docsearch_js:
   name: '@docsearch/js'
   other_name: docsearch-js
@@ -116,21 +116,21 @@ typed:
 pangu:
   name: pangu
   file: dist/browser/pangu.min.js
-  version: 5.0.14
+  version: 4.0.7
 fancybox_css:
   name: "@fancyapps/ui"
   file: dist/fancybox/fancybox.css
-  version: 5.0.14
+  version: 5.0.20
   other_name: fancyapps-ui
 fancybox:
   name: "@fancyapps/ui"
   file: dist/fancybox/fancybox.umd.js
-  version: 5.0.14
+  version: 5.0.20
   other_name: fancyapps-ui
 medium_zoom:
   name: medium-zoom
   file: dist/medium-zoom.min.js
-  version: 1.0.6
+  version: 1.0.8
 snackbar_css:
   name: node-snackbar
   file: dist/snackbar.min.css
