@@ -926,7 +926,7 @@ runtimeshow:
   enable: true
   publish_date: 4/1/2021 00:00:00
 
-# Aside widget - Newest Comments
+# Console - Newest Comments
 newest_comments:
   enable: true
   sort_order: # Don't modify the setting unless you know how it works
