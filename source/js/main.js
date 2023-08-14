@@ -675,9 +675,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       if ($popupWindow && $popupWindow.classList.contains('show-popup-window') && currentTop > 60 && delta > 20 && lastScrollTop != 0) {
         // 滚动后延迟1s关闭弹窗
-        setTimeout(() => {
-          $popupWindow.classList.add('popup-hide');
-        }, 1000);
+        if ($popupWindow.classList.contains('show-popup-window')) {
+          setTimeout(() => {
+            $popupWindow.classList.add('popup-hide');
+          }, 1000);
+        }
       }
       lastScrollTop = currentTop;
 

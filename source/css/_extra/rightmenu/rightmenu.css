@@ -33,8 +33,9 @@
 }
 #rightMenu .rightMenu-group .rightMenu-item {
   border-radius: 8px;
-  transition: 0.3s;
+  transition: 0.1s;
   cursor: pointer;
+  padding: 0 6px;
 }
 
 #rightMenu .rightMenu-line .rightMenu-item {
@@ -44,17 +45,15 @@
 #rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {
   display: flex;
   align-items: center;
+  padding: 8px;
 }
 
 #rightMenu .rightMenu-group .rightMenu-item:hover {
   background-color: var(--anzhiyu-main);
   color: var(--anzhiyu-white);
   box-shadow: var(--anzhiyu-shadow-theme);
-  padding: 0 10px;
 }
-#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item:hover {
-  padding: 8px 10px;
-}
+
 #rightMenu .rightMenu-group .rightMenu-item i {
   display: inline-block;
   text-align: center;

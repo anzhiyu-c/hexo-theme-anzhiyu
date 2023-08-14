@@ -133,23 +133,3 @@
   font-weight: 400 !important;
   margin: 8px 0 !important;
 }
-@keyframes barrageIn {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes barrageOut {
-  0% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-}

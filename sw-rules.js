@@ -32,8 +32,18 @@ module.exports.config = {
   },
   dom: {
     onsuccess: () => {
-      const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
-      isSnackbar && anzhiyu.snackbarShow("已刷新缓存，更新为最新内容", false, 2000);
+      caches.match('https://id.v3/').then(function(response) {
+        if (response) {
+          // 如果找到了匹配的缓存响应
+          response.json().then(function(data) {
+            anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('通知📢', `已刷新缓存，更新为${data.global + "." + data.local}版本最新内容`, null, 5000);
+          });
+        } else {
+          console.info('未找到匹配的缓存响应');
+        }
+      }).catch(function(error) {
+        console.error('缓存匹配出错:', error);
+      });
     },
   },
   json: {

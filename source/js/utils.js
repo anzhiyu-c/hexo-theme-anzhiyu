@@ -1354,6 +1354,13 @@ const anzhiyuPopupManager = {
     popupWindow.removeEventListener('click', this.clickEventHandler);
     if (url) {
       if (window.pjax) {
+        window.addEventListener("pjax:complete", () => {
+          popupWindow.classList.add('popup-hide');
+
+          // 处理队列中的下一个弹出窗口
+          this.processing = false;
+          this.processQueue();
+        });
         this.clickEventHandler = (event) => {
           event.preventDefault();
           pjax.loadUrl(url);
@@ -1371,8 +1378,13 @@ const anzhiyuPopupManager = {
         };
         popupWindow.addEventListener('click', this.clickEventHandler);
       }
+      if (popupWindow.classList.contains('no-url')) {
+        popupWindow.classList.remove('no-url');
+      }
     } else {
-      popupWindow.classList.add('no-url');
+      if (!popupWindow.classList.contains('no-url')) {
+        popupWindow.classList.add('no-url');
+      }
     }
 
     if (popupWindow.classList.contains('no-url')) {

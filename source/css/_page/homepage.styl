@@ -435,10 +435,16 @@ if hexo-config('article_double_row') == true
     opacity: 0;
     animation: barrageOut .6s cubic-bezier(.42,0,.3,1.11);
   .popup-window-title
-    padding-bottom: 4px;
     border-bottom: var(--style-border);
     font-size: 12px;
     font-weight: 700;
+    color: var(--anzhiyu-card-bg);
+    margin-right: 8px;
+    background: var(--anzhiyu-fontcolor);
+    line-height: 1;
+    padding: 4px;
+    border-radius: 4px;
+    width: fit-content;
   .popup-window-content
     font-size: 14px;
     display: flex;
@@ -449,5 +455,13 @@ if hexo-config('article_double_row') == true
       font-size: 16px;
       i
         font-size: 16px;
-
-
+body[data-type="post"]
+  #popup-window
+    top: 70px;
+    bottom: auto;
+    &.show-popup-window
+      animation: toLeftFull .6s cubic-bezier(.42,0,.3,1.11);
+      opacity 1
+    &.popup-hide
+      opacity: 0;
+      animation: toRightFull .6s cubic-bezier(.42,0,.3,1.11);
