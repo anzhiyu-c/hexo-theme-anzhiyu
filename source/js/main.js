@@ -675,11 +675,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       if ($popupWindow && $popupWindow.classList.contains('show-popup-window') && currentTop > 60 && delta > 20 && lastScrollTop != 0) {
         // 滚动后延迟1s关闭弹窗
-        if ($popupWindow.classList.contains('show-popup-window')) {
+        setTimeout(() => {
+          $popupWindow.classList.add('popup-hide');
           setTimeout(() => {
-            $popupWindow.classList.add('popup-hide');
-          }, 1000);
-        }
+            $popupWindow.classList.remove('popup-hide');
+            $popupWindow.classList.remove('show-popup-window');
+          }, 1000)
+        }, 1000);
       }
       lastScrollTop = currentTop;
 

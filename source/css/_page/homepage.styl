@@ -414,9 +414,11 @@ if hexo-config('article_double_row') == true
   border: var(--style-border);
   cursor pointer
   opacity 0
+  pointer-events: none
   &.show-popup-window
     animation: barrageIn .6s cubic-bezier(.42,0,.3,1.11);
     opacity 1
+    pointer-events: all
   &.no-url:hover
     background: var(--anzhiyu-maskbgdeep);
     color: var(--anzhiyu-fontcolor);
@@ -435,7 +437,6 @@ if hexo-config('article_double_row') == true
     opacity: 0;
     animation: barrageOut .6s cubic-bezier(.42,0,.3,1.11);
   .popup-window-title
-    border-bottom: var(--style-border);
     font-size: 12px;
     font-weight: 700;
     color: var(--anzhiyu-card-bg);
@@ -445,6 +446,10 @@ if hexo-config('article_double_row') == true
     padding: 4px;
     border-radius: 4px;
     width: fit-content;
+  .popup-window-divider
+    width 100%
+    border-bottom: var(--style-border);
+    margin-top: 6px;
   .popup-window-content
     font-size: 14px;
     display: flex;

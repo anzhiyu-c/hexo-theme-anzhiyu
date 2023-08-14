@@ -1326,6 +1326,7 @@ const anzhiyu = {
 const anzhiyuPopupManager = {
   queue: [],
   processing: false,
+  Jump: false,
 
   enqueuePopup(title, tip, url, duration = 3000) {
     this.queue.push({ title, tip, url, duration });
@@ -1354,17 +1355,12 @@ const anzhiyuPopupManager = {
     popupWindow.removeEventListener('click', this.clickEventHandler);
     if (url) {
       if (window.pjax) {
-        window.addEventListener("pjax:complete", () => {
-          popupWindow.classList.add('popup-hide');
-
-          // 处理队列中的下一个弹出窗口
-          this.processing = false;
-          this.processQueue();
-        });
         this.clickEventHandler = (event) => {
           event.preventDefault();
           pjax.loadUrl(url);
-          popupWindow.classList.add('popup-hide');
+          popupWindow.classList.remove('show-popup-window');
+          popupWindow.classList.remove('popup-hide');
+          this.Jump = true
 
           // 处理队列中的下一个弹出窗口
           this.processing = false;
@@ -1394,7 +1390,11 @@ const anzhiyuPopupManager = {
     popupWindow.classList.add('show-popup-window');
 
     setTimeout(() => {
-      popupWindow.classList.add('popup-hide');
+      console.info(this.Jump);
+      if (!this.Jump) {
+        popupWindow.classList.add('popup-hide');
+        this.Jump = false
+      }
 
       // 处理队列中的下一个弹出窗口
       this.processing = false;
