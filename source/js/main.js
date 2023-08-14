@@ -599,6 +599,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let initTop = 0;
     let isChatShow = true;
     const $header = document.getElementById("page-header");
+    const $cookies_window = document.getElementById('cookies-window')
     const isChatBtnHide = typeof chatBtnHide === "function";
     const isChatBtnShow = typeof chatBtnShow === "function";
 
@@ -670,6 +671,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const delta = Math.abs(lastScrollTop - currentTop);
       if (currentTop > 60 && delta < 20 && delta != 0) {
         // ignore small scrolls
+        if ($cookies_window && !$cookies_window.classList.contains('cw-hide')) {
+          $cookies_window.classList.add('cw-hide');
+        }
         return;
       }
       lastScrollTop = currentTop;

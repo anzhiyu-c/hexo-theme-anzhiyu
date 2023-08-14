@@ -584,11 +584,11 @@ const anzhiyu = {
   },
   sayhi: function () {
     const $sayhiEl = document.getElementById("author-info__sayhi");
-  
+
     const getTimeState = () => {
       const hour = new Date().getHours();
       let message = "";
-  
+
       if (hour >= 0 && hour <= 5) {
         message = "睡个好觉，保证精力充沛";
       } else if (hour > 5 && hour <= 10) {
@@ -600,15 +600,15 @@ const anzhiyu = {
       } else if (hour > 18 && hour <= 24) {
         message = "不要太劳累了，早睡更健康";
       }
-  
+
       return message;
     };
-  
+
     if ($sayhiEl) {
       $sayhiEl.innerHTML = getTimeState();
     }
   },
-  
+
   // 友链注入预设评论
   addFriendLink() {
     var input = document.getElementsByClassName("el-textarea__inner")[0];
@@ -1101,7 +1101,7 @@ const anzhiyu = {
       "取消"
     );
     travellingsTimer = setTimeout(function () {
-      window.open("https://www.travellings.cn/go.html","_blank");
+      window.open("https://www.travellings.cn/go.html", "_blank");
     }, "5000");
   },
 
@@ -1321,4 +1321,49 @@ const anzhiyu = {
     }
     authorInfoSayHiElement.textContent = randomGreeting;
   },
+  // 弹窗
+  popupShow: function (title, tip, url, duration = 2000) {
+    const $cookies_window = document.getElementById('cookies-window')
+    const popupWindow = document.getElementById("popup-window");
+    const windowTitle = popupWindow.querySelector(".cookies-window-title");
+    const windowContent = popupWindow.querySelector(".cookies-window-content");
+    const cookiesTip = windowContent.querySelector(".cookies-tip");
+    const cookiesLink = windowContent.querySelector(".cookies-link");
+    let flag = false
+    if ($cookies_window && !$cookies_window.classList.contains('cw-hide')) {
+      $cookies_window.classList.add('cw-hide');
+      flag = true
+    }
+
+    windowTitle.textContent = title;
+    cookiesTip.textContent = tip;
+    if (url) {
+      if (window.pjax) {
+        cookiesLink.addEventListener("click", event => {
+          event.preventDefault(); // Prevent default click behavior
+          pjax.loadUrl(url); // Load the URL using pjax
+        });
+      } else {
+        cookiesLink.addEventListener("click", () => {
+          window.location.href = url; // Load the URL normally
+        });
+      }
+    } else {
+      cookiesLink.style.display = 'none';
+      popupWindow.classList.add("no-url"); // Add .no-url class to the popup window
+    }
+
+    popupWindow.classList.add("show-popup-window");
+
+    setTimeout(() => {
+      popupWindow.classList.remove("show-popup-window");
+      if (popupWindow.classList.contains("no-url")) {
+        cookiesLink.style.display = 'block'; // Show the link after the timeout
+      }
+      if ($cookies_window && $cookies_window.classList.contains('cw-hide') && flag) {
+        $cookies_window.classList.remove('cw-hide');
+      }
+    }, duration);
+  },
 };
+
