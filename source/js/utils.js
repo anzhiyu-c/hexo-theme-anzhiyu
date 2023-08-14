@@ -1321,49 +1321,72 @@ const anzhiyu = {
     }
     authorInfoSayHiElement.textContent = randomGreeting;
   },
-  // 弹窗
-  popupShow: function (title, tip, url, duration = 2000) {
-    const $cookies_window = document.getElementById('cookies-window')
-    const popupWindow = document.getElementById("popup-window");
-    const windowTitle = popupWindow.querySelector(".cookies-window-title");
-    const windowContent = popupWindow.querySelector(".cookies-window-content");
-    const cookiesTip = windowContent.querySelector(".cookies-tip");
-    const cookiesLink = windowContent.querySelector(".cookies-link");
-    let flag = false
-    if ($cookies_window && !$cookies_window.classList.contains('cw-hide')) {
-      $cookies_window.classList.add('cw-hide');
-      flag = true
-    }
+};
 
+const anzhiyuPopupManager = {
+  queue: [],
+  processing: false,
+
+  enqueuePopup(title, tip, url, duration = 3000) {
+    this.queue.push({ title, tip, url, duration });
+    if (!this.processing) {
+      this.processQueue();
+    }
+  },
+
+  processQueue() {
+    if (this.queue.length > 0 && !this.processing) {
+      this.processing = true;
+      const { title, tip, url, duration } = this.queue.shift();
+      this.popupShow(title, tip, url, duration);
+    }
+  },
+
+  popupShow(title, tip, url, duration) {
+    const popupWindow = document.getElementById('popup-window');
+    const windowTitle = popupWindow.querySelector(".popup-window-title");
+    const windowContent = popupWindow.querySelector(".popup-window-content");
+    const cookiesTip = windowContent.querySelector(".popup-tip");
     windowTitle.textContent = title;
     cookiesTip.textContent = tip;
+
+    // 移除之前的点击事件处理程序
+    popupWindow.removeEventListener('click', this.clickEventHandler);
     if (url) {
       if (window.pjax) {
-        cookiesLink.addEventListener("click", event => {
-          event.preventDefault(); // Prevent default click behavior
-          pjax.loadUrl(url); // Load the URL using pjax
-        });
+        this.clickEventHandler = (event) => {
+          event.preventDefault();
+          pjax.loadUrl(url);
+          popupWindow.classList.add('popup-hide');
+
+          // 处理队列中的下一个弹出窗口
+          this.processing = false;
+          this.processQueue();
+        };
+
+        popupWindow.addEventListener('click', this.clickEventHandler);
       } else {
-        cookiesLink.addEventListener("click", () => {
-          window.location.href = url; // Load the URL normally
-        });
+        this.clickEventHandler = () => {
+          window.location.href = url;
+        };
+        popupWindow.addEventListener('click', this.clickEventHandler);
       }
     } else {
-      cookiesLink.style.display = 'none';
-      popupWindow.classList.add("no-url"); // Add .no-url class to the popup window
+      popupWindow.classList.add('no-url');
     }
 
-    popupWindow.classList.add("show-popup-window");
+    if (popupWindow.classList.contains('no-url')) {
+      popupWindow.classList.remove('popup-hide');
+    }
+
+    popupWindow.classList.add('show-popup-window');
 
     setTimeout(() => {
-      popupWindow.classList.remove("show-popup-window");
-      if (popupWindow.classList.contains("no-url")) {
-        cookiesLink.style.display = 'block'; // Show the link after the timeout
-      }
-      if ($cookies_window && $cookies_window.classList.contains('cw-hide') && flag) {
-        $cookies_window.classList.remove('cw-hide');
-      }
+      popupWindow.classList.add('popup-hide');
+
+      // 处理队列中的下一个弹出窗口
+      this.processing = false;
+      this.processQueue();
     }, duration);
   },
 };
-

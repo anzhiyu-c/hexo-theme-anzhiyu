@@ -64,7 +64,11 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
               !=partial('includes/footer', {}, {cache: true})
             
             if (theme.agreementPopup && theme.agreementPopup.enable && is_home_first_page())
-              !=partial('includes/agreement', {}, {cache: true})
+              - let agreementPopupUrl = theme.agreementPopup.url
+              script(defer).
+                setTimeout(()=>{
+                  anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 10000);
+                }, 1000)
 
         else
           include ./404.pug

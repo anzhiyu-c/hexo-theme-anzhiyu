@@ -393,15 +393,7 @@ if hexo-config('article_double_row') == true
   font-size: 14px;
   opacity 0
   height 0
-#popup-window
-  opacity 0
-  &.show-popup-window
-    opacity 1
-  &.no-url:hover
-    background: var(--anzhiyu-maskbgdeep);
-    color: var(--anzhiyu-fontcolor);
 
-#cookies-window,
 #popup-window
   min-width: 300px;
   background: var(--anzhiyu-maskbgdeep);
@@ -420,27 +412,39 @@ if hexo-config('article_double_row') == true
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   transform: translateZ(0);
   border: var(--style-border);
-  animation: barrageIn .6s cubic-bezier(.42,0,.3,1.11);
   cursor pointer
+  opacity 0
+  &.show-popup-window
+    animation: barrageIn .6s cubic-bezier(.42,0,.3,1.11);
+    opacity 1
+  &.no-url:hover
+    background: var(--anzhiyu-maskbgdeep);
+    color: var(--anzhiyu-fontcolor);
+    border: var(--style-border);
+    cursor: not-allowed
+  &.no-url
+    .popup-window-content .popup-link
+      display: none
   &:hover
     background: var(--anzhiyu-main)
     color: var(--anzhiyu-white)
-    .cookies-window-content .cookies-link i
+    border: var(--style-border-hover);
+    .popup-window-content .popup-link i
       color: var(--anzhiyu-white)
-  &.cw-hide
+  &.popup-hide
     opacity: 0;
     animation: barrageOut .6s cubic-bezier(.42,0,.3,1.11);
-  .cookies-window-title
+  .popup-window-title
     padding-bottom: 4px;
     border-bottom: var(--style-border);
     font-size: 12px;
     font-weight: 700;
-  .cookies-window-content
+  .popup-window-content
     font-size: 14px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .cookies-link
+    .popup-link
       margin-left: auto;
       font-size: 16px;
       i
