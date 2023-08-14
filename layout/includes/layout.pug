@@ -66,9 +66,16 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
             if (theme.agreementPopup && theme.agreementPopup.enable && is_home_first_page())
               - let agreementPopupUrl = theme.agreementPopup.url
               script(defer).
-                setTimeout(()=>{
-                  anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 10000);
-                }, 1000)
+                const hasShownPopup = sessionStorage.getItem('sessionNegotiatePopupShown');
+
+                if (!hasShownPopup) {
+                  setTimeout(() => {
+                    anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 10000);
+
+                    // 将会话弹窗状态记录到sessionStorage中
+                    sessionStorage.setItem('sessionNegotiatePopupShown', 'true');
+                  }, 1000);
+                }
 
         else
           include ./404.pug
