@@ -1404,7 +1404,6 @@ const anzhiyuPopupManager = {
     }, 800);
 
     setTimeout(() => {
-      console.info(this.Jump);
       if (url && !this.Jump) {
         this.Jump = false;
       }
