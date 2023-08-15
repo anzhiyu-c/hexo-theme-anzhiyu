@@ -17,10 +17,16 @@ mixin postUI(posts)
       -
       - const new_post = is_current('/') && (maxDate === article.date)
       if (theme.post_meta.page.categories && article.categories.data.length > 0)
-        .article-meta__categories__box(style=`${(new_post && !theme.cover.index_enable) ? "left: 95px":""}`)
+        .article-meta__categories__box(style=`${(new_post && !theme.cover.index_enable) ? "left: 88px":""}`)
           each item, index in article.categories.data
             a(href=url_for(item.path)).article-meta__categories #[=item.name]
-          a.unvisited-post(href=url_for(link) title=title style=`${(!theme.cover.index_enable) ? "position: static;": new_post ? (theme.article_double_row ? (is_home() && (article.top || article.sticky > 0)) ? "left: 135px;" : "left: 90px;" : (is_home() && (article.top || article.sticky > 0)) ? "left: calc(44% + 130px);" : "left: calc(44% + 82px);") : ""}`) 未读
+          a.unvisited-post(href=url_for(link) title=title style=`
+            ${!theme.cover.index_enable ? "position: static;" : 
+              new_post ? 
+                (theme.article_double_row ? 
+                  (is_home() && (article.top || article.sticky > 0)) ? "left: 135px;" : "left: 90px;" : 
+                  (is_home() && (article.top || article.sticky > 0)) ? "left: calc(44% + 130px);" : "left: calc(44% + 82px);") 
+                : (is_home() && (article.top || article.sticky > 0)) ? "left: 80px;" : ""}`) 未读
       else 
         - let unvisitedleft = null
         if (new_post && theme.cover.index_enable)

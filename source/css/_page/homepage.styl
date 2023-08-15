@@ -36,7 +36,7 @@
       else 
         position: absolute;
         left: 32px;
-        top: 5px;
+        top: 10px;
       &:visited
         color: var(--anzhiyu-card-bg);
     .recent-post-info
@@ -85,8 +85,8 @@
         color: var(--anzhiyu-secondtext);
         font-size: 0.5rem;
         position: absolute;
-        left: 40px;
-        top: 5px;
+        left: 32px;
+        top: 10px;
         opacity: .8;
         .article-meta__categories
           margin-right: 8px;
@@ -186,9 +186,12 @@
           bottom: 30px;
         .sticky-warp
           position: absolute;
-          top: -90px;
+          top: -86px;
           left: 32px;
-          line-height: 12px
+          line-height: 23px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         .article-meta
           if hexo-config("post_meta.page.date_type") != 'both'
             white-space: nowrap;
