@@ -10,6 +10,8 @@ var $bodyWrap = document.getElementById("body-wrap");
 var $main = document.querySelector("main");
 var dragStartX;
 
+var popupWindowTimer = null
+
 var adjectives = [
   "美丽的",
   "英俊的",
@@ -676,7 +678,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if ($popupWindow && $popupWindow.classList.contains('show-popup-window') && currentTop > 60 && delta > 20 && lastScrollTop != 0) {
         // 滚动后延迟1s关闭弹窗
         anzhiyu.throttle(() => {
-          setTimeout(() => {
+          if (popupWindowTimer) clearTimeout(popupWindowTimer)
+          popupWindowTimer = setTimeout(() => {
             if (!$popupWindow.classList.contains("popup-hide")) {
               $popupWindow.classList.add('popup-hide');
             }
