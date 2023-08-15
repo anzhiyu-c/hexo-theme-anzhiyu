@@ -412,18 +412,18 @@ if hexo-config('article_double_row') == true
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   transform: translateZ(0);
   border: var(--style-border);
-  cursor pointer
   opacity 0
   pointer-events: none
   &.show-popup-window
     animation: barrageIn .6s cubic-bezier(.42,0,.3,1.11);
     opacity 1
     pointer-events: all
+    cursor pointer
   &.no-url:hover
     background: var(--anzhiyu-maskbgdeep);
     color: var(--anzhiyu-fontcolor);
     border: var(--style-border);
-    cursor: not-allowed
+    cursor: pointer
   &.no-url
     .popup-window-content .popup-link
       display: none
