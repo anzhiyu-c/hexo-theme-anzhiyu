@@ -705,6 +705,7 @@ theme_color:
   scrollbar_color: "var(--anzhiyu-scrollbar)"
   meta_theme_color_light: "#f7f9fe"
   meta_theme_color_dark: "#18171d"
+  inside_sidebar_background: "#607d8b" # @since 1.5.4 支持手机端侧边栏可定制颜色
 
 # 文章h2添加分隔线
 h2Divider: false
