@@ -103,7 +103,7 @@ $tag-hide-toggle-bg = #f0f0f0
 $preloader-bg = #37474f
 $preloader-word-color = #fff
 // sidebar
-$inside-sidebar-background = #607d8b;
+$inside-sidebar-background = $themeColorEnable && hexo-config('theme_color.inside_sidebar_background') ? convert(hexo-config('theme_color.inside_sidebar_background')) : #607d8b;
 // rightside
 $rightside-bottom = hexo-config('rightside-bottom') ? convert(hexo-config('rightside-bottom')) : 40px
 // fireworks
