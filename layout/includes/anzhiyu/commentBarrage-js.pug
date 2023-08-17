@@ -101,9 +101,22 @@ script(data-pjax="true").
             <a class="comment-barrage-close" href="javascript:anzhiyu.switchCommentBarrage()"><i class="anzhiyufont anzhiyu-icon-xmark"></i></a>
           </div>
           <a class="barrageContent" href="#${data.id}">
-            <object>${data.comment}</object>
+            <anzhiyu>${data.comment}</anzhiyu>
           </a>
         `;
+      
+      // 获取anzhiyu标签内的所有图片元素
+      let anzhiyuImages = barrage.querySelectorAll("anzhiyu img");
+
+      // 遍历每个图片元素，将其替换为"【图片】"，但排除带有class=tk-owo-emotion的图片
+      anzhiyuImages.forEach((image) => {
+        if (!image.classList.contains("tk-owo-emotion")) {
+          image.style.display = "none"; // 隐藏图片
+          let placeholder = document.createElement("span");
+          placeholder.innerText = "【图片】";
+          image.parentNode.replaceChild(placeholder, image);
+        }
+      });
       commentBarrageConfig.barrageTimer.push(barrage);
       commentBarrageConfig.dom.append(barrage);
     }
