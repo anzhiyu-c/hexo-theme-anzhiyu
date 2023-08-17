@@ -105,6 +105,16 @@ script(data-pjax="true").
           </a>
         `;
       
+      // 获取anzhiyu标签内的所有pre元素
+      let anzhiyuPres = barrage.querySelectorAll("anzhiyu pre");
+
+      // 遍历每个pre元素，将其替换为"【代码】"
+      anzhiyuPres.forEach((pre) => {
+        let codePlaceholder = document.createElement("span");
+        codePlaceholder.innerText = "【代码】";
+        pre.parentNode.replaceChild(codePlaceholder, pre);
+      });
+
       // 获取anzhiyu标签内的所有图片元素
       let anzhiyuImages = barrage.querySelectorAll("anzhiyu img");
 
