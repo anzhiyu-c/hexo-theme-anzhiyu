@@ -100,9 +100,9 @@ script(data-pjax="true").
             <img class="nolazyload barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>
             <a class="comment-barrage-close" href="javascript:anzhiyu.switchCommentBarrage()"><i class="anzhiyufont anzhiyu-icon-xmark"></i></a>
           </div>
-          <a class="barrageContent" href="#${data.id}">
-            <anzhiyu>${data.comment}</anzhiyu>
-          </a>
+          <anzhiyu class="barrageContent" onClick="window.location.hash = '${data.id}'">
+            ${data.comment}
+          </anzhiyu>
         `;
       
       // 获取anzhiyu标签内的所有pre元素

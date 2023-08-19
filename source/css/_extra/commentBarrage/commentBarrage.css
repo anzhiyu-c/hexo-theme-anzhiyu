@@ -105,6 +105,7 @@
   font-weight: 400 !important;
   height: calc(100% - 30px);
   overflow: scroll;
+  cursor: pointer;
 }
 .comment-barrage-item .barrageContent::-webkit-scrollbar {
   height: 0;
