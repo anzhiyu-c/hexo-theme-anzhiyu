@@ -355,7 +355,7 @@ if hexo-config('comments.use') == 'Twikoo'
     }
     .tk-comments .tk-main .tk-row-actions-start {
       position: absolute;
-      left: 0px;
+      left: 18px;
       top: -50px;
     }
     .tk-comments button.el-button.tk-preview.el-button--default.el-button--small {
@@ -367,9 +367,18 @@ if hexo-config('comments.use') == 'Twikoo'
     .tk-comments .tk-main .tk-submit .tk-row.actions {
       justify-content: center;
     }
-    .tk-comments .tk-main button.el-button.tk-send,
-    .tk-comments .tk-main button.el-button.tk-cancel {
+    .tk-comments button.el-button.tk-send,
+    .tk-comments button.el-button.tk-cancel {
       width: 100%;
+    }
+    .tk-comments .tk-row-actions-start {
+      position: absolute;
+    }
+    #twikoo .tk-submit .actions .tk-send {
+      margin-left: 0
+    }
+    #twikoo .tk-comments .tk-main .tk-submit .actions .tk-send {
+      margin-left: 10px
     }
   }
 
