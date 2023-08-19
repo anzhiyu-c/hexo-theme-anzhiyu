@@ -26,20 +26,15 @@ mixin postUI(posts)
                 (theme.article_double_row ? 
                   (is_home() && (article.top || article.sticky > 0)) ? "left: 135px;" : "left: 90px;" : 
                   (is_home() && (article.top || article.sticky > 0)) ? "left: calc(44% + 130px);" : "left: calc(44% + 82px);") 
-                : (is_home() && (article.top || article.sticky > 0)) ? "left: 80px;" : ""}`) 未读
+                : theme.article_double_row ? ((is_home() && (article.top || article.sticky > 0)) ? "left: 80px;" : "") : (is_home() && (article.top || article.sticky > 0)) ? "left: calc(44% + 78px);": ""}`) 未读
       else 
-        - let unvisitedleft = null
-        if (new_post && theme.cover.index_enable)
-          - unvisitedleft = "90px"
-        if (is_home() && (article.top || article.sticky > 0))
-          - unvisitedleft = "calc(44% + 75px)"
-        if (is_home() && (article.top || article.sticky > 0)) && theme.article_double_row
-          - unvisitedleft = "80px"
-        else if (new_post && theme.cover.index_enable) && (is_home() && (article.top || article.sticky > 0))
-          - unvisitedleft = "calc(44% + 130px)"
-        if (new_post && theme.cover.index_enable) && (is_home() && (article.top || article.sticky > 0)) && theme.article_double_row
-          - unvisitedleft = "135px"
-        a.unvisited-post(href=url_for(link) title=title style=`${unvisitedleft ? `left: ${unvisitedleft};` : ''}`) 未读
+        a.unvisited-post(href=url_for(link) title=title style=`
+            ${!theme.cover.index_enable ? "position: static;" : 
+              new_post ? 
+                (theme.article_double_row ? 
+                  (is_home() && (article.top || article.sticky > 0)) ? "left: 135px;" : "left: 90px;" : 
+                  (is_home() && (article.top || article.sticky > 0)) ? "left: calc(44% + 130px);" : "left: calc(44% + 82px);") 
+                : theme.article_double_row ? ((is_home() && (article.top || article.sticky > 0)) ? "left: 80px;" : "") : (is_home() && (article.top || article.sticky > 0)) ? "left: calc(44% + 78px);": ""}`) 未读
       if post_cover && theme.cover.index_enable
         .post_cover(class=leftOrRight)
           a(href=url_for(link) title=title style='display: flex;height: 100%;')

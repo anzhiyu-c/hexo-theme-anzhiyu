@@ -29,10 +29,7 @@
           left: 32px
         else 
           left: calc(44% + 30px);
-          top: 33px
-        +maxWidth768()
-          top: 200px;
-          left: 32px;
+          top: 32.5px
       else 
         position: absolute;
         left: 32px;
@@ -186,12 +183,14 @@
           bottom: 30px;
         .sticky-warp
           position: absolute;
-          top: -86px;
+          top: -85.6px;
           left: 32px;
           line-height: 23px;
           display: flex;
           align-items: center;
           justify-content: center;
+          +maxWidth768()
+            top: -79px;
         .article-meta
           if hexo-config("post_meta.page.date_type") != 'both'
             white-space: nowrap;
@@ -299,9 +298,6 @@ if hexo-config('article_double_row') == true
       top: 32px;
       left: calc(44% + 32px);
       width: 24px;
-    #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
-      left: calc(44% + 88px) !important;
-      top: 32px;
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
       font-weight: bold;
@@ -317,9 +313,6 @@ if hexo-config('article_double_row') == true
     #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
       opacity: 0;
       height: 0;
-    #recent-posts > .recent-post-item .unvisited-post
-      left: 32px;
-      top: 202px;
   +minWidth1200()
     #recent-posts
       align-content: flex-start
@@ -376,13 +369,6 @@ if hexo-config('article_double_row') == true
         display: none
 
 
-
-#recent-posts 
-  +maxWidth768()
-    .recent-post-item
-      &:has(.newPost) .unvisited-post
-        left: 90px !important;
-        top: 202px !important;
 
 #content-inner #recent-posts > .recent-post-item > .recent-post-info > .content
   transition: all 0.3s ease 0s;
@@ -473,3 +459,23 @@ body[data-type="post"]
     &.popup-hide
       opacity: 0;
       animation: toRightFull .6s cubic-bezier(.42,0,.3,1.11);
++maxWidth1200()
+  #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
+    left: calc(44% + 86px) !important;
+    top: 32px;
+  #recent-posts > .recent-post-item&:has(.sticky-warp) .unvisited-post
+    left: calc(44% + 80px) !important;
+    top: 32px;
+  #recent-posts > .recent-post-item&:has(.sticky-warp)&:has(.newPost) .unvisited-post
+    left: calc(44% + 130px) !important;
+    top: 32px;
++maxWidth768()
+  #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
+    left: 86px !important;
+    top: 202px !important;
+  #recent-posts > .recent-post-item&:has(.sticky-warp) .unvisited-post
+    left: 82px !important;
+    top: 202px !important;
+  #recent-posts > .recent-post-item&:has(.sticky-warp)&:has(.newPost) .unvisited-post
+    left: 135px !important;
+    top: 202px !important;
