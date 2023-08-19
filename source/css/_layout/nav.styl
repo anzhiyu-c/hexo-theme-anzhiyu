@@ -51,7 +51,6 @@
     margin-left: 1rem
     &:hover
       i
-        background: var(--anzhiyu-main)
         &.left
           width: calc(var(--icon-size)/2.5);
         &.center
@@ -110,39 +109,52 @@
       transform: rotate(45deg) !important;
 [data-theme="dark"] #center-console:checked + label:is(.widget, #center-console:checked + label .widget:hover) i
   background: var(--anzhiyu-black) !important;
-div#travellings_button
-  display: flex
-  &:hover::after
-    opacity: 1;
-    transform: none;
-    visibility: visible;
-  &::after
-    --height: 2rem;
-    content: attr(title);
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--anzhiyu-white);
-    background: var(--anzhiyu-main) !important;
-    box-shadow: var(--anzhiyu-shadow-nav);
-    border-radius: var(--anzhiyu-radius-full);
-    width: fit-content;
-    height: var(--height);
-    font-size: var(--global-font-size);
-    white-space: nowrap;
-    margin: auto;
-    padding: 0 4em;
-    top: calc((60px - var(--height)) / 2);
-    right: 0;
-    left: 0;
-    line-height: 0;
-    opacity: 0;
-    z-index: 1;
-    visibility: hidden;
-    transform: scaleX(1.1);
-    pointer-events: none;
-    transition: .5s;
+#web_box
+  .nav-fixed #travellings_button
+    &::after
+      background: var(--anzhiyu-main) !important;
+
+  #travellings_button
+    display: flex
+    &:hover::after
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+    &::after
+      --height: 2rem;
+      content: attr(title);
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--anzhiyu-white);
+      background: var(--anzhiyu-white-op) !important;
+      box-shadow: var(--anzhiyu-shadow-nav);
+      border-radius: var(--anzhiyu-radius-full);
+      width: fit-content;
+      height: var(--height);
+      font-size: var(--global-font-size);
+      white-space: nowrap;
+      margin: auto;
+      padding: 0 4em;
+      top: calc((60px - var(--height)) / 2);
+      right: 0;
+      left: 0;
+      line-height: 0;
+      opacity: 0;
+      z-index: 1;
+      visibility: hidden;
+      transform: scaleX(1.1);
+      pointer-events: none;
+      transition: .5s;
+      +maxWidth900()
+        padding: 0 2em;
+
+#web_box:has(#travellings_button:hover) 
+  #page-name,
+  #nav #menus
+    display: none
+
 
 @media screen and (max-width: 768px)
   #page-header #nav
@@ -263,12 +275,34 @@ div#travellings_button
       transition 0.3s
       box-shadow var(--anzhiyu-shadow-main)
 .post #nav 
-  #blog_name,
-  .mask-name-container,
-  #menus,
-  #nav-right .nav-button,
+  #blog_name .back-home-button,
+  #blog_name #site-name,
+  #nav-right .nav-button a,
   #nav-right #toggle-menu
-    a:hover
+    &:hover
+      color var(--anzhiyu-white)
+      background var(--anzhiyu-white-op)
+      transition 0.3s
+.post #nav 
+  #menus .menus_item
+    &:hover a
+      color var(--anzhiyu-white)
+      background var(--anzhiyu-white-op)
+      transition 0.3s
+
+.post .nav-fixed #nav 
+  #menus .menus_item
+    &:hover
+      > a.site-page
+        color var(--anzhiyu-white)
+        background var(--anzhiyu-main)
+        transition 0.3s
+        box-shadow var(--anzhiyu-shadow-main)
+  #blog_name #site-name,
+  #blog_name .back-home-button,
+  #nav-right .nav-button a,
+  #nav-right #toggle-menu
+    &:hover
       color var(--anzhiyu-white)
       background var(--anzhiyu-main)
       transition 0.3s
