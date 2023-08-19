@@ -315,23 +315,23 @@ const anzhiyu = {
     rm && rm.hideRightMenu();
     anzhiyu.darkModeStatus();
 
-    const root = document.querySelector(":root");
-    root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
-    anzhiyu.initThemeColor();
+    // const root = document.querySelector(":root");
+    // root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
+    // anzhiyu.initThemeColor();
 
     // 要改回来默认主色
-    document.documentElement.style.setProperty(
-      "--anzhiyu-main",
-      getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
-    );
-    document.documentElement.style.setProperty(
-      "--anzhiyu-theme-op",
-      getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "23"
-    );
-    document.documentElement.style.setProperty(
-      "--anzhiyu-theme-op-deep",
-      getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
-    );
+    // document.documentElement.style.setProperty(
+    //   "--anzhiyu-main",
+    //   getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--anzhiyu-theme-op",
+    //   getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "23"
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--anzhiyu-theme-op-deep",
+    //   getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
+    // );
   },
   //是否是文章页
   is_Post: function () {
