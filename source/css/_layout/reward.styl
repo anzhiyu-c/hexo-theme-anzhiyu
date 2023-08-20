@@ -35,7 +35,10 @@
   .reward-main
     position: absolute;
     bottom: 40px;
-    left: 0px;
+    if hexo-config('ptool.enable') == true && hexo-config('ptool.mode')
+      left: 0;
+    else
+      left: -70%;
     z-index: 90;
     display: none;
     padding: 0px 0px 15px;
