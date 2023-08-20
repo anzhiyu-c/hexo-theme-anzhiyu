@@ -36,7 +36,7 @@ script.
           generateHtml(twikooArray)
         }).catch(function (err) {
           const $dom = document.querySelector('#card-newest-comments .aside-list')
-          $dom.innerHTML= "!{_p('aside.card_newest_comments.error')}"
+          $dom.textContent= "!{_p('aside.card_newest_comments.error')}"
         })
       }
 
@@ -56,13 +56,13 @@ script.
 
           if (!{theme.newest_comments.avatar}) {
             const name = '!{theme.lazyload.enable ? "data-lazy-src" : "src"}'
-            result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick}</span></div></a>`
+            result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
           }
           
           result += `<div class='content'>
           <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
-          <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
-          </div>`
+          <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+          </div></div>`
         }
       } else {
         result += '!{_p("aside.card_newest_comments.zero")}'
@@ -88,6 +88,3 @@ script.
     newestCommentInit()
     document.addEventListener('pjax:complete', newestCommentInit)
   })
-
-
-

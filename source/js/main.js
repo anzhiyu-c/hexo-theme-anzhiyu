@@ -277,17 +277,13 @@ document.addEventListener("DOMContentLoaded", function () {
    * 首頁top_img底下的箭頭
    */
   const scrollDownInIndex = () => {
-    const $bbTimeList = document.getElementById("bbTimeList");
-    const $scrollDownEle = document.getElementById("scroll-down");
-    $scrollDownEle &&
-      $scrollDownEle.addEventListener("click", function () {
-        if ($bbTimeList) {
-          anzhiyu.scrollToDest($bbTimeList.offsetTop, 300);
-        } else {
-          anzhiyu.scrollToDest(document.getElementById("content-inner").offsetTop, 300);
-        }
-      });
-  };
+    const handleScrollToDest = () => {
+      anzhiyu.scrollToDest(document.getElementById('content-inner').offsetTop, 300)
+    }
+
+    const $scrollDownEle = document.getElementById('scroll-down')
+    $scrollDownEle && anzhiyu.addEventListenerPjax($scrollDownEle, 'click', handleScrollToDest)
+  }
 
   /**
    * 代码
@@ -385,29 +381,29 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.toggle("expand-done");
     };
 
-    function createEle(lang, item, service) {
-      const fragment = document.createDocumentFragment();
+    const createEle = (lang, item, service) => {
+      const fragment = document.createDocumentFragment()
 
       if (isShowTool) {
-        const hlTools = document.createElement("div");
-        hlTools.className = `highlight-tools ${highlightShrinkClass}`;
-        hlTools.innerHTML = highlightShrinkEle + lang + highlightCopyEle;
-        hlTools.addEventListener("click", highlightToolsFn);
-        fragment.appendChild(hlTools);
+        const hlTools = document.createElement('div')
+        hlTools.className = `highlight-tools ${highlightShrinkClass}`
+        hlTools.innerHTML = highlightShrinkEle + lang + highlightCopyEle
+        anzhiyu.addEventListenerPjax(hlTools, 'click', highlightToolsFn)
+        fragment.appendChild(hlTools)
       }
 
       if (highlightHeightLimit && item.offsetHeight > highlightHeightLimit + 30) {
-        const ele = document.createElement("div");
-        ele.className = "code-expand-btn";
-        ele.innerHTML = '<i class="anzhiyufont anzhiyu-icon-angle-double-down"></i>';
-        ele.addEventListener("click", expandCode);
-        fragment.appendChild(ele);
+        const ele = document.createElement('div')
+        ele.className = 'code-expand-btn'
+        ele.innerHTML = '<i class="anzhiyufont anzhiyu-icon-angle-double-down"></i>'
+        anzhiyu.addEventListenerPjax(ele, 'click', expandCode)
+        fragment.appendChild(ele)
       }
 
-      if (service === "hl") {
-        item.insertBefore(fragment, item.firstChild);
+      if (service === 'hl') {
+        item.insertBefore(fragment, item.firstChild)
       } else {
-        item.parentNode.insertBefore(fragment, item);
+        item.parentNode.insertBefore(fragment, item)
       }
     }
 
@@ -666,7 +662,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    const scroolTask = anzhiyu.throttle(() => {
+    const scrollTask = anzhiyu.throttle(() => {
       const currentTop = window.scrollY || document.documentElement.scrollTop;
       const isDown = scrollDirection(currentTop);
 
@@ -753,8 +749,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .observe(footerDom);
     }
 
-    window.scrollCollect = scroolTask;
-    window.addEventListener("scroll", scrollCollect);
+    anzhiyu.addEventListenerPjax(window, 'scroll', scrollTask, { passive: true })
   };
 
   /**
@@ -865,12 +860,12 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // main of scroll
-    window.tocScrollFn = anzhiyu.throttle(() => {
-      const currentTop = window.scrollY || document.documentElement.scrollTop;
-      findHeadPosition(currentTop);
-    }, 96);
+    const tocScrollFn = anzhiyu.throttle(() => {
+      const currentTop = window.scrollY || document.documentElement.scrollTop
+      findHeadPosition(currentTop)
+    }, 100)
 
-    window.addEventListener("scroll", tocScrollFn);
+    anzhiyu.addEventListenerPjax(window, 'scroll', tocScrollFn, { passive: true })
   };
 
   /**
@@ -974,6 +969,14 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
+   * 手机端目录点击
+   */
+  const openMobileMenu = () => {
+    const handleClick = () => { sidebarFn.open() }
+    anzhiyu.addEventListenerPjax(document.getElementById('toggle-menu'), 'click', handleClick)
+  }
+
+  /**
    * 複製時加上版權信息
    */
   const addCopyright = () => {
@@ -1058,80 +1061,82 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  const tabsFn = {
-    clickFnOfTabs: function () {
-      document.querySelectorAll("#article-container .tab > button").forEach(function (item) {
-        item.addEventListener("click", function (e) {
-          const $this = this;
-          const $tabItem = $this.parentNode;
+  const tabsFn = () => {
+    const navTabsElement = document.querySelectorAll('#article-container .tabs')
+    if (!navTabsElement.length) return
 
-          if (!$tabItem.classList.contains("active")) {
-            const $tabContent = $tabItem.parentNode.nextElementSibling;
-            const $siblings = anzhiyu.siblings($tabItem, ".active")[0];
-            $siblings && $siblings.classList.remove("active");
-            $tabItem.classList.add("active");
-            const tabId = $this.getAttribute("data-href").replace("#", "");
-            const childList = [...$tabContent.children];
-            childList.forEach(item => {
-              if (item.id === tabId) item.classList.add("active");
-              else item.classList.remove("active");
-            });
-            const $isTabJustifiedGallery = $tabContent.querySelectorAll(`#${tabId} .fj-gallery`);
-            if ($isTabJustifiedGallery.length > 0) {
-              anzhiyu.initJustifiedGallery($isTabJustifiedGallery);
-            }
-          }
-        });
-      });
-    },
-    backToTop: () => {
-      document.querySelectorAll("#article-container .tabs .tab-to-top").forEach(function (item) {
-        item.addEventListener("click", function () {
-          anzhiyu.scrollToDest(anzhiyu.getEleTop(anzhiyu.getParents(this, ".tabs")) - 60, 300);
-        });
-      });
-    },
-  };
-
-  const toggleCardCategory = function () {
-    const $cardCategory = document.querySelectorAll("#aside-cat-list .card-category-list-item.parent i");
-    if ($cardCategory.length) {
-      $cardCategory.forEach(function (item) {
-        item.addEventListener("click", function (e) {
-          e.preventDefault();
-          const $this = this;
-          $this.classList.toggle("expand");
-          const $parentEle = $this.parentNode.nextElementSibling;
-          if (anzhiyu.isHidden($parentEle)) {
-            $parentEle.style.display = "block";
-          } else {
-            $parentEle.style.display = "none";
-          }
-        });
-      });
-    }
-  };
-
-  const switchComments = function () {
-    let switchDone = false;
-    const $switchBtn = document.querySelector("#comment-switch > .switch-btn");
-    $switchBtn &&
-      $switchBtn.addEventListener("click", function () {
-        this.classList.toggle("move");
-        document.querySelectorAll("#post-comment > .comment-wrap > div").forEach(function (item) {
-          if (anzhiyu.isHidden(item)) {
-            item.style.cssText = "display: block;animation: tabshow .5s";
-          } else {
-            item.style.cssText = "display: none;animation: ''";
-          }
-        });
-
-        if (!switchDone && typeof loadOtherComment === "function") {
-          switchDone = true;
-          loadOtherComment();
+    const removeAndAddActiveClass = (elements, detect) => {
+      Array.from(elements).forEach(element => {
+        element.classList.remove('active')
+        if (element === detect || element.id === detect) {
+          element.classList.add('active')
         }
-      });
-  };
+      })
+    }
+
+    const addTabNavEventListener = (item, isJustifiedGallery) => {
+      const navClickHandler = function (e) {
+        const target = e.target.closest('button')
+        if (target.classList.contains('active')) return
+        removeAndAddActiveClass(this.children, target)
+        this.classList.remove('no-default')
+        const tabId = target.getAttribute('data-href')
+        const tabContent = this.nextElementSibling
+        removeAndAddActiveClass(tabContent.children, tabId)
+        if (isJustifiedGallery) {
+          const $isTabJustifiedGallery = $tabContent.querySelectorAll(`#${tabId} .fj-gallery`);
+          if ($isTabJustifiedGallery.length > 0) {
+            anzhiyu.initJustifiedGallery($isTabJustifiedGallery);
+          }
+        }
+      }
+      anzhiyu.addEventListenerPjax(item.firstElementChild, 'click', navClickHandler)
+    }
+
+    const addTabToTopEventListener = item => {
+      const btnClickHandler = (e) => {
+        const target = e.target.closest('button')
+        if (!target) return
+        anzhiyu.scrollToDest(anzhiyu.getEleTop(item), 300)
+      }
+      anzhiyu.addEventListenerPjax(item.lastElementChild, 'click', btnClickHandler)
+    }
+
+    navTabsElement.forEach(item => {
+      const isJustifiedGallery = !!item.querySelectorAll('.gallery-container')
+      addTabNavEventListener(item, isJustifiedGallery)
+      addTabToTopEventListener(item)
+    })
+  }
+
+  const toggleCardCategory = () => {
+    const cardCategory = document.querySelector('#aside-cat-list.expandBtn')
+    if (!cardCategory) return
+
+    const handleToggleBtn = (e) => {
+      const target = e.target
+      if (target.nodeName === 'I') {
+        e.preventDefault()
+        target.parentNode.classList.toggle('expand')
+      }
+    }
+    anzhiyu.addEventListenerPjax(cardCategory, 'click', handleToggleBtn, true)
+  }
+
+  const switchComments = () => {
+    const switchBtn = document.getElementById('switch-btn')
+    if (!switchBtn) return
+    let switchDone = false
+    const commentContainer = document.getElementById('post-comment')
+    const handleSwitchBtn = () => {
+      commentContainer.classList.toggle('move')
+      if (!switchDone) {
+        switchDone = true
+        loadOtherComment()
+      }
+    }
+    anzhiyu.addEventListenerPjax(switchBtn, 'click', handleSwitchBtn)
+  }
 
   const addPostOutdateNotice = function () {
     const data = GLOBAL_CONFIG.noticeOutdate;
@@ -1157,18 +1162,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  const relativeDate = function (selector, simple = false) {
+  const relativeDate = function (selector) {
     selector.forEach(item => {
-      const $this = item;
-      const timeVal = $this.getAttribute("datetime");
-      if (simple) {
-        $this.innerText = anzhiyu.diffDate(timeVal, false, simple);
-      } else {
-        $this.innerText = anzhiyu.diffDate(timeVal, true);
-      }
-      $this.style.display = "inline";
-    });
-  };
+      const timeVal = item.getAttribute('datetime')
+      item.textContent = anzhiyu.diffDate(timeVal, true)
+      item.style.display = 'inline'
+    })
+  }
 
   const mouseleaveHomeCard = function () {
     const topGroup = document.querySelector(".topGroup");
@@ -1525,14 +1525,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const unRefreshFn = function () {
     window.addEventListener("resize", () => {
       adjustMenu(false);
-      anzhiyu.isHidden(document.getElementById("toggle-menu")) && mobileSidebarOpen && sidebarFn.close();
+      mobileSidebarOpen && anzhiyu.isHidden(document.getElementById('toggle-menu')) && sidebarFn.close()
     });
 
+    document.getElementById('menu-mask').addEventListener('click', e => { sidebarFn.close() })
+    
     anzhiyu.darkModeStatus();
-
-    document.getElementById("menu-mask").addEventListener("click", e => {
-      sidebarFn.close();
-    });
+    clickFnOfSubMenu();
     GLOBAL_CONFIG.islazyload && lazyloadImg();
     GLOBAL_CONFIG.copyright !== undefined && addCopyright();
     GLOBAL_CONFIG.navMusic && listenNavMusicPause();
@@ -1541,7 +1540,12 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("consoleKeyboard").classList.add("on");
       anzhiyu_keyboard = true;
     }
-    clickFnOfSubMenu();
+    if (GLOBAL_CONFIG.autoDarkmode) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (saveToLocal.get('theme') !== undefined) return
+        e.matches ? handleThemeChange('dark') : handleThemeChange('light')
+      })
+    }
   };
 
   window.refreshFn = function () {
@@ -1576,8 +1580,7 @@ document.addEventListener("DOMContentLoaded", function () {
     runLightbox();
     addTableWrap();
     clickFnOfTagHide();
-    tabsFn.clickFnOfTabs();
-    tabsFn.backToTop();
+    tabsFn();
     switchComments();
     document.getElementById("toggle-menu").addEventListener("click", () => {
       sidebarFn.open();
@@ -1589,6 +1592,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mouseleaveHomeCard();
     coverColor();
     listenToPageInputPress();
+    openMobileMenu()
   };
 
   refreshFn();

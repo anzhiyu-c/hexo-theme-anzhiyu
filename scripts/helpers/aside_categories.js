@@ -3,99 +3,97 @@
  * for aside categories
  */
 
-"use strict";
+'use strict'
 
-hexo.extend.helper.register("aside_categories", function (categories, options) {
-  if (!options && (!categories || !Object.prototype.hasOwnProperty.call(categories, "length"))) {
-    options = categories;
-    categories = this.site.categories;
+hexo.extend.helper.register('aside_categories', function (categories, options) {
+  if (!options && (!categories || !Object.prototype.hasOwnProperty.call(categories, 'length'))
+  ) {
+    options = categories
+    categories = this.site.categories
   }
 
-  if (!categories || !categories.length) return "";
-  options = options || {};
-  const { config } = this;
-  const showCount = Object.prototype.hasOwnProperty.call(options, "show_count") ? options.show_count : true;
-  const depth = options.depth ? parseInt(options.depth, 10) : 0;
-  const orderby = options.orderby || "name";
-  const order = options.order || 1;
-  const categoryDir = this.url_for(config.category_dir);
-  const limit = options.limit === 0 ? categories.length : options.limit;
-  const isExpand = options.expand !== "none";
-  const expandClass = isExpand && options.expand === true ? "expand" : "";
-  const buttonLabel = this._p("aside.more_button");
-  const prepareQuery = parent => {
-    const query = {};
-    if (parent) {
-      query.parent = parent;
-    } else {
-      query.parent = { $exists: false };
-    }
-    return categories
-      .find(query)
-      .sort(orderby, order)
-      .filter(cat => cat.length);
-  };
+  if (!categories || !categories.length) return ''
+  options = options || {}
+  const { config } = this
+  const showCount = Object.prototype.hasOwnProperty.call(options, 'show_count')
+    ? options.show_count
+    : true
+  const depth = options.depth ? parseInt(options.depth, 10) : 0
+  const orderby = options.orderby || 'name'
+  const order = options.order || 1
+  const categoryDir = this.url_for(config.category_dir)
+  const limit = options.limit === 0 ? categories.length : options.limit
+  const isExpand = options.expand !== 'none'
+  const expandClass = isExpand && options.expand === true ? 'expand' : ''
+  const buttonLabel = this._p('aside.more_button')
+  const prepareQuery = (parent) => {
+    const query = {}
+    if (parent) { query.parent = parent } else { query.parent = { $exists: false } }
+    return categories.find(query).sort(orderby, order).filter((cat) => cat.length)
+  }
+  let expandBtn = ''
 
   const hierarchicalList = (t, level, parent, topparent = true) => {
-    let result = "";
-    const isTopParent = topparent;
+    let result = ''
+    const isTopParent = topparent
     if (t > 0) {
       prepareQuery(parent).forEach((cat, i) => {
         if (t > 0) {
-          t = t - 1;
-          let child;
+          t = t - 1
+          let child
           if (!depth || level + 1 < depth) {
-            const childList = hierarchicalList(t, level + 1, cat._id, false);
-            child = childList[0];
-            t = childList[1];
+            const childList = hierarchicalList(t, level + 1, cat._id, false)
+            child = childList[0]
+            t = childList[1]
           }
 
-          const parentClass = isExpand && isTopParent && child ? "parent" : "";
+          const parentClass = isExpand && isTopParent && child ? 'parent' : ''
 
-          result += `<li class="card-category-list-item ${parentClass}">`;
+          result += `<li class="card-category-list-item ${parentClass}">`
 
-          result += `<a class="card-category-list-link" href="${this.url_for(cat.path)}">`;
+          result += `<a class="card-category-list-link" href="${this.url_for(cat.path)}">`
 
-          result += `<span class="card-category-list-name">${cat.name}</span>`;
+          result += `<span class="card-category-list-name">${cat.name}</span>`
 
           if (showCount) {
-            result += `<span class="card-category-list-count">${cat.length}篇</span>`;
+            result += `<span class="card-category-list-count">${cat.length}</span>`
           }
 
           if (isExpand && isTopParent && child) {
-            result += `<i class="anzhiyufont anzhiyu-icon-caret-left ${expandClass}"></i>`;
+            expandBtn = ' expandBtn'
+            result += `<i class="anzhiyufont anzhiyu-icon-caret-left ${expandClass}"></i>`
           }
 
-          result += "</a>";
+          result += '</a>'
 
           if (child) {
-            result += `<ul class="card-category-list child">${child}</ul>`;
+            result += `<ul class="card-category-list child">${child}</ul>`
           }
 
-          result += "</li>";
+          result += '</li>'
         }
-      });
+      })
     }
 
-    return [result, t];
-  };
+    return [result, t]
+  }
 
-  const list = hierarchicalList(limit, 0);
+  const list = hierarchicalList(limit, 0)
 
   const moreButton = function () {
-    if (categories.length <= limit) return "";
+    if (categories.length <= limit) return ''
     const moreHtml = `<a class="card-more-btn" href="${categoryDir}/" title="${buttonLabel}">
-    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a>`;
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a>`
 
-    return moreHtml;
-  };
+    return moreHtml
+  }
 
   return `<div class="item-headline">
             <i class="anzhiyufont anzhiyu-icon-folder-open"></i>
-            <span>${this._p("aside.card_categories")}</span>
+            <span>${this._p('aside.card_categories')}</span>
             ${moreButton()}
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
+            <ul class="card-category-list${expandBtn}" id="aside-cat-list">
             ${list[0]}
-            </ul>`;
-});
+            </ul>`
+})

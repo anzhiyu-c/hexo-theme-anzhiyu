@@ -10,15 +10,17 @@
 const { stripHTML, escapeHTML, prettyUrls } = require("hexo-util");
 const crypto = require("crypto");
 
-hexo.extend.helper.register("page_description", function () {
-  const { config, page } = this;
-  let description = page.description || page.content || page.title || config.description;
+hexo.extend.helper.register('page_description', function () {
+  const { config, page } = this
+  let description = page.description || page.content || page.title || config.description
 
   if (description) {
-    description = escapeHTML(stripHTML(description).substring(0, 150).trim()).replace(/\n/g, " ");
-    return description;
+    description = escapeHTML(stripHTML(description).substring(0, 150)
+      .trim()
+    ).replace(/\n/g, ' ')
+    return description
   }
-});
+})
 
 hexo.extend.helper.register("get_page_fill_description", function () {
   const { config, page } = this;
@@ -111,14 +113,10 @@ hexo.extend.helper.register("md5", function (path) {
     .digest("hex");
 });
 
-hexo.extend.helper.register("injectHtml", function (data) {
-  let result = "";
-  if (!data) return "";
-  for (let i = 0; i < data.length; i++) {
-    result += data[i];
-  }
-  return result;
-});
+hexo.extend.helper.register('injectHtml', function (data) {
+  if (!data) return ''
+  return data.join('')
+})
 
 hexo.extend.helper.register("findArchivesTitle", function (page, menu, date) {
   if (page.year) {
@@ -144,3 +142,8 @@ hexo.extend.helper.register("findArchivesTitle", function (page, menu, date) {
 
   return loop(menu) || defaultTitle;
 });
+
+hexo.extend.helper.register('isImgOrUrl', function (path) {
+  const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i
+  return path.indexOf('//') !== -1 || imgTestReg.test(path)
+})

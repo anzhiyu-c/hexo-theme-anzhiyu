@@ -8,7 +8,7 @@
 
 const urlFor = require("hexo-util").url_for.bind(hexo);
 
-function lazyload(htmlContent) {
+const lazyload = htmlContent => {
   const error_img = hexo.theme.config.error_img.post_page
   const bg = hexo.theme.config.lazyload.placeholder
     ? urlFor(hexo.theme.config.lazyload.placeholder)
@@ -19,17 +19,15 @@ function lazyload(htmlContent) {
   );
 }
 
-hexo.extend.filter.register("after_render:html", function (data) {
-  const config = hexo.theme.config.lazyload;
-  if (!config.enable) return;
-  if (config.field !== "site") return;
-  return lazyload.call(this, data);
-});
+hexo.extend.filter.register('after_render:html', data => {
+  const { enable, field } = hexo.theme.config.lazyload
+  if (!enable || field !== 'site') return
+  return lazyload(data)
+})
 
-hexo.extend.filter.register("after_post_render", data => {
-  const config = hexo.theme.config.lazyload;
-  if (!config.enable) return;
-  if (config.field !== "post") return;
-  data.content = lazyload.call(this, data.content);
-  return data;
-});
+hexo.extend.filter.register('after_post_render', data => {
+  const { enable, field } = hexo.theme.config.lazyload
+  if (!enable || field !== 'post') return
+  data.content = lazyload(data.content)
+  return data
+})

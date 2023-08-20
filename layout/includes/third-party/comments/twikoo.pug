@@ -1,18 +1,22 @@
 - const { envId, region, option } = theme.twikoo
-- const { use, count } = theme.comments
-- const { lazyload } = theme.comments
+- const { use, lazyload, count } = theme.comments
 
 script.
-  (()=>{
+  (() => {
     const init = () => {
       twikoo.init(Object.assign({
         el: '#twikoo-wrap',
         envId: '!{envId}',
         region: '!{region}',
-        onCommentLoaded: function () {
+        onCommentLoaded: () => {
           anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
         }
       }, !{JSON.stringify(option)}))
+    }
+
+    const loadTwikoo = () => {
+      if (typeof twikoo === 'object') setTimeout(runFn,0)
+      else getScript('!{url_for(theme.asset.twikoo)}').then(runFn)
     }
 
     const getCount = () => {
@@ -23,11 +27,11 @@ script.
         region: '!{region}',
         urls: [window.location.pathname],
         includeReply: false
-      }).then(function (res) {
-        countELement.innerText = res[0].count
-      }).catch(function (err) {
-        console.error(err);
-      });
+      }).then(res => {
+        countELement.textContent = res[0].count
+      }).catch(err => {
+        console.error(err)
+      })
     }
 
     const runFn = () => {
@@ -35,19 +39,12 @@ script.
       !{count ? 'GLOBAL_CONFIG_SITE.isPost && getCount()' : ''}
     }
 
-    const loadTwikoo = () => {
-      if (typeof twikoo === 'object') {
-        setTimeout(runFn,0)
-        return
-      } 
-      getScript('!{url_for(theme.asset.twikoo)}').then(runFn)
-    }
     if ('!{use[0]}' === 'Twikoo' || !!{lazyload}) {
       if (!{lazyload}) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
-      else loadTwikoo()
-    } else {
-      window.loadOtherComment = () => {
+      else {
         loadTwikoo()
       }
+    } else {
+      window.loadOtherComment = loadTwikoo
     }
   })()

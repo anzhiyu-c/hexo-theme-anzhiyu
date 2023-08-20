@@ -13,15 +13,14 @@
         container: '#docsearch',
       }, !{JSON.stringify(option)}))
 
+      const handleClick = () => {
+        document.querySelector('.DocSearch-Button').click()
+      }
 
       const searchClickFn = () => {
-        document.querySelector('#search-button > .search').addEventListener('click', () => {
-          document.querySelector('.DocSearch-Button').click()
-        })
+        anzhiyu.addEventListenerPjax(document.querySelector('#search-button > .search'), 'click', openSearch)
       }
 
       searchClickFn()
       window.addEventListener('pjax:complete', searchClickFn)
     })()
-
-

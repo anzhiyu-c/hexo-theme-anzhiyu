@@ -72,7 +72,7 @@ katex_copytex:
 mermaid:
   name: mermaid
   file: dist/mermaid.min.js
-  version: 9.1.7
+  version: 10.2.4
 canvas_ribbon:
   name: butterfly-extsrc
   file: dist/canvas-ribbon.min.js
@@ -104,7 +104,7 @@ ClickShowText:
 lazyload:
   name: vanilla-lazyload
   file: dist/lazyload.iife.min.js
-  version: 17.3.1
+  version: 17.8.4
 instantpage:
   name: instant.page
   file: instantpage.js

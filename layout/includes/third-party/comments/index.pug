@@ -10,9 +10,9 @@ hr
       a(href=url_for('/privacy') style="margin-left: 4px") 隐私政策
     
     if theme.comments.use.length > 1
-      #comment-switch
+      .comment-switch
         span.first-comment=defaultComment
-        span.switch-btn
+        span#switch-btn
         span.second-comment=theme.comments.use[1]
     
     if defaultComment == "Twikoo"

@@ -1,9 +1,9 @@
-- const { serverURL, option, pageview, meta, imageUploader } = theme.waline
+- const { serverURL, option, pageview } = theme.waline
 - const { lazyload, count, use } = theme.comments
 
 script.
-  function loadWaline () {
-    function initWaline () {
+  (() => {
+    const initWaline = () => {
       const waline = Waline.init(Object.assign({
         el: '#waline-wrap',
         serverURL: '!{serverURL}',
@@ -11,28 +11,22 @@ script.
         dark: 'html[data-theme="dark"]',
         path: window.location.pathname,
         comment: !{lazyload ? false : count},
-        imageUploader: !{imageUploader},
       }, !{JSON.stringify(option)}))
     }
 
-    const walineCSSLoad = document.getElementById('waline-css')
+    const loadWaline = async () => {
+      if (typeof Waline === 'object') initWaline()
+      else {
+        await getCSS('!{url_for(theme.asset.waline_css)}')
+        await getScript('!{url_for(theme.asset.waline_js)}')
+        initWaline()
+      }
+    }
 
-    if (typeof Waline === 'object') {
-      walineCSSLoad ? initWaline() : getCSS('!{url_for(theme.asset.waline_css)}','waline-css').then(initWaline)
+    if ('!{use[0]}' === 'Waline' || !!{lazyload}) {
+      if (!{lazyload}) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
+      else setTimeout(loadWaline, 0)
+    } else {
+      window.loadOtherComment = loadWaline
     }
-    else {
-      getCSS('!{url_for(theme.asset.waline_css)}','waline-css').then(() => {
-        getScript('!{url_for(theme.asset.waline_js)}').then(initWaline)
-      })
-      if (!{meta}) getCSS('!{url_for(theme.asset.waline_meta_css)}')
-    }
-  }
-
-  if ('!{use[0]}' === 'Waline' || !!{lazyload}) {
-    if (!{lazyload}) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
-    else setTimeout(loadWaline, 0)
-  } else {
-    function loadOtherComment () {
-      loadWaline()
-    }
-  }
+  })()
