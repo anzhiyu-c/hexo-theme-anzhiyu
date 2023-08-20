@@ -112,6 +112,7 @@ copy_copyright:
   link: 連結
   source: 來源
   info: 著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。
+  copySuccess: 複製成功，複製和轉載請標注本文地址
 
 Snackbar:
   chs_to_cht: 你已切換為繁體

@@ -110,6 +110,7 @@ copy_copyright:
   link: 链接
   source: 来源
   info: 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+  copySuccess: 复制成功，复制和转载请标注本文地址
 
 Snackbar:
   chs_to_cht: 你已切换为繁体

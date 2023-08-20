@@ -111,6 +111,7 @@ copy_copyright:
   link: Link
   source: Source
   info: Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+  copySuccess: Copy success, copy and reprint please mark the address of this article
 
 Snackbar:
   chs_to_cht: Traditional Chinese Activated Manually

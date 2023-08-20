@@ -55,6 +55,7 @@ code_word_wrap: false
 
 # copy settings
 # copyright: Add the copyright information after copied content (複制的内容后面加上版权信息)
+# copy: enable 复制后弹窗提示版权信息
 copy:
   enable: true
   copyright:

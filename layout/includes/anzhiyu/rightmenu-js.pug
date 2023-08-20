@@ -433,7 +433,10 @@ script.
 
     document.getElementById("menu-copytext").addEventListener("click", function () {
       rm.rightmenuCopyText(selectTextNow);
-      anzhiyu.snackbarShow("复制成功，复制和转载请标注本文地址");
+      const copyright = GLOBAL_CONFIG.copyright;
+      if (copyright.copy) {
+        anzhiyu.snackbarShow(copyright.languages.copySuccess)
+      }
     });
 
     document.getElementById("menu-commenttext").addEventListener("click", function () {
