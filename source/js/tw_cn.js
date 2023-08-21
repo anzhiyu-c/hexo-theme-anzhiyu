@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     saveToLocal.get(targetEncodingCookie) === undefined
       ? defaultEncoding
       : Number(saveToLocal.get('translate-chn-cht'))
-  let translateButtonObject
+  let translateButtonObject,translateRightMenuButtonObject
   const isSnackbar = snackbarData !== undefined
 
   function setLang () {
