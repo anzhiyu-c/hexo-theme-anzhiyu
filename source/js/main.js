@@ -1013,7 +1013,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const tabContent = this.nextElementSibling;
         removeAndAddActiveClass(tabContent.children, tabId);
         if (isJustifiedGallery) {
-          const $isTabJustifiedGallery = $tabContent.querySelectorAll(`#${tabId} .fj-gallery`);
+          const $isTabJustifiedGallery = tabContent.querySelectorAll(`#${tabId} .fj-gallery`);
           if ($isTabJustifiedGallery.length > 0) {
             anzhiyu.initJustifiedGallery($isTabJustifiedGallery);
           }
