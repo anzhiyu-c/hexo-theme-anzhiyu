@@ -20,7 +20,7 @@ if !theme.disable_top_img && page.top_img !== false
           !=partial('includes/post/reward', {}, {cache: true})
       if theme.ptool.mode
         .reward-link.mode
-          a.reward-link-button(href=theme.ptool.mode data-pjax-state='')
+          a.reward-link-button(href=url_for(theme.ptool.mode))
             i.anzhiyufont.anzhiyu-icon-plant-fill
             | 运营模式与责任
     div.shareRight
