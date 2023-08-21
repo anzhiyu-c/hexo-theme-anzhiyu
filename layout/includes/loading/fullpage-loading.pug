@@ -24,11 +24,9 @@ script.
 
   const preloader = {
     endLoading: () => {
-      document.body.style.overflow = 'auto';
       document.getElementById('loading-box').classList.add("loaded");
     },
     initLoading: () => {
-      document.body.style.overflow = '';
       document.getElementById('loading-box').classList.remove("loaded")
     }
   }
