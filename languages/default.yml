@@ -39,7 +39,7 @@ search:
   title: "搜索"
   load_data: 数据库加载中
   algolia_search:
-    input_placeholder: 键入后按下回车搜索！
+    input_placeholder: 输入关键词后按下回车查找
     hits_empty: "找不到您查询的内容：${query}"
     hits_stats: "找到 ${hits} 条结果，用时 ${time} 毫秒"
 

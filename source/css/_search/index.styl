@@ -1,14 +1,19 @@
 .search-dialog
   position: fixed
-  top: 10%
+  top: 5rem
   left: 50%
   z-index: 1001
   display: none
-  margin-left: -300px
-  padding: 20px
-  width: 600px
+  margin-left: -18.75rem;
+  padding: 1.25rem;
+  width: 37.5rem;
   border-radius: 8px
   background: var(--search-bg)
+  border-radius: 12px;
+  box-shadow: var(--anzhiyu-shadow-lightblack);
+  background: var(--anzhiyu-card-bg);
+  border: var(--style-border);
+  transition: .3s;
 
   +maxWidth768()
     top: 0
@@ -16,7 +21,7 @@
     margin: 0
     width: 100%
     height: 100%
-    border-radius: 0
+    border-radius: 0 !important
 
   hr
     margin: 20px auto

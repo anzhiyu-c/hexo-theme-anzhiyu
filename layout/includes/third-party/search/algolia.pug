@@ -10,6 +10,9 @@
       hr
       #algolia-search-results
         #algolia-hits
+          if theme.algolia_search.enable && theme.algolia_search.tags
+            each item, index in theme.algolia_search.tags
+              a.tag-list(href=url_for("/tags/" + item), title=item)=item
         #algolia-pagination
         #algolia-info
           .algolia-stats

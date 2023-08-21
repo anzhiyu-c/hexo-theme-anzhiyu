@@ -2,25 +2,27 @@
   .search-dialog
     .ais-SearchBox
       input
-        padding: 5px 14px
+        padding: .5rem 1rem
         width: 100%
         outline: none
-        border: 2px solid $search-color
-        border-radius: 40px
-        background: var(--search-bg)
+        border: var(--style-border)
+        border-radius: var(--anzhiyu-radius)
+        background: var(--anzhiyu-secondbg)
         color: var(--search-input-color)
+        &:focus
+          border: var(--style-border-hover)
 
     .ais-Hits-list
       margin: 0
       padding: 0
       @extend .list-beauty
 
-      a
-        color: var(--search-result-title)
-
+      .ais-Hits-item
         &:hover
-          color: $search-color
-
+          background: var(--anzhiyu-main)
+          cursor 
+          a
+            color: var(--anzhiyu-white)
       mark
         background: transparent
         color: $search-keyword-highlight
@@ -69,12 +71,13 @@
     #algolia-hits
       overflow-y: scroll
       min-height: 20px
-
-      +minWidth768()
-        max-height: calc(80vh - 240px)
-
-      +maxWidth768()
-        height: calc(100vh - 260px)
+      .tag-list
+        padding: 4px 8px;
+        border-radius: 8px;
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+        border: var(--style-border-always);
+        cursor: pointer;
 
     #algolia-info
       div
@@ -82,9 +85,63 @@
 
       .algolia-poweredBy
         float: right
+#algolia-search #search-mask
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--anzhiyu-maskbg);
 
-.apple
-  #algolia-search
-    #algolia-hits
-      +maxWidth768()
-        height: calc(90vh - 260px)
+#algolia-search .search-dialog
+  border-radius: 12px;
+  box-shadow: var(--anzhiyu-shadow-lightblack);
+  background: var(--anzhiyu-card-bg);
+  border: var(--style-border);
+  transition: 0.3s;
+
+#algolia-search .search-dialog .ais-Pagination .ais-Pagination-item--selected a
+  border-radius: 4px;
+  background: var(--anzhiyu-main);
+  color: var(--anzhiyu-white);
+
+#algolia-search .search-dialog:hover
+  border: var(--style-border-hover);
+  box-shadow: var(--heo-shadow-theme);
+  +maxWidth768()
+    border: var(--style-border)
+
+#algolia-search .list-beauty li,
+#algolia-search .category-lists ul li,
+#algolia-search .search-dialog .ais-Hits-list li
+  padding: 0;
+
+#algolia-search .list-beauty li:before,
+#algolia-search .category-lists ul li:before,
+#algolia-search .search-dialog .ais-Hits-list li:before
+  display: none;
+
+#algolia-search .list-beauty li,
+#algolia-search .category-lists ul li,
+#algolia-search .search-dialog .ais-Hits-list li
+  border-radius: 8px;
+  border: var(--style-border);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+#algolia-search .search-dialog .ais-Hits-list a
+  color: var(--search-result-title);
+  display: block;
+  font-weight: 600;
+  padding: 5px 10px;
+  width: 100%;
+
+#algolia-search .search-dialog .ais-Hits-list .search-result-tags a
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  border: var(--style-border);
+  display: inline;
+
+#algolia-search .ais-SearchBox-loadingIndicator
+  display: none;

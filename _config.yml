@@ -95,6 +95,9 @@ algolia_search:
   enable: false
   hits:
     per_page: 6
+  tags:
+    # - 前端
+    # - Hexo
 
 # Docsearch
 # Apply and Docs: see https://docsearch.algolia.com/
