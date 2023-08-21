@@ -24,8 +24,7 @@
 
 #sidebar .menus_item ul
   padding-left: 0px
-#sidebar #sidebar-menus .menus_items a.site-page
-  padding-left: .3rem
+
 #nav-group
   max-width: 1400px;
   width: 100%;
@@ -109,7 +108,7 @@
       transform: rotate(45deg) !important;
 [data-theme="dark"] #center-console:checked + label:is(.widget, #center-console:checked + label .widget:hover) i
   background: var(--anzhiyu-black) !important;
-#web_box
+#body-wrap
   .nav-fixed #travellings_button
     &::after
       background: var(--anzhiyu-main) !important;
@@ -150,11 +149,11 @@
       +maxWidth900()
         padding: 0 2em;
 
-#web_box:has(#travellings_button:hover) 
+#body-wrap:has(#travellings_button:hover) 
   #page-name,
   #nav #menus
     display: none
-#web_box .page #travellings_button:hover
+#body-wrap .page #travellings_button:hover
   &::after
     background: var(--anzhiyu-main) !important;
 
@@ -487,13 +486,18 @@
   border-radius 8px !important
   transition 0.2s !important
 
-.back-home-button .back-menu-list .back-menu-item .back-menu-item-text
+.back-menu-list-groups .back-menu-list .back-menu-item .back-menu-item-text
   font-size var(--global-font-size)
   margin-left 0.5rem
   color var(--anzhiyu-fontcolor)
   white-space nowrap
+  +maxWidth768()
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
-.back-home-button .back-menu-list .back-menu-item .back-menu-item-icon
+.back-menu-list-groups .back-menu-list .back-menu-item .back-menu-item-icon
   width 24px
   height 24px
   border-radius 24px

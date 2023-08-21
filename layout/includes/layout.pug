@@ -14,71 +14,68 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
       !=partial('includes/loading/index', {}, {cache: true})
     if (theme.mourn.enable && is_home_first_page())
       include ./mourn.pug
-    #web_box
-      #web_container
-        #menu-mask
-        if page.type !== '404'
-          #body-wrap(class=pageType)
-            include ./header/index.pug
-            if (is_home())
-              include ./bbTimeList.pug
-            if is_current("/")
-              include ./top/top.pug
-            if page.top_single
-              - let background = page.top_single_background
-              - let tip = page.top_single_tip
-              - let subTitle = page.top_single_subtitle
-              - let btn_link = page.top_single_btn_link
-              - let btn_text = page.top_single_btn_text
-              #single_top
-                .author-content.author-content-item.single(style=`${background ? `background: url(${background}) top / cover no-repeat;` : ""}`)
-                  .card-content
-                    .author-content-item-tips=subTitle
-                    span.author-content-item-title=page.title
-                    .content-bottom
-                      .tips=tip
-                    .banner-button-group
-                      a.banner-button(onclick=`pjax.loadUrl("${url_for(btn_link ? btn_link : '/about')}")`)
-                        i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
-                        span.banner-button-text=btn_text ? btn_text : "关于我"
+    if page.type !== '404'
+      #body-wrap(class=pageType)
+        include ./header/index.pug
+        if (is_home())
+          include ./bbTimeList.pug
+        if is_current("/")
+          include ./top/top.pug
+        if page.top_single
+          - let background = page.top_single_background
+          - let tip = page.top_single_tip
+          - let subTitle = page.top_single_subtitle
+          - let btn_link = page.top_single_btn_link
+          - let btn_text = page.top_single_btn_text
+          #single_top
+            .author-content.author-content-item.single(style=`${background ? `background: url(${background}) top / cover no-repeat;` : ""}`)
+              .card-content
+                .author-content-item-tips=subTitle
+                span.author-content-item-title=page.title
+                .content-bottom
+                  .tips=tip
+                .banner-button-group
+                  a.banner-button(onclick=`pjax.loadUrl("${url_for(btn_link ? btn_link : '/about')}")`)
+                    i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
+                    span.banner-button-text=btn_text ? btn_text : "关于我"
 
 
-            main#content-inner.layout(class=hideAside)
-              if body
-                div!= body
-              else
-                block content
-                if theme.aside.enable && page.aside !== false
-                  include widget/index.pug
+        main#content-inner.layout(class=hideAside)
+          if body
+            div!= body
+          else
+            block content
+            if theme.aside.enable && page.aside !== false
+              include widget/index.pug
 
-            - var footerBg = theme.footer_bg
-            if (footerBg)
-              if (footerBg === true)
-                - var footer_bg = bg_img
-              else
-                - var footer_bg = theme.footer_bg.indexOf('/') !== -1 ? `background-image: url('${url_for(footerBg)}')` : `background: ${footerBg}`
-            else
-              - var footer_bg = ''
-
-            footer#footer(style=footer_bg)
-              !=partial('includes/footer', {}, {cache: true})
-            
-            if (theme.agreementPopup && theme.agreementPopup.enable && is_home_first_page())
-              - let agreementPopupUrl = theme.agreementPopup.url
-              script(defer).
-                var hasShownPopup = sessionStorage.getItem('sessionNegotiatePopupShown');
-
-                if (!hasShownPopup) {
-                  setTimeout(() => {
-                    anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 4000);
-
-                    // 将会话弹窗状态记录到sessionStorage中
-                    sessionStorage.setItem('sessionNegotiatePopupShown', 'true');
-                  }, 1000);
-                }
-
+        - var footerBg = theme.footer_bg
+        if (footerBg)
+          if (footerBg === true)
+            - var footer_bg = bg_img
+          else
+            - var footer_bg = theme.footer_bg.indexOf('/') !== -1 ? `background-image: url('${url_for(footerBg)}')` : `background: ${footerBg}`
         else
-          include ./404.pug
+          - var footer_bg = ''
+
+        footer#footer(style=footer_bg)
+          !=partial('includes/footer', {}, {cache: true})
+        
+        if (theme.agreementPopup && theme.agreementPopup.enable && is_home_first_page())
+          - let agreementPopupUrl = theme.agreementPopup.url
+          script(defer).
+            var hasShownPopup = sessionStorage.getItem('sessionNegotiatePopupShown');
+
+            if (!hasShownPopup) {
+              setTimeout(() => {
+                anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 4000);
+
+                // 将会话弹窗状态记录到sessionStorage中
+                sessionStorage.setItem('sessionNegotiatePopupShown', 'true');
+              }, 1000);
+            }
+
+    else
+      include ./404.pug
 
     !=partial('includes/sidebar', {}, {cache: true})
 

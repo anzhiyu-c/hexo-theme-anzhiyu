@@ -87,6 +87,8 @@ aside:
     link: 链接
     code: 代码
   card_toc: 文章目录
+  display_mode: 显示模式
+  function: 功能
 
 date_suffix:
   just: 刚刚

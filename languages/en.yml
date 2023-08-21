@@ -84,6 +84,8 @@ aside:
     link: link
     code: code
   card_toc: Catalog
+  display_mode: Display Mode
+  function: Function
 
 date_suffix:
   just: Just

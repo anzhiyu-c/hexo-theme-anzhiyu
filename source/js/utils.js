@@ -832,7 +832,6 @@ const anzhiyu = {
       // player listswitch 会进入此处
       const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
       anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
-      $web_container.style.background = "none";
     } else {
       // 第一次进入，绑定事件，改背景
       let timer = setInterval(() => {

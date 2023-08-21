@@ -1,16 +1,53 @@
 #sidebar
+  #menu-mask
   #sidebar-menus
-    .avatar-img.is-center
-      img(src=url_for(theme.avatar.img) onerror=`onerror=null;src='${theme.error_img.flink}'` alt="avatar")
-    .sidebar-site-data.site-data.is-center
-      a(href=url_for(config.archive_dir) + '/', title='archive')
-        .headline= _p('aside.articles') 
-        .length-num= site.posts.length
-      a(href=url_for(config.tag_dir) + '/', title='tag' )
-        .headline= _p('aside.tags')
-        .length-num= site.tags.length
-      a(href=url_for(config.category_dir) + '/', title='category')
-        .headline= _p('aside.categories') 
-        .length-num= site.categories.length
+    if theme.sidebar && theme.sidebar.avatar
+      .avatar-img.is-center
+        img(src=url_for(theme.avatar.img) onerror=`onerror=null;src='${theme.error_img.flink}'` alt="avatar")
+    if theme.sidebar && theme.sidebar.site_data
+      .sidebar-site-data.site-data.is-center
+        if theme.sidebar.site_data.archive
+          a(href=url_for(config.archive_dir) + '/', title='archive')
+            .headline= _p('aside.articles') 
+            .length-num= site.posts.length
+        if theme.sidebar.site_data.tag
+          a(href=url_for(config.tag_dir) + '/', title='tag' )
+            .headline= _p('aside.tags')
+            .length-num= site.tags.length
+        if theme.sidebar.site_data.category
+          a(href=url_for(config.category_dir) + '/', title='category')
+            .headline= _p('aside.categories') 
+            .length-num= site.categories.length
+    if theme.sidebar && theme.sidebar.display_mode
+      span.sidebar-menu-item-title=_p("aside.function")
+      .sidebar-menu-item
+        a.darkmode_switchbutton.menu-child
+          i.anzhiyufont.anzhiyu-icon-circle-half-stroke
+          span=_p("aside.display_mode")
+    if theme.sidebar && theme.sidebar.nav_menu_project
+      .back-menu-list-groups
+        each group in theme.nav.menu
+          .back-menu-list-group
+            .back-menu-list-title= group.title
+            .back-menu-list
+              each item in group.item
+                a.back-menu-item(href=url_for(item.link), title=item.name)
+                  img.back-menu-item-icon(src=item.icon alt=item.name)
+                  span.back-menu-item-text= item.name
 
-    !=partial('includes/header/menu_item', {}, {cache: true})
+    if theme.sidebar && theme.sidebar.menus_items
+      !=partial('includes/header/menu_item', {}, {cache: true})
+  
+    if theme.sidebar && theme.sidebar.tags_cloud
+      span.sidebar-menu-item-title 标签
+      if theme.aside.card_tags.enable
+        if site.tags.length
+          .card-tags
+            .item-headline
+            - let tagLimit = theme.aside.card_tags.limit === 0 ? 0 : theme.aside.card_tags.limit || 40
+            if theme.aside.card_tags.color
+              .card-tag-cloud!= cloudTags({source: site.tags, minfontsize: 0.875, maxfontsize: 0.875, limit: tagLimit, unit: 'rem', color: true, highlightTags: theme.aside.card_tags.highlightTags})
+            else
+              .card-tag-cloud!= cloudTags({source: site.tags, minfontsize: 0.875, maxfontsize: 0.875, limit: tagLimit, unit: 'rem', color: false, highlightTags: theme.aside.card_tags.highlightTags})
+          hr
+

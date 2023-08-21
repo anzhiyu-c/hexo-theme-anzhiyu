@@ -4,8 +4,6 @@ var anzhiyu_musicFirst = false;
 var anzhiyu_keyboard = null;
 // 音乐播放状态
 var anzhiyu_musicPlaying = false;
-var $web_container = document.getElementById("web_container");
-var $web_box = document.getElementById("web_box");
 var $bodyWrap = document.getElementById("body-wrap");
 var $main = document.querySelector("main");
 var dragStartX;
@@ -145,133 +143,48 @@ var vegetablesAndFruits = [
   "火龙果",
 ];
 document.addEventListener("DOMContentLoaded", function () {
-  function onDragStart(event) {
-    // event.preventDefault();
-    dragStartX = getEventX(event);
-    $web_box.style.transition = "all .3s";
-    addMoveEndListeners(onDragMove, onDragEnd);
-  }
-
-  function onDragMove(event) {
-    const deltaX = getEventX(event) - dragStartX;
-    if (deltaX < 0) {
-      const screenWidth = window.innerWidth;
-      const translateX = Math.min(-300, ((-1 * deltaX) / screenWidth) * 300);
-      const scale = Math.min(1, 0.86 + (deltaX / screenWidth) * (1 - 0.86));
-      $web_box.style.transform = `translate3d(-${translateX}px, 0px, 0px) scale3d(${scale}, ${scale}, 1)`;
-    }
-  }
-
-  function onDragEnd(event) {
-    const screenWidth = window.innerWidth;
-    if (getEventX(event) <= screenWidth / 1.5) {
-      completeTransition();
-    } else {
-      resetTransition();
-    }
-    removeMoveEndListeners(onDragMove, onDragEnd);
-  }
-
-  function completeTransition() {
-    $web_box.style.transition = "all 0.3s ease-out";
-    $web_box.style.transform = "none";
-    sidebarFn.close();
-    removeMoveEndListeners(onDragMove, onDragEnd);
-  }
-
-  function resetTransition() {
-    $web_box.style.transition = "";
-    $web_box.style.transform = "";
-  }
-
-  function getEventX(event) {
-    return event.type.startsWith("touch") ? event.changedTouches[0].clientX : event.clientX;
-  }
-
-  function addMoveEndListeners(moveHandler, endHandler) {
-    document.addEventListener("mousemove", moveHandler);
-    document.addEventListener("mouseup", endHandler);
-    document.addEventListener("touchmove", moveHandler, { passive: false });
-    document.addEventListener("touchend", endHandler);
-  }
-
-  function removeMoveEndListeners(moveHandler, endHandler) {
-    document.removeEventListener("mousemove", moveHandler);
-    document.removeEventListener("mouseup", endHandler);
-    document.removeEventListener("touchmove", moveHandler);
-    document.removeEventListener("touchend", endHandler);
-  }
-
-  let blogNameWidth, menusWidth, searchWidth;
+  let headerContentWidth, $nav
   let mobileSidebarOpen = false;
-  const $sidebarMenus = document.getElementById("sidebar-menus");
-  const $rightside = document.getElementById("rightside");
-  let $nav = document.getElementById("nav");
   const adjustMenu = init => {
+    const getAllWidth = ele => {
+      return Array.from(ele).reduce((width, i) => width + i.offsetWidth, 0)
+    }
+
     if (init) {
-      blogNameWidth = document.getElementById("site-name").offsetWidth;
-      const $menusEle = document.querySelectorAll("#menus .menus_item");
-      menusWidth = 0;
-      $menusEle.length &&
-        $menusEle.forEach(i => {
-          menusWidth += i.offsetWidth;
-        });
-      const $searchEle = document.querySelector("#search-button");
-      searchWidth = $searchEle ? $searchEle.offsetWidth : 0;
-      $nav = document.getElementById("nav");
+      const blogInfoWidth = getAllWidth(document.querySelector('#blog_name > a').children)
+      const menusWidth = getAllWidth(document.getElementById('menus').children)
+      headerContentWidth = blogInfoWidth + menusWidth
+      $nav = document.getElementById('nav')
     }
 
-    let hideMenuIndex = "";
-    if (window.innerWidth <= 768) hideMenuIndex = true;
-    else hideMenuIndex = blogNameWidth + menusWidth + searchWidth > $nav.offsetWidth - 120;
-
-    if (hideMenuIndex) {
-      $nav.classList.add("hide-menu");
-    } else {
-      $nav.classList.remove("hide-menu");
-    }
-  };
+    const hideMenuIndex = window.innerWidth <= 768 || headerContentWidth > $nav.offsetWidth - 120
+    $nav.classList.toggle('hide-menu', hideMenuIndex)
+  }
 
   // 初始化header
   const initAdjust = () => {
-    adjustMenu(true);
-    $nav.classList.add("show");
-  };
+    adjustMenu(true)
+    $nav.classList.add('show')
+  }
 
   // sidebar menus
   const sidebarFn = {
     open: () => {
-      anzhiyu.sidebarPaddingR();
-      anzhiyu.changeThemeMetaColor("#607d8b");
-      anzhiyu.animateIn(document.getElementById("menu-mask"), "to_show 0.5s");
-      $sidebarMenus.classList.add("open");
-      $web_box.classList.add("open");
-      $rightside.classList.add("hide");
-      $nav.style.borderTopLeftRadius = "12px";
-      mobileSidebarOpen = true;
-      document.body.style.overflow = "hidden";
-      $web_box.addEventListener("mousedown", onDragStart);
-      $web_box.addEventListener("touchstart", onDragStart, { passive: false });
-      if (window.location.pathname.startsWith("/music/")) {
-        $web_container.style.background = "rgb(255 255 255 / 20%)";
-      } else {
-        $web_container.style.background = "var(--global-bg)";
-      }
+      anzhiyu.sidebarPaddingR()
+      document.body.style.overflow = 'hidden'
+      anzhiyu.animateIn(document.getElementById('menu-mask'), 'to_show 0.5s')
+      document.getElementById('sidebar-menus').classList.add('open')
+      mobileSidebarOpen = true
     },
     close: () => {
-      const $body = document.body;
-      anzhiyu.initThemeColor();
-      $body.style.paddingRight = "";
-      anzhiyu.animateOut(document.getElementById("menu-mask"), "to_hide 0.5s");
-      $sidebarMenus.classList.remove("open");
-      $web_box.classList.remove("open");
-      $rightside.classList.remove("hide");
-      $nav.style.borderTopLeftRadius = "0px";
-      mobileSidebarOpen = false;
-      document.body.style.overflow = "auto";
-      anzhiyu.addNavBackgroundInit();
-    },
-  };
+      const $body = document.body
+      $body.style.overflow = ''
+      $body.style.paddingRight = ''
+      anzhiyu.animateOut(document.getElementById('menu-mask'), 'to_hide 0.5s')
+      document.getElementById('sidebar-menus').classList.remove('open')
+      mobileSidebarOpen = false
+    }
+  }
 
   /**
    * 首頁top_img底下的箭頭
@@ -755,6 +668,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .observe(footerDom);
     }
 
+    scrollTask()
     anzhiyu.addEventListenerPjax(window, "scroll", scrollTask, { passive: true });
   };
 

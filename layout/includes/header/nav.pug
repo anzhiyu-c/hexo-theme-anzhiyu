@@ -11,7 +11,7 @@ nav#nav
                 .back-menu-list-title= group.title
                 .back-menu-list
                   each item in group.item
-                    a.back-menu-item(href=item.link, title=item.name, target='_blank')
+                    a.back-menu-item(href=url_for(item.link), title=item.name)
                       img.back-menu-item-icon(src=item.icon alt=item.name)
                       span.back-menu-item-text= item.name
       a#site-name(href=url_for('/') accesskey="h")

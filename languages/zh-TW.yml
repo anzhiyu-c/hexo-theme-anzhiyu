@@ -85,6 +85,8 @@ aside:
     link: 連結
     code: 程式碼
   card_toc: 文章目錄
+  display_mode: 顯示模式
+  function: 功能
 
 date_suffix:
   just: 剛剛

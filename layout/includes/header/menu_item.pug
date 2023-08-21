@@ -20,7 +20,7 @@ if theme.menu
             span=' '+label
       else
         .menus_item
-          a.site-page.faa-parent.animated-hover(href='javascript:void(0);')
+          a.site-page(href='javascript:void(0);')
             if label.split('||')[1]
               - var icon_label = trim(label.split('||')[1])
               - var anima_label = label.split('||')[2] ? trim(label.split('||')[2]) : 'faa-tada'

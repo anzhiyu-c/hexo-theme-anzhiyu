@@ -4,11 +4,12 @@
   display: none
   width: 100%
   height: 100%
-  transition-property: transform, border-radius;
-  transition-duration: 0ms;
-  transform-origin: 0 46%;
-  max-height: 100%;
-  transition: all 0.3s ease-out;
+  background: var(--anzhiyu-maskbg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+  animation: .6s ease 0s 1 normal none running to_show;
+  -webkit-transform-style: preserve-3d;
 
 #sidebar
   position: absolute;
@@ -16,28 +17,84 @@
 
   #sidebar-menus
     position: fixed
-    top: 0
-    left: 0
-    z-index: -1
-    overflow-x: hidden
-    overflow-y: auto
-    width: $sidebar-width
-    height: 100%
-    opacity 0
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-right: calc(100% - 270px);
-    transition: all .3s ease-out;
-    &::-webkit-scrollbar
-      opacity: 0;
-      display: none;
+    top: 0;
+    right: -300px;
+    z-index: 103;
+    overflow: hidden auto;
+    width: 300px;
+    height: 100%;
+    background: var(--anzhiyu-background);
+    transition: all .5s ease 0s;
+    padding-top: 30px;
+    border-left: var(--style-border-always);
+    .sidebar-menu-item a.menu-child span
+      margin-left: 10px;
+    .back-menu-list-groups
+      padding: 0 16px;
+      .back-menu-list-title
+        font-size: 12px;
+        color: var(--anzhiyu-secondtext);
+      .back-menu-list
+        width: calc(100% + 16px);
+        justify-content: flex-start;
+        margin: 0 -8px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .back-menu-item
+          width: calc(50% - 16px);
+          background: var(--anzhiyu-card-bg);
+          border: var(--style-border-always);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          margin: 4px 8px;
+          padding: 4px 8px;
+          transition: .3s;
+
+    .sidebar-menu-item 
+      display: flex;
+      flex-direction: column;
+      padding: 0 16px;
+      margin-bottom: 6px;
+      a.darkmode_switchbutton
+        padding: 4px 8px;
+        cursor: pointer;
+        margin: 0;
+        font-size: .9rem;
+        color: var(--anzhiyu-fontcolor);
+        width: 100%;
+        background: var(--anzhiyu-card-bg);
+        border-radius: 8px;
+        border: var(--style-border-always);
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+
+    span.sidebar-menu-item-title
+      font-size: 12px;
+      color: var(--anzhiyu-secondtext);
+      margin-left: 16px;
+    .card-tag-cloud 
+      padding: 0 11px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      a
+        color: var(--anzhiyu-fontcolor);
+        padding: 2px 8px 2px 12px;
+        margin: 4px;
+        border-radius: 8px;
+        border: var(--style-border-always);
+        background: var(--anzhiyu-card-bg);
+        sup 
+          opacity: .6;
+          margin-left: 4px;
 
 
     &.open
-      opacity: 1;
-      z-index: 1
-      transition: all .5s;
-      background: $inside-sidebar-background
+      transform: translate3d(-100%,0,0);
 
     & > .avatar-img
       margin: 50px auto 20px
@@ -49,15 +106,15 @@
       margin: 20px auto
 
     .menus_items
-      padding: 0 10px 40px
+      padding: 0 10px
 
       .site-page
         @extend .limit-one-line
+        display: flex;
+        font-size: 12px;
         position: relative
-        display: block
-        padding: 6px 30px 6px 22px
-        color: var(--anzhiyu-white)
-        font-size: 1em
+        padding-left: .3rem
+        color: var(--anzhiyu-fontcolor)
 
         i:first-child
           width: 15%
@@ -78,12 +135,11 @@
 
             & + .menus_item_child
               display: none
-
       .menus_item_child
         margin: 0
         list-style: none
         .site-page.child
-          background-color: var(--anzhiyu-white-op) !important
+          background: var(--anzhiyu-card-bg);
 
 /* tags样式 */
 #aside-content .card-tag-cloud a {
@@ -290,10 +346,10 @@ li.card-category-list-item {
   color: var(--anzhiyu-white);
 }
 
-// #sidebar-menus.open .site-data > a .headline,
-// #sidebar-menus.open .site-data > a .length-num {
-//   color: var(--font-color);
-// }
+#sidebar-menus.open .site-data > a .headline,
+#sidebar-menus.open .site-data > a .length-num {
+  color: var(--anzhiyu-fontcolor);
+}
 
 @media screen and (min-width: 900px) {
   #aside-content .sticky_layout {
@@ -337,7 +393,7 @@ li.card-category-list-item {
     .aplayer.aplayer-withlist .aplayer-list
       opacity: 0
 
-#web_box
+#body-wrap
   &.open
     transition-property: transform, border-radius;
     transition-duration: 0ms;
@@ -350,29 +406,8 @@ li.card-category-list-item {
       display: block
     #post-top-cover 
       display: none
-    #web_container
       overflow-y: overlay;
       transition: 0s
       border-radius: 12px;
     #anMusic-page-meting .aplayer.aplayer-withlist .aplayer-list
       display: none
-
-    &:before 
-      position: absolute;
-      top: 1.6rem;
-      bottom: 1.6rem;
-      left: -1.6rem;
-      z-index: -1;
-      width: 100%;
-      background-color: hsla(0,0%,100%,.2);
-      content: "";
-      border-radius: 0.85rem;
-
-
-
-#web_container
-  max-height: 100vh;
-  #categoryBar
-    position: static
-
-    
