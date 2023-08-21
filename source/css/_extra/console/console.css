@@ -953,6 +953,9 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   body:has(#console.show) #nav-music {
     width: 90%;
   }
+  #center-console + label {
+    display: none
+  }
 }
 /* 歌词超出文本滚动动画 */
 @keyframes an-text-roll {
