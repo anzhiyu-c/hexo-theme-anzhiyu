@@ -6,7 +6,27 @@ block content
       include includes/header/post-info.pug
     if theme.post_head_ai_description
       include includes/anzhiyu/ai-info.pug
-    article#article-container.post-content!=page.content
+    - let url = page.copyright_url || page.permalink
+    article#article-container.post-content(itemscope itemtype=url_for(url))
+      header
+        if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
+          each item, index in page.categories.data
+            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
+        if (theme.post_meta.page.tags)
+          each item, index in page.tags.data
+            a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
+        h1(itemprop="name headline")= page.title || _p('no_title')
+        - let author = page.copyright_author || config.author
+        span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
+        if (theme.post_meta.post.date_type)
+          if (theme.post_meta.post.date_type === 'both')
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+          else
+            - let data_type_update = theme.post_meta.post.date_type === 'updated'
+            - let date_type = data_type_update ? 'updated' : 'date'
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+      !=page.content
 
     include includes/post/post-copyright.pug
 

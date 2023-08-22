@@ -2,6 +2,12 @@ if $highlight_theme != false
   @require 'diff'
 
 #article-container
+  > header
+    height 0
+    text-indent:-9999px;
+    a
+      background: none !important
+      border-bottom: none !important
   figure.highlight
     .line
       if wordWrap

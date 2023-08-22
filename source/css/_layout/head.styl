@@ -218,6 +218,21 @@
     margin-bottom: 10px
     height: 60px
     background: 0
+    #nav #menus .menus_item:hover > a
+      background: var(--anzhiyu-main);
+    #travellings_button::after
+      background: var(--anzhiyu-main) !important;
+    #nav 
+      #blog_name .back-home-button,
+      #blog_name #site-name,
+      #nav-right .nav-button a,
+      #nav-right #toggle-menu
+        &:hover
+          color: var(--anzhiyu-white);
+          background: var(--anzhiyu-main);
+          box-shadow: var(--anzhiyu-shadow-main);
+    .post-meta-categories
+      background: rgba(0, 0, 0, 0.2)
 
     #nav
       #blog_name,

@@ -13,18 +13,18 @@
 
           each item, index in page.categories.data
             i.anzhiyufont.anzhiyu-icon-inbox.post-meta-icon
-            a(href=url_for(item.path)).post-meta-categories #[=item.name]
+            a(href=url_for(item.path) itemprop="url").post-meta-categories #[=item.name]
             if (index < page.categories.data.length - 1)
               i.anzhiyufont.anzhiyu-icon-angle-right.post-meta-separator
       if (theme.post_meta.page.tags)
         span.article-meta.tags
           each item, index in page.tags.data
-            a(href=url_for(item.path) tabindex="-1").article-meta__tags 
+            a(href=url_for(item.path) tabindex="-1" itemprop="url").article-meta__tags 
               span 
                 i.anzhiyufont.anzhiyu-icon-hashtag
                 =item.name
 
-  h1.post-title= page.title || _p('no_title')
+  h1.post-title(itemprop="name headline")= page.title || _p('no_title')
     if (theme.post_edit.enable && (theme.post_edit.github !== false))
       a.post-edit-link(href=theme.post_edit.url + page.source title=_p('post.edit.github') + ' - ' + page.title target="_blank")
         i.anzhiyufont.anzhiyu-icon-pencil
@@ -39,11 +39,11 @@
           if (theme.post_meta.post.date_type === 'both')
             i.anzhiyufont.anzhiyu-icon-calendar-days.post-meta-icon
             span.post-meta-label= _p('post.created')
-            time.post-meta-date-created(datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
+            time.post-meta-date-created(itemprop="dateCreated datePublished" datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
             span.post-meta-separator
             i.anzhiyufont.anzhiyu-icon-history.post-meta-icon
             span.post-meta-label= _p('post.updated')
-            time.post-meta-date-updated(datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
+            time.post-meta-date-updated(itemprop="dateCreated datePublished" datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
           else
             - let data_type_update = theme.post_meta.post.date_type === 'updated'
             - let date_type = data_type_update ? 'updated' : 'date'
@@ -51,7 +51,7 @@
             - let date_title = data_type_update ? _p('post.updated') : _p('post.created')
             i.post-meta-icon.anzhiyufont(class=date_icon)
             span.post-meta-label= date_title
-            time(datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
+            time(itemprop="dateCreated datePublished" datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))=date(page[date_type], config.date_format)
 
     .meta-secondline
       - let postWordcount = theme.wordcount.enable && (theme.wordcount.post_wordcount || theme.wordcount.min2read)
