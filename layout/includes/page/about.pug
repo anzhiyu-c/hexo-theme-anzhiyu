@@ -59,7 +59,7 @@ if site.data.about
                     each item, index in i.creativity_list
                       .skill-info
                         .skill-icon(style=`background: ${item.color}`)
-                          img.no-lightbox(title=item.name, src=item.icon)
+                          img.no-lightbox(title=item.name, src=item.icon, alt=item.name)
                         .skill-name
                           span=item.name 
                   .etc ...

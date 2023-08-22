@@ -8,13 +8,13 @@ if site.data.creativity
           if ((index+1 <= evenNum.length) && (index+1 <= oddNum.length))
             .tags-group-icon-pair
               .tags-group-icon(style=`background: ${evenNum[index].color}`)
-                img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon, size="60px")
+                img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon, size="60px" alt=evenNum[index].name)
               .tags-group-icon(style=`background: ${oddNum[index].color}`)
-                img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon, size="60px")
+                img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon, size="60px" alt=oddNum[index].name)
         each item, index in i.creativity_list
           if ((index+1 <= evenNum.length) && (index+1 <= oddNum.length))
             .tags-group-icon-pair
               .tags-group-icon(style=`background: ${evenNum[index].color}`)
-                img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon, size="60px")
+                img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon, size="60px" alt=evenNum[index].name)
               .tags-group-icon(style=`background: ${oddNum[index].color}`)
-                img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon, size="60px")
+                img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon, size="60px" alt=oddNum[index].name)

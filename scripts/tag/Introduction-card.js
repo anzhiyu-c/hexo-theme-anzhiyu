@@ -21,7 +21,7 @@ function intCard(args) {
     return `
       <div class="introduction-card-bottom">
         <div class="left">
-          <img src="${urlFor(logo)}" class="no-lightbox"/>
+          <img src="${urlFor(logo)}" class="no-lightbox" alt="introduction"/>
           <div class="info">
             <div class="title">${title}</div>
             <div class="subTitle">${subTitle}</div>
@@ -46,7 +46,7 @@ function intCard(args) {
           <div class="int-tip">${tip || defaultTip}</div>
           <div class="int-cardTitle">${cardTitle || defaultCardTitle}</div>
         </div>
-        <img src="${urlFor(img)}" class="no-lightbox"/>
+        <img src="${urlFor(img)}" class="no-lightbox" alt="introduction"/>
       </div>
       ${introductionCardBottom}
     </div>
