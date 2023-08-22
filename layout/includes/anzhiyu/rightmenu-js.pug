@@ -403,6 +403,11 @@ script.
       rm.hideRightMenu();
     });
 
+    document.getElementById("menu-translate").addEventListener("click", function () {
+      window.translateFn.translatePage();
+      rm.hideRightMenu();
+    });
+
     const menuLinks = document.querySelectorAll(".menu-link");
     menuLinks.forEach(function (link) {
       link.addEventListener("click", rm.hideRightMenu);

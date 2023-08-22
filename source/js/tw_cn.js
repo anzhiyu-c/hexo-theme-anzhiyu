@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     saveToLocal.get(targetEncodingCookie) === undefined
       ? defaultEncoding
       : Number(saveToLocal.get('translate-chn-cht'))
-  let translateButtonObject,translateRightMenuButtonObject
+  let translateButtonObject, translateRightMenuButtonObject;
   const isSnackbar = snackbarData !== undefined
 
   function setLang () {
@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
   function translateInitialization() {
     translateButtonObject = document.getElementById('translateLink');
     translateRightMenuButtonObject = document.getElementById('menu-translate').querySelector('span');
-  
+
     if (translateButtonObject || translateRightMenuButtonObject) {
       if (currentEncoding !== targetEncoding) {
         const textContent = targetEncoding === 1 ? msgToSimplifiedChinese : msgToTraditionalChinese;
-  
+
         if (translateButtonObject) {
           translateButtonObject.textContent = textContent;
         }

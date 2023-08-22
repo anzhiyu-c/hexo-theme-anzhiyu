@@ -143,46 +143,46 @@ var vegetablesAndFruits = [
   "火龙果",
 ];
 document.addEventListener("DOMContentLoaded", function () {
-  let headerContentWidth, $nav
+  let headerContentWidth, $nav;
   let mobileSidebarOpen = false;
   const adjustMenu = init => {
     const getAllWidth = ele => {
-      return Array.from(ele).reduce((width, i) => width + i.offsetWidth, 0)
-    }
+      return Array.from(ele).reduce((width, i) => width + i.offsetWidth, 0);
+    };
 
     if (init) {
-      const blogInfoWidth = getAllWidth(document.querySelector('#blog_name > a').children)
-      const menusWidth = getAllWidth(document.getElementById('menus').children)
-      headerContentWidth = blogInfoWidth + menusWidth
-      $nav = document.getElementById('nav')
+      const blogInfoWidth = getAllWidth(document.querySelector("#blog_name > a").children);
+      const menusWidth = getAllWidth(document.getElementById("menus").children);
+      headerContentWidth = blogInfoWidth + menusWidth;
+      $nav = document.getElementById("nav");
     }
 
-    const hideMenuIndex = window.innerWidth <= 768 || headerContentWidth > $nav.offsetWidth - 120
-    $nav.classList.toggle('hide-menu', hideMenuIndex)
-  }
+    const hideMenuIndex = window.innerWidth <= 768 || headerContentWidth > $nav.offsetWidth - 120;
+    $nav.classList.toggle("hide-menu", hideMenuIndex);
+  };
 
   // 初始化header
   const initAdjust = () => {
-    adjustMenu(true)
-    $nav.classList.add('show')
-  }
+    adjustMenu(true);
+    $nav.classList.add("show");
+  };
 
   // sidebar menus
   const sidebarFn = {
     open: () => {
-      anzhiyu.sidebarPaddingR()
-      anzhiyu.animateIn(document.getElementById('menu-mask'), 'to_show 0.5s')
-      document.getElementById('sidebar-menus').classList.add('open')
-      mobileSidebarOpen = true
+      anzhiyu.sidebarPaddingR();
+      anzhiyu.animateIn(document.getElementById("menu-mask"), "to_show 0.5s");
+      document.getElementById("sidebar-menus").classList.add("open");
+      mobileSidebarOpen = true;
     },
     close: () => {
-      const $body = document.body
-      $body.style.paddingRight = ''
-      anzhiyu.animateOut(document.getElementById('menu-mask'), 'to_hide 0.5s')
-      document.getElementById('sidebar-menus').classList.remove('open')
-      mobileSidebarOpen = false
-    }
-  }
+      const $body = document.body;
+      $body.style.paddingRight = "";
+      anzhiyu.animateOut(document.getElementById("menu-mask"), "to_hide 0.5s");
+      document.getElementById("sidebar-menus").classList.remove("open");
+      mobileSidebarOpen = false;
+    },
+  };
 
   /**
    * 首頁top_img底下的箭頭
@@ -666,7 +666,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .observe(footerDom);
     }
 
-    scrollTask()
+    scrollTask();
     anzhiyu.addEventListenerPjax(window, "scroll", scrollTask, { passive: true });
   };
 
@@ -790,78 +790,77 @@ document.addEventListener("DOMContentLoaded", function () {
    * Rightside
    */
   const rightSideFn = {
-    switchReadMode: () => {
-      // read-mode
+    readmode: () => {
+      // read mode
       const $body = document.body;
       $body.classList.add("read-mode");
       const newEle = document.createElement("button");
       newEle.type = "button";
-      newEle.className = "anzhiyufont anzhiyu-icon-sign-out-alt exit-readmode";
+      newEle.className = "fas fa-sign-out-alt exit-readmode";
       $body.appendChild(newEle);
 
-      function clickFn() {
+      const clickFn = () => {
         $body.classList.remove("read-mode");
         newEle.remove();
         newEle.removeEventListener("click", clickFn);
-      }
+      };
 
       newEle.addEventListener("click", clickFn);
     },
-    showOrHideBtn: e => {
-      // rightside 點擊設置 按鈕 展開
-      const rightsideHideClassList = document.getElementById("rightside-config-hide").classList;
-      rightsideHideClassList.toggle("show");
-      if (e.classList.contains("show")) {
-        rightsideHideClassList.add("status");
+    darkmode: () => {
+      // switch between light and dark mode
+      const willChangeMode = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (willChangeMode === "dark") {
+        activateDarkMode();
+        GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+      } else {
+        activateLightMode();
+        GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+      }
+      saveToLocal.set("theme", willChangeMode, 2);
+      handleThemeChange(willChangeMode);
+    },
+    "rightside-config": item => {
+      // Show or hide rightside-hide-btn
+      const hideLayout = item.firstElementChild;
+      if (hideLayout.classList.contains("show")) {
+        hideLayout.classList.add("status");
         setTimeout(() => {
-          rightsideHideClassList.remove("status");
+          hideLayout.classList.remove("status");
         }, 300);
       }
-      e.classList.toggle("show");
+
+      hideLayout.classList.toggle("show");
     },
-    scrollToTop: () => {
+    "go-up": () => {
       // Back to top
       anzhiyu.scrollToDest(0, 500);
     },
-    hideAsideBtn: () => {
+    "hide-aside-btn": () => {
       // Hide aside
       const $htmlDom = document.documentElement.classList;
-      $htmlDom.contains("hide-aside")
-        ? saveToLocal.set("aside-status", "show", 2)
-        : saveToLocal.set("aside-status", "hide", 2);
+      const saveStatus = $htmlDom.contains("hide-aside") ? "show" : "hide";
+      saveToLocal.set("aside-status", saveStatus, 2);
       $htmlDom.toggle("hide-aside");
     },
-
-    runMobileToc: () => {
-      if (window.getComputedStyle(document.getElementById("card-toc")).getPropertyValue("opacity") === "0")
-        window.mobileToc.open();
-      else window.mobileToc.close();
+    "mobile-toc-button": () => {
+      // Show mobile toc
+      document.getElementById("card-toc").classList.toggle("open");
+    },
+    "chat-btn": () => {
+      // Show chat
+      window.chatBtnFn();
+    },
+    translateLink: () => {
+      // switch between traditional and simplified chinese
+      window.translateFn.translatePage();
     },
   };
 
   document.getElementById("rightside").addEventListener("click", function (e) {
-    const $target = e.target.id ? e.target : e.target.parentNode;
-    switch ($target.id) {
-      case "go-up":
-        rightSideFn.scrollToTop();
-        break;
-      case "rightside_config":
-        rightSideFn.showOrHideBtn($target);
-        break;
-      case "mobile-toc-button":
-        rightSideFn.runMobileToc();
-        break;
-      case "readmode":
-        rightSideFn.switchReadMode();
-        break;
-      case "darkmode":
-        anzhiyu.switchDarkMode();
-        break;
-      case "hide-aside-btn":
-        rightSideFn.hideAsideBtn();
-        break;
-      default:
-        break;
+    const $target = e.target.closest("[id]");
+    if ($target && rightSideFn[$target.id]) {
+      rightSideFn[$target.id](this);
     }
   });
 
@@ -879,11 +878,13 @@ document.addEventListener("DOMContentLoaded", function () {
    * 側邊欄sub-menu 展開/收縮
    */
   const clickFnOfSubMenu = () => {
-    document.querySelectorAll("#sidebar-menus .site-page.group").forEach(function (item) {
-      item.addEventListener("click", function () {
-        this.classList.toggle("hide");
-      });
-    });
+    const handleClickOfSubMenu = e => {
+      const target = e.target.closest(".site-page.group");
+      if (!target) return;
+      target.classList.toggle("hide");
+    };
+
+    document.querySelector("#sidebar-menus .menus_items").addEventListener("click", handleClickOfSubMenu);
   };
 
   /**
@@ -900,33 +901,18 @@ document.addEventListener("DOMContentLoaded", function () {
    * 複製時加上版權信息
    */
   const addCopyright = () => {
-    const copyright = GLOBAL_CONFIG.copyright;
-    const copyrightEbable = copyright.copyrightEbable;
+    const { limitCount, languages, copy, copyrightEbable  } = GLOBAL_CONFIG.copyright;
 
-    document.body.oncopy = e => {
-      if (copyright.copy) {
-        anzhiyu.snackbarShow(copyright.languages.copySuccess);
+    const handleCopy = e => {
+      e.preventDefault();
+      if (copy) {
+        anzhiyu.snackbarShow(languages.copySuccess);
       }
       if (copyrightEbable) {
-        e.preventDefault();
-        let textFont;
         const copyFont = window.getSelection(0).toString();
-        if (copyFont.length > copyright.limitCount) {
-          textFont =
-            copyFont +
-            "\n" +
-            "\n" +
-            "\n" +
-            copyright.languages.author +
-            "\n" +
-            copyright.languages.link +
-            window.location.href +
-            "\n" +
-            copyright.languages.source +
-            "\n" +
-            copyright.languages.info;
-        } else {
-          textFont = copyFont;
+        let textFont = copyFont;
+        if (copyFont.length > limitCount) {
+          textFont = `${copyFont}\n\n\n${languages.author}\n${languages.link}${window.location.href}\n${languages.source}\n${languages.info}`;
         }
         if (e.clipboardData) {
           return e.clipboardData.setData("text", textFont);
@@ -935,58 +921,63 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     };
+
+    document.body.addEventListener("copy", handleCopy);
   };
 
   /**
    * 網頁運行時間
    */
   const addRuntime = () => {
-    const $runtimeCount = document.getElementById("runtimeshow");
+    const $runtimeCount = document.getElementById('runtimeshow')
     if ($runtimeCount) {
-      const publishDate = $runtimeCount.getAttribute("data-publishDate");
-      $runtimeCount.innerText = anzhiyu.diffDate(publishDate) + " " + GLOBAL_CONFIG.runtime;
+      const publishDate = $runtimeCount.getAttribute('data-publishDate')
+      $runtimeCount.textContent = `${anzhiyu.diffDate(publishDate)} ${GLOBAL_CONFIG.runtime}`
     }
-  };
+  }
 
   /**
    * 最後一次更新時間
    */
   const addLastPushDate = () => {
-    const $lastPushDateItem = document.getElementById("last-push-date");
+    const $lastPushDateItem = document.getElementById('last-push-date')
     if ($lastPushDateItem) {
-      const lastPushDate = $lastPushDateItem.getAttribute("data-lastPushDate");
-      $lastPushDateItem.innerText = anzhiyu.diffDate(lastPushDate, true);
+      const lastPushDate = $lastPushDateItem.getAttribute('data-lastPushDate')
+      $lastPushDateItem.textContent = anzhiyu.diffDate(lastPushDate, true)
     }
-  };
+  }
 
   /**
    * table overflow
    */
   const addTableWrap = () => {
-    const $table = document.querySelectorAll("#article-container :not(.highlight) > table, #article-container > table");
-    if ($table.length) {
-      $table.forEach(item => {
-        anzhiyu.wrap(item, "div", { class: "table-wrap" });
-      });
-    }
-  };
+    const $table = document.querySelectorAll('#article-container table')
+    if (!$table.length) return
+
+    $table.forEach(item => {
+      if (!item.closest('.highlight')) {
+        anzhiyu.wrap(item, 'div', { class: 'table-wrap' })
+      }
+    })
+  }
 
   /**
    * tag-hide
    */
-  const clickFnOfTagHide = function () {
-    const $hideInline = document.querySelectorAll("#article-container .hide-button");
-    if ($hideInline.length) {
-      $hideInline.forEach(function (item) {
-        item.addEventListener("click", function (e) {
-          const $this = this;
-          $this.classList.add("open");
-          const $fjGallery = $this.nextElementSibling.querySelectorAll(".fj-gallery");
-          $fjGallery.length && anzhiyu.initJustifiedGallery($fjGallery);
-        });
-      });
+  const clickFnOfTagHide = () => {
+    const hideButtons = document.querySelectorAll('#article-container .hide-button')
+    if (!hideButtons.length) return
+    const handleClick = function (e) {
+      const $this = this
+      $this.classList.add('open')
+      const $fjGallery = $this.nextElementSibling.querySelectorAll('.gallery-container')
+      $fjGallery.length && addJustifiedGallery($fjGallery)
     }
-  };
+
+    hideButtons.forEach(item => {
+      item.addEventListener('click', handleClick, { once: true })
+    })
+  }
 
   const tabsFn = () => {
     const navTabsElement = document.querySelectorAll("#article-container .tabs");

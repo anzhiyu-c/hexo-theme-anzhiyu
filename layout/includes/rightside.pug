@@ -23,13 +23,14 @@ mixin rightsideItem(array)
             i.anzhiyufont.anzhiyu-icon-list-ul
       when 'chat'
         if chat_btn && (theme.chatra.enable || theme.tidio.enable || theme.daovoice.enable || theme.crisp.enable)
-          button#chat_btn(type="button" title=_p("rightside.chat"))
+          button#chat-btn(type="button" title=_p("rightside.chat"))
             i.anzhiyufont.anzhiyu-icon-comment-sms
       when 'comment'
         if commentsJsLoad
           a#to_comment(href="#post-comment" title=_p("rightside.scroll_to_comment"))
             i.anzhiyufont.anzhiyu-icon-comments
-          a#switch_commentBarrage(href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕")
+        if theme.comment_barrage_config && theme.comment_barrage_config.enable
+          a#switch-commentBarrage(href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕")
             i.anzhiyufont.anzhiyu-icon-danmu
 
 #rightside
@@ -44,18 +45,19 @@ mixin rightsideItem(array)
   #rightside-config-show
     if enable
       if hide
-        button#rightside_config(type="button" title=_p("rightside.setting"))
-          i.anzhiyufont.anzhiyu-icon-gear
+        button#rightside-config(type="button" title=_p("rightside.setting"))
+         i.anzhiyufont.anzhiyu-icon-gear
     else
       if is_post()
         if (readmode || translate.enable || (darkmode.enable && darkmode.button))
-          button#rightside_config(type="button" title=_p("rightside.setting"))
+          button#rightside-config(type="button" title=_p("rightside.setting"))
             i.anzhiyufont.anzhiyu-icon-gear
       else if translate.enable || (darkmode.enable && darkmode.button)
-        button#rightside_config(type="button" title=_p("rightside.setting"))
+        button#rightside-config(type="button" title=_p("rightside.setting"))
           i.anzhiyufont.anzhiyu-icon-gear
 
     if showArray
       +rightsideItem(showArray)
+
     button#go-up(type="button" title=_p("rightside.back_to_top"))
       i.anzhiyufont.anzhiyu-icon-arrow-up
