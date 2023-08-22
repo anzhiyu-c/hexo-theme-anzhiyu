@@ -142,6 +142,20 @@ var vegetablesAndFruits = [
   "柚子",
   "火龙果",
 ];
+
+var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+var pageHeaderEl = document.getElementById("page-header");
+var navMusicEl = document.getElementById("nav-music");
+var consoleEl = document.getElementById("console");
+// 已随机的歌曲
+var selectRandomSong = [];
+// 音乐默认声音大小
+var musicVolume = 0.8;
+// 是否切换了周杰伦音乐列表
+var changeMusicListFlag = false;
+// 当前默认播放列表
+var defaultPlayMusicList = [];
+
 document.addEventListener("DOMContentLoaded", function () {
   let headerContentWidth, $nav;
   let mobileSidebarOpen = false;
@@ -729,6 +743,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // find head position & add active class
     const list = $article.querySelectorAll("h1,h2,h3,h4,h5,h6");
+    const filteredHeadings = Array.from(list).filter(heading => heading.id !== "CrawlerTitle");
     let detectItem = "";
     const findHeadPosition = function (top) {
       if (top === 0) {
@@ -738,20 +753,16 @@ document.addEventListener("DOMContentLoaded", function () {
       let currentId = "";
       let currentIndex = "";
 
-      list.forEach(function (ele, index) {
+      filteredHeadings.forEach(function (ele, index) {
         if (top > anzhiyu.getEleTop(ele) - 80) {
           const id = ele.id;
           currentId = id ? "#" + encodeURI(id) : "";
           currentIndex = index;
         }
       });
-
       if (detectItem === currentIndex) return;
-
       if (isAnchor) anzhiyu.updateAnchor(currentId);
-
       detectItem = currentIndex;
-
       if (isToc) {
         $cardToc.querySelectorAll(".active").forEach(i => {
           i.classList.remove("active");
@@ -760,7 +771,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentId === "") {
           return;
         }
-
         const currentActive = $tocLink[currentIndex];
         currentActive.classList.add("active");
 
@@ -1440,6 +1450,80 @@ document.addEventListener("DOMContentLoaded", function () {
     123 === e.keyCode && anzhiyu.snackbarShow("开发者模式已打开，请遵循GPL协议", !1);
   };
 
+  // 欢迎语
+  function greetingInit() {
+    const greetingBoxInfo = GLOBAL_CONFIG.greetingBox.list;
+    const greetingBoxDefault = GLOBAL_CONFIG.greetingBox.default;
+    //- 创建盒子
+    let div = document.createElement("div");
+    //- 设置ID
+    div.id = "greeting";
+    //- 设置class
+    setTimeout(()=>{
+      div.classList.add("shown");
+    }, 1000)
+    //- 插入盒子
+    let greetingBox = document.getElementById("greetingBox");
+    if (!greetingBox) return
+    greetingBox.appendChild(div);
+    const nowTime = new Date().getHours();
+    let greetings = greetingBoxDefault;
+    for (let i = 0; i < greetingBoxInfo.length; i++) {
+      if (nowTime >= greetingBoxInfo[i].startTime && nowTime <= greetingBoxInfo[i].endTime) {
+        greetings = greetingBoxInfo[i].greeting;
+        break;
+      }
+    }
+    div.innerHTML = greetings
+    setTimeout(()=>{
+      div.classList.remove("shown");
+      setTimeout(()=>{
+        greetingBox.remove()
+      }, 500)
+    }, 3000)
+  }
+
+  function statistics51aInit() {
+    const loadScript = (url, charset = "UTF-8", crossorigin, id) => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.async = true;
+        if (id) {
+          script.setAttribute("id", id);
+        }
+        if (charset) {
+          script.setAttribute("charset", charset);
+        }
+        if (crossorigin) {
+          script.setAttribute("crossorigin", crossorigin);
+        }
+        script.onerror = reject;
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState;
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return;
+          script.onload = script.onreadystatechange = null;
+          resolve();
+        };
+        document.head.appendChild(script);
+      });
+    };
+    
+    const scriptUrls = [
+      { url: 'https://sdk.51.la/js-sdk-pro.min.js', charset: 'UTF-8',crossorigin:false, id: 'LA_COLLECT' },
+      { url: 'https://sdk.51.la/perf/js-sdk-perf.min.js', crossorigin: 'anonymous' }
+    ];
+    
+    Promise.all(scriptUrls.map(({ url, charset, crossorigin, id }) => loadScript(url, charset, crossorigin, id)))
+      .then(() => {
+        LA.init({ id: GLOBAL_CONFIG.LA51.ck, ck: GLOBAL_CONFIG.LA51.ck });
+        new LingQue.Monitor().init({ id: GLOBAL_CONFIG.LA51.LingQueMonitorID, sendSuspicious: true });
+      })
+      .catch(error => {
+        console.error('加载51a统计异常，本地加载403是正常情况:', error);
+      });    
+  }
+
   const unRefreshFn = function () {
     window.addEventListener("resize", () => {
       adjustMenu(false);
@@ -1466,6 +1550,10 @@ document.addEventListener("DOMContentLoaded", function () {
         e.matches ? handleThemeChange("dark") : handleThemeChange("light");
       });
     }
+    // 欢迎语
+    GLOBAL_CONFIG.greetingBox && greetingInit()
+    // 51la统计&灵雀统计
+    GLOBAL_CONFIG.LA51 && statistics51aInit()
   };
 
   window.refreshFn = function () {
@@ -1513,6 +1601,28 @@ document.addEventListener("DOMContentLoaded", function () {
     coverColor();
     listenToPageInputPress();
     openMobileMenu();
+
+    // needRefresh
+    // nav中间的标题变化
+    document.getElementById("page-name").innerText = document.title.split(` | ${GLOBAL_CONFIG_SITE.configTitle}`)[0];
+    anzhiyu.initIndexEssay();
+    anzhiyu.changeTimeInEssay();
+    anzhiyu.removeBodyPaceClass();
+    anzhiyu.qrcodeCreate();
+    anzhiyu.changeTimeInAlbumDetail();
+    anzhiyu.reflashEssayWaterFall();
+    anzhiyu.sayhi();
+    anzhiyu.stopImgRightDrag();
+    anzhiyu.addNavBackgroundInit();
+    anzhiyu.setValueToBodyType();
+    anzhiyu.catalogActive();
+    anzhiyu.tagsPageActive();
+    anzhiyu.categoriesBarActive();
+    anzhiyu.topCategoriesBarScroll();
+    anzhiyu.switchRightClickMenuHotReview();
+    anzhiyu.getCustomPlayList();
+    anzhiyu.addEventListenerConsoleMusicList(false);
+    setTimeout(() => {if (typeof addFriendLinksInFooter === "function") {addFriendLinksInFooter();}}, 200)
   };
 
   refreshFn();

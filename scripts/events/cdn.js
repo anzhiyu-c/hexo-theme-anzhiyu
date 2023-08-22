@@ -39,6 +39,21 @@ hexo.extend.filter.register("before_generate", () => {
       file: "js/search/algolia.js",
       version,
     },
+    random_friends_post_js: {
+      name: "hexo-theme-anzhiyu",
+      file: "js/anzhiyu/random_friends_post.js",
+      version,
+    },
+    right_click_menu_js: {
+      name: "hexo-theme-anzhiyu",
+      file: "js/anzhiyu/right_click_menu.js",
+      version,
+    },
+    comment_barrage_js: {
+      name: "hexo-theme-anzhiyu",
+      file: "js/anzhiyu/comment_barrage.js",
+      version,
+    },
   };
 
   const minFile = file => {

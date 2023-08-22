@@ -15,7 +15,7 @@ block content
         if (theme.post_meta.page.tags)
           each item, index in page.tags.data
             a(href=url_for(item.path) tabindex="-1" itemprop="url")=item.name
-        h1(itemprop="name headline")= page.title || _p('no_title')
+        h1#CrawlerTitle(itemprop="name headline")= page.title || _p('no_title')
         - let author = page.copyright_author || config.author
         span(itemprop="author" itemscope itemtype="http://schema.org/Person")=author
         if (theme.post_meta.post.date_type)

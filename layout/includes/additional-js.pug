@@ -82,58 +82,15 @@ div
     != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })
   //- 评论弹幕
   if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
-    != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
+    script(async data-pjax src=url_for(theme.asset.comment_barrage_js))
 
   //- 即刻依赖waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))
   //- 文章二维码
   script(src='https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js')
   //- 右键菜单
-  != partial("includes/anzhiyu/rightmenu-js.pug", {}, { cache: true })
-  include ./anzhiyu/anzhiyu-js.pug
-  //- 51la统计&灵雀统计
-  if (theme.LA.enable)
-    - const ck = theme.LA.ck
-    - const monitorID = theme.LA.LingQueMonitorID;
-    script.
-      const loadScript = (url, charset = "UTF-8", crossorigin, id) => {
-        return new Promise((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = url;
-          script.async = true;
-          if (id) {
-            script.setAttribute("id", id);
-          }
-          if (charset) {
-            script.setAttribute("charset", charset);
-          }
-          if (crossorigin) {
-            script.setAttribute("crossorigin", crossorigin);
-          }
-          script.onerror = reject;
-          script.onload = script.onreadystatechange = function() {
-            const loadState = this.readyState;
-            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return;
-            script.onload = script.onreadystatechange = null;
-            resolve();
-          };
-          document.head.appendChild(script);
-        });
-      };
-
-      const scriptUrls = [
-        { url: 'https://sdk.51.la/js-sdk-pro.min.js', charset: 'UTF-8',crossorigin:false, id: 'LA_COLLECT' },
-        { url: 'https://sdk.51.la/perf/js-sdk-perf.min.js', crossorigin: 'anonymous' }
-      ];
-
-      Promise.all(scriptUrls.map(({ url, charset, crossorigin, id }) => loadScript(url, charset, crossorigin, id)))
-        .then(() => {
-          LA.init({ id: "#{ck}", ck: "#{ck}" });
-          new LingQue.Monitor().init({ id: "#{monitorID}", sendSuspicious: true });
-        })
-        .catch(error => {
-          console.error('本地无法加载51a统计，线上即可加载:', error);
-        });
+  if (theme.rightClickMenu && theme.rightClickMenu.enable)
+    script(src=url_for(theme.asset.right_click_menu_js))
 
   //- iconfont依赖
   link(rel="stylesheet" href=url_for(theme.asset.ali_iconfont_css))
@@ -161,35 +118,4 @@ div
     script(charset="UTF-8" src=url_for(theme.asset.accesskey_js))
 
   if is_current("/") && theme.greetingBox.enable
-    #greetingBox 
-    script.
-      (()=>{
-        const greetingBoxInfo = !{JSON.stringify(theme.greetingBox.list)};
-        const greetingBoxDefault = "#{theme.greetingBox.default}";
-        //- 创建盒子
-        let div = document.createElement("div");
-        //- 设置ID
-        div.id = "greeting";
-        //- 设置class
-        setTimeout(()=>{
-          div.classList.add("shown");
-        }, 1000)
-        //- 插入盒子
-        let greetingBox = document.querySelector("#greetingBox");
-        greetingBox.appendChild(div);
-        const nowTime = new Date().getHours();
-        let greetings = greetingBoxDefault;
-        for (let i = 0; i < greetingBoxInfo.length; i++) {
-          if (nowTime >= greetingBoxInfo[i].startTime && nowTime <= greetingBoxInfo[i].endTime) {
-            greetings = greetingBoxInfo[i].greeting;
-            break;
-          }
-        }
-        div.innerHTML = greetings
-        setTimeout(()=>{
-          div.classList.remove("shown");
-          setTimeout(()=>{
-            greetingBox.remove()
-          }, 500)
-        }, 3000)
-      })()
+    #greetingBox

@@ -119,8 +119,27 @@
     })
   }
 
+  let commentBarrageConfig = 'undefined'
+  if (theme.comment_barrage_config && theme.comment_barrage_config.enable) {
+    commentBarrageConfig = JSON.stringify(theme.comment_barrage_config)
+  }
+
+  let greetingBox = 'undefined'
+  if (theme.greetingBox && theme.greetingBox.enable) {
+    greetingBox = JSON.stringify(theme.greetingBox)
+  }
+
+  let LA51 = 'undefined'
+  if (theme.LA && theme.LA.enable) {
+    LA51 = JSON.stringify(theme.LA)
+  }
+
 script.
-  const GLOBAL_CONFIG = { 
+  const GLOBAL_CONFIG = {
+    LA51: !{LA51},
+    greetingBox: !{greetingBox},
+    twikooEnvId: '!{theme.twikoo.envId}',
+    commentBarrageConfig:!{commentBarrageConfig},
     root: '!{config.root}',
     preloader: !{preloader},
     friends_vue_info: !{friends_vue_info},
