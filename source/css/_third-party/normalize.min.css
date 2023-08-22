@@ -2,11 +2,39 @@
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 60px;
+}
+
+/* 滚动条轨道样式 */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* 滚动条滑块样式 */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+/* 滚动条消失动画 */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 在滚动容器上应用动画 */
+html:hover::-webkit-scrollbar-thumb {
+  animation: fadeOut 1s 1s forwards;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  overflow-x: clip;
 }
 
 main {

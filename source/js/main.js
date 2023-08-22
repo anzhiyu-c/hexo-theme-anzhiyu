@@ -171,14 +171,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarFn = {
     open: () => {
       anzhiyu.sidebarPaddingR()
-      document.body.style.overflow = 'hidden'
       anzhiyu.animateIn(document.getElementById('menu-mask'), 'to_show 0.5s')
       document.getElementById('sidebar-menus').classList.add('open')
       mobileSidebarOpen = true
     },
     close: () => {
       const $body = document.body
-      $body.style.overflow = ''
       $body.style.paddingRight = ''
       anzhiyu.animateOut(document.getElementById('menu-mask'), 'to_hide 0.5s')
       document.getElementById('sidebar-menus').classList.remove('open')

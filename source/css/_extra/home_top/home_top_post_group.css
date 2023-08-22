@@ -107,3 +107,9 @@ span.top-group-text {
     animation: slide-in 0.6s 0.1s backwards;
   }
 }
+
+@media screen and (max-width: 1201px) {
+  .topGroup .recent-post-item {
+    animation: slide-in 0.6s 0.1s backwards;
+  }
+}

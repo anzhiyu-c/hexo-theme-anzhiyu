@@ -138,7 +138,6 @@
   margin-right: 0px;
   margin-bottom: 0.5rem;
   cursor: pointer;
-  animation: slide-in 0.6s 0.2s backwards;
 }
 .topGroup .recent-post-item:hover .recent-post-info .article-title {
   color: var(--anzhiyu-main);
