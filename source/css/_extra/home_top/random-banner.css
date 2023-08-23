@@ -15,7 +15,6 @@
   overflow: hidden;
   box-shadow: var(--anzhiyu-shadow-border);
   transition: 0.3s;
-  clip-path: inset(0 0 0 0 round 8px);
   animation: slide-in 0.6s 0.1s backwards;
 }
 
@@ -29,7 +28,7 @@
   height: 100%;
   width: 100%;
   color: #0000;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
 }
 #random-hover:hover {
