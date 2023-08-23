@@ -105,46 +105,46 @@ algolia_search:
 # Settings: https://www.algolia.com/
 docsearch:
   enable: false
-  appId:  # see email
-  apiKey:  # see email
-  indexName:  # see email
+  appId: # see email
+  apiKey: # see email
+  indexName: # see email
   option:
-    placeholder: 'Ctrl/⌘ + K 唤醒搜索服务'
+    placeholder: "Ctrl/⌘ + K 唤醒搜索服务"
     maxResultsPerGroup: 7
     translations:
       button:
-        buttonText: '搜索'
-        buttonAriaLabel: '搜索'
+        buttonText: "搜索"
+        buttonAriaLabel: "搜索"
       modal:
         searchBox:
-          resetButtonTitle: '清空'
-          resetButtonAriaLabel: '清空'
-          cancelButtonText: '取消'
-          cancelButtonAriaLabel: '取消'
+          resetButtonTitle: "清空"
+          resetButtonAriaLabel: "清空"
+          cancelButtonText: "取消"
+          cancelButtonAriaLabel: "取消"
         startScreen:
-          recentSearchesTitle: '最近搜索历史'
-          noRecentSearchesText: '搜索历史为空'
-          saveRecentSearchButtonTitle: '保存搜索记录'
-          removeRecentSearchButtonTitle: '清除搜索记录'
-          favoriteSearchesTitle: '收藏夹'
-          removeFavoriteSearchButtonTitle: '移出收藏夹'
+          recentSearchesTitle: "最近搜索历史"
+          noRecentSearchesText: "搜索历史为空"
+          saveRecentSearchButtonTitle: "保存搜索记录"
+          removeRecentSearchButtonTitle: "清除搜索记录"
+          favoriteSearchesTitle: "收藏夹"
+          removeFavoriteSearchButtonTitle: "移出收藏夹"
         errorScreen:
-          titleText: '未能获取搜索结果'
-          helpText: '您可能需要检查您的网络连接'
+          titleText: "未能获取搜索结果"
+          helpText: "您可能需要检查您的网络连接"
         footer:
-          selectText: '选择'
-          selectKeyAriaLabel: '回车键'
-          navigateText: '切换'
-          navigateUpKeyAriaLabel: '方向键上'
-          navigateDownKeyAriaLabel: '方向键下'
-          closeText: '关闭'
-          closeKeyAriaLabel: '退出键'
-          searchByText: '搜索服务提供: DocSearch by'
+          selectText: "选择"
+          selectKeyAriaLabel: "回车键"
+          navigateText: "切换"
+          navigateUpKeyAriaLabel: "方向键上"
+          navigateDownKeyAriaLabel: "方向键下"
+          closeText: "关闭"
+          closeKeyAriaLabel: "退出键"
+          searchByText: "搜索服务提供: DocSearch by"
         noResultsScreen:
-          noResultsText: '未搜索到相关内容'
-          suggestedQueryText: '您可尝试搜索'
-          reportMissingResultsText: '确认搜索结果是正确的？'
-          reportMissingResultsLinkText: '反馈给Algolia'
+          noResultsText: "未搜索到相关内容"
+          suggestedQueryText: "您可尝试搜索"
+          reportMissingResultsText: "确认搜索结果是正确的？"
+          reportMissingResultsLinkText: "反馈给Algolia"
 
 # Local search
 local_search:
@@ -385,8 +385,8 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL:  # Waline server address url
-  bg:  # waline background
+  serverURL: # Waline server address url
+  bg: # waline background
   pageview: false
   meta: false # 归属地, 操作系统 前是否显示图标
   imageUploader: true # 是否启用图片上传功能，默认开启，限制为 128kb 的 base64 图片
@@ -416,7 +416,7 @@ waline:
     requiredMeta: ["nick", "mail"]
     login: enable
     copyright: true
-    # turnstileKey: 
+    # turnstileKey:
     locale:
       admin: 安知鱼
       sofa: 欢迎使用 安知鱼 主题！
@@ -449,7 +449,6 @@ waline:
     #     "https://example.com/.../Sticker-100/4.png",
     #     "https://example.com/.../Sticker-100/5.png",
     #   ]
-
 
 # Twikoo
 # https://github.com/imaegoo/twikoo
@@ -603,7 +602,7 @@ footer:
   footerBar:
     enable: true
     authorLink: /
-    cc: 
+    cc:
       enable: false
       link: /copyright
     linkList:
@@ -887,7 +886,7 @@ aside:
     enable: true
     description: # <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> # 默认为站点描述
     name_link: /
-  
+
   card_announcement:
     enable: false
     content: 欢迎来看我的博客鸭~
@@ -1237,7 +1236,6 @@ greetingBox:
     #   startTime: 20
     #   endTime: 24
 
-
 # 文章顶部ai摘要
 post_head_ai_description:
   enable: true
@@ -1261,12 +1259,12 @@ accesskey:
   enable: true
 
 # 友情链接顶部相关配置
-linkPageTop: 
+linkPageTop:
   enable: false
   title: 与数百名博主无限进步
 
 # 缩略图后缀 archive/tag/category 页面单独开启后缀
-pageThumbnailSuffix: ''
+pageThumbnailSuffix: ""
 
 # 隐私协议弹窗
 agreementPopup:
@@ -1317,6 +1315,7 @@ CDN:
     # random_friends_post_js:
     # right_click_menu_js:
     # comment_barrage_js:
+    # ai_abstract_js:
     # local_search:
     # algolia_js:
     # algolia_search:

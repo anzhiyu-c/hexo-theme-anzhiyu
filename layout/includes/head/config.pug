@@ -144,8 +144,14 @@
     diytitle = JSON.stringify(theme.diytitle)
   }
 
+  let postHeadAiDescription = 'undefined'
+  if (theme.post_head_ai_description && theme.post_head_ai_description.enable) {
+    postHeadAiDescription = JSON.stringify(theme.post_head_ai_description)
+  }
+
 script.
   const GLOBAL_CONFIG = {
+    postHeadAiDescription: !{postHeadAiDescription},
     diytitle: !{diytitle},
     LA51: !{LA51},
     greetingBox: !{greetingBox},

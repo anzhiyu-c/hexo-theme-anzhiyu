@@ -54,6 +54,11 @@ hexo.extend.filter.register("before_generate", () => {
       file: "js/anzhiyu/comment_barrage.js",
       version,
     },
+    ai_abstract_js: {
+      name: "hexo-theme-anzhiyu",
+      file: "js/anzhiyu/ai_abstract.js",
+      version,
+    },
   };
 
   const minFile = file => {
