@@ -437,4 +437,5 @@ div#swiper_container:hover {
   display: flex !important;
   justify-content: space-around;
   flex-direction: row !important;
+  user-select: none;
 }

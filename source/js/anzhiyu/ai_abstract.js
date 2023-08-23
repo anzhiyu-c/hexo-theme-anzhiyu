@@ -116,14 +116,21 @@
       };
       const truncateDescription = (postTitle + pageFillDescription).trim().substring(0, num);
 
-      const queryParams = `key=${options.key}&content=${truncateDescription}`;
+      const requestBody = {
+        key: options.key,
+        content: truncateDescription,
+        url: location.href,
+      };
+
       const requestOptions = {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Referer: options.Referer,
         },
+        body: JSON.stringify(requestBody),
       };
+
       try {
         let animationInterval = null;
         let summary;
@@ -133,20 +140,21 @@
           explanation.innerHTML = animationText;
           j = (j % 3) + 1; // 在 1、2、3 之间循环
         }, 500);
-        // const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
-        // let result;
-        // if (response.status === 403) {
-        //   result = {
-        //     summary: "403 refer与key不匹配，本地无法显示。",
-        //   };
-        // } else if (response.status === 500) {
-        //   result = {
-        //     summary: "500 系统内部错误",
-        //   };
-        // } else {
-        //   result = await response.json();
-        // }
-        // summary = result.summary.trim();
+        const response = await fetch(`https://summary.tianli0.top/`, requestOptions);
+        let result;
+        if (response.status === 403) {
+          result = {
+            summary: "403 refer与key不匹配，本地无法显示。",
+          };
+        } else if (response.status === 500) {
+          result = {
+            summary: "500 系统内部错误",
+          };
+        } else {
+          result = await response.json();
+        }
+
+        summary = result.summary.trim();
         setTimeout(() => {
           aiTitleRefreshIcon.style.opacity = "1";
         }, 300);
