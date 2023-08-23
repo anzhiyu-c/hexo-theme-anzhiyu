@@ -149,8 +149,14 @@
     postHeadAiDescription = JSON.stringify(theme.post_head_ai_description)
   }
 
+  let linkPageTop = 'undefined'
+  if (theme.linkPageTop && theme.linkPageTop.enable) {
+    linkPageTop = JSON.stringify(theme.linkPageTop)
+  }
+
 script.
   const GLOBAL_CONFIG = {
+    linkPageTop: !{linkPageTop},
     postHeadAiDescription: !{postHeadAiDescription},
     diytitle: !{diytitle},
     LA51: !{LA51},
