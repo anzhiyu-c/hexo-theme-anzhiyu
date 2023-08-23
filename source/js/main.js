@@ -203,7 +203,12 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   const scrollDownInIndex = () => {
     const handleScrollToDest = () => {
-      anzhiyu.scrollToDest(document.getElementById("content-inner").offsetTop, 300);
+      const bbTimeList = document.getElementById("bbTimeList");
+      if (bbTimeList) {
+        anzhiyu.scrollToDest(bbTimeList.offsetTop - 62, 300);
+      } else {
+        anzhiyu.scrollToDest(document.getElementById("home_top").offsetTop - 60, 300);
+      }
     };
 
     const $scrollDownEle = document.getElementById("scroll-down");
