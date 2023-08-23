@@ -45,7 +45,7 @@
         explanation.appendChild(div);
         i++;
         if (delay === 150) {
-          document.querySelector(".ai-explanation .ai-cursor").style.opacity = "0";
+          document.querySelector(".ai-explanation .ai-cursor").style.opacity = "0.2";
         }
         if (i === ai_str_length - 1) {
           observer.disconnect(); // 暂停监听
@@ -126,30 +126,35 @@
       };
       try {
         let animationInterval = null;
+        let summary;
         if (animationInterval) clearInterval(animationInterval);
         animationInterval = setInterval(() => {
           const animationText = "生成中" + ".".repeat(j);
           explanation.innerHTML = animationText;
           j = (j % 3) + 1; // 在 1、2、3 之间循环
         }, 500);
-        const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
-        let result;
-        if (response.status === 403) {
-          result = {
-            summary: "403 refer与key不匹配，本地无法显示。",
-          };
-        } else if (response.status === 500) {
-          result = {
-            summary: "500 系统内部错误",
-          };
-        } else {
-          result = await response.json();
-        }
-        const summary = result.summary.trim();
+        // const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
+        // let result;
+        // if (response.status === 403) {
+        //   result = {
+        //     summary: "403 refer与key不匹配，本地无法显示。",
+        //   };
+        // } else if (response.status === 500) {
+        //   result = {
+        //     summary: "500 系统内部错误",
+        //   };
+        // } else {
+        //   result = await response.json();
+        // }
+        // summary = result.summary.trim();
         setTimeout(() => {
           aiTitleRefreshIcon.style.opacity = "1";
         }, 300);
-        startAI(summary);
+        if (summary) {
+          startAI(summary);
+        } else {
+          startAI("摘要获取失败!!!请检查Tianli服务是否正常!!!");
+        }
         clearInterval(animationInterval);
       } catch (error) {
         console.error(error);
