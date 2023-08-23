@@ -44,7 +44,7 @@
     .title-h2-a-right
       a.random-post-all.no-text-decoration(href='/link/') 全部友链
   #random-post
-  script(defer data-pjax src="/js/anzhiyu/random-friends-post.js")
+  script(defer data-pjax src=url_for(theme.asset.random_friends_post_js))
   
   .flink
     if site.data.link

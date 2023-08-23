@@ -134,6 +134,11 @@
     LA51 = JSON.stringify(theme.LA)
   }
 
+  let shortcutKey = 'undefined'
+  if (theme.shortcutKey && theme.shortcutKey.enable) {
+    shortcutKey = JSON.stringify(theme.shortcutKey)
+  }
+
 script.
   const GLOBAL_CONFIG = {
     LA51: !{LA51},
@@ -181,6 +186,6 @@ script.
     isPhotoFigcaption: !{theme.photofigcaption},
     islazyload: !{theme.lazyload.enable},
     isAnchor: !{theme.anchor},
-    shortcutKey: !{theme.shortcutKey.enable},
+    shortcutKey: !{shortcutKey},
     autoDarkmode: !{theme.darkmode.enable && theme.darkmode.autoChangeMode === 1}
   }
