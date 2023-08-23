@@ -68,8 +68,6 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
             if (!hasShownPopup) {
               setTimeout(() => {
                 anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 4000);
-
-                // 将会话弹窗状态记录到sessionStorage中
                 sessionStorage.setItem('sessionNegotiatePopupShown', 'true');
               }, 1000);
             }
