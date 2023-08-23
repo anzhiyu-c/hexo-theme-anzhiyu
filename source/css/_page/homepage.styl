@@ -177,7 +177,9 @@
           overflow: hidden;
           text-overflow: ellipsis;
           display: inline-block
-          top: 90px
+          bottom: 0px;
+          +maxWidth768()
+            bottom: 20px;
         else 
           display: flex;
           bottom: 30px;
