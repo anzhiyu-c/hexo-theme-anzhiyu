@@ -911,14 +911,14 @@ document.addEventListener("DOMContentLoaded", function () {
    * 複製時加上版權信息
    */
   const addCopyright = () => {
-    const { limitCount, languages, copy, copyrightEbable  } = GLOBAL_CONFIG.copyright;
+    const { limitCount, languages, copy, copyrightEbable } = GLOBAL_CONFIG.copyright;
 
     const handleCopy = e => {
-      e.preventDefault();
       if (copy) {
         anzhiyu.snackbarShow(languages.copySuccess);
       }
       if (copyrightEbable) {
+        e.preventDefault();
         const copyFont = window.getSelection(0).toString();
         let textFont = copyFont;
         if (copyFont.length > limitCount) {
@@ -939,55 +939,55 @@ document.addEventListener("DOMContentLoaded", function () {
    * 網頁運行時間
    */
   const addRuntime = () => {
-    const $runtimeCount = document.getElementById('runtimeshow')
+    const $runtimeCount = document.getElementById("runtimeshow");
     if ($runtimeCount) {
-      const publishDate = $runtimeCount.getAttribute('data-publishDate')
-      $runtimeCount.textContent = `${anzhiyu.diffDate(publishDate)} ${GLOBAL_CONFIG.runtime}`
+      const publishDate = $runtimeCount.getAttribute("data-publishDate");
+      $runtimeCount.textContent = `${anzhiyu.diffDate(publishDate)} ${GLOBAL_CONFIG.runtime}`;
     }
-  }
+  };
 
   /**
    * 最後一次更新時間
    */
   const addLastPushDate = () => {
-    const $lastPushDateItem = document.getElementById('last-push-date')
+    const $lastPushDateItem = document.getElementById("last-push-date");
     if ($lastPushDateItem) {
-      const lastPushDate = $lastPushDateItem.getAttribute('data-lastPushDate')
-      $lastPushDateItem.textContent = anzhiyu.diffDate(lastPushDate, true)
+      const lastPushDate = $lastPushDateItem.getAttribute("data-lastPushDate");
+      $lastPushDateItem.textContent = anzhiyu.diffDate(lastPushDate, true);
     }
-  }
+  };
 
   /**
    * table overflow
    */
   const addTableWrap = () => {
-    const $table = document.querySelectorAll('#article-container table')
-    if (!$table.length) return
+    const $table = document.querySelectorAll("#article-container table");
+    if (!$table.length) return;
 
     $table.forEach(item => {
-      if (!item.closest('.highlight')) {
-        anzhiyu.wrap(item, 'div', { class: 'table-wrap' })
+      if (!item.closest(".highlight")) {
+        anzhiyu.wrap(item, "div", { class: "table-wrap" });
       }
-    })
-  }
+    });
+  };
 
   /**
    * tag-hide
    */
   const clickFnOfTagHide = () => {
-    const hideButtons = document.querySelectorAll('#article-container .hide-button')
-    if (!hideButtons.length) return
+    const hideButtons = document.querySelectorAll("#article-container .hide-button");
+    if (!hideButtons.length) return;
     const handleClick = function (e) {
-      const $this = this
-      $this.classList.add('open')
-      const $fjGallery = $this.nextElementSibling.querySelectorAll('.gallery-container')
-      $fjGallery.length && addJustifiedGallery($fjGallery)
-    }
+      const $this = this;
+      $this.classList.add("open");
+      const $fjGallery = $this.nextElementSibling.querySelectorAll(".gallery-container");
+      $fjGallery.length && addJustifiedGallery($fjGallery);
+    };
 
     hideButtons.forEach(item => {
-      item.addEventListener('click', handleClick, { once: true })
-    })
-  }
+      item.addEventListener("click", handleClick, { once: true });
+    });
+  };
 
   const tabsFn = () => {
     const navTabsElement = document.querySelectorAll("#article-container .tabs");
@@ -1459,12 +1459,12 @@ document.addEventListener("DOMContentLoaded", function () {
     //- 设置ID
     div.id = "greeting";
     //- 设置class
-    setTimeout(()=>{
+    setTimeout(() => {
       div.classList.add("shown");
-    }, 1000)
+    }, 1000);
     //- 插入盒子
     let greetingBox = document.getElementById("greetingBox");
-    if (!greetingBox) return
+    if (!greetingBox) return;
     greetingBox.appendChild(div);
     const nowTime = new Date().getHours();
     let greetings = greetingBoxDefault;
@@ -1474,19 +1474,19 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       }
     }
-    div.innerHTML = greetings
-    setTimeout(()=>{
+    div.innerHTML = greetings;
+    setTimeout(() => {
       div.classList.remove("shown");
-      setTimeout(()=>{
-        greetingBox.remove()
-      }, 500)
-    }, 3000)
+      setTimeout(() => {
+        greetingBox.remove();
+      }, 500);
+    }, 3000);
   }
 
   function statistics51aInit() {
     const loadScript = (url, charset = "UTF-8", crossorigin, id) => {
       return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
+        const script = document.createElement("script");
         script.src = url;
         script.async = true;
         if (id) {
@@ -1499,29 +1499,29 @@ document.addEventListener("DOMContentLoaded", function () {
           script.setAttribute("crossorigin", crossorigin);
         }
         script.onerror = reject;
-        script.onload = script.onreadystatechange = function() {
+        script.onload = script.onreadystatechange = function () {
           const loadState = this.readyState;
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return;
+          if (loadState && loadState !== "loaded" && loadState !== "complete") return;
           script.onload = script.onreadystatechange = null;
           resolve();
         };
         document.head.appendChild(script);
       });
     };
-    
+
     const scriptUrls = [
-      { url: 'https://sdk.51.la/js-sdk-pro.min.js', charset: 'UTF-8',crossorigin:false, id: 'LA_COLLECT' },
-      { url: 'https://sdk.51.la/perf/js-sdk-perf.min.js', crossorigin: 'anonymous' }
+      { url: "https://sdk.51.la/js-sdk-pro.min.js", charset: "UTF-8", crossorigin: false, id: "LA_COLLECT" },
+      { url: "https://sdk.51.la/perf/js-sdk-perf.min.js", crossorigin: "anonymous" },
     ];
-    
+
     Promise.all(scriptUrls.map(({ url, charset, crossorigin, id }) => loadScript(url, charset, crossorigin, id)))
       .then(() => {
         LA.init({ id: GLOBAL_CONFIG.LA51.ck, ck: GLOBAL_CONFIG.LA51.ck });
         new LingQue.Monitor().init({ id: GLOBAL_CONFIG.LA51.LingQueMonitorID, sendSuspicious: true });
       })
       .catch(error => {
-        console.error('加载51a统计异常，本地加载403是正常情况:', error);
-      });    
+        console.error("加载51a统计异常，本地加载403是正常情况:", error);
+      });
   }
 
   const unRefreshFn = function () {
@@ -1551,9 +1551,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     // 欢迎语
-    GLOBAL_CONFIG.greetingBox && greetingInit()
+    GLOBAL_CONFIG.greetingBox && greetingInit();
     // 51la统计&灵雀统计
-    GLOBAL_CONFIG.LA51 && statistics51aInit()
+    GLOBAL_CONFIG.LA51 && statistics51aInit();
   };
 
   window.refreshFn = function () {
@@ -1622,7 +1622,11 @@ document.addEventListener("DOMContentLoaded", function () {
     anzhiyu.switchRightClickMenuHotReview();
     anzhiyu.getCustomPlayList();
     anzhiyu.addEventListenerConsoleMusicList(false);
-    setTimeout(() => {if (typeof addFriendLinksInFooter === "function") {addFriendLinksInFooter();}}, 200)
+    setTimeout(() => {
+      if (typeof addFriendLinksInFooter === "function") {
+        addFriendLinksInFooter();
+      }
+    }, 200);
   };
 
   refreshFn();
