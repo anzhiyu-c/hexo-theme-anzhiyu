@@ -139,8 +139,14 @@
     shortcutKey = JSON.stringify(theme.shortcutKey)
   }
 
+  let diytitle = 'undefined'
+  if (theme.diytitle && theme.diytitle.enable) {
+    diytitle = JSON.stringify(theme.diytitle)
+  }
+
 script.
   const GLOBAL_CONFIG = {
+    diytitle: !{diytitle},
     LA51: !{LA51},
     greetingBox: !{greetingBox},
     twikooEnvId: '!{theme.twikoo.envId}',

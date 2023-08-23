@@ -77,9 +77,6 @@ div
     - const mail = theme.visitorMail.mail
     script.
       var visitorMail = "#{mail}";
-  //- 标题卖萌
-  if theme.diytitle.enable
-    != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })
   //- 评论弹幕
   if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
     script(async data-pjax src=url_for(theme.asset.comment_barrage_js))

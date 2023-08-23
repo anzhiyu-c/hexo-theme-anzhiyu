@@ -1343,24 +1343,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return str;
   };
 
-  //16进制颜色转化为RGB颜色
-  const colorRgb = str => {
-    const hexRegex = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
-    let sColor = str.toLowerCase();
-
-    if (sColor && hexRegex.test(sColor)) {
-      if (sColor.length === 4) {
-        sColor = Array.from(sColor.slice(1)).reduce((acc, val) => acc + val + val, "#");
-      }
-
-      const sColorChange = Array.from({ length: 3 }, (_, i) => parseInt(sColor.slice(i * 2 + 1, i * 2 + 3), 16));
-
-      return `rgb(${sColorChange.join(",")})`;
-    }
-
-    return sColor;
-  };
-
   // Lighten or darken a color
   const LightenDarkenColor = (col, amt) => {
     const usePound = col.startsWith("#");
@@ -1526,17 +1508,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setInputFocusListener() {
     const inputs = document.querySelectorAll("input, textarea");
-    console.info(inputs);
-
-    inputs.forEach(input => {
+    const filteredinputs = Array.from(inputs).filter(heading => {
+      if (heading.id !== "center-console" || heading.id !== "page-type") {
+        return;
+      }
+    });
+    filteredinputs.forEach(input => {
       input.addEventListener("focus", () => {
         anzhiyu_intype = true;
-        console.info(anzhiyu_intype);
       });
 
       input.addEventListener("blur", () => {
         anzhiyu_intype = false;
-        console.info(anzhiyu_intype);
       });
     });
   }
@@ -1607,7 +1590,6 @@ document.addEventListener("DOMContentLoaded", function () {
             default:
               break;
           }
-          console.info(event.keyCode);
           event.preventDefault();
         }, shortcutKeyDelay);
       }
@@ -1627,6 +1609,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     addKeyShotListener();
+  }
+
+  function changeDocumentTitle() {
+    let leaveTitle = GLOBAL_CONFIG.diytitle.leaveTitle;
+    let backTitle = GLOBAL_CONFIG.diytitle.backTitle;
+    let OriginTitile = document.title;
+    let titleTime;
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        //离开当前页面时标签显示内容
+        document.title = leaveTitle;
+        clearTimeout(titleTime);
+      } else {
+        //返回当前页面时标签显示内容
+        document.title = backTitle + OriginTitile;
+        //两秒后变回正常标题
+        titleTime = setTimeout(function () {
+          document.title = OriginTitile;
+        }, 2000);
+      }
+    });
   }
 
   const unRefreshFn = function () {
@@ -1679,6 +1683,7 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleCardCategory();
     }
 
+    GLOBAL_CONFIG.diytitle && changeDocumentTitle();
     scrollFnToDo();
     GLOBAL_CONFIG_SITE.isHome && scrollDownInIndex();
     addHighlightTool();
