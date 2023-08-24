@@ -143,10 +143,6 @@ var vegetablesAndFruits = [
   "火龙果",
 ];
 
-var themeColorMeta = document.querySelector('meta[name="theme-color"]');
-var pageHeaderEl = document.getElementById("page-header");
-var navMusicEl = document.getElementById("nav-music");
-var consoleEl = document.getElementById("console");
 // 已随机的歌曲
 var selectRandomSong = [];
 // 音乐默认声音大小
@@ -155,6 +151,7 @@ var musicVolume = 0.8;
 var changeMusicListFlag = false;
 // 当前默认播放列表
 var defaultPlayMusicList = [];
+var themeColorMeta, pageHeaderEl, navMusicEl, consoleEl;
 
 document.addEventListener("DOMContentLoaded", function () {
   let headerContentWidth, $nav;
@@ -1673,6 +1670,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.refreshFn = function () {
     initAdjust();
+    themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    pageHeaderEl = document.getElementById("page-header");
+    navMusicEl = document.getElementById("nav-music");
+    consoleEl = document.getElementById("console");
 
     if (GLOBAL_CONFIG_SITE.isPost) {
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice();

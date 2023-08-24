@@ -66,7 +66,6 @@
       padding: 1rem 1.2rem;
       opacity: 0;
       transition: .3s;
-      pointer-events: none
       color: var(--anzhiyu-white);
 
     .banner-button-group .banner-button 
@@ -81,50 +80,28 @@
         font-size: 1.3rem;
         margin-right: 10px;
 
-    .card-info-avatar 
-      .author-status-box
+    .author-info-avatar 
+      user-select: none
+      img
+        filter: blur(0) brightness(1);
+      .author-status
         position: absolute;
-        bottom: 0;
-        left: calc(100% - 33px);
+        bottom: 2px;
+        right 2px
         width: 33px;
         height: 33px;
         border-radius: 2em;
         background-color: var(--anzhiyu-white);
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: .3s .2s;
         transform: scale(1);
-        &:hover
-          width: 105px
-          .author-status span
-            width: 105px;
-            margin-left: 4px;
-            color: var(--anzhiyu-black)
-        .author-status
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          width: 100%;
-          g-emoji
-            font-size: 25px;
-            display: flex
-            justify-content: center
-            align-items: center
-            margin-top: 2px;
-            margin-left: 0.38px;
-          span 
-            width: 0;
-            font-size: 12px;
-            height: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            transition: 0.3s;
-            line-height: 33px;
-
-    
-    [data-theme="dark"] .card-info-avatar .author-status-box
-      color: var(--anzhiyu-black);
+        img
+          width: 26px;
+          height: 26px;
+          border-radius: 0px;
 
     .card-info-social-icons
       margin: 0;
@@ -436,11 +413,14 @@
         color: #FF0000
 
 .avatar-img
-  overflow: hidden
-  margin: 0 auto
-  width: 110px
-  height: 110px
-  border-radius: 70px
+  width: 118px;
+  right: 0;
+  top: 0;
+  border-radius: 500px;
+  position: absolute;
+  opacity: 1;
+  transition: .3s;
+  border: var(--style-border-avatar);
 
   img
     width: 100%
@@ -565,16 +545,16 @@ if hexo-config('aside.enable')
         animation: gradient 15s ease infinite;
     .card-info
       &:hover 
-        .author-info-top
+        .author-info-avatar
           opacity: 0;
           transform: scale(0);
         .author-info__description
           opacity: 1;
-        .author-status-box
+        .author-status
           opacity: 0;
           transform: scale(0);
 
-      .author-info-top
+      .author-info-avatar
         margin: 45px auto
         display: flex
         justify-content: center
@@ -582,19 +562,9 @@ if hexo-config('aside.enable')
         height: 118px;
         transition: cubic-bezier(.69,.39,0,1.21) .3s;
         transform-origin: bottom;
+        position: relative
         +maxWidth768()
           display: none
-      .card-info-avatar
-        display: inline-block
-        position: relative
-        .avatar-img
-          width: 118px
-          height: 118px
-          display: block
-          img
-            border: var(--style-border-avatar);
-            border-radius: 50%;
-            filter: blur(0) brightness(1);
       #author-info__sayhi 
         text-align: left;
         color: var(--anzhiyu-white);
