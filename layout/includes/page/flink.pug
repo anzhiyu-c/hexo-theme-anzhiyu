@@ -10,7 +10,7 @@
             a.banner-button.secondary.no-text-decoration(onclick="friendChainRandomTransmission()")
               i.anzhiyufont.anzhiyu-icon-paper-plane1
               span.banner-button-text 随机访问
-          if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
+          if theme.linkPageTop.addFriendPlaceholder && theme.comments.use == 'Twikoo' && theme.twikoo.envId
             a.banner-button.no-text-decoration(onclick="anzhiyu.addFriendLink()")
               i.anzhiyufont.anzhiyu-icon-arrow-circle-right
               span.banner-button-text 申请友链
