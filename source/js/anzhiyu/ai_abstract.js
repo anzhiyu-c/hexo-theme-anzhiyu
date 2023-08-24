@@ -23,7 +23,7 @@
 
   const post_ai = document.querySelector(".post-ai-description");
   const aiTitleRefreshIcon = post_ai.querySelector(".ai-title .anzhiyufont.anzhiyu-icon-arrow-rotate-right");
-  const aiReadAloudIcon = post_ai.querySelector(".anzhiyu-icon-circle-dot");
+  let aiReadAloudIcon = post_ai.querySelector(".anzhiyu-icon-circle-dot");
   const explanation = post_ai.querySelector(".ai-explanation");
 
   let aiStr = "";
@@ -54,21 +54,24 @@
 
   async function readAloud() {
     if (!summaryID) return;
+    aiReadAloudIcon = post_ai.querySelector(".anzhiyu-icon-circle-dot");
+    aiReadAloudIcon.style.opacity = "0.2";
     if (audio && !isPaused) {
       audio.pause();
       isPaused = true;
-      aiReadAloudIcon.opacity = "0.5";
+      aiReadAloudIcon.style.opacity = "1";
+      aiReadAloudIcon.style.animation = "";
+      aiReadAloudIcon.style.cssText = "animation: ''; opacity: 1;cursor: pointer;";
       return;
     }
 
     if (audio && isPaused) {
       audio.play();
       isPaused = false;
-      aiReadAloudIcon.opacity = "1";
+      aiReadAloudIcon.style.cssText = "animation: breathe .5s linear infinite; opacity: 0.2;cursor: pointer";
       return;
     }
 
-    aiReadAloudIcon.opacity = "0.2";
     const options = {
       key: AIKey,
       Referer: AIReferer,
@@ -97,9 +100,13 @@
         const audioURL = URL.createObjectURL(audioBlob);
         audio = new Audio(audioURL);
         audio.play();
+        aiReadAloudIcon.style.cssText = "animation: breathe .5s linear infinite; opacity: 0.2;cursor: pointer";
+        console.info(aiReadAloudIcon.style.animation);
         audio.addEventListener("ended", () => {
+          console.info("结束");
           audio = null;
-          aiReadAloudIcon.opacity = "1";
+          aiReadAloudIcon.style.opacity = "1";
+          aiReadAloudIcon.style.animation = "";
         });
       }
     } catch (error) {
