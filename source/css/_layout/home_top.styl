@@ -1,0 +1,59 @@
+#random-banner
+  display: none;
+  +minWidth1200()
+    display: flex;
+    width: 100%;
+    height: 76%;
+    background: var(--heo-card-bg);
+    margin-bottom: 0.5rem;
+    border: var(--style-border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--heo-shadow-border);
+    flex-direction: column;
+    overflow: hidden;
+    transition: 0.3s;
+    will-change: transform;
+    animation: slide-in 0.6s 0.1s backwards;
+    &:hover
+      box-shadow: var(--anzhiyu-shadow-main);
+      #random-hover
+        opacity: 1;
+        padding-left: 2rem;
+        background: var(--anzhiyu-theme-op-deep);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        transition: 0.3s;
+        background-size: 200%;
+        cursor: pointer;
+    #skills-tags-group-all .tags-group-wrapper
+      margin-top: 7rem;
+    #skills-tags-group-all
+      transform: rotate(-30deg);
+    #random-hover
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--anzhiyu-theme);
+      color: var(--anzhiyu-white);
+      padding-left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
+      font-size: 60px;
+      .bannerText
+        display: flex
+        align-items: center
+      i
+        font-size: 80px;
+        margin-left: 10px;
+        line-height: 1;
+      

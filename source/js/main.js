@@ -1670,6 +1670,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.refreshFn = function () {
     initAdjust();
+    themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    pageHeaderEl = document.getElementById("page-header");
+    navMusicEl = document.getElementById("nav-music");
+    consoleEl = document.getElementById("console");
 
     if (GLOBAL_CONFIG_SITE.isPost) {
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice();
@@ -1741,11 +1745,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addFriendLinksInFooter();
       }
     }, 200);
-
-    themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    pageHeaderEl = document.getElementById("page-header");
-    navMusicEl = document.getElementById("nav-music");
-    consoleEl = document.getElementById("console");
   };
 
   refreshFn();
