@@ -23,6 +23,8 @@ script#config-diff.
   var GLOBAL_CONFIG_SITE = {
     configTitle: '!{config.title}',
     title: '!{titleVal}',
+    postAI: '!{page.ai}',
+    pageFillDescription: '!{get_page_fill_description()}',
     isPost: !{is_post()},
     isHome: !{is_home()},
     isHighlightShrink: !{isHighlightShrink},

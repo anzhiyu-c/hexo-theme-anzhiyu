@@ -1,10 +1,8 @@
 - let pageFillDescription = get_page_fill_description()
-- let postTitle = pageTitle.replace(/<\/?[^>]+>|&|:|;|quot;|，|,|“|”|"|'|#/g, "");
-- let ai = page.ai
 - let gptName = theme.post_head_ai_description.gptName
 - let mode = theme.post_head_ai_description.mode
 - let switchBtn = theme.post_head_ai_description.switchBtn
-if (pageFillDescription && ai)
+if (pageFillDescription && page.ai)
   .post-ai-description
     .ai-title
       i.anzhiyufont.anzhiyu-icon-bilibili
@@ -12,6 +10,7 @@ if (pageFillDescription && ai)
       if (switchBtn)
         #ai-Toggle 切换
       i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
+      i.anzhiyufont.anzhiyu-icon-circle-dot(title="朗读摘要")
       #ai-tag
         if mode == "tianli"
           = "Tianli GPT"
@@ -23,9 +22,5 @@ if (pageFillDescription && ai)
       .ai-btn-item 生成本文简介 👋
       .ai-btn-item 推荐相关文章 📖
       .ai-btn-item 前往主页 🏠
-      .ai-btn-item#go-tianli-blog 前往tianli博客
-    script(data-pjax).
-      var pageAi = "#{ai}"
-      var postTitle = "#{postTitle}"
-      var pageFillDescription = "#{pageFillDescription}"
+      .ai-btn-item#go-tianli-blog 前往爱发电购买
     script(data-pjax src=url_for(theme.asset.ai_abstract_js))
