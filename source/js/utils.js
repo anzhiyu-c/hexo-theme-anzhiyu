@@ -1442,7 +1442,8 @@ const anzhiyuPopupManager = {
       if (url && !this.Jump) {
         this.Jump = false;
       }
-      if (!popupWindow.classList.contains("popup-hide") && !popupWindow.className === "") {
+      console.info(popupWindow.className);
+      if (!popupWindow.classList.contains("popup-hide") && popupWindow.className != "") {
         popupWindow.classList.add("popup-hide");
       }
 
