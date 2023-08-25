@@ -8,12 +8,11 @@
   left: 0;
   justify-content: center;
   opacity: 0;
-  transition: 0.3s ease-out;
+  transition: 0.3s ease-out, color 0s;
   flex-direction: column;
   align-items: center;
   pointer-events: none;
   margin: 0 !important;
-  font-size: var(--global-font-size);
   z-index: 2;
 }
 #console-music-bg {
@@ -114,6 +113,7 @@
   flex-direction: column;
   height: 150px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 #card-newest-comments .aside-list-item:not(:last-child) {
@@ -132,12 +132,14 @@
   opacity: 0.8;
   font-size: 0.6rem;
   margin-bottom: 0.5rem;
+  color: var(--font-color);
 }
 
 #console .author-content-item-title {
   font-size: 27px;
   font-weight: 700;
   line-height: 1;
+  color: var(--font-color);
 }
 
 #console .aside-list-item .thumbnail {
@@ -176,7 +178,7 @@
 #console .aside-list-item .content time {
   font-size: 12px;
   margin-top: auto;
-  color: var(--anzhiyu-white);
+  color: var(--anzhiyu-fontcolor);
 }
 
 #console .aside-list {
@@ -227,6 +229,8 @@
   margin-top: 1.5rem;
   display: flex;
   flex-wrap: wrap;
+  max-height: 230px;
+  overflow: hidden;
 }
 
 .console-card.tags .card-tag-cloud a {
@@ -954,7 +958,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     width: 90%;
   }
   #center-console + label {
-    display: none
+    display: none;
   }
 }
 /* 歌词超出文本滚动动画 */

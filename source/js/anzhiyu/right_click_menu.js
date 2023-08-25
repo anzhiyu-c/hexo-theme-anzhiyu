@@ -412,8 +412,6 @@ function addRightMenuClickEvent() {
     link.addEventListener("click", rm.hideRightMenu);
   });
 
-  document.getElementById("menu-darkmode").addEventListener("click", anzhiyu.switchDarkMode);
-
   document.getElementById("menu-home") &&
     document.getElementById("menu-home").addEventListener("click", function () {
       window.location.href = window.location.origin;

@@ -154,8 +154,9 @@ var defaultPlayMusicList = [];
 var themeColorMeta, pageHeaderEl, navMusicEl, consoleEl;
 
 document.addEventListener("DOMContentLoaded", function () {
-  let headerContentWidth, $nav;
+  let headerContentWidth, $nav, $rightMenu;
   let mobileSidebarOpen = false;
+
   const adjustMenu = init => {
     const getAllWidth = ele => {
       return Array.from(ele).reduce((width, i) => width + i.offsetWidth, 0);
@@ -796,6 +797,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
 
     anzhiyu.addEventListenerPjax(window, "scroll", tocScrollFn, { passive: true });
+  };
+
+  const handleThemeChange = mode => {
+    const globalFn = window.globalFn || {};
+    const themeChange = globalFn.themeChange || {};
+    if (!themeChange) {
+      return;
+    }
+
+    Object.keys(themeChange).forEach(key => {
+      const themeChangeFn = themeChange[key];
+      themeChangeFn(mode);
+    });
+
+    rm && rm.hideRightMenu();
+
+    const menuDarkmodeText = $rightMenu.querySelector(".menu-darkmode-text");
+    if (mode === "light") {
+      menuDarkmodeText.textContent = "深色模式";
+    } else {
+      menuDarkmodeText.textContent = "浅色模式";
+    }
+
+    if (!GLOBAL_CONFIG_SITE.isPost) {
+      const root = document.querySelector(":root");
+      root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
+      anzhiyu.initThemeColor();
+
+      // 要改回来默认主色;
+      document.documentElement.style.setProperty(
+        "--anzhiyu-main",
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
+      );
+      document.documentElement.style.setProperty(
+        "--anzhiyu-theme-op",
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "23"
+      );
+      document.documentElement.style.setProperty(
+        "--anzhiyu-theme-op-deep",
+        getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
+      );
+    }
   };
 
   /**
@@ -1466,7 +1509,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 500);
     }, 3000);
   }
-
   function statistics51aInit() {
     const loadScript = (url, charset = "UTF-8", crossorigin, id) => {
       return new Promise((resolve, reject) => {
@@ -1578,7 +1620,7 @@ document.addEventListener("DOMContentLoaded", function () {
               pjax.loadUrl("/");
               break;
             case 68:
-              anzhiyu.switchDarkMode();
+              rightSideFn.darkmode();
               break;
             case 70:
               pjax.loadUrl("/fcircle/");
@@ -1635,6 +1677,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function addDarkModeEventListener(elementId, childSelector) {
+    const element = document.getElementById(elementId);
+    console.info(element);
+    if (element && childSelector) {
+      const childElement = element.querySelector(childSelector);
+      childElement && childElement.addEventListener("click", rightSideFn.darkmode);
+    } else if (element) {
+      element.addEventListener("click", rightSideFn.darkmode);
+    }
+  }
+
   const unRefreshFn = function () {
     window.addEventListener("resize", () => {
       adjustMenu(false);
@@ -1645,7 +1698,11 @@ document.addEventListener("DOMContentLoaded", function () {
       sidebarFn.close();
     });
 
-    anzhiyu.darkModeStatus();
+    // 处理右键
+    $rightMenu = document.getElementById("rightMenu");
+    addDarkModeEventListener("menu-darkmode");
+    addDarkModeEventListener("sidebar", ".darkmode_switchbutton");
+
     clickFnOfSubMenu();
     GLOBAL_CONFIG.islazyload && lazyloadImg();
     GLOBAL_CONFIG.copyright !== undefined && addCopyright();
@@ -1674,6 +1731,8 @@ document.addEventListener("DOMContentLoaded", function () {
     pageHeaderEl = document.getElementById("page-header");
     navMusicEl = document.getElementById("nav-music");
     consoleEl = document.getElementById("console");
+
+    addDarkModeEventListener("console", ".darkmode_switchbutton");
 
     if (GLOBAL_CONFIG_SITE.isPost) {
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice();
