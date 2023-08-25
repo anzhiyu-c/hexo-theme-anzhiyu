@@ -1679,7 +1679,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addDarkModeEventListener(elementId, childSelector) {
     const element = document.getElementById(elementId);
-    console.info(element);
     if (element && childSelector) {
       const childElement = element.querySelector(childSelector);
       childElement && childElement.addEventListener("click", rightSideFn.darkmode);
