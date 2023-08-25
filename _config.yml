@@ -1320,6 +1320,8 @@ CDN:
     # algolia_js:
     # algolia_search:
     # instantsearch:
+    # docsearch_js:
+    # docsearch_css:
     # pjax:
     # blueimp_md5:
     # valine:
