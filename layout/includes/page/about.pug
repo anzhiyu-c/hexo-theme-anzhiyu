@@ -8,6 +8,8 @@ if site.data.about
     - let helloAbout = item.helloAbout
     - let skillsTips = item.skillsTips
     - let careers = item.careers
+    - let crrList = careers.list
+    - let crrItem = careers.item
     #about-page
       .author-box
         .author-img
@@ -63,16 +65,29 @@ if site.data.about
                         .skill-name
                           span=item.name 
                   .etc ...
-        .author-content-item.careers
+        - var careersStyle = careers.background ? { 'background-image': `url(${careers.background})` } : {}
+        .author-content-item.careers(style=careersStyle)
           .card-content
             .author-content-item-tips=careers.tips
             span.author-content-item-title=careers.title
             .careers-group
-              .careers-item
-                .circle(style='background:#357ef5')
-                each i in careers.item
-                  .name=i
-            img.author-content-img.no-lightbox(alt=careers.tips, src=url_for(careers.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'`)
+              if crrList
+                each career in crrList
+                  .career-item
+                    .career-item-left
+                      span.circle(style='background:#357ef5')
+                      span.text=career.time
+                    .career-item-right
+                      span.text=career.desc
+              else if crrItem
+                .careers-item
+                  .circle(style='background:#357ef5')
+                  each i in crrItem
+                    .name=i
+              else
+                .careers-none
+            if careers.img
+              img.author-content-img.no-lightbox(alt=careers.tips, src=url_for(careers.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'`)
       
       .author-content
         if theme.LA.enable
