@@ -1,9 +1,6 @@
 #sidebar
   #menu-mask
   #sidebar-menus
-    if theme.sidebar && theme.sidebar.avatar
-      .avatar-img.is-center
-        img(src=url_for(theme.avatar.img) onerror=`onerror=null;src='${theme.error_img.flink}'` alt="avatar")
     if theme.sidebar && theme.sidebar.site_data
       .sidebar-site-data.site-data.is-center
         if theme.sidebar.site_data.archive
