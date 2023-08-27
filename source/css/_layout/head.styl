@@ -116,8 +116,8 @@
           border-radius: 0
       else
         filter: blur(10px);
-        opacity: 0.5;
-        animation: showCover 1s 0.3s backwards;
+        +minWidth768()
+          animation: showCover 1s 0.3s backwards;
 
       +maxWidth768()
         margin: 0 0 0 auto;
@@ -146,7 +146,8 @@
         object-fit: cover;
         min-width: 50vw;
         min-height: 20rem;
-        animation: slide-in 0.6s 0.3s backwards;
+        +minWidth768()
+          animation: slide-in 0.6s 0.3s backwards;
         +maxWidth768()
           min-height: 15rem !important;
           if hexo-config('mainTone.enable')
@@ -168,7 +169,8 @@
         #nav
           border-bottom: none
     +maxWidth768()
-      height: 360px
+      margin-bottom: -12px;
+      transition: 0s !important
       &.nav-fixed
         #nav
           background: var(--anzhiyu-card-bg);
@@ -194,7 +196,8 @@
     align-items: flex-start;
     flex-direction: column;
     z-index: 3
-    animation: slide-in 0.6s 0.3s backwards;
+    +minWidth768()
+      animation: slide-in 0.6s 0.3s backwards;
     +maxWidth1400()
       padding: 0 12%
 
@@ -763,10 +766,10 @@
 +maxWidth768()
   .layout > div:first-child:not(.recent-posts)
     z-index: 10;
-    margin-top: -30px;
   if hexo-config('mainTone.enable')
     #page-header.post-bg #nav
       background: linear-gradient(to top, var(--anzhiyu-main-none) 0%, var(--anzhiyu-bar-background) 100%);
+      transition: 0s
   .post-bg:has(.bldbanner) #post-info:after,
   .post-bg:has(.bili-banner) #post-info:after,
   .post-bg:has(.blqbanner) #post-info:after

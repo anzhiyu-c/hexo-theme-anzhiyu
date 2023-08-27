@@ -1,3 +1,6 @@
+.post .layout#content-inner
+  +maxWidth768()
+    background: var(--anzhiyu-main);
 #body-wrap
   display: flex
   flex-direction: column
@@ -8,7 +11,6 @@
     #category,
     #tag
       padding: 40px 15px 20px;
-      // background: var(--anzhiyu-background)
     +maxWidth768()
       #tag
         background: transparent;
@@ -51,7 +53,7 @@
 
   & > div:first-child
     width: calc(100% - 300px)
-    transition: all .3s
+    transition: all .3s ease 0s
 
     +maxWidth900()
       width: 100% !important
