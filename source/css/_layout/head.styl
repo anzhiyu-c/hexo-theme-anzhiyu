@@ -94,7 +94,45 @@
 
   // post
   &.post-bg
-    height: 400px
+    --anzhiyu-header-height: 34rem
+    height: var(--anzhiyu-header-height)
+    transition: 0.6s
+    background-color: transparent
+    overflow: hidden
+    animation: header 1s linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 calc(100vh - 20rem);
+    if hexo-config('mainTone.enable')
+      background-color: var(--anzhiyu-bar-background)
+
+    // #nav
+    #nav
+      transition: all 0.5s, border 0.3s
+
+    // .post-meta
+    .post-meta:has(.bldbanner),
+    .post-meta:has(.bili-banner),
+    .post-meta:has(.blqbanner)
+      pointer-events: all
+    .bili-banner
+      margin-top: 0 !important
+
+    // #post-info
+    #post-info:has(.bldbanner),
+    #post-info:has(.bili-banner),
+    #post-info:has(.blqbanner)
+      pointer-events: none
+
+    &:has(.bldbanner),
+    &:has(.blqbanner)
+      height: 15rem
+      img
+        border-radius: 0px 
+    &:has(.bili-banner)
+      height: 11rem
+      img
+        border-radius: 0px 
+
     #post-top-cover 
       width: 70%;
       height: 100%;
@@ -345,7 +383,7 @@
     color: var(--white)
     line-height: 1.5
     font-weight: 700;
-    font-size: 3.3rem;
+    font-size: calc(var(--anzhiyu-header-height) / 10);
     text-align: left;
     margin: 1rem 0 1rem 0;
     -webkit-line-clamp: 2;
@@ -602,42 +640,6 @@
     transform: translate3d(-90px, 0, 0);
   100%
     transform: translate3d(85px, 0, 0)
-
-#page-header.post-bg
-  height: 34rem
-  transition: 0.6s
-  background-color: transparent
-  overflow: hidden
-  if hexo-config('mainTone.enable')
-    background-color: var(--anzhiyu-bar-background)
-
-  // #nav
-  #nav
-    transition: all 0.5s, border 0.3s
-
-  // .post-meta
-  .post-meta:has(.bldbanner),
-  .post-meta:has(.bili-banner),
-  .post-meta:has(.blqbanner)
-    pointer-events: all
-  .bili-banner
-    margin-top: 0 !important
-
-  // #post-info
-  #post-info:has(.bldbanner),
-  #post-info:has(.bili-banner),
-  #post-info:has(.blqbanner)
-    pointer-events: none
-
-  &:has(.bldbanner),
-  &:has(.blqbanner)
-    height: 15rem
-    img
-      border-radius: 0px 
-  &:has(.bili-banner)
-    height: 11rem
-    img
-      border-radius: 0px 
 
 //波浪css
 .main-hero-waves-area
