@@ -118,6 +118,7 @@
         filter: blur(10px);
         +minWidth768()
           animation: showCover 1s 0.3s backwards;
+          opacity 0.5
 
       +maxWidth768()
         margin: 0 0 0 auto;
@@ -139,6 +140,8 @@
         top: 0;
         left: 0;
         box-shadow: 110px -130px 300px 60px var(--anzhiyu-bar-background) inset;
+        +maxWidth768()
+          box-shadow: 0 0 205px 59px var(--anzhiyu-main) inset
 
       #post-top-bg
         width: 100%;
