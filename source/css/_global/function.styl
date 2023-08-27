@@ -338,29 +338,44 @@ if hexo-config('avatar.effect') == true
   100%
     transform: scale(.97);
 
-@keyframes header
-  entry 0% {
-    --anzhiyu-header-height: 320px
-    --anzhiyu-header-info-opacity: 0.5
-    --anzhiyu-header-info-scale: 0.6
-  }
+if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopRollZoomInfo')
+  @keyframes header
+    entry 0% {
+      --anzhiyu-header-height: 320px
+      --anzhiyu-header-info-scale: 0.6
+    }
 
-  entry 100% {
-    --anzhiyu-header-height: 544px
-    --anzhiyu-header-info-opacity: 1
-    --anzhiyu-header-info-scale: 1
-  }
-  exit 100% {
-    --anzhiyu-header-height: 320px
-    --anzhiyu-header-info-opacity: 0.5
-    --anzhiyu-header-info-scale: 0.6
-  }
+    entry 100% {
+      --anzhiyu-header-height: 544px
+      --anzhiyu-header-info-scale: 1
+    }
+    exit 100% {
+      --anzhiyu-header-height: 320px
+      --anzhiyu-header-info-scale: 0.6
+    }
 
-  exit 0% {
-    --anzhiyu-header-height: 544px
-    --anzhiyu-header-info-opacity: 1
-    --anzhiyu-header-info-scale: 1
-  }
+    exit 0% {
+      --anzhiyu-header-height: 544px
+      --anzhiyu-header-info-scale: 1
+    }
+
+  @keyframes post-info-slide-in
+    0%
+      transform: scale(var(--anzhiyu-header-info-scale)) translateY(20px);
+      opacity: 0;
+    100%
+      transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
+      opacity: 1;
+
+  @property --anzhiyu-header-height
+    syntax: "<length-percentage>";
+    inherits: true;
+    initial-value: 544px;
+
+  @property --anzhiyu-header-info-scale
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
 @keyframes slide-in
   0%
     transform: translateY(20px);
@@ -368,26 +383,3 @@ if hexo-config('avatar.effect') == true
   100%
     transform: translateY(0);
     opacity: 1;
-
-@keyframes post-info-slide-in
-  0%
-    transform: scale(var(--anzhiyu-header-info-scale)) translateY(20px);
-    opacity: 0;
-  100%
-    transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
-    opacity: 1;
-
-@property --anzhiyu-header-height
-  syntax: "<length-percentage>";
-  inherits: true;
-  initial-value: 544px;
-
-@property --anzhiyu-header-info-scale
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 1;
-
-@property --anzhiyu-header-info-opacity
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 1;
