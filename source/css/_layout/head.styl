@@ -100,8 +100,7 @@
     background-color: transparent
     overflow: hidden
     animation: header 1s linear forwards;
-    animation-timeline: scroll();
-    animation-range: 0 calc(100vh - 20rem);
+    animation-timeline: view();
     if hexo-config('mainTone.enable')
       background-color: var(--anzhiyu-bar-background)
 
@@ -212,6 +211,7 @@
     +maxWidth768()
       margin-bottom: -12px;
       transition: 0s !important
+      min-height: 450px;
       &.nav-fixed
         #nav
           background: var(--anzhiyu-card-bg);
@@ -229,8 +229,8 @@
   #post-info
     position: absolute
     top: 0
-    padding: 0 calc((100% - 1352px)/ 2)
-    width: 100%
+    left: calc((100% - 1400px + 3rem) / 2);
+    width: calc(100% - (100% - 1400px + 3rem));
     height 100%
     display: flex
     justify-content: center;
@@ -238,9 +238,15 @@
     flex-direction: column;
     z-index: 3
     +minWidth768()
-      animation: slide-in 0.6s 0.3s backwards;
+      animation: post-info-slide-in 0.6s 0.3s backwards;
+      transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
+      transform-origin: left top
+      will-change: transform;
     +maxWidth1400()
+      padding: 0 1.5rem
       padding: 0 12%
+      width 100%
+      left: 0
 
     +maxWidth768()
       padding: 11rem 6% 0;
@@ -383,10 +389,10 @@
     color: var(--white)
     line-height: 1.5
     font-weight: 700;
-    font-size: calc(var(--anzhiyu-header-height) / 10);
+    font-size: 3.3rem;
     text-align: left;
     margin: 1rem 0 1rem 0;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     padding: 0;
     overflow: hidden;
 
