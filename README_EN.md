@@ -69,37 +69,37 @@ Note:
 
 ## Functional characteristics
 
--[x] extremely detailed [user documentation] (https://docs.anheyu.com/)
--[x] Page components load lazily (pjax scheme)
--[x] the picture is loaded lazily
--[x] multiple code highlighting schemes
--[x] multilingual configuration
--[x] built-in multiple comment plug-ins
--[x] built-in web page access statistics
--[x] supports dark mode
--[x] supports footnote syntax
--[x] support custom CDN static resources
--[x] A rich variety of tag options to quickly build the features you want
--[x] supports customized right-click menus
--[x] support customized dominant tone to vary with the color of the cover image
--[x] support for immersive status bar
--[x] support article word statistics
--[x] support chat system
--[x] support Google Analytics, Baidu Analytics, Microsoft Analytics, cloudflare Analytics, cnzz Analytics
--[x] Advertising is supported
--[x] large picture view is supported
--[x] support waterfall flow and talk about it right away
--[x] supports waterfall stream album
--[x] supports Ali icon and fontawesome
--[x] supports cached swpp,pwa features
--[x] excellent privacy protocol support
--[x] AI abstract support for articles
--[x] support music ball
--[x] supports the global center console
--[x] supports shortcut key options
--[x] support local search / algolia search 🔍 / Docsearch
--[x] supports LaTeX mathematical formula
--[x] support mermaid flow chart
+-✅ extremely detailed [user documentation] (https://docs.anheyu.com/)
+-✅ Page components load lazily (pjax scheme)
+-✅ the picture is loaded lazily
+-✅ multiple code highlighting schemes
+-✅ multilingual configuration
+-✅ built-in multiple comment plug-ins
+-✅ built-in web page access statistics
+-✅ supports dark mode
+-✅ supports footnote syntax
+-✅ support custom CDN static resources
+-✅ A rich variety of tag options to quickly build the features you want
+-✅ supports customized right-click menus
+-✅ support customized dominant tone to vary with the color of the cover image
+-✅ support for immersive status bar
+-✅ support article word statistics
+-✅ support chat system
+-✅ support Google Analytics, Baidu Analytics, Microsoft Analytics, cloudflare Analytics, cnzz Analytics
+-✅ Advertising is supported
+-✅ large picture view is supported
+-✅ support waterfall flow and talk about it right away
+-✅ supports waterfall stream album
+-✅ supports Ali icon and fontawesome
+-✅ supports cached swpp,pwa features
+-✅ excellent privacy protocol support
+-✅ AI abstract support for articles
+-✅ support music ball
+-✅ supports the global center console
+-✅ supports shortcut key options
+-✅ support local search / algolia search 🔍 / Docsearch
+-✅ supports LaTeX mathematical formula
+-✅ support mermaid flow chart
 
 ## Contributors
 
