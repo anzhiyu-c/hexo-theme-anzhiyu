@@ -237,10 +237,9 @@
     align-items: flex-start;
     flex-direction: column;
     z-index: 3
-    margin-top: var(--anzhiyu-header-margin)
     +minWidth768()
       animation: post-info-slide-in 0.6s 0.3s backwards;
-      transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
+      transform: scale(var(--anzhiyu-header-info-scale)) translateY(var(--anzhiyu-header-translateY));
       transform-origin: left top
       will-change: transform;
     +maxWidth1400()
@@ -664,6 +663,7 @@ if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopWave')
   //Animation
   .parallax > use
     animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite
+    will-change: transform;
 
   .parallax > use:nth-child(1)
     animation-delay: -2s
