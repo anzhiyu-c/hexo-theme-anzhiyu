@@ -94,8 +94,7 @@
 
   // post
   &.post-bg
-    --anzhiyu-header-height: 34rem
-    height: var(--anzhiyu-header-height)
+    height: 34rem
     transition: 0.6s
     background-color: transparent
     overflow: hidden
@@ -141,7 +140,7 @@
       overflow: hidden;
       margin-bottom: 0;
       user-select: none
-      transform: rotate(10deg) translateY(-10%) scale(2);
+      transform: rotate(10deg) translateY(-10%) scale(var(--anzhiyu-header-cover-scale));
       if !hexo-config('mainTone.enable')
         filter: blur(10px) brightness(60%);
         animation: none;
@@ -238,6 +237,7 @@
     align-items: flex-start;
     flex-direction: column;
     z-index: 3
+    margin-top: var(--anzhiyu-header-margin)
     +minWidth768()
       animation: post-info-slide-in 0.6s 0.3s backwards;
       transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
