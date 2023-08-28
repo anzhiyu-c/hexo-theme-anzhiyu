@@ -141,6 +141,7 @@
       margin-bottom: 0;
       user-select: none
       transform: rotate(10deg) translateY(-10%) scale(var(--anzhiyu-header-cover-scale));
+      will-change: transform
       if !hexo-config('mainTone.enable')
         filter: blur(10px) brightness(60%);
         animation: none;
@@ -343,8 +344,10 @@
           transition: 0.3s;
           height: 40px;
           margin: auto 0;
-          position: relative;
-          top: -60px;
+          // position: relative;
+          // top: -60px;
+          transform: translateY(-60px)
+          will-change: transform
   &.nav-fixed.nav-visible 
     #page-name
       z-index: 100;
@@ -355,8 +358,10 @@
         div.menus_items
           opacity: 1;
           transition: 0.3s;
-          position: relative;
-          top: 0px;
+          // position: relative;
+          // top: 0px;
+          transform: translateY(0px)
+          will-change: transform
 
 #page
   h1.page-title
