@@ -171,7 +171,8 @@
 }
 
 #console .aside-list-item:hover .thumbnail,
-#console .aside-list-item:hover .content .comment {
+#console .aside-list-item:hover .content .comment,
+#console .aside-list-item:hover .content time {
   color: var(--anzhiyu-white);
 }
 

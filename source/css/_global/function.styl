@@ -344,6 +344,23 @@ if hexo-config('avatar.effect') == true
   100%
     transform: scale(.97);
 
+@keyframes animate-in-and-out
+  entry 0%
+    opacity: 0.5;
+    transform: scaleX(0.9);
+
+  entry 100%
+    opacity: 1;
+    transform: scaleX(1);
+
+  // exit 100%
+  //   opacity: 0.5;
+  //   transform: scaleX(0.9);
+
+  // exit 0%
+  //   opacity: 1;
+  //   transform: scaleX(1);
+
 if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopRollZoomInfo')
   @keyframes header
     entry 0% {
