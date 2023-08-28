@@ -189,9 +189,16 @@ $code-block
       text-align: center
       font-size: $code-font-size
       cursor: pointer
+      transition: .3s;
+      transform: translateZ(0);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      font-size: 16px
 
       i
-        padding: 6px 0
         color: var(--hlnumber-color)
         animation: code-expand-key 1.2s infinite
 
