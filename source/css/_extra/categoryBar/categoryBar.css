@@ -71,9 +71,6 @@
   background: var(--anzhiyu-background);
 }
 
-@media (prefers-color-scheme: light) {
-  /* 浅色模式样式 */
-}
 @media screen and (max-width: 768px) {
   #catalog-bar i {
     margin-right: 5px;

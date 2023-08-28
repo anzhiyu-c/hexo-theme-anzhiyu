@@ -92,6 +92,12 @@ if hexo-config('icons.fontawesome')
       cursor: pointer
       transition: all .3s ease-out
 
+schemeDark()
+  @media (prefers-color-scheme: dark)
+    {block}
+schemeLight()
+  @media (prefers-color-scheme: light)
+    {block}
 maxWidth500()
   @media screen and (max-width: 500px)
     {block}

@@ -1234,7 +1234,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //封面纯色
   const coverColor = async () => {
-    console.info("coverColor");
     const root = document.querySelector(":root");
     const path = document.getElementById("post-top-bg")?.src;
     if (!path) {
