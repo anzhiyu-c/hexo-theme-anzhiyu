@@ -107,42 +107,6 @@ docsearch:
   apiKey: # see email
   indexName: # see email
   option:
-    placeholder: "Ctrl/⌘ + K 唤醒搜索服务"
-    maxResultsPerGroup: 7
-    translations:
-      button:
-        buttonText: "搜索"
-        buttonAriaLabel: "搜索"
-      modal:
-        searchBox:
-          resetButtonTitle: "清空"
-          resetButtonAriaLabel: "清空"
-          cancelButtonText: "取消"
-          cancelButtonAriaLabel: "取消"
-        startScreen:
-          recentSearchesTitle: "最近搜索历史"
-          noRecentSearchesText: "搜索历史为空"
-          saveRecentSearchButtonTitle: "保存搜索记录"
-          removeRecentSearchButtonTitle: "清除搜索记录"
-          favoriteSearchesTitle: "收藏夹"
-          removeFavoriteSearchButtonTitle: "移出收藏夹"
-        errorScreen:
-          titleText: "未能获取搜索结果"
-          helpText: "您可能需要检查您的网络连接"
-        footer:
-          selectText: "选择"
-          selectKeyAriaLabel: "回车键"
-          navigateText: "切换"
-          navigateUpKeyAriaLabel: "方向键上"
-          navigateDownKeyAriaLabel: "方向键下"
-          closeText: "关闭"
-          closeKeyAriaLabel: "退出键"
-          searchByText: "搜索服务提供: DocSearch by"
-        noResultsScreen:
-          noResultsText: "未搜索到相关内容"
-          suggestedQueryText: "您可尝试搜索"
-          reportMissingResultsText: "确认搜索结果是正确的？"
-          reportMissingResultsLinkText: "反馈给Algolia"
 
 # Local search
 local_search:
