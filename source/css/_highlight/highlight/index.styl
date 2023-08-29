@@ -39,9 +39,16 @@ if $highlight_theme != false
         border: none
 
     .gutter pre
-      padding-right: 10px
-      padding-left: 20px
-      background-color: var(--hlnumber-bg)
+      padding-right: .625rem
+      padding-left: 1.25rem
+      if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+        background: var(--anzhiyu-secondbg)
+        background-color: var(--anzhiyu-secondbg)
+        border-right: var(--style-border-always);
+        padding-right: .5rem
+        padding-left: .5rem
+      else
+        background: var(--hlexpand-bg)
       color: var(--hlnumber-color)
       text-align: right
 

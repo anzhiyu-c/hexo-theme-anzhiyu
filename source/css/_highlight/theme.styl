@@ -83,8 +83,8 @@ if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
   $highlight-foreground = #90A4AE
   $highlight-mac-border = rgba(144, 164, 174, .4)
   $highlight-tools = {
-    color: $highlight-foreground,
-    bg-color: darken($highlight-background, 5)
+    color: var(--anzhiyu-fontcolor)
+    bg-color: var(--anzhiyu-secondbg)
   }
   $highlight-gutter = {
     color: alpha($highlight-foreground, .5),
@@ -93,7 +93,7 @@ if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
   $highlight-scrollbar = darken($highlight-background, 8)
 
   if $highlight_enable
-    $highlight-comment = rgba(149, 165, 166, .8)
+    $highlight-comment = #969896
     $highlight-red = #E53935
     $highlight-orange = #F76D47
     $highlight-yellow = #FFB62C
