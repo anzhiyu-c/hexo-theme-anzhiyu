@@ -96,13 +96,14 @@
   &.post-bg
     height: 31.25rem
     transition: 0.6s
-    background-color: transparent
     overflow: hidden
     if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopRollZoomInfo')
       animation: header 5s linear forwards;
       animation-timeline: view();
     if hexo-config('mainTone.enable')
       background-color: var(--anzhiyu-bar-background)
+    else 
+      background-color: var(--anzhiyu-main)
 
     // #nav
     #nav

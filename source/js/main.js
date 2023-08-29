@@ -941,7 +941,8 @@ document.addEventListener("DOMContentLoaded", function () {
       target.classList.toggle("hide");
     };
 
-    document.querySelector("#sidebar-menus .menus_items").addEventListener("click", handleClickOfSubMenu);
+    document.querySelector("#sidebar-menus .menus_items") &&
+      document.querySelector("#sidebar-menus .menus_items").addEventListener("click", handleClickOfSubMenu);
   };
 
   /**
