@@ -1298,6 +1298,12 @@ const anzhiyu = {
 
     const authorInfoSayHiElement = document.getElementById("author-info__sayhi");
 
+    // 如果只有一个问候语，设置为默认值
+    if (greetings.length === 1) {
+      authorInfoSayHiElement.textContent = greetings[0];
+      return;
+    }
+
     let lastSayHello = authorInfoSayHiElement.textContent;
 
     let randomGreeting = lastSayHello;
