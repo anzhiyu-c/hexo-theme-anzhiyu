@@ -352,65 +352,8 @@ waline:
   pageview: false
   meta: false # 归属地, 操作系统 前是否显示图标
   imageUploader: true # 是否启用图片上传功能，默认开启，限制为 128kb 的 base64 图片
-  # 如果你需要启用自定义图片上传方式，请注释上方默认行为，取消下方注释，自行编写函数
-  # 并根据实际上传方式进行参数调整，以下为示例 注意 imageUploader: > 参数中的 > 不可删除
-  # imageUploader: >
-  #   function (file) {
-  #     let formData = new FormData();
-  #     let headers = new Headers();
-  #     formData.append("file", file);
-  #     formData.append("album_id", "10");
-  #     formData.append("permission", "0");
-  #     headers.append("Authorization", "Bearer 你的Token");
-  #     headers.append("Accept", "application/json");
-  #     return fetch("你的 API 上传地址", {
-  #       method: "POST",
-  #       headers: headers,
-  #       body: formData,
-  #     })
-  #       .then((resp) => resp.json())
-  #       .then((resp) => resp.data.links.url);
-  #   }
-
   # 以下为可选配置，后续若有新增/修改配置参数可在此自行添加/修改
   option:
-    pageSize: 10
-    requiredMeta: ["nick", "mail"]
-    login: enable
-    copyright: true
-    # turnstileKey:
-    locale:
-      admin: 安知鱼
-      sofa: 欢迎使用 安知鱼 主题！
-      placeholder: "生活明朗，万物可爱"
-    #   reactionTitle: 就现在，表明你的态度！
-    #   reaction0: 0
-    #   reaction1: 1
-    #   reaction2: 2
-    #   reaction3: 3
-    #   reaction4: 4
-    #   reaction5: 5
-    #   level0: 0
-    #   level1: 1
-    #   level2: 2
-    #   level3: 3
-    #   level4: 4
-    #   level5: 5
-    #   level6: 6
-    #   level7: ...
-    # emoji:
-    #   [
-    #     "https://example.com/.../Sticker-100/",
-    #   ]
-    # reaction:
-    #   [
-    #     "https://example.com/.../Sticker-100/0.png",
-    #     "https://example.com/.../Sticker-100/1.png",
-    #     "https://example.com/.../Sticker-100/2.png",
-    #     "https://example.com/.../Sticker-100/3.png",
-    #     "https://example.com/.../Sticker-100/4.png",
-    #     "https://example.com/.../Sticker-100/5.png",
-    #   ]
 
 # Twikoo
 # https://github.com/imaegoo/twikoo

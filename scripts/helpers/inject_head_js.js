@@ -3,15 +3,15 @@
  * inject js to head
  */
 
-'use strict'
+"use strict";
 
-hexo.extend.helper.register('inject_head_js', function () {
-  const { darkmode, aside } = this.theme
-  const start = darkmode.start || 6
-  const end = darkmode.end || 18
-  const { theme_color } = hexo.theme.config
-  const themeColorLight = (theme_color && theme_color.enable && theme_color.meta_theme_color_light) || '#ffffff'
-  const themeColorDark = (theme_color && theme_color.enable && theme_color.meta_theme_color_dark) || '#0d0d0d'
+hexo.extend.helper.register("inject_head_js", function () {
+  const { darkmode, aside } = this.theme;
+  const start = darkmode.start || 6;
+  const end = darkmode.end || 18;
+  const { theme_color } = hexo.theme.config;
+  const themeColorLight = (theme_color && theme_color.enable && theme_color.meta_theme_color_light) || "#ffffff";
+  const themeColorDark = (theme_color && theme_color.enable && theme_color.meta_theme_color_dark) || "#0d0d0d";
 
   const createLocalStore = () => {
     return `
@@ -43,8 +43,8 @@ hexo.extend.helper.register('inject_head_js', function () {
           return item.value
         }
       }
-    `
-  }
+    `;
+  };
 
   // https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
   const createGetScript = () => {
@@ -67,8 +67,8 @@ hexo.extend.helper.register('inject_head_js', function () {
 
         document.head.appendChild(script)
       })
-    `
-  }
+    `;
+  };
 
   const createGetCSS = () => {
     return `
@@ -86,11 +86,11 @@ hexo.extend.helper.register('inject_head_js', function () {
         }
         document.head.appendChild(link)
       })
-    `
-  }
+    `;
+  };
 
   const createDarkmodeJs = () => {
-    if (!darkmode.enable) return ''
+    if (!darkmode.enable) return "";
 
     let darkmodeJs = `
       win.activateDarkMode = () => {
@@ -106,9 +106,9 @@ hexo.extend.helper.register('inject_head_js', function () {
         }
       }
       const t = saveToLocal.get('theme')
-    `
+    `;
 
-    const autoChangeMode = darkmode.autoChangeMode
+    const autoChangeMode = darkmode.autoChangeMode;
 
     if (autoChangeMode === 1) {
       darkmodeJs += `
@@ -133,7 +133,7 @@ hexo.extend.helper.register('inject_head_js', function () {
             })
           } else if (t === 'light') activateLightMode()
           else activateDarkMode()
-        `
+        `;
     } else if (autoChangeMode === 2) {
       darkmodeJs += `
           const now = new Date()
@@ -142,19 +142,19 @@ hexo.extend.helper.register('inject_head_js', function () {
           if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
           else if (t === 'light') activateLightMode()
           else activateDarkMode()
-        `
+        `;
     } else {
       darkmodeJs += `
         if (t === 'dark') activateDarkMode()
         else if (t === 'light') activateLightMode()
-      `
+      `;
     }
 
-    return darkmodeJs
-  }
+    return darkmodeJs;
+  };
 
   const createAsideStatus = () => {
-    if (!aside.enable || !aside.button) return ''
+    if (!aside.enable || !aside.button) return "";
 
     return `
       const asideStatus = saveToLocal.get('aside-status')
@@ -165,8 +165,8 @@ hexo.extend.helper.register('inject_head_js', function () {
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    `
-  }
+    `;
+  };
 
   const createDetectApple = () => {
     return `
@@ -176,8 +176,15 @@ hexo.extend.helper.register('inject_head_js', function () {
         }
       }
       detectApple()
-    `
-  }
+    `;
+  };
 
-  return `<script>(win=>{${createLocalStore() + createGetScript() + createGetCSS() + createDarkmodeJs() + createAsideStatus() + createDetectApple()}})(window)</script>`
-})
+  return `<script>(win=>{${
+    createLocalStore() +
+    createGetScript() +
+    createGetCSS() +
+    createDarkmodeJs() +
+    createAsideStatus() +
+    createDetectApple()
+  }})(window)</script>`;
+});
