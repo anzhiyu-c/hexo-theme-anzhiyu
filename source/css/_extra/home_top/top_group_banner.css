@@ -101,10 +101,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    align-content: space-between;
     width: calc(600px + 1.5rem);
     position: relative;
+    align-content: space-between;
   }
   .topGroup .todayCard.hide {
     opacity: 0;
