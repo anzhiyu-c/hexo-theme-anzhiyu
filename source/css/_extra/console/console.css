@@ -261,6 +261,8 @@
   box-shadow: none;
   border: none;
   overflow: hidden;
+  min-width: 575px;
+  min-height: 169px;
 }
 
 #console .console-card.history .item-headline {
