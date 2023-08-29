@@ -53,7 +53,10 @@
   aiReadAloudIcon.addEventListener("click", readAloud);
 
   async function readAloud() {
-    if (!summaryID) return;
+    if (!summaryID) {
+      anzhiyu.snackbarShow("摘要还没加载完呢，请稍后。。。");
+      return;
+    }
     aiReadAloudIcon = post_ai.querySelector(".anzhiyu-icon-circle-dot");
     aiReadAloudIcon.style.opacity = "0.2";
     if (audio && !isPaused) {
@@ -101,9 +104,7 @@
         audio = new Audio(audioURL);
         audio.play();
         aiReadAloudIcon.style.cssText = "animation: breathe .5s linear infinite; opacity: 0.2;cursor: pointer";
-        console.info(aiReadAloudIcon.style.animation);
         audio.addEventListener("ended", () => {
-          console.info("结束");
           audio = null;
           aiReadAloudIcon.style.opacity = "1";
           aiReadAloudIcon.style.animation = "";
@@ -238,7 +239,7 @@
       },
       body: JSON.stringify(requestBody),
     };
-
+    console.info(truncateDescription.length);
     try {
       let animationInterval = null;
       let summary;
@@ -387,14 +388,11 @@
 
   function onAiTitleRefreshIconClick() {
     const truncateDescription = (title + pageFillDescription).trim().substring(0, basicWordCount);
-    let value = Math.floor(Math.random() * randomNum) + basicWordCount;
-    while (value === prevParam || truncateDescription.length - value === prevParam) {
-      value = Math.floor(Math.random() * randomNum) + basicWordCount;
-    }
+
     aiTitleRefreshIcon.style.opacity = "0.2";
     aiTitleRefreshIcon.style.transitionDuration = "0.3s";
     aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
-    if (truncateDescription.length <= 1000) {
+    if (truncateDescription.length <= basicWordCount) {
       let param = truncateDescription.length - Math.floor(Math.random() * randomNum);
       while (param === prevParam || truncateDescription.length - param === prevParam) {
         param = truncateDescription.length - Math.floor(Math.random() * randomNum);
@@ -402,6 +400,10 @@
       prevParam = param;
       aiAbstract(param);
     } else {
+      let value = Math.floor(Math.random() * randomNum) + basicWordCount;
+      while (value === prevParam || truncateDescription.length - value === prevParam) {
+        value = Math.floor(Math.random() * randomNum) + basicWordCount;
+      }
       aiAbstract(value);
     }
     refreshNum++;

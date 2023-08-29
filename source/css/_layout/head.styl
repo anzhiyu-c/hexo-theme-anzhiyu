@@ -94,7 +94,45 @@
 
   // post
   &.post-bg
-    height: 400px
+    height: 31.25rem
+    transition: 0.6s
+    overflow: hidden
+    if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopRollZoomInfo')
+      animation: header 5s linear forwards;
+      animation-timeline: view();
+    if hexo-config('mainTone.enable')
+      background-color: var(--anzhiyu-bar-background)
+    else 
+      background-color: var(--anzhiyu-main)
+
+    // #nav
+    #nav
+      transition: all 0.5s, border 0.3s
+
+    // .post-meta
+    .post-meta:has(.bldbanner),
+    .post-meta:has(.bili-banner),
+    .post-meta:has(.blqbanner)
+      pointer-events: all
+    .bili-banner
+      margin-top: 0 !important
+
+    // #post-info
+    #post-info:has(.bldbanner),
+    #post-info:has(.bili-banner),
+    #post-info:has(.blqbanner)
+      pointer-events: none
+
+    &:has(.bldbanner),
+    &:has(.blqbanner)
+      height: 15rem
+      img
+        border-radius: 0px 
+    &:has(.bili-banner)
+      height: 11rem
+      img
+        border-radius: 0px 
+
     #post-top-cover 
       width: 70%;
       height: 100%;
@@ -103,7 +141,8 @@
       overflow: hidden;
       margin-bottom: 0;
       user-select: none
-      transform: rotate(10deg) translateY(-10%) scale(2);
+      transform: rotate(10deg) translateY(-10%) scale(var(--anzhiyu-header-cover-scale));
+      will-change: transform
       if !hexo-config('mainTone.enable')
         filter: blur(10px) brightness(60%);
         animation: none;
@@ -116,8 +155,9 @@
           border-radius: 0
       else
         filter: blur(10px);
-        opacity: 0.5;
-        animation: showCover 1s 0.3s backwards;
+        +minWidth768()
+          animation: showCover 1s 0.3s backwards;
+          opacity 0.5
 
       +maxWidth768()
         margin: 0 0 0 auto;
@@ -139,6 +179,8 @@
         top: 0;
         left: 0;
         box-shadow: 110px -130px 300px 60px var(--anzhiyu-bar-background) inset;
+        +maxWidth768()
+          box-shadow: 0 0 205px 59px var(--anzhiyu-main) inset
 
       #post-top-bg
         width: 100%;
@@ -146,7 +188,8 @@
         object-fit: cover;
         min-width: 50vw;
         min-height: 20rem;
-        animation: slide-in 0.6s 0.3s backwards;
+        +minWidth768()
+          animation: slide-in 0.6s 0.3s backwards;
         +maxWidth768()
           min-height: 15rem !important;
           if hexo-config('mainTone.enable')
@@ -168,7 +211,9 @@
         #nav
           border-bottom: none
     +maxWidth768()
-      height: 360px
+      margin-bottom: -12px;
+      transition: 0s !important
+      min-height: 450px;
       &.nav-fixed
         #nav
           background: var(--anzhiyu-card-bg);
@@ -186,17 +231,23 @@
   #post-info
     position: absolute
     top: 0
-    padding: 0 calc((100% - 1352px)/ 2)
-    width: 100%
+    left: calc((100% - 1400px + 3rem) / 2);
+    width: calc(100% - (100% - 1400px + 3rem));
     height 100%
     display: flex
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     z-index: 3
-    animation: slide-in 0.6s 0.3s backwards;
+    +minWidth768()
+      animation: post-info-slide-in 0.6s 0.3s backwards;
+      transform: scale(var(--anzhiyu-header-info-scale)) translateY(var(--anzhiyu-header-translateY));
+      transform-origin: left top
+      will-change: transform;
     +maxWidth1400()
-      padding: 0 12%
+      padding: 0 3.5rem
+      width 100%
+      left: 0
 
     +maxWidth768()
       padding: 11rem 6% 0;
@@ -294,8 +345,10 @@
           transition: 0.3s;
           height: 40px;
           margin: auto 0;
-          position: relative;
-          top: -60px;
+          // position: relative;
+          // top: -60px;
+          transform: translateY(-60px)
+          will-change: transform
   &.nav-fixed.nav-visible 
     #page-name
       z-index: 100;
@@ -306,8 +359,10 @@
         div.menus_items
           opacity: 1;
           transition: 0.3s;
-          position: relative;
-          top: 0px;
+          // position: relative;
+          // top: 0px;
+          transform: translateY(0px)
+          will-change: transform
 
 #page
   h1.page-title
@@ -597,99 +652,56 @@
   100%
     transform: translate3d(85px, 0, 0)
 
-#page-header.post-bg
-  height: 34rem
-  transition: 0.6s
-  background-color: transparent
-  overflow: hidden
-  if hexo-config('mainTone.enable')
-    background-color: var(--anzhiyu-bar-background)
-
-  // #nav
-  #nav
-    transition: all 0.5s, border 0.3s
-
-  // .post-meta
-  .post-meta:has(.bldbanner),
-  .post-meta:has(.bili-banner),
-  .post-meta:has(.blqbanner)
-    pointer-events: all
-  .bili-banner
-    margin-top: 0 !important
-
-  // #post-info
-  #post-info:has(.bldbanner),
-  #post-info:has(.bili-banner),
-  #post-info:has(.blqbanner)
+//波浪css
+if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopWave')
+  .main-hero-waves-area
+    width: 100%
+    position: absolute
+    left: 0
+    bottom: -11px
+    z-index: 5
     pointer-events: none
 
-  &:has(.bldbanner),
-  &:has(.blqbanner)
-    height: 15rem
-    img
-      border-radius: 0px 
-  &:has(.bili-banner)
-    height: 11rem
-    img
-      border-radius: 0px 
+  .waves-area .waves-svg
+    width: 100%
+    height: 3.75rem
 
-//波浪css
-.main-hero-waves-area
-  width: 100%
-  position: absolute
-  left: 0
-  bottom: -11px
-  z-index: 5
-  pointer-events: none
+  //Animation
+  .parallax > use
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite
+    will-change: transform;
 
-.waves-area .waves-svg
-  width: 100%
-  height: 5rem
+  .parallax > use:nth-child(1)
+    animation-delay: -2s
+    animation-duration: 7s
+    fill: #f7f9febd
 
-//Animation
-.parallax > use
-  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite
+  .parallax > use:nth-child(2)
+    animation-delay: -3s
+    animation-duration: 10s
+    fill: #f7f9fe82
 
-.parallax > use:nth-child(1)
-  animation-delay: -2s
-  animation-duration: 7s
-  fill: #f7f9febd
+  .parallax > use:nth-child(3)
+    animation-delay: -4s
+    animation-duration: 13s
+    fill: #f7f9fe36
 
-.parallax > use:nth-child(2)
-  animation-delay: -3s
-  animation-duration: 10s
-  fill: #f7f9fe82
+  .parallax > use:nth-child(4)
+    animation-delay: -5s
+    animation-duration: 20s
+    fill: #f7f9fe
 
-.parallax > use:nth-child(3)
-  animation-delay: -4s
-  animation-duration: 13s
-  fill: #f7f9fe36
+  //黑色模式背景
+  [data-theme="dark"] .parallax 
+    & > use:nth-child(1)
+      fill: #18171dc8
+    & > use:nth-child(2)
+      fill: #18171d80
+    & > use:nth-child(3)
+      fill: #18171d3e
+    & > use:nth-child(4)
+      fill: rgb(0 0 0 / 39%)
 
-.parallax > use:nth-child(4)
-  animation-delay: -5s
-  animation-duration: 20s
-  fill: #f7f9fe
-
-//黑色模式背景
-[data-theme="dark"] .parallax > use:nth-child(1)
-  animation-delay: -2s
-  animation-duration: 7s
-  fill: #18171dc8
-
-[data-theme="dark"] .parallax > use:nth-child(2)
-  animation-delay: -3s
-  animation-duration: 10s
-  fill: #18171d80
-
-[data-theme="dark"] .parallax > use:nth-child(3)
-  animation-delay: -4s
-  animation-duration: 13s
-  fill: #18171d3e
-
-[data-theme="dark"] .parallax > use:nth-child(4)
-  animation-delay: -5s
-  animation-duration: 20s
-  fill: rgb(0 0 0 / 39%)
 #post-firstinfo
   text-align: left;
   display: flex;
@@ -763,10 +775,10 @@
 +maxWidth768()
   .layout > div:first-child:not(.recent-posts)
     z-index: 10;
-    margin-top: -30px;
   if hexo-config('mainTone.enable')
     #page-header.post-bg #nav
       background: linear-gradient(to top, var(--anzhiyu-main-none) 0%, var(--anzhiyu-bar-background) 100%);
+      transition: 0s
   .post-bg:has(.bldbanner) #post-info:after,
   .post-bg:has(.bili-banner) #post-info:after,
   .post-bg:has(.blqbanner) #post-info:after

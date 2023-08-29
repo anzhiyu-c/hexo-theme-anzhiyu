@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-anzhiyu",
-  "version": "1.6.1",
+  "version": "1.6.4",
   "description": "A Simple and Card UI Design theme for Hexo",
   "main": "package.json",
   "scripts": {
@@ -28,5 +28,5 @@
   },
   "homepage": "https://blog.anheyu.com/",
   "author": "anzhiyu <me@anheyu.com>",
-  "license": "Apache-2.0"
+  "license": "GPL-3.0"
 }

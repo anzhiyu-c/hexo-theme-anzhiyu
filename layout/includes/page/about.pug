@@ -65,8 +65,7 @@ if site.data.about
                         .skill-name
                           span=item.name 
                   .etc ...
-        - var careersStyle = careers.background ? { 'background-image': `url(${careers.background})` } : {}
-        .author-content-item.careers(style=careersStyle)
+        .author-content-item.careers
           .card-content
             .author-content-item-tips=careers.tips
             span.author-content-item-title=careers.title
@@ -74,16 +73,8 @@ if site.data.about
               if crrList
                 each career in crrList
                   .career-item
-                    .career-item-left
-                      span.circle(style='background:#357ef5')
-                      span.text=career.time
-                    .career-item-right
-                      span.text=career.desc
-              else if crrItem
-                .careers-item
-                  .circle(style='background:#357ef5')
-                  each i in crrItem
-                    .name=i
+                    .circle(style=`background:${career.color ? career.color : "#357ef5"}`)
+                    .name=career.desc
               else
                 .careers-none
             if careers.img

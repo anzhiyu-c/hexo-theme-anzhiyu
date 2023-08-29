@@ -33,7 +33,11 @@ $code-block
   overflow: auto
   margin: 0 0 20px
   padding: 0
-  background: var(--hl-bg)
+  if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+    background: var(--anzhiyu-card-bg)
+    border: var(--style-border-always);
+  else
+    background: var(--hl-bg)
   color: var(--hl-color)
   line-height: $line-height-code-block
 
@@ -95,6 +99,8 @@ $code-block
     background: var(--hltools-bg)
     color: var(--hltools-color)
     font-size: $code-font-size
+    if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+      border-bottom: var(--style-border-always);
 
     &.closed
       & ~ *
@@ -185,18 +191,38 @@ $code-block
       bottom: 0px
       z-index: 10
       width: 100%
-      background: var(--hlexpand-bg)
+      transition: all 0.3s
+      font-size: 20px;
+      if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+        background: var(--anzhiyu-secondbg)
+      else
+        background: var(--hlexpand-bg)
       text-align: center
       font-size: $code-font-size
       cursor: pointer
+      transform: translateZ(0);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      font-size: 16px
+      if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+        &:hover
+          background: var(--anzhiyu-main);
+          i
+            color: var(--anzhiyu-white);
 
       i
-        padding: 6px 0
-        color: var(--hlnumber-color)
-        animation: code-expand-key 1.2s infinite
+        if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+          color: var(--anzhiyu-fontcolor)
+        else 
+          color: var(--hlnumber-color)
+        animation: 1.2s ease 0s infinite normal none running code-expand-key
 
       &.expand-done
         transform: rotate(180deg)
+        transition: all 0s, background 0.3s;
 
         & + table,
         & + pre

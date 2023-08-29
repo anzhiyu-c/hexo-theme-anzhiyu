@@ -46,7 +46,7 @@ mourn:
 # Code Blocks (代码相关)
 # --------------------------------------
 
-highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -107,42 +107,6 @@ docsearch:
   apiKey: # see email
   indexName: # see email
   option:
-    placeholder: "Ctrl/⌘ + K 唤醒搜索服务"
-    maxResultsPerGroup: 7
-    translations:
-      button:
-        buttonText: "搜索"
-        buttonAriaLabel: "搜索"
-      modal:
-        searchBox:
-          resetButtonTitle: "清空"
-          resetButtonAriaLabel: "清空"
-          cancelButtonText: "取消"
-          cancelButtonAriaLabel: "取消"
-        startScreen:
-          recentSearchesTitle: "最近搜索历史"
-          noRecentSearchesText: "搜索历史为空"
-          saveRecentSearchButtonTitle: "保存搜索记录"
-          removeRecentSearchButtonTitle: "清除搜索记录"
-          favoriteSearchesTitle: "收藏夹"
-          removeFavoriteSearchButtonTitle: "移出收藏夹"
-        errorScreen:
-          titleText: "未能获取搜索结果"
-          helpText: "您可能需要检查您的网络连接"
-        footer:
-          selectText: "选择"
-          selectKeyAriaLabel: "回车键"
-          navigateText: "切换"
-          navigateUpKeyAriaLabel: "方向键上"
-          navigateDownKeyAriaLabel: "方向键下"
-          closeText: "关闭"
-          closeKeyAriaLabel: "退出键"
-          searchByText: "搜索服务提供: DocSearch by"
-        noResultsScreen:
-          noResultsText: "未搜索到相关内容"
-          suggestedQueryText: "您可尝试搜索"
-          reportMissingResultsText: "确认搜索结果是正确的？"
-          reportMissingResultsLinkText: "反馈给Algolia"
 
 # Local search
 local_search:
@@ -1208,7 +1172,7 @@ ptool:
 
 # 欢迎语配置
 greetingBox:
-  enable: false
+  enable: false #开启后必须配置下面的list对应的时间段，不然会出现小白条
   default: 晚上好👋
   list:
     # - greeting: 晚安😴
@@ -1276,6 +1240,12 @@ agreementPopup:
 # 右键菜单
 rightClickMenu:
   enable: false
+
+# 动效
+dynamicEffect:
+  postTopWave: true # 文章顶部波浪效果
+  postTopRollZoomInfo: false # 文章顶部滚动时缩放
+  pageCommentsRollZoom: false # 非文章页面评论滚动时缩放显示（仅仅Twikoo生效）
 
 # Inject
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)

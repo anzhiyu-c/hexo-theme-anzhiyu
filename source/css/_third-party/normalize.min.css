@@ -2,6 +2,7 @@
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 60px;
 }
 
 /* 滚动条轨道样式 */
@@ -35,6 +36,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: clip;
+  overscroll-behavior: none;
 }
 
 main {
@@ -104,10 +106,10 @@ img {
   border-radius: 8px;
   max-width: 100%;
   transition: all 0.2s ease 0s;
-  -webkit-user-drag: none;  /* WebKit */
-  -khtml-user-drag: none;   /* KHTML */
-  -moz-user-drag: none;     /* Gecko */
-  -ms-user-drag: none;      /* Trident/Edge */
+  -webkit-user-drag: none; /* WebKit */
+  -khtml-user-drag: none; /* KHTML */
+  -moz-user-drag: none; /* Gecko */
+  -ms-user-drag: none; /* Trident/Edge */
   user-drag: none;
 }
 

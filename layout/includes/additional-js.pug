@@ -63,6 +63,10 @@ div
     
     input(type="hidden" name="page-type" id="page-type" value=(page.type ? page.type : (is_post() ? "post" : (is_category() ? "categories" : "anzhiyu"))))
 
+    //- 评论弹幕
+    if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo' && page.comments
+      script(async src=url_for(theme.asset.comment_barrage_js))
+
   != partial("includes/third-party/prismjs", {}, { cache: true })
 
   if theme.aside.enable && theme.newest_comments.enable
@@ -77,9 +81,6 @@ div
     - const mail = theme.visitorMail.mail
     script.
       var visitorMail = "#{mail}";
-  //- 评论弹幕
-  if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
-    script(async data-pjax src=url_for(theme.asset.comment_barrage_js))
 
   //- 即刻依赖waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))

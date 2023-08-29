@@ -312,14 +312,16 @@ if hexo-config('comments.use') == 'Twikoo'
     display: flex;
   }
 
-  #page .tk-comments-container > .tk-comment {
+  #page .tk-comments-container > .tk-comment
     background: var(--anzhiyu-card-bg);
     padding: 1rem;
     padding-bottom: 1rem;
     border: var(--style-border);
     border-top: var(--style-border);
     box-shadow: var(--anzhiyu-shadow-border);
-  }
+    if hexo-config('dynamicEffect.pageCommentsRollZoom')
+      animation: animate-in-and-out 1s linear forwards;
+      animation-timeline: view();
 
   .tk-content {
     margin-top: 0.5rem;

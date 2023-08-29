@@ -823,7 +823,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!GLOBAL_CONFIG_SITE.isPost) {
       const root = document.querySelector(":root");
       root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
-      anzhiyu.initThemeColor();
+      requestAnimationFrame(() => {
+        anzhiyu.initThemeColor();
+      });
 
       // 要改回来默认主色;
       document.documentElement.style.setProperty(
@@ -939,7 +941,8 @@ document.addEventListener("DOMContentLoaded", function () {
       target.classList.toggle("hide");
     };
 
-    document.querySelector("#sidebar-menus .menus_items").addEventListener("click", handleClickOfSubMenu);
+    document.querySelector("#sidebar-menus .menus_items") &&
+      document.querySelector("#sidebar-menus .menus_items").addEventListener("click", handleClickOfSubMenu);
   };
 
   /**
@@ -1237,7 +1240,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!path) {
       // 非文章情况，直接设置不需要请求了
       root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
-      anzhiyu.initThemeColor();
+      requestAnimationFrame(() => {
+        anzhiyu.initThemeColor();
+      });
 
       // 要改回来默认主色
       document.documentElement.style.setProperty(
@@ -1265,7 +1270,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         root.style.setProperty("--anzhiyu-bar-background", value);
-        anzhiyu.initThemeColor();
+        requestAnimationFrame(() => {
+          anzhiyu.initThemeColor();
+        });
 
         if (GLOBAL_CONFIG.mainTone.cover_change) {
           document.documentElement.style.setProperty("--anzhiyu-main", value);
@@ -1300,7 +1307,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             root.style.setProperty("--anzhiyu-bar-background", value);
-            anzhiyu.initThemeColor();
+            requestAnimationFrame(() => {
+              anzhiyu.initThemeColor();
+            });
 
             if (GLOBAL_CONFIG.mainTone.cover_change) {
               document.documentElement.style.setProperty("--anzhiyu-main", value);
@@ -1327,7 +1336,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   }
 
                   root.style.setProperty("--anzhiyu-bar-background", value);
-                  anzhiyu.initThemeColor();
+                  requestAnimationFrame(() => {
+                    anzhiyu.initThemeColor();
+                  });
 
                   if (GLOBAL_CONFIG.mainTone.cover_change) {
                     document.documentElement.style.setProperty("--anzhiyu-main", value);
@@ -1342,24 +1353,32 @@ document.addEventListener("DOMContentLoaded", function () {
                   }
                 } else {
                   root.style.setProperty("--anzhiyu-bar-background", fallbackValue);
-                  anzhiyu.initThemeColor();
+                  requestAnimationFrame(() => {
+                    anzhiyu.initThemeColor();
+                  });
                   document.documentElement.style.setProperty("--anzhiyu-main", fallbackValue);
                 }
               } catch {
                 root.style.setProperty("--anzhiyu-bar-background", fallbackValue);
-                anzhiyu.initThemeColor();
+                requestAnimationFrame(() => {
+                  anzhiyu.initThemeColor();
+                });
                 document.documentElement.style.setProperty("--anzhiyu-main", fallbackValue);
               }
             } else {
               root.style.setProperty("--anzhiyu-bar-background", fallbackValue);
-              anzhiyu.initThemeColor();
+              requestAnimationFrame(() => {
+                anzhiyu.initThemeColor();
+              });
               document.documentElement.style.setProperty("--anzhiyu-main", fallbackValue);
             }
           }
         } catch (err) {
           console.error("Error fetching data:", err);
           root.style.setProperty("--anzhiyu-bar-background", fallbackValue);
-          anzhiyu.initThemeColor();
+          requestAnimationFrame(() => {
+            anzhiyu.initThemeColor();
+          });
           document.documentElement.style.setProperty("--anzhiyu-main", fallbackValue);
         }
       }
