@@ -1,7 +1,7 @@
 /* 修复时间轴wowjs超出盒子 */
 div#archive {
   overflow: hidden;
-  padding: 22px !important;
+  padding: 22px;
 }
 /* 修复加载时图片太大超出范围 */
 .aplayer.aplayer-fixed {
