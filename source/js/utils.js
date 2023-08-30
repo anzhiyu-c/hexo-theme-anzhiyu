@@ -433,7 +433,7 @@ const anzhiyu = {
   // 初始化即刻
   initIndexEssay: function () {
     if (!document.getElementById("bbTimeList")) return;
-    setTimeout(() => {
+    window.addEventListener("load", function () {
       let essay_bar_swiper = new Swiper(".essay_bar_swiper_container", {
         passiveListeners: true,
         direction: "vertical",
@@ -454,7 +454,7 @@ const anzhiyu = {
           essay_bar_swiper.autoplay.start();
         };
       }
-    }, 100);
+    });
   },
   scrollByMouseWheel: function ($list, $target) {
     const scrollHandler = function (e) {

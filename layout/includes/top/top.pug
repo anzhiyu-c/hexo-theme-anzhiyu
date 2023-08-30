@@ -1,5 +1,5 @@
 - let home_top_config = theme.home_top
-- let { title, subTitle, siteText } = home_top_config
+- let { title, subTitle, siteText,default_descr } = home_top_config
 if home_top_config.enable
   #home_top
     .swiper_container_card(style='height: auto;width: 100%')
@@ -54,8 +54,11 @@ if home_top_config.enable
                       span.blog-slider__code= item.updated.format('YYYY-MM-DD')
                     else
                       span.blog-slider__code= item.date.format('YYYY-MM-DD')
+                    - const content = strip_html(item.content)
+                    - let expert = content.substring(0, theme.index_post_content.length) 
+                    - content.length > theme.index_post_content.length ? expert += ' ...' : ''
                     a.blog-slider__title(href=item.path, alt=item.title)= item.title
-                    .blog-slider__text= item.description ? item.description : default_descr
+                    .blog-slider__text= item.description ? item.description : expert
                     a.blog-slider__button(href=item.path, alt=item.title) 详情   
             //- 轮播图组件
             .blog-slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets
@@ -105,31 +108,33 @@ if home_top_config.enable
     if !site.data.essay
       script(src=url_for(theme.home_top.swiper.swiper_js))
     script.
-      var swiper = new Swiper(".blog-slider", {
-        passiveListeners: true,
-        spaceBetween: 30,
-        effect: "fade",
-        loop: true,
-        autoplay: {
-          disableOnInteraction: true,
-          delay: 3000,
-        },
-        mousewheel: {
-          passive: true, // 将 mousewheel 事件处理程序标记为被动的
-        },
-        // autoHeight: true,
-        pagination: {
-          el: ".blog-slider__pagination",
-          clickable: true,
-        },
-      });
+      window.addEventListener("load", function () {
+        var swiper = new Swiper(".blog-slider", {
+          passiveListeners: true,
+          spaceBetween: 30,
+          effect: "fade",
+          loop: true,
+          autoplay: {
+            disableOnInteraction: true,
+            delay: 3000,
+          },
+          mousewheel: {
+            passive: true, // 将 mousewheel 事件处理程序标记为被动的
+          },
+          // autoHeight: true,
+          pagination: {
+            el: ".blog-slider__pagination",
+            clickable: true,
+          },
+        });
 
-      var comtainer = document.getElementById("swiper_container");
-      if (comtainer !== null) {
-        comtainer.onmouseenter = function () {
-          swiper.autoplay.stop();
-        };
-        comtainer.onmouseleave = function () {
-          swiper.autoplay.start();
-        };
-      }
+        var comtainer = document.getElementById("swiper_container");
+        if (comtainer !== null) {
+          comtainer.onmouseenter = function () {
+            swiper.autoplay.stop();
+          };
+          comtainer.onmouseleave = function () {
+            swiper.autoplay.start();
+          };
+        }
+      });
