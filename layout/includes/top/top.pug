@@ -124,6 +124,10 @@ if home_top_config.enable
         },
       });
 
+      window.addEventListener("load", function () {
+        swiper.update();
+      });
+
       var comtainer = document.getElementById("swiper_container");
       if (comtainer !== null) {
         comtainer.onmouseenter = function () {
