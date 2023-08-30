@@ -433,30 +433,28 @@ const anzhiyu = {
   // 初始化即刻
   initIndexEssay: function () {
     if (!document.getElementById("bbTimeList")) return;
-    let essay_bar_swiper = new Swiper(".essay_bar_swiper_container", {
-      passiveListeners: true,
-      direction: "vertical",
-      loop: true,
-      autoplay: {
-        disableOnInteraction: true,
-        delay: 3000,
-      },
-      mousewheel: true,
-    });
+    setTimeout(() => {
+      let essay_bar_swiper = new Swiper(".essay_bar_swiper_container", {
+        passiveListeners: true,
+        direction: "vertical",
+        loop: true,
+        autoplay: {
+          disableOnInteraction: true,
+          delay: 3000,
+        },
+        mousewheel: true,
+      });
 
-    let essay_bar_comtainer = document.getElementById("bbtalk");
-    if (essay_bar_comtainer !== null) {
-      essay_bar_comtainer.onmouseenter = function () {
-        essay_bar_swiper.autoplay.stop();
-      };
-      essay_bar_comtainer.onmouseleave = function () {
-        essay_bar_swiper.autoplay.start();
-      };
-    }
-
-    window.addEventListener("load", function () {
-      swiper.update();
-    });
+      let essay_bar_comtainer = document.getElementById("bbtalk");
+      if (essay_bar_comtainer !== null) {
+        essay_bar_comtainer.onmouseenter = function () {
+          essay_bar_swiper.autoplay.stop();
+        };
+        essay_bar_comtainer.onmouseleave = function () {
+          essay_bar_swiper.autoplay.start();
+        };
+      }
+    }, 100);
   },
   scrollByMouseWheel: function ($list, $target) {
     const scrollHandler = function (e) {

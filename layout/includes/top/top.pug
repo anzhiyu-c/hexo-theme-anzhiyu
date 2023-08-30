@@ -108,35 +108,37 @@ if home_top_config.enable
     if !site.data.essay
       script(src=url_for(theme.home_top.swiper.swiper_js))
     script.
-      var swiper = new Swiper(".blog-slider", {
-        passiveListeners: true,
-        spaceBetween: 30,
-        effect: "fade",
-        loop: true,
-        autoplay: {
-          disableOnInteraction: true,
-          delay: 3000,
-        },
-        mousewheel: {
-          passive: true, // 将 mousewheel 事件处理程序标记为被动的
-        },
-        // autoHeight: true,
-        pagination: {
-          el: ".blog-slider__pagination",
-          clickable: true,
-        },
-      });
+      function initBlogSlider() {
+        var swiper = new Swiper(".blog-slider", {
+          passiveListeners: true,
+          spaceBetween: 30,
+          effect: "fade",
+          loop: true,
+          autoplay: {
+            disableOnInteraction: true,
+            delay: 3000,
+          },
+          mousewheel: {
+            passive: true, // 将 mousewheel 事件处理程序标记为被动的
+          },
+          // autoHeight: true,
+          pagination: {
+            el: ".blog-slider__pagination",
+            clickable: true,
+          },
+        });
 
-      window.addEventListener("load", function () {
-        swiper.update();
-      });
-
-      var comtainer = document.getElementById("swiper_container");
-      if (comtainer !== null) {
-        comtainer.onmouseenter = function () {
-          swiper.autoplay.stop();
-        };
-        comtainer.onmouseleave = function () {
-          swiper.autoplay.start();
-        };
+        var comtainer = document.getElementById("swiper_container");
+        if (comtainer !== null) {
+          comtainer.onmouseenter = function () {
+            swiper.autoplay.stop();
+          };
+          comtainer.onmouseleave = function () {
+            swiper.autoplay.start();
+          };
+        }
       }
+      setTimeout(()=>{
+        initBlogSlider()
+      }, 100)
+
