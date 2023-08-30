@@ -25,11 +25,36 @@ hexo.extend.filter.register('before_post_render', data => {
 
   if (coverVal === false) return data
 
+  const uuid = () => {
+    var timestamp = new Date().getTime()
+    return 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (timestamp + Math.random() * 16) % 16 | 0
+      timestamp = Math.floor(timestamp / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+  }
+
+  const addUuidToUrl = (url) => {
+    try {
+      let urlParts = new URL(url)
+      let params = urlParts.searchParams
+      if (params.size > 0) {
+        params.append('_r_', uuid())
+      } else {
+        params.set('_r_', uuid())
+      }
+      return urlParts.toString()
+    } catch (error) {
+      return url
+    }
+  }
+
   // If cover is not set, use random cover
   if (!coverVal) {
     const randomCover = randomCoverFn()
-    data.cover = randomCover
-    coverVal = randomCover // update coverVal
+    const cover = randomCover ? addUuidToUrl(randomCover) : randomCover
+    data.cover = cover
+    coverVal = cover // update coverVal
   }
 
   if (coverVal && (coverVal.indexOf('//') !== -1 || imgTestReg.test(coverVal))) {
