@@ -280,6 +280,7 @@ photofigcaption: false
 # 1: The 'next post' will link to old post
 # 2: The 'next post' will link to new post
 # 3: 只有下一篇，并且只在文章滚动到评论区时显示下一篇文章(新文章)
+# 4: 只有下一篇，并且只在文章滚动到评论区时显示下一篇文章(新文章) 显示图片cover
 # false: disable pagination
 post_pagination: 2
 

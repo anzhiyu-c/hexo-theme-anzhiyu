@@ -322,6 +322,8 @@ if hexo-config('comments.use') == 'Twikoo'
     if hexo-config('dynamicEffect.pageCommentsRollZoom')
       animation: animate-in-and-out 1s linear forwards;
       animation-timeline: view();
+      &:has(.OwO-open)
+        z-index: 1
 
   .tk-content {
     margin-top: 0.5rem;

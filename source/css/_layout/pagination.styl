@@ -22,7 +22,7 @@
 
   .pagination-info
     position: absolute
-    if hexo-config("post_pagination") != '3'
+    if hexo-config("post_pagination") != '3' && hexo-config("post_pagination") != '4'
       top: 50%
     padding: 20px 40px
     width: 100%
@@ -61,7 +61,7 @@
       overflow: hidden
       height: 150px
 
-  if hexo-config("post_pagination") == '3'
+  if hexo-config("post_pagination") == '3' || hexo-config("post_pagination") == '4'
     &.pagination-post
       position: fixed;
       width: 300px;
@@ -93,8 +93,10 @@
       &.show-window
         bottom: 20px;
         opacity: 1;
-      .prev-post.pull-full
-      .next-post.pull-right
+      .prev-post.pull-left,
+      .prev-post.pull-full,
+      .next-post.pull-right,
+      .next-post.pull-full
         background: var(--anzhiyu-maskbgdeep);
         backdrop-filter: blur(5px);
         transform: translateZ(0);
@@ -104,7 +106,8 @@
           height: fit-content;
           padding: 0.5rem 0;
         img 
-          display: none
+          // display: none
+          top: 0;
         .pagination-info
           text-align: left;
           position: relative;
