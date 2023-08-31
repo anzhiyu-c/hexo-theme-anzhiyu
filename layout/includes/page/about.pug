@@ -10,11 +10,19 @@ if site.data.about
     - let careers = item.careers
     - let crrList = careers.list
     - let crrItem = careers.item
+    - let avatarSkills = item.avatarSkills
     #about-page
       .author-box
+        if avatarSkills
+          .author-tag-left
+            each item in avatarSkills.left
+              span.author-tag=item
         .author-img
           img.no-lightbox(src=url_for(avatarImg) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
-        .image-dot
+        if avatarSkills
+          .author-tag-right
+            each item in avatarSkills.right
+              span.author-tag=item
       p.p.center.logo.large 关于我
       p.p.center.small=subtitle
       .author-content
