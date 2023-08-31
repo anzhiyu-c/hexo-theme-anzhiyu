@@ -431,17 +431,28 @@ const anzhiyu = {
     rm.hideRightMenu();
   },
   initPaginationObserver: () => {
-    var e = document.getElementById("post-comment"),
-      t = document.getElementById("pagination");
-    e &&
-      t &&
-      new IntersectionObserver(function (e) {
-        e.forEach(function (e) {
-          e.isIntersecting
-            ? (t.classList.add("show-window"), (document.querySelector(".comment-barrage").style.bottom = "-200px"))
-            : (t.classList.remove("show-window"), (document.querySelector(".comment-barrage").style.bottom = "0px"));
+    const commentElement = document.getElementById("post-comment");
+    const paginationElement = document.getElementById("pagination");
+
+    if (commentElement && paginationElement) {
+      new IntersectionObserver(entries => {
+        const commentBarrage = document.querySelector(".comment-barrage");
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            paginationElement.classList.add("show-window");
+            if (commentBarrage) {
+              commentBarrage.style.bottom = "-200px";
+            }
+          } else {
+            paginationElement.classList.remove("show-window");
+            if (commentBarrage) {
+              commentBarrage.style.bottom = "0px";
+            }
+          }
         });
-      }).observe(e);
+      }).observe(commentElement);
+    }
   },
   // 初始化即刻
   initIndexEssay: function () {

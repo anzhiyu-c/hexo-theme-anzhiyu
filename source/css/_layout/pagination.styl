@@ -106,7 +106,8 @@
           height: fit-content;
           padding: 0.5rem 0;
         img 
-          // display: none
+          if hexo-config("post_pagination") == '3'
+            display: none
           top: 0;
         .pagination-info
           text-align: left;
