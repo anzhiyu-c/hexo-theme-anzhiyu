@@ -68,30 +68,6 @@
   padding: 0.2em 0.2em 0.2em 1.8em;
 }
 
-/* tab框 */
-#article-container .tabs {
-  border: 3px solid var(--anzhiyu-secondbg) !important;
-}
-#article-container .tabs {
-  margin: 1rem 0 !important;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--anzhiyu-shadow-border);
-}
-
-#article-container .tabs > .nav-tabs > .tab {
-  border-bottom: 2px solid var(--tab-border-color);
-  border-top: none !important;
-}
-
-#article-container .tabs > .nav-tabs > .tab.active {
-  border-bottom: 2px solid #3b70fc;
-  border-top: none !important;
-}
-
-.tab-item-content {
-  background: var(--anzhiyu-card-bg);
-}
 /* 代码框主题 */
 #article-container figure.highlight {
   border-radius: 10px;

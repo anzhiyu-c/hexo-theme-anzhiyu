@@ -101,12 +101,3 @@ span.top-group-text {
     display: none;
   }
 }
-
-@media screen and (min-width: 1200px) {
-  .topGroup {
-    animation: slide-in 0.6s 0.1s backwards;
-  }
-  .topGroup .recent-post-item {
-    animation: slide-in 0.6s 0.1s backwards;
-  }
-}
