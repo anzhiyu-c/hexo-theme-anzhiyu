@@ -1,7 +1,7 @@
 .comment-barrage {
   position: fixed;
   bottom: 0;
-  right: 20px;
+  right: 60px;
   padding: 0 0 20px 10px;
   z-index: 100;
   display: flex;

@@ -1,6 +1,3 @@
-#pagination.pagination-post {
-  border-radius: 10px;
-}
 .relatedPosts > .relatedPosts-list > div {
   border-radius: var(--anzhiyu-border-radius);
 }

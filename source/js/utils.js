@@ -430,6 +430,19 @@ const anzhiyu = {
     }
     rm.hideRightMenu();
   },
+  initPaginationObserver: () => {
+    var e = document.getElementById("post-comment"),
+      t = document.getElementById("pagination");
+    e &&
+      t &&
+      new IntersectionObserver(function (e) {
+        e.forEach(function (e) {
+          e.isIntersecting
+            ? (t.classList.add("show-window"), (document.querySelector(".comment-barrage").style.bottom = "-200px"))
+            : (t.classList.remove("show-window"), (document.querySelector(".comment-barrage").style.bottom = "0px"));
+        });
+      }).observe(e);
+  },
   // 初始化即刻
   initIndexEssay: function () {
     if (!document.getElementById("bbTimeList")) return;

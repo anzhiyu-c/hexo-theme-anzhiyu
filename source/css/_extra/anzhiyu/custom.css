@@ -193,13 +193,13 @@ html.hide-aside .layout > div:first-child {
   animation: slide-in 0.6s ease 0s 1 normal none running;
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
   #page > div:not(.author-content-item) {
     animation: slide-in 0.6s 0.2s backwards;
   }
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
   .author-content-item {
     animation: slide-in 0.6s 0s backwards;
   }

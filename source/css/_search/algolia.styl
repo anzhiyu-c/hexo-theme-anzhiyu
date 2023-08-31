@@ -24,7 +24,8 @@
       .ais-Hits-item
         &:hover
           background: var(--anzhiyu-main)
-          cursor 
+          cursor pointer
+          transition: all .2s;
           a
             color: var(--anzhiyu-white)
       mark
@@ -138,7 +139,10 @@
   font-weight: 600;
   padding: 5px 10px;
   width: 100%;
-  transition: color 0s;
+  transition: all .2s;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
 #algolia-search .search-dialog .ais-Hits-list .search-result-tags a
   padding: 4px 8px;

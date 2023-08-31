@@ -240,6 +240,7 @@
     flex-direction: column;
     z-index: 3
     +minWidth768()
+      --anzhiyu-header-translateY: 0
       animation: post-info-slide-in 0.6s 0.3s backwards;
       transform: scale(var(--anzhiyu-header-info-scale)) translateY(var(--anzhiyu-header-translateY));
       transform-origin: left top
@@ -794,8 +795,8 @@ if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopWave')
 @keyframes showCover
   0%
     opacity: 0;
-    transform: rotate(10deg) translateY(-8%) scale(1.8);
+    transform: rotate(10deg) translateY(-8%) scale(var(--anzhiyu-header-cover-scale));
 
   100%
     opacity: 0.5;
-    transform: rotate(10deg) translateY(-10%) scale(2);
+    transform: rotate(10deg) translateY(-10%) scale(var(--anzhiyu-header-cover-scale));

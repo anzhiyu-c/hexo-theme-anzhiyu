@@ -140,10 +140,15 @@ minWidth1200()
 minWidth2000()
   @media screen and (min-width: 2000px)
     {block}
+maxHeight680()
+  @media screen and (max-height: 680px)
+    {block}
+maxHeight580()
+  @media screen and (max-height: 580px)
+    {block}
 
 .scroll-down-effects
   animation: scroll-down-effect 1.5s infinite
-
 .anzhiyu-spin
   display: inline-block
   transform-origin: 50% 50%;
@@ -352,14 +357,6 @@ if hexo-config('avatar.effect') == true
   entry 100%
     opacity: 1;
     transform: scaleX(1);
-
-  // exit 100%
-  //   opacity: 0.5;
-  //   transform: scaleX(0.9);
-
-  // exit 0%
-  //   opacity: 1;
-  //   transform: scaleX(1);
 
 if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopRollZoomInfo')
   @keyframes header
