@@ -110,3 +110,12 @@ body[data-type="album"] #page .page-title {
     width: calc(100%);
   }
 }
+
+@media (max-width: 768px) {
+  #album .card-album {
+    margin-top: 10px;
+  }
+  #album .card-album .card {
+    padding: 10px 0px;
+  }
+}
