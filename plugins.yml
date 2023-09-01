@@ -7,12 +7,12 @@ instantsearch:
   file: dist/instantsearch.production.min.js
   version: 4.56.5
 docsearch_js:
-  name: '@docsearch/js'
+  name: "@docsearch/js"
   other_name: docsearch-js
   file: dist/umd/index.js
   version: 3.5.1
 docsearch_css:
-  name: '@docsearch/css'
+  name: "@docsearch/css"
   other_name: docsearch-css
   file: dist/style.css
   version: 3.5.1
@@ -195,7 +195,7 @@ pace_js:
 pace_default_css:
   name: anzhiyu-theme-static
   file: progress_bar/progress_bar.css
-  version: 1.0.0
+  version: 1.1.10
 coin_js:
   name: anzhiyu-theme-static
   file: coin/coin.js
