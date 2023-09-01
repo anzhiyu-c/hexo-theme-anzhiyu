@@ -174,7 +174,6 @@
         align-items: center;
         if hexo-config("post_meta.page.date_type") == 'both'
           white-space: nowrap;
-          overflow: hidden;
           text-overflow: ellipsis;
           display: inline-block
           bottom: 0px;
@@ -192,7 +191,10 @@
           align-items: center;
           justify-content: center;
           +maxWidth768()
-            top: -79px;
+            if hexo-config("post_meta.page.date_type") != 'both'
+              top: -93px;
+            else
+              top: -77px;
         .article-meta
           if hexo-config("post_meta.page.date_type") != 'both'
             white-space: nowrap;
