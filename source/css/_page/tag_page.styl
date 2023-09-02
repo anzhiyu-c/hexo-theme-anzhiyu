@@ -158,8 +158,9 @@ body[data-type="tags"],body[data-type="categories"]
         padding: 0px 15px 20px
       .page-title 
         margin: 8px 0 0px
-  #body-wrap .layout
-    padding: 20px 15px
+  +maxWidth768()
+    #body-wrap .layout
+      padding: 0 20px 15px
   #tag #tag-page-tags
     justify-content: center;
     a

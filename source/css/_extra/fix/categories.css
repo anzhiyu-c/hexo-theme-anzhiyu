@@ -9,9 +9,6 @@
   #page:has(#lib-cards):has(#libCategories) h1.page-title {
     margin-bottom: 0;
   }
-  body[data-type="categories"] #body-wrap .layout {
-    padding: 20px 15px;
-  }
   body[data-type="categories"] #body-wrap #category {
     padding: 20px 15px 20px;
   }
