@@ -102,6 +102,28 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 - ✅ 支持 LaTeX 数学公式
 - ✅ 支持 mermaid 流程图
 
+## 部分功能展示
+
+**沉浸式状态栏**
+沉浸阅读。
+![沉浸式状态栏](https://bu.dusays.com/2023/09/02/64f28f1634734.png)
+
+**高低自定义的右键菜单**
+高度定制。
+![高低自定义的右键菜单](https://bu.dusays.com/2023/09/02/64f28f14b1677.png)
+
+**AI摘要**
+迅速读取文章内容。
+![AI摘要](https://bu.dusays.com/2023/09/02/64f28f14a951d.png)
+
+**让人眼前一亮的清爽界面**
+
+![让人眼前一亮的清爽界面](https://bu.dusays.com/2023/09/02/64f28f152eec2.png)
+
+**评论弹幕**
+
+![评论弹幕](https://bu.dusays.com/2023/09/02/64f28f14a7a42.png)
+
 ## 贡献者
 
 [![contributors](https://opencollective.com/hexo-theme-anzhiyu/contributors.svg?width=890&button=false)](https://github.com/anzhiyu-c/hexo-theme-anzhiyu/)

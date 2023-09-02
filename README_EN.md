@@ -101,6 +101,32 @@ Note:
 -✅ supports LaTeX mathematical formula
 -✅ support mermaid flow chart
 
+## Partial function display
+
+**Immersive status bar**
+
+Immerse yourself in reading.
+
+![Immersive status bar](https://bu.dusays.com/2023/09/02/64f28f1634734.png)
+
+**Customized right-click menu**
+
+Highly customized.
+
+![ High and low custom right-click menu](https://bu.dusays.com/2023/09/02/64f28f14b1677.png)
+
+**AI Summary**
+Read articles quickly.
+![AI Summary](https://bu.dusays.com/2023/09/02/64f28f14a951d.png)
+
+**A refreshing interface that makes people shine at the moment**
+
+![A refreshing interface that makes people shine at the moment](https://bu.dusays.com/2023/09/02/64f28f152eec2.png)
+
+**Comment Barrage**
+
+![Comment Barrage](https://bu.dusays.com/2023/09/02/64f28f14a7a42.png)
+
 ## Contributors
 
 [![contributors](https://opencollective.com/hexo-theme-anzhiyu/contributors.svg?width=890&button=false)](https://github.com/anzhiyu-c/hexo-theme-anzhiyu/)
