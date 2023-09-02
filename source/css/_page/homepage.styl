@@ -16,77 +16,56 @@
     border-radius: 12px;
     box-shadow: none;
     transition: all 0.3s ease 0s;
+    .recent-post-info-top-tips
+      display: flex;
+      margin-top: 20px;
+
     .unvisited-post 
-      display: none
+      display: flex;
       color: var(--anzhiyu-secondtext);
-      font-size: 0.5rem;
-      if hexo-config('post_meta.post.unread') 
-        display: flex
-      if hexo-config('cover.index_enable') 
-        position: fixed;
-        if hexo-config('article_double_row') == true
-          top: 235px;
-          left: 32px
-        else 
-          left: calc(44% + 30px);
-          top: 32.5px
-      else 
-        position: absolute;
-        left: 32px;
-        top: 10px;
+      font-size: .5rem;
+      position: relative;
       &:visited
         color: var(--anzhiyu-card-bg);
     .recent-post-info
       margin-top: 0px;
       position: relative;
-      .newPost 
-        display: flex;
-        color: var(--anzhiyu-lighttext);
-        font-size: 0.5rem;
-        margin-right: 8px;
-        top: 10px;
-        left: 32px
-        +maxWidth768()
-          top: 2px;
-        if hexo-config('cover.index_enable') 
-          position: absolute;
-        else 
-          position: fixed;
-      .article-title
-        font-weight: bold;
-    if hexo-config('cover.index_enable') 
-      .article-meta__categories__box
-        position: absolute;
-        top: 15px;
-        left: 11px;
-        z-index: 1;
-        max-width: 100%;
-        display: flex;
-        .article-meta__categories
-          display: inline-block
-          padding: 1px 6px;
-          background: var(--anzhiyu-black-op);
-          border-radius: 8px;
-          margin-left: 4px;
-          font-size: 12px;
-          font-weight: 700;
-          color: var(--anzhiyu-white);
-          backdrop-filter: saturate(180%) blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          transform: translateZ(0);
-          &:hover 
-            background: var(--anzhiyu-main);
-    else 
-      .article-meta__categories__box
-        display: flex;
-        color: var(--anzhiyu-secondtext);
-        font-size: 0.5rem;
-        position: absolute;
-        left: 32px;
-        top: 10px;
-        opacity: .8;
-        .article-meta__categories
+      .recent-post-info-top
+        position: relative;
+        transition: .3s;
+        padding: 0 32px;
+        width: 100%;
+        .article-categories-original
+          display: flex;
+          color: var(--anzhiyu-secondtext);
+          font-size: .5rem;
+          position: relative;
           margin-right: 8px;
+        .newPost 
+          display: flex;
+          color: var(--anzhiyu-secondtext);
+          font-size: .5rem;
+          position: relative;
+          margin-right: 8px;
+      .article-title
+        font-size: 20px;
+        -webkit-line-clamp: 2;
+        line-height: 30px;
+        margin-top: 0;
+        font-weight: 700;
+        color: var(--anzhiyu-fontcolor);
+        margin-bottom: 0;
+        width: 100%;
+        transition: .3s;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+
+        +maxWidth768()
+          if hexo-config("post_meta.page.date_type") == 'both'
+            // -webkit-line-clamp: 1 !important;
+            line-height: 23px;
+          font-size: 19px;
 
     +maxWidth768()
       flex-direction: column
@@ -106,7 +85,7 @@
 
     .post_cover
       overflow: hidden
-      width: 44%
+      width: 70%
       height: 200px;
 
       +maxWidth768()
@@ -126,14 +105,23 @@
         +maxWidth768()
           order: 0
     & >.recent-post-info
-      width: 57%
-      height: 155px;
+      height: 174px;
+      width: 100%;
       cursor: pointer;
       position: relative;
       padding: 0;
       display: inline-block;
       overflow: hidden;
+      .sticky-warp
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px
 
+        .sticky
+          color: $sticky-color
+          font-size: 12px;
       +maxWidth768()
         width: 100%
         min-height: 140px;
@@ -142,81 +130,51 @@
 
         +maxWidth768()
           padding: 30px 20px
-
-      & > .article-title
-        margin: 0 !important;
-        padding: 0 32px;
-        position: absolute;
-        top: 35px;
-        @extend .limit-more-line
-        color: var(--text-highlight-color)
-        font-size: 1.3em
-        line-height: 1.4
-        transition: all .2s ease-in-out
-        -webkit-line-clamp: 2 !important
-        +maxWidth768()
-          if hexo-config("post_meta.page.date_type") == 'both'
-            -webkit-line-clamp: 1 !important;
-          top: 20px
         &:hover
           color: $text-hover
 
       & > .article-meta-wrap
-        color: $theme-meta-color
-        font-size: 90%
-        
-        flex-direction: row-reverse;
-        justify-content: space-between;
+        color: var(--anzhiyu-fontcolor);
+        font-size: .7rem;
         position: absolute;
-        
         padding: 0 32px;
-        width 100%
-        align-items: center;
+        transition: .3s;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+        left: 0;
+
         if hexo-config("post_meta.page.date_type") == 'both'
+          flex-direction: column;
           white-space: nowrap;
           text-overflow: ellipsis;
-          display: inline-block
           bottom: 0px;
           +maxWidth768()
             bottom: 20px;
         else 
-          display: flex;
+          flex-direction: row-reverse
+          align-items: center
           bottom: 30px;
-        .sticky-warp
-          position: absolute;
-          top: -85.6px;
-          left: 32px;
-          line-height: 23px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          +maxWidth768()
-            if hexo-config("post_meta.page.date_type") != 'both'
-              top: -93px;
-            else
-              top: -77px;
         .article-meta
           if hexo-config("post_meta.page.date_type") != 'both'
+            margin: 0 8px 0 0;
             white-space: nowrap;
             overflow: hidden;
+            display: inline-block;
             text-overflow: ellipsis;
 
         & > .post-meta-date
           color: var(--anzhiyu-fontcolor);
           font-size: .875rem;
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          if hexo-config("post_meta.page.date_type") != 'both'
-            white-space: nowrap;
+          white-space: nowrap;
+          if hexo-config("post_meta.page.date_type") == 'both'
             overflow: hidden;
+            display: inline-block;
             text-overflow: ellipsis;
+          
           +maxWidth500()
             font-size: 13px
-
-        .sticky
-          color: $sticky-color
-          font-size: 12px;
 
         i
           margin: 0 4px 0 0
@@ -298,10 +256,6 @@ if hexo-config('article_double_row') == true
     opacity: 0;
     height: 0;
   +maxWidth1200()
-    #recent-posts > .recent-post-item .unvisited-post
-      top: 32px;
-      left: calc(44% + 32px);
-      width: 24px;
     #recent-posts > .recent-post-item >.recent-post-info > .article-title
       line-height: 30px;
       font-weight: bold;
@@ -332,8 +286,6 @@ if hexo-config('article_double_row') == true
         .recent-post-info
           .content
             display: none
-          .article-title
-            font-size: 1.72em
         .post_cover
           width: 100%
           height: 225px
@@ -354,16 +306,6 @@ if hexo-config('article_double_row') == true
           border-radius: 8px 8px 0 0
 
         height: auto !important
-
-        .recent-post-info
-          width 100%
-          >.article-title
-            -webkit-line-clamp: 1
-            margin-top: .3rem
-            margin-bottom: .3rem
-            color: var(--text-highlight-color)
-            font-size: 1.2em
-            line-height: 1.4
 
     @media screen and (max-width:768px)
       #recent-posts>.recent-post-item
@@ -463,26 +405,3 @@ body[data-type="post"]
     &.popup-hide
       opacity: 0;
       animation: toRightFull .6s cubic-bezier(.42,0,.3,1.11);
-+maxWidth1200()
-  #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
-    left: calc(44% + 86px) !important;
-    top: 32px;
-  #recent-posts > .recent-post-item&:has(.sticky-warp) .unvisited-post
-    left: calc(44% + 80px) !important;
-    top: 32px;
-  #recent-posts > .recent-post-item&:has(.sticky-warp)&:has(.newPost) .unvisited-post
-    left: calc(44% + 130px) !important;
-    top: 32px;
-+maxWidth768()
-  #recent-posts > .recent-post-item&:has(.newPost) .unvisited-post
-    left: 86px !important;
-    top: 202px !important;
-  #recent-posts > .recent-post-item&:has(.sticky-warp) .unvisited-post
-    left: 82px !important;
-    top: 202px !important;
-  #recent-posts > .recent-post-item&:has(.sticky-warp)&:has(.newPost) .unvisited-post
-    left: 135px !important;
-    top: 202px !important;
-  #recent-posts > .recent-post-item .unvisited-post
-    top: 202px;
-    left: 32px;
