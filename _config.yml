@@ -276,7 +276,7 @@ related_post:
 photofigcaption: false
 
 # post_pagination (分页)
-# value: 1 || 2 || 3 || false
+# value: 1 || 2 || 3 || 4 || false
 # 1: The 'next post' will link to old post
 # 2: The 'next post' will link to new post
 # 3: 只有下一篇，并且只在文章滚动到评论区时显示下一篇文章(旧文章)
