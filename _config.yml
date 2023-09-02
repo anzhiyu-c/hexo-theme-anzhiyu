@@ -1056,7 +1056,7 @@ friends_vue:
   apiurl: # 朋友圈后端地址
   top_background:
 
-# 黑色模式粒子效果canvas
+# 深色模式粒子效果canvas
 universe:
   enable: true
 
