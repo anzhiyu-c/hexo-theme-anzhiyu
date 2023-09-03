@@ -5,11 +5,14 @@ if home_top_config.enable
     .swiper_container_card(style='height: auto;width: 100%')
       #bannerGroup
         #random-banner
-          .banners-title
-            .banners-title-big=title
-            .banners-title-big=subTitle
-            .banners-title-small=siteText
-          include ../anzhiyu/tags-group-all.pug
+          if theme.peoplecanvas.enable
+            canvas#peoplecanvas
+          else 
+            .banners-title
+              .banners-title-big=title
+              .banners-title-big=subTitle
+              .banners-title-small=siteText
+            include ../anzhiyu/tags-group-all.pug
 
           a#random-hover(href='javascript:toRandomPost()')
             i.anzhiyufont.anzhiyu-icon-paper-plane

@@ -287,10 +287,9 @@ if site.data.about
 
 
     script(src=url_for(theme.asset.countup_js))
-    script(src=url_for(theme.asset.gsap_js))
     - const ck = theme.LA.ck
     script(defer).
-      (() => {
+      function initAboutPage() {
         fetch("https://v6-widget.51.la/v6/#{ck}/quote.js")
           .then(res => res.text())
           .then(data => {
@@ -423,4 +422,9 @@ if site.data.about
             stagger: -0.1,
           });
         });
-      })();
+      }
+      if (typeof gsap === "object") {
+        initAboutPage()
+      } else {
+        getScript("!{url_for(theme.asset.gsap_js)}").then(initAboutPage);
+      }

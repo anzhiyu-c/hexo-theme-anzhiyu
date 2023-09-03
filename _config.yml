@@ -1186,6 +1186,11 @@ agreementPopup:
 rightClickMenu:
   enable: false
 
+# 首页随便逛逛people模式 而非技能点模式，关闭后为技能点模式需要配置creativity.yml
+peoplecanvas:
+  enable: true
+  img: https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png
+
 # 动效
 dynamicEffect:
   postTopWave: true # 文章顶部波浪效果
@@ -1233,6 +1238,7 @@ CDN:
     # right_click_menu_js:
     # comment_barrage_js:
     # ai_abstract_js:
+    # people_js:
     # local_search:
     # algolia_js:
     # algolia_search:

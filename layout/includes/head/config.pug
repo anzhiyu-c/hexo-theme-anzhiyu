@@ -154,9 +154,15 @@
     linkPageTop = JSON.stringify(theme.linkPageTop)
   }
 
+  let peoplecanvas = 'undefined'
+  if (theme.peoplecanvas && theme.peoplecanvas.enable) {
+    peoplecanvas = JSON.stringify(theme.peoplecanvas)
+  }
+
 script.
   const GLOBAL_CONFIG = {
     linkPageTop: !{linkPageTop},
+    peoplecanvas: !{peoplecanvas},
     postHeadAiDescription: !{postHeadAiDescription},
     diytitle: !{diytitle},
     LA51: !{LA51},

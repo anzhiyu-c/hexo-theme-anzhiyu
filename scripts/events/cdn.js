@@ -59,6 +59,11 @@ hexo.extend.filter.register("before_generate", () => {
       file: "js/anzhiyu/ai_abstract.js",
       version,
     },
+    people_js: {
+      name: "hexo-theme-anzhiyu",
+      file: "js/anzhiyu/people.js",
+      version,
+    },
   };
 
   const minFile = file => {
