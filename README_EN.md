@@ -107,25 +107,25 @@ Note:
 
 Immerse yourself in reading.
 
-![Immersive status bar](https://bu.dusays.com/2023/09/02/64f28f1634734.png)
+![Immersive status bar](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3bc088e73d07b4dc25fc62fa4cf63261_4205905123525229755.png)
 
 **Customized right-click menu**
 
 Highly customized.
 
-![ High and low custom right-click menu](https://bu.dusays.com/2023/09/02/64f28f14b1677.png)
+![ High and low custom right-click menu](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3f66e33b24a758d53717f6c2c44e50af_1884994888952376370.png)
 
 **AI Summary**
 Read articles quickly.
-![AI Summary](https://bu.dusays.com/2023/09/02/64f28f14a951d.png)
+![AI Summary](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/184e089d64660f5f72390f547c864633_3266246986824356702.png)
 
 **A refreshing interface that makes people shine at the moment**
 
-![A refreshing interface that makes people shine at the moment](https://bu.dusays.com/2023/09/02/64f28f152eec2.png)
+![A refreshing interface that makes people shine at the moment](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/8a16284fd36a9e986d5dbda772f697d0_1356079755877317976.png)
 
 **Comment Barrage**
 
-![Comment Barrage](https://bu.dusays.com/2023/09/02/64f28f14a7a42.png)
+![Comment Barrage](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/628aef1dbf52b61c0333682e8ee9954e_6905019516821534667.png)
 
 ## Contributors
 

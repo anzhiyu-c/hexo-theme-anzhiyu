@@ -106,23 +106,23 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 
 **沉浸式状态栏**
 沉浸阅读。
-![沉浸式状态栏](https://bu.dusays.com/2023/09/02/64f28f1634734.png)
+![沉浸式状态栏](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3bc088e73d07b4dc25fc62fa4cf63261_4205905123525229755.png)
 
 **高低自定义的右键菜单**
 高度定制。
-![高低自定义的右键菜单](https://bu.dusays.com/2023/09/02/64f28f14b1677.png)
+![高低自定义的右键菜单](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3f66e33b24a758d53717f6c2c44e50af_1884994888952376370.png)
 
 **AI摘要**
 迅速读取文章内容。
-![AI摘要](https://bu.dusays.com/2023/09/02/64f28f14a951d.png)
+![AI摘要](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/184e089d64660f5f72390f547c864633_3266246986824356702.png)
 
 **让人眼前一亮的清爽界面**
 
-![让人眼前一亮的清爽界面](https://bu.dusays.com/2023/09/02/64f28f152eec2.png)
+![让人眼前一亮的清爽界面](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/8a16284fd36a9e986d5dbda772f697d0_1356079755877317976.png)
 
 **评论弹幕**
 
-![评论弹幕](https://bu.dusays.com/2023/09/02/64f28f14a7a42.png)
+![评论弹幕](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/628aef1dbf52b61c0333682e8ee9954e_6905019516821534667.png)
 
 ## 贡献者
 
