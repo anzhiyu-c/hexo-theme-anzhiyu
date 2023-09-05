@@ -22,7 +22,9 @@
 
   .pagination-info
     position: absolute
-    if hexo-config("post_pagination") != '3' && hexo-config("post_pagination") != '4'
+    if hexo-config("post_pagination") == '3' && hexo-config("post_pagination") == '4'
+      top: auto
+    else
       top: 50%
     padding: 20px 40px
     width: 100%
@@ -61,92 +63,92 @@
       overflow: hidden
       height: 150px
 
-  if hexo-config("post_pagination") == '3' || hexo-config("post_pagination") == '4'
-    &.pagination-post
-      position: fixed;
-      width: 300px;
-      bottom: -100px;
-      right: 60px;
-      z-index: 1000;
-      height: fit-content;
-      transition: cubic-bezier(.42,0,.3,1.11) .3s;
-      border: var(--style-border);
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 0;
-      z-index: 1002;
-      background: 0 0;
-      border-radius: 10px;
-      .prev-post.pull-left
-        display: none
-      &:hover
-        border: var(--style-border-hover);
-        .next-post > a,
-        .prev-post > a
-          background: var(--anzhiyu-main);
+  &.pagination-post
+    overflow: hidden
+    margin-top: 1.25rem
+    width: 100%
+    background: $dark-black
+    border-radius: 10px;
+    if hexo-config("post_pagination") == '3' || hexo-config("post_pagination") == '4'
+      +minWidth1200()
+        position: fixed;
+        width: 300px;
+        bottom: -100px;
+        right: 60px;
+        z-index: 1000;
+        height: fit-content;
+        transition: cubic-bezier(.42,0,.3,1.11) .3s;
+        border: var(--style-border);
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 1002;
+        background: 0 0;
+        border-radius: 10px;
+        .prev-post.pull-left
+          display: none
+        &:hover
+          border: var(--style-border-hover);
+          .next-post > a,
+          .prev-post > a
+            background: var(--anzhiyu-main);
+            .pagination-info
+              .label,
+              .next_info,
+              .prev_info
+                color: var(--anzhiyu-white)
+        &.show-window
+          bottom: 20px;
+          opacity: 1;
+        .prev-post.pull-left,
+        .prev-post.pull-full,
+        .next-post.pull-right,
+        .next-post.pull-full
+          background: var(--anzhiyu-maskbgdeep);
+          backdrop-filter: blur(5px);
+          transform: translateZ(0);
+          width: 100%;
+          > a
+            border: none;
+            height: fit-content;
+            padding: 0.5rem 0;
+          img 
+            if hexo-config("post_pagination") == '3'
+              display: none
+            top: 0;
           .pagination-info
-            .label,
+            text-align: left;
+            position: relative;
+            padding: 0.5rem 1rem;
+            transform: none;
+            display: flex;
+            top: 0;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+            height: 100%;
+            .label
+              color: var(--anzhiyu-fontcolor);
+              font-weight: 700;
+              font-size: 12px;
+              margin-bottom: 0.5rem;
+              border-bottom: var(--style-border);
+              line-height: 1;
+              padding-bottom: 0.5rem;
             .next_info,
             .prev_info
-              color: var(--anzhiyu-white)
-      &.show-window
-        bottom: 20px;
-        opacity: 1;
-      .prev-post.pull-left,
-      .prev-post.pull-full,
-      .next-post.pull-right,
-      .next-post.pull-full
-        background: var(--anzhiyu-maskbgdeep);
-        backdrop-filter: blur(5px);
-        transform: translateZ(0);
-        width: 100%;
-        > a
-          border: none;
-          height: fit-content;
-          padding: 0.5rem 0;
-        img 
-          if hexo-config("post_pagination") == '3'
-            display: none
-          top: 0;
-        .pagination-info
-          text-align: left;
-          position: relative;
-          padding: 0.5rem 1rem;
-          transform: none;
-          display: flex;
-          top: 0;
-          flex-direction: column;
-          justify-content: center;
-          margin: auto;
-          height: 100%;
-          .label
-            color: var(--anzhiyu-fontcolor);
-            font-weight: 700;
-            font-size: 12px;
-            margin-bottom: 0.5rem;
-            border-bottom: var(--style-border);
-            line-height: 1;
-            padding-bottom: 0.5rem;
-          .next_info,
-          .prev_info
-            color: var(--anzhiyu-fontcolor);
-            -webkit-line-clamp: 2;
-            white-space: normal;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            font-size: 14px;
-            font-weight: 400;
-            margin-bottom: 0;
-  else 
-    &.pagination-post
-      overflow: hidden
-      margin-top: 40px
-      width: 100%
-      background: $dark-black
-      border-radius: 10px;
+              color: var(--anzhiyu-fontcolor);
+              -webkit-line-clamp: 2;
+              white-space: normal;
+              line-height: 1.3;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              font-size: 14px;
+              font-weight: 400;
+              margin-bottom: 0;
+    
   +maxWidth768()
     .toPageGroup
       display: none
