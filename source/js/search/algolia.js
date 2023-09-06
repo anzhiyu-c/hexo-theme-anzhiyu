@@ -3,9 +3,6 @@ window.addEventListener("load", () => {
   const $searchDialog = document.querySelector("#algolia-search .search-dialog");
 
   const openSearch = () => {
-    const bodyStyle = document.body.style;
-    bodyStyle.width = "100%";
-    bodyStyle.overflow = "hidden";
     anzhiyu.animateIn($searchMask, "to_show 0.5s");
     $searchDialog.style.display = "block";
     setTimeout(() => {
@@ -47,9 +44,6 @@ window.addEventListener("load", () => {
   }
 
   const closeSearch = () => {
-    const bodyStyle = document.body.style;
-    bodyStyle.width = "";
-    bodyStyle.overflow = "";
     anzhiyu.animateOut($searchDialog, "search_close .5s");
     anzhiyu.animateOut($searchMask, "to_hide 0.5s");
     window.removeEventListener("resize", fixSafariHeight);
