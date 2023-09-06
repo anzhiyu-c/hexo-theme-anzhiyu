@@ -1,4 +1,6 @@
 if hexo-config('comments.use') == 'Twikoo'
+  .OwO .OwO-body
+    min-width: 31.25rem
   /* 评论区表情放大 */
   @keyframes owoIn
     0% {
@@ -417,14 +419,14 @@ if hexo-config('comments.use') == 'Twikoo'
   }
 
   .tk-comments .tk-row-actions-start {
-    position: relative;
+    position: absolute;
     top: -84px;
     left: 17px;
   }
 
   @media screen and (max-width: 768px) {
     .OwO .OwO-body {
-      width: 260px;
+      min-width: 260px;
     }
     .tk-comments .tk-row-actions-start {
       top: -176px;
