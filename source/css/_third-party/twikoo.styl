@@ -1,6 +1,8 @@
 if hexo-config('comments.use') == 'Twikoo'
   .OwO .OwO-body
     min-width: 31.25rem
+  .twikoo svg
+    color: var(--anzhiyu-fontcolor);
   /* 评论区表情放大 */
   @keyframes owoIn
     0% {
@@ -39,140 +41,141 @@ if hexo-config('comments.use') == 'Twikoo'
     background-color: var(--anzhiyu-card-bg);
 
   #twikoo 
-    .OwO .OwO-body
-      border: var(--style-border-always) !important;
-      border-radius: 8px !important;
-      overflow: hidden;
-      background-color: var(--anzhiyu-maskbg) !important;
-      backdrop-filter: saturate(180%) blur(10px);
-      cursor: auto;
-      top: 2.1em !important;
-      transform: translateZ(0);
-      animation: .3s ease .1s 1 normal both running donate_effcet;
-      .OwO-items-show
-        margin: 12px 8px;
-    button.el-button.tk-cancel.el-button--default.el-button--small
-      background: var(--anzhiyu-secondbg);
-      border-radius: 8px;
-      color: var(--anzhiyu-fontcolor);
-      &:hover
-        background: var(--anzhiyu-lighttext);
-        color: var(--anzhiyu-white);
-    .tk-comments a.tk-submit-action-icon.__markdown
-      display: none;
-    &>div.tk-comments>div.tk-submit>div.tk-row.actions>a
-      display: none
-    .el-button.tk-preview
-      display: none;
-    .tk-comments .el-button--primary.is-disabled, .tk-comments .el-button--primary.is-disabled:active, .tk-comments .el-button--primary.is-disabled:focus, .tk-comments .el-button--primary.is-disabled:hover
-      opacity .2
-    .tk-comments .el-button--primary
-      border-color: var(--anzhiyu-fontcolor);
-      color: var(--anzhiyu-card-bg);
-      border-radius: 12px;
-      box-shadow: var(--anzhiyu-shadow-black);
-      transition: .3s;
-      width: 6.25rem;
-      position: absolute;
-      top: -43px;
-      right: 0;
-      margin-left: 0.5rem!important;
-      height: 32px;
-    .tk-input 
-      .el-textarea__inner
-        min-height: 130px !important;
-        border-radius: 15px;
-        display: block;
-        resize: vertical;
-        padding: 16px 16px 40px 16px;
-        line-height: 1.5;
-        box-sizing: border-box;
-        width: 100%;
-        font-size: inherit;
-        color: #606266;
-        background-color: var(--anzhiyu-secondbg);
-        border: var(--style-border-always);
-        transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-    .el-input__inner
-      background: var(--anzhiyu-secondbg)!important;
-      border: none!important;
-      color: var(--anzhiyu-fontcolor)!important;
-      padding-left: 8px;
-    .el-input__inner:focus
-      border: none;
-    .el-input-group__append, .el-input-group__prepend
-      background-color: var(--anzhiyu-card-bg);
-      color: var(--anzhiyu-fontcolor);
-      border-color: var(--anzhiyu-card-border);
-      border: none;
-      font-weight: 700;
-    .el-input-group--prepend .el-input__inner, .el-input-group__append
-      border-radius: 12px;
-    .el-input--small .el-input__inner
-      padding: 8px;
-      padding-left: 16px;
-    .el-input-group--prepend .el-input__inner, .el-input-group__append
-      border-left-width: 0 !important;
-
-    .tk-meta-input
-      position: relative;
-      margin-top: 8px;
-      width: calc(100% - 6.875rem);
-      .el-input.el-input--small.el-input-group.el-input-group--prepend
-        border-radius: 12px;
+    .tk-comments
+      .OwO .OwO-body
+        border: var(--style-border-always) !important;
+        border-radius: 8px !important;
+        overflow: hidden;
+        background-color: var(--anzhiyu-maskbg) !important;
+        backdrop-filter: saturate(180%) blur(10px);
+        cursor: auto;
+        top: 2.1em !important;
+        transform: translateZ(0);
+        animation: .3s ease .1s 1 normal both running donate_effcet;
+        .OwO-items-show
+          margin: 12px 8px;
+      button.el-button.tk-cancel.el-button--default.el-button--small
         background: var(--anzhiyu-secondbg);
-        border: var(--style-border-always);
-      .el-input .el-input-group__prepend
-        user-select: none;
-        border-radius: 10px 0 0 10px;
-
-    .tk-row 
-      .tk-avatar
+        border-radius: 8px;
+        color: var(--anzhiyu-fontcolor);
+        &:hover
+          background: var(--anzhiyu-lighttext);
+          color: var(--anzhiyu-white);
+      a.tk-submit-action-icon.__markdown
+        display: none;
+      &>div.tk-submit>div.tk-row.actions>a
         display: none
-      .tk-col
-        flex-direction: column-reverse;
-      &.actions
-        margin-bottom: 0;
-        margin-left: 0;
-        margin-top: 0;
-        justify-content: space-around;
-    .tk-admin
-      backdrop-filter: blur(5px);
-    .el-button
-      background-color: var(--anzhiyu-fontcolor);
-      border: 0 solid var(--anzhiyu-main);
-      color: var(--anzhiyu-background);
-    .tk-tag-green
-      background-color: var(--anzhiyu-main);
-      border: none;
-      border-radius: 4px;
-      color: var(--anzhiyu-white);
-    .tk-action-icon
-      color: var(--anzhiyu-main)
-      cursor pointer
-    .tk-icon.__comments
-      color: var(--anzhiyu-main)
-    .tk-actions
-      a
-       cursor pointer
-    .tk-nick
-      line-height: 40px;
-    .tk-extras
-      margin-top: .5rem;
-      padding-bottom: .5rem;
-    .tk-expand
-      &:hover
-        color: #fff;
-        background-color: var(--anzhiyu-main);
-        border: var(--style-border-none);
+      .el-button.tk-preview
+        display: none;
+      .el-button--primary.is-disabled, .el-button--primary.is-disabled:active, .el-button--primary.is-disabled:focus, .el-button--primary.is-disabled:hover
+        opacity .2
+      .el-button--primary
+        border-color: var(--anzhiyu-fontcolor);
+        color: var(--anzhiyu-card-bg);
+        border-radius: 12px;
+        box-shadow: var(--anzhiyu-shadow-black);
+        transition: .3s;
+        width: 6.25rem;
+        position: absolute;
+        top: -43px;
+        right: 0;
+        margin-left: 0.5rem!important;
+        height: 32px;
+      .tk-input 
+        .el-textarea__inner
+          min-height: 130px !important;
+          border-radius: 15px;
+          display: block;
+          resize: vertical;
+          padding: 16px 16px 40px 16px;
+          line-height: 1.5;
+          box-sizing: border-box;
+          width: 100%;
+          font-size: inherit;
+          color: var(--anzhiyu-fontcolor);
+          background-color: var(--anzhiyu-secondbg);
+          border: var(--style-border-always);
+          transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    .tk-content 
-      p
-        margin: 0;
-    .tk-admin-config-input 
       .el-input__inner
-        background: transparent !important;
+        background: var(--anzhiyu-secondbg)!important;
+        border: none!important;
+        color: var(--anzhiyu-fontcolor)!important;
+        padding-left: 8px;
+      .el-input__inner:focus
+        border: none;
+      .el-input-group__append, .el-input-group__prepend
+        background-color: var(--anzhiyu-card-bg);
+        color: var(--anzhiyu-fontcolor);
+        border-color: var(--anzhiyu-card-border);
+        border: none;
+        font-weight: 700;
+      .el-input-group--prepend .el-input__inner, .el-input-group__append
+        border-radius: 12px;
+      .el-input--small .el-input__inner
+        padding: 8px;
+        padding-left: 16px;
+      .el-input-group--prepend .el-input__inner, .el-input-group__append
+        border-left-width: 0 !important;
+
+      .tk-meta-input
+        position: relative;
+        margin-top: 8px;
+        width: calc(100% - 6.875rem);
+        .el-input.el-input--small.el-input-group.el-input-group--prepend
+          border-radius: 12px;
+          background: var(--anzhiyu-secondbg);
+          border: var(--style-border-always);
+        .el-input .el-input-group__prepend
+          user-select: none;
+          border-radius: 10px 0 0 10px;
+
+      .tk-row 
+        .tk-avatar
+          display: none
+        .tk-col
+          flex-direction: column-reverse;
+        &.actions
+          margin-bottom: 0;
+          margin-left: 0;
+          margin-top: 0;
+          justify-content: space-around;
+      .tk-admin
+        backdrop-filter: blur(5px);
+      .el-button
+        background-color: var(--anzhiyu-fontcolor);
+        border: 0 solid var(--anzhiyu-main);
+        color: var(--anzhiyu-background);
+      .tk-tag-green
+        background-color: var(--anzhiyu-main);
+        border: none;
+        border-radius: 4px;
+        color: var(--anzhiyu-white);
+      .tk-action-icon
+        color: var(--anzhiyu-main)
+        cursor pointer
+      .tk-icon.__comments
+        color: var(--anzhiyu-main)
+      .tk-actions
+        a
+        cursor pointer
+      .tk-nick
+        line-height: 40px;
+      .tk-extras
+        margin-top: .5rem;
+        padding-bottom: .5rem;
+      .tk-expand
+        &:hover
+          color: #fff;
+          background-color: var(--anzhiyu-main);
+          border: var(--style-border-none);
+
+      .tk-content 
+        p
+          margin: 0;
+      .tk-admin-config-input 
+        .el-input__inner
+          background: transparent !important;
     pre code
       background: none;
     code
