@@ -128,7 +128,9 @@ if hexo-config('comments.use') == 'Twikoo'
           border: var(--style-border-always);
         .el-input .el-input-group__prepend
           user-select: none;
-          border-radius: 10px 0 0 10px;
+          border-radius: 12px 0 0 12px;
+        .el-input--small.el-input-group.el-input-group--prepend:focus-within
+          border: var(--style-border-hover);
 
       .tk-row 
         .tk-avatar
