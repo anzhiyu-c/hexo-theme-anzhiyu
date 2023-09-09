@@ -1,0 +1,108 @@
+.bilibili_box
+  display: flex
+  background: var(--card-bg)
+  border: var(--style-border)
+  border-radius: 12px !important
+  overflow: hidden
+  color: var(--font-color) !important
+  text-decoration: none !important
+  transition: .3s
+  border-bottom: var(--style-border) !important
+  padding: 0 !important
+  height 143px
+  &:hover
+    border-color: var(--anzhiyu-main) !important
+    color: var(--anzhiyu-white) !important
+    .bilibili_info .stat svg path
+      fill: var(--anzhiyu-white) !important
+  +maxWidth768()
+    flex-direction: column
+  .bilibili_cover
+    width: 234px
+    position relative
+    +maxWidth768()
+      width: 100%
+    img
+      width: 100%
+      filter: none
+      margin: 0 !important
+      border-radius: 0 !important
+    .play_icon
+      position: absolute
+      width 45px
+      height 45px
+      opacity .8
+      top: 50%
+      left 50%
+      transform: translate(-50%,-50%)
+    span 
+      position: absolute
+      bottom: 0px
+      right: 5px
+      color: var(--anzhiyu-white)
+  .bilibili_info
+    padding: 10px 10px 10px 18px
+    line-height: 1
+    width: calc(100% - 200px)
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    +maxWidth768()
+      width: 100%
+      padding-bottom: 25px
+      line-height: 1.5
+    .title 
+      font-size: 1.2rem
+      font-weight: bold
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      line-height: 1.5
+    .desc 
+      font-size: 15px
+      margin: 2px 0 4px
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      +maxWidth768()
+        white-space: normal
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2; 
+    .stat 
+      font-size: 15px
+      svg
+        margin-right: 3px
+        font-size: 18px
+        width: 1em
+        height: 1em
+        path
+          fill: var(--font-color)
+      span
+        margin-right: 10px
+        display: inline-flex
+        align-items: center
+    .owner 
+      display: flex
+      align-items: center
+      line-height: 1
+      font-size: 15px
+      .tip
+        color: #f69
+        border: 1px solid
+        padding: 3px 6px
+        font-size: 12px
+        border-radius: 5px
+        margin: 0 10px 0 0
+        background: none;
+        box-shadow: none;
+      img
+        width 22px
+        height: 22px
+        border-radius: 50% !important
+        object-fit: cover
+        margin 0 5px 0 0 !important
+
+[data-theme='light'] .bilibili_box .bilibili_info .stat svg,
+[data-theme='dark'] .bilibili_cover
+  opacity .8
