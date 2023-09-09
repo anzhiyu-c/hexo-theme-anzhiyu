@@ -730,29 +730,30 @@ if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopWave')
       height: 100%;
       display: flex;
     span.post-meta-categories
-      background: var(--anzhiyu-white-op);
       color: var(--anzhiyu-white);
-      padding: 0 0.7rem;
+      
       font-size: 0.9rem;
       margin: auto;
-      border-radius: 8px;
       font-weight: bold;
       height: 32px;
       line-height: 32px;
       width: 100%;
       height: 100%;
       display: flex;
-      margin-left: .4rem
       i 
        display: none
 
       a.post-meta-categories
+        border-radius: 8px;
+        padding: 0 0.7rem;
+        background: var(--anzhiyu-white-op);
         color: var(--anzhiyu-white);
         font-size: 0.9rem;
         width: 100%;
         height: 100%;
         font-weight: bold;
         display: flex;
+        margin-left: .4rem
     .article-meta.tags
       margin-left: 1.2rem;
       +maxWidth768()
