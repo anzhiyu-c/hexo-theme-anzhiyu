@@ -8,7 +8,7 @@ if site.data.essay
               each i in site.data.essay
                 each item, index in i.essay_list
                   if index < 10
-                    - var contentText = item.image ? item.content + ' [图片]' : item.content
+                    - var contentText = item.image ? item.content + ' [图片]' : (item.video ? item.content + ' [视频]' : item.content)
                     .li-style.swiper-slide= contentText
           i.bber-gotobb.anzhiyufont.anzhiyu-icon-circle-arrow-right( onclick=`pjax.loadUrl("/essay/")`,title="查看全文")
 
