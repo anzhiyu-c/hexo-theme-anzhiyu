@@ -138,10 +138,10 @@ if site.data.about
       
       .author-content
         .author-content-item.personalities
-          - let {author_name, personality_type, photo_url, personality_img, name_url} = item.personalities
+          - let {author_name, personality_type, photo_url, personality_img, name_url, personality_type_color} = item.personalities
           .author-content-item-tips 性格
           span.author-content-item-title= author_name
-          .title2(style='color:#ac899c')= personality_type
+          .title2(style=`color:${personality_type_color ? personality_type_color : "#ac899c"}`)= personality_type
           .post-tips
             | 在 
             a(href='https://www.16personalities.com/', target='_blank', rel='noopener nofollow') 16personalities
