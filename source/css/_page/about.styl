@@ -32,6 +32,8 @@ body[data-type='about'] #web_bg {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      +maxWidth768()
+        display: none
       .author-tag:first-child, 
       .author-tag:last-child
         margin-right: -16px
@@ -39,6 +41,8 @@ body[data-type='about'] #web_bg {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      +maxWidth768()
+        display: none
       .author-tag:first-child, 
       .author-tag:last-child
         margin-left: -16px
@@ -71,6 +75,17 @@ body[data-type='about'] #web_bg {
       background: var(--anzhiyu-secondbg);
       user-select: none;
       transition: .3s;
+      +maxWidth768()
+        width: 120px;
+        height: 120px;
+      img
+        border-radius: 50%;
+        overflow: hidden;
+        width: 180px;
+        height: 180px;
+        +maxWidth768()
+          width: 120px;
+          height: 120px;
       &:hover
         transform: scale(1.1);
       &:before
@@ -85,13 +100,9 @@ body[data-type='about'] #web_bg {
         bottom: 5px;
         right: 10px;
         z-index: 2;
-
-#about-page .author-box .author-img img {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 180px;
-  height: 180px;
-}
+        +maxWidth768()
+          bottom: -5px;
+          right: -5px;
 
 .author-content {
   display: flex;
