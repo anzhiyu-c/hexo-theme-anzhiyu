@@ -122,4 +122,48 @@
                   else
                     img.cf-friends-avatar.no-lightbox(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt='cover' )
                   span.flink-sitename.cf-friends-name= item.name
+                  
+        else if i.flink_style === 'member'
+          .links-friends
+            each item in i.link_list
+              - let tag = item.tag || ""
+              - let genre = item.genre || ""
+              - let data = item.data || ""
+
+              - let playerBgSrc = genre === 'svip' ? "https://yanyuplus.cn/img/heijinV.d5ce1d07.png" : genre === 'vip' ? "https://www.blatr.cn/images/vip/bojinV.png" : ""
+              - let badgeSrc = genre === 'svip' ? "https://www.blatr.cn/images/vip/hjhg.png" : genre === 'vip' ? "https://www.blatr.cn/images/vip/zjzs.png" : ""
+              - let className = genre === 'svip' ? "" : genre === 'vip' ? "player-content-zs" : "player-content-pv"
+              - let imgSrc = genre === 'svip' && tag ? "https://www.blatr.cn/images/vip/yzbk.png" : genre === 'vip' && tag ? "https://www.blatr.cn/images/vip/jinfen.png" : ""
+              - let fontColor = genre === 'svip' ? "f-w-name-ph" : genre === 'vip' ? "f-w-name-zx" : "f-w-name-pv"
+              - let album = genre === 'svip' ? "album-cover-ph" : genre === 'vip' ? "album-cover-zx" : "album-cover-pv"
+              - let recommend = genre === 'svip' ? "f-span-recommend" : genre === 'vip' ? "interaction-label-2" : ""
+
+              .friends-item
+                .player
+                  .player-content-hg(class=`${className}`)
+                    span(class=`${recommend}`)
+                      if genre == "svip" && tag
+                        span
+                          img(src="https://www.blatr.cn/images/vip/yzbk.png", style="width: 12px",onclick="return false;")
+                        | #[=tag]
+                      else if genre == "vip" && tag
+                        span
+                          img(src="https://www.blatr.cn/images/vip/jinfen.png", style="width: 12px",onclick="return false;")
+                        | #[=tag]
+                    .player-bg
+                      img(src=`${playerBgSrc}`)
+                    .album-cover(class=`${album}`)
+                      a(href=url_for(item.link) title=item.name target="_blank")
+                        if theme.lazyload.enable
+                          img.cf-friends-avatar.no-lightbox(data-lazy-src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                        else
+                          img.cf-friends-avatar.no-lightbox(src=url_for(item.avatar) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt=item.name )
+                    img.ava-badge(src=`${badgeSrc}`)
+                    .play-controls-name
+                      a(href=`${item.link}`,target='_blank')
+                        h4.ui.header.one-line.f-w-name-hg-1(class=`${fontColor}`, title=`${item.name}`)= item.name
+                    .play-controls-time
+                      p.one-line(class=`${fontColor}`) #[=item.data] 加入本站
+                    .play-controls-introduction
+                      p.one-line(class=`${fontColor}`, title=`${item.descr}`)= item.descr
     != page.content
