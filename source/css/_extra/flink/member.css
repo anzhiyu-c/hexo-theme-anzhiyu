@@ -1,3 +1,25 @@
+#article-container .links-friends .friends-item .player .player-content-hg:before {
+    transition: background-position 0.5s;
+  }
+  
+  #article-container .links-friends .friends-item:hover .player .player-content-hg:before {
+    background-position: 100% 50%;
+  }
+  .friends-item{
+    transition: 0.5s;
+  }
+  .friends-item:hover {
+    transform: scale(1.02);
+  }
+  .player-bg {
+    transform-style: preserve-3d;
+    transition: transform 1.8s;
+  }
+  
+  .friends-item:hover .player-bg {
+    transform: rotateY(360deg);
+  }
+
 .links-friends a {
     text-decoration: none !important;
 }
