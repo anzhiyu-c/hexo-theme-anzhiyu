@@ -1,14 +1,30 @@
-link(rel="preconnect" href="//npm.elemecdn.com")
-link(rel="preconnect" href="//npm.onmicrosoft.cn")
+-
+  const { internal_provider, third_party_provider, custom_format } = theme.CDN
+  const providers = {
+    'jsdelivr': '//cdn.jsdelivr.net',
+    'cdnjs': '//cdnjs.cloudflare.com',
+    'unpkg': '//unpkg.com',
+    'elemecdn': '//npm.elemecdn.com',
+    'onmicrosoft': '//npm.onmicrosoft.cn',
+    'cbd': '//cdn.cbd.int',
+    'anheyu': '//cdn.anheyu.com',
+    'custom': custom_format && custom_format.match(/^((https?:)?(\/\/[^/]+)|([^/]+))(\/|$)/)[1]
+  }
+-
+
+if internal_provider === third_party_provider && internal_provider !== 'local'
+  link(rel="preconnect" href=providers[internal_provider])
+else 
+  if internal_provider !== 'local'
+    link(rel="preconnect" href=providers[internal_provider])
+  if third_party_provider !== 'local'
+  link(rel="preconnect" href=providers[third_party_provider])
 
 if theme.google_analytics
   link(rel="preconnect" href="//www.google-analytics.com" crossorigin='')
 
 if theme.baidu_analytics
   link(rel="preconnect" href="//hm.baidu.com")
-
-if theme.cnzz_analytics
-  link(rel="preconnect" href="//s4.cnzz.com")
 
 if theme.cloudflare_analytics
   link(rel="preconnect" href="//static.cloudflareinsights.com")
@@ -21,6 +37,3 @@ if theme.blog_title_font && theme.blog_title_font.font_link && theme.blog_title_
 
 if !theme.asset.busuanzi && (theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv)
   link(rel="preconnect" href="//busuanzi.ibruce.info")
-
-if theme.docsearch.enable
-  link(rel="preconnect" href=`https://${theme.docsearch.appId}-dsn.algolia.net` crossorigin='')
