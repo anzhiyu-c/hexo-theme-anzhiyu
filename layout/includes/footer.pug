@@ -73,7 +73,8 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
               .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By `
                 a.footer-bar-link(href=url_for(authorLink) title=config.author target="_blank")=config.author
             else
-              .copyright!= `&copy;${nowYear} By ${config.author} `
+              .copyright!= `&copy;${nowYear} By `
+                a.footer-bar-link(href=url_for(authorLink) title=config.author target="_blank")=config.author
         #footer-type-tips
         if theme.footer.footerBar && theme.footer.footerBar.subTitle && theme.footer.footerBar.subTitle.enable
           .js-pjax
