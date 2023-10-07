@@ -882,7 +882,23 @@ translate:
 readmode: true
 
 # 中控台
-centerConsole: true
+centerConsole:
+  enable: true
+  card_tags:
+    enable: false
+    limit: 40 # if set 0 will show all
+    color: false
+    sort_order: # Don't modify the setting unless you know how it works
+    highlightTags:
+      # - Hexo
+      # - 前端
+  card_archives:
+    enable: false
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+    sort_order: # Don't modify the setting unless you know how it works
 
 # dark mode
 darkmode:

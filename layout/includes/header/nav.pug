@@ -39,7 +39,7 @@ nav#nav
             span=' '+_p('search.title')
       
       input#center-console(type="checkbox")
-      if theme.centerConsole
+      if theme.centerConsole.enable
         label.widget(for="center-console" title=_p("中控台") onclick="anzhiyu.switchConsole();")
           i.left
           i.widget.center

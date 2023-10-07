@@ -18,12 +18,12 @@
           else 
             .author-content-item-tips 兴趣点
             span.author-content-item-title 寻找你感兴趣的领域
-            !=partial('includes/widget/card_tags', {}, {cache: true})
+            !=partial('includes/widget/card_console_tags', {}, {cache: true})
       .console-card.history
         .item-headline
           i.anzhiyufont.anzhiyu-icon-box-archiv
           span 文章
-        !=partial('includes/widget/card_archives', {}, {cache: true})
+        !=partial('includes/widget/card_console_archives', {}, {cache: true})
   .button-group
     .console-btn-item
       a.darkmode_switchbutton(title='显示模式切换', href='javascript:void(0);')
