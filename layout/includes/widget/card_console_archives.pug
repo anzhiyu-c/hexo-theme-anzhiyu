@@ -1,0 +1,8 @@
+if theme.centerConsole.card_archives.enable
+  .card-archives
+    - let type = theme.centerConsole.card_archives.type || 'monthly'
+    - let format = theme.centerConsole.card_archives.format || 'MMMM YYYY'
+    - let order = theme.centerConsole.card_archives.order || -1
+    - let limit = theme.centerConsole.card_archives.limit === 0 ? 0 : theme.centerConsole.card_archives.limit || 8
+    != aside_archives({ type:type, format: format, order: order, limit: limit })
+  hr
