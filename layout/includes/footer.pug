@@ -47,11 +47,22 @@
     else
       .copyright!= `&copy;${nowYear} By ${config.author}`
 
-  - let work_img = theme.footer.runtime.work_img
-  - let work_description = theme.footer.runtime.work_description
   if theme.footer.runtime.enable
     #workboard
-      img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
+      - let work_img = theme.footer.runtime.work_img
+      - let offduty_img = theme.footer.runtime.offduty_img
+      - let work_description = theme.footer.runtime.work_description
+      if work_img != null
+        if offduty_img != null
+          - let work_start = theme.footer.runtime.start || 9;
+          - let work_end = theme.footer.runtime.end || 18;
+          - let cur_hour = new Date().getHours();
+          - let is_work = cur_hour>=work_start&&cur_hour<=work_end
+          - let cur_img = is_work ? theme.footer.runtime.work_img : theme.footer.runtime.offduty_img
+          - let cur_desc = is_work ? theme.footer.runtime.work_description : theme.footer.runtime.offduty_description
+          img(src=`${cur_img}`, alt=`${cur_desc}`, title=`${cur_desc}`, class="workSituationImg boardsign")
+        else
+          img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
       #runtimeTextTip
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
