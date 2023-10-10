@@ -51,7 +51,8 @@
   - let work_description = theme.footer.runtime.work_description
   if theme.footer.runtime.enable
     #workboard
-      img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
+      if work_img != null
+        img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
       #runtimeTextTip
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
