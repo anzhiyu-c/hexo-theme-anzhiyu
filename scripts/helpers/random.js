@@ -1,6 +1,7 @@
 hexo.extend.generator.register("random", function (locals) {
   const config = hexo.config.random || {};
   const themeConfig = hexo.theme.config;
+  const pjaxEn = themeConfig.pjax.enable;
   const randomNumberFriend = themeConfig.footer.list.randomFriends || 0;
   const posts = [];
   const link = locals.data.link || [];
@@ -18,7 +19,9 @@ hexo.extend.generator.register("random", function (locals) {
 
   let result = `var posts=${JSON.stringify(
     posts
-  )};function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};`;
+  )};function toRandomPost(){
+    ${pjaxEn ? "pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);" : "window.location.href='/'+posts[Math.floor(Math.random() * posts.length)];"}
+  };`;
 
   if (themeConfig.footer.list.enable && randomNumberFriend > 0) {
     result += `var friend_link_list=${JSON.stringify(link_list)};
