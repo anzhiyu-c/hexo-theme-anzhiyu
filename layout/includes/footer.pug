@@ -40,11 +40,6 @@
       #runtimeTextTip
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
-  if theme.footer.bdageitem.enable
-    p#ghbdages
-      each item in theme.footer.bdageitem.list
-        a.github-badge(target='_blank' href=item.link style='margin-inline:5px' data-title=item.message title=item.message)
-          img(src=item.shields alt=item.message)
 
   if theme.footer.list.enable
     - let projectList = theme.footer.list.project
@@ -62,6 +57,12 @@
             a.random-friends-btn#footer-random-friends-btn(href="javascript:addFriendLinksInFooter();" title="换一批友情链接")
               i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
           .footer-links#friend-links-in-footer
+
+  if theme.footer.bdageitem.enable
+    p#ghbdages
+      each item in theme.footer.bdageitem.list
+        a.github-badge(target='_blank' href=item.link style='margin-inline:5px' data-title=item.message title=item.message)
+          img(src=item.shields alt=item.message)
 
 if theme.footer.footerBar && theme.footer.footerBar.enable
   #footer-bar
