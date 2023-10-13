@@ -38,6 +38,17 @@ if !theme.disable_top_img && page.top_img !== false
           a.share-button(target='_blank' href=`https://service.weibo.com/share/share.php?title=${site_title}&url=${url}&pic=${bg_img}` rel='external nofollow noreferrer noopener')
             i.anzhiyufont.anzhiyu-icon-weibo
       if theme.ptool.share_copyurl
+        script.
+          function copyCurrentPageUrl() {
+            var currentPageUrl = window.location.href;
+            var input = document.createElement("input");
+            input.setAttribute("value", currentPageUrl);
+            document.body.appendChild(input);
+            input.select();
+            input.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            document.body.removeChild(input);
+          }
         .share-link.copyurl
-          #post-share-url.share-button(title='复制链接' onclick='rm.copyPageUrl()')
+          #post-share-url.share-button(title='复制链接' onclick='copyCurrentPageUrl()')
             i.anzhiyufont.anzhiyu-icon-link
