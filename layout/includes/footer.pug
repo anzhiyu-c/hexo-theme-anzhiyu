@@ -23,22 +23,6 @@
               use(xlink:href=`#`+ item.icon)
           else if (item.icon.startsWith("anzhiyu"))
             i.anzhiyufont(class=`${item.icon}`)
-  if theme.footer.list.enable
-    - let projectList = theme.footer.list.project
-    #anzhiyu-footer
-      each item, index in projectList
-        .footer-group
-          .footer-title=item.title
-          .footer-links
-            each iten, indey in item.links
-              a.footer-item(title=iten.title href=url_for(iten.link))=iten.title
-      if theme.footer.list.randomFriends > 0
-        .footer-group
-          .footer-title-group
-            .footer-title 友链
-            a.random-friends-btn#footer-random-friends-btn(href="javascript:addFriendLinksInFooter();" title="换一批友情链接")
-              i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
-          .footer-links#friend-links-in-footer
 
   if theme.footer.owner.enable && !theme.footer.footerBar.enable
     - var nowYear = new Date().getFullYear()
@@ -56,6 +40,24 @@
       #runtimeTextTip
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
+
+  if theme.footer.list.enable
+    - let projectList = theme.footer.list.project
+    #anzhiyu-footer
+      each item, index in projectList
+        .footer-group
+          .footer-title=item.title
+          .footer-links
+            each iten, indey in item.links
+              a.footer-item(title=iten.title href=url_for(iten.link))=iten.title
+      if theme.footer.list.randomFriends > 0
+        .footer-group
+          .footer-title-group
+            .footer-title 友链
+            a.random-friends-btn#footer-random-friends-btn(href="javascript:addFriendLinksInFooter();" title="换一批友情链接")
+              i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
+          .footer-links#friend-links-in-footer
+
   if theme.footer.bdageitem.enable
     p#ghbdages
       each item in theme.footer.bdageitem.list
@@ -83,7 +85,7 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
       .footer-bar-right
         each item in theme.footer.footerBar.linkList
           a.footer-bar-link(href=url_for(item.link) title=item.text)=item.text
-        if theme.footer.footerBar.cc.enable 
+        if theme.footer.footerBar.cc.enable
           a.footer-bar-link.cc(href=url_for(theme.footer.footerBar.cc.link) title="cc协议")
             i.anzhiyufont.anzhiyu-icon-copyright-line
             i.anzhiyufont.anzhiyu-icon-creative-commons-by-line
