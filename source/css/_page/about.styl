@@ -320,17 +320,22 @@ body[data-type='about'] #web_bg {
 
 .author-content-item .card-content .banner-button-group .banner-button {
   height: 40px;
-  width: 140px;
+  width: 118px;
   border-radius: 20px;
   justify-content: center;
-  background: var(--anzhiyu-card-bg);
-  color: var(--font-color);
+  //background: var(--anzhiyu-card-bg);
+  background: var(--anzhiyu-white-op);
+  //color: var(--font-color);
+  color: var(--anzhiyu-white);
   display: flex;
   align-items: center;
   z-index: 1;
   transition: 0.3s;
   cursor: pointer;
   border-bottom: 0 !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
 }
 
 .author-content-item .card-content .banner-button-group .banner-button i, .author-content-item .card-content .banner-button-group .banner-button svg {
