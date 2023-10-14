@@ -1070,6 +1070,7 @@ friends_vue:
   enable: false
   vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
   apiurl: # 朋友圈后端地址
+  top_tips: 使用 友链朋友圈 订阅友链最新文章
   top_background:
 
 # 深色模式粒子效果canvas
