@@ -4,7 +4,7 @@ if site.data.essay
       - let onclick_value = theme.pjax.enable ? `pjax.loadUrl("/essay/");` : '';
       - let href_value = theme.pjax.enable ? 'javascript:void(0);' : `/essay/`;
       #bbTimeList.bbTimeList.container
-          a.anzhiyufont.anzhiyu-icon-jike.bber-logo.fontbold(onclick=onclick_value, title="即刻短文", href=href_value, aria-hidden="true")
+          i.anzhiyufont.anzhiyu-icon-jike.bber-logo.fontbold(onclick=onclick_value, title="即刻短文", href=href_value, aria-hidden="true")
           #bbtalk.swiper-container.swiper-no-swiping.essay_bar_swiper_container(tabindex="-1")
             #bber-talk.swiper-wrapper(onclick=onclick_value)
               each i in site.data.essay
