@@ -843,7 +843,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $body.classList.add("read-mode");
       const newEle = document.createElement("button");
       newEle.type = "button";
-      newEle.className = "fas fa-sign-out-alt exit-readmode";
+      newEle.className = "anzhiyufont anzhiyu-icon-xmark exit-readmode";
       $body.appendChild(newEle);
 
       const clickFn = () => {
