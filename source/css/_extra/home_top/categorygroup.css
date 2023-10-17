@@ -41,7 +41,7 @@ a.categoryButton {
   transition: all 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
   transform: scale(1);
   overflow: hidden;
-  font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei;
+  font-family: inherit;
 }
 .categoryButtonText {
   padding-left: 21px;
