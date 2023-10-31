@@ -1,0 +1,10 @@
+if theme.centerConsole.card_tags.enable
+  if site.tags.length
+    .card-tags
+      .item-headline
+      - let tagLimit = theme.centerConsole.card_tags.limit === 0 ? 0 : theme.centerConsole.card_tags.limit || 40
+      if theme.centerConsole.card_tags.color
+        .card-tag-cloud!= cloudTags({source: site.tags, minfontsize: 1.05, maxfontsize: 1.05, limit: tagLimit, unit: 'rem', color: true, highlightTags: theme.centerConsole.card_tags.highlightTags})
+      else
+        .card-tag-cloud!= cloudTags({source: site.tags, minfontsize: 1.05, maxfontsize: 1.05, limit: tagLimit, unit: 'rem', color: false, highlightTags: theme.centerConsole.card_tags.highlightTags})
+    hr

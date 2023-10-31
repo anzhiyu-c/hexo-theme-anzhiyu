@@ -45,9 +45,11 @@ script(async=true).
       } else {
         // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
         let img = document.querySelector("#workboard .workSituationImg");
-        img.src = "#{offduty_img}";
-        img.title = "#{offduty_description}";
-        img.alt = "#{offduty_description}";
+        if (img != null) {
+          img.src = "#{offduty_img}";
+          img.title = "#{offduty_description}";
+          img.alt = "#{offduty_description}";
+        }
 
         currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
       }

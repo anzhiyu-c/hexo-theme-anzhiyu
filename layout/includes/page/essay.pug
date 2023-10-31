@@ -9,7 +9,7 @@ if site.data.essay
             .tips=i.tips
           .banner-button-group
             a.banner-button(href=i.buttonLink)
-              i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.3rem')
+              i.anzhiyufont.anzhiyu-icon-arrow-circle-right
               span.banner-button-text=i.buttonText
       #bber
         section.timeline.page-1
@@ -35,7 +35,7 @@ if site.data.essay
                                 iframe(style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;margin: 0;border-radius: 12px;border: var(--style-border);" src=url_for(item.video[indey]) scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true")
                             else
                               a.bber-content-video(href=url_for(item.video[indey]) data-fancybox="gallery", data-caption="")
-                              video(src=url_for(item.video[indey]))
+                                video(src=url_for(item.video[indey]))
                           .bber-content-noimg
                           .bber-content-noimg
                           .bber-content-noimg

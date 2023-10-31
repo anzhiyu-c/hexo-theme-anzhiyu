@@ -2,7 +2,7 @@ if hexo-config('readmode')
   .read-mode
     --font-color: #4c4948
     --readmode-light-color: #fff
-    --white: #4c4948
+    --white: var(--anzhiyu-white)
     --light-grey: #4c4948
     --gray: #d6dbdf
     --hr-border: #d6dbdf
@@ -52,6 +52,17 @@ if hexo-config('readmode')
 
     #aside-content
       display: none
+
+    #post-firstinfo .meta-firstline
+      a.post-meta-original
+        color: var(--white) !important
+      a.post-meta-categories
+        color: var(--white) !important
+      a.article-meta__tags
+        color: var(--white) !important
+
+    #post-info #post-meta
+      color: var(--white) !important
 
     #page-header.post-bg
       background-color: transparent

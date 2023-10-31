@@ -85,8 +85,6 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
       include ./music.pug
     !=partial('includes/third-party/search/index', {}, {cache: true})
     !=partial('includes/anzhiyu/rightmenu', {}, {cache:true})
-    if (theme.nav.clock)
-      !=partial('includes/anzhiyu/clock', {}, {cache:true})
     include ./additional-js.pug
 
     //- 弹窗通知

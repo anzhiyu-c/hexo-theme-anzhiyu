@@ -882,7 +882,23 @@ translate:
 readmode: true
 
 # 中控台
-centerConsole: true
+centerConsole:
+  enable: true
+  card_tags:
+    enable: false
+    limit: 40 # if set 0 will show all
+    color: false
+    sort_order: # Don't modify the setting unless you know how it works
+    highlightTags:
+      # - Hexo
+      # - 前端
+  card_archives:
+    enable: false
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+    sort_order: # Don't modify the setting unless you know how it works
 
 # dark mode
 darkmode:
@@ -1054,6 +1070,7 @@ friends_vue:
   enable: false
   vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
   apiurl: # 朋友圈后端地址
+  top_tips: 使用 友链朋友圈 订阅友链最新文章
   top_background:
 
 # 深色模式粒子效果canvas

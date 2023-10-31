@@ -1,15 +1,17 @@
 if site.data.essay
   each i in site.data.essay
     if i.home_essay
+      - let onclick_value = theme.pjax.enable ? `pjax.loadUrl("/essay/");` : '';
+      - let href_value = theme.pjax.enable ? 'javascript:void(0);' : `/essay/`;
       #bbTimeList.bbTimeList.container
-          i.anzhiyufont.anzhiyu-icon-jike.bber-logo.fontbold(onclick=`pjax.loadUrl("/essay/")`,title="即刻短文", aria-hidden="true")
+          i.anzhiyufont.anzhiyu-icon-jike.bber-logo.fontbold(onclick=onclick_value, title="即刻短文", href=href_value, aria-hidden="true")
           #bbtalk.swiper-container.swiper-no-swiping.essay_bar_swiper_container(tabindex="-1")
-            #bber-talk.swiper-wrapper(onclick=`pjax.loadUrl("/essay/")`)
+            #bber-talk.swiper-wrapper(onclick=onclick_value)
               each i in site.data.essay
                 each item, index in i.essay_list
                   if index < 10
                     - var contentText = item.image ? item.content + ' [图片]' : (item.video ? item.content + ' [视频]' : item.content)
-                    .li-style.swiper-slide= contentText
-          i.bber-gotobb.anzhiyufont.anzhiyu-icon-circle-arrow-right( onclick=`pjax.loadUrl("/essay/")`,title="查看全文")
+                    a.li-style.swiper-slide(href=href_value)= contentText
+          a.bber-gotobb.anzhiyufont.anzhiyu-icon-circle-arrow-right( onclick=onclick_value, href=href_value, title="查看全文")
 
       script(src=url_for(theme.home_top.swiper.swiper_js))

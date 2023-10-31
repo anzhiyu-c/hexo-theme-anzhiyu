@@ -23,6 +23,24 @@
               use(xlink:href=`#`+ item.icon)
           else if (item.icon.startsWith("anzhiyu"))
             i.anzhiyufont(class=`${item.icon}`)
+
+  if theme.footer.owner.enable && !theme.footer.footerBar.enable
+    - var nowYear = new Date().getFullYear()
+    if theme.footer.owner.since && theme.footer.owner.since != nowYear
+      .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
+    else
+      .copyright!= `&copy;${nowYear} By ${config.author}`
+
+  - let work_img = theme.footer.runtime.work_img
+  - let work_description = theme.footer.runtime.work_description
+  if theme.footer.runtime.enable
+    #workboard
+      if work_img != null
+        img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
+      #runtimeTextTip
+  if theme.footer.custom_text
+    .footer_custom_text!=`${theme.footer.custom_text}`
+
   if theme.footer.list.enable
     - let projectList = theme.footer.list.project
     #anzhiyu-footer
@@ -40,21 +58,6 @@
               i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
           .footer-links#friend-links-in-footer
 
-  if theme.footer.owner.enable && !theme.footer.footerBar.enable
-    - var nowYear = new Date().getFullYear()
-    if theme.footer.owner.since && theme.footer.owner.since != nowYear
-      .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
-    else
-      .copyright!= `&copy;${nowYear} By ${config.author}`
-
-  - let work_img = theme.footer.runtime.work_img
-  - let work_description = theme.footer.runtime.work_description
-  if theme.footer.runtime.enable
-    #workboard
-      img(src=`${work_img}`, alt=`${work_description}`, title=`${work_description}`, class="workSituationImg boardsign")
-      #runtimeTextTip
-  if theme.footer.custom_text
-    .footer_custom_text!=`${theme.footer.custom_text}`
   if theme.footer.bdageitem.enable
     p#ghbdages
       each item in theme.footer.bdageitem.list
@@ -82,7 +85,7 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
       .footer-bar-right
         each item in theme.footer.footerBar.linkList
           a.footer-bar-link(href=url_for(item.link) title=item.text)=item.text
-        if theme.footer.footerBar.cc.enable 
+        if theme.footer.footerBar.cc.enable
           a.footer-bar-link.cc(href=url_for(theme.footer.footerBar.cc.link) title="cc协议")
             i.anzhiyufont.anzhiyu-icon-copyright-line
             i.anzhiyufont.anzhiyu-icon-creative-commons-by-line

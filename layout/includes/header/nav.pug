@@ -17,11 +17,13 @@ nav#nav
       a#site-name(href=url_for('/') accesskey="h")
         .title #[=config.title]
         i.anzhiyufont.anzhiyu-icon-house-chimney
+      if (theme.nav.clock)
+        !=partial('includes/anzhiyu/clock', {}, {cache: true})
 
     div.mask-name-container
       #name-container
         a#page-name(href="javascript:anzhiyu.scrollToDest(0, 500)") PAGE_NAME
-      
+
     #menus
       !=partial('includes/header/menu_item', {}, {cache: true})
     #nav-right
@@ -37,21 +39,21 @@ nav#nav
           a.site-page.social-icon.search(href='javascript:void(0);', title='搜索🔍' accesskey="s")
             i.anzhiyufont.anzhiyu-icon-magnifying-glass
             span=' '+_p('search.title')
-      
+
       input#center-console(type="checkbox")
-      if theme.centerConsole
+      if theme.centerConsole.enable
         label.widget(for="center-console" title=_p("中控台") onclick="anzhiyu.switchConsole();")
           i.left
           i.widget.center
           i.widget.right
-        
+
         !=partial('includes/anzhiyu/console', {}, {cache:true})
 
       div.nav-button#nav-totop
         a.totopbtn(href='javascript:void(0);')
           i.anzhiyufont.anzhiyu-icon-arrow-up
           span#percent(onclick="anzhiyu.scrollToDest(0,500)") 0
-      
+
       #toggle-menu
         a.site-page(href='javascript:void(0);' title="切换")
           i.anzhiyufont.anzhiyu-icon-bars

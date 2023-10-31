@@ -21,7 +21,9 @@ if home_top_config.enable
         .categoryGroup
           each item in home_top_config.category
             .categoryItem(style=`box-shadow:${item.shadow}`)
-              a.categoryButton(onclick=`pjax.loadUrl("${item.path}");` href='javascript:void(0);' class=`${item.class}`)
+              - let onclick_value = theme.pjax.enable ? `pjax.loadUrl("${item.path}");` : '';
+              - let href_value = theme.pjax.enable ? 'javascript:void(0);' : `${item.path}`;
+              a.categoryButton(onclick=onclick_value href=href_value class=`${item.class}`)
                 span.categoryButtonText=item.name
                 if (item.icon.startsWith("fa"))
                   i(class=`${item.icon}`)
