@@ -9,6 +9,8 @@ script.
       const close = () => {
         window.tidioChatApi.hide()
         isShow = false
+        document.body.style.position = 'relative';
+        document.documentElement.style.overflow = 'auto'
       }
       
       const open = () => {
