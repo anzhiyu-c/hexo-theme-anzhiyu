@@ -71,6 +71,7 @@
 /* 代码框主题 */
 #article-container figure.highlight {
   border-radius: 10px;
+  overflow-y: hidden;
 }
 #post-comment blockquote {
   background: var(--anzhiyu-secondbg);
