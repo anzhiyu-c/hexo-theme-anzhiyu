@@ -428,7 +428,7 @@ const anzhiyu = {
         localStorage.removeItem("commentBarrageSwitch");
       }
     }
-    rm.hideRightMenu();
+    rm && rm.hideRightMenu();
   },
   initPaginationObserver: () => {
     const commentElement = document.getElementById("post-comment");
@@ -666,7 +666,7 @@ const anzhiyu = {
       navMusicEl.classList.add("stretch");
     }
     if (changePaly) document.querySelector("#nav-music meting-js").aplayer.toggle();
-    rm.hideRightMenu();
+    rm && rm.hideRightMenu();
   },
   // 音乐伸缩
   musicTelescopic: function () {
@@ -680,13 +680,13 @@ const anzhiyu = {
   //音乐上一曲
   musicSkipBack: function () {
     navMusicEl.querySelector("meting-js").aplayer.skipBack();
-    rm.hideRightMenu();
+    rm && rm.hideRightMenu();
   },
 
   //音乐下一曲
   musicSkipForward: function () {
     navMusicEl.querySelector("meting-js").aplayer.skipForward();
-    rm.hideRightMenu();
+    rm && rm.hideRightMenu();
   },
 
   //获取音乐中的名称

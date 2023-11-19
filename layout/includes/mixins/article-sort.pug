@@ -7,7 +7,7 @@ mixin articleSort(posts, current)
       - let no_cover = article.cover === false || !theme.cover.archives_enable ? 'no-article-cover' : ''
       - let title = article.title || _p('no_title')
       - let pageThumbnailSuffix = theme.pageThumbnailSuffix
-      if (pageThumbnailSuffix && theme.pageThumbnailSuffix.startsWith("!") && article.cover.includes("!"))
+      if (pageThumbnailSuffix && theme.pageThumbnailSuffix.startsWith("!") && article.cover && article.cover.includes("!"))
         - let imageUrl = article.cover.substring(0, article.cover.indexOf("!"))
         - modifiedUrl = imageUrl + pageThumbnailSuffix
       else
