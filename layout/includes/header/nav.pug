@@ -40,14 +40,14 @@ nav#nav
             i.anzhiyufont.anzhiyu-icon-magnifying-glass
             span=' '+_p('search.title')
 
-      input#center-console(type="checkbox")
       if theme.centerConsole.enable
+        input#center-console(type="checkbox")
         label.widget(for="center-console" title=_p("中控台") onclick="anzhiyu.switchConsole();")
           i.left
           i.widget.center
           i.widget.right
 
-        !=partial('includes/anzhiyu/console', {}, {cache:true})
+      !=partial('includes/anzhiyu/console', {}, {cache:true})
 
       div.nav-button#nav-totop
         a.totopbtn(href='javascript:void(0);')
