@@ -1,4 +1,4 @@
-- loading_img = theme.preloader.avatar
+- loading_img = theme.preloader.avatar ? theme.preloader.avatar : theme.avatar.img
 #loading-box(onclick='document.getElementById("loading-box").classList.add("loaded")')
   .loading-bg
     img.loading-img(alt="加载头像" class='nolazyload' src=url_for(loading_img))

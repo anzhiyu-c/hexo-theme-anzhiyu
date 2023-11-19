@@ -358,53 +358,52 @@ if hexo-config('avatar.effect') == true
     opacity: 1;
     transform: scaleX(1);
 
-if hexo-config('dynamicEffect') && hexo-config('dynamicEffect.postTopRollZoomInfo')
-  @keyframes header
-    entry 0% {
-      --anzhiyu-header-translateY: 160px
-      --anzhiyu-header-info-scale: 0.7
+@keyframes header
+  entry 0% {
+    --anzhiyu-header-translateY: 160px
+    --anzhiyu-header-info-scale: 0.7
+    --anzhiyu-header-cover-scale: 1
+  }
+
+  entry 100% {
+    --anzhiyu-header-translateY: 0px
+    --anzhiyu-header-info-scale: 1
+      --anzhiyu-header-cover-scale: 2
+  }
+  exit 100% {
+    --anzhiyu-header-translateY: 160px
+    --anzhiyu-header-info-scale: 0.7
       --anzhiyu-header-cover-scale: 1
-    }
+  }
 
-    entry 100% {
-      --anzhiyu-header-translateY: 0px
-      --anzhiyu-header-info-scale: 1
-       --anzhiyu-header-cover-scale: 2
-    }
-    exit 100% {
-      --anzhiyu-header-translateY: 160px
-      --anzhiyu-header-info-scale: 0.7
-       --anzhiyu-header-cover-scale: 1
-    }
+  exit 0% {
+    --anzhiyu-header-translateY: 0px
+    --anzhiyu-header-info-scale: 1
+      --anzhiyu-header-cover-scale: 2
+  }
 
-    exit 0% {
-      --anzhiyu-header-translateY: 0px
-      --anzhiyu-header-info-scale: 1
-       --anzhiyu-header-cover-scale: 2
-    }
+@keyframes post-info-slide-in
+  0%
+    transform: scale(var(--anzhiyu-header-info-scale)) translateY(20px);
+    opacity: 0;
+  100%
+    transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
+    opacity: 1;
 
-  @keyframes post-info-slide-in
-    0%
-      transform: scale(var(--anzhiyu-header-info-scale)) translateY(20px);
-      opacity: 0;
-    100%
-      transform: scale(var(--anzhiyu-header-info-scale)) translateY(0);
-      opacity: 1;
+@property --anzhiyu-header-translateY
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 0px;
 
-  @property --anzhiyu-header-translateY
-    syntax: "<length-percentage>";
-    inherits: true;
-    initial-value: 0px;
+@property --anzhiyu-header-info-scale
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
 
-  @property --anzhiyu-header-info-scale
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 1;
-
-  @property  --anzhiyu-header-cover-scale
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 2;
+@property  --anzhiyu-header-cover-scale
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 2;
 
 @keyframes slide-in
   0%

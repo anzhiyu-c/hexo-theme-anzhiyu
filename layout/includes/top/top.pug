@@ -21,9 +21,7 @@ if home_top_config.enable
         .categoryGroup
           each item in home_top_config.category
             .categoryItem(style=`box-shadow:${item.shadow}`)
-              - let onclick_value = theme.pjax.enable ? `pjax.loadUrl("${item.path}");` : '';
-              - let href_value = theme.pjax.enable ? 'javascript:void(0);' : `${item.path}`;
-              a.categoryButton(onclick=onclick_value href=href_value class=`${item.class}`)
+              a.categoryButton(href=url_for(item.path) class=`${item.class}`)
                 span.categoryButtonText=item.name
                 if (item.icon.startsWith("fa"))
                   i(class=`${item.icon}`)
@@ -32,18 +30,6 @@ if home_top_config.enable
                     use(xlink:href=`#`+ item.icon)
                 else if (item.icon.startsWith("anzhiyu"))
                   i.anzhiyufont(class=`${item.icon}`)
-          else 
-            each item in category
-              .categoryItem(style=`box-shadow: ${item.shadow}`)
-                a.categoryButton(href=item.path class=`${item.class}`)
-                  span.categoryButtonText=item.name
-                  if (item.icon.startsWith("fa"))
-                    i(class=`${item.icon}`)
-                  else if (item.icon.startsWith("icon"))
-                    svg.icon(aria-hidden="true")
-                      use(xlink:href=`#`+ item.icon)
-                  else if (item.icon.startsWith("anzhiyu"))
-                    i.anzhiyufont(class=`${item.icon}`)
       if theme.home_top.swiper.enable
         #swiper_container_blog
           #swiper_container.blog-slider.swiper-container-fade.swiper-container-horizontal
