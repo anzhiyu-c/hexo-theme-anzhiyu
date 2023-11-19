@@ -7,7 +7,7 @@ if theme.aside.card_author.enable
         img.avatar-img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
         if theme.author_status.enable && theme.author_status.statusImg
           .author-status
-            img(src=url_for(theme.author_status.statusImg) class='g-status' ait="status")
+            img(src=url_for(theme.author_status.statusImg) class='g-status' alt="status")
 
       .author-info__description!= theme.aside.card_author.description || config.description
 
