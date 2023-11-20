@@ -26,10 +26,10 @@ if theme.menu
               - var anima_label = label.split('||')[2] ? trim(label.split('||')[2]) : 'faa-tada'
               if icon_label.substring(0,2)=="fa"      
                 i(class=icon_label + ' ' + anima_label)
-              else if (icon_value.startsWith("icon"))
+              else if (icon_label.startsWith("icon"))
                 svg.icon(aria-hidden="true" class=anima_label)
                   use(xlink:href=`#`+ icon_label)
-              else if (icon_value.startsWith("anzhiyu"))
+              else if (icon_label.startsWith("anzhiyu"))
                 i.anzhiyufont(style="font-size: 0.9em;" class=icon_label + ' ' + anima_label)
             span=' '+ trim(label.split('||')[0])
           ul.menus_item_child
