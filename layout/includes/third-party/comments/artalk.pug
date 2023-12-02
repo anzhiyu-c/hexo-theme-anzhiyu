@@ -1,5 +1,5 @@
 - const { server, site, option } = theme.artalk
-- const { use, lazyload } = theme.comments
+- const { use, lazyload, count } = theme.comments
 
 script.
   (() => {
@@ -25,12 +25,23 @@ script.
     }
 
     const loadArtalk = async () => {
-      if (typeof window.artalkItem === 'object') initArtalk()
-      else {
+      if (typeof window.artalkItem === 'object') {
+        initArtalk()
+        !{count ? 'GLOBAL_CONFIG_SITE.isPost && getCount()' : ''}
+      } else {
         await getCSS('!{theme.asset.artalk_css}')
         await getScript('!{theme.asset.artalk_js}')
         initArtalk()
+        !{count ? 'GLOBAL_CONFIG_SITE.isPost && getCount()' : ''}
       }
+    }
+
+    const getCount = () => {
+      Artalk.loadCountWidget({
+        server: '!{server}',
+        site: '!{site}',
+        countEl: '.artalk-count'
+      })
     }
 
     const artalkChangeMode = theme => {
