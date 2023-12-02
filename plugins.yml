@@ -5,7 +5,7 @@ algolia_search:
 instantsearch:
   name: instantsearch.js
   file: dist/instantsearch.production.min.js
-  version: 4.56.5
+  version: 4.60.0
 docsearch_js:
   name: "@docsearch/js"
   other_name: docsearch-js
@@ -104,7 +104,7 @@ ClickShowText:
 lazyload:
   name: vanilla-lazyload
   file: dist/lazyload.iife.min.js
-  version: 17.8.4
+  version: 17.8.5
 instantpage:
   name: instant.page
   file: instantpage.js
@@ -112,7 +112,7 @@ instantpage:
 typed:
   name: typed.js
   file: dist/typed.umd.js
-  version: 2.0.15
+  version: 2.1.0
 pangu:
   name: pangu
   file: dist/browser/pangu.min.js
@@ -120,17 +120,17 @@ pangu:
 fancybox_css:
   name: "@fancyapps/ui"
   file: dist/fancybox/fancybox.css
-  version: 5.0.20
+  version: 5.0.28
   other_name: fancyapps-ui
 fancybox:
   name: "@fancyapps/ui"
   file: dist/fancybox/fancybox.umd.js
-  version: 5.0.20
+  version: 5.0.28
   other_name: fancyapps-ui
 medium_zoom:
   name: medium-zoom
   file: dist/medium-zoom.min.js
-  version: 1.0.8
+  version: 1.1.0
 snackbar_css:
   name: node-snackbar
   file: dist/snackbar.min.css
