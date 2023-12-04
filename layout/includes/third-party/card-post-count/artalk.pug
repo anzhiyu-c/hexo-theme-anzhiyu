@@ -4,7 +4,7 @@ script.
   (() => {
     const getArtalkCount = () => {
       const runWidget = () => {
-        Artalk.LoadCountWidget({
+        Artalk.loadCountWidget({
           server: '!{server}',
           site: '!{site}',
           countEl: '.artalk-count'
@@ -14,7 +14,6 @@ script.
       if (typeof Artalk === 'function') runWidget()
       else getScript('!{theme.asset.artalk_js}').then(runWidget)
     }
-
 
     window.pjax ? getArtalkCount() : window.addEventListener('load', getArtalkCount)
   })()
