@@ -86,8 +86,13 @@
   -webkit-backdrop-filter: blur(20px);
   transform: translateZ(0);
   height: 40px;
-  width: 118px;
+  width: 125px;
   justify-content: center;
+}
+.topGroup .banner-button-group .banner-button .banner-button-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .topGroup .banner-button i,
 .topGroup .banner-button svg {
