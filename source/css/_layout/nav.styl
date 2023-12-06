@@ -431,27 +431,31 @@
   border-radius 8px
 
 .back-home-button:hover .back-menu-list-groups
-  display flex
-  opacity 1
-  transition 0.3s
-  top 55px
-  pointer-events auto
-  left 0
+  display: flex;
+  opacity: 1;
+  transition: .3s;
+  top: 55px;
+  pointer-events: auto;
+  left: 0rem;
+  transform: scale(1);
 
 .back-home-button .back-menu-list-groups
-  position absolute
-  top 65px
-  left 0
-  background var(--anzhiyu-card-bg)
-  border-radius 12px
-  border var(--style-border)
-  flex-direction column
-  font-size 12px
-  color var(--anzhiyu-secondtext)
-  box-shadow var(--anzhiyu-shadow-border)
-  transition 0s
-  opacity 0
-  pointer-events none
+  position: absolute;
+  top: 45px;
+  transform: scale(.8);
+  transform-origin: top left;
+  left: 0rem;
+  background-color: var(--anzhiyu-maskbgdeep);
+  border-radius: 12px;
+  border: var(--style-border);
+  flex-direction: column;
+  font-size: 12px;
+  color: var(--anzhiyu-secondtext);
+  box-shadow: var(--anzhiyu-shadow-border);
+  transition: .1s;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(20px);
 
 .back-home-button .back-menu-list-group
   display flex
