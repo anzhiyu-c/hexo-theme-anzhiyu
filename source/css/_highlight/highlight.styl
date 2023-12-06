@@ -103,6 +103,9 @@ $code-block
       border-bottom: var(--style-border-always);
 
     &.closed
+      if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+        border-bottom: 1px solid transparent;
+        height: calc(2.15em - 1px);
       & ~ *
         display: none
 

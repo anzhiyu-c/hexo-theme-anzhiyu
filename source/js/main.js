@@ -224,51 +224,45 @@ document.addEventListener("DOMContentLoaded", function () {
     const highLight = GLOBAL_CONFIG.highlight;
     if (!highLight) return;
 
-    const isHighlightCopy = highLight.highlightCopy;
-    const isHighlightLang = highLight.highlightLang;
+    const { highlightCopy, highlightLang, highlightHeightLimit, plugin } = highLight;
     const isHighlightShrink = GLOBAL_CONFIG_SITE.isHighlightShrink;
-    const highlightHeightLimit = highLight.highlightHeightLimit;
-    const isShowTool = isHighlightCopy || isHighlightLang || isHighlightShrink !== undefined;
+    const isShowTool = highlightCopy || highlightLang || isHighlightShrink !== undefined;
     const $figureHighlight =
-      highLight.plugin === "highlighjs"
+      plugin === "highlight.js"
         ? document.querySelectorAll("figure.highlight")
         : document.querySelectorAll('pre[class*="language-"]');
 
     if (!((isShowTool || highlightHeightLimit) && $figureHighlight.length)) return;
 
-    const isPrismjs = highLight.plugin === "prismjs";
-
-    let highlightShrinkEle = "";
-    let highlightCopyEle = "";
+    const isPrismjs = plugin === "prismjs";
     const highlightShrinkClass = isHighlightShrink === true ? "closed" : "";
+    const highlightShrinkEle =
+      isHighlightShrink !== undefined
+        ? '<i class="anzhiyufont anzhiyu-icon-angle-down expand ${highlightShrinkClass}"></i>'
+        : "";
+    const highlightCopyEle = highlightCopy
+      ? '<div class="copy-notice"></div><i class="anzhiyufont anzhiyu-icon-paste copy-button"></i>'
+      : "";
 
-    if (isHighlightShrink !== undefined) {
-      highlightShrinkEle = `<i class="anzhiyufont anzhiyu-icon-angle-down expand ${highlightShrinkClass}"></i>`;
-    }
+    const alertInfo = (ele, text) => {
+      if (GLOBAL_CONFIG.Snackbar !== undefined) {
+        anzhiyu.snackbarShow(text);
+      } else {
+        const prevEle = ele.previousElementSibling;
+        prevEle.textContent = text;
+        prevEle.style.opacity = 1;
+        setTimeout(() => {
+          prevEle.style.opacity = 0;
+        }, 800);
+      }
+    };
 
-    if (isHighlightCopy) {
-      highlightCopyEle = '<div class="copy-notice"></div><i class="anzhiyufont anzhiyu-icon-paste copy-button"></i>';
-    }
-
-    const copy = (text, ctx) => {
+    const copy = ctx => {
       if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
         document.execCommand("copy");
-        if (GLOBAL_CONFIG.Snackbar !== undefined) {
-          anzhiyu.snackbarShow(GLOBAL_CONFIG.copy.success);
-        } else {
-          const prevEle = ctx.previousElementSibling;
-          prevEle.innerText = GLOBAL_CONFIG.copy.success;
-          prevEle.style.opacity = 1;
-          setTimeout(() => {
-            prevEle.style.opacity = 0;
-          }, 700);
-        }
+        alertInfo(ctx, GLOBAL_CONFIG.copy.success);
       } else {
-        if (GLOBAL_CONFIG.Snackbar !== undefined) {
-          anzhiyu.snackbarShow(GLOBAL_CONFIG.copy.noSupport);
-        } else {
-          ctx.previousElementSibling.innerText = GLOBAL_CONFIG.copy.noSupport;
-        }
+        alertInfo(ctx, GLOBAL_CONFIG.copy.noSupport);
       }
     };
 
@@ -278,28 +272,17 @@ document.addEventListener("DOMContentLoaded", function () {
       $buttonParent.classList.add("copy-true");
       const selection = window.getSelection();
       const range = document.createRange();
-      if (isPrismjs) range.selectNodeContents($buttonParent.querySelectorAll("pre code")[0]);
-      else range.selectNodeContents($buttonParent.querySelectorAll("table .code pre")[0]);
+      const preCodeSelector = isPrismjs ? "pre code" : "table .code pre";
+      range.selectNodeContents($buttonParent.querySelectorAll(`${preCodeSelector}`)[0]);
       selection.removeAllRanges();
       selection.addRange(range);
-      const text = selection.toString();
-      copy(text, ele.lastChild);
+      copy(ele.lastChild);
       selection.removeAllRanges();
       $buttonParent.classList.remove("copy-true");
     };
 
     const highlightShrinkFn = ele => {
-      const $nextEle = [...ele.parentNode.children].slice(1);
-      ele.firstChild.classList.toggle("closed");
-      if (anzhiyu.isHidden($nextEle[$nextEle.length - 1])) {
-        $nextEle.forEach(e => {
-          e.style.display = "block";
-        });
-      } else {
-        $nextEle.forEach(e => {
-          e.style.display = "none";
-        });
-      }
+      ele.classList.toggle("closed");
     };
 
     const highlightToolsFn = function (e) {
@@ -338,33 +321,29 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
 
-    if (isHighlightLang) {
-      if (isPrismjs) {
-        $figureHighlight.forEach(function (item) {
-          const langName = item.getAttribute("data-language") ? item.getAttribute("data-language") : "Code";
+    if (isPrismjs) {
+      $figureHighlight.forEach(item => {
+        if (highlightLang) {
+          const langName = item.getAttribute("data-language") || "Code";
           const highlightLangEle = `<div class="code-lang">${langName}</div>`;
           anzhiyu.wrap(item, "figure", { class: "highlight" });
           createEle(highlightLangEle, item);
-        });
-      } else {
-        $figureHighlight.forEach(function (item) {
-          let langName = item.getAttribute("class").split(" ")[1];
-          if (langName === "plain" || langName === undefined || langName === "plaintext") langName = "Code";
-          const highlightLangEle = `<div class="code-lang">${langName}</div>`;
-          createEle(highlightLangEle, item, "hl");
-        });
-      }
-    } else {
-      if (isPrismjs) {
-        $figureHighlight.forEach(function (item) {
+        } else {
           anzhiyu.wrap(item, "figure", { class: "highlight" });
           createEle("", item);
-        });
-      } else {
-        $figureHighlight.forEach(function (item) {
+        }
+      });
+    } else {
+      $figureHighlight.forEach(item => {
+        if (highlightLang) {
+          let langName = item.getAttribute("class").split(" ")[1];
+          if (langName === "plain" || langName === undefined) langName = "Code";
+          const highlightLangEle = `<div class="code-lang">${langName}</div>`;
+          createEle(highlightLangEle, item, "hl");
+        } else {
           createEle("", item, "hl");
-        });
-      }
+        }
+      });
     }
   };
 
@@ -1109,7 +1088,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const commentContainer = document.getElementById("post-comment");
     const handleSwitchBtn = () => {
       commentContainer.classList.toggle("move");
-      if (!switchDone) {
+      if (!switchDone && typeof loadOtherComment === "function") {
         switchDone = true;
         loadOtherComment();
       }

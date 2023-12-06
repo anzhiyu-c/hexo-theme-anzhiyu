@@ -286,7 +286,7 @@ post_pagination: 2
 
 # Displays outdated notice for a post (文章过期提醒)
 noticeOutdate:
-  enable: true
+  enable: false
   style: flat # style: simple/flat
   limit_day: 365 # When will it be shown
   position: top # position: top/bottom
@@ -1121,7 +1121,7 @@ nav_music:
 # 评论匿名邮箱
 visitorMail:
   enable: true
-  mail: visitor@anheyu.com
+  mail: ""
 
 # ptool 文章底部工具
 ptool:
