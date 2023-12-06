@@ -1,6 +1,7 @@
 - const nav_music_id = theme.nav_music.id
 - const nav_music_server = theme.nav_music.server
+- const nav_music_volume = theme.nav_music.volume
 #nav-music
   a#nav-music-hoverTips(onclick='anzhiyu.musicToggle()' accesskey="m") 播放音乐
   #console-music-bg
-  meting-js(id=nav_music_id server=nav_music_server type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random")
+  meting-js(id=nav_music_id server=nav_music_server type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume=nav_music_volume)
