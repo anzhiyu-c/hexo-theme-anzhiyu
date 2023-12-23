@@ -9,26 +9,10 @@ module.exports.config = {
    * @type ?Object|boolean
    */
   serviceWorker: {
-    escape: 0,
-    cacheName: "AnZhiYuThemeCache",
-    debug: false,
+    cacheName: "AnZhiYuThemeCache"
   },
   register: {
-    onsuccess: undefined,
-    onerror: undefined,
-    builder: (root, hexoConfig, pluginConfig) => {
-      const { onerror, onsuccess } = pluginConfig.register;
-      return `<script>
-                    (() => {
-                        const sw = navigator.serviceWorker
-                        const error = ${onerror && onerror.toString()}
-                        if (!sw?.register('${new URL(root).pathname}sw.js')
-                            ${onsuccess ? "?.then(" + onsuccess + ")" : ""}
-                            ?.catch(error)
-                            ) error()
-                    })()
-                </script>`;
-    },
+    onerror: undefined
   },
   dom: {
     onsuccess: () => {
@@ -47,17 +31,9 @@ module.exports.config = {
     },
   },
   json: {
-    maxHtml: 15,
-    charLimit: 1024,
-    merge: ['page', 'archives', 'categories', 'tags'],
-    exclude: {
-      localhost: [],
-      other: [],
-    },
+    merge: ['page', 'archives', 'categories', 'tags']
   },
   external: {
-    timeout: 5000,
-    js: [],
     stable: [
       /^https:\/\/npm\.elemecdn\.com\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
       /^https:\/\/cdn\.cbd\.int\/[^/@]+\@[^/@]+\/[^/]+\/[^/]+$/,
@@ -79,6 +55,9 @@ module.exports.config = {
     },
   }
 };
+
+/** 跳过处理番剧封面 */
+module.exports.skipRequest = request => request.url.startsWith('https://i0.hdslb.com');
 
 /**
  * 缓存列表
