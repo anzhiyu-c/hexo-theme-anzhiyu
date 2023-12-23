@@ -1119,6 +1119,9 @@ nav_music:
   volume: 0.7 # 默认音量
   all_playlist: https://y.qq.com/n/ryqq/playlist/8802438608
 
+# 路径为 /music 的音乐页面默认加载的歌单 1. nav_music 2. custom
+music_page_default: nav_music
+
 # 评论匿名邮箱
 visitorMail:
   enable: true

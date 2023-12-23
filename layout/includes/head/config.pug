@@ -161,6 +161,11 @@
     peoplecanvas = JSON.stringify(theme.peoplecanvas)
   }
 
+  let music_page_default = 'undefined'
+  if (theme.music_page_default) {
+    music_page_default = JSON.stringify(theme.music_page_default)
+  }
+
 script.
   const GLOBAL_CONFIG = {
     linkPageTop: !{linkPageTop},
@@ -171,6 +176,7 @@ script.
     greetingBox: !{greetingBox},
     twikooEnvId: '!{theme.twikoo.envId}',
     commentBarrageConfig:!{commentBarrageConfig},
+    music_page_default: !{music_page_default},
     root: '!{config.root}',
     preloader: !{preloader},
     friends_vue_info: !{friends_vue_info},

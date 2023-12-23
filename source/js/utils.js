@@ -921,6 +921,11 @@ const anzhiyu = {
       anzhiyu.changeMusicList();
     });
 
+    // 默认加载的歌单
+    if (GLOBAL_CONFIG.music_page_default === "custom") {
+      anzhiyu.changeMusicList();
+    }
+
     // 监听键盘事件
     //空格控制音乐
     document.addEventListener("keydown", function (event) {
