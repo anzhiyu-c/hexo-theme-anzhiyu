@@ -1,0 +1,180 @@
+#article-container .links-friends .friends-item .player .player-content-hg:before {
+    transition: background-position 0.5s;
+  }
+  
+  #article-container .links-friends .friends-item:hover .player .player-content-hg:before {
+    background-position: 100% 50%;
+  }
+  .friends-item{
+    transition: 0.5s;
+  }
+  .friends-item:hover {
+    transform: scale(1.02);
+  }
+  .player-bg {
+    transform-style: preserve-3d;
+    transition: transform 1.8s;
+  }
+  
+  .friends-item:hover .player-bg {
+    transform: rotateY(360deg);
+  }
+
+.links-friends a {
+    text-decoration: none !important;
+}
+
+.player-bg img {
+    width: 110px;
+}
+
+.player-bg img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.friends-item a {
+    color: #4183c4;
+    text-decoration: none;
+}
+
+
+.f-span-recommend {
+    position: absolute;
+    padding: 0 4px;
+    background: -webkit-linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+    background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+    color: #fff;
+    border-radius: 8px 0 8px 0;
+    font-size: 12px;
+    line-height: 1.7em;
+}
+
+.interaction-label-2 {
+    position: absolute;
+    padding: 0 4px;
+    background-color: #fff3cb !important;
+    color: #f3b117 !important;
+    border-radius: 8px 0 8px 0;
+    font-size: 12px;
+    line-height: 1.7em;
+    
+}
+
+
+.player-bg {
+    position: absolute;
+    top: -14px;
+    right: -2px;
+    z-index: -1;
+}
+
+.player-bg img {
+    width: 110px;
+}
+
+.album-cover {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    position: absolute;
+    top: 26px;
+    left: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.album-cover-ph {
+    box-shadow: 0 0 0 1px #ffd38b;
+}
+
+.album-cover-zx {
+    box-shadow: 0 0 0 1px #7d49d4
+}
+
+.album-cover-pv {
+    box-shadow: 0 0 0 1px #146792
+}
+
+.f-span-recommend  img,.interaction-label-2 img {
+    display: inline-block !important;
+}
+
+.album-cover img {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 4px;
+    border-radius: 50% !important;
+}
+
+.ava-badge {
+    position: absolute;
+    left: 46px;
+    top: 56px;
+    width: 16px;
+}
+
+.play-controls-name {
+    position: absolute;
+    top: 0;
+    left: 68px;
+    width: calc(100% - 178px);
+}
+
+.play-controls-name a {
+    padding: 0 !important;
+}
+
+.play-controls-time {
+    position: absolute;
+    font-size: .875rem;
+    top: 56px;
+    left: 68px;
+}
+
+.play-controls-introduction {
+    position: absolute;
+    top: 92px;
+    margin: 0 14px;
+    max-width: calc(100% - 28px);
+}
+
+.ui,
+.header {
+    border: none;
+    margin: calc(2rem - 0.14285714em) 0 1rem;
+    /* padding: 0 0; */
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.28571429em;
+    text-transform: none;
+}
+
+.f-w-name-ph {
+    color: #F2CB69 !important;
+    transition: .2s;
+}
+
+.f-w-name-zx {
+    color: #5657ba !important;
+    transition: .2s;
+}
+
+
+.f-w-name-pv {
+    color: #004a96 !important;
+    transition: .2s;
+}
+
+.one-line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
