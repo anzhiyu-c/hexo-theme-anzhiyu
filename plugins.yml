@@ -10,12 +10,12 @@ docsearch_js:
   name: "@docsearch/js"
   other_name: docsearch-js
   file: dist/umd/index.js
-  version: 3.5.1
+  version: 3.5.2
 docsearch_css:
   name: "@docsearch/css"
   other_name: docsearch-css
   file: dist/style.css
-  version: 3.5.1
+  version: 3.5.2
 pjax:
   name: pjax
   file: pjax.min.js
@@ -36,17 +36,17 @@ waline_js:
   name: "@waline/client"
   file: dist/waline.js
   other_name: waline
-  version: 2.15.5
+  version: 3.1.3
 waline_css:
   name: "@waline/client"
   file: dist/waline.css
   other_name: waline
-  version: 2.15.5
+  version: 3.1.3
 waline_meta_css:
   name: "@waline/client"
   file: dist/waline-meta.css
   other_name: waline
-  version: 2.15.5
+  version: 3.1.3
 sharejs:
   name: butterfly-extsrc
   file: sharejs/dist/js/social-share.min.js
