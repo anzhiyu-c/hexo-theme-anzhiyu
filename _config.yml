@@ -373,6 +373,22 @@ artalk:
   visitor: false
   option:
 
+# giscus
+# https://giscus.app/
+giscus:
+  repo: # GitHub repository name
+  repo_id: # GitHub repository id
+  category_id: # GitHub repository category id
+  theme:
+    light: light
+    dark: dark
+  option: # options
+    data-lang: zh-CN
+    data-mapping:
+    data-category:
+    data-input-position:
+
+
 # Chat Services
 # --------------------------------------
 
