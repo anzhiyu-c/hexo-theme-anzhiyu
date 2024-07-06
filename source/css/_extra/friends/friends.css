@@ -1,4 +1,4 @@
-/* 顶部样式 */
+/* 頂部樣式 */
 .fcircle_page .author-content.fcirclePage {
   height: 19rem;
   color: var(--anzhiyu-white);
@@ -30,7 +30,7 @@ body[data-type="fcircle"] #page {
   background: none !important;
   color: var(--anzhiyu-fontcolor) !important;
 }
-/* 随机文章样式 */
+/* 隨機文章樣式 */
 
 .title-h2-a {
   display: flex;

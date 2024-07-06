@@ -1,4 +1,4 @@
-/* 处理单页背景 */
+/* 處理單頁背景 */
 body[data-type="album_detail"] #web_bg {
   background: var(--anzhiyu-background);
 }
@@ -12,7 +12,7 @@ body[data-type="album_detail"] #page .page-title {
   display: none;
 }
 
-/* 处理页面样式 */
+/* 處理頁面樣式 */
 #album_detail .album-container-img {
   display: flex;
   align-items: center;
@@ -261,7 +261,7 @@ body[data-type="album_detail"] #page .author-content-item .card-content .banner-
   border-radius: 20px !important;
 }
 
-/* 响应式 */
+/* 響應式 */
 @media screen and (max-width: 1200px) {
   #album_detail .timeline ul li.album-item {
     width: 49%;

@@ -3,7 +3,7 @@ var fdata = {
   defaultFish: 100,
   hungryFish: 100,
 };
-//可通过 var fdataUser 替换默认值
+//可通過 var fdataUser 替換默認值
 if (typeof fdataUser !== "undefined") {
   for (var key in fdataUser) {
     if (fdataUser[key]) {
@@ -14,120 +14,120 @@ if (typeof fdataUser !== "undefined") {
 var randomPostTimes = 0;
 var randomPostWorking = false;
 var randomPostTips = [
-  "钓到了绝世好文！",
-  "在河边打了个喷嚏，吓跑了",
-  "你和小伙伴抢夺着",
-  "你击败了巨龙，在巢穴中发现了",
-  "挖掘秦始皇坟时找到了",
-  "在路边闲逛的时候随手买了一个",
-  "从学校班主任那拿来了孩子上课偷偷看的",
-  "你的同桌无情的从你的语文书中撕下了那篇你最喜欢的",
-  "考古学家近日发现了",
-  "外星人降临地球学习地球文化，落地时被你塞了",
-  "从图书馆顶层的隐秘角落里发现了闪着金光的",
-  "徒弟修炼走火入魔，为师立刻掏出了",
-  "在大山中唱山歌，隔壁的阿妹跑来了，带着",
-  "隔壁家的孩子数学考了满分，都是因为看了",
-  "隔壁家的孩子英语考了满分，都是因为看了",
-  "小米研发了全新一代MIX手机，据说灵感",
-  "修炼渡劫成功，还好提前看了",
-  "库克坐上了苹果CEO的宝座，因为他面试的时候看了",
-  "阿里巴巴大喊芝麻开门，映入眼帘的就是",
-  "师傅说练武要先炼心，然后让我好生研读",
-  "科考队在南极大陆发现了被冰封的",
-  "飞机窗户似乎被一张纸糊上了，仔细一看是",
-  "历史上满写的仁义道德四个字，透过字缝里却全是",
-  "十几年前的录音机似乎还能够使用，插上电发现正在播的是",
-  "新版语文书拟增加一篇熟读并背诵的",
-  "经调查，99%的受访者都没有背诵过",
-  "今年的高考满分作文是",
-  "唐僧揭开了佛祖压在五指山上的",
-  "科学家发现能够解决衰老的秘密，就是每日研读",
-  "英特尔发布了全新的至强处理器，其芯片的制造原理都是",
-  "新的iPhone产能很足，新的进货渠道是",
-  "今年亩产突破了八千万斤，多亏了",
-  "陆隐一统天上宗，在无数祖境高手的目光下宣读了",
-  "黑钻风跟白钻风说道，吃了唐僧肉能长生不老，他知道是因为看了",
-  "上卫生间没带纸，直接提裤跑路也不愿意玷污手中",
-  "种下一篇文章就会产生很多很多文章，我种下了",
-  "三十年河东，三十年河西，莫欺我没有看过",
-  "踏破铁血无觅处，得来全靠",
-  "今日双色球中了两千万，预测全靠",
-  "因为卷子上没写名字，老师罚抄",
-  "为了抗议世间的不公，割破手指写下了",
-  "在艺术大街上被贴满了相同的纸，走近一看是",
-  "这区区迷阵岂能难得住我？其实能走出来多亏了",
-  "今日被一篇文章顶上了微博热搜，它是",
-  "你送给乞丐一个暴富秘籍，它是",
-  "UZI一个走A拿下五杀，在事后采访时说他当时回想起了",
-  "科学家解刨了第一个感染丧尸病毒的人，发现丧尸抗体存在于",
-  "如果你有梦想的话，就要努力去看",
-  "决定我们成为什么样人的，不是我们的能力，而是是否看过",
-  "有信心不一定会成功，没信心就去看",
-  "你真正是谁并不重要，重要的是你看没看过",
-  "玄天境重要的是锻体，为师赠你此书，好好修炼去吧，这是",
-  "上百祖境高手在天威湖大战三天三夜为了抢夺",
-  "这化仙池水乃上古真仙对后人的考校，要求熟读并背诵",
-  "庆氏三千年根基差点竟被你小子毁于一旦，能够被我拯救全是因为我看了",
-  "我就是神奇宝贝大师！我这只皮卡丘可是",
-  "我就是神奇宝贝大师！我这只小火龙可是",
-  "我就是神奇宝贝大师！我这只可达鸭可是",
-  "我就是神奇宝贝大师！我这只杰尼龟可是",
-  "上古遗迹中写道，只要习得此书，便得成功。你定睛一看，原来是",
-  "奶奶的，玩阴的是吧，我就是双料特工代号穿山甲，",
-  "你的背景太假了，我的就逼真多了，学到这个技术全是因为看了",
-  "我是云南的，云南怒江的，怒江芦水市，芦水市六库，六库傈僳族，傈僳族是",
-  "我真的栓Q了，我真的会谢如果你看",
-  "你已经习得退退退神功，接下来的心法已经被记录在",
-  "人生无常大肠包小肠，小肠包住了",
+  "釣到了絕世好文！",
+  "在河邊打了個噴嚏，嚇跑了",
+  "你和小夥伴搶奪着",
+  "你擊敗了巨龍，在巢穴中發現了",
+  "挖掘秦始皇墳時找到了",
+  "在路邊閒逛的時候隨手買了一個",
+  "從學校班主任那拿來了孩子上課偷偷看的",
+  "你的同桌無情的從你的語文書中撕下了那篇你最喜歡的",
+  "考古學家近日發現了",
+  "外星人降臨地球學習地球文化，落地時被你塞了",
+  "從圖書館頂層的隱祕角落裏發現了閃着金光的",
+  "徒弟修煉走火入魔，爲師立刻掏出了",
+  "在大山中唱山歌，隔壁的阿妹跑來了，帶着",
+  "隔壁家的孩子數學考了滿分，都是因爲看了",
+  "隔壁家的孩子英語考了滿分，都是因爲看了",
+  "小米研發了全新一代MIX手機，據說靈感",
+  "修煉渡劫成功，還好提前看了",
+  "庫克坐上了蘋果CEO的寶座，因爲他面試的時候看了",
+  "阿里巴巴大喊芝麻開門，映入眼簾的就是",
+  "師傅說練武要先煉心，然後讓我好生研讀",
+  "科考隊在南極大陸發現了被冰封的",
+  "飛機窗戶似乎被一張紙糊上了，仔細一看是",
+  "歷史上滿寫的仁義道德四個字，透過字縫裏卻全是",
+  "十幾年前的錄音機似乎還能夠使用，插上電發現正在播的是",
+  "新版語文書擬增加一篇熟讀並背誦的",
+  "經調查，99%的受訪者都沒有背誦過",
+  "今年的高考滿分作文是",
+  "唐僧揭開了佛祖壓在五指山上的",
+  "科學家發現能夠解決衰老的祕密，就是每日研讀",
+  "英特爾發佈了全新的至強處理器，其芯片的製造原理都是",
+  "新的iPhone產能很足，新的進貨渠道是",
+  "今年畝產突破了八千萬斤，多虧了",
+  "陸隱一統天上宗，在無數祖境高手的目光下宣讀了",
+  "黑鑽風跟白鑽風說道，喫了唐僧肉能長生不老，他知道是因爲看了",
+  "上衛生間沒帶紙，直接提褲跑路也不願意玷污手中",
+  "種下一篇文章就會產生很多很多文章，我種下了",
+  "三十年河東，三十年河西，莫欺我沒有看過",
+  "踏破鐵血無覓處，得來全靠",
+  "今日雙色球中了兩千萬，預測全靠",
+  "因爲卷子上沒寫名字，老師罰抄",
+  "爲了抗議世間的不公，割破手指寫下了",
+  "在藝術大街上被貼滿了相同的紙，走近一看是",
+  "這區區迷陣豈能難得住我？其實能走出來多虧了",
+  "今日被一篇文章頂上了微博熱搜，它是",
+  "你送給乞丐一個暴富祕籍，它是",
+  "UZI一個走A拿下五殺，在事後採訪時說他當時回想起了",
+  "科學家解刨了第一個感染喪屍病毒的人，發現喪屍抗體存在於",
+  "如果你有夢想的話，就要努力去看",
+  "決定我們成爲什麼樣人的，不是我們的能力，而是是否看過",
+  "有信心不一定會成功，沒信心就去看",
+  "你真正是誰並不重要，重要的是你看沒看過",
+  "玄天境重要的是鍛體，爲師贈你此書，好好修煉去吧，這是",
+  "上百祖境高手在天威湖大戰三天三夜爲了搶奪",
+  "這化仙池水乃上古真仙對後人的考校，要求熟讀並背誦",
+  "慶氏三千年根基差點竟被你小子毀於一旦，能夠被我拯救全是因爲我看了",
+  "我就是神奇寶貝大師！我這隻皮卡丘可是",
+  "我就是神奇寶貝大師！我這隻小火龍可是",
+  "我就是神奇寶貝大師！我這隻可達鴨可是",
+  "我就是神奇寶貝大師！我這隻傑尼龜可是",
+  "上古遺蹟中寫道，只要習得此書，便得成功。你定睛一看，原來是",
+  "奶奶的，玩陰的是吧，我就是雙料特工代號穿山甲，",
+  "你的背景太假了，我的就逼真多了，學到這個技術全是因爲看了",
+  "我是雲南的，雲南怒江的，怒江蘆水市，蘆水市六庫，六庫傈僳族，傈僳族是",
+  "我真的栓Q了，我真的會謝如果你看",
+  "你已經習得退退退神功，接下來的心法已經被記錄在",
+  "人生無常大腸包小腸，小腸包住了",
   "你抽到了普通文章，它是",
   "你收到了稀有文章，它是",
   "你抽到了金色普通文章，它是",
   "你抽到了金色稀有文章，它是",
-  "你抽到了传说文章！它是",
-  "哇！金色传说！你抽到了金色传说文章，它是",
-  "报告！侦察兵说在前往300米有一个男子在偷偷看一本书，上面赫然写着",
-  "芷莲姑娘大摆擂台，谁若是能读完此书，便可娶了她。然后从背后掏出了",
-  "请问你的梦想是什么？我的梦想是能读到",
-  "读什么才能增智慧？当然是读",
-  "纳兰嫣然掏出了退婚书，可是发现出门带错了，结果拿出了一本",
-  "你要尽全力保护你的梦想。那些嘲笑你的人，他们必定会失败，他们想把你变成和他们一样的人。如果你有梦想的话，就要努力去读",
-  "走人生的路就像爬山一样，看起来走了许多冤枉的路，崎岖的路，但终究需要读完",
-  "游戏的规则就是这么的简单，你听懂了吗？管你听没听懂，快去看",
+  "你抽到了傳說文章！它是",
+  "哇！金色傳說！你抽到了金色傳說文章，它是",
+  "報告！偵察兵說在前往300米有一個男子在偷偷看一本書，上面赫然寫着",
+  "芷蓮姑娘大擺擂臺，誰若是能讀完此書，便可娶了她。然後從背後掏出了",
+  "請問你的夢想是什麼？我的夢想是能讀到",
+  "讀什麼才能增智慧？當然是讀",
+  "納蘭嫣然掏出了退婚書，可是發現出門帶錯了，結果拿出了一本",
+  "你要盡全力保護你的夢想。那些嘲笑你的人，他們必定會失敗，他們想把你變成和他們一樣的人。如果你有夢想的話，就要努力去讀",
+  "走人生的路就像爬山一樣，看起來走了許多冤枉的路，崎嶇的路，但終究需要讀完",
+  "遊戲的規則就是這麼的簡單，你聽懂了嗎？管你聽沒聽懂，快去看",
 ];
 var randomPostClick = 0;
 function fetchRandomPost() {
   if (!document.getElementById("random-post")) return;
   if (randomPostWorking == false) {
     randomPostWorking = true;
-    //获取旋转角度
+    //獲取旋轉角度
     let randomRotate = randomPostTimes * 360;
     let randomPostTipsItem = randomPostTips[Math.floor(Math.random() * randomPostTips.length)];
     let randomPostLevel = "";
     if (randomPostTimes > 10000) {
-      randomPostLevel = "愿者上钩";
+      randomPostLevel = "願者上鉤";
     } else if (randomPostTimes > 1000) {
-      randomPostLevel = "俯览天下";
+      randomPostLevel = "俯覽天下";
     } else if (randomPostTimes > 1000) {
       randomPostLevel = "超越神了";
     } else if (randomPostTimes > 100) {
-      randomPostLevel = "绝世渔夫";
+      randomPostLevel = "絕世漁夫";
     } else if (randomPostTimes > 75) {
-      randomPostLevel = "钓鱼王者";
+      randomPostLevel = "釣魚王者";
     } else if (randomPostTimes > 50) {
-      randomPostLevel = "钓鱼宗师";
+      randomPostLevel = "釣魚宗師";
     } else if (randomPostTimes > 20) {
-      randomPostLevel = "钓鱼专家";
+      randomPostLevel = "釣魚專家";
     } else if (randomPostTimes > 5) {
-      randomPostLevel = "钓鱼高手";
+      randomPostLevel = "釣魚高手";
     } else {
-      randomPostLevel = "钓鱼新手";
+      randomPostLevel = "釣魚新手";
     }
     if (randomPostTimes >= 5) {
       document.getElementById("random-post").innerHTML =
-        `钓鱼中... （Lv.` + randomPostTimes + ` 当前称号：` + randomPostLevel + `）`;
+        `釣魚中... （Lv.` + randomPostTimes + ` 當前稱號：` + randomPostLevel + `）`;
     } else {
-      document.getElementById("random-post").innerHTML = `钓鱼中...`;
+      document.getElementById("random-post").innerHTML = `釣魚中...`;
     }
 
     let randomTime = randomNum(1000, 3000);
@@ -140,14 +140,14 @@ function fetchRandomPost() {
     document.querySelector(".random-post-start").style.transitionDuration = "0.3s";
     document.querySelector(".random-post-start").style.transform = "rotate(" + randomRotate + "deg)";
 
-    //判断是否饥饿
+    //判斷是否飢餓
     if (
       document.getElementById("random-post") &&
       randomPostClick * fdata.hungryFish + fdata.defaultFish < randomPostTimes &&
       Math.round(Math.random()) == 0
     ) {
       document.getElementById("random-post").innerHTML =
-        "因为只钓鱼不吃鱼，过分饥饿导致本次钓鱼失败...(点击任意一篇钓鱼获得的文章即可恢复）";
+        "因爲只釣魚不喫魚，過分飢餓導致本次釣魚失敗...(點擊任意一篇釣魚獲得的文章即可恢復）";
       randomPostWorking = false;
     } else {
       var fetchUrl = fdata.apiurl + "randompost";
@@ -161,7 +161,7 @@ function fetchRandomPost() {
             window.setTimeout(function () {
               document.getElementById("random-post").innerHTML =
                 randomPostTipsItem +
-                `来自友链 <b>` +
+                `來自友鏈 <b>` +
                 author +
                 `</b> 的文章：<a class="random-friends-post" onclick="randomClickLink()" target="_blank" href="` +
                 link +
@@ -179,9 +179,9 @@ function fetchRandomPost() {
   }
 }
 
-//初始化检查
+//初始化檢查
 function initRandomPost() {
-  // 获取已经存储的数据
+  // 獲取已經存儲的數據
   if (localStorage.randomPostTimes) {
     randomPostTimes = parseInt(localStorage.randomPostTimes);
     randomPostClick = parseInt(localStorage.randomPostClick);
@@ -193,13 +193,13 @@ function initRandomPost() {
 
 initRandomPost();
 
-//添加点击统计
+//添加點擊統計
 function randomClickLink() {
   randomPostClick += 1;
   localStorage.setItem("randomPostClick", randomPostClick);
 }
 
-// 生成随机数
+// 生成隨機數
 function randomNum(minNum, maxNum) {
   switch (arguments.length) {
     case 1:

@@ -31,7 +31,7 @@ hexo.extend.generator.register("random", function (locals) {
       const { name, link } = friend_link_list.splice(randomIndex, 1)[0];
       Snackbar.show({
         text:
-          "点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：「" + name + "」",
+          "點擊前往按鈕進入隨機一個友鏈，不保證跳轉網站的安全性和可用性。本次隨機到的是本站友鏈：「" + name + "」",
         duration: 8000,
         pos: "top-center",
         actionText: "前往",

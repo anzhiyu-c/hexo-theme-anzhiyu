@@ -4,19 +4,19 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* 滚动条轨道样式 */
+/* 滾動條軌道樣式 */
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-/* 滚动条滑块样式 */
+/* 滾動條滑塊樣式 */
 ::-webkit-scrollbar-thumb {
   background-color: #888;
   opacity: 1;
   transition: opacity 0.5s;
 }
 
-/* 滚动条消失动画 */
+/* 滾動條消失動畫 */
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -26,7 +26,7 @@ html {
   }
 }
 
-/* 在滚动容器上应用动画 */
+/* 在滾動容器上應用動畫 */
 html:hover::-webkit-scrollbar-thumb {
   animation: fadeOut 1s 1s forwards;
 }

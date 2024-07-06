@@ -1,4 +1,4 @@
-/* 音乐播放器 */
+/* 音樂播放器 */
 
 .aplayer.aplayer-narrow .aplayer-body,
 .aplayer.aplayer-narrow .aplayer-pic {
@@ -6,7 +6,7 @@
   width: 66px;
 }
 
-/* 导航栏音乐 */
+/* 導航欄音樂 */
 @media screen and (max-width: 1200px) {
   #nav-music {
     display: none !important;
@@ -281,7 +281,7 @@
   }
 }
 
-/* 歌词 */
+/* 歌詞 */
 #nav-music .aplayer.aplayer-withlrc .aplayer-lrc {
   width: 0;
   opacity: 0;

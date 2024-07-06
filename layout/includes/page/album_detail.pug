@@ -8,14 +8,14 @@
     if (path_name && i.album_list)
       .author-content.author-content-item.album.single(style=`${album_detail_background ? `background: url(${album_detail_background}) top / cover no-repeat;` : ""}`)
         .card-content
-          .author-content-item-tips 相册集
+          .author-content-item-tips 相冊集
           span.author-content-item-title=i.class_name
           .content-bottom
             .tips=i.description
           .banner-button-group
             a.banner-button(onclick=`pjax.loadUrl("${url_for(album_detail_top_link ? album_detail_top_link : '/about')}")`, data-pjax-state)
               i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
-              span.banner-button-text=album_detail_top_btn_text ? album_detail_top_btn_text : "关于我"
+              span.banner-button-text=album_detail_top_btn_text ? album_detail_top_btn_text : "關於我"
       section.timeline.page-1
         if type == 1
           ul#waterfall.list
@@ -42,9 +42,9 @@
                       i.anzhiyufont.anzhiyu-icon-instagram
                       time.datatime(datetime= item.date)= datedata
                     if item.link 
-                      a.album-content-link(target="_blank", title="跳转到短文指引的链接", href=item.link, rel="external nofollow")
+                      a.album-content-link(target="_blank", title="跳轉到短文指引的鏈接", href=item.link, rel="external nofollow")
                         i.anzhiyufont.anzhiyu-icon-link
-                        | 链接
+                        | 鏈接
                     if item.address
                       .album-info-address
                         i.anzhiyufont.anzhiyu-icon-location-dot

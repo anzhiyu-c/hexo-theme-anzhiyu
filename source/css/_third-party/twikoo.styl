@@ -3,7 +3,7 @@ if hexo-config('comments.use') == 'Twikoo'
     min-width: 31.25rem
   .twikoo svg
     color: var(--anzhiyu-fontcolor);
-  /* 评论区表情放大 */
+  /* 評論區表情放大 */
   @keyframes owoIn
     0% {
       transform: translate(0, -95%);
@@ -232,21 +232,21 @@ if hexo-config('comments.use') == 'Twikoo'
       opacity: 1;
       height: auto;
       overflow: visible;
-  /* 输入提示 */
-  /* 设置文字内容 :nth-child(1)的作用是选择第几个 */
+  /* 輸入提示 */
+  /* 設置文字內容 :nth-child(1)的作用是選擇第幾個 */
   .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
-    content: "输入QQ号会自动获取昵称和头像🐧";
+    content: "輸入QQ號會自動獲取暱稱和頭像🐧";
   }
 
   .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(2):before {
-    content: "收到回复将会发送到您的邮箱📧";
+    content: "收到回覆將會發送到您的郵箱📧";
   }
 
   .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(3):before {
-    content: "可以通过昵称访问您的网站🔗";
+    content: "可以通過暱稱訪問您的網站🔗";
   }
 
-  /* 当用户点击输入框时显示 */
+  /* 當用戶點擊輸入框時顯示 */
   .el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::before
     display: block;
     animation: commonTipsIn .3s
@@ -257,7 +257,7 @@ if hexo-config('comments.use') == 'Twikoo'
     animation: commonTriangleIn .3s
     // z-index: 2
 
-  /* 主内容区 */
+  /* 主內容區 */
   .el-input.el-input--small.el-input-group.el-input-group--prepend::before {
     display: none;
     position: absolute;
@@ -272,7 +272,7 @@ if hexo-config('comments.use') == 'Twikoo'
     z-index: 100;
   }
 
-  /* 小角标 */
+  /* 小角標 */
   .el-input.el-input--small.el-input-group.el-input-group--prepend::after {
     display: none;
     content: '';
@@ -283,7 +283,7 @@ if hexo-config('comments.use') == 'Twikoo'
     transform: translate(-50%,-46px);
   }
 
-  /* 评论框  */
+  /* 評論框  */
   .vwrap {
     box-shadow: 2px 2px 5px #bbb;
     background: rgba(255, 255, 255, 0.3);
@@ -292,7 +292,7 @@ if hexo-config('comments.use') == 'Twikoo'
     margin: 30px 0px 30px 0px;
   }
 
-  /* 设置评论框 */
+  /* 設置評論框 */
   .vcard {
     box-shadow: 2px 2px 5px #bbb;
     background: rgba(255, 255, 255, 0.3);

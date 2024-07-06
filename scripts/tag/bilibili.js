@@ -32,7 +32,7 @@ function bilibili(args) {
             <span>${coinIcon}\${data.coin >= 10000 ? (data.coin / 10000).toFixed(1) + "w" : data.coin}</span>
           </div>
           <div class="owner">
-            <span class="tip">视频</span>
+            <span class="tip">視頻</span>
             <img src="\${data.face + '&h=100'}" class="no-lazyload">
             <span>\${data.owner}</span>
           </div>

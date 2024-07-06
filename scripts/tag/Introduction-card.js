@@ -1,5 +1,5 @@
 /**
- * Introduction-card 介绍卡片
+ * Introduction-card 介紹卡片
  * {% intCard link img tip cardTitle logo title subTitle %}
  */
 
@@ -10,8 +10,8 @@ const urlFor = require('hexo-util').url_for.bind(hexo);
 function intCard(args) {
   const [link, img, tip, cardTitle, logo, title, subTitle] = args;
 
-  const defaultTip = '最爱';
-  const defaultCardTitle = '最爱';
+  const defaultTip = '最愛';
+  const defaultCardTitle = '最愛';
   const defaultLogo = '';
   const defaultTitle = '';
   const defaultSubTitle = '';

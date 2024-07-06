@@ -5,7 +5,7 @@ hexo.extend.filter.register("before_generate", () => {
 
   if (hexoVer < 5.3) {
     logger.error("Please update Hexo to V5.3.0 or higher!");
-    logger.error("请把 Hexo 升级到 V5.3.0 或更高的版本！");
+    logger.error("請把 Hexo 升級到 V5.3.0 或更高的版本！");
     process.exit(-1);
   }
 
@@ -13,7 +13,7 @@ hexo.extend.filter.register("before_generate", () => {
     const data = hexo.locals.get("data");
     if (data && data.anzhiyu) {
       logger.error(" 'anzhiyu.yml' is deprecated. Please use '_config.anzhiyu.yml' ");
-      logger.error(" 'anzhiyu.yml' 已经弃用，请使用 '_config.anzhiyu.yml' ");
+      logger.error(" 'anzhiyu.yml' 已經棄用，請使用 '_config.anzhiyu.yml' ");
       process.exit(-1);
     }
   }

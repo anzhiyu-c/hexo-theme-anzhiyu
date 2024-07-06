@@ -6,20 +6,20 @@ body:
   - type: markdown
     attributes:
       value: |
-        重要：请依照该模板来提交 
+        重要：請依照該模板來提交 
         Please follow the template to create a new issue
   - type: input
     id: anzhiyu-ver
     attributes:
       label: 使用的 AnZhiYu 版本？ | What version of AnZhiYu are you use?
-      description: 检视主题的 package.json | Check the theme's package.json
+      description: 檢視主題的 package.json | Check the theme's package.json
     validations:
       required: true
 
   - type: dropdown
     id: browser
     attributes:
-      label: 使用的浏览器？ || What browse are you using?
+      label: 使用的瀏覽器？ || What browse are you using?
       options:
         - Chrome
         - Edge
@@ -32,7 +32,7 @@ body:
   - type: dropdown
     id: modify
     attributes:
-      label: 是否修改过主题文件？ || Has the theme files been modified?
+      label: 是否修改過主題文件？ || Has the theme files been modified?
       options:
         - 是 (Yes)
         - 不是 (No)
@@ -42,7 +42,7 @@ body:
   - type: dropdown
     id: platform
     attributes:
-      label: 使用的系统？ || What operating system are you using?
+      label: 使用的系統？ || What operating system are you using?
       options:
         - Windows
         - macOS
@@ -56,9 +56,9 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: 问题描述 | Describe the bug
-      description: 请描述你的问题现象 | A clear and concise description of what the bug is.
-      placeholder: 请尽量提供截图来定位你的问题 | If applicable, add screenshots to help explain your problem
+      label: 問題描述 | Describe the bug
+      description: 請描述你的問題現象 | A clear and concise description of what the bug is.
+      placeholder: 請儘量提供截圖來定位你的問題 | If applicable, add screenshots to help explain your problem
       value:
     validations:
       required: true
@@ -66,8 +66,8 @@ body:
   - type: input
     id: website
     attributes:
-      label: 出现问题的网站 | Website
-      description: 请提供下可复现的网站地址 | Please supply a website url which can reproduce problem.
+      label: 出現問題的網站 | Website
+      description: 請提供下可復現的網站地址 | Please supply a website url which can reproduce problem.
       placeholder:
     validations:
       required: true

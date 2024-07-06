@@ -10,7 +10,7 @@ if site.data.essay
               each i in site.data.essay
                 each item, index in i.essay_list
                   if index < 10
-                    - var contentText = item.image ? item.content + ' [图片]' : (item.video ? item.content + ' [视频]' : item.content)
+                    - var contentText = item.image ? item.content + ' [圖片]' : (item.video ? item.content + ' [視頻]' : item.content)
                     a.li-style.swiper-slide(href=href_value)= contentText
           a.bber-gotobb.anzhiyufont.anzhiyu-icon-circle-arrow-right( onclick=onclick_value, href=href_value, title="查看全文")
 
