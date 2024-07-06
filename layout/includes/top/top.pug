@@ -16,7 +16,7 @@ if home_top_config.enable
 
           a#random-hover(href='javascript:toRandomPost()')
             i.anzhiyufont.anzhiyu-icon-paper-plane
-            .bannerText 随便逛逛
+            .bannerText 隨便逛逛
               i.anzhiyufont.anzhiyu-icon-arrow-right
         .categoryGroup
           each item in home_top_config.category
@@ -39,7 +39,7 @@ if home_top_config.enable
               each item in swiper_list
                 .blog-slider__item.swiper-slide(style='width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;')
                   a.blog-slider__img(href=item.path, title=item.title)
-                    img(width='48' height='48'  src=item.cover alt='图片' onerror=`this.src=` + error_img + `; this.onerror = null;`)
+                    img(width='48' height='48'  src=item.cover alt='圖片' onerror=`this.src=` + error_img + `; this.onerror = null;`)
                   .blog-slider__content
                     if (timemode === 'updated' )
                       span.blog-slider__code= item.updated.format('YYYY-MM-DD')
@@ -50,8 +50,8 @@ if home_top_config.enable
                     - content.length > theme.index_post_content.length ? expert += ' ...' : ''
                     a.blog-slider__title(href=item.path, alt=item.title)= item.title
                     .blog-slider__text= item.description ? item.description : expert
-                    a.blog-slider__button(href=item.path, alt=item.title) 详情   
-            //- 轮播图组件
+                    a.blog-slider__button(href=item.path, alt=item.title) 詳情   
+            //- 輪播圖組件
             .blog-slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets
 
           #topPostGroup
@@ -60,7 +60,7 @@ if home_top_config.enable
               .top-group-list-item
                 .post_cover.left_radius
                   a(href=item.path title=item.title)
-                    span.top-group-text 荐
+                    span.top-group-text 薦
                     img.post_bg(alt=item.title, src=item.cover, onerror=`this.src=` + error_img + `; this.onerror = null;`)
                 .top-group-info
                   a.article-title(href=item.path title=item.title)=item.title
@@ -79,7 +79,7 @@ if home_top_config.enable
             .recent-post-item(onclick=`pjax.loadUrl("${url_for(item.path)}")`)
               .post_cover.left_radius
                 a(href=item.path, title=item.title)
-                  span.recent-post-top-text 荐
+                  span.recent-post-top-text 薦
                   img.post_bg(onerror=`this.onerror=null;this.src='${url_for(theme.error_img.post_page)}'`, alt='cover',  src=item.cover)
               .recent-post-info
                 a.article-title(href=item.path, title=item.title)=item.title
@@ -91,7 +91,7 @@ if home_top_config.enable
             .banner-button-group
               .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
                 i.anzhiyufont.anzhiyu-icon-arrow-circle-right
-                span.banner-button-text 更多推荐
+                span.banner-button-text 更多推薦
         
         link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)
       
@@ -110,7 +110,7 @@ if home_top_config.enable
             delay: 3000,
           },
           mousewheel: {
-            passive: true, // 将 mousewheel 事件处理程序标记为被动的
+            passive: true, // 將 mousewheel 事件處理程序標記爲被動的
           },
           // autoHeight: true,
           pagination: {

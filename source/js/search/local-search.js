@@ -68,15 +68,15 @@ window.addEventListener("load", () => {
           });
         }
         let content = item.querySelector("content") && item.querySelector("content").textContent;
-        let imgReg = /<img.*?(?:>|\/>)/gi; //匹配图片中的img标签
-        let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i; // 匹配图片中的src
-        let arr = content.match(imgReg); //筛选出所有的img
+        let imgReg = /<img.*?(?:>|\/>)/gi; //匹配圖片中的img標籤
+        let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i; // 匹配圖片中的src
+        let arr = content.match(imgReg); //篩選出所有的img
 
         let srcArr = [];
         if (arr) {
           for (let i = 0; i < arr.length; i++) {
             let src = arr[i].match(srcReg);
-            // 获取图片地址
+            // 獲取圖片地址
             if (!src[1].indexOf("http")) srcArr.push(src[1]);
           }
         }

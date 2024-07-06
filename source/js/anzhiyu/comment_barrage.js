@@ -93,7 +93,7 @@ if (document.querySelector(".comment-barrage")) {
             <a class="barrageTitle ${
               data.mailMd5 === commentBarrageConfig.mailMd5 ? "barrageBloggerTitle" : ""
             }" href="javascript:anzhiyu.scrollTo('#post-comment')"">
-              ${data.mailMd5 === commentBarrageConfig.mailMd5 ? "博主" : "热评"}
+              ${data.mailMd5 === commentBarrageConfig.mailMd5 ? "博主" : "熱評"}
             </a>
             <div class="barrageNick">${data.nick}</div>
             <img class="nolazyload barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>
@@ -104,25 +104,25 @@ if (document.querySelector(".comment-barrage")) {
           </anzhiyu>
         `;
 
-    // 获取anzhiyu标签内的所有pre元素
+    // 獲取anzhiyu標籤內的所有pre元素
     let anzhiyuPres = barrage.querySelectorAll("anzhiyu pre");
 
-    // 遍历每个pre元素，将其替换为"【代码】"
+    // 遍歷每個pre元素，將其替換爲"【代碼】"
     anzhiyuPres.forEach(pre => {
       let codePlaceholder = document.createElement("span");
-      codePlaceholder.innerText = "【代码】";
+      codePlaceholder.innerText = "【代碼】";
       pre.parentNode.replaceChild(codePlaceholder, pre);
     });
 
-    // 获取anzhiyu标签内的所有图片元素
+    // 獲取anzhiyu標籤內的所有圖片元素
     let anzhiyuImages = barrage.querySelectorAll("anzhiyu img");
 
-    // 遍历每个图片元素，将其替换为"【图片】"，但排除带有class=tk-owo-emotion的图片
+    // 遍歷每個圖片元素，將其替換爲"【圖片】"，但排除帶有class=tk-owo-emotion的圖片
     anzhiyuImages.forEach(image => {
       if (!image.classList.contains("tk-owo-emotion")) {
-        image.style.display = "none"; // 隐藏图片
+        image.style.display = "none"; // 隱藏圖片
         let placeholder = document.createElement("span");
-        placeholder.innerText = "【图片】";
+        placeholder.innerText = "【圖片】";
         image.parentNode.replaceChild(placeholder, image);
       }
     });
@@ -140,7 +140,7 @@ if (document.querySelector(".comment-barrage")) {
     }, 1000);
   }
 
-  // 自动隐藏
+  // 自動隱藏
   const commentEntryCallback = entries => {
     const commentBarrage = document.querySelector(".comment-barrage");
     const postComment = document.getElementById("post-comment");
@@ -151,13 +151,13 @@ if (document.querySelector(".comment-barrage")) {
       }
     });
   };
-  // 创建IntersectionObserver实例
+  // 創建IntersectionObserver實例
   const observer = new IntersectionObserver(commentEntryCallback, {
     root: null,
     rootMargin: "0px",
     threshold: 0,
   });
-  // 监视目标元素
+  // 監視目標元素
   const postCommentTarget = document.getElementById("post-comment");
   if (postCommentTarget) {
     observer.observe(postCommentTarget);
@@ -167,10 +167,10 @@ if (document.querySelector(".comment-barrage")) {
 
   if (localStorage.getItem("commentBarrageSwitch") !== "false") {
     document.querySelector(".comment-barrage").style.display = "flex";
-    document.querySelector(".menu-commentBarrage-text").textContent = "关闭热评";
+    document.querySelector(".menu-commentBarrage-text").textContent = "關閉熱評";
   } else {
     document.querySelector(".comment-barrage").style.display = "none";
-    document.querySelector(".menu-commentBarrage-text").textContent = "显示热评";
+    document.querySelector(".menu-commentBarrage-text").textContent = "顯示熱評";
   }
 
   document.addEventListener("pjax:send", function () {

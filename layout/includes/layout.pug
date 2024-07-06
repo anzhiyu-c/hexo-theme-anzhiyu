@@ -38,7 +38,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
                   .banner-button-group
                     a.banner-button(onclick=`pjax.loadUrl("${url_for(btn_link ? btn_link : '/about')}")`)
                       i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
-                      span.banner-button-text=btn_text ? btn_text : "关于我"
+                      span.banner-button-text=btn_text ? btn_text : "關於我"
 
           #content-inner.layout(class=hideAside)
             if body
@@ -67,7 +67,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
 
             if (!hasShownPopup) {
               setTimeout(() => {
-                anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('协议提醒助手', '查看本站为你的个人隐私做出的努力', '#{agreementPopupUrl}', 4000);
+                anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('協議提醒助手', '查看本站爲你的個人隱私做出的努力', '#{agreementPopupUrl}', 4000);
                 sessionStorage.setItem('sessionNegotiatePopupShown', 'true');
               }, 1000);
             }
@@ -87,5 +87,5 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
     !=partial('includes/anzhiyu/rightmenu', {}, {cache:true})
     include ./additional-js.pug
 
-    //- 弹窗通知
+    //- 彈窗通知
     !=partial('includes/popup/index', {}, {cache: true})

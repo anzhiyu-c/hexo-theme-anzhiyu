@@ -23,11 +23,11 @@ if site.data.about
           .author-tag-right
             each item in avatarSkills.right
               span.author-tag=item
-      p.p.center.logo.large 关于我
+      p.p.center.logo.large 關於我
       p.p.center.small=subtitle
       .author-content
         .author-content-item.myInfoAndSayHello
-          .title1 你好，很高兴认识你👋
+          .title1 你好，很高興認識你👋
           .title2
             | 我叫 
             span.inline-word=aboutName
@@ -93,12 +93,12 @@ if site.data.about
           - let cover = item.statistic.cover
           .about-statistic.author-content-item(style=`background: url(${cover}) top / cover no-repeat;`)
             .card-content
-              .author-content-item-tips 数据
-              span.author-content-item-title 访问统计
+              .author-content-item-tips 數據
+              span.author-content-item-title 訪問統計
               #statistic
               .post-tips
-                | 统计信息来自 
-                a(href='https://invite.51.la/1NzKqTeb?target=V6', target='_blank', rel='noopener nofollow') 51la网站统计
+                | 統計信息來自 
+                a(href='https://invite.51.la/1NzKqTeb?target=V6', target='_blank', rel='noopener nofollow') 51la網站統計
               .banner-button-group
                 - let link = item.statistic.link
                 - let text = item.statistic.text
@@ -145,7 +145,7 @@ if site.data.about
           .post-tips
             | 在 
             a(href='https://www.16personalities.com/', target='_blank', rel='noopener nofollow') 16personalities
-            |  了解更多关于 
+            |  瞭解更多關於 
             a(target='_blank', rel='noopener external nofollow', href= name_url)= author_name
           .image
             img.no-lightbox(src=url_for(personality_img), alt='人格')
@@ -207,12 +207,12 @@ if site.data.about
             .author-content-item-tips=music_tips
             span.author-content-item-title=music_title
             .content-bottom
-              .tips=`跟 ${aboutName} 一起欣赏更多音乐`
+              .tips=`跟 ${aboutName} 一起欣賞更多音樂`
             .banner-button-group
               a.banner-button(onclick=`pjax.loadUrl("${music_link}")`)
                 i.anzhiyufont.anzhiyu-icon-arrow-circle-right
                 |  
-                span.banner-button-text 更多推荐
+                span.banner-button-text 更多推薦
 
       if page.content
         .author-content
@@ -224,9 +224,9 @@ if site.data.about
         - let sortedByDate = rawData.slice().sort((a, b) => new Date(b.datatime) - new Date(a.datatime));
         .author-content
           .author-content-item.single.reward#about-reward
-            .author-content-item-tips 致谢
-            span.author-content-item-title 赞赏名单
-            .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
+            .author-content-item-tips 致謝
+            span.author-content-item-title 讚賞名單
+            .author-content-item-description 感謝因爲有你們，讓我更加有創作的動力。
               .reward-list-all
                 - let reward_list_amount = item.reward_list.sort((a,b)=>b.amount -  a.amount)
                 each item, index in reward_list_amount
@@ -239,14 +239,14 @@ if site.data.about
                         .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
                       .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
               .reward-list-updateDate
-                | 最新更新时间： 
+                | 最新更新時間： 
                 time.datatime.reward-list-updateDate-time(datatime=sortedByDate[0].datatime)=new Date(sortedByDate[0].datatime).toISOString().slice(0, -14)
             .about-reward
               #con
               #TA-con(onclick="anzhiyu.rewardShowConsole()")
                 #text-con
                   #linght
-                  #TA 为TA充电
+                  #TA 爲TA充電
               #tube-con
                 svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
                   path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
@@ -293,7 +293,7 @@ if site.data.about
         fetch("https://v6-widget.51.la/v6/#{ck}/quote.js")
           .then(res => res.text())
           .then(data => {
-            let title = ["最近活跃", "今日人数", "今日访问", "昨日人数", "昨日访问", "本月访问", "总访问量"];
+            let title = ["最近活躍", "今日人數", "今日訪問", "昨日人數", "昨日訪問", "本月訪問", "總訪問量"];
             let num = data.match(/(<\/span><span>).*?(\/span><\/p>)/g);
 
             num = num.map(el => {
@@ -304,7 +304,7 @@ if site.data.about
 
             let statisticEl = document.getElementById("statistic");
 
-            // 自定义不显示哪个或者显示哪个，如下为不显示 最近活跃访客 和 总访问量
+            // 自定義不顯示哪個或者顯示哪個，如下爲不顯示 最近活躍訪客 和 總訪問量
             let statistic = [];
             for (let i = 0; i < num.length; i++) {
               if (!statisticEl) return;
@@ -338,7 +338,7 @@ if site.data.about
                         statistic[i - 1].start();
                       });
                     }
-                    observer.disconnect(); // 停止观察元素，因为不再需要触发此回调
+                    observer.disconnect(); // 停止觀察元素，因爲不再需要觸發此回調
                   }
                 });
               };
@@ -369,7 +369,7 @@ if site.data.about
                 entries.forEach(entry => {
                   if (entry.isIntersecting) {
                     selfInfoContentYear.start();
-                    observer.disconnect(); // 停止观察元素，因为不再需要触发此回调
+                    observer.disconnect(); // 停止觀察元素，因爲不再需要觸發此回調
                   }
                 });
               };

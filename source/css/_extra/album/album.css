@@ -1,4 +1,4 @@
-/* 处理单页背景 */
+/* 處理單頁背景 */
 body[data-type="album"] #web_bg {
   background: var(--anzhiyu-background);
 }
@@ -12,7 +12,7 @@ body[data-type="album"] #page .page-title {
   display: none;
 }
 
-/* 变量定义 */
+/* 變量定義 */
 :root {
   --album-background-dark: #2d3548;
   --album-text-light: rgba(255, 255, 255, 0.6);
@@ -24,7 +24,7 @@ body[data-type="album"] #page .page-title {
   --album-spacing-xxl: 64px;
 }
 
-/* 卡片样式 */
+/* 卡片樣式 */
 #album .card-album {
   width: 100%;
   display: flex;

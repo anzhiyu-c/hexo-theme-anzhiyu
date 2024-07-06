@@ -1,132 +1,132 @@
 footer:
   framework: 框架
-  theme: 主题
+  theme: 主題
 
 copy:
-  success: 复制成功
-  error: 复制错误
-  noSupport: 浏览器不支持
+  success: 複製成功
+  error: 複製錯誤
+  noSupport: 瀏覽器不支持
 
 page:
-  articles: 文章总览
-  tag: 标签
-  category: 分类
-  archives: 归档
+  articles: 文章總覽
+  tag: 標籤
+  category: 分類
+  archives: 歸檔
 
-card_post_count: 条评论
+card_post_count: 條評論
 
-sticky: 置顶
-no_title: 无题
+sticky: 置頂
+no_title: 無題
 
 post:
-  created: 发表于
-  updated: 更新于
-  wordcount: 字数总计
-  min2read: 阅读时长
-  min2read_unit: 分钟
-  page_pv: 阅读量
-  comments: 评论数
+  created: 發表於
+  updated: 更新於
+  wordcount: 字數總計
+  min2read: 閱讀時長
+  min2read_unit: 分鐘
+  page_pv: 閱讀量
+  comments: 評論數
   copyright:
     author: 文章作者
-    link: 文章链接
-    copyright_notice: 版权声明
-    copyright_content: '本博客所有文章除特别声明外，均采用
-      <a href="%s" target="_blank">%s</a> 许可协议。转载请注明来自 <a href="%s" target="_blank">%s</a>！'
-  recommend: 喜欢这篇文章的人也看了
+    link: 文章鏈接
+    copyright_notice: 版權聲明
+    copyright_content: '本博客所有文章除特別聲明外，均採用
+      <a href="%s" target="_blank">%s</a> 許可協議。轉載請註明來自 <a href="%s" target="_blank">%s</a>！'
+  recommend: 喜歡這篇文章的人也看了
   edit:
-    github: 在 GitHub 上编辑
-    yuque: 在 语雀 上编辑
-    # notion: 在 Notion 上编辑
-    # flowus: 在 Flowus 上编辑
+    github: 在 GitHub 上編輯
+    yuque: 在 語雀 上編輯
+    # notion: 在 Notion 上編輯
+    # flowus: 在 Flowus 上編輯
 
 search:
   title: "搜索"
-  load_data: 数据库加载中
+  load_data: 數據庫加載中
   algolia_search:
-    input_placeholder: 输入关键词后按下回车查找
-    hits_empty: "找不到您查询的内容：${query}"
-    hits_stats: "找到 ${hits} 条结果，用时 ${time} 毫秒"
+    input_placeholder: 輸入關鍵詞後按下回車查找
+    hits_empty: "找不到您查詢的內容：${query}"
+    hits_stats: "找到 ${hits} 條結果，用時 ${time} 毫秒"
 
   local_search:
     input_placeholder: 搜索文章
-    hits_empty: "找不到您查询的内容：${query}"
+    hits_empty: "找不到您查詢的內容：${query}"
 
 pagination:
   prev: 上一篇
   next: 下一篇
 
-comment: 评论
+comment: 評論
 
 aside:
   articles: 文章
-  tags: 标签
-  categories: 分类
+  tags: 標籤
+  categories: 分類
   card_announcement: 公告
-  card_categories: 分类
-  card_tags: 标签
-  card_archives: 归档
-  card_recent_post: 最近发布
+  card_categories: 分類
+  card_tags: 標籤
+  card_archives: 歸檔
+  card_recent_post: 最近發佈
   card_webinfo:
-    headline: 网站资讯
-    article_name: 文章总数
+    headline: 網站資訊
+    article_name: 文章總數
     runtime:
-      name: 建站天数
+      name: 建站天數
       unit: 天
     last_push_date:
-      name: 最后更新
-    site_wordcount: 全站字数
-    site_uv_name: 总访客数
-    site_pv_name: 总访问量
+      name: 最後更新
+    site_wordcount: 全站字數
+    site_uv_name: 總訪客數
+    site_pv_name: 總訪問量
   more_button: 查看更多
   card_newest_comments:
-    headline: 最新评论
-    loading_text: 正在加载中...
-    error: 无法获取评论，请确认相关配置是否正确
-    zero: 没有评论
-    image: 图片
-    link: 链接
-    code: 代码
-  card_toc: 文章目录
-  display_mode: 显示模式
+    headline: 最新評論
+    loading_text: 正在加載中...
+    error: 無法獲取評論，請確認相關配置是否正確
+    zero: 沒有評論
+    image: 圖片
+    link: 鏈接
+    code: 代碼
+  card_toc: 文章目錄
+  display_mode: 顯示模式
   function: 功能
 
 date_suffix:
-  just: 刚刚
-  min: 分钟前
-  hour: 小时前
+  just: 剛剛
+  min: 分鐘前
+  hour: 小時前
   day: 天前
-  month: 个月前
+  month: 個月前
 
-donate: 不给糖果就捣蛋
+donate: 不給糖果就搗蛋
 share: 分享
 
 rightside:
-  readmode_title: 阅读模式
-  translate_title: 简繁转换
-  night_mode_title: 浅色和深色模式转换
-  back_to_top: 回到顶部
-  toc: 目录
-  scroll_to_comment: 直达评论
-  setting: 设置
-  aside: 单栏和双栏切换
+  readmode_title: 閱讀模式
+  translate_title: 簡繁轉換
+  night_mode_title: 淺色和深色模式轉換
+  back_to_top: 回到頂部
+  toc: 目錄
+  scroll_to_comment: 直達評論
+  setting: 設置
+  aside: 單欄和雙欄切換
   chat: 聊天
 
 copy_copyright:
   author: 作者
-  link: 链接
-  source: 来源
-  info: 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-  copySuccess: 复制成功，复制和转载请标注本文地址
+  link: 鏈接
+  source: 來源
+  info: 著作權歸作者所有。商業轉載請聯繫作者獲得授權，非商業轉載請註明出處。
+  copySuccess: 複製成功，複製和轉載請標註本文地址
 
 Snackbar:
-  chs_to_cht: 你已切换为繁体
-  cht_to_chs: 你已切换为简体
-  day_to_night: 你已切换为深色模式
-  night_to_day: 你已切换为浅色模式
-  copy_equipment_name: 已复制装备名称
+  chs_to_cht: 你已切換爲繁體
+  cht_to_chs: 你已切換爲簡體
+  day_to_night: 你已切換爲深色模式
+  night_to_day: 你已切換爲淺色模式
+  copy_equipment_name: 已複製裝備名稱
 
-loading: 加载中...
+loading: 加載中...
 
-load_more: 加载更多
+load_more: 加載更多
 
-error404: 页面没有找到
+error404: 頁面沒有找到
