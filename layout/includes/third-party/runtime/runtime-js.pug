@@ -3,7 +3,7 @@
 - let offduty_description = theme.footer.runtime.offduty_description
 script(async=true).
   (function () {
-    var grt = new Date("#{launch_time}"); //设置网站上线时间
+    var grt = new Date("#{launch_time}"); //設置網站上線時間
     var now = new Date();
     var dnum;
     var hnum;
@@ -11,7 +11,7 @@ script(async=true).
     var snum;
     var nowHour;
 
-    // 计算并更新天数、小时数、分钟数和秒数
+    // 計算並更新天數、小時數、分鐘數和秒數
     function updateTime() {
       now = new Date(); // 更新 now 的值
       nowHour = now.getHours(); // 更新 nowHour 的值
@@ -34,16 +34,16 @@ script(async=true).
       }
     }
 
-    // 更新网页中显示的网站运行时间
+    // 更新網頁中顯示的網站運行時間
     function updateHtml() {
       const footer = document.getElementById("footer");
       if (!footer) return
       let currentTimeHtml = "";
       if (nowHour < 18 && nowHour >= 9) {
-        // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
-        currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+        // 如果是上班時間，默認就是"安知魚-上班摸魚中.svg"圖片，不需要更改
+        currentTimeHtml = `本站居然運行了 ${dnum} 天<span id='runtime'> ${hnum} 小時 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
       } else {
-        // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+        // 如果是下班時間，插入"安知魚-下班啦.svg"圖片
         let img = document.querySelector("#workboard .workSituationImg");
         if (img != null) {
           img.src = "#{offduty_img}";
@@ -51,7 +51,7 @@ script(async=true).
           img.alt = "#{offduty_description}";
         }
 
-        currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+        currentTimeHtml = `本站居然運行了 ${dnum} 天<span id='runtime'> ${hnum} 小時 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
       }
 
       if (document.getElementById("runtimeTextTip")) {

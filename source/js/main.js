@@ -1,110 +1,110 @@
-// 第一次播放音乐
+// 第一次播放音樂
 var anzhiyu_musicFirst = false;
-// 快捷键
+// 快捷鍵
 var anzhiyu_keyboard = null;
-// 音乐播放状态
+// 音樂播放狀態
 var anzhiyu_musicPlaying = false;
 var $bodyWrap = document.getElementById("body-wrap");
 var anzhiyu_intype = false;
 var anzhiyu_keyUpEvent_timeoutId = null;
 var anzhiyu_keyUpShiftDelayEvent_timeoutId = null;
 
-// 右键菜单对象
+// 右鍵菜單對象
 var rm = null;
 
 var popupWindowTimer = null;
 
 var adjectives = [
-  "美丽的",
+  "美麗的",
   "英俊的",
-  "聪明的",
+  "聰明的",
   "勇敢的",
-  "可爱的",
+  "可愛的",
   "慷慨的",
   "善良的",
   "可靠的",
-  "开朗的",
+  "開朗的",
   "成熟的",
-  "稳重的",
-  "真诚的",
+  "穩重的",
+  "真誠的",
   "幽默的",
-  "豁达的",
+  "豁達的",
   "有趣的",
-  "活泼的",
-  "优雅的",
+  "活潑的",
+  "優雅的",
   "敏捷的",
-  "温柔的",
-  "温暖的",
-  "敬业的",
-  "细心的",
+  "溫柔的",
+  "溫暖的",
+  "敬業的",
+  "細心的",
   "耐心的",
   "深沉的",
-  "朴素的",
+  "樸素的",
   "含蓄的",
   "率直的",
-  "开放的",
-  "务实的",
-  "坚强的",
+  "開放的",
+  "務實的",
+  "堅強的",
   "自信的",
-  "谦虚的",
-  "文静的",
+  "謙虛的",
+  "文靜的",
   "深刻的",
-  "纯真的",
-  "朝气蓬勃的",
+  "純真的",
+  "朝氣蓬勃的",
   "慎重的",
   "大方的",
-  "顽强的",
+  "頑強的",
   "迷人的",
-  "机智的",
+  "機智的",
   "善解人意的",
   "富有想象力的",
   "有魅力的",
-  "独立的",
+  "獨立的",
   "好奇的",
-  "干净的",
-  "宽容的",
+  "乾淨的",
+  "寬容的",
   "尊重他人的",
-  "体贴的",
+  "體貼的",
   "守信的",
   "有耐性的",
-  "有责任心的",
-  "有担当的",
-  "有远见的",
+  "有責任心的",
+  "有擔當的",
+  "有遠見的",
   "有智慧的",
   "有眼光的",
-  "有冒险精神的",
-  "有爱心的",
+  "有冒險精神的",
+  "有愛心的",
   "有同情心的",
-  "喜欢思考的",
-  "喜欢学习的",
-  "具有批判性思维的",
-  "善于表达的",
-  "善于沟通的",
-  "善于合作的",
-  "善于领导的",
+  "喜歡思考的",
+  "喜歡學習的",
+  "具有批判性思維的",
+  "善於表達的",
+  "善於溝通的",
+  "善於合作的",
+  "善於領導的",
   "有激情的",
   "有幽默感的",
   "有思想的",
-  "有个性的",
-  "有正义感的",
-  "有责任感的",
-  "有创造力的",
+  "有個性的",
+  "有正義感的",
+  "有責任感的",
+  "有創造力的",
   "有想象力的",
-  "有艺术细胞的",
-  "有团队精神的",
-  "有协调能力的",
-  "有决策能力的",
-  "有组织能力的",
-  "有学习能力的",
-  "有执行能力的",
+  "有藝術細胞的",
+  "有團隊精神的",
+  "有協調能力的",
+  "有決策能力的",
+  "有組織能力的",
+  "有學習能力的",
+  "有執行能力的",
   "有分析能力的",
-  "有逻辑思维的",
-  "有创新能力的",
-  "有专业素养的",
-  "有商业头脑的",
+  "有邏輯思維的",
+  "有創新能力的",
+  "有專業素養的",
+  "有商業頭腦的",
 ];
 var vegetablesAndFruits = [
-  "萝卜",
+  "蘿蔔",
   "白菜",
   "芹菜",
   "生菜",
@@ -112,23 +112,23 @@ var vegetablesAndFruits = [
   "辣椒",
   "茄子",
   "豆角",
-  "黄瓜",
-  "西红柿",
-  "洋葱",
+  "黃瓜",
+  "西紅柿",
+  "洋蔥",
   "大蒜",
   "土豆",
   "南瓜",
   "豆腐",
   "韭菜",
   "花菜",
-  "西兰花",
+  "西蘭花",
   "蘑菇",
-  "金针菇",
-  "苹果",
+  "金針菇",
+  "蘋果",
   "香蕉",
   "橙子",
-  "柠檬",
-  "猕猴桃",
+  "檸檬",
+  "獼猴桃",
   "草莓",
   "葡萄",
   "桃子",
@@ -138,21 +138,21 @@ var vegetablesAndFruits = [
   "西瓜",
   "哈密瓜",
   "蜜瓜",
-  "樱桃",
-  "蓝莓",
+  "櫻桃",
+  "藍莓",
   "柿子",
-  "橄榄",
+  "橄欖",
   "柚子",
-  "火龙果",
+  "火龍果",
 ];
 
-// 已随机的歌曲
+// 已隨機的歌曲
 var selectRandomSong = [];
-// 音乐默认声音大小
+// 音樂默認聲音大小
 var musicVolume = 0.8;
-// 是否切换了周杰伦音乐列表
+// 是否切換了周杰倫音樂列表
 var changeMusicListFlag = false;
-// 当前默认播放列表
+// 當前默認播放列表
 var defaultPlayMusicList = [];
 var themeColorMeta, pageHeaderEl, navMusicEl, consoleEl;
 
@@ -217,8 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * 代码
-   * 只适用于Hexo默认的代码渲染
+   * 代碼
+   * 只適用於Hexo默認的代碼渲染
    */
   const addHighlightTool = function () {
     const highLight = GLOBAL_CONFIG.highlight;
@@ -413,12 +413,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const runJustifiedGallery = (item, arr) => {
       const limit = item.getAttribute("data-limit") ?? arr.length;
       if (!item.classList.contains("lazyload") || arr.length < limit) {
-        // 不懒加载
+        // 不懶加載
         item.innerHTML = htmlStr(arr);
         item.nextElementSibling.style.display = "none";
       } else {
         if (!item.classList.contains("btn_album_detail_lazyload") || item.classList.contains("page_img_lazyload")) {
-          // 滚动懒加载
+          // 滾動懶加載
           lazyloadFn(item, arr, limit);
           const clickBtnFn = () => {
             const lastItemLength = lazyloadFn(item, arr, limit);
@@ -433,19 +433,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           };
 
-          // 创建IntersectionObserver实例
+          // 創建IntersectionObserver實例
           const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-              // 如果元素进入视口
+              // 如果元素進入視口
               if (entry.isIntersecting) {
-                // 执行clickBtnFn函数
+                // 執行clickBtnFn函數
                 setTimeout(clickBtnFn(), 100);
               }
             });
           });
           observer.observe(item.nextElementSibling);
         } else {
-          // 相册详情 按钮懒加载
+          // 相冊詳情 按鈕懶加載
           lazyloadFn(item, arr, limit);
           const clickBtnFn = () => {
             const lastItemLength = lazyloadFn(item, arr, limit);
@@ -486,7 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * 滚动处理
+   * 滾動處理
    */
   const scrollFn = function () {
     const $rightside = document.getElementById("rightside");
@@ -511,20 +511,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const isChatBtnHide = typeof chatBtnHide === "function";
     const isChatBtnShow = typeof chatBtnShow === "function";
 
-    // 第一次滑动到底部的标识符
+    // 第一次滑動到底部的標識符
     let scrollBottomFirstFlag = false;
-    // 缓存常用dom元素
+    // 緩存常用dom元素
     const musicDom = document.getElementById("nav-music"),
       footerDom = document.getElementById("footer"),
       waterfallDom = document.getElementById("waterfall"),
       $percentBtn = document.getElementById("percent"),
       $navTotop = document.getElementById("nav-totop"),
       $bodyWrap = document.getElementById("body-wrap");
-    // 页面底部Dom是否存在
+    // 頁面底部Dom是否存在
     let pageBottomDomFlag = document.getElementById("post-comment") || document.getElementById("footer");
 
     function percentageScrollFn(currentTop) {
-      // 处理滚动百分比
+      // 處理滾動百分比
       let docHeight = $bodyWrap.clientHeight;
       const winHeight = document.documentElement.clientHeight;
       const contentMath =
@@ -550,15 +550,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (isInViewPortOfOneNoDis(pageBottomDomFlag || percentage > 90) && currentTop > 20) {
         $navTotop.classList.add("long");
-        $percentBtn.textContent = "返回顶部";
+        $percentBtn.textContent = "返回頂部";
       } else {
         $navTotop.classList.remove("long");
         $percentBtn.textContent = percentage;
       }
 
-      // 如果当前页面需要瀑布流，就处理瀑布流
+      // 如果當前頁面需要瀑布流，就處理瀑布流
       if (waterfallDom) {
-        const waterfallResult = currentTop % document.documentElement.clientHeight; // 卷去一个视口
+        const waterfallResult = currentTop % document.documentElement.clientHeight; // 捲去一個視口
         if (!scrollBottomFirstFlag && waterfallResult + 100 >= document.documentElement.clientHeight) {
           console.info(waterfallResult, document.documentElement.clientHeight);
           setTimeout(() => {
@@ -588,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
         delta > 20 &&
         lastScrollTop != 0
       ) {
-        // 滚动后延迟1s关闭弹窗
+        // 滾動後延遲1s關閉彈窗
         anzhiyu.throttle(() => {
           if (popupWindowTimer) clearTimeout(popupWindowTimer);
           popupWindowTimer = setTimeout(() => {
@@ -630,7 +630,7 @@ document.addEventListener("DOMContentLoaded", function () {
           requestAnimationFrame(() => {
             $header.classList.remove("nav-fixed");
             $header.classList.remove("nav-visible");
-            // 修改顶栏颜色
+            // 修改頂欄顏色
             anzhiyu.initThemeColor();
           });
         }
@@ -644,7 +644,7 @@ document.addEventListener("DOMContentLoaded", function () {
       percentageScrollFn(currentTop);
     }, 96);
 
-    // 进入footer隐藏音乐
+    // 進入footer隱藏音樂
     if (footerDom) {
       anzhiyu
         .intersectionObserver(
@@ -788,7 +788,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (mode === "light") {
       menuDarkmodeText.textContent = "深色模式";
     } else {
-      menuDarkmodeText.textContent = "浅色模式";
+      menuDarkmodeText.textContent = "淺色模式";
     }
 
     if (!GLOBAL_CONFIG_SITE.isPost) {
@@ -798,7 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
         anzhiyu.initThemeColor();
       });
 
-      // 要改回来默认主色;
+      // 要改回來默認主色;
       document.documentElement.style.setProperty(
         "--anzhiyu-main",
         getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
@@ -903,7 +903,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //监听蒙版关闭
+  //監聽蒙版關閉
   document.addEventListener(
     "touchstart",
     e => {
@@ -928,7 +928,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /**
-   * 手机端目录点击
+   * 手機端目錄點擊
    */
   const openMobileMenu = () => {
     const handleClick = () => {
@@ -1131,7 +1131,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mouseleaveHomeCard = function () {
     const topGroup = document.querySelector(".topGroup");
     if (!topGroup) return;
-    //首页大卡片恢复显示
+    //首頁大卡片恢復顯示
     topGroup.addEventListener("mouseleave", function () {
       document.getElementById("todayCard").classList.remove("hide");
       document.getElementById("todayCard").style.zIndex = 1;
@@ -1140,22 +1140,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 表情放大
   const owoBig = function () {
-    let flag = 1, // 设置节流阀
-      owo_time = "", // 设置计时器
-      m = 3; // 设置放大倍数
-    // 创建盒子
+    let flag = 1, // 設置節流閥
+      owo_time = "", // 設置計時器
+      m = 3; // 設置放大倍數
+    // 創建盒子
     let div = document.createElement("div");
-    // 设置ID
+    // 設置ID
     div.id = "owo-big";
     // 插入盒子
     let body = document.querySelector("body");
     body.appendChild(div);
 
-    // 监听 post-comment 元素的子元素添加事件
+    // 監聽 post-comment 元素的子元素添加事件
     const observer = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
         const addedNodes = mutation.addedNodes;
-        // 判断新增的节点中是否包含 OwO-body 类名的元素
+        // 判斷新增的節點中是否包含 OwO-body 類名的元素
         for (let i = 0; i < addedNodes.length; i++) {
           const node = addedNodes[i];
           if (
@@ -1164,69 +1164,69 @@ document.addEventListener("DOMContentLoaded", function () {
             !node.classList.contains("comment-barrage")
           ) {
             const owo_body = node;
-            // 禁用右键（手机端长按会出现右键菜单，为了体验给禁用掉）
+            // 禁用右鍵（手機端長按會出現右鍵菜單，爲了體驗給禁用掉）
             owo_body.addEventListener("contextmenu", e => e.preventDefault());
-            // 鼠标移入
+            // 鼠標移入
             owo_body.addEventListener("mouseover", handleMouseOver);
-            // 鼠标移出
+            // 鼠標移出
             owo_body.addEventListener("mouseout", handleMouseOut);
           }
         }
       });
     });
 
-    // 配置 MutationObserver 选项
+    // 配置 MutationObserver 選項
     const config = { childList: true, subtree: true };
 
-    // 开始监听
+    // 開始監聽
     observer.observe(document.getElementById("post-comment"), config);
 
     function handleMouseOver(e) {
       if (e.target.tagName == "IMG" && flag) {
         flag = 0;
-        // 移入100毫秒后显示盒子
+        // 移入100毫秒後顯示盒子
         owo_time = setTimeout(() => {
           let height = e.target.clientHeight * m; // 盒子高
-          let width = e.target.clientWidth * m; // 盒子宽
-          let left = e.x - e.offsetX - (width - e.target.clientWidth) / 2; // 盒子与屏幕左边距离
+          let width = e.target.clientWidth * m; // 盒子寬
+          let left = e.x - e.offsetX - (width - e.target.clientWidth) / 2; // 盒子與屏幕左邊距離
           if (left + width > body.clientWidth) {
             left -= left + width - body.clientWidth + 10;
-          } // 右边缘检测，防止超出屏幕
-          if (left < 0) left = 10; // 左边缘检测，防止超出屏幕
-          let top = e.y - e.offsetY; // 盒子与屏幕顶部距离
+          } // 右邊緣檢測，防止超出屏幕
+          if (left < 0) left = 10; // 左邊緣檢測，防止超出屏幕
+          let top = e.y - e.offsetY; // 盒子與屏幕頂部距離
 
-          // 设置盒子样式
+          // 設置盒子樣式
           div.style.height = height + "px";
           div.style.width = width + "px";
           div.style.left = left + "px";
           div.style.top = top + "px";
           div.style.display = "flex";
-          // 在盒子中插入图片
+          // 在盒子中插入圖片
           div.innerHTML = `<img src="${e.target.src}">`;
         }, 100);
       }
     }
 
     function handleMouseOut(e) {
-      // 隐藏盒子
+      // 隱藏盒子
       div.style.display = "none";
       flag = 1;
       clearTimeout(owo_time);
     }
   };
 
-  //封面纯色
+  //封面純色
   const coverColor = async () => {
     const root = document.querySelector(":root");
     const path = document.getElementById("post-top-bg")?.src;
     if (!path) {
-      // 非文章情况，直接设置不需要请求了
+      // 非文章情況，直接設置不需要請求了
       root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
       requestAnimationFrame(() => {
         anzhiyu.initThemeColor();
       });
 
-      // 要改回来默认主色
+      // 要改回來默認主色
       document.documentElement.style.setProperty(
         "--anzhiyu-main",
         getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-theme")
@@ -1243,7 +1243,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // 文章内
+    // 文章內
     if (GLOBAL_CONFIG.mainTone) {
       if (GLOBAL_CONFIG_SITE.postMainColor) {
         let value = GLOBAL_CONFIG_SITE.postMainColor;
@@ -1275,7 +1275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (GLOBAL_CONFIG.mainTone.mode == "api") {
           fetchPath = GLOBAL_CONFIG.mainTone.api + path;
         }
-        // cdn/api模式请求
+        // cdn/api模式請求
         try {
           const response = await fetch(fetchPath);
           if (response.ok && response.headers.get("content-type")?.includes("application/json")) {
@@ -1306,7 +1306,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           } else {
             if (GLOBAL_CONFIG.mainTone.mode == "both") {
-              // both继续请求
+              // both繼續請求
               try {
                 const response = await fetch(GLOBAL_CONFIG.mainTone.api + path);
                 if (response.ok && response.headers.get("content-type")?.includes("application/json")) {
@@ -1367,7 +1367,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  //RGB颜色转化为16进制颜色
+  //RGB顏色轉化爲16進制顏色
   const colorHex = str => {
     const hexRegex = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
@@ -1431,13 +1431,13 @@ document.addEventListener("DOMContentLoaded", function () {
     return brightness >= 0.5 ? "light" : "dark";
   };
 
-  //监听跳转页面输入框是否按下回车
+  //監聽跳轉頁面輸入框是否按下回車
   const listenToPageInputPress = function () {
     var input = document.getElementById("toPageText");
     if (input) {
       input.addEventListener("keydown", event => {
         if (event.keyCode === 13) {
-          // 如果按下的是回车键，则执行特定的函数
+          // 如果按下的是回車鍵，則執行特定的函數
           anzhiyu.toPage();
           var link = document.getElementById("toPageButton");
           var href = link.href;
@@ -1447,17 +1447,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // 监听nav是否被其他音频暂停⏸️
+  // 監聽nav是否被其他音頻暫停⏸️
   const listenNavMusicPause = function () {
     const timer = setInterval(() => {
       if (navMusicEl && navMusicEl.querySelector("#nav-music meting-js").aplayer) {
         clearInterval(timer);
-        let msgPlay = '<i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span>';
-        let msgPause = '<i class="anzhiyufont anzhiyu-icon-pause"></i><span>暂停音乐</span>';
+        let msgPlay = '<i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音樂</span>';
+        let msgPause = '<i class="anzhiyufont anzhiyu-icon-pause"></i><span>暫停音樂</span>';
         navMusicEl.querySelector("#nav-music meting-js").aplayer.on("pause", function () {
           navMusicEl.classList.remove("playing");
           document.getElementById("menu-music-toggle").innerHTML = msgPlay;
-          document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停";
+          document.getElementById("nav-music-hoverTips").innerHTML = "音樂已暫停";
           document.querySelector("#consoleMusic").classList.remove("on");
           anzhiyu_musicPlaying = false;
           navMusicEl.classList.remove("stretch");
@@ -1473,20 +1473,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 16);
   };
 
-  // 开发者工具键盘监听
+  // 開發者工具鍵盤監聽
   window.onkeydown = function (e) {
-    123 === e.keyCode && anzhiyu.snackbarShow("开发者模式已打开，请遵循GPL协议", !1);
+    123 === e.keyCode && anzhiyu.snackbarShow("開發者模式已打開，請遵循GPL協議", !1);
   };
 
-  // 欢迎语
+  // 歡迎語
   function greetingInit() {
     const greetingBoxInfo = GLOBAL_CONFIG.greetingBox.list;
     const greetingBoxDefault = GLOBAL_CONFIG.greetingBox.default;
-    //- 创建盒子
+    //- 創建盒子
     let div = document.createElement("div");
-    //- 设置ID
+    //- 設置ID
     div.id = "greeting";
-    //- 设置class
+    //- 設置class
     setTimeout(() => {
       div.classList.add("shown");
     }, 1000);
@@ -1547,7 +1547,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new LingQue.Monitor().init({ id: GLOBAL_CONFIG.LA51.LingQueMonitorID, sendSuspicious: true });
       })
       .catch(error => {
-        console.error("加载51a统计异常，本地加载403是正常情况:", error);
+        console.error("加載51a統計異常，本地加載403是正常情況:", error);
       });
   }
 
@@ -1569,9 +1569,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 是否开启快捷键
+  // 是否開啓快捷鍵
   function executeShortcutKeyFunction() {
-    // 是否开启快捷键
+    // 是否開啓快捷鍵
     anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
     function addKeyShotListener() {
       const windowObject = window;
@@ -1664,13 +1664,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) {
-        //离开当前页面时标签显示内容
+        //離開當前頁面時標籤顯示內容
         document.title = leaveTitle;
         clearTimeout(titleTime);
       } else {
-        //返回当前页面时标签显示内容
+        //返回當前頁面時標籤顯示內容
         document.title = backTitle + OriginTitile;
-        //两秒后变回正常标题
+        //兩秒後變回正常標題
         titleTime = setTimeout(function () {
           document.title = OriginTitile;
         }, 2000);
@@ -1698,7 +1698,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sidebarFn.close();
     });
 
-    // 处理右键
+    // 處理右鍵
     $rightMenu = document.getElementById("rightMenu");
     addDarkModeEventListener("menu-darkmode");
     addDarkModeEventListener("sidebar", ".darkmode_switchbutton");
@@ -1719,9 +1719,9 @@ document.addEventListener("DOMContentLoaded", function () {
         e.matches ? handleThemeChange("dark") : handleThemeChange("light");
       });
     }
-    // 欢迎语
+    // 歡迎語
     GLOBAL_CONFIG.greetingBox && greetingInit();
-    // 51la统计&灵雀统计
+    // 51la統計&靈雀統計
     GLOBAL_CONFIG.LA51 && statistics51aInit();
   };
 
@@ -1755,7 +1755,7 @@ document.addEventListener("DOMContentLoaded", function () {
     GLOBAL_CONFIG.isPhotoFigcaption && addPhotoFigcaption();
     scrollFn();
 
-    // 刷新时第一次滚动百分比
+    // 刷新時第一次滾動百分比
     window.scrollCollect && window.scrollCollect();
 
     const $jgEle = document.querySelectorAll("#content-inner .fj-gallery");
@@ -1770,7 +1770,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sidebarFn.open();
     });
 
-    // 如果当前页有评论就执行函数
+    // 如果當前頁有評論就執行函數
     if (document.getElementById("post-comment")) owoBig();
 
     mouseleaveHomeCard();
@@ -1779,7 +1779,7 @@ document.addEventListener("DOMContentLoaded", function () {
     openMobileMenu();
 
     // needRefresh
-    // nav中间的标题变化
+    // nav中間的標題變化
     document.getElementById("page-name").innerText = document.title.split(` | ${GLOBAL_CONFIG_SITE.configTitle}`)[0];
     anzhiyu.initIndexEssay();
     anzhiyu.changeTimeInEssay();

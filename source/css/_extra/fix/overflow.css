@@ -1,9 +1,9 @@
-/* 修复时间轴wowjs超出盒子 */
+/* 修復時間軸wowjs超出盒子 */
 div#archive {
   overflow: hidden;
   padding: 22px;
 }
-/* 修复加载时图片太大超出范围 */
+/* 修復加載時圖片太大超出範圍 */
 .aplayer.aplayer-fixed {
   overflow: hidden;
 }

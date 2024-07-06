@@ -17,4 +17,4 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }},  please input issue by template and add detail. Issues labeled by Need More Info will be closed if no activities in 7 days.
-            你好 @${{ github.event.issue.user.login }}，请按照issue模板填写, 并详细说明问题和复现步骤等, 60天内未回复issue自动关闭。
+            你好 @${{ github.event.issue.user.login }}，請按照issue模板填寫, 並詳細說明問題和復現步驟等, 60天內未回覆issue自動關閉。

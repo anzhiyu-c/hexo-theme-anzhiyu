@@ -22,17 +22,17 @@ if !theme.disable_top_img && page.top_img !== false
         .reward-link.mode
           a.reward-link-button(href=url_for(theme.ptool.mode))
             i.anzhiyufont.anzhiyu-icon-plant-fill
-            | 运营模式与责任
+            | 運營模式與責任
     div.shareRight
       if theme.ptool.share_mobile
         .share-link.mobile
           .share-qrcode
-            .share-button(title='使用手机访问这篇文章')
+            .share-button(title='使用手機訪問這篇文章')
               i.anzhiyufont.anzhiyu-icon-qrcode
             .share-main
               .share-main-all
                 #qrcode(title=url)
-                .reward-dec 使用手机访问这篇文章
+                .reward-dec 使用手機訪問這篇文章
       if theme.ptool.share_weibo
         .share-link.weibo
           a.share-button(target='_blank' href=`https://service.weibo.com/share/share.php?title=${site_title}&url=${url}&pic=${bg_img}` rel='external nofollow noreferrer noopener')
@@ -50,5 +50,5 @@ if !theme.disable_top_img && page.top_img !== false
             document.body.removeChild(input);
           }
         .share-link.copyurl
-          #post-share-url.share-button(title='复制链接' onclick='copyCurrentPageUrl()')
+          #post-share-url.share-button(title='複製鏈接' onclick='copyCurrentPageUrl()')
             i.anzhiyufont.anzhiyu-icon-link

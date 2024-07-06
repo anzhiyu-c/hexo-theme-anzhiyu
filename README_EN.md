@@ -12,7 +12,7 @@
   <a title="GitHub Forks" target="_blank" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/anzhiyu-c/hexo-theme-anzhiyu.svg?label=Forks&style=social"></a>  
 </p>
 
-<p align="center"><a title="中文" href="/README.md">🇨🇳 中文简体</a> | 🇬🇧 English</p>
+<p align="center"><a title="中文" href="/README.md">🇨🇳 中文簡體</a> | 🇬🇧 English</p>
 
 Preview: 👍 [AnZhiYu](https://blog.anheyu.com/) || 🤞 [AnZhiYu](https://index.anheyu.com/)
 
@@ -34,7 +34,7 @@ Install the latest version in the root directory of the blog [recommended]
 git clone -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git themes/anzhiyu
 ```
 
-## ⚙ 应用主题
+## ⚙ 應用主題
 
 Modify the hexo configuration file `_ config.yml` and change the theme to `anzhiyu`
 
@@ -131,7 +131,7 @@ Read articles quickly.
 
 [![contributors](https://opencollective.com/hexo-theme-anzhiyu/contributors.svg?width=890&button=false)](https://github.com/anzhiyu-c/hexo-theme-anzhiyu/)
 
-Theme Design：[@张洪 Heo](https://github.com/zhheo)
+Theme Design：[@張洪 Heo](https://github.com/zhheo)
 
 Document writing：[@xiaoran](https://github.com/xiaoran)
 

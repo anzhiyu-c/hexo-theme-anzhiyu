@@ -45,7 +45,7 @@ body[data-type="essay"] #web_bg {
   max-height: 100%;
 }
 #bber .bber-content-video::after {
-  content: "视频";
+  content: "視頻";
   display: inline-block;
   padding: 1px 6px;
   background: var(--anzhiyu-black-op);
@@ -269,7 +269,7 @@ body[data-type="essay"] #web_bg {
   position: initial;
 }
 
-/* 顶部样式 */
+/* 頂部樣式 */
 .author-content.author-content-item.essayPage {
   height: 19rem;
   color: var(--anzhiyu-white);
@@ -281,7 +281,7 @@ body[data-type="essay"] #page .author-content-item .card-content .banner-button-
   border-radius: 20px !important;
 }
 
-/* 响应式 */
+/* 響應式 */
 @media screen and (max-width: 1200px) {
   #bber .timeline ul li.bber-item {
     width: 49%;

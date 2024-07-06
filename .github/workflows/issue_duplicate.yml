@@ -17,7 +17,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Hello @${{ github.event.issue.user.login }}, your issue is duplicated and will be closed.
-            你好 @${{ github.event.issue.user.login }}，你的issue是重复的，将被关闭。
+            你好 @${{ github.event.issue.user.login }}，你的issue是重複的，將被關閉。
       - name: Close issue
         uses: actions-cool/issues-helper@v2
         with:

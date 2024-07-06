@@ -9,16 +9,16 @@ if theme.post_copyright.enable && page.copyright !== false
       - let copyright_author_img_back = theme.post_copyright.copyright_author_img_back ? theme.post_copyright.copyright_author_img_back : theme.avatar.img
       - let copyright_author_img_front = theme.post_copyright.copyright_author_img_front ? theme.post_copyright.copyright_author_img_front : theme.avatar.img
       - let copyright_author_link = theme.post_copyright.copyright_author_link ? theme.post_copyright.copyright_author_link : '/'
-      a.post-copyright__author_img(href=url_for(copyright_author_link) title='头像')
-        img.post-copyright__author_img_back(src=url_for(copyright_author_img_back) title='头像' alt='头像')
-        img.post-copyright__author_img_front(src=url_for(copyright_author_img_front) title="头像" alt='头像')
+      a.post-copyright__author_img(href=url_for(copyright_author_link) title='頭像')
+        img.post-copyright__author_img_back(src=url_for(copyright_author_img_back) title='頭像' alt='頭像')
+        img.post-copyright__author_img_front(src=url_for(copyright_author_img_front) title="頭像" alt='頭像')
       .post-copyright__author_name=author
       .post-copyright__author_desc=config.subtitle
     .post-copyright__post__info
       if (page.copyright_author && page.copyright_author !== config.author)
-        a.post-copyright__reprint(title="该文章为转载文章，注意版权协议" href=url_for(url)) 转载
+        a.post-copyright__reprint(title="該文章爲轉載文章，注意版權協議" href=url_for(url)) 轉載
       else
-        a.post-copyright__original(title="该文章为原创文章，注意版权协议" href=url_for(url)) 原创
+        a.post-copyright__original(title="該文章爲原創文章，注意版權協議" href=url_for(url)) 原創
       a.post-copyright-title
         span(onclick=`rm.copyPageUrl('${theme.post_copyright.decode ? decodeURI(url) : url}')`)=pageTitle
     //- ptool

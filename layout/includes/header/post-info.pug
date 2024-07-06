@@ -3,9 +3,9 @@
   #post-firstinfo
     .meta-firstline
       if (page.copyright_author && page.copyright_author !== config.author)
-        a.post-meta-original 转载
+        a.post-meta-original 轉載
       else 
-        a.post-meta-original 原创
+        a.post-meta-original 原創
       if (theme.post_meta.post.categories && page.categories && page.categories.data.length > 0)
         span.post-meta-categories
           if (theme.post_meta.post.date_type)
@@ -59,14 +59,14 @@
         span.post-meta-separator
         span.post-meta-wordcount
           if theme.wordcount.post_wordcount
-            i.anzhiyufont.anzhiyu-icon-file-word.post-meta-icon(title="文章字数")
-            span.post-meta-label(title="文章字数")= _p('post.wordcount') + ':'
-            span.word-count(title="文章字数")= wordcount(page.content)
+            i.anzhiyufont.anzhiyu-icon-file-word.post-meta-icon(title="文章字數")
+            span.post-meta-label(title="文章字數")= _p('post.wordcount') + ':'
+            span.word-count(title="文章字數")= wordcount(page.content)
             if theme.wordcount.min2read
               span.post-meta-separator
           if theme.wordcount.min2read
-            i.anzhiyufont.anzhiyu-icon-clock.post-meta-icon(title="阅读时长")
-            span.post-meta-label(title="阅读时长")= _p('post.min2read') + ':'
+            i.anzhiyufont.anzhiyu-icon-clock.post-meta-icon(title="閱讀時長")
+            span.post-meta-label(title="閱讀時長")= _p('post.min2read') + ':'
             span= min2read(page.content, {cn: 350, en: 160}) + _p('post.min2read_unit')
     
       //- for pv and count
@@ -74,7 +74,7 @@
         span.post-meta-separator
         span(class=parent_class id=parent_id data-flag-title=page.title)
           i.anzhiyufont.anzhiyu-icon-fw-eye.post-meta-icon
-          span.post-meta-label(title="阅读量")=_p('post.page_pv') + ':'
+          span.post-meta-label(title="閱讀量")=_p('post.page_pv') + ':'
           if block
             block
 
@@ -82,15 +82,15 @@
       if page.comments !== false && commentUse && !comments.lazyload
         if commentUse[0] === 'Valine' && theme.valine.visitor
           +pvBlock(url_for(page.path),'leancloud_visitors',page.title)
-            span.leancloud-visitors-count(title="访问量")
+            span.leancloud-visitors-count(title="訪問量")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Waline' && theme.waline.pageview
           +pvBlock('','','')
-            span.waline-pageview-count(data-path=url_for(page.path) title="访问量")
+            span.waline-pageview-count(data-path=url_for(page.path) title="訪問量")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Twikoo' && theme.twikoo.visitor
           +pvBlock('','','')
-            span#twikoo_visitors(title="访问量")
+            span#twikoo_visitors(title="訪問量")
               i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
         else if commentUse[0] === 'Artalk' && theme.artalk.visitor
           +pvBlock('','','')
@@ -107,7 +107,7 @@
       - let location = page.location ? page.location : theme.post_copyright.location
       if theme.post_copyright.enable && location
         span.post-meta-separator        
-        span.post-meta-position(title="作者IP属地为" + location)
+        span.post-meta-position(title="作者IP屬地爲" + location)
           i.anzhiyufont.anzhiyu-icon-location-dot
           =location
 

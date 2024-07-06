@@ -2,7 +2,7 @@
   border-radius: var(--anzhiyu-border-radius);
 }
 
-/* 侧边栏按钮圆角 */
+/* 側邊欄按鈕圓角 */
 #rightside > div > button {
   border-radius: 5px;
 }

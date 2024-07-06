@@ -1,4 +1,4 @@
-/* 分类目录条、标签目录条 */
+/* 分類目錄條、標籤目錄條 */
 #catalog-bar {
   border-radius: var(--anzhiyu-border-radius);
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 #catalog-list {
-  /* 分类/标签较少时，可以选择不设置 width，居中显示 catalog-list-item */
+  /* 分類/標籤較少時，可以選擇不設置 width，居中顯示 catalog-list-item */
   display: flex;
   white-space: nowrap;
   overflow-x: auto;

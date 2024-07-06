@@ -3,21 +3,21 @@
 - let since = theme.footer.owner.since
 - let version = get_version("tags")
 script.
-  // 消除控制台打印
+  // 消除控制檯打印
   var HoldLog = console.log;
   console.log = function () {};
   let now1 = new Date();
   queueMicrotask(() => {
     const Log = function () {
       HoldLog.apply(console, arguments);
-    }; //在恢复前输出日志
-    const grt = new Date("#{launch_time}"); //此处修改你的建站时间或者网站上线时间
+    }; //在恢復前輸出日誌
+    const grt = new Date("#{launch_time}"); //此處修改你的建站時間或者網站上線時間
     now1.setTime(now1.getTime() + 250);
     const days = (now1 - grt) / 1000 / 60 / 60 / 24;
     const dnum = Math.floor(days);
     const ascll = [
-      `欢迎使用安知鱼!`,
-      `生活明朗, 万物可爱`,
+      `歡迎使用安知魚!`,
+      `生活明朗, 萬物可愛`,
       `
           
          █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
@@ -28,12 +28,12 @@ script.
         ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
           
           `,
-      "已上线",
+      "已上線",
       dnum,
       "天",
-      "©#{since} By 安知鱼 V#{version}",
+      "©#{since} By 安知魚 V#{version}",
     ];
-    const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+    const ascll2 = [`NCC2-036`, `調用前置攝像頭拍照成功，識別爲【小笨蛋】.`, `Photo captured: `, `🤪`];
 
     setTimeout(
       Log.bind(
@@ -64,15 +64,15 @@ script.
     setTimeout(
       console.warn.bind(
         console,
-        "%c ⚡ Powered by 安知鱼 %c 你正在访问 #{author} 的博客.",
+        "%c ⚡ Powered by 安知魚 %c 你正在訪問 #{author} 的博客.",
         "color:white; background-color:#f0ad4e",
         ""
       )
     );
 
-    setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+    setTimeout(Log.bind(console, "%c W23-12 %c 你已打開控制檯.", "color:white; background-color:#4f90d9", ""));
 
     setTimeout(
-      console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+      console.warn.bind(console, "%c S013-782 %c 你現在正處於監控中.", "color:white; background-color:#d9534f", "")
     );
   });

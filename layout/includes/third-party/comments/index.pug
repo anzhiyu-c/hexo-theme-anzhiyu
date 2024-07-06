@@ -6,8 +6,8 @@ hr
       i.anzhiyufont.anzhiyu-icon-comments
       span= ' ' + _p('comment')
     .comment-randomInfo
-      a(onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)" style=theme.visitorMail.enable ? "" : "display: none") 匿名评论
-      a(href=url_for('/privacy') style="margin-left: 4px") 隐私政策
+      a(onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)" style=theme.visitorMail.enable ? "" : "display: none") 匿名評論
+      a(href=url_for('/privacy') style="margin-left: 4px") 隱私政策
     
     if theme.comments.use.length > 1
       .comment-switch
@@ -17,7 +17,7 @@ hr
     
     if defaultComment == "Twikoo"
       .comment-tips#comment-tips
-        span ✅ 你无需删除空行，直接评论以获取最佳展示效果
+        span ✅ 你無需刪除空行，直接評論以獲取最佳展示效果
 
   .comment-wrap
     each name in theme.comments.use

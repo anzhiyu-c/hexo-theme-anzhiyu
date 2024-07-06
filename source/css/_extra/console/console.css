@@ -1,4 +1,4 @@
-/* 中控台 */
+/* 中控臺 */
 #console {
   display: flex;
   position: fixed;
@@ -323,7 +323,7 @@
   color: var(--anzhiyu-white);
 }
 
-/* 控制台音乐css */
+/* 控制檯音樂css */
 body:has(#console.show)
   #nav-music
   .aplayer
@@ -523,7 +523,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   }
 }
 
-/* 赞赏部分控制台css */
+/* 讚賞部分控制檯css */
 .console-card-group-reward {
   opacity: 0;
   display: none;
@@ -550,7 +550,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
 }
 
 @media screen and (max-width: 1200px) {
-  /* 移动端音乐列表 */
+  /* 移動端音樂列表 */
   body:has(#console.show) #nav-music .aplayer-list {
     display: block;
     position: absolute;
@@ -612,7 +612,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   body:has(#console.show) ol > li.aplayer-list-light span.aplayer-list-author {
     right: 15px;
   }
-  /* 移动端音乐 */
+  /* 移動端音樂 */
   body:has(#console.show) meting-js {
     position: relative;
   }
@@ -964,7 +964,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     display: none;
   }
 }
-/* 歌词超出文本滚动动画 */
+/* 歌詞超出文本滾動動畫 */
 @keyframes an-text-roll {
   from {
     margin-left: 0;

@@ -78,7 +78,7 @@ i.bber-gotobb {
   box-shadow: var(--anzhiyu-shadow-main);
 }
 
-/* 文章页H1-H6图标样式效果 */
+/* 文章頁H1-H6圖標樣式效果 */
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);

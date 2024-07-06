@@ -23,7 +23,7 @@
                     .equipment-item-content-item-description= iten.description
                     .equipment-item-content-item-toolbar
                       if iten.link.includes('https://') || iten.link.includes('http://')
-                        a.equipment-item-content-item-link(href= iten.link, target='_blank') 详情
+                        a.equipment-item-content-item-link(href= iten.link, target='_blank') 詳情
                         .bber-reply(onclick="rm.rightMenuCommentText(" + `'${iten.name + " " + iten.specification + " " + iten.description}'` + ")")
                           i.anzhiyufont.anzhiyu-icon-message
                       else  

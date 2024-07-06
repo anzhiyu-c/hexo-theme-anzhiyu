@@ -2,12 +2,12 @@ blank_issues_enabled: false
 contact_links:
   - name: Questions about AnZhiYu
     url: https://github.com/anzhiyu-c/hexo-theme-anzhiyu/discussions
-    about: 一些使用问题请到 Discussion 询问。 Please ask questions in Discussion.
+    about: 一些使用問題請到 Discussion 詢問。 Please ask questions in Discussion.
 
   - name: AnZhiYu Q&A
     url: https://blog.anheyu.com/comments/
     about: AnZhiYu Q&A
 
-  - name: QQ群
+  - name: QQ羣
     url: https://jq.qq.com/?_wv=1027&k=v7NK7ELr
-    about: "群号 464636182"
+    about: "羣號 464636182"

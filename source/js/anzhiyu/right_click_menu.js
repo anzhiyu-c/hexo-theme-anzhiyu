@@ -1,7 +1,7 @@
-// 初始化函数
+// 初始化函數
 rm = {};
 
-//禁止图片与超链接拖拽
+//禁止圖片與超鏈接拖拽
 let aElements = document.getElementsByTagName("a");
 for (let i = 0; i < aElements.length; i++) {
   aElements[i].setAttribute("draggable", "false");
@@ -11,7 +11,7 @@ for (let i = 0; i < aElements.length; i++) {
   }
 }
 
-// 显示菜单
+// 顯示菜單
 rm.showRightMenu = function (isTrue, x = 0, y = 0) {
   console.info(x, y);
   let rightMenu = document.getElementById("rightMenu");
@@ -25,7 +25,7 @@ rm.showRightMenu = function (isTrue, x = 0, y = 0) {
   }
 };
 
-// 隐藏菜单
+// 隱藏菜單
 rm.hideRightMenu = function () {
   rm.showRightMenu(false);
   let rightMenuMask = document.querySelector("#rightmenu-mask");
@@ -36,27 +36,27 @@ rm.hideRightMenu = function () {
 let rmWidth = document.getElementById("rightMenu").offsetWidth;
 let rmHeight = document.getElementById("rightMenu").offsetHeight;
 
-// 重新定义尺寸
+// 重新定義尺寸
 rm.reloadrmSize = function () {
   rightMenu.style.visibility = "hidden";
   rightMenu.style.display = "block";
-  // 获取宽度和高度
+  // 獲取寬度和高度
   rmWidth = document.getElementById("rightMenu").offsetWidth;
   rmHeight = document.getElementById("rightMenu").offsetHeight;
   rightMenu.style.visibility = "visible";
 };
 
-// 获取点击的href
+// 獲取點擊的href
 let domhref = "";
 let domImgSrc = "";
 let globalEvent = null;
 
 var oncontextmenuFunction = function (event) {
   if (document.body.clientWidth > 768) {
-    let pageX = event.clientX + 10; //加10是为了防止显示时鼠标遮在菜单上
+    let pageX = event.clientX + 10; //加10是爲了防止顯示時鼠標遮在菜單上
     let pageY = event.clientY;
 
-    //其他额外菜单
+    //其他額外菜單
     const $rightMenuOther = document.querySelector(".rightMenuOther");
     const $rightMenuPlugin = document.querySelector(".rightMenuPlugin");
     const $rightMenuCopyText = document.querySelector("#menu-copytext");
@@ -78,12 +78,12 @@ var oncontextmenuFunction = function (event) {
     let href = event.target.href;
     let imgsrc = event.target.currentSrc;
 
-    // 判断模式 扩展模式为有事件
+    // 判斷模式 擴展模式爲有事件
     let pluginMode = false;
     $rightMenuOther.style.display = "block";
     globalEvent = event;
 
-    // 检查是否需要复制 是否有选中文本
+    // 檢查是否需要複製 是否有選中文本
     if (selectTextNow && window.getSelection()) {
       pluginMode = true;
       $rightMenuCopyText.style.display = "block";
@@ -97,7 +97,7 @@ var oncontextmenuFunction = function (event) {
       $rightMenuSearch.style.display = "none";
     }
 
-    //检查是否右键点击了链接a标签
+    //檢查是否右鍵點擊了鏈接a標籤
     if (href) {
       pluginMode = true;
       $rightMenuNewWindow.style.display = "block";
@@ -108,7 +108,7 @@ var oncontextmenuFunction = function (event) {
       $rightMenuCopyLink.style.display = "none";
     }
 
-    //检查是否需要复制图片
+    //檢查是否需要複製圖片
     if (imgsrc) {
       pluginMode = true;
       $rightMenuCopyImg.style.display = "block";
@@ -122,7 +122,7 @@ var oncontextmenuFunction = function (event) {
       $rightMenuNewWindowImg.style.display = "none";
     }
 
-    // 判断是否为输入框
+    // 判斷是否爲輸入框
     if (event.target.tagName.toLowerCase() === "input" || event.target.tagName.toLowerCase() === "textarea") {
       pluginMode = true;
       $rightMenuPasteText.style.display = "block";
@@ -130,7 +130,7 @@ var oncontextmenuFunction = function (event) {
       $rightMenuPasteText.style.display = "none";
     }
     const navMusicEl = document.querySelector("#nav-music");
-    //判断是否是音乐
+    //判斷是否是音樂
     if (navMusicEl && navMusicEl.contains(event.target)) {
       pluginMode = true;
       $rightMenuMusicToggle.style.display = "block";
@@ -146,7 +146,7 @@ var oncontextmenuFunction = function (event) {
       $rightMenuMusicCopyMusicName.style.display = "none";
     }
 
-    // 如果不是扩展模式则隐藏扩展模块
+    // 如果不是擴展模式則隱藏擴展模塊
     if (pluginMode) {
       $rightMenuOther.style.display = "none";
       $rightMenuPlugin.style.display = "block";
@@ -156,7 +156,7 @@ var oncontextmenuFunction = function (event) {
 
     rm.reloadrmSize();
 
-    // 鼠标默认显示在鼠标右下方，当鼠标靠右或靠下时，将菜单显示在鼠标左方\上方
+    // 鼠標默認顯示在鼠標右下方，當鼠標靠右或靠下時，將菜單顯示在鼠標左方\上方
     if (pageX + rmWidth > window.innerWidth) {
       pageX -= rmWidth + 10;
     }
@@ -170,22 +170,22 @@ var oncontextmenuFunction = function (event) {
   }
 };
 
-// 监听右键初始化
+// 監聽右鍵初始化
 window.oncontextmenu = oncontextmenuFunction;
 
-// 下载图片状态
+// 下載圖片狀態
 rm.downloadimging = false;
 
-// 复制图片到剪贴板
+// 複製圖片到剪貼板
 rm.writeClipImg = function (imgsrc) {
-  console.log("按下复制");
+  console.log("按下複製");
   rm.hideRightMenu();
-  anzhiyu.snackbarShow("正在下载中，请稍后", false, 10000);
+  anzhiyu.snackbarShow("正在下載中，請稍後", false, 10000);
   if (rm.downloadimging == false) {
     rm.downloadimging = true;
     setTimeout(function () {
       copyImage(imgsrc);
-      anzhiyu.snackbarShow("复制成功！图片已添加盲水印，请遵守版权协议");
+      anzhiyu.snackbarShow("複製成功！圖片已添加盲水印，請遵守版權協議");
       rm.downloadimging = false;
     }, "10000");
   }
@@ -240,7 +240,7 @@ function stopMaskScroll() {
     xscroll.addEventListener(
       "mousewheel",
       function (e) {
-        //阻止浏览器默认方法
+        //阻止瀏覽器默認方法
         rm.hideRightMenu();
         // e.preventDefault();
       },
@@ -252,7 +252,7 @@ function stopMaskScroll() {
     xscroll.addEventListener(
       "mousewheel",
       function (e) {
-        //阻止浏览器默认方法
+        //阻止瀏覽器默認方法
         rm.hideRightMenu();
         // e.preventDefault();
       },
@@ -273,11 +273,11 @@ rm.copyPageUrl = function (url) {
     url = window.location.href;
   }
   rm.copyUrl(url);
-  anzhiyu.snackbarShow("复制链接地址成功", false, 2000);
+  anzhiyu.snackbarShow("複製鏈接地址成功", false, 2000);
   rm.hideRightMenu();
 };
 
-// 复制当前选中文本
+// 複製當前選中文本
 var selectTextNow = "";
 document.onmouseup = document.ondblclick = selceText;
 
@@ -291,14 +291,14 @@ function selceText() {
   selectTextNow = txt !== "" ? txt : "";
 }
 
-// 读取剪切板
+// 讀取剪切板
 rm.readClipboard = function () {
   if (navigator.clipboard) {
     navigator.clipboard.readText().then(clipText => rm.insertAtCaret(globalEvent.target, clipText));
   }
 };
 
-// 粘贴文本到焦点
+// 粘貼文本到焦點
 rm.insertAtCaret = function (elemt, value) {
   const startPos = elemt.selectionStart,
     endPos = elemt.selectionEnd;
@@ -322,13 +322,13 @@ rm.insertAtCaret = function (elemt, value) {
   }
 };
 
-//粘贴文本
+//粘貼文本
 rm.pasteText = function () {
   const result = rm.readClipboard() || "";
   rm.hideRightMenu();
 };
 
-//引用到评论
+//引用到評論
 rm.rightMenuCommentText = function (txt) {
   rm.hideRightMenu();
   const postCommentDom = document.getElementById("post-comment");
@@ -354,28 +354,28 @@ rm.rightMenuCommentText = function (txt) {
   setText();
 };
 
-//替换所有内容
+//替換所有內容
 function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
 }
 
 // 百度搜索
 rm.searchBaidu = function () {
-  anzhiyu.snackbarShow("即将跳转到百度搜索", false, 2000);
+  anzhiyu.snackbarShow("即將跳轉到百度搜索", false, 2000);
   setTimeout(function () {
     window.open("https://www.baidu.com/s?wd=" + selectTextNow);
   }, "2000");
   rm.hideRightMenu();
 };
 
-//分享链接
+//分享鏈接
 rm.copyLink = function () {
   rm.rightmenuCopyText(domhref);
-  anzhiyu.snackbarShow("已复制链接地址");
+  anzhiyu.snackbarShow("已複製鏈接地址");
 };
 
 function addRightMenuClickEvent() {
-  // 添加点击事件
+  // 添加點擊事件
   document.getElementById("menu-backward").addEventListener("click", function () {
     window.history.back();
     rm.hideRightMenu();
@@ -463,7 +463,7 @@ function addRightMenuClickEvent() {
 
   document.getElementById("menu-searchBaidu").addEventListener("click", rm.searchBaidu);
 
-  //音乐
+  //音樂
   document.getElementById("menu-music-toggle").addEventListener("click", anzhiyu.musicToggle);
 
   document.getElementById("menu-music-back").addEventListener("click", anzhiyu.musicSkipBack);
@@ -472,7 +472,7 @@ function addRightMenuClickEvent() {
 
   document.getElementById("menu-music-copyMusicName").addEventListener("click", function () {
     rm.rightmenuCopyText(anzhiyu.musicGetName());
-    anzhiyu.snackbarShow("复制歌曲名称成功", false, 3000);
+    anzhiyu.snackbarShow("複製歌曲名稱成功", false, 3000);
   });
 }
 

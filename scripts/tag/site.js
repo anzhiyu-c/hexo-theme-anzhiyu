@@ -9,7 +9,7 @@ function postSiteCardGroup(args, content) {
 }
 function postSiteCard(args) {
   args = args.join(' ').split(', ')
-  // 所有支持的参数
+  // 所有支持的參數
   let title = args[0].trim();
   let url = '';
   let screenshot = '';
@@ -30,7 +30,7 @@ function postSiteCard(args) {
       }
     }
   }
-  // 布局
+  // 佈局
   let result = '';
   result += `<a class="site-card" href="${url}" data-title=${description}>`;
   result += '<div class="wrapper cover"><img class="cover fadeIn" src="' + screenshot + '"/></div>';

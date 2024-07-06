@@ -9,7 +9,7 @@
 div#swiper_container {
   transition: 0.3s;
 }
-/* 防止轮播图css未加载完时的超度横行滚动条 */
+/* 防止輪播圖css未加載完時的超度橫行滾動條 */
 #swiper_container {
   overflow: hidden !important;
 }

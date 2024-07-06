@@ -5,17 +5,17 @@ h1#site-title {
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 3em;
-  /* 可以定义图标大小 */
+  /* 可以定義圖標大小 */
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 时间轴生肖icon */
+/* 時間軸生肖icon */
 svg.icon {
   width: 1em;
   height: 1em;
-  /* width和height定义图标的默认宽度和高度*/
+  /* width和height定義圖標的默認寬度和高度*/
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
@@ -25,45 +25,45 @@ svg.icon {
   color: #f7c768;
 }
 
-/* 解决artitalk的图标问题 */
+/* 解決artitalk的圖標問題 */
 #uploadSource > svg {
   width: 1.19em;
   height: 1.5em;
 }
 
-/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
+/*top-img黑色透明玻璃效果移除，不建議加，除非你執着於完全一圖流或者背景圖對比色明顯 */
 /* #page-header:not(.not-top-img):before {
   background-color: transparent !important;
 } */
 
-/* 文章页面正文背景 */
+/* 文章頁面正文背景 */
 div#post {
   background: rgba(255, 255, 255, 0.9);
 }
 #recent-posts > .recent-post-item:not(:first-child):active {
   transform: scale(0.97);
 }
-/* 分页页面 */
+/* 分頁頁面 */
 div#page {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* 归档页面 */
+/* 歸檔頁面 */
 div#archive {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* 标签页面 */
+/* 標籤頁面 */
 div#tag {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* 分类页面 */
+/* 分類頁面 */
 div#category {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/*夜间模式伪类遮罩层透明*/
+/*夜間模式僞類遮罩層透明*/
 [data-theme="dark"] #recent-posts > .recent-post-item {
   background: #121212;
 }
@@ -96,7 +96,7 @@ div#category {
   background: transparent !important;
 }
 
-/* md网站下划线 */
+/* md網站下劃線 */
 #article-container a:hover {
   text-decoration: none !important;
 }
@@ -105,7 +105,7 @@ div#category {
   display: inline;
 }
 
-/* 宽屏适配 */
+/* 寬屏適配 */
 .page .layout,
 .post .layout {
   max-width: 1400px;
@@ -141,13 +141,13 @@ html.hide-aside .layout > div:first-child {
   width: 100%;
 }
 
-/* 动画wowjs兼容调整 */
+/* 動畫wowjs兼容調整 */
 .animate__animated {
   -webkit-animation-fill-mode: backwards !important;
   animation-fill-mode: backwards !important;
 }
 
-/* 文章hover边框 */
+/* 文章hover邊框 */
 #recent-posts .recent-post-item:hover {
   border: var(--style-border-hover);
 }
@@ -163,13 +163,13 @@ html.hide-aside .layout > div:first-child {
   box-shadow: var(--anzhiyu-shadow-border);
   user-select: none;
 }
-/* 移动端容器padding */
+/* 移動端容器padding */
 @media screen and (max-width: 768px) {
   #body-wrap .layout #page {
     padding: 20px 15px !important;
   }
 }
-/* 首页文章宽度 */
+/* 首頁文章寬度 */
 @media screen and (max-width: 1200px) {
   .layout > div:first-child {
     width: 100% !important;
@@ -205,7 +205,7 @@ html.hide-aside .layout > div:first-child {
   }
 }
 
-/* 元素透明度改变 */
+/* 元素透明度改變 */
 @keyframes slide-in-op {
   from {
     opacity: 0;

@@ -30,14 +30,14 @@ div
     canvas(id="universe")
     script(async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js")
 
-  //- 控制台打印信息
+  //- 控制檯打印信息
   if theme.console.enable
     != partial("includes/anzhiyu/log-js.pug", {}, { cache: true })
   
-  //- 随机文章
+  //- 隨機文章
   script(async src="/anzhiyu/random.js")
 
-  //- 页脚计时器
+  //- 頁腳計時器
   if theme.footer.runtime.enable
     != partial("includes/third-party/runtime/runtime-js.pug", {}, { cache: true })
 
@@ -75,7 +75,7 @@ div
     
     input(type="hidden" name="page-type" id="page-type" value=(page.type ? page.type : (is_post() ? "post" : (is_category() ? "categories" : "anzhiyu"))))
 
-    //- 评论弹幕
+    //- 評論彈幕
     if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo' && page.comments
       script(async src=url_for(theme.asset.comment_barrage_js))
 
@@ -86,7 +86,7 @@ div
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
     else if (!is_post() && page.aside !== false)
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
-  //- 气泡效果
+  //- 氣泡效果
   if theme.bubble.enable
     script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js")
   if theme.visitorMail.enable
@@ -94,15 +94,15 @@ div
     script.
       var visitorMail = "#{mail}";
 
-  //- 即刻依赖waterfall
+  //- 即刻依賴waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))
-  //- 文章二维码
+  //- 文章二維碼
   script(src='https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js')
-  //- 右键菜单
+  //- 右鍵菜單
   if (theme.rightClickMenu && theme.rightClickMenu.enable)
     script(src=url_for(theme.asset.right_click_menu_js))
 
-  //- iconfont依赖
+  //- iconfont依賴
   link(rel="stylesheet" href=url_for(theme.asset.ali_iconfont_css))
   if (theme.icons && theme.icons.ali_iconfont_js)
     script(async src=url_for(theme.icons.ali_iconfont_js))
