@@ -31,7 +31,7 @@ valine:
 twikoo:
   name: twikoo
   file: dist/twikoo.all.min.js
-  version: 1.6.27
+  version: 1.6.39
 waline_js:
   name: "@waline/client"
   file: dist/waline.js
