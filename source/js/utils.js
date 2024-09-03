@@ -691,7 +691,7 @@ const anzhiyu = {
 
   //获取音乐中的名称
   musicGetName: function () {
-    var x = document.querySelector(".aplayer-title");
+    var x = document.querySelectorAll(".aplayer-title");
     var arr = [];
     for (var i = x.length - 1; i >= 0; i--) {
       arr[i] = x[i].innerText;
