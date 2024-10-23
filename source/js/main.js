@@ -1714,6 +1714,9 @@ document.addEventListener("DOMContentLoaded", function () {
       executeShortcutKeyFunction();
     }
     if (GLOBAL_CONFIG.autoDarkmode) {
+      const mode = document.documentElement.getAttribute('data-theme');
+      const menuDarkmodeText = $rightMenu.querySelector(".menu-darkmode-text");
+      menuDarkmodeText.textContent = mode === "light" ? "深色模式" : "浅色模式";
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
         if (saveToLocal.get("theme") !== undefined) return;
         e.matches ? handleThemeChange("dark") : handleThemeChange("light");
