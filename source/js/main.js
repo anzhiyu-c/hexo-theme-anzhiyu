@@ -176,6 +176,14 @@ document.addEventListener("DOMContentLoaded", function () {
     $nav.classList.toggle("hide-menu", hideMenuIndex);
   };
 
+  // 初始化右键菜单文本
+  const initRightMenu = () => {
+    $rightMenu = document.getElementById("rightMenu");
+    const mode = document.documentElement.getAttribute('data-theme');
+    const menuDarkmodeText = $rightMenu.querySelector(".menu-darkmode-text");
+    menuDarkmodeText.textContent = mode === "light" ? "深色模式" : "浅色模式";
+  }
+  
   // 初始化header
   const initAdjust = () => {
     adjustMenu(true);
@@ -1808,6 +1816,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
   };
 
+  initRightMenu();
   refreshFn();
   unRefreshFn();
 });
