@@ -1,24 +1,25 @@
 menu:
-  # 文章:
-  #   隧道: /archives/ || anzhiyu-icon-box-archive
-  #   分类: /categories/ || anzhiyu-icon-shapes
-  #   标签: /tags/ || anzhiyu-icon-tags
+  文章:
+    隧道: /archives/
+    分类: /categories/
+    标签: /tags/
 
-  # 友链:
-  #   友人帐: /link/ || anzhiyu-icon-link
-  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
-  #   留言板: /comments/ || anzhiyu-icon-envelope
+  友链:
+    友人帐: /link/
+    朋友圈: /fcircle/
+    留言板: /comments/
 
-  # 我的:
-  #   音乐馆: /music/ || anzhiyu-icon-music
-  #   追番页: /bangumis/ || anzhiyu-icon-bilibili
-  #   相册集: /album/ || anzhiyu-icon-images
-  #   小空调: /air-conditioner/ || anzhiyu-icon-fan
+  我的:
+    音乐馆: /music/
+    追番页: /bangumis/
+    相册集: /album/
+    小空调: /air-conditioner/
 
-  # 关于:
-  #   关于本人: /about/ || anzhiyu-icon-paper-plane
-  #   闲言碎语: /essay/ || anzhiyu-icon-lightbulb
-  #   随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
+  关于:
+    关于本人: /about/
+    闲言碎语: /essay/
+    随便逛逛: javascript:toRandomPost()
+
 
 # nav相关配置
 nav:
