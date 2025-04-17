@@ -230,5 +230,5 @@ accesskey_js:
   version: 1.1.5
 colorthief:
   name: colorthief
-  file: dist/color-thief.umd.js
+  file: dist/color-thief.umd.min.js
   version: 2.6.0
