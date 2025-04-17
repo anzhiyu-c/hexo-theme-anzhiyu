@@ -214,3 +214,7 @@ html.hide-aside .layout > div:first-child {
     opacity: 1;
   }
 }
+
+.subtitle {
+  color: #ff6a00 !important; /* 橙色，你可以换成其他颜色代码 */
+}
