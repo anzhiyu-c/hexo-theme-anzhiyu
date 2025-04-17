@@ -1218,7 +1218,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //封面纯色
   const coverColor = async () => {
     const root = document.querySelector(":root");
-    const path = document.getElementById("post-top-bg")?.src;
+    const bg = document.getElementById("post-top-bg")
+    const path = bg?.src;
     if (!path) {
       // 非文章情况，直接设置不需要请求了
       root.style.setProperty("--anzhiyu-bar-background", "var(--anzhiyu-meta-theme-color)");
@@ -1267,6 +1268,39 @@ document.addEventListener("DOMContentLoaded", function () {
             getComputedStyle(document.documentElement).getPropertyValue("--anzhiyu-main") + "dd"
           );
         }
+      } else if (GLOBAL_CONFIG.mainTone.mode == "colorthief") {
+        const colorThief = new ColorThief();
+        bg.crossOrigin = "Anonymous";
+        const getColorFromImage = () => {
+          const rgb = colorThief.getColor(bg);
+          let value = colorHex(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
+          if (getContrastYIQ(value) === "light") {
+            value = LightenDarkenColor(value, -40);
+          } else {
+            value = LightenDarkenColor(value, 40);
+          }
+          root.style.setProperty("--anzhiyu-bar-background", value);
+          requestAnimationFrame(() => {
+            anzhiyu.initThemeColor();
+          });
+          if (GLOBAL_CONFIG.mainTone.cover_change) {
+            document.documentElement.style.setProperty("--anzhiyu-main", value);
+            document.documentElement.style.setProperty(
+              "--anzhiyu-theme-op",
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--anzhiyu-main"
+              ) + "23"
+            );
+            document.documentElement.style.setProperty(
+              "--anzhiyu-theme-op-deep",
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--anzhiyu-main"
+              ) + "dd"
+            );
+          }
+          bg.removeEventListener("load", getColorFromImage);
+        };
+        bg.addEventListener("load", getColorFromImage);
       } else {
         const fallbackValue = "var(--anzhiyu-theme)";
         let fetchPath = "";
