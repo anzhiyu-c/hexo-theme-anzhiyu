@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const isHighlightShrink = GLOBAL_CONFIG_SITE.isHighlightShrink;
     const isShowTool = highlightCopy || highlightLang || isHighlightShrink !== undefined;
     const $figureHighlight =
-      plugin === "highlight.js"
+       ["highlight.js", "shiki"].includes(plugin)
         ? document.querySelectorAll("figure.highlight")
         : document.querySelectorAll('pre[class*="language-"]');
 
