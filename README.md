@@ -132,6 +132,11 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 
 文档编写：[@xiaoran](https://github.com/xiaoran)
 
+[本项目 CDN 加速及安全防护由 Tencent EdgeOne 赞助](https://edgeone.ai/zh?from=github)
+
+![image](https://github.com/user-attachments/assets/1f3c8f9b-d509-4e64-b8f5-11c318d672a7)
+
+
 ## 仓库统计
 
 ![仓库统计](https://repobeats.axiom.co/api/embed/60fcf455cd02123aebe6249deabf8d48e3debcae.svg "Repobeats analytics image")
