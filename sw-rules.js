@@ -16,16 +16,16 @@ module.exports.config = {
   },
   dom: {
     onsuccess: () => {
-      caches.match('https://id.v3/').then(function(response) {
+      caches.match('https://id.v3/').then(function (response) {
         if (response) {
           // 如果找到了匹配的缓存响应
-          response.json().then(function(data) {
+          response.json().then(function (data) {
             anzhiyuPopupManager && anzhiyuPopupManager.enqueuePopup('通知📢', `已刷新缓存，更新为${data.global + "." + data.local}版本最新内容`, null, 5000);
           });
         } else {
           console.info('未找到匹配的缓存响应');
         }
-      }).catch(function(error) {
+      }).catch(function (error) {
         console.error('缓存匹配出错:', error);
       });
     },
@@ -43,11 +43,12 @@ module.exports.config = {
       if (srcUrl.startsWith('https://npm.elemecdn.com')) {
         const url = new URL(srcUrl)
         return [
-            srcUrl,
-            `https://cdn.cbd.int` + url.pathname,
-            `https://cdn.jsdelivr.net/npm` + url.pathname,
-            `https://cdn1.tianli0.top/npm` + url.pathname,
-            `https://fastly.jsdelivr.net/npm` + url.pathname
+          srcUrl,
+          `https://cdn.cbd.int` + url.pathname,
+          `https://cdn.jsdelivr.net/npm` + url.pathname,
+          `https://cdn.osyb.cn/npm` + url.pathname,
+          `https://cdn1.tianli0.top/npm` + url.pathname,
+          `https://fastly.jsdelivr.net/npm` + url.pathname
         ]
       } else {
         return srcUrl
