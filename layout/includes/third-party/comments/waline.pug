@@ -1,25 +1,37 @@
-- const { serverURL, option, pageview } = theme.waline
+- const { serverURL, option, pageview, meta_css, imageUploader } = theme.waline
 - const { lazyload, count, use } = theme.comments
 
 script.
   (() => {
-    const initWaline = () => {
-      const waline = Waline.init(Object.assign({
+    let initFn = window.walineFn || null
+
+    const initWaline = (Fn) => {
+      const waline = Fn(Object.assign({
         el: '#waline-wrap',
         serverURL: '!{serverURL}',
         pageview: !{lazyload ? false : pageview},
         dark: 'html[data-theme="dark"]',
         path: window.location.pathname,
         comment: !{lazyload ? false : count},
+        imageUploader: !{imageUploader},
       }, !{JSON.stringify(option)}))
+
+      const destroyWaline = () => {
+        waline.destroy()
+      }
+
+      anzhiyu.addGlobalFn('pjax', destroyWaline, 'destroyWaline')
     }
 
     const loadWaline = async () => {
-      if (typeof Waline === 'object') initWaline()
+      if (initFn) initWaline(initFn)
       else {
         await getCSS('!{url_for(theme.asset.waline_css)}')
-        await getScript('!{url_for(theme.asset.waline_js)}')
-        initWaline()
+        if (!{meta_css}) await getCSS('!{url_for(theme.asset.waline_meta_css)}')
+        const { init } = await import('!{url_for(theme.asset.waline_js)}')
+        initFn = init || Waline.init
+        initWaline(initFn)
+        window.walineFn = initFn
       }
     }
 

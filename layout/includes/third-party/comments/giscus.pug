@@ -1,0 +1,53 @@
+- const { repo, repo_id, category_id, theme:themes, option } = theme.giscus
+- const giscusUrl = 'https://giscus.app/client.js'
+- const giscusOriginUrl = new URL(giscusUrl).origin
+- const { use, lazyload } = theme.comments
+
+script.
+  (()=>{
+    const getGiscusTheme = theme => {
+      return theme === 'dark' ? '!{themes.dark}' : '!{themes.light}'
+    }
+
+    const loadGiscus = () => {
+      const config = Object.assign({
+        src: '!{giscusUrl}',
+        'data-repo': '!{repo}',
+        'data-repo-id': '!{repo_id}',
+        'data-category-id': '!{category_id}',
+        'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+        'data-reactions-enabled': '1',
+        crossorigin: 'anonymous',
+        async: true
+      },!{JSON.stringify(option)})
+
+      const ele = document.createElement('script')
+      for (let key in config) {
+        ele.setAttribute(key, config[key])
+      }
+      document.getElementById('giscus-wrap').appendChild(ele)
+    }
+
+    const changeGiscusTheme = theme => {
+      const sendMessage = message => {
+        const iframe = document.querySelector('iframe.giscus-frame')
+        if (!iframe) return
+        iframe.contentWindow.postMessage({ giscus: message }, '!{giscusOriginUrl}')
+      }
+
+      sendMessage({
+        setConfig: {
+          theme: getGiscusTheme(theme)
+        }
+      });
+    }
+
+    anzhiyu.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+    if ('!{use[0]}' === 'Giscus' || !!{lazyload}) {
+      if (!{lazyload}) anzhiyu.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+      else loadGiscus()
+    } else {
+      window.loadOtherComment = loadGiscus
+    }
+  })()

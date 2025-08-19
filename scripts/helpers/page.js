@@ -103,7 +103,7 @@ hexo.extend.helper.register("cloudTags", function (options = {}) {
 });
 
 hexo.extend.helper.register("urlNoIndex", function (url = null) {
-  return prettyUrls(url || this.url, { trailing_index: false, trailing_html: false });
+  return prettyUrls(url || this.url, { trailing_index: false, trailing_html: true });
 });
 
 hexo.extend.helper.register("md5", function (path) {

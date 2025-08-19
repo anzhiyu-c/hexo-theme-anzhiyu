@@ -98,7 +98,7 @@ algolia_search:
     # - Hexo
 
 # Docsearch
-# Apply and Docs: see https://docsearch.algolia.com/
+# Apply and Option Docs: see https://docsearch.algolia.com/
 # Crawler Admin Console: see https://crawler.algolia.com/
 # Settings: https://www.algolia.com/
 docsearch:
@@ -350,10 +350,10 @@ valine:
 # https://waline.js.org/
 waline:
   serverURL: # Waline server address url
-  bg: # waline background
+  bg: # Waline background
   pageview: false
-  meta: false # 归属地, 操作系统 前是否显示图标
-  imageUploader: true # 是否启用图片上传功能，默认开启，限制为 128kb 的 base64 图片
+  meta_css: false # 是否引入 waline-meta.css ,以便显示 meta图标
+  imageUploader: true # 配置为 > 换行后可自定义图片上传逻辑，示例: https://waline.js.org/cookbook/customize/upload-image.html#案例
   # 以下为可选配置，后续若有新增/修改配置参数可在此自行添加/修改
   option:
 
@@ -372,6 +372,21 @@ artalk:
   site:
   visitor: false
   option:
+
+# giscus
+# https://giscus.app/
+giscus:
+  repo: # GitHub repository name
+  repo_id: # GitHub repository id
+  category_id: # GitHub repository category id
+  theme:
+    light: light
+    dark: dark
+  option: # options
+    data-lang: zh-CN
+    data-mapping:
+    data-category:
+    data-input-position:
 
 # Chat Services
 # --------------------------------------
@@ -1210,7 +1225,7 @@ rightClickMenu:
 # 首页随便逛逛people模式 而非技能点模式，关闭后为技能点模式需要配置creativity.yml
 peoplecanvas:
   enable: true
-  img: https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png
+  img: https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png
 
 # 动效
 dynamicEffect:

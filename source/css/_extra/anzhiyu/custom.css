@@ -124,7 +124,7 @@ div#category {
   color: var(--anzhiyu-fontcolor);
   padding: 0 0.2em;
   text-decoration: none;
-  font-family: auto;
+  font-family: inherit;
 }
 #article-container
   a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-anzhiyu):not(
