@@ -22,7 +22,7 @@
 
 # hexo-theme-anzhiyu
 
-![](https://bu.dusays.com/2023/07/24/64bdcbfe96762.webp)
+![](https://upload-bbs.miyoushe.com/upload/2025/07/04/125766904/658277d773c29a145adf0d05055ce477_909497354353121629.webp?x-oss-process=image///quality,q_100/auto-orient,0/interlace,1/format,avif)
 
 ## 💻 安裝
 
@@ -106,11 +106,11 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 
 **沉浸式状态栏**
 沉浸阅读。
-![沉浸式状态栏](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3bc088e73d07b4dc25fc62fa4cf63261_4205905123525229755.png)
+![沉浸式状态栏](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3bc088e73d07b4dc25fc62fa4cf63261_4205905123525229755.png?x-oss-process=image///quality,q_100/auto-orient,0/interlace,1/format,avif)
 
 **高低自定义的右键菜单**
 高度定制。
-![高低自定义的右键菜单](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3f66e33b24a758d53717f6c2c44e50af_1884994888952376370.png)
+![高低自定义的右键菜单](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/3f66e33b24a758d53717f6c2c44e50af_1884994888952376370.png?x-oss-process=image///quality,q_100/auto-orient,0/interlace,1/format,avif)
 
 **AI摘要**
 迅速读取文章内容。
@@ -118,7 +118,7 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 
 **让人眼前一亮的清爽界面**
 
-![让人眼前一亮的清爽界面](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/8a16284fd36a9e986d5dbda772f697d0_1356079755877317976.png)
+![让人眼前一亮的清爽界面](https://upload-bbs.miyoushe.com/upload/2023/09/04/125766904/8a16284fd36a9e986d5dbda772f697d0_1356079755877317976.png?x-oss-process=image///quality,q_100/auto-orient,0/interlace,1/format,avif)
 
 **评论弹幕**
 
@@ -131,6 +131,11 @@ cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
 主题设计：[@张洪 Heo](https://github.com/zhheo)
 
 文档编写：[@xiaoran](https://github.com/xiaoran)
+
+[本项目 CDN 加速及安全防护由 Tencent EdgeOne 赞助](https://edgeone.ai/zh?from=github)
+
+![image](https://github.com/user-attachments/assets/1f3c8f9b-d509-4e64-b8f5-11c318d672a7)
+
 
 ## 仓库统计
 
