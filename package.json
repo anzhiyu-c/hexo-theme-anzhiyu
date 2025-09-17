@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-anzhiyu",
-  "version": "1.6.14",
+  "version": "1.6.15",
   "description": "A Simple and Card UI Design theme for Hexo",
   "main": "package.json",
   "scripts": {
