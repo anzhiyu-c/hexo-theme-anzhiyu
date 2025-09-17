@@ -145,7 +145,7 @@ hexo.extend.filter.register(
               message: "博客框架为Hexo_v5.4.0",
             },
             {
-              link: "https://blog.anheyu.com/",
+              link: "https://hexo.anheyu.com/",
               shields: "https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg",
               message: "本站使用AnZhiYu主题",
             },
