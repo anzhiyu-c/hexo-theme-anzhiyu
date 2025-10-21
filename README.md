@@ -20,6 +20,8 @@
 
 一款基于[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)修改的主題
 
+如果你希望有一个类似于wordpress的可以后台编辑的，那么你可以看看这个项目 [安和鱼](https://github.com/anzhiyu-c/anheyu-app)
+
 # hexo-theme-anzhiyu
 
 ![](https://upload-bbs.miyoushe.com/upload/2025/07/04/125766904/658277d773c29a145adf0d05055ce477_909497354353121629.webp?x-oss-process=image///quality,q_100/auto-orient,0/interlace,1/format,avif)
