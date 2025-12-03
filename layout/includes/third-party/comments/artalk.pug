@@ -1,63 +1,67 @@
 - const { server, site, option } = theme.artalk
-- const { use, lazyload, count } = theme.comments
+- const avatarCdn = (option !== null && option.gravatar && option.gravatar.mirror) || ''
+- const avatarDefault = (option !== null && option.gravatar && (option.gravatar.params || option.gravatar.default)) || ''
+
+!= partial("includes/third-party/newest-comments/common.pug", {}, { cache: true })
 
 script.
-  (() => {
-    const initArtalk = () => {
-      window.artalkItem = new Artalk(Object.assign({
-        el: '#artalk-wrap',
-        server: '!{server}',
-        site: '!{site}',
-        pageKey: location.pathname,
-        darkMode: document.documentElement.getAttribute('data-theme') === 'dark',
-        countEl: '.artalk-count'
-      },!{JSON.stringify(option)}))
+  window.addEventListener('load', () => {
+    const keyName = 'artalk-newest-comments'
+    const { changeContent, generateHtml, run } = window.newestComments
 
-      if (GLOBAL_CONFIG.lightbox === 'null') return
-      window.artalkItem.use(ctx => {
-        ctx.on('list-loaded', () => {
-          ctx.getCommentList().forEach(comment => {
-            const $content = comment.getRender().$content
-            anzhiyu.loadLightbox($content.querySelectorAll('img:not([atk-emoticon])'))
-          })
-        })
-      })
-    }
+    const getAvatarValue = async () => {
+      const predefinedAvatarCdn = '!{avatarCdn}'
+      const predefinedAvatarDefault = '!{avatarDefault}'
 
-    const loadArtalk = async () => {
-      if (typeof window.artalkItem === 'object') {
-        initArtalk()
-        !{count ? 'GLOBAL_CONFIG_SITE.isPost && getCount()' : ''}
-      } else {
-        await getCSS('!{theme.asset.artalk_css}')
-        await getScript('!{theme.asset.artalk_js}')
-        initArtalk()
-        !{count ? 'GLOBAL_CONFIG_SITE.isPost && getCount()' : ''}
+      const avatarDefaultFormat = e => e.startsWith('d=') ? e : `d=${e}`
+
+      if (predefinedAvatarCdn && predefinedAvatarDefault) {
+        return { avatarCdn: predefinedAvatarCdn, avatarDefault: avatarDefaultFormat(predefinedAvatarDefault) }
+      }
+
+      try {
+        const res = await fetch('!{server}/api/v2/conf')
+        const result = await res.json()
+        const { mirror, params, default: defaults } = result.frontend_conf.gravatar
+        const avatarCdn = predefinedAvatarCdn || mirror
+        let avatarDefault = avatarDefaultFormat(predefinedAvatarDefault || params || defaults)
+        return { avatarCdn, avatarDefault}
+      } catch (e) {
+        console.error(e)
+        return { avatarCdn: predefinedAvatarCdn, avatarDefault: avatarDefaultFormat(predefinedAvatarDefault) }
       }
     }
 
-    const getCount = () => {
-      Artalk.loadCountWidget({
-        server: '!{server}',
-        site: '!{site}',
-        countEl: '.artalk-count'
-      })
+    const searchParams = new URLSearchParams({
+      'site_name': '!{site}',
+      'limit': '!{theme.newest_comments.limit * 2}', // Fetch more comments to filter pending comments
+    })
+
+    const getComment = async (ele) => {
+      try {
+        const res = await fetch(`!{server}/api/v2/stats/latest_comments?${searchParams}`)
+        const result = await res.json()
+        const { avatarCdn, avatarDefault } = await getAvatarValue()
+        const artalk = result.data
+          .filter(e => !e.is_pending) // Filter pending comments
+          .slice(0, !{theme.newest_comments.limit}) // Limit the number of comments
+          .map(e => {
+            const avatar = avatarCdn && e.email_encrypted ? `${avatarCdn}${e.email_encrypted}?${avatarDefault}` : ''
+            return {
+              'avatar': avatar,
+              'content': changeContent(e.content_marked),
+              'nick': e.nick,
+              'url': e.page_url,
+              'date': e.date,
+            }
+          })
+        saveToLocal.set(keyName, JSON.stringify(artalk), !{theme.newest_comments.storage}/(60*24))
+        generateHtml(artalk, ele)
+      } catch (e) {
+        console.log(e)
+        ele.textContent= "!{_p('aside.card_newest_comments.error')}"
+      }
     }
 
-    const artalkChangeMode = theme => {
-      const artalkWrap = document.getElementById('artalk-wrap')
-      if (!(artalkWrap && artalkWrap.children.length)) return
-      const isDark = theme === 'dark'
-      window.artalkItem.setDarkMode(isDark)
-    }
-  
-
-    anzhiyu.addGlobalFn('themeChange', artalkChangeMode, 'artalk')
-    
-    if ('!{use[0]}' === 'Artalk' || !!{lazyload}) {
-      if (!{lazyload}) anzhiyu.loadComment(document.getElementById('artalk-wrap'), loadArtalk)
-      else loadArtalk()
-    } else {
-      window.loadOtherComment = loadArtalk
-    }
-  })()
+    run(keyName, getComment)
+  })

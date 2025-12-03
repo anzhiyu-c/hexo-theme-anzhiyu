@@ -49,8 +49,9 @@ div
   else if theme.local_search.enable
     script(src=url_for(theme.asset.local_search))
 
-
-
+  //- colorthief
+  if theme.mainTone.mode === "colorthief"
+    script(src=url_for(theme.asset.colorthief))
 
   .js-pjax
     if theme.peoplecanvas.enable && is_home()
@@ -97,7 +98,7 @@ div
   //- 即刻依赖waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))
   //- 文章二维码
-  script(src='https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js')
+  script(src='https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js')
   //- 右键菜单
   if (theme.rightClickMenu && theme.rightClickMenu.enable)
     script(src=url_for(theme.asset.right_click_menu_js))

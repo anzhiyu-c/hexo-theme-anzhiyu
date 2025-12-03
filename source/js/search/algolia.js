@@ -71,6 +71,14 @@ window.addEventListener("load", () => {
     return console.error("Algolia setting is invalid!");
   }
 
+  if (typeof algoliasearch === "undefined") {
+    return console.error("algoliasearch library is not loaded!");
+  }
+
+  if (typeof instantsearch === "undefined") {
+    return console.error("instantsearch library is not loaded!");
+  }
+
   const search = instantsearch({
     indexName: algolia.indexName,
     /* global algoliasearch */

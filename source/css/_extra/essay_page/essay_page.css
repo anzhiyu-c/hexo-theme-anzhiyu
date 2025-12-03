@@ -75,6 +75,7 @@ body[data-type="essay"] #web_bg {
   display: flex;
   flex-direction: column;
   text-align: justify;
+  word-break: break-all;
 }
 #bber p {
   margin: 0px;

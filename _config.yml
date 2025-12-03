@@ -29,7 +29,7 @@ nav:
     - title: 网页
       item:
         - name: 博客
-          link: https://blog.anheyu.com/
+          link: https://hexo.anheyu.com/
           icon: /img/favicon.ico
     - title: 项目
       item:
@@ -85,7 +85,6 @@ author_status:
     # - 💢 壮汉人狠话不多
 
 # search (搜索)
-# see https://blog.anheyu.com/posts/c27d.html#搜索系统
 # --------------------------------------
 
 # Algolia search
@@ -193,13 +192,12 @@ post_meta:
 # 主色调相关配置
 mainTone:
   enable: false # true or false 文章是否启用获取图片主色调
-  mode: api # cdn/api/both cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取，可以在文章内配置main_color: '#3e5658'，使用十六进制颜色，则不会请求both/cdn/api获取主色调，而是直接使用配置的颜色
+  mode: api # colorthief/cdn/api/both colorthief模式为前端获取图片主色调，cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取，可以在文章内配置main_color: '#3e5658'，使用十六进制颜色，则不会请求colorthief/cdn/api/both获取主色调，而是直接使用配置的颜色
   # 项目地址：https://github.com/anzhiyu-c/img2color-go
   api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
   cover_change: true # 整篇文章跟随cover修改主色调
 
 # wordcount (字数统计)
-# see https://blog.anheyu.com/posts/c27d.html#字数统计
 wordcount:
   enable: false
   post_wordcount: true
@@ -444,7 +442,7 @@ footer:
       - link: https://hexo.io/ #徽标指向网站链接
         shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
         message: 博客框架为Hexo_v5.4.0 #徽标提示语
-      - link: https://blog.anheyu.com/
+      - link: https://hexo.anheyu.com/
         shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
         message: 本站使用AnZhiYu主题
       # - link: https://www.dogecloud.com/
@@ -1330,3 +1328,4 @@ CDN:
     # waterfall:
     # ali_iconfont_css:
     # accesskey_js:
+    # colorthief:
