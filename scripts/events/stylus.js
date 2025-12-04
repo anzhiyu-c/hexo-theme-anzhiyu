@@ -11,7 +11,7 @@ hexo.extend.filter.register("stylus:renderer", style => {
 
   // for hexo > 7.0
   if (syntaxHighlighter) {
-    highlightEnable = syntaxHighlighter === "highlight.js";
+    highlightEnable = syntaxHighlighter === "highlight.js" || syntaxHighlighter === "shiki";
     prismjsEnable = syntaxHighlighter === "prismjs";
   }
 
