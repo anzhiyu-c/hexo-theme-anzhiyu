@@ -13,35 +13,35 @@
       .console-card.tags
         .card-content
           if theme.nav_music.enable && theme.nav_music.console_widescreen_music
-            .author-content-item-tips 音乐
-            span.author-content-item-title 灵魂的碰撞💥
+            .author-content-item-tips=_p('console.music')
+            span.author-content-item-title=_p('console.music_desc')
           else 
-            .author-content-item-tips 兴趣点
-            span.author-content-item-title 寻找你感兴趣的领域
+            .author-content-item-tips=_p('console.interests')
+            span.author-content-item-title=_p('console.interests_desc')
             !=partial('includes/widget/card_console_tags', {}, {cache: true})
       .console-card.history
         .item-headline
           i.anzhiyufont.anzhiyu-icon-box-archiv
-          span 文章
+          span=_p('console.articles')
         !=partial('includes/widget/card_console_archives', {}, {cache: true})
   .button-group
     if theme.darkmode.enable
       .console-btn-item
-        a.darkmode_switchbutton(title='显示模式切换', href='javascript:void(0);')
+        a.darkmode_switchbutton(title=_p('console.toggle_mode'), href='javascript:void(0);')
           i.anzhiyufont.anzhiyu-icon-moon
-    .console-btn-item#consoleHideAside(onclick='anzhiyu.hideAsideBtn()', title='边栏显示控制')
+    .console-btn-item#consoleHideAside(onclick='anzhiyu.hideAsideBtn()', title=_p('console.toggle_aside'))
       a.asideSwitch
         i.anzhiyufont.anzhiyu-icon-arrows-left-right
     if theme.comment_barrage_config.enable
-      .console-btn-item.on#consoleCommentBarrage(onclick='anzhiyu.switchCommentBarrage()', title='热评开关')
+      .console-btn-item.on#consoleCommentBarrage(onclick='anzhiyu.switchCommentBarrage()', title=_p('console.toggle_barrage'))
         a.commentBarrage
           i.anzhiyufont.anzhiyu-icon-message
     if theme.nav_music.enable
-      .console-btn-item#consoleMusic(onclick='anzhiyu.musicToggle()', title='音乐开关')
+      .console-btn-item#consoleMusic(onclick='anzhiyu.musicToggle()', title=_p('console.toggle_music'))
         a.music-switch
           i.anzhiyufont.anzhiyu-icon-music
     if theme.shortcutKey.enable
-      .console-btn-item#consoleKeyboard(onclick='anzhiyu.keyboardToggle()', title='快捷键开关')
+      .console-btn-item#consoleKeyboard(onclick='anzhiyu.keyboardToggle()', title=_p('console.toggle_keyboard'))
         a.keyboard-switch
           i.anzhiyufont.anzhiyu-icon-keyboard
   .console-mask(onclick='anzhiyu.hideConsole()', href='javascript:void(0);')

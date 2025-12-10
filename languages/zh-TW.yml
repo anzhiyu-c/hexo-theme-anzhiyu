@@ -28,6 +28,8 @@ post:
   wordcount: 字數總計
   min2read: 閱讀時長
   min2read_unit: 分鐘
+  new: 最新
+  unread: 未讀
   page_pv: 閱讀量
   comments: 評論數
   copyright:
@@ -157,6 +159,33 @@ flink:
   random_visit: 隨機訪問
   apply_link: 申請友鏈
   recommend: 薦
+
+console:
+  title: 中控台
+  interaction: 互動
+  music: 音樂
+  music_desc: 靈魂的碰撞💥
+  interests: 興趣點
+  interests_desc: 尋找你感興趣的領域
+  articles: 文章
+  toggle_mode: 顯示模式切換
+  toggle_aside: 邊欄顯示控制
+  toggle_barrage: 熱評開關
+  toggle_music: 音樂開關
+  toggle_keyboard: 快捷鍵開關
+
+reward:
+  title: 讚賞作者
+  button: 打賞作者
+  thanks: 感謝你賜予我前進的力量
+  list: 讚賞者名單
+  list_desc: 因為你們的支持讓我意識到寫文章的價值🙏
+
+nav:
+  travelling: 隨機前往一個開往項目網站
+  random_post: 隨機前往一個文章
+  search: 搜尋🔍
+  toggle_menu: 切換
 
 about:
   title: 關於我

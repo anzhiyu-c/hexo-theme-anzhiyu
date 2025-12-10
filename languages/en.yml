@@ -28,6 +28,8 @@ post:
   wordcount: Word count
   min2read: Reading time
   min2read_unit: min
+  new: New
+  unread: Unread
   page_pv: Post View
   comments: Comments
   copyright:
@@ -156,6 +158,33 @@ flink:
   random_visit: Random Visit
   apply_link: Apply Link
   recommend: Hot
+
+console:
+  title: Console
+  interaction: Interaction
+  music: Music
+  music_desc: Soul Collision 💥
+  interests: Interests
+  interests_desc: Find your area of interest
+  articles: Articles
+  toggle_mode: Toggle Display Mode
+  toggle_aside: Toggle Sidebar
+  toggle_barrage: Toggle Comments Barrage
+  toggle_music: Toggle Music
+  toggle_keyboard: Toggle Keyboard Shortcuts
+
+reward:
+  title: Support Author
+  button: Donate
+  thanks: Thanks for your support
+  list: Supporters
+  list_desc: Your support motivates me to write more 🙏
+
+nav:
+  travelling: Random Travelling Site
+  random_post: Random Post
+  search: Search 🔍
+  toggle_menu: Toggle
 
 about:
   title: About Me

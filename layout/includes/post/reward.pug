@@ -1,10 +1,10 @@
 .post-reward(onclick='anzhiyu.addRewardMask()')
-  .reward-button.button--animated(title='赞赏作者')
+  .reward-button.button--animated(title=_p('reward.title'))
     i.anzhiyufont.anzhiyu-icon-hand-heart-fill
-    | 打赏作者
+    =_p('reward.button')
   .reward-main
     .reward-all
-      span.reward-title 感谢你赐予我前进的力量
+      span.reward-title=_p('reward.thanks')
       ul.reward-group
         each item in theme.reward.QR_code
           - var clickTo = item.link ? item.link : item.img
@@ -13,6 +13,6 @@
               img.post-qr-code-img(src=url_for(item.img) alt=item.text)
             .post-qr-code-desc=item.text
       a.reward-main-btn(href='/about/#about-reward' target='_blank')
-        .reward-text 赞赏者名单
-        .reward-dec 因为你们的支持让我意识到写文章的价值🙏
+        .reward-text=_p('reward.list')
+        .reward-dec=_p('reward.list_desc')
 #quit-box(onclick="anzhiyu.removeRewardMask()" style="display: none")

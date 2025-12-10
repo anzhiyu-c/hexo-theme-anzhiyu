@@ -28,6 +28,8 @@ post:
   wordcount: 字数总计
   min2read: 阅读时长
   min2read_unit: 分钟
+  new: 最新
+  unread: 未读
   page_pv: 阅读量
   comments: 评论数
   copyright:
@@ -159,6 +161,33 @@ flink:
   random_visit: 随机访问
   apply_link: 申请友链
   recommend: 荐
+
+console:
+  title: 中控台
+  interaction: 互动
+  music: 音乐
+  music_desc: 灵魂的碰撞💥
+  interests: 兴趣点
+  interests_desc: 寻找你感兴趣的领域
+  articles: 文章
+  toggle_mode: 显示模式切换
+  toggle_aside: 边栏显示控制
+  toggle_barrage: 热评开关
+  toggle_music: 音乐开关
+  toggle_keyboard: 快捷键开关
+
+reward:
+  title: 赞赏作者
+  button: 打赏作者
+  thanks: 感谢你赐予我前进的力量
+  list: 赞赏者名单
+  list_desc: 因为你们的支持让我意识到写文章的价值🙏
+
+nav:
+  travelling: 随机前往一个开往项目网站
+  random_post: 随机前往一个文章
+  search: 搜索🔍
+  toggle_menu: 切换
 
 about:
   title: 关于我

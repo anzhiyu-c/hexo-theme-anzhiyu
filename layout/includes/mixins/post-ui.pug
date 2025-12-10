@@ -33,8 +33,8 @@ mixin postUI(posts)
               each item, index in article.categories.data
                 .article-categories-original=item.name
             if new_post
-              span.newPost 最新
-            a.unvisited-post(href=url_for(link) title=title) 未读
+              span.newPost=_p('post.new')
+            a.unvisited-post(href=url_for(link) title=title)=_p('post.unread')
           a.article-title(href=url_for(link) title=title)= title
         .article-meta-wrap
           if (theme.post_meta.page.date_type)
