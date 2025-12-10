@@ -177,23 +177,49 @@ let ctx = peoplecanvasEl ? peoplecanvasEl.getContext("2d") : undefined,
   },
   allPeeps = [],
   availablePeeps = [],
-  crowd = [];
+  crowd = [],
+  isbindPjax = false;
+
+function cleanupPeopleCanvas() {
+  window.removeEventListener("resize", resize);
+  gsap.ticker.remove(render);
+  crowd.forEach(function (e) {
+    if (e.walk) e.walk.kill();
+  });
+  crowd.length = 0;
+  availablePeeps.length = 0;
+}
 
 function init() {
   if (!peoplecanvasEl) return;
-  createPeeps(), resize(), gsap.ticker.add(render), window.addEventListener("resize", resize);
-}
-document.addEventListener("pjax:success", e => {
-  peoplecanvasEl = document.getElementById("peoplecanvas");
-  if (peoplecanvasEl) {
-    (ctx = peoplecanvasEl ? peoplecanvasEl.getContext("2d") : undefined), window.removeEventListener("resize", resize);
-    gsap.ticker.remove(render);
-    setTimeout(() => {
-      if (!peoplecanvasEl) return;
-      resize(), gsap.ticker.add(render), window.addEventListener("resize", resize);
-    }, 300);
+  // 如果 allPeeps 已有数据，先清空避免重复
+  if (allPeeps.length === 0) {
+    createPeeps();
   }
-});
+  resize();
+  gsap.ticker.add(render);
+  window.addEventListener("resize", resize);
+}
+
+if (!isbindPjax) {
+  isbindPjax = true;
+  document.addEventListener("pjax:send", function () {
+    // 离开页面时清理
+    cleanupPeopleCanvas();
+  });
+  document.addEventListener("pjax:success", function () {
+    peoplecanvasEl = document.getElementById("peoplecanvas");
+    if (peoplecanvasEl) {
+      ctx = peoplecanvasEl.getContext("2d");
+      setTimeout(function () {
+        if (!peoplecanvasEl) return;
+        resize();
+        gsap.ticker.add(render);
+        window.addEventListener("resize", resize);
+      }, 300);
+    }
+  });
+}
 
 function createPeeps() {
   for (
