@@ -42,6 +42,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+#article-container .tag-Link .tag-link-bottom .tag-link-left .tag-link-favicon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 4px;
 }
 #article-container .tag-Link .tag-link-bottom .tag-link-left i {
   margin: 0;
