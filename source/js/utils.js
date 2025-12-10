@@ -1007,17 +1007,30 @@ const anzhiyu = {
       }
     });
   },
-  // 监听按键
+  // 监听按键 - 页码跳转
   toPage: function () {
     var toPageText = document.getElementById("toPageText"),
       toPageButton = document.getElementById("toPageButton"),
       pageNumbers = document.querySelectorAll(".page-number"),
-      lastPageNumber = Number(pageNumbers[pageNumbers.length - 1].innerHTML),
       pageNumber = Number(toPageText.value);
 
+    // 获取最大页码，确保在分页元素不存在或为空时有默认值
+    var lastPageNumber = 1;
+    if (pageNumbers && pageNumbers.length > 0) {
+      // 遍历所有分页数字，找出最大值（避免分页显示不完整导致的问题）
+      pageNumbers.forEach(function (el) {
+        var num = Number(el.textContent);
+        if (!isNaN(num) && num > lastPageNumber) {
+          lastPageNumber = num;
+        }
+      });
+    }
+
     if (!isNaN(pageNumber) && pageNumber >= 1 && Number.isInteger(pageNumber)) {
-      var url = "/page/" + (pageNumber > lastPageNumber ? lastPageNumber : pageNumber) + "/";
-      toPageButton.href = pageNumber === 1 ? "/" : url;
+      // 确保页码不超过最大页码
+      var targetPage = pageNumber > lastPageNumber ? lastPageNumber : pageNumber;
+      var url = "/page/" + targetPage + "/#content-inner";
+      toPageButton.href = targetPage === 1 ? "/" : url;
     } else {
       toPageButton.href = "javascript:void(0);";
     }
