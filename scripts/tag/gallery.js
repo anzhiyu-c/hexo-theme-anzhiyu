@@ -12,6 +12,9 @@ const urlFor = require("hexo-util").url_for.bind(hexo);
 
 function gallery(args, content) {
   const { data, languages } = hexo.theme.i18n;
+  const i18nData = (data && languages && languages[0] && data[languages[0]]) || {};
+  const loadMoreText = i18nData.load_more || "Load More";
+
   args = args.join(" ").split(",");
   let rowHeight, limit, lazyload, type, dataStr, lazyloadBtn;
 
@@ -52,7 +55,7 @@ function gallery(args, content) {
   }" data-rowHeight="${rowHeight}" data-limit="${limit}">
     <span class="gallery-data">${dataStr}</span>
   </div><button class="gallery-load-more" style="${!lazyloadBtn ? "opacity:0" : ""}">
-  <span>${data[languages[0]].load_more}</span>
+  <span>${loadMoreText}</span>
   <i class="anzhiyufont anzhiyu-icon-arrow-down"></i>
   </button>`;
 
