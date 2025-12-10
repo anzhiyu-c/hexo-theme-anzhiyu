@@ -1104,6 +1104,17 @@ LA:
   ck:
   LingQueMonitorID:
 
+# Umami 统计配置（关于页面访问统计卡片）
+# 文档: https://umami.is/docs/api
+umami:
+  enable: false
+  # Umami API 地址，如 https://analytics.example.com
+  apiHost:
+  # 网站 ID
+  websiteId:
+  # API Token（在 Umami 后台 Settings -> API Keys 中生成）
+  token:
+
 # 标签卖萌
 diytitle:
   enable: true

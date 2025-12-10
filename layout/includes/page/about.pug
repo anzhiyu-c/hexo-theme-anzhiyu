@@ -89,8 +89,10 @@ if site.data.about
               img.author-content-img.no-lightbox(alt=careers.tips, src=url_for(careers.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'`)
       
       .author-content
-        if theme.LA.enable
+        if theme.LA.enable || theme.umami.enable
           - let cover = item.statistic.cover
+          - let statisticSource = theme.LA.enable ? '51la网站统计' : 'Umami'
+          - let statisticLink = theme.LA.enable ? 'https://invite.51.la/1NzKqTeb?target=V6' : (theme.umami.apiHost || '#')
           .about-statistic.author-content-item(style=`background: url(${cover}) top / cover no-repeat;`)
             .card-content
               .author-content-item-tips 数据
@@ -98,7 +100,7 @@ if site.data.about
               #statistic
               .post-tips
                 | 统计信息来自 
-                a(href='https://invite.51.la/1NzKqTeb?target=V6', target='_blank', rel='noopener nofollow') 51la网站统计
+                a(href=statisticLink, target='_blank', rel='noopener nofollow')= statisticSource
               .banner-button-group
                 - let link = item.statistic.link
                 - let text = item.statistic.text
@@ -288,104 +290,162 @@ if site.data.about
 
     script(src=url_for(theme.asset.countup_js))
     - const ck = theme.LA.ck
+    - const umamiEnable = theme.umami.enable
+    - const umamiApiHost = theme.umami.apiHost || ''
+    - const umamiWebsiteId = theme.umami.websiteId || ''
+    - const umamiToken = theme.umami.token || ''
+    - const laEnable = theme.LA.enable
     script(defer).
       function initAboutPage() {
-        fetch("https://v6-widget.51.la/v6/#{ck}/quote.js")
-          .then(res => res.text())
-          .then(data => {
-            let title = ["最近活跃", "今日人数", "今日访问", "昨日人数", "昨日访问", "本月访问", "总访问量"];
-            let num = data.match(/(<\/span><span>).*?(\/span><\/p>)/g);
+        const statisticEl = document.getElementById("statistic");
+        let statistic = [];
+        let numValues = [];
 
-            num = num.map(el => {
-              let val = el.replace(/(<\/span><span>)/g, "");
-              let str = val.replace(/(<\/span><\/p>)/g, "");
-              return str;
+        // 统计数据渲染函数
+        function renderStatistic(title, num) {
+          if (!statisticEl) return;
+          numValues = num;
+          statistic = [];
+          
+          for (let i = 0; i < num.length; i++) {
+            statisticEl.innerHTML +=
+              "<div><span>" + title[i] + "</span><span id='stat-" + i + "'>" + num[i] + "</span></div>";
+            queueMicrotask(() => {
+              statistic.push(
+                new CountUp("stat-" + i, 0, num[i], 0, 2, {
+                  useEasing: true,
+                  useGrouping: true,
+                  separator: ",",
+                  decimal: ".",
+                  prefix: "",
+                  suffix: "",
+                })
+              );
             });
+          }
+        }
 
-            let statisticEl = document.getElementById("statistic");
+        // 统计数字动画
+        function statisticUP() {
+          let statisticElement = document.querySelector(".about-statistic.author-content-item");
+          if (!statisticElement) return;
 
-            // 自定义不显示哪个或者显示哪个，如下为不显示 最近活跃访客 和 总访问量
-            let statistic = [];
-            for (let i = 0; i < num.length; i++) {
-              if (!statisticEl) return;
-              if (i == 0) continue;
-              statisticEl.innerHTML +=
-                "<div><span>" + title[i] + "</span><span id=" + title[i] + ">" + num[i] + "</span></div>";
-              queueMicrotask(() => {
-                statistic.push(
-                  new CountUp(title[i], 0, num[i], 0, 2, {
-                    useEasing: true,
-                    useGrouping: true,
-                    separator: ",",
-                    decimal: ".",
-                    prefix: "",
-                    suffix: "",
-                  })
-                );
+          const callback = (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                for (let i = 0; i < statistic.length; i++) {
+                  queueMicrotask(() => {
+                    statistic[i].start();
+                  });
+                }
+                observer.disconnect();
+              }
+            });
+          };
+
+          const options = { root: null, rootMargin: "0px", threshold: 0 };
+          const observer = new IntersectionObserver(callback, options);
+          observer.observe(statisticElement);
+        }
+
+        // 51la 统计
+        if (#{laEnable}) {
+          fetch("https://v6-widget.51.la/v6/#{ck}/quote.js")
+            .then(res => res.text())
+            .then(data => {
+              let title = ["今日人数", "今日访问", "昨日人数", "昨日访问", "本月访问", "总访问量"];
+              let num = data.match(/(<\/span><span>).*?(\/span><\/p>)/g);
+
+              num = num.map(el => {
+                let val = el.replace(/(<\/span><span>)/g, "");
+                let str = val.replace(/(<\/span><\/p>)/g, "");
+                return str;
               });
-            }
 
-            let statisticElement = document.querySelector(".about-statistic.author-content-item");
-            function statisticUP() {
-              if (!statisticElement) return;
-
-              const callback = (entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    for (let i = 0; i < num.length; i++) {
-                      if (i == 0) continue;
-                      queueMicrotask(() => {
-                        statistic[i - 1].start();
-                      });
-                    }
-                    observer.disconnect(); // 停止观察元素，因为不再需要触发此回调
-                  }
-                });
-              };
-
-              const options = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0
-              };
-              const observer = new IntersectionObserver(callback, options);
-              observer.observe(statisticElement);
-            }
-
-            const selfInfoContentYear = new CountUp("selfInfo-content-year", 0, #{selfInfoContentYear}, 0, 2, {
-              useEasing: true,
-              useGrouping: false,
-              separator: ",",
-              decimal: ".",
-              prefix: "",
-              suffix: "",
+              // 跳过第一个"最近活跃"
+              num = num.slice(1);
+              renderStatistic(title, num);
+              statisticUP();
+            })
+            .catch(err => {
+              console.error("51la统计获取失败:", err);
+              if (statisticEl) statisticEl.innerHTML = "<div>统计数据获取失败</div>";
             });
+        }
 
-            let selfInfoContentYearElement = document.querySelector(".author-content-item.selfInfo.single");
-            function selfInfoContentYearUp() {
-              if (!selfInfoContentYearElement) return;
+        // Umami 统计
+        if (#{umamiEnable}) {
+          const apiHost = "#{umamiApiHost}";
+          const websiteId = "#{umamiWebsiteId}";
+          const token = "#{umamiToken}";
+          
+          const now = Date.now();
+          const todayStart = new Date().setHours(0, 0, 0, 0);
+          const yesterdayStart = todayStart - 86400000;
+          const monthStart = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
 
-              const callback = (entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    selfInfoContentYear.start();
-                    observer.disconnect(); // 停止观察元素，因为不再需要触发此回调
-                  }
-                });
-              };
+          const fetchStats = async (startAt, endAt) => {
+            const res = await fetch(`${apiHost}/api/websites/${websiteId}/stats?startAt=${startAt}&endAt=${endAt}`, {
+              headers: { 'Authorization': `Bearer ${token}` }
+            });
+            return res.json();
+          };
 
-              const options = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0
-              };
-              const observer = new IntersectionObserver(callback, options);
-              observer.observe(selfInfoContentYearElement);
-            }
+          Promise.all([
+            fetchStats(todayStart, now),      // 今日
+            fetchStats(yesterdayStart, todayStart), // 昨日
+            fetchStats(monthStart, now),      // 本月
+            fetchStats(0, now)                // 总计
+          ])
+            .then(([today, yesterday, month, total]) => {
+              const title = ["今日访客", "今日浏览", "昨日访客", "昨日浏览", "本月浏览", "总浏览量"];
+              const num = [
+                today.visitors?.value || today.uniques?.value || 0,
+                today.pageviews?.value || 0,
+                yesterday.visitors?.value || yesterday.uniques?.value || 0,
+                yesterday.pageviews?.value || 0,
+                month.pageviews?.value || 0,
+                total.pageviews?.value || 0
+              ];
 
-            selfInfoContentYearUp();
-            statisticUP()
-          });
+              renderStatistic(title, num);
+              statisticUP();
+            })
+            .catch(err => {
+              console.error("Umami统计获取失败:", err);
+              if (statisticEl) statisticEl.innerHTML = "<div>统计数据获取失败</div>";
+            });
+        }
+
+        // 出生年份动画
+        const selfInfoContentYear = new CountUp("selfInfo-content-year", 0, #{selfInfoContentYear}, 0, 2, {
+          useEasing: true,
+          useGrouping: false,
+          separator: ",",
+          decimal: ".",
+          prefix: "",
+          suffix: "",
+        });
+
+        let selfInfoContentYearElement = document.querySelector(".author-content-item.selfInfo.single");
+        function selfInfoContentYearUp() {
+          if (!selfInfoContentYearElement) return;
+
+          const callback = (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                selfInfoContentYear.start();
+                observer.disconnect();
+              }
+            });
+          };
+
+          const options = { root: null, rootMargin: "0px", threshold: 0 };
+          const observer = new IntersectionObserver(callback, options);
+          observer.observe(selfInfoContentYearElement);
+        }
+
+        selfInfoContentYearUp();
 
         var pursuitInterval = null;
         pursuitInterval = setInterval(function () {
