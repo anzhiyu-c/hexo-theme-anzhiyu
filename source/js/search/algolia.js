@@ -2,6 +2,14 @@ window.addEventListener("load", () => {
   const $searchMask = document.getElementById("search-mask");
   const $searchDialog = document.querySelector("#algolia-search .search-dialog");
 
+  // HTML 转义函数，防止 XSS 攻击
+  const escapeHtml = str => {
+    if (!str) return "";
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  };
+
   const openSearch = () => {
     anzhiyu.animateIn($searchMask, "to_show 0.5s");
     $searchDialog.style.display = "block";
@@ -110,7 +118,9 @@ window.addEventListener("load", () => {
     container: "#algolia-hits",
     templates: {
       item(data) {
-        const link = data.permalink ? data.permalink : GLOBAL_CONFIG.root + data.path;
+        const rawLink = data.permalink ? data.permalink : GLOBAL_CONFIG.root + data.path;
+        // 验证链接安全性，防止 javascript: 协议注入
+        const link = /^(https?:\/\/|\/)/i.test(rawLink) ? escapeHtml(rawLink) : escapeHtml("/" + rawLink);
         const result = data._highlightResult;
         const loadingLogo = document.querySelector("#algolia-hits .anzhiyu-spin");
         if (loadingLogo) {
@@ -119,9 +129,12 @@ window.addEventListener("load", () => {
         setTimeout(() => {
           document.querySelector("#algolia-search .ais-SearchBox-input").focus();
         }, 200);
+        // result.title.value 已被 Algolia 处理包含 <mark> 高亮标签，保持原样
+        // 如果标题不存在则使用转义后的原标题或默认值
+        const titleHtml = result.title?.value || escapeHtml(data.title) || "no-title";
         return `
           <a href="${link}" class="algolia-hit-item-link">
-          <span class="algolia-hits-item-title">${result.title.value || "no-title"}</span>
+          <span class="algolia-hits-item-title">${titleHtml}</span>
           </a>`;
       },
       empty: function (data) {
@@ -133,9 +146,10 @@ window.addEventListener("load", () => {
         setTimeout(() => {
           document.querySelector("#algolia-search .ais-SearchBox-input").focus();
         }, 200);
+        // 使用 escapeHtml 转义用户输入，防止 XSS 攻击
         return (
           '<div id="algolia-hits-empty">' +
-          GLOBAL_CONFIG.algolia.languages.hits_empty.replace(/\$\{query}/, data.query) +
+          GLOBAL_CONFIG.algolia.languages.hits_empty.replace(/\$\{query}/, escapeHtml(data.query)) +
           "</div>"
         );
       },
