@@ -1,67 +1,52 @@
-- const { server, site, option } = theme.artalk
-- const avatarCdn = (option !== null && option.gravatar && option.gravatar.mirror) || ''
-- const avatarDefault = (option !== null && option.gravatar && (option.gravatar.params || option.gravatar.default)) || ''
-
-!= partial("includes/third-party/newest-comments/common.pug", {}, { cache: true })
+- const { server, site, visitor, option } = theme.artalk
+- const { use, lazyload, count } = theme.comments
 
 script.
-  window.addEventListener('load', () => {
-    const keyName = 'artalk-newest-comments'
-    const { changeContent, generateHtml, run } = window.newestComments
+  (() => {
+    const init = () => {
+      window.artalkItem = Artalk.init(Object.assign({
+        el: '#artalk-wrap',
+        pageKey: window.location.pathname,
+        pageTitle: document.title,
+        server: '!{server}',
+        site: '!{site}',
+      }, !{JSON.stringify(option || {})}))
 
-    const getAvatarValue = async () => {
-      const predefinedAvatarCdn = '!{avatarCdn}'
-      const predefinedAvatarDefault = '!{avatarDefault}'
+      window.artalkItem.on('list-loaded', () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#artalk-wrap .atk-content img:not(.atk-emoticon)'))
+      })
+    }
 
-      const avatarDefaultFormat = e => e.startsWith('d=') ? e : `d=${e}`
-
-      if (predefinedAvatarCdn && predefinedAvatarDefault) {
-        return { avatarCdn: predefinedAvatarCdn, avatarDefault: avatarDefaultFormat(predefinedAvatarDefault) }
-      }
-
-      try {
-        const res = await fetch('!{server}/api/v2/conf')
-        const result = await res.json()
-        const { mirror, params, default: defaults } = result.frontend_conf.gravatar
-        const avatarCdn = predefinedAvatarCdn || mirror
-        let avatarDefault = avatarDefaultFormat(predefinedAvatarDefault || params || defaults)
-        return { avatarCdn, avatarDefault}
-      } catch (e) {
-        console.error(e)
-        return { avatarCdn: predefinedAvatarCdn, avatarDefault: avatarDefaultFormat(predefinedAvatarDefault) }
+    const loadArtalk = () => {
+      if (typeof Artalk === 'function') setTimeout(init, 0)
+      else {
+        getCSS('!{url_for(theme.asset.artalk_css)}')
+        getScript('!{url_for(theme.asset.artalk_js)}').then(init)
       }
     }
 
-    const searchParams = new URLSearchParams({
-      'site_name': '!{site}',
-      'limit': '!{theme.newest_comments.limit * 2}', // Fetch more comments to filter pending comments
-    })
-
-    const getComment = async (ele) => {
-      try {
-        const res = await fetch(`!{server}/api/v2/stats/latest_comments?${searchParams}`)
-        const result = await res.json()
-        const { avatarCdn, avatarDefault } = await getAvatarValue()
-        const artalk = result.data
-          .filter(e => !e.is_pending) // Filter pending comments
-          .slice(0, !{theme.newest_comments.limit}) // Limit the number of comments
-          .map(e => {
-            const avatar = avatarCdn && e.email_encrypted ? `${avatarCdn}${e.email_encrypted}?${avatarDefault}` : ''
-            return {
-              'avatar': avatar,
-              'content': changeContent(e.content_marked),
-              'nick': e.nick,
-              'url': e.page_url,
-              'date': e.date,
-            }
-          })
-        saveToLocal.set(keyName, JSON.stringify(artalk), !{theme.newest_comments.storage}/(60*24))
-        generateHtml(artalk, ele)
-      } catch (e) {
-        console.log(e)
-        ele.textContent= "!{_p('aside.card_newest_comments.error')}"
-      }
+    const getCount = () => {
+      const countElement = document.getElementById('artalk-count')
+      if (!countElement) return
+      
+      fetch(`!{server}/api/v2/pages/pv?page_key=${encodeURIComponent(window.location.pathname)}&site_name=!{site}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.pv !== undefined) {
+            countElement.textContent = data.pv
+          }
+        })
+        .catch(err => console.error('Artalk PV fetch error:', err))
     }
 
-    run(keyName, getComment)
-  })
+    if ('!{use[0]}' === 'Artalk' || !!{lazyload}) {
+      if (!{lazyload}) anzhiyu.loadComment(document.getElementById('artalk-wrap'), loadArtalk)
+      else setTimeout(loadArtalk, 0)
+    } else {
+      window.loadOtherComment = loadArtalk
+    }
+
+    if (!!{visitor} && GLOBAL_CONFIG_SITE.isPost) {
+      getCount()
+    }
+  })()
