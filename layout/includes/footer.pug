@@ -13,7 +13,7 @@
               use(xlink:href=`#`+ item.icon)
           else if (item.icon.startsWith("anzhiyu"))
             i.anzhiyufont(class=`${item.icon}`)
-      img.footer_mini_logo(title="返回顶部", alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)", src=centerImg, size="50px")
+      img.footer_mini_logo(title=_p('footer.back_to_top'), alt=_p('footer.back_to_top') onclick="anzhiyu.scrollToDest(0, 500)", src=centerImg, size="50px")
       each item, index in rightInfo
         a.deal_link(href=url_for(item.link) title=item.title)
           if (item.icon.startsWith("fa"))
@@ -53,8 +53,8 @@
       if theme.footer.list.randomFriends > 0
         .footer-group
           .footer-title-group
-            .footer-title 友链
-            a.random-friends-btn#footer-random-friends-btn(href="javascript:addFriendLinksInFooter();" title="换一批友情链接")
+            .footer-title=_p('footer.friend_links')
+            a.random-friends-btn#footer-random-friends-btn(href="javascript:addFriendLinksInFooter();" title=_p('footer.refresh_friends'))
               i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
           .footer-links#friend-links-in-footer
 
@@ -86,7 +86,7 @@ if theme.footer.footerBar && theme.footer.footerBar.enable
         each item in theme.footer.footerBar.linkList
           a.footer-bar-link(href=url_for(item.link) title=item.text)=item.text
         if theme.footer.footerBar.cc.enable
-          a.footer-bar-link.cc(href=url_for(theme.footer.footerBar.cc.link) title="cc协议")
+          a.footer-bar-link.cc(href=url_for(theme.footer.footerBar.cc.link) title=_p('footer.cc_license'))
             i.anzhiyufont.anzhiyu-icon-copyright-line
             i.anzhiyufont.anzhiyu-icon-creative-commons-by-line
             i.anzhiyufont.anzhiyu-icon-creative-commons-nc-line

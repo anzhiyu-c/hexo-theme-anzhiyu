@@ -1,11 +1,23 @@
+-
+  const shortcutItems = [
+    { key: 'K', content: _p('shortcut.close_shortcut') },
+    { key: 'A', content: _p('shortcut.toggle_console') },
+    { key: 'M', content: _p('shortcut.play_music') },
+    { key: 'D', content: _p('shortcut.toggle_mode') },
+    { key: 'S', content: _p('shortcut.search') },
+    { key: 'R', content: _p('shortcut.random') },
+    { key: 'H', content: _p('shortcut.home') },
+    { key: 'F', content: _p('shortcut.fish_pond') },
+    { key: 'L', content: _p('shortcut.links') },
+    { key: 'P', content: _p('shortcut.about') },
+    { key: 'I', content: _p('shortcut.context_menu') }
+  ]
 #keyboard-tips(class='')
-  .keyboardTitle 博客快捷键
+  .keyboardTitle=_p('shortcut.title')
   .keybordList
-    each item in ["K 关闭快捷键功能", "A 打开/关闭中控台", "M 播放/暂停音乐", "D 深色/浅色显示模式", "S 站内搜索", "R 随机访问", "H 返回首页", "F 友链鱼塘", "L 友链页面", "P 关于本站", "I 原版/本站右键菜单"]
-      - let key = item.split(" ")[0]
-      - let content = item.split(" ")[1]
+    each item in shortcutItems
       .keybordItem
         .keyGroup
-          .key= "shift " + key
+          .key= "shift " + item.key
         .keyContent
-          .content= content
+          .content= item.content

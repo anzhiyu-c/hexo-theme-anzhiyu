@@ -1,6 +1,10 @@
 footer:
   framework: 框架
   theme: 主题
+  back_to_top: 返回顶部
+  friend_links: 友链
+  refresh_friends: 换一批友情链接
+  cc_license: CC协议
 
 copy:
   success: 复制成功
@@ -130,3 +134,56 @@ loading: 加载中...
 load_more: 加载更多
 
 error404: 页面没有找到
+
+shortcut:
+  title: 博客快捷键
+  close_shortcut: 关闭快捷键功能
+  toggle_console: 打开/关闭中控台
+  play_music: 播放/暂停音乐
+  toggle_mode: 深色/浅色显示模式
+  search: 站内搜索
+  random: 随机访问
+  home: 返回首页
+  fish_pond: 友链鱼塘
+  links: 友链页面
+  about: 关于本站
+  context_menu: 原版/本站右键菜单
+
+flink:
+  title: 友情链接
+  friend_links: 友链
+  latest_articles: 最新文章订阅
+  about_me: 关于本人
+  fishing: 🎣 钓鱼
+  all_links: 全部友链
+  random_visit: 随机访问
+  apply_link: 申请友链
+  recommend: 荐
+
+about:
+  title: 关于我
+  hello: 你好，很高兴认识你👋
+  im: 我叫
+  data: 数据
+  visit_stats: 访问统计
+  stats_from: 统计信息来自
+  enjoy_music_with: 跟 %s 一起欣赏更多音乐
+  more_recommend: 更多推荐
+  thanks: 致谢
+  reward_list: 赞赏名单
+  reward_thanks: 感谢因为有你们，让我更加有创作的动力。
+  last_update: 最新更新时间：
+  charge_for_ta: 为TA充电
+  total_people: 共 %s 人
+  personality: 性格
+  personality_img_alt: 人格
+  selfie_alt: 自拍
+  learn_more_at: 在 %s 了解更多关于 %s
+  stats:
+    today_visitors: 今日人数
+    today_views: 今日访问
+    yesterday_visitors: 昨日人数
+    yesterday_views: 昨日访问
+    month_views: 本月访问
+    total_views: 总访问量
+    fetch_failed: 统计数据获取失败

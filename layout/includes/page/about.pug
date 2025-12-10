@@ -23,13 +23,14 @@ if site.data.about
           .author-tag-right
             each item in avatarSkills.right
               span.author-tag=item
-      p.p.center.logo.large 关于我
+      p.p.center.logo.large=_p('about.title')
       p.p.center.small=subtitle
       .author-content
         .author-content-item.myInfoAndSayHello
-          .title1 你好，很高兴认识你👋
+          .title1=_p('about.hello')
           .title2
-            | 我叫 
+            =_p('about.im')
+            |  
             span.inline-word=aboutName
           .title1=aboutDescription
         .aboutsiteTips.author-content-item
@@ -91,15 +92,16 @@ if site.data.about
       .author-content
         if theme.LA.enable || theme.umami.enable
           - let cover = item.statistic.cover
-          - let statisticSource = theme.LA.enable ? '51la网站统计' : 'Umami'
+          - let statisticSource = theme.LA.enable ? '51la' : 'Umami'
           - let statisticLink = theme.LA.enable ? 'https://invite.51.la/1NzKqTeb?target=V6' : (theme.umami.apiHost || '#')
           .about-statistic.author-content-item(style=`background: url(${cover}) top / cover no-repeat;`)
             .card-content
-              .author-content-item-tips 数据
-              span.author-content-item-title 访问统计
+              .author-content-item-tips=_p('about.data')
+              span.author-content-item-title=_p('about.visit_stats')
               #statistic
               .post-tips
-                | 统计信息来自 
+                =_p('about.stats_from')
+                |  
                 a(href=statisticLink, target='_blank', rel='noopener nofollow')= statisticSource
               .banner-button-group
                 - let link = item.statistic.link
@@ -141,18 +143,16 @@ if site.data.about
       .author-content
         .author-content-item.personalities
           - let {author_name, personality_type, photo_url, personality_img, name_url, personality_type_color} = item.personalities
-          .author-content-item-tips 性格
+          .author-content-item-tips=_p('about.personality')
           span.author-content-item-title= author_name
           .title2(style=`color:${personality_type_color ? personality_type_color : "#ac899c"}`)= personality_type
           .post-tips
-            | 在 
-            a(href='https://www.16personalities.com/', target='_blank', rel='noopener nofollow') 16personalities
-            |  了解更多关于 
-            a(target='_blank', rel='noopener external nofollow', href= name_url)= author_name
+            - const learnMoreText = _p('about.learn_more_at', '<a href="https://www.16personalities.com/" target="_blank" rel="noopener nofollow">16personalities</a>', '<a target="_blank" rel="noopener external nofollow" href="' + name_url + '">' + author_name + '</a>')
+            != learnMoreText
           .image
-            img.no-lightbox(src=url_for(personality_img), alt='人格')
+            img.no-lightbox(src=url_for(personality_img), alt=_p('about.personality_img_alt'))
         .author-content-item.myphoto
-          img.author-content-img.no-lightbox(alt='自拍', src=url_for(photo_url))
+          img.author-content-img.no-lightbox(alt=_p('about.selfie_alt'), src=url_for(photo_url))
       
       .author-content
         .author-content-item.maxim
@@ -209,12 +209,12 @@ if site.data.about
             .author-content-item-tips=music_tips
             span.author-content-item-title=music_title
             .content-bottom
-              .tips=`跟 ${aboutName} 一起欣赏更多音乐`
+              .tips=_p('about.enjoy_music_with', aboutName)
             .banner-button-group
               a.banner-button(onclick=`pjax.loadUrl("${music_link}")`)
                 i.anzhiyufont.anzhiyu-icon-arrow-circle-right
                 |  
-                span.banner-button-text 更多推荐
+                span.banner-button-text=_p('about.more_recommend')
 
       if page.content
         .author-content
@@ -226,9 +226,9 @@ if site.data.about
         - let sortedByDate = rawData.slice().sort((a, b) => new Date(b.datatime) - new Date(a.datatime));
         .author-content
           .author-content-item.single.reward#about-reward
-            .author-content-item-tips 致谢
-            span.author-content-item-title 赞赏名单
-            .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
+            .author-content-item-tips=_p('about.thanks')
+            span.author-content-item-title=_p('about.reward_list')
+            .author-content-item-description=_p('about.reward_thanks')
               .reward-list-all
                 - let reward_list_amount = item.reward_list.sort((a,b)=>b.amount -  a.amount)
                 each item, index in reward_list_amount
@@ -241,14 +241,14 @@ if site.data.about
                         .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
                       .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
               .reward-list-updateDate
-                | 最新更新时间： 
+                =_p('about.last_update')
                 time.datatime.reward-list-updateDate-time(datatime=sortedByDate[0].datatime)=new Date(sortedByDate[0].datatime).toISOString().slice(0, -14)
             .about-reward
               #con
               #TA-con(onclick="anzhiyu.rewardShowConsole()")
                 #text-con
                   #linght
-                  #TA 为TA充电
+                  #TA=_p('about.charge_for_ta')
               #tube-con
                 svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
                   path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
@@ -282,10 +282,8 @@ if site.data.about
                     circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
                     ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#ffd52b')
                     circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-                p#people
-                  | 共
-                  b=item.reward_list.length
-                  | 人
+                - const totalPeopleText = _p('about.total_people', '<b>' + item.reward_list.length + '</b>')
+                p#people!= totalPeopleText
 
 
     script(src=url_for(theme.asset.countup_js))
@@ -295,11 +293,23 @@ if site.data.about
     - const umamiWebsiteId = theme.umami.websiteId || ''
     - const umamiToken = theme.umami.token || ''
     - const laEnable = theme.LA.enable
+    -
+      const i18nStats = {
+        today_visitors: _p('about.stats.today_visitors'),
+        today_views: _p('about.stats.today_views'),
+        yesterday_visitors: _p('about.stats.yesterday_visitors'),
+        yesterday_views: _p('about.stats.yesterday_views'),
+        month_views: _p('about.stats.month_views'),
+        total_views: _p('about.stats.total_views'),
+        fetch_failed: _p('about.stats.fetch_failed')
+      }
     script(defer).
       function initAboutPage() {
         const statisticEl = document.getElementById("statistic");
         let statistic = [];
         let numValues = [];
+
+        const i18nStats = !{JSON.stringify(i18nStats)};
 
         // 统计数据渲染函数
         function renderStatistic(title, num) {
@@ -307,53 +317,53 @@ if site.data.about
           numValues = num;
           statistic = [];
           
-          for (let i = 0; i < num.length; i++) {
-            statisticEl.innerHTML +=
+            for (let i = 0; i < num.length; i++) {
+              statisticEl.innerHTML +=
               "<div><span>" + title[i] + "</span><span id='stat-" + i + "'>" + num[i] + "</span></div>";
-            queueMicrotask(() => {
-              statistic.push(
+              queueMicrotask(() => {
+                statistic.push(
                 new CountUp("stat-" + i, 0, num[i], 0, 2, {
-                  useEasing: true,
-                  useGrouping: true,
-                  separator: ",",
-                  decimal: ".",
-                  prefix: "",
-                  suffix: "",
-                })
-              );
-            });
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ",",
+                    decimal: ".",
+                    prefix: "",
+                    suffix: "",
+                  })
+                );
+              });
           }
-        }
+            }
 
         // 统计数字动画
         function statisticUP() {
-          let statisticElement = document.querySelector(".about-statistic.author-content-item");
-          if (!statisticElement) return;
+            let statisticElement = document.querySelector(".about-statistic.author-content-item");
+              if (!statisticElement) return;
 
-          const callback = (entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
+              const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
                 for (let i = 0; i < statistic.length; i++) {
-                  queueMicrotask(() => {
+                      queueMicrotask(() => {
                     statistic[i].start();
-                  });
-                }
+                      });
+                    }
                 observer.disconnect();
-              }
-            });
-          };
+                  }
+                });
+              };
 
           const options = { root: null, rootMargin: "0px", threshold: 0 };
-          const observer = new IntersectionObserver(callback, options);
-          observer.observe(statisticElement);
-        }
+              const observer = new IntersectionObserver(callback, options);
+              observer.observe(statisticElement);
+            }
 
         // 51la 统计
         if (#{laEnable}) {
           fetch("https://v6-widget.51.la/v6/#{ck}/quote.js")
             .then(res => res.text())
             .then(data => {
-              let title = ["今日人数", "今日访问", "昨日人数", "昨日访问", "本月访问", "总访问量"];
+              let title = [i18nStats.today_visitors, i18nStats.today_views, i18nStats.yesterday_visitors, i18nStats.yesterday_views, i18nStats.month_views, i18nStats.total_views];
               let num = data.match(/(<\/span><span>).*?(\/span><\/p>)/g);
 
               num = num.map(el => {
@@ -368,8 +378,8 @@ if site.data.about
               statisticUP();
             })
             .catch(err => {
-              console.error("51la统计获取失败:", err);
-              if (statisticEl) statisticEl.innerHTML = "<div>统计数据获取失败</div>";
+              console.error("51la stats fetch failed:", err);
+              if (statisticEl) statisticEl.innerHTML = "<div>" + i18nStats.fetch_failed + "</div>";
             });
         }
 
@@ -392,13 +402,13 @@ if site.data.about
           };
 
           Promise.all([
-            fetchStats(todayStart, now),      // 今日
-            fetchStats(yesterdayStart, todayStart), // 昨日
-            fetchStats(monthStart, now),      // 本月
-            fetchStats(0, now)                // 总计
+            fetchStats(todayStart, now),      // today
+            fetchStats(yesterdayStart, todayStart), // yesterday
+            fetchStats(monthStart, now),      // month
+            fetchStats(0, now)                // total
           ])
             .then(([today, yesterday, month, total]) => {
-              const title = ["今日访客", "今日浏览", "昨日访客", "昨日浏览", "本月浏览", "总浏览量"];
+              const title = [i18nStats.today_visitors, i18nStats.today_views, i18nStats.yesterday_visitors, i18nStats.yesterday_views, i18nStats.month_views, i18nStats.total_views];
               const num = [
                 today.visitors?.value || today.uniques?.value || 0,
                 today.pageviews?.value || 0,
@@ -412,40 +422,40 @@ if site.data.about
               statisticUP();
             })
             .catch(err => {
-              console.error("Umami统计获取失败:", err);
-              if (statisticEl) statisticEl.innerHTML = "<div>统计数据获取失败</div>";
+              console.error("Umami stats fetch failed:", err);
+              if (statisticEl) statisticEl.innerHTML = "<div>" + i18nStats.fetch_failed + "</div>";
             });
         }
 
         // 出生年份动画
-        const selfInfoContentYear = new CountUp("selfInfo-content-year", 0, #{selfInfoContentYear}, 0, 2, {
-          useEasing: true,
-          useGrouping: false,
-          separator: ",",
-          decimal: ".",
-          prefix: "",
-          suffix: "",
-        });
-
-        let selfInfoContentYearElement = document.querySelector(".author-content-item.selfInfo.single");
-        function selfInfoContentYearUp() {
-          if (!selfInfoContentYearElement) return;
-
-          const callback = (entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                selfInfoContentYear.start();
-                observer.disconnect();
-              }
+            const selfInfoContentYear = new CountUp("selfInfo-content-year", 0, #{selfInfoContentYear}, 0, 2, {
+              useEasing: true,
+              useGrouping: false,
+              separator: ",",
+              decimal: ".",
+              prefix: "",
+              suffix: "",
             });
-          };
+
+            let selfInfoContentYearElement = document.querySelector(".author-content-item.selfInfo.single");
+            function selfInfoContentYearUp() {
+              if (!selfInfoContentYearElement) return;
+
+              const callback = (entries, observer) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    selfInfoContentYear.start();
+                observer.disconnect();
+                  }
+                });
+              };
 
           const options = { root: null, rootMargin: "0px", threshold: 0 };
-          const observer = new IntersectionObserver(callback, options);
-          observer.observe(selfInfoContentYearElement);
-        }
+              const observer = new IntersectionObserver(callback, options);
+              observer.observe(selfInfoContentYearElement);
+            }
 
-        selfInfoContentYearUp();
+            selfInfoContentYearUp();
 
         var pursuitInterval = null;
         pursuitInterval = setInterval(function () {

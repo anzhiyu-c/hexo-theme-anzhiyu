@@ -1,6 +1,10 @@
 footer:
   framework: Framework
   theme: Theme
+  back_to_top: Back to Top
+  friend_links: Links
+  refresh_friends: Refresh Links
+  cc_license: CC License
 
 copy:
   success: Copy successfully
@@ -127,3 +131,56 @@ loading: Loading...
 load_more: Load More
 
 error404: Page not found
+
+shortcut:
+  title: Keyboard Shortcuts
+  close_shortcut: Close Shortcuts
+  toggle_console: Toggle Console
+  play_music: Play/Pause Music
+  toggle_mode: Toggle Dark/Light Mode
+  search: Search
+  random: Random Post
+  home: Home
+  fish_pond: Fish Pond
+  links: Links
+  about: About
+  context_menu: Toggle Context Menu
+
+flink:
+  title: Friend Links
+  friend_links: Links
+  latest_articles: Latest Articles
+  about_me: About Me
+  fishing: 🎣 Fishing
+  all_links: All Links
+  random_visit: Random Visit
+  apply_link: Apply Link
+  recommend: Hot
+
+about:
+  title: About Me
+  hello: Hello, nice to meet you 👋
+  im: I'm
+  data: Data
+  visit_stats: Visit Statistics
+  stats_from: Statistics from
+  enjoy_music_with: Enjoy more music with %s
+  more_recommend: More
+  thanks: Thanks
+  reward_list: Reward List
+  reward_thanks: Thanks for your support, it motivates me to create more.
+  last_update: "Last updated: "
+  charge_for_ta: Support
+  total_people: "%s people in total"
+  personality: Personality
+  personality_img_alt: Personality
+  selfie_alt: Selfie
+  learn_more_at: Learn more about %s at %s
+  stats:
+    today_visitors: Today Visitors
+    today_views: Today Views
+    yesterday_visitors: Yesterday Visitors
+    yesterday_views: Yesterday Views
+    month_views: Month Views
+    total_views: Total Views
+    fetch_failed: Failed to load statistics
