@@ -3,6 +3,8 @@
 
 script.
   (() => {
+    const getArtalkDark = () => document.documentElement.getAttribute('data-theme') === 'dark'
+
     const init = () => {
       window.artalkItem = Artalk.init(Object.assign({
         el: '#artalk-wrap',
@@ -10,6 +12,7 @@ script.
         pageTitle: document.title,
         server: '!{server}',
         site: '!{site}',
+        darkMode: getArtalkDark(),
       }, !{JSON.stringify(option || {})}))
 
       window.artalkItem.on('list-loaded', () => {
@@ -25,18 +28,33 @@ script.
       }
     }
 
-    const getCount = () => {
-      const countElement = document.getElementById('artalk-count')
+    const changeArtalkTheme = (theme) => {
+      if (window.artalkItem) {
+        window.artalkItem.setDarkMode(theme === 'dark')
+      }
+    }
+
+    anzhiyu.addGlobalFn('themeChange', changeArtalkTheme, 'artalk')
+
+    // 获取文章顶部评论数（使用与首页卡片相同的 API）
+    const getCommentCount = async () => {
+      const countElement = document.querySelector('.post-meta-commentcount .artalk-count')
       if (!countElement) return
-      
-      fetch(`!{server}/api/v2/pages/pv?page_key=${encodeURIComponent(window.location.pathname)}&site_name=!{site}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data && data.pv !== undefined) {
-            countElement.textContent = data.pv
-          }
+
+      try {
+        const pageKey = countElement.getAttribute('data-page-key') || window.location.pathname
+        const searchParams = new URLSearchParams({
+          'site_name': '!{site}',
+          'page_keys': pageKey
         })
-        .catch(err => console.error('Artalk PV fetch error:', err))
+        const res = await fetch(`!{server}/api/v2/stats/page_comment?${searchParams}`)
+        const result = await res.json()
+        if (result && result.data) {
+          countElement.textContent = result.data[pageKey] || 0
+        }
+      } catch (err) {
+        console.error('Artalk comment count fetch error:', err)
+      }
     }
 
     if ('!{use[0]}' === 'Artalk' || !!{lazyload}) {
@@ -46,7 +64,8 @@ script.
       window.loadOtherComment = loadArtalk
     }
 
-    if (!!{visitor} && GLOBAL_CONFIG_SITE.isPost) {
-      getCount()
+    // 获取评论数
+    if (!!{count} && GLOBAL_CONFIG_SITE.isPost) {
+      getCommentCount()
     }
   })()

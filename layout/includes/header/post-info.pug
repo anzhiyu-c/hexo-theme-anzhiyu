@@ -141,5 +141,5 @@
           when 'Artalk'
             +countBlock
               a(href=url_for(page.path) + '#post-comment')
-                span.artalk-count
+                span.artalk-count(data-page-key=url_for(page.path))
                   i.anzhiyufont.anzhiyu-icon-spinner.anzhiyu-spin
