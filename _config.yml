@@ -92,7 +92,7 @@ algolia_search:
   enable: false
   hits:
     per_page: 6
-  tags:
+标签:
     # - 前端
     # - Hexo
 
@@ -108,6 +108,8 @@ docsearch:
   option:
 
 # Local search
+# ⚠️ 注意：开启前请务必在博客根目录执行 npm install hexo-generator-searchdb --save
+# Notice: You must install the hexo-generator-searchdb plugin before enabling this, otherwise Hexo will crash.
 local_search:
   enable: false
   preload: true
