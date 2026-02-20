@@ -16,63 +16,64 @@ script.
     const days = (now1 - grt) / 1000 / 60 / 60 / 24;
     const dnum = Math.floor(days);
     const ascll = [
-      `欢迎使用安知鱼!`,
-      `生活明朗, 万物可爱`,
+      `欢迎使用敖苛记!`,
+      `敖致天, 苛制人`,
       `
-          
-         █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
-        ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
-        ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
-        ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
-        ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
-        ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
-          
-          `,
-      "已上线",
+       _____     _         _ _
+      |  _  |___| |_ ___  |_|_|
+      |     | . | '_| -_| | | |
+      |__|__|___|_,_|___|_| |_|
+                        |___|
+      `,
+      "本站已上线",
       dnum,
       "天",
-      "©#{since} By 安知鱼 V#{version}",
+      "#{author} © #{since}",
+      "Powered By",
+      "安知鱼 V#{version}"
     ];
-    const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+    //- const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
     setTimeout(
       Log.bind(
         console,
-        `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
-        "color:#425AEF",
+        `\n %c${ascll[0]} %c${ascll[1]} %c${ascll[2]} %c${ascll[3]} %c${ascll[4]} %c${ascll[5]}\n\n %c${ascll[6]}\n %c${ascll[7]} %c${ascll[8]}`,
+        "color:#00ADB5",
         "",
-        "color:#425AEF",
-        "color:#425AEF",
+        "color:#00ADB5",
         "",
-        "color:#425AEF",
-        ""
+        "color:#00ADB5",
+        "",
+        "",
+        "",
+        "color:#00ADB5"
       )
     );
-    setTimeout(
-      Log.bind(
-        console,
-        `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
-        "color:white; background-color:#4fd953",
-        "",
-        "",
-        'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
-      )
-    );
+    //- setTimeout(
+    //-   Log.bind(
+    //-     console,
+    //-     `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+    //-     "color:white; background-color:#4fd953",
+    //-     "",
+    //-     "",
+    //-     'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    //-   )
+    //- );
 
-    setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+    //- setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
 
-    setTimeout(
-      console.warn.bind(
-        console,
-        "%c ⚡ Powered by 安知鱼 %c 你正在访问 #{author} 的博客.",
-        "color:white; background-color:#f0ad4e",
-        ""
-      )
-    );
+    //- setTimeout(
+    //-   console.warn.bind(
+    //-     console,
+    //-     "%c ⚡ Powered by 安知鱼 %c 你正在访问 #{author} 的博客.",
+    //-     "color:white; background-color:#f0ad4e",
+    //-     ""
+    //-   )
+    //- );
 
-    setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+    //- setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
 
-    setTimeout(
-      console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
-    );
+    //- setTimeout(
+    //-   console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+    //- );
   });
