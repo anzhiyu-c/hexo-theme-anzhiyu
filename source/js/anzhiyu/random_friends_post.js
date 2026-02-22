@@ -1,16 +1,10 @@
-var fdata = {
-  apiurl: GLOBAL_CONFIG.friends_vue_info.apiurl,
-  defaultFish: 100,
-  hungryFish: 100,
-};
-//可通过 var fdataUser 替换默认值
+var fdata = { defaultFish: 100, hungryFish: 100 };
 if (typeof fdataUser !== "undefined") {
   for (var key in fdataUser) {
-    if (fdataUser[key]) {
-      fdata[key] = fdataUser[key];
-    }
+    if (fdataUser[key]) fdata[key] = fdataUser[key];
   }
 }
+
 var randomPostTimes = 0;
 var randomPostWorking = false;
 var randomPostTips = [
@@ -95,93 +89,64 @@ var randomPostTips = [
   "走人生的路就像爬山一样，看起来走了许多冤枉的路，崎岖的路，但终究需要读完",
   "游戏的规则就是这么的简单，你听懂了吗？管你听没听懂，快去看",
 ];
+
 var randomPostClick = 0;
+
 function fetchRandomPost() {
   if (!document.getElementById("random-post")) return;
-  if (randomPostWorking == false) {
-    randomPostWorking = true;
-    //获取旋转角度
-    let randomRotate = randomPostTimes * 360;
-    let randomPostTipsItem = randomPostTips[Math.floor(Math.random() * randomPostTips.length)];
-    let randomPostLevel = "";
-    if (randomPostTimes > 10000) {
-      randomPostLevel = "愿者上钩";
-    } else if (randomPostTimes > 1000) {
-      randomPostLevel = "俯览天下";
-    } else if (randomPostTimes > 1000) {
-      randomPostLevel = "超越神了";
-    } else if (randomPostTimes > 100) {
-      randomPostLevel = "绝世渔夫";
-    } else if (randomPostTimes > 75) {
-      randomPostLevel = "钓鱼王者";
-    } else if (randomPostTimes > 50) {
-      randomPostLevel = "钓鱼宗师";
-    } else if (randomPostTimes > 20) {
-      randomPostLevel = "钓鱼专家";
-    } else if (randomPostTimes > 5) {
-      randomPostLevel = "钓鱼高手";
-    } else {
-      randomPostLevel = "钓鱼新手";
-    }
-    if (randomPostTimes >= 5) {
-      document.getElementById("random-post").innerHTML =
-        `钓鱼中... （Lv.` + randomPostTimes + ` 当前称号：` + randomPostLevel + `）`;
-    } else {
-      document.getElementById("random-post").innerHTML = `钓鱼中...`;
-    }
+  if (randomPostWorking) return;
+  randomPostWorking = true;
 
-    let randomTime = randomNum(1000, 3000);
+  let randomRotate = randomPostTimes * 360;
+  let randomPostTipsItem = randomPostTips[Math.floor(Math.random() * randomPostTips.length)];
+  let randomPostLevel = getRandomPostLevel(randomPostTimes);
 
-    if (randomPostTimes == 0) {
-      randomTime = 0;
-    }
+  document.getElementById("random-post").innerHTML = randomPostTimes >= 5 ?
+    `钓鱼中... （Lv.` + randomPostTimes + ` 当前称号：` + randomPostLevel + `）` :
+    `钓鱼中...`;
 
-    document.querySelector(".random-post-start").style.opacity = "0.2";
-    document.querySelector(".random-post-start").style.transitionDuration = "0.3s";
-    document.querySelector(".random-post-start").style.transform = "rotate(" + randomRotate + "deg)";
+  let randomTime = randomPostTimes == 0 ? 0 : randomNum(1000, 3000);
 
-    //判断是否饥饿
-    if (
-      document.getElementById("random-post") &&
-      randomPostClick * fdata.hungryFish + fdata.defaultFish < randomPostTimes &&
-      Math.round(Math.random()) == 0
-    ) {
-      document.getElementById("random-post").innerHTML =
-        "因为只钓鱼不吃鱼，过分饥饿导致本次钓鱼失败...(点击任意一篇钓鱼获得的文章即可恢复）";
-      randomPostWorking = false;
-    } else {
-      var fetchUrl = fdata.apiurl + "randompost";
-      fetch(fetchUrl)
-        .then(res => res.json())
-        .then(json => {
-          var title = json.title;
-          var link = json.link;
-          var author = json.author;
-          if (document.getElementById("random-post")) {
-            window.setTimeout(function () {
-              document.getElementById("random-post").innerHTML =
-                randomPostTipsItem +
-                `来自友链 <b>` +
-                author +
-                `</b> 的文章：<a class="random-friends-post" onclick="randomClickLink()" target="_blank" href="` +
-                link +
-                `" rel="external nofollow">` +
-                title +
-                `</a>`;
-              randomPostTimes += 1;
-              localStorage.setItem("randomPostTimes", randomPostTimes);
-              document.querySelector(".random-post-start").style.opacity = "1";
-            }, randomTime);
-          }
-        });
-      randomPostWorking = false;
-    }
+  document.querySelector(".random-post-start").style.opacity = "0.2";
+  document.querySelector(".random-post-start").style.transitionDuration = "0.3s";
+  document.querySelector(".random-post-start").style.transform = "rotate(" + randomRotate + "deg)";
+
+  if (randomPostClick * fdata.hungryFish + fdata.defaultFish < randomPostTimes && Math.round(Math.random()) == 0) {
+    document.getElementById("random-post").innerHTML =
+      "因为只钓鱼不吃鱼，过分饥饿导致本次钓鱼失败...(点击任意一篇钓鱼获得的文章即可恢复）";
+    randomPostWorking = false;
+  } else {
+    fetch(UserConfig.private_api_url + 'all.json')
+      .then(res => res.json())
+      .then(json => {
+        let randomArticle = json.article_data[Math.floor(Math.random() * json.article_data.length)];
+        let { title, link, author } = randomArticle;
+        window.setTimeout(() => {
+          document.getElementById("random-post").innerHTML =
+            randomPostTipsItem +
+            `来自友链 <b>` +
+            author +
+            `</b> 的文章：<a class="random-friends-post" onclick="randomClickLink()" target="_blank" href="` +
+            link +
+            `" rel="external nofollow">` +
+            title +
+            `</a>`;
+          randomPostTimes += 1;
+          localStorage.setItem("randomPostTimes", randomPostTimes);
+          document.querySelector(".random-post-start").style.opacity = "1";
+        }, randomTime);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        document.getElementById("random-post").innerHTML = "获取文章失败，请稍后再试。";
+      })
+      .finally(() => {
+        randomPostWorking = false;
+      });
   }
 }
 
-//初始化检查
 function initRandomPost() {
-  // 获取已经存储的数据
   if (localStorage.randomPostTimes) {
     randomPostTimes = parseInt(localStorage.randomPostTimes);
     randomPostClick = parseInt(localStorage.randomPostClick);
@@ -191,25 +156,24 @@ function initRandomPost() {
   fetchRandomPost();
 }
 
-initRandomPost();
-
-//添加点击统计
 function randomClickLink() {
   randomPostClick += 1;
   localStorage.setItem("randomPostClick", randomPostClick);
 }
 
-// 生成随机数
 function randomNum(minNum, maxNum) {
-  switch (arguments.length) {
-    case 1:
-      return parseInt(Math.random() * minNum + 1, 10);
-      break;
-    case 2:
-      return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
-      break;
-    default:
-      return 0;
-      break;
-  }
+  return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
 }
+
+function getRandomPostLevel(times) {
+  if (times > 10000) return "愿者上钩";
+  if (times > 1000) return "俯览天下";
+  if (times > 100) return "绝世渔夫";
+  if (times > 75) return "钓鱼王者";
+  if (times > 50) return "钓鱼宗师";
+  if (times > 20) return "钓鱼专家";
+  if (times > 5) return "钓鱼高手";
+  return "钓鱼新手";
+}
+
+initRandomPost();

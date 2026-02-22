@@ -6,7 +6,7 @@
           .banners-title-small=_p('flink.title')
           .banners-title-big=theme.linkPageTop ? theme.linkPageTop.title : _p('flink.title')
         .banner-button-group
-          if (theme.friends_vue.apiurl)
+          if (theme.friends_lite.private_api_url)
             a.banner-button.secondary.no-text-decoration(onclick="friendChainRandomTransmission()")
               i.anzhiyufont.anzhiyu-icon-paper-plane1
               span.banner-button-text=_p('flink.random_visit')
@@ -46,6 +46,14 @@
         a.random-post-all.no-text-decoration(href='/link/')=_p('flink.all_links')
     #random-post
     script(defer data-pjax src=url_for(theme.asset.random_friends_post_js))
+    script.
+      if (typeof UserConfig === 'undefined') {
+        var UserConfig = {
+          private_api_url: '#{theme.friends_lite.private_api_url}',
+          page_turning_number: #{theme.friends_lite.page_turning_number},
+          error_img: '#{theme.friends_lite.error_img}'
+        }
+      }
   
   .flink
     if site.data.link
