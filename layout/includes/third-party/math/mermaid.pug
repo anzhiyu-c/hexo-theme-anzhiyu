@@ -1,38 +1,59 @@
 script.
   (() => {
-    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
-    if ($mermaid.length === 0) return
     const runMermaid = () => {
-      window.loadMermaid = true
-      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '!{theme.mermaid.theme.dark}' : '!{theme.mermaid.theme.light}'
+      // 1. 准确定位：直接寻找存放源码的 pre 标签
+      const $mermaid = document.querySelectorAll('.mermaid-src')
+      if ($mermaid.length === 0) return
 
-      Array.from($mermaid).forEach((item, index) => {
-        const mermaidSrc = item.firstElementChild
-        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
-        const mermaidID = 'mermaid-' + index
-        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+      // 确保 mermaid 库已加载
+      if (typeof mermaid === 'undefined') return
 
-        const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+      // 这里的 theme 变量会由 Hexo 注入，如果直接报错请改为手动指定字符串如 'dark' : 'default'
+      const theme = isDark ? '!{theme.mermaid.theme.dark}' : '!{theme.mermaid.theme.light}'
 
-        const renderV10 = () => {
-          renderFn.then(({svg}) => {
-            mermaidSrc.insertAdjacentHTML('afterend', svg)
-          })
-        }
+      // 初始化配置
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark ? 'dark' : 'default',
+        securityLevel: 'loose'
+      })
 
-        const renderV9 = svg => {
-          mermaidSrc.insertAdjacentHTML('afterend', svg)
-        }
+      $mermaid.forEach((item, index) => {
+        // 避免重复渲染：如果父容器已经有了 svg，说明渲染过了
+        if (item.parentNode.querySelector('svg')) return
 
-        typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+        const mermaidDefinition = item.textContent
+        // 生成唯一 ID
+        const mermaidID = `mermaid-${Math.random().toString(36).substring(2, 10)}-${index}`
+
+        // 执行渲染
+        mermaid.render(mermaidID, mermaidDefinition).then(({ svg }) => {
+          item.insertAdjacentHTML('afterend', svg)
+        }).catch(err => {
+          console.error('Mermaid 渲染失败:', err)
+        })
       })
     }
 
     const loadMermaid = () => {
-      window.loadMermaid ? runMermaid() : getScript('!{url_for(theme.asset.mermaid)}').then(runMermaid)
+      if (window.mermaid) {
+        runMermaid()
+      } else {
+        // 这里的地址请确保能正确指向你的 mermaid.min.js
+        getScript('!{url_for(theme.asset.mermaid)}').then(runMermaid)
+      }
     }
 
-    anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+    // PJAX 适配逻辑
+    // 1. 首次加载执行
+    loadMermaid()
 
-    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+    // 2. PJAX 切换完成后执行
+    document.addEventListener('pjax:complete', loadMermaid)
+
+    // 3. 主题切换时重新渲染
+    if (typeof anzhiyu !== 'undefined') {
+      anzhiyu.addGlobalFn('themeChange', runMermaid, 'mermaid')
+    }
   })()
