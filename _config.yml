@@ -1098,7 +1098,7 @@ bubble:
 console:
   enable: true
 
-# 51a统计配置
+# 51la统计配置
 LA:
   enable: false
   ck:
