@@ -180,13 +180,8 @@
   }
 
   function clearTimeouts() {
-    if (timeouts.length) {
-      timeouts.forEach(item => {
-        if (item) {
-          clearTimeout(item);
-        }
-      });
-    }
+    timeouts.forEach(item => clearTimeout(item));
+    timeouts = []; // 重要：清空数组以避免重复调用
   }
 
   function startAI(str, df = true) {
@@ -206,7 +201,7 @@
     if (mode === "tianli") {
       await aiAbstractTianli(num);
     } else {
-      aiAbstractLocal();
+      await aiAbstractLocal();
     }
   }
 
@@ -281,21 +276,41 @@
     }
   }
 
-  function aiAbstractLocal() {
+  async function aiAbstractLocal() {
     const strArr = postAI.split(",").map(item => item.trim());
-    if (strArr.length !== 1) {
+    const maxAttempts = 3; // 最大尝试次数
+    let attempts = 0; // 当前尝试次数
+    let lastAiRandomIndex = -1; // 上次随机索引
+
+    const generateRandomIndex = () => {
       let randomIndex = Math.floor(Math.random() * strArr.length);
       while (randomIndex === lastAiRandomIndex) {
         randomIndex = Math.floor(Math.random() * strArr.length);
       }
       lastAiRandomIndex = randomIndex;
-      startAI(strArr[randomIndex]);
-    } else {
-      startAI(strArr[0]);
-    }
-    setTimeout(() => {
-      aiTitleRefreshIcon.style.opacity = "1";
-    }, 600);
+      return strArr[randomIndex];
+    };
+
+    const handleAIResponse = () => {
+      try {
+        if (attempts < maxAttempts) {
+          attempts++;
+          const aiContent = strArr.length !== 1 ? generateRandomIndex() : strArr[0];
+          startAI(aiContent);
+          // 动画效果处理
+          aiTitleRefreshIcon.style.opacity = "0"; // 动画开始时隐藏图标
+          setTimeout(() => {
+            aiTitleRefreshIcon.style.opacity = "1"; // 动画结束时显示图标
+          }, 600);
+        } else {
+          console.warn("连续点击次数超过限制，请稍后再试");
+        }
+      } catch (error) {
+        console.error("生成AI摘要时发生错误:", error);
+      }
+    };
+
+    handleAIResponse();
   }
 
   function aiRecommend() {
@@ -386,25 +401,31 @@
     }
   }
 
-  function onAiTitleRefreshIconClick() {
+  async function onAiTitleRefreshIconClick() {
     const truncateDescription = (title + pageFillDescription).trim().substring(0, basicWordCount);
-
     aiTitleRefreshIcon.style.opacity = "0.2";
     aiTitleRefreshIcon.style.transitionDuration = "0.3s";
     aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+
+    let maxAttempts = 10; // 最大尝试次数
+    let attempts = 0; // 当前尝试次数
+
     if (truncateDescription.length <= basicWordCount) {
       let param = truncateDescription.length - Math.floor(Math.random() * randomNum);
-      while (param === prevParam || truncateDescription.length - param === prevParam) {
+      while ((param === prevParam || truncateDescription.length - param === prevParam) && attempts < maxAttempts) {
         param = truncateDescription.length - Math.floor(Math.random() * randomNum);
+        attempts++;
       }
       prevParam = param;
-      aiAbstract(param);
+      await aiAbstract(param);
     } else {
       let value = Math.floor(Math.random() * randomNum) + basicWordCount;
-      while (value === prevParam || truncateDescription.length - value === prevParam) {
+      attempts = 0; // 重置尝试次数
+      while ((value === prevParam || truncateDescription.length - value === prevParam) && attempts < maxAttempts) {
         value = Math.floor(Math.random() * randomNum) + basicWordCount;
+        attempts++;
       }
-      aiAbstract(value);
+      await aiAbstract(value);
     }
     refreshNum++;
   }
