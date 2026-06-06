@@ -81,7 +81,7 @@
 
   let highlight = 'undefined';
   let syntaxHighlighter = config.syntax_highlighter;
-  let highlightEnable = syntaxHighlighter ? ['highlight.js', 'prismjs'].includes(syntaxHighlighter) : (config.highlight.enable || config.prismjs.enable);
+  let highlightEnable = syntaxHighlighter ? ['highlight.js', 'prismjs', 'shiki'].includes(syntaxHighlighter) : (config.highlight.enable || config.prismjs.enable);
   if (highlightEnable) {
     highlight = JSON.stringify({
       plugin: syntaxHighlighter ? syntaxHighlighter : config.highlight.enable ? 'highlight.js' : 'prismjs',
