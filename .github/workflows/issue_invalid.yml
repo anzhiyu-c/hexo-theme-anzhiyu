@@ -4,15 +4,21 @@ on:
   issues:
     types: [labeled]
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   lock-issue:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'invalid'
     steps:
       - name: Lock issue
-        uses: actions-cool/issues-helper@v2
-        with:
-          actions: "lock-issue"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          lock-reason: "off-topic"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          set -euo pipefail
+
+          gh api -X PUT "repos/${GH_REPO}/issues/${ISSUE_NUMBER}/lock" -f lock_reason=off-topic --silent

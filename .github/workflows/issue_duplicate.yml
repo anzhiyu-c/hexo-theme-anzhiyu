@@ -4,22 +4,36 @@ on:
   issues:
     types: [labeled]
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   create-comment:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'duplicate'
     steps:
       - name: Create comment
-        uses: actions-cool/issues-helper@v2
-        with:
-          actions: "create-comment"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            Hello @${{ github.event.issue.user.login }}, your issue is duplicated and will be closed.
-            你好 @${{ github.event.issue.user.login }}，你的issue是重复的，将被关闭。
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: |
+          set -euo pipefail
+
+          body="$(cat <<EOF
+          Hello @${ISSUE_AUTHOR}, your issue is duplicated and will be closed.
+          你好 @${ISSUE_AUTHOR}，你的issue是重复的，将被关闭。
+          EOF
+          )"
+          gh issue comment "${ISSUE_NUMBER}" --body "${body}"
       - name: Close issue
-        uses: actions-cool/issues-helper@v2
-        with:
-          actions: "close-issue"
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          set -euo pipefail
+
+          gh issue close "${ISSUE_NUMBER}" --reason "not planned"

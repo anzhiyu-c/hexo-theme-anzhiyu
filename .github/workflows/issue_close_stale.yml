@@ -4,18 +4,56 @@ on:
   schedule:
     - cron: "0 0 */7 * *"
   workflow_dispatch:
+    inputs:
+      apply:
+        description: Close eligible issues instead of previewing them
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   close-inactive:
     runs-on: ubuntu-latest
     steps:
       - name: close-issues
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: "close-issues"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: "stale"
-          inactive-day: 60
-          close-reason: "not_planned"
-          body: |
-            Hello @${{ github.event.issue.user.login }}, this issue was closed due to inactive more than 60 days. You can reopen or recreate it if you think it should continue. Thank you for your contributions again.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_LABEL: stale
+          APPLY: ${{ (github.event_name == 'workflow_dispatch' && inputs.apply) || (github.event_name == 'schedule' && vars.ISSUE_AUTO_CLOSE == 'true') }}
+        run: |
+          set -euo pipefail
+
+          cutoff="$(date -u -d '60 days ago' +%Y-%m-%dT%H:%M:%SZ)"
+          selector='select(.state == "open" and (has("pull_request") | not)
+            and .updated_at < $cutoff and any(.labels[]; .name == $label))'
+          issues="$(gh api --method GET --paginate "repos/${GH_REPO}/issues" \
+            -f state=open -f "labels=${ISSUE_LABEL}" -F per_page=100 |
+            jq -r --arg cutoff "${cutoff}" --arg label "${ISSUE_LABEL}" \
+              ".[] | ${selector} | [.number, .user.login] | @tsv")"
+
+          if [[ -z "${issues}" ]]; then
+            echo "No open ${ISSUE_LABEL} issues inactive for 60 days."
+            exit 0
+          fi
+
+          while IFS=$'\t' read -r number login; do
+            if [[ "${APPLY}" != true ]]; then
+              printf 'Would close https://github.com/%s/issues/%s\n' "${GH_REPO}" "${number}"
+              continue
+            fi
+
+            # Recheck in case another maintainer updated the issue after listing it.
+            candidate="$(gh api "repos/${GH_REPO}/issues/${number}")"
+            if [[ "$(jq -r --arg cutoff "${cutoff}" --arg label "${ISSUE_LABEL}" \
+              "${selector} | .number" <<< "${candidate}")" != "${number}" ]]; then
+              echo "Skipping #${number}: no longer eligible."
+              continue
+            fi
+
+            body="Hello @${login}, this issue was closed due to inactive more than 60 days. You can reopen or recreate it if you think it should continue. Thank you for your contributions again."
+            gh issue close "${number}" --reason "not planned" --comment "${body}"
+          done <<< "${issues}"
